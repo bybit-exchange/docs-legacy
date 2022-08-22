@@ -794,6 +794,44 @@
               </ul>
           </li>
           <li>
+            <a href="#t-transfer_api" class="toc-h1 toc-link" data-title="Transfer Data Endpoints">Transfer Data Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-createinternaltransfer" class="toc-h2 toc-link" data-title="Create Internal Transfer">Create Internal Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#t-createsubaccounttransfer" class="toc-h2 toc-link" data-title="Create Subaccount Transfer">Create Subaccount Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#t-querytransferlist" class="toc-h2 toc-link" data-title="Query Internal Transfer List">Query Internal Transfer List</a>
+                  </li>
+                  <li>
+                    <a href="#t-querysubaccounttransferlist" class="toc-h2 toc-link" data-title="Query Subaccount Transfer List">Query Subaccount Transfer List</a>
+                  </li>
+                  <li>
+                    <a href="#t-querysubaccountlist" class="toc-h2 toc-link" data-title="Query Subaccount List">Query Subaccount List</a>
+                  </li>
+                  <li>
+                    <a href="#t-enableuniversaltransfer" class="toc-h2 toc-link" data-title="Enable Universal Transfer">Enable Universal Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#t-createuniversaltransfer" class="toc-h2 toc-link" data-title="Create Universal Transfer">Create Universal Transfer</a>
+                  </li>
+                  <li>
+                    <a href="#t-queryuniversetransferlist" class="toc-h2 toc-link" data-title="Query Universal Transfer List">Query Universal Transfer List</a>
+                  </li>
+                  <li>
+                    <a href="#t-querytransfercoinlist" class="toc-h2 toc-link" data-title="Transferable coin list">Transferable coin list</a>
+                  </li>
+                  <li>
+                    <a href="#t-queryaccountcoinbalance" class="toc-h2 toc-link" data-title="Coin balance in account">Coin balance in account</a>
+                  </li>
+                  <li>
+                    <a href="#t-queryassetinfo" class="toc-h2 toc-link" data-title="Asset info">Asset info</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-withdraw_and_deposit" class="toc-h1 toc-link" data-title="Withdraw and Deposit Endpoints">Withdraw and Deposit Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
@@ -998,6 +1036,1223 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <aside class="notice">
 Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
 </aside>
+<h1 id='t-transfer_api'>Transfer Data Endpoints</h1>
+<p>The following API data endpoints require authentication.</p>
+<h3 id='t-createinternaltransfer'>Create Internal Transfer</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/inter-transfer'
+--header 'Content-Type: application/json' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+--data-raw '{
+    "transferId": "xxxxxxx",
+    "coin": "BTC",
+    "amount": "0.11",
+    "fromAccountType": "SPOT",
+    "toAccountType": "CONTRACT",
+}'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+    <span class="dl">"</span><span class="s2">transferId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">xxxxxxxxxxx</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1652841868446</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Transfers funds between the different sections of an individual's account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.</p>
+
+<p>To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.</p>
+
+<aside class="notice">
+Please note that this interface supports Contract Account, Spot Account, Investment Account.
+The <code>transferIn</code> and <code>transferOut</code> account types cannot be the same.
+
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=avpt>/asset/v3/private/transfer/inter-transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpt"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">fromAccountType</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">toAccountType</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+</tbody></table>
+<h3 id='t-createsubaccounttransfer'>Create Subaccount Transfer</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer' \
+--header 'Content-Type: application/json' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+--data-raw '{
+    "transferId": "xxxxxxx",
+    "coin": "BTC",
+    "amount": "0.11",
+    "subMemberId": 12,
+    "type": "IN",
+}'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+    <span class="dl">"</span><span class="s2">transferId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">xxxxxxxxxxx</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1652841868446</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Transfers funds between the parent and child (sub) accounts.</p>
+
+<p>To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.</p>
+
+<aside class="notice">
+A subaccount can only be attributed to a parent account.
+
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=avpst>/asset/v3/private/transfer/sub-member-transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpst"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left">subMemberId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Subaccount</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-type-type">type</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Determines the direction of transfer</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+</tbody></table>
+<h3 id='t-querytransferlist'>Query Internal Transfer List</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/inter-transfer/list/query' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transferId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">selfTransfer_cafc74cc-e28a-4ff6-b0e6-9e711376fc90</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNIFIED</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658986298000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6NTY2NDc3LCJtYXhJRCI6NTY2NDc3fQ==</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660807573275</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=avptl>/asset/v3/private/transfer/inter-transfer/list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avptl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferid</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Number of records</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>cursor information: used for pagination. Default value: ""
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">fromAccountType</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">toAccountType</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">integer</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">nextPageCursor</td>
+<td style="text-align: left">string</td>
+<td>cursor information: used for pagination. Default value: ""
+</td>
+</tr>
+</tbody></table>
+<h3 id='t-querysubaccounttransferlist'>Query Subaccount Transfer List</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer/list/query' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transferId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">988a3992-6dea-4b5d-944d-21f7fbb2726a</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">memberId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">24617703</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">subMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">27207896</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1654151768000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">IN</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6MjQ1NTc3MjUsIm1heElEIjoyNDU1Nzc5Mn0=</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661136830717</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=avpstl>/asset/v3/private/transfer/sub-member-transfer/list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpstl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Number of records</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>cursor information: used for pagination. Default value: ""
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left">memberId</td>
+<td style="text-align: left">integer</td>
+<td>Subaccount</td>
+</tr>
+<tr>
+<td style="text-align: left">subMemberId</td>
+<td style="text-align: left">integer</td>
+<td>Subaccount</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">integer</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-type-type">type</a></td>
+<td style="text-align: left">string</td>
+<td>Determines the direction of transfer</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">string</td>
+<td>cursor information: used for pagination. Default value: ""
+</td>
+</tr>
+</tbody></table>
+<h3 id='t-querysubaccountlist'>Query Subaccount List</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member/list/query' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">subMemberIds</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+        <span class="dl">"</span><span class="s2">transferablSubMemberIds</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1652841868446</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=gsidlist>/asset/v3/private/transfer/sub-member/list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#gsidlist"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">subMemberIds</td>
+<td style="text-align: left">integer array</td>
+<td>List of all subaccounts</td>
+</tr>
+<tr>
+<td style="text-align: left">transferablSubMemberIds</td>
+<td style="text-align: left">string array</td>
+<td>List of subaccounts that are universal transfer-enabled</td>
+</tr>
+</tbody></table>
+<h3 id='t-enableuniversaltransfer'>Enable Universal Transfer</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/transfer-sub-member-save' \
+--header 'Content-Type: application/json' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+--data-raw '{
+    "subMemberIds": "xx,xx,xx"
+}'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1652841868446</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+A universal transfer enables you to transfer funds directly between two subaccounts (rather than sub -> master -> sub) and any <a href="#account-type-from_account_type-to_account_type">account type</a> (<code>CONTRACT</code>, <code>SPOT</code>, etc).
+</aside>
+
+<p>Use this endpoint to enable subaccounts to take part in a universal transfer. It is a one-time switch which, once thrown, enables a subaccount permanently. If not set, your subaccounts cannot use universal tranfers.</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=stsl>/asset/v3/private/transfer/transfer-sub-member-save</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#stsl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">subMemberIds</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>A comma-separated list of subaccount UIDs, for example "123,45,14,26,46"</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h3 id='t-createuniversaltransfer'>Create Universal Transfer</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/universal-transfer' \
+--header 'Content-Type: application/json' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+--data-raw '{
+    "transferId": "xxxxxxx",
+    "coin": "BTC",
+    "amount": "0.11",
+    "fromMemberId": "1",
+    "toMemberId": "2",
+    "fromAccountType": "SPOT",
+    "toAccountType": "CONTRACT"
+}'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+    <span class="dl">"</span><span class="s2">transferId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">xxxxxxxxxxx</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:{},</span>
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1652841868446</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>POST
+<code><span id=avpuTransfer>/asset/v3/private/transfer/universal-transfer</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpuTransfer"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left">fromMemberId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>From UID</td>
+</tr>
+<tr>
+<td style="text-align: left">toMemberId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>To UID</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">fromAccountType</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>From account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">toAccountType</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>To account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+</tbody></table>
+<h3 id='t-queryuniversetransferlist'>Query Universal Transfer List</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/universal-transfer/list/query' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transferId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3c64a4aa-b44c-4caa-a21f-3df0a1f2516f</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1661137281000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533285</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">554117</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">transferId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2883a4ca-b44c-4caa-a21f-3df0a1f2516f</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660273167000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SUCCESS</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CONTRACT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toAccountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SPOT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fromMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533285</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">toMemberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">554117</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6NTkxOTQzLCJtYXhJRCI6NjEyOTcxfQ==</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661137690810</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=getuniversaltransferlist> /asset/v3/private/transfer/universal-transfer/list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#getuniversaltransferlist"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>cursor information: used for pagination. Default value: ""
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">transferId</td>
+<td style="text-align: left">string</td>
+<td>UUID, which is unique across the platform</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>Exchange to amount</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp</td>
+<td style="text-align: left">integer</td>
+<td>timestamp</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#transfer-status-status">status</a></td>
+<td style="text-align: left">string</td>
+<td>Transfer status</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">fromAccountType</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">toAccountType</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left">fromMemberId</td>
+<td style="text-align: left">string</td>
+<td>From UID</td>
+</tr>
+<tr>
+<td style="text-align: left">toMemberId</td>
+<td style="text-align: left">string</td>
+<td>To UID</td>
+</tr>
+<tr>
+<td style="text-align: left">nextPageCursor</td>
+<td style="text-align: left">string</td>
+<td>cursor information: used for pagination. Default value: ""
+</td>
+</tr>
+</tbody></table>
+<h3 id='t-querytransfercoinlist'>Transferable coin list</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/transfer-coin/list/query?fromAccountType=SPOT&amp;toAccountType=CONTRACT' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1652841868446</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=transferCoinList> /asset/v3/private/transfer/transfer-coin/list/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#transferCoinList"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">fromAccountType</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>From account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">toAccountType</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>To account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">list</td>
+<td style="text-align: left">Array</td>
+<td>The coins are enabled transfer between accounts</td>
+</tr>
+</tbody></table>
+<h3 id='t-queryaccountcoinbalance'>Coin balance in account</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com//asset/v3/private/transfer/account-coin/balance/query?memberId=123&amp;accountType=CONTRACT&amp;coin=BTC&amp;withBonus=0' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">accountType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNIFIED</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bizType</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">618463</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">memberId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533285</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">balance</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">walletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1847.9874</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">transferBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1847.9874</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">bonus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661139455294</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>You could get coin balance under the master account, and those sub account coin balance of master account.<br>
+<b>Notice</b>: It's not allowed to get master account coin balance via sub account api key.
+</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=accountCoinBalance> /asset/v3/private/transfer/account-coin/balance/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#accountCoinBalance"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">memberId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>UserID</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">accountType</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">withBonus</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Whether query bonus or not. <code>0</code>：false; <code>1</code>：true; Not query is in default</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">accountType</a></td>
+<td style="text-align: left">string</td>
+<td>Account type</td>
+</tr>
+<tr>
+<td style="text-align: left">bizType</td>
+<td style="text-align: left">int</td>
+<td>Account business subtype</td>
+</tr>
+<tr>
+<td style="text-align: left">accountId</td>
+<td style="text-align: left">string</td>
+<td>AccountID</td>
+</tr>
+<tr>
+<td style="text-align: left">memberID</td>
+<td style="text-align: left">string</td>
+<td>UserID</td>
+</tr>
+<tr>
+<td style="text-align: left">balance</td>
+<td style="text-align: left">Object</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">walletBalance</td>
+<td style="text-align: left">string</td>
+<td>Wallet balance</td>
+</tr>
+<tr>
+<td style="text-align: left">transferBalance</td>
+<td style="text-align: left">string</td>
+<td>Transferable balance = available balance - bonus</td>
+</tr>
+<tr>
+<td style="text-align: left">bonus</td>
+<td style="text-align: left">string</td>
+<td>The bonus</td>
+</tr>
+</tbody></table>
+<h3 id='t-queryassetinfo'>Asset info</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/asset-info/query?accountType=SPOT&amp;coin=BTC' \
+--header 'X-BAPI-TIMESTAMP: 1660794864052' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-RECV-WINDOW: 999999999' \
+--header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">spot</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ACCOUNT_STATUS_NORMAL</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">assets</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">frozen</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">free</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">367.2486</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">withdraw</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661139883530</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=assetInfo> /asset/v3/private/transfer/asset-info/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#assetInfo"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">accountType</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Account type, <b>SPOT</b> in default. For now, only <code>SPOT</code> is available.</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">integer</td>
+<td><p>status: ACCOUNT_STATUS_NORMAL -- NORMAL <br>
+ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">assets</td>
+<td style="text-align: left">list</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">string</td>
+<td>Currency type</td>
+</tr>
+<tr>
+<td style="text-align: left">frozen</td>
+<td style="text-align: left">string</td>
+<td>Freeze amount</td>
+</tr>
+<tr>
+<td style="text-align: left">free</td>
+<td style="text-align: left">string</td>
+<td>Free balance</td>
+</tr>
+<tr>
+<td style="text-align: left">withdraw</td>
+<td style="text-align: left">string</td>
+<td>Amount in withdrawing</td>
+</tr>
+</tbody></table>
 <h1 id='t-withdraw_and_deposit'>Withdraw and Deposit Endpoints</h1>
 <p>The following API data endpoints require authentication.</p>
 <h3 id='t-allowdepositlist'>Supported Deposit List Query Endpoints</h3>
