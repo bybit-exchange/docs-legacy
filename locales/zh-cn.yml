@@ -60,7 +60,7 @@ zh-cn:
   row_comment_wallet_balance: 錢包余額
   row_comment_available_balance: 可用余額, 錢包余額 - 倉位保證金
   row_comment_transferable_balance: 可划余額
-  row_comment_bonus: 体验金
+  row_comment_bonus: 可用金額中包含的体验金
   row_comment_realised_pnl: 當日已結盈虧
   row_comment_unrealised_pnl: 未結盈虧
   row_comment_cum_realised_pnl: 累計已結盈虧
@@ -3292,8 +3292,8 @@ zh-cn:
   row_comment_sub_user_id_list: 所有子賬號列表
   row_comment_transferable_sub_ids_list: 所有可互相劃轉的子賬號列表
   row_comment_transfer_coin_list: 賬號內互轉支持的幣種
-  row_comment_with_bonus: 是否查詢體驗金
   row_comment_spot_status: 現貨賬戶狀態 1：正常，0-禁用
+  row_comment_withBonus: 是否查詢體驗金. <code>0</code>：不查詢; <code>1</code>：查詢. 默認不查詢
   row_comment_frozen: 掛單凍結金額
   row_comment_free: 可用余額
   row_comment_withdraw: 提現中金額
@@ -4756,3 +4756,8 @@ zh-cn:
     游標信息：用來分頁。 默認空
   assetWithdraw_timestamp: 時間戳. 允許範圍是當前時間的前後5分鐘
   accountAssetV3_chainType: 鏈的類型. 若為空，則返回全部
+  accountAssetV3_bizType: 帳戶業務子類型
+  accountAsseV3_assetInfo_accountType: 帳戶類型. 默認是SPOT類型. 目前僅支持SPOT
+  accountCoinBalance_para: |
+    支持查詢母帳戶的幣種餘額，以及母帳戶下各子帳戶的幣種餘額。<br>
+    <b>注</b>：不支持使用子帳戶apikey查詢母帳戶的幣種餘額

@@ -3671,6 +3671,9 @@ en:
   transfer_api_notice: |
     Please note that this interface supports Futures Account, Spot Account, Investment Account.
     The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.
+  transfer_api_v3_notice: |
+    Please note that this interface supports Contract Account, Spot Account, Investment Account.
+    The <code>transferIn</code> and <code>transferOut</code> account types cannot be the same.
   universaltransferunderstanding_notice: A universal transfer enables you to transfer funds directly between two subaccounts (rather than sub -> master -> sub) and any <a href="#account-type-from_account_type-to_account_type">account type</a> (<code>CONTRACT</code>, <code>SPOT</code>, etc).
   enableuniversaltransfer_notice: Use this endpoint to enable subaccounts to take part in a universal transfer. It is a one-time switch which, once thrown, enables a subaccount permanently. If not set, your subaccounts cannot use universal tranfers.
   universaltransfer_join_notice: To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.
@@ -3678,6 +3681,8 @@ en:
   row_comment_accounttype: Account type
 
   createsubaccounttransfer_api_notice: |
+    A subaccount can only be attributed to a parent account.
+  createsubaccounttransfer_api_v3_notice: |
     A subaccount can only be attributed to a parent account.
   createsubaccounttransfer: Create Subaccount Transfer
   subMember_trigger_transfer: Transfers funds between the parent and child (sub) accounts.
@@ -3720,15 +3725,16 @@ en:
   queryUniverseTransferList: Query Universal Transfer List
   row_comment_sub_user_id_list: List of all subaccounts
   row_comment_transferable_sub_ids_list: List of subaccounts that are universal transfer-enabled
-  row_comment_transfer_coin_list: pending for techops
-  row_comment_with_bonus: pending for techops
-  row_comment_spot_status: pending for techops
-  row_comment_frozen: pending for techops
-  row_comment_free: pending for techops
-  row_comment_withdraw: pending for techops
-  querytransfercoinlist: pending for techops
-  queryaccountcoinbalance: pending for techops
-  queryassetinfo: pending for techops
+  row_comment_transfer_coin_list: The coins are enabled transfer between accounts
+  row_comment_bonus: The bonus
+  row_comment_withBonus: Whether query bonus or not. <code>0</code>：false; <code>1</code>：true; Not query is in default
+  row_comment_spot_status: Spot account status. <code>1</code>：normal; <code>0</code>：forbidden
+  row_comment_frozen: Freeze amount
+  row_comment_free: Free balance
+  row_comment_withdraw: Amount in withdrawing
+  querytransfercoinlist: Transferable coin list
+  queryaccountcoinbalance: Coin balance in account
+  queryassetinfo: Asset info
 
   #Withdraw/Deposit API Data Endpoints -- start
   withdraw_and_deposit: Withdraw and Deposit Endpoints
@@ -5226,3 +5232,8 @@ en:
     end time (In Millisecond). Default value: current time
   assetWithdraw_timestamp: timestamp. Allowed timeframe is 5 mins before and after based on current timestamp
   accountAssetV3_chainType: Chain type. Return all if not passed.
+  accountAssetV3_bizType: Account business subtype
+  accountAsseV3_assetInfo_accountType: Account type, <b>SPOT</b> in default. For now, only <code>SPOT</code> is available.
+  accountCoinBalance_para: |
+    You could get coin balance under the master account, and those sub account coin balance of master account.<br>
+    <b>Notice</b>: It's not allowed to get master account coin balance via sub account api key.
