@@ -891,6 +891,10 @@ POST
 ## t(:account_wallet)
 t(:wallet_para)
 
+<aside class="notice">
+t(:usdcOption_reminder)
+</aside>
+
 ### t(:transactionLog)
 
 > t(:codequote_curlExample)
@@ -1079,8 +1083,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-asset-in
         "totalVega":"1.8799",
         "totalTheta":"-19.2038",
         "totalRPL":"-3773.8879",
-        "sessionUPL":"-16.0781",
-        "sessionRPL":"-13.0000",
+        "sessionUPL":"",
+        "sessionRPL":"",
         "im":"28940.8205",
         "mm":"14997.4532"
       }
@@ -1220,7 +1224,9 @@ POST
 |marginMode|string|t(:usdcMarginMode)|
 
 ## t(:accountPosition)
-
+<aside class="notice">
+t(:usdcOption_reminder)
+</aside>
 
 ### t(:queryPosition)
 > t(:codequote_curlExample)
@@ -1266,9 +1272,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position
         "deleverageIndicator": 0,
         "entryPrice": "1.4",
         "size": "-0.100",
-        "sessionRPL": "0.0000",
+        "sessionRPL": "",
         "positionStatus": "",
-        "sessionUPL": "0.1450",
+        "sessionUPL": "",
         "stopLoss": "",
         "orderMargin": "",
         "sessionAvgPrice": "1.5"
@@ -1452,8 +1458,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position
         "totalRPL":"0.0000",
         "im":"14792.2241",
         "mm":"10653.4193",
-        "sessionRPL":"1587.0000",
-        "sessionUPL":"1172.4930"
+        "sessionRPL":"",
+        "sessionUPL":""
       },
       {
         "expDate":"16OCT21",
@@ -1461,8 +1467,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position
         "totalRPL":"487.5000",
         "im":"5891.6831",
         "mm":"4184.0030",
-        "sessionRPL":"0.0000",
-        "sessionUPL":"0.0000"
+        "sessionRPL":"",
+        "sessionUPL":""
       }
     ]
   }

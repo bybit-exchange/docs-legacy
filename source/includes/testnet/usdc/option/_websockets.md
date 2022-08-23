@@ -463,7 +463,7 @@ ws.send('{"op":"subscribe","id":"{100002}","args":["user.openapi.option.position
                 "markPrice":"62.2119183",
                 "positionIM":"",
                 "positionMM":"",
-                "sessionUPL":"-0.422119183000",
+                "sessionUPL":"",
                 "sessionRPL":"",
                 "createdAt":1654745293038,
                 "updatedAt":1654745293038
@@ -496,7 +496,7 @@ ws.send('{"op":"subscribe","id":"{100002}","args":["user.openapi.option.position
                 "markPrice":"65.2197913",
                 "positionIM":"",
                 "positionMM":"",
-                "sessionUPL":"-0.452197913000",
+                "sessionUPL":"",
                 "sessionRPL":"",
                 "createdAt":1654745293038,
                 "updatedAt":1654745293038
