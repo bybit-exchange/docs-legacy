@@ -37,7 +37,6 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
@@ -46,7 +45,7 @@ POST
 |orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv_order)|
-|t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
+|t(:row_parameter_timeInForce)|<b>true</b>|string|t(:row_comment_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
 |mmp|false|string|t(:mmp)|
