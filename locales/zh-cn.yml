@@ -3234,7 +3234,7 @@ zh-cn:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transferId</code>字段為<code>UUID</code>全局唯一。</p>
     <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p>
     <p>轉入和轉出賬戶類型不能相同。</p>
-  universaltransferunderstanding_notice: 萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code> 合同</code>、<code>SPOT</code>等）之間劃轉。
+  universaltransferunderstanding_notice: 萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code>CONTRACT</code>、<code>SPOT</code>等）之間劃轉。
   enableuniversaltransfer_notice: 你需要通過這個接口來設置可互相劃轉的子賬號。如果不設置，這些賬戶之間不能互相劃轉
   universaltransfer_join_notice: 要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬</a> 接口。
 
@@ -3286,7 +3286,9 @@ zh-cn:
   row_comment_from_memberId: 劃出的賬號uid
   row_comment_to_memberId: 劃入的賬號uid
   row_comment_from_accountType: 劃出賬戶類型，目前只支持："SPOT"、"CONTRACT"
+  transferCoinList_fromAccountType: 劃出賬戶類型. 劃入劃出帳戶類型必須不一樣
   row_comment_to_accountType: 劃入賬戶類型，目前只支持："SPOT"、"CONTRACT"
+  transferCoinList_toAccountType: 劃入賬戶類型. 劃入劃出帳戶類型必須不一樣
   getSubmemberIdList: 查詢子賬戶列表
   queryUniverseTransferList: 查詢萬能劃轉記錄
   row_comment_sub_user_id_list: 所有子賬號列表

@@ -168,7 +168,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|transferid |false |string |t(:row_comment_transfer_id) |
+|transferId |false |string |t(:row_comment_transfer_id) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:row_comment_currency) |
 |<a href="#transfer-status-status">status</a> |false |string |t(:row_comment_transferstatus) |
 |startTime |false |integer |t(:row_comment_startTime_ms) |
@@ -276,7 +276,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/tr
     "retMsg":"OK",
     "result":{
         "subMemberIds": [1,2,3],
-        "transferablSubMemberIds": [1,3]
+        "transferableSubMemberIds": [1,3]
   },
   "retExtInfo":{},
   "time":1652841868446
@@ -297,7 +297,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |subMemberIds |integer array |t(:row_comment_sub_user_id_list)|
-|transferablSubMemberIds |string array |t(:row_comment_transferable_sub_ids_list) |
+|transferableSubMemberIds |string array |t(:row_comment_transferable_sub_ids_list) |
 
 
 ### t(:enableuniversaltransfer)
@@ -522,8 +522,8 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#account-type-from_account_type-to_account_type">fromAccountType</a> |<b>true</b> |string |t(:row_comment_from_accountType) |
-|<a href="#account-type-from_account_type-to_account_type">toAccountType</a> |<b>true</b> |string |t(:row_comment_to_accountType) |
+|<a href="#account-type-from_account_type-to_account_type">fromAccountType</a> |<b>true</b> |string |t(:transferCoinList_fromAccountType) |
+|<a href="#account-type-from_account_type-to_account_type">toAccountType</a> |<b>true</b> |string |t(:transferCoinList_toAccountType) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -588,7 +588,7 @@ GET
 |<a href="#account-type-from_account_type-to_account_type">accountType</a> |string |t(:row_comment_accounttype) |
 |bizType |int |t(:accountAssetV3_bizType) |
 |accountId |string |t(:row_comment_accountID) |
-|memberID |string |t(:row_comment_userID) |
+|memberId |string |t(:row_comment_userID) |
 |balance |Object | |
 |<a href="#currency-currency-coin">coin</a> |string |t(:row_comment_currency) |
 |walletBalance |string |t(:row_comment_wallet_balance) |
