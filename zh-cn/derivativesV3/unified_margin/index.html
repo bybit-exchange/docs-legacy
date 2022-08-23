@@ -4048,7 +4048,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </code></pre></div>
 <p><p><p><b>接口說明：</b></p>
 <p>獲取我的活動委托單列表。</p>
-<p>創建/取消訂單是異步的，因此該接口可能返回的數據可能會有延遲。如果要獲取訂單的實時信息，可以調用接口實時查詢活動單信息。</p></p>
+<p>創建/取消訂單是異步的，因此該接口可能返回的數據可能會有延遲。如果要獲取訂單的實時信息，可以調用接口<a href="#t-dv_queryorderrealtime">實時查詢活動單</a>信息。</p></p>
 </p>
 
 <p class="fake_header">HTTP 請求</p>
@@ -7892,7 +7892,7 @@ B用戶：
 <tr>
 <td style="text-align: left">u</td>
 <td style="text-align: left">number</td>
-<td>更新id</td>
+<td>更新id. 當收到"u"=1時，则該推送為全量數據，請覆蓋本地保存的orderbook</td>
 </tr>
 </tbody></table>
 <h3 id='t-websockettrade'>平臺成交</h3>

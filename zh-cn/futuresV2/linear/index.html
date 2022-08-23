@@ -3309,7 +3309,7 @@ function copyStringToClipboard (endpoint) {
 <h1 id='t-marketdata'>行情接口</h1>
 <p>以下市場行情數據接口不需要驗權.</p>
 <h3 id='t-orderbook'>Orderbook</h3>
-<p><a href="/docs/inverse#t-orderbook">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuersV2/inverse#t-orderbook">請點擊查看接口描述。</a></p>
 <h3 id='t-querykline'>查詢K線數據</h3>
 <blockquote>
 <p>請求示例</p>
@@ -3463,7 +3463,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </tbody></table>
 <h3 id='t-latestsymbolinfo'>合約最新信息</h3>
-<p><a href="/docs/inverse#t-latestsymbolinfo">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuersV2/inverse#t-latestsymbolinfo">請點擊查看接口描述。</a></p>
 <h3 id='t-publictradingrecords'>平臺交易歷史數據</h3>
 <blockquote>
 <p>請求示例</p>
@@ -3578,9 +3578,9 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </tbody></table>
 <h3 id='t-querysymbol'>查詢合約信息</h3>
-<p><a href="/docs/inverse#t-querysymbol">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuersV2/inverse#t-querysymbol">請點擊查看接口描述。</a></p>
 <h3 id='t-query_liqrecords'>查詢強平訂單數據</h3>
-<p><a href="/docs/inverse#t-query_liqrecords">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuersV2/inverse#t-query_liqrecords">請點擊查看接口描述。</a></p>
 <h3 id='t-fundingrate'>查詢上個周期的資金費率</h3>
 <blockquote>
 <p>請求示例</p>
@@ -4048,24 +4048,24 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </tbody></table>
 <h2 id='t-advanceddata'>平臺進階數據</h2><h3 id='t-marketopeninterest'>未平合約持倉數量</h3>
-<p><a href="/docs/inverse#t-marketopeninterest">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuersV2/inverse#t-marketopeninterest">請點擊查看接口描述。</a></p>
 <h3 id='t-marketbigdeal'>主動成交大額訂單</h3>
-<p><a href="/docs/inverse#t-marketbigdeal">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuersV2/inverse#t-marketbigdeal">請點擊查看接口描述。</a></p>
 <h3 id='t-marketaccountratio'>用戶多空持倉比率</h3>
-<p><a href="/docs/inverse#t-marketaccountratio">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuersV2/inverse#t-marketaccountratio">請點擊查看接口描述。</a></p>
 
 <!--
 ## 平臺進階數據
 ### 資金費率
-<a href="/docs/inverse#t-marketfundingrate">請點擊查看接口描述。</a>
+<a href="/docs/futuersV2/inverse#t-marketfundingrate">請點擊查看接口描述。</a>
 ### 未平合約持倉數量
-<a href="/docs/inverse#t-marketopeninterest">請點擊查看接口描述。</a>
+<a href="/docs/futuersV2/inverse#t-marketopeninterest">請點擊查看接口描述。</a>
 ### 用戶多空持倉比率
-<a href="/docs/inverse#t-marketaccountratio">請點擊查看接口描述。</a>
+<a href="/docs/futuersV2/inverse#t-marketaccountratio">請點擊查看接口描述。</a>
 ### 精英賬戶多空持倉賬戶比
-<a href="/docs/inverse#t-marketeliteratio">請點擊查看接口描述。</a>
+<a href="/docs/futuersV2/inverse#t-marketeliteratio">請點擊查看接口描述。</a>
 ### 主動成交大額訂單
-<a href="/docs/inverse#t-marketbigdeal">請點擊查看接口描述。</a>
+<a href="/docs/futuersV2/inverse#t-marketbigdeal">請點擊查看接口描述。</a>
 -->
 
 <!--
@@ -4331,6 +4331,7 @@ GET
 <p>委托價格: 如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-querysymbol">交易對接口</a>響應中的<b>price_filter</b>字段。</p>
 <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
 <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSDT的活動單、280個ETHUSDT合約的活動單。</b></p>
+<p><b><code>PostOnly</code>的最大下單量是普通訂單的5倍。</b></p>
 <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduce_only</code> 或 <code>close_on_trigger</code>的訂單。</b></p>
 </p>
 
@@ -8727,19 +8728,19 @@ GET
 </tr>
 </tbody></table>
 <h2 id='t-key'>APIKey信息</h2>
-<p><a href="/docs/inverse#t-key">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuresV2/inverse#t-key">請點擊查看接口描述。</a></p>
 <h2 id='t-lcp'>流動性貢獻分</h2>
-<p><a href="/docs/inverse#t-lcp">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuresV2/inverse#t-lcp">請點擊查看接口描述。</a></p>
 <h1 id='t-wallet'>錢包接口</h1>
 <p>錢包相關接口需要認證。</p>
 <h3 id='t-balance'>獲取錢包余額</h3>
-<p><a href="/docs/inverse#t-balance">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuresV2/inverse#t-balance">請點擊查看接口描述。</a></p>
 <h3 id='t-walletrecords'>資金記錄</h3>
-<p><a href="/docs/inverse#t-walletrecords">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuresV2/inverse#t-walletrecords">請點擊查看接口描述。</a></p>
 <h3 id='t-withdrawrecords'>提幣記錄</h3>
-<p><a href="/docs/inverse#t-withdrawrecords">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuresV2/inverse#t-withdrawrecords">請點擊查看接口描述。</a></p>
 <h3 id='t-assetexchangerecords'>資產兌換記錄</h3>
-<p><a href="/docs/inverse#t-assetexchangerecords">請點擊查看接口描述。</a></p>
+<p><a href="/docs/futuresV2/inverse#t-assetexchangerecords">請點擊查看接口描述。</a></p>
 <h1 id='t-api'>通用數據接口</h1>
 <p>通用數據接口不需要鑒權。</p>
 <h3 id='t-servertime'>服務器時間</h3>

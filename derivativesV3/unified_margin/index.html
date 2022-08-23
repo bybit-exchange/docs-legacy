@@ -4052,7 +4052,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 </code></pre></div>
 <p><p><p><b>Interface:</b></p>
 <p>Access my open order list.</p>
-<p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real-time, call the interface enquiring information on open orders in real-time.</p></p>
+<p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real-time, call the <a href="#t-dv_queryorderrealtime">interface</a> enquiring information on open orders in real-time.</p></p>
 </p>
 
 <p class="fake_header">HTTP Request</p>
@@ -7890,7 +7890,7 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 <tr>
 <td style="text-align: left">u</td>
 <td style="text-align: left">number</td>
-<td>Update id</td>
+<td>Update id. Please override your local orderbook when you receive "u"=1</td>
 </tr>
 </tbody></table>
 <h3 id='t-websockettrade'>trade</h3>

@@ -2609,27 +2609,27 @@ function copyStringToClipboard (endpoint) {
 <h1 id='t-marketdata'>Market Data Endpoints</h1>
 <p>The following market data endpoints do not require authentication.</p>
 <h3 id='t-orderbook'>Order Book</h3>
-<p><a href="/docs/inverse#t-orderbook">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-orderbook">Please see the shared endpoint.</a></p>
 <h3 id='t-querykline'>Query Kline</h3>
-<p><a href="/docs/inverse#t-querykline">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-querykline">Please see the shared endpoint.</a></p>
 <h3 id='t-latestsymbolinfo'>Latest Information for Symbol</h3>
-<p><a href="/docs/inverse#t-latestsymbolinfo">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-latestsymbolinfo">Please see the shared endpoint.</a></p>
 <h3 id='t-publictradingrecords'>Public Trading Records</h3>
-<p><a href="/docs/inverse#t-publictradingrecords">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-publictradingrecords">Please see the shared endpoint.</a></p>
 <h3 id='t-querysymbol'>Query Symbol</h3>
-<p><a href="/docs/inverse#t-querysymbol">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-querysymbol">Please see the shared endpoint.</a></p>
 <h3 id='t-query_liqrecords'>Liquidated Orders</h3>
-<p><a href="/docs/inverse#t-query_liqrecords">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-query_liqrecords">Please see the shared endpoint.</a></p>
 <h3 id='t-markpricekline'>Query Mark Price Kline</h3>
-<p><a href="/docs/inverse#t-markpricekline">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-markpricekline">Please see the shared endpoint.</a></p>
 <h3 id='t-queryindexpricekline'>Query Index Price Kline</h3>
-<p><a href="/docs/inverse#t-queryindexpricekline">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-queryindexpricekline">Please see the shared endpoint.</a></p>
 <h2 id='t-advanceddata'>Advanced Data</h2><h3 id='t-marketopeninterest'>Open Interest</h3>
-<p><a href="/docs/inverse#t-marketopeninterest">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-marketopeninterest">Please see the shared endpoint.</a></p>
 <h3 id='t-marketbigdeal'>Latest Big Deal</h3>
-<p><a href="/docs/inverse#t-marketbigdeal">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-marketbigdeal">Please see the shared endpoint.</a></p>
 <h3 id='t-marketaccountratio'>Long-Short Ratio</h3>
-<p><a href="/docs/inverse#t-marketaccountratio">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-marketaccountratio">Please see the shared endpoint.</a></p>
 <h1 id='t-accountdata'>Account Data Endpoints</h1>
 <p>The following account data endpoints require authentication.</p>
 <h2 id='t-activeorders'>Active Orders</h2><h3 id='t-placeactive'>Place Active Order</h3>
@@ -2703,6 +2703,7 @@ function copyStringToClipboard (endpoint) {
 <p>Order price: If it is a conditional order, this parameter is required. When there is no position, the price should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
 <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
 <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument.</b></p>
+<p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
 </p>
 
 <p class="fake_header">HTTP Request</p>
@@ -6844,7 +6845,7 @@ One order may have multiple trade records.
 </tr>
 </tbody></table>
 <h2 id='t-risklimit'>Risk Limit</h2><h3 id='t-getrisklimit'>Get Risk Limit</h3>
-<p><a href="/docs/inverse#t-getrisklimit">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-getrisklimit">Please see the shared endpoint.</a></p>
 <h3 id='t-setrisklimit'>Set Risk Limit</h3>
 <blockquote>
 <p>Request Example</p>
@@ -6936,17 +6937,17 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 </tr>
 </tbody></table>
 <h2 id='t-key'>API Key Info</h2>
-<p><a href="/docs/inverse#t-key">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-key">Please see the shared endpoint.</a></p>
 <h1 id='t-wallet'>Wallet Data Endpoints</h1>
 <p>The following wallet data endpoints require authentication.</p>
 <h3 id='t-balance'>Get Wallet Balance</h3>
-<p><a href="/docs/inverse#t-balance">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-balance">Please see the shared endpoint.</a></p>
 <h3 id='t-walletrecords'>Wallet Fund Records</h3>
-<p><a href="/docs/inverse#t-walletrecords">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-walletrecords">Please see the shared endpoint.</a></p>
 <h3 id='t-withdrawrecords'>Withdraw Records</h3>
-<p><a href="/docs/inverse#t-withdrawrecords">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-withdrawrecords">Please see the shared endpoint.</a></p>
 <h3 id='t-assetexchangerecords'>Asset Exchange Records</h3>
-<p><a href="/docs/inverse#t-assetexchangerecords">Please see the shared endpoint.</a></p>
+<p><a href="/docs/futuresV2/inverse#t-assetexchangerecords">Please see the shared endpoint.</a></p>
 <h1 id='t-api'>API Data Endpoints</h1>
 <p>The following API data endpoints do not require authentication.</p>
 <h3 id='t-servertime'>Server Time</h3>

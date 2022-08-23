@@ -1260,6 +1260,9 @@
                   <li>
                     <a href="#3500040" class="toc-h2 toc-link" data-title="3500040">3500040</a>
                   </li>
+                  <li>
+                    <a href="#3100320" class="toc-h2 toc-link" data-title="3100320">3100320</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -1566,6 +1569,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>symbol狀態 WAITING_ONLINE 待上線,  ONLINE 上線,  DELIVERING 交割中,  OFFLINE 下線</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>資產幣種. 返回所有對應資產幣種的結果. 若不傳, 則默認返回BTC的結果</td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -1940,6 +1949,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>合約名稱</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>資產幣種. 返回所有對應資產幣種的結果. 若不傳, 則默認返回BTC的結果</td>
+</tr>
+<tr>
 <td style="text-align: left">direction</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -2045,6 +2060,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>合約名稱</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>資產幣種. 返回所有對應資產幣種的結果. 若不傳, 則默認返回BTC的結果</td>
+</tr>
+<tr>
 <td style="text-align: left">optionType</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -2092,6 +2113,11 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>合約名稱</td>
 </tr>
 <tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>taker的买卖方向</td>
+</tr>
+<tr>
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">string</td>
 <td>訂單價格</td>
@@ -2105,6 +2131,11 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">time</td>
 <td style="text-align: left">string</td>
 <td>時間戳，到毫秒</td>
+</tr>
+<tr>
+<td style="text-align: left">isBlockTrade</td>
+<td style="text-align: left">boolean</td>
+<td>是否為大宗交易</td>
 </tr>
 </tbody></table>
 <h1 id='t-accountdata'>賬戶/交易接口</h1>
@@ -2194,7 +2225,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
-<td style="text-align: left">false</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
 </tr>
@@ -3976,6 +4007,10 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </tbody></table>
 <h2 id='t-account_wallet'>賬戶/錢包</h2>
 <p>錢包相關接口需要認證。</p>
+
+<aside class="notice">
+鑒於接口很多返回值類型是String，因此請特別注意如需要轉number使用，請判斷非空。若查詢字段結果為空或者不存在，則返回空字符串。
+</aside>
 <h3 id='t-transactionlog'>交易日誌</h3>
 <blockquote>
 <p>請求示例</p>
@@ -4324,8 +4359,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
         <span class="dl">"</span><span class="s2">totalVega</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.8799</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">totalTheta</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-19.2038</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-3773.8879</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-16.0781</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-13.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">28940.8205</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">mm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">14997.4532</span><span class="dl">"</span>
       <span class="p">}</span>
@@ -4418,12 +4453,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">sessionUpl</td>
 <td style="text-align: left">string</td>
-<td>未實現損益</td>
+<td>未實現損益. 返回空字符串<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sessionRpl</td>
 <td style="text-align: left">string</td>
-<td>已實現損益</td>
+<td>已實現損益. 返回空字符串<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">im</td>
@@ -4555,7 +4590,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td>保證金模式 <a href="#margin-mode-marginmode">Margin Mode</a></td>
 </tr>
 </tbody></table>
-<h2 id='t-accountposition'>賬戶持倉</h2><h3 id='t-queryposition'>查詢持倉</h3>
+<h2 id='t-accountposition'>賬戶持倉</h2>
+<aside class="notice">
+鑒於接口很多返回值類型是String，因此請特別注意如需要轉number使用，請判斷非空。若查詢字段結果為空或者不存在，則返回空字符串。
+</aside>
+<h3 id='t-queryposition'>查詢持倉</h3>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
@@ -4594,9 +4633,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
         <span class="dl">"</span><span class="s2">deleverageIndicator</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.4</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.100</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1450</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderMargin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.5</span><span class="dl">"</span>
@@ -4796,7 +4835,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">sessionRPL</td>
 <td style="text-align: left">string</td>
-<td>已實現損益</td>
+<td>已實現損益. 返回空字符串<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">positionStatus</td>
@@ -4806,7 +4845,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">sessionUPL</td>
 <td style="text-align: left">string</td>
-<td>未實現損益</td>
+<td>未實現損益. 返回空字符串<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">stopLoss</td>
@@ -5009,8 +5048,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
         <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">14792.2241</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">mm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10653.4193</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1587.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1172.4930</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
       <span class="p">},</span>
       <span class="p">{</span>
         <span class="dl">"</span><span class="s2">expDate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">16OCT21</span><span class="dl">"</span><span class="p">,</span>
@@ -5018,8 +5057,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
         <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">487.5000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5891.6831</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">mm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4184.0030</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">}</span>
@@ -5128,12 +5167,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">sessionRpl</td>
 <td style="text-align: left">string</td>
-<td>已實現損益</td>
+<td>已實現損益. 返回空字符串<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sessionUpl</td>
 <td style="text-align: left">string</td>
-<td>未實現損益</td>
+<td>未實現損益. 返回空字符串<code>""</code></td>
 </tr>
 </tbody></table>
 <h2 id='t-usdcmmp'>做市商保護</h2><h3 id='t-whatisusdcmmp'>MMP</h3>
@@ -6198,7 +6237,7 @@ DCP的開和關, 僅限機構類型用戶
                 <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">62.2119183</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.422119183000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span>
@@ -6230,7 +6269,7 @@ DCP的開和關, 僅限機構類型用戶
                 <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">65.2197913</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.452197913000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span>
@@ -6309,12 +6348,12 @@ DCP的開和關, 僅限機構類型用戶
 <tr>
 <td style="text-align: left">sessionUPL</td>
 <td style="text-align: left">string</td>
-<td>未實現損益</td>
+<td>未實現損益. 返回空字符串<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sessionRPL</td>
 <td style="text-align: left">string</td>
-<td>已實現損益</td>
+<td>已實現損益. 返回空字符串<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
@@ -7226,6 +7265,8 @@ DCP的開和關, 僅限機構類型用戶
 <p>System error. Please try again later.</p>
 <h2 id='3500040'>3500040</h2>
 <p>System error. Please try again later.</p>
+<h2 id='3100320'>3100320</h2>
+<p>Your requested order is currently being cancelled. Please try again later.</p>
 
       </div>
       <div class="dark-box">

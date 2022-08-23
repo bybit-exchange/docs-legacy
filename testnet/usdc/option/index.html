@@ -1260,6 +1260,9 @@
                   <li>
                     <a href="#3500040" class="toc-h2 toc-link" data-title="3500040">3500040</a>
                   </li>
+                  <li>
+                    <a href="#3100320" class="toc-h2 toc-link" data-title="3100320">3100320</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -1568,6 +1571,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Status, can be WAITING_ONLINE, ONLINE, DELIVERING, or OFFLINE</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. Returns all records with base coin. If not passed, it returns records with BTC in default</td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -1943,6 +1952,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>Contract name</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. Returns all records with base coin. If not passed, it returns records with BTC in default</td>
+</tr>
+<tr>
 <td style="text-align: left">direction</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -2049,6 +2064,12 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>Contract name</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. Returns all records with base coin. If not passed, it returns records with BTC in default</td>
+</tr>
+<tr>
 <td style="text-align: left">optionType</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -2096,6 +2117,11 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td>Contract name</td>
 </tr>
 <tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>Buy or Sell of taker</td>
+</tr>
+<tr>
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
@@ -2109,6 +2135,11 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">time</td>
 <td style="text-align: left">string</td>
 <td>Timestamp, unit in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">isBlockTrade</td>
+<td style="text-align: left">boolean</td>
+<td>Is block trade</td>
 </tr>
 </tbody></table>
 <h1 id='t-accountdata'>Account Data Endpoints</h1>
@@ -2198,7 +2229,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
-<td style="text-align: left">false</td>
+<td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
@@ -3984,6 +4015,10 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 </tbody></table>
 <h2 id='t-account_wallet'>Account API</h2>
 <p>The following wallet data endpoints require authentication.</p>
+
+<aside class="notice">
+Please note that many numbers are returned as strings, and null values could be returned as <code>""</code>. You should check if the value is <code>""</code> before casting it from a string to a float.
+</aside>
 <h3 id='t-transactionlog'>Transaction Log</h3>
 <blockquote>
 <p>Request Example</p>
@@ -4333,8 +4368,8 @@ The endpoint only supports up to 30 days of queried records. An error will be re
         <span class="dl">"</span><span class="s2">totalVega</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1.8799</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">totalTheta</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-19.2038</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-3773.8879</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-16.0781</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-13.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">28940.8205</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">mm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">14997.4532</span><span class="dl">"</span>
       <span class="p">}</span>
@@ -4427,12 +4462,12 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 <tr>
 <td style="text-align: left">sessionUpl</td>
 <td style="text-align: left">string</td>
-<td>Session UPL</td>
+<td>Session UPL. Return null string <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sessionRpl</td>
 <td style="text-align: left">string</td>
-<td>Session RPL</td>
+<td>Session RPL. Return null string <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">im</td>
@@ -4564,7 +4599,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td>Margin mode <a href="#margin-mode-marginmode">Margin Mode</a></td>
 </tr>
 </tbody></table>
-<h2 id='t-accountposition'>Positions API</h2><h3 id='t-queryposition'>Query My Positions</h3>
+<h2 id='t-accountposition'>Positions API</h2>
+<aside class="notice">
+Please note that many numbers are returned as strings, and null values could be returned as <code>""</code>. You should check if the value is <code>""</code> before casting it from a string to a float.
+</aside>
+<h3 id='t-queryposition'>Query My Positions</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -4603,9 +4642,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
         <span class="dl">"</span><span class="s2">deleverageIndicator</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.4</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.100</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1450</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderMargin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.5</span><span class="dl">"</span>
@@ -4806,7 +4845,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">sessionRPL</td>
 <td style="text-align: left">string</td>
-<td>Session RPL</td>
+<td>Session RPL. Return null string <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">positionStatus</td>
@@ -4816,7 +4855,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">sessionUPL</td>
 <td style="text-align: left">string</td>
-<td>Session UPL</td>
+<td>Session UPL. Return null string <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">stopLoss</td>
@@ -5021,8 +5060,8 @@ The endpoint only supports up to 30 days of queried records
         <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">14792.2241</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">mm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">10653.4193</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1587.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1172.4930</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
       <span class="p">},</span>
       <span class="p">{</span>
         <span class="dl">"</span><span class="s2">expDate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">16OCT21</span><span class="dl">"</span><span class="p">,</span>
@@ -5030,8 +5069,8 @@ The endpoint only supports up to 30 days of queried records
         <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">487.5000</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">im</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">5891.6831</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">mm</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4184.0030</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">}</span>
@@ -5143,12 +5182,12 @@ The endpoint only supports up to 30 days of queried records
 <tr>
 <td style="text-align: left">sessionRpl</td>
 <td style="text-align: left">string</td>
-<td>Session RPL</td>
+<td>Session RPL. Return null string <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sessionUpl</td>
 <td style="text-align: left">string</td>
-<td>Session UPL</td>
+<td>Session UPL. Return null string <code>""</code></td>
 </tr>
 </tbody></table>
 <h2 id='t-usdcmmp'>Market Maker Protection</h2><h3 id='t-whatisusdcmmp'>What is MMP</h3>
@@ -6222,7 +6261,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
                 <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">62.2119183</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.422119183000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span>
@@ -6254,7 +6293,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
                 <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">65.2197913</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">-0.452197913000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionUPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">sessionRPL</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span><span class="mi">1654745293038</span>
@@ -6333,12 +6372,12 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <tr>
 <td style="text-align: left">sessionUPL</td>
 <td style="text-align: left">string</td>
-<td>Session UPL</td>
+<td>Session UPL. Return null string <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">sessionRPL</td>
 <td style="text-align: left">string</td>
-<td>Session RPL</td>
+<td>Session RPL. Return null string <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
@@ -7272,6 +7311,8 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <p>System error. Please try again later.</p>
 <h2 id='3500040'>3500040</h2>
 <p>System error. Please try again later.</p>
+<h2 id='3100320'>3100320</h2>
+<p>Your requested order is currently being cancelled. Please try again later.</p>
 
       </div>
       <div class="dark-box">

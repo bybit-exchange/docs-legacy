@@ -1296,7 +1296,7 @@ A subaccount can only be attributed to a parent account.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">transferid</td>
+<td style="text-align: left">transferId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>UUID, which is unique across the platform</td>
@@ -1561,7 +1561,7 @@ A subaccount can only be attributed to a parent account.
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">subMemberIds</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
-        <span class="dl">"</span><span class="s2">transferablSubMemberIds</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+        <span class="dl">"</span><span class="s2">transferableSubMemberIds</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:{},</span>
   <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1652841868446</span>
@@ -1600,7 +1600,7 @@ A subaccount can only be attributed to a parent account.
 <td>List of all subaccounts</td>
 </tr>
 <tr>
-<td style="text-align: left">transferablSubMemberIds</td>
+<td style="text-align: left">transferableSubMemberIds</td>
 <td style="text-align: left">string array</td>
 <td>List of subaccounts that are universal transfer-enabled</td>
 </tr>
@@ -1990,13 +1990,13 @@ A universal transfer enables you to transfer funds directly between two subaccou
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">fromAccountType</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>From account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
+<td>From account type. Ensure from/to are different account type</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">toAccountType</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>To account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code></td>
+<td>To account type. Ensure from/to are different account type</td>
 </tr>
 </tbody></table>
 
@@ -2118,7 +2118,7 @@ A universal transfer enables you to transfer funds directly between two subaccou
 <td>AccountID</td>
 </tr>
 <tr>
-<td style="text-align: left">memberID</td>
+<td style="text-align: left">memberId</td>
 <td style="text-align: left">string</td>
 <td>UserID</td>
 </tr>

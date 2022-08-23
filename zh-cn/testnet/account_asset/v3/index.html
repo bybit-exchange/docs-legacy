@@ -1291,7 +1291,7 @@ REST接口根URL:
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">transferid</td>
+<td style="text-align: left">transferId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>UUID,全局唯一</td>
@@ -1556,7 +1556,7 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
         <span class="dl">"</span><span class="s2">subMemberIds</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
-        <span class="dl">"</span><span class="s2">transferablSubMemberIds</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+        <span class="dl">"</span><span class="s2">transferableSubMemberIds</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:{},</span>
   <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span><span class="mi">1652841868446</span>
@@ -1595,7 +1595,7 @@ REST接口根URL:
 <td>所有子賬號列表</td>
 </tr>
 <tr>
-<td style="text-align: left">transferablSubMemberIds</td>
+<td style="text-align: left">transferableSubMemberIds</td>
 <td style="text-align: left">string array</td>
 <td>所有可互相劃轉的子賬號列表</td>
 </tr>
@@ -1626,7 +1626,7 @@ REST接口根URL:
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code> 合同</code>、<code>SPOT</code>等）之間劃轉。
+萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code>CONTRACT</code>、<code>SPOT</code>等）之間劃轉。
 </aside>
 
 <p>你需要通過這個接口來設置可互相劃轉的子賬號。如果不設置，這些賬戶之間不能互相劃轉</p>
@@ -1985,13 +1985,13 @@ REST接口根URL:
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">fromAccountType</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>劃出賬戶類型，目前只支持："SPOT"、"CONTRACT"</td>
+<td>劃出賬戶類型. 劃入劃出帳戶類型必須不一樣</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#account-type-from_account_type-to_account_type">toAccountType</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>劃入賬戶類型，目前只支持："SPOT"、"CONTRACT"</td>
+<td>劃入賬戶類型. 劃入劃出帳戶類型必須不一樣</td>
 </tr>
 </tbody></table>
 
@@ -2113,7 +2113,7 @@ REST接口根URL:
 <td>賬戶ID</td>
 </tr>
 <tr>
-<td style="text-align: left">memberID</td>
+<td style="text-align: left">memberId</td>
 <td style="text-align: left">string</td>
 <td>用戶ID</td>
 </tr>
