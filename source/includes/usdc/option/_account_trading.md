@@ -440,9 +440,11 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvCancelAll"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|symbol|string|t(:usdcSymbol)|
+|baseCoin|string|t(:usdcBaseCoin_cancel)|
+
 
 <p class="fake_header">t(:responseparameters)</p>
 
@@ -521,6 +523,7 @@ GET
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
+|baseCoin |false |string|t(:usdcBaseCoin_new)|
 |direction|false|string|t(:direction)|
 |limit|false|number|t(:row_comment_limit)|
 |cursor|false|string|t(:cursor)|
@@ -612,11 +615,11 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryActive"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|baseCoin|string|t(:usdcBaseCoin_new)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |direction|false|string|t(:direction)|
@@ -736,11 +739,11 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryHistory"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|baseCoin |false|string|t(:usdcBaseCoin_new)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |orderStatus|false|string|t(:usdcOptionOrderStatus)|
@@ -847,11 +850,11 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvExecution"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|baseCoin |false|string|t(:usdcBaseCoin_new)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |startTime|false|string|t(:usdcStartTime_ms)|
@@ -947,10 +950,10 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryTransaction"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |type|<b>true</b>|string|t(:usdcTransactionType)|
+|baseCoin|false|string|t(:usdcBaseCoin_new)|
 |startTime|false|string|t(:usdcStartTime_ms)|
 |endTime|false|string|t(:usdcEndTime)|
 |direction|false|string|t(:direction)|
@@ -1284,11 +1287,12 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPosition"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|baseCoin |false|string|t(:usdcBaseCoin_new)|
+|expDate |false|string|t(:expDate)|
 |cursor|false|string|t(:cursor)|
 |direction|false|string|t(:direction)|
 |limit|number|string|t(:usdcPositionLimit)|
