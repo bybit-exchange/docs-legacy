@@ -2172,7 +2172,7 @@ GET
 
 ## t(:risklimit)
 ### t(:getrisklimit)
-<a href="/docs/inverse#t-getrisklimit">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-getrisklimit">t(:shared_endpoint_desc)</a>
 
 ### t(:setrisklimit)
 > t(:codequote_curlExample)
@@ -2235,4 +2235,4 @@ POST
 |risk_id |number |t(:row_comment_riskId)  |
 
 ## t(:key)
-<a href="/docs/inverse#t-key">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-key">t(:shared_endpoint_desc)</a>

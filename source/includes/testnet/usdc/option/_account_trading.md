@@ -37,7 +37,6 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvPlace"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
@@ -46,7 +45,7 @@ POST
 |orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv_order)|
-|t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
+|t(:row_parameter_timeInForce)|<b>true</b>|string|t(:row_comment_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
 |mmp|false|string|t(:mmp)|
@@ -889,6 +888,10 @@ POST
 ## t(:account_wallet)
 t(:wallet_para)
 
+<aside class="notice">
+t(:usdcOption_reminder)
+</aside>
+
 ### t(:transactionLog)
 
 > t(:codequote_curlExample)
@@ -1077,8 +1080,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-asset-in
         "totalVega":"1.8799",
         "totalTheta":"-19.2038",
         "totalRPL":"-3773.8879",
-        "sessionUPL":"-16.0781",
-        "sessionRPL":"-13.0000",
+        "sessionUPL":"",
+        "sessionRPL":"",
         "im":"28940.8205",
         "mm":"14997.4532"
       }
@@ -1218,6 +1221,9 @@ POST
 |marginMode|string|t(:usdcMarginMode)|
 
 ## t(:accountPosition)
+<aside class="notice">
+t(:usdcOption_reminder)
+</aside>
 
 
 ### t(:queryPosition)
@@ -1264,9 +1270,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position
         "deleverageIndicator": 0,
         "entryPrice": "1.4",
         "size": "-0.100",
-        "sessionRPL": "0.0000",
+        "sessionRPL": "",
         "positionStatus": "",
-        "sessionUPL": "0.1450",
+        "sessionUPL": "",
         "stopLoss": "",
         "orderMargin": "",
         "sessionAvgPrice": "1.5"
@@ -1449,8 +1455,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position
         "totalRPL":"0.0000",
         "im":"14792.2241",
         "mm":"10653.4193",
-        "sessionRPL":"1587.0000",
-        "sessionUPL":"1172.4930"
+        "sessionRPL":"",
+        "sessionUPL":""
       },
       {
         "expDate":"16OCT21",
@@ -1458,8 +1464,8 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-position
         "totalRPL":"487.5000",
         "im":"5891.6831",
         "mm":"4184.0030",
-        "sessionRPL":"0.0000",
-        "sessionUPL":"0.0000"
+        "sessionRPL":"",
+        "sessionUPL":""
       }
     ]
   }

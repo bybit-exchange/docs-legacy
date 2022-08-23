@@ -1037,24 +1037,28 @@ while True:
     "topic": "stop_order",
     "data": [
         {
-            "stop_order_id": "xxxxxxxx-xxxx-xxxx-98fb-335aaa6c613b",
-            "order_link_id": "",
-            "user_id": 1,
-            "symbol": "BTCUSD",
+            "stop_order_id": "ab3404f9-c069-4177-be1d-84ff911eae6e",
+            "order_link_id": "xrp000002",
+            "user_id": "554117",
+            "symbol": "XRPUSDT",
             "side": "Buy",
-            "order_type": "Limit",
-            "price": "8584.5",
-            "qty": 1,
+            "order_type": "Market",
+            "price": 0,
+            "qty": 40,
             "time_in_force": "ImmediateOrCancel",
+            "create_type": "CreateByStopOrder",
+            "cancel_type": "UNKNOWN",
             "order_status": "Untriggered",
             "stop_order_type": "Stop",
-            "trigger_by": "LastPrice",
-            "trigger_price": "8584.5",
+            "tp_trigger_by": "IndexPrice",
+            "trigger_price": 0.5,
+            "create_time": "2022-08-23T09:19:05.759847931Z",
+            "update_time": "2022-08-23T09:19:05.759847931Z",
             "reduce_only": false,
             "close_on_trigger": false,
-            "position_idx": 1,
-            "create_time": "2020-01-14T14:11:22.062Z",
-            "update_time": "2020-01-14T14:11:22.062Z"
+            "position_idx": "1",
+            "take_profit": 0.65,
+            "stop_loss": 0.25
         }
     ]
 }
@@ -1081,6 +1085,8 @@ while True:
 |position_idx |number |t(:row_comment_position_idx)  |
 |created_at |string |t(:row_comment_created_at)  |
 |updated_at |string |t(:row_comment_updated_at)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
 
 
 ### t(:websocketwallet)

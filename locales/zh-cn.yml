@@ -109,7 +109,7 @@ zh-cn:
   row_comment_created_at: 創建時間
   row_comment_created_at_in_exchange: 兌換時間
   row_comment_updated_at: 更新時間
-  row_comment_updated_id: 更新id
+  row_comment_updated_id: 更新id. 當收到"u"=1時，则該推送為全量數據，請覆蓋本地保存的orderbook
   row_comment_margin_result: 倉位保證金
   row_comment_order_type: 交易記錄類型
   row_comment_exec_type: 執行類型
@@ -937,6 +937,7 @@ zh-cn:
     <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
     <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSD的活動單、280個ETHUSD合約的活動單。</b></p>
     <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduce_only</code> 或 <code>closeOnTrigger</code>的訂單。</b></p>
+    <p><b><code>PostOnly</code>的最大下單量是普通訂單的5倍。</b></p>
   ### Get Active Order
   getactive: 查詢活動委托
   a_getactive: 查詢活動委托
@@ -1158,7 +1159,7 @@ zh-cn:
   account_para_getActive_v3: |
     <p><p><b>接口說明：</b></p>
     <p>獲取我的活動委托單列表。</p>
-    <p>創建/取消訂單是異步的，因此該接口可能返回的數據可能會有延遲。如果要獲取訂單的實時信息，可以調用接口實時查詢活動單信息。</p></p>
+    <p>創建/取消訂單是異步的，因此該接口可能返回的數據可能會有延遲。如果要獲取訂單的實時信息，可以調用接口<a href="#t-dv_queryorderrealtime">實時查詢活動單</a>信息。</p></p>
 
   usdcBatchOrdersDescV3: |
     <p><p><b>接口說明：</b></p>
@@ -2524,6 +2525,7 @@ zh-cn:
     <p>委托價格: 如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-querysymbol">交易對接口</a>響應中的<b>price_filter</b>字段。</p>
     <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
     <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSDT的活動單、280個ETHUSDT合約的活動單。</b></p>
+    <p><b><code>PostOnly</code>的最大下單量是普通訂單的5倍。</b></p>
     <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduce_only</code> 或 <code>close_on_trigger</code>的訂單。</b></p>
 
   linear_row_comment_basePrice: 當前市價。用於和stop_px值進行比較，確定當前條件委托是看空到<code>stop_px</code>時觸發還是看多到stop_px觸發。主要是用來標識當前條件單預期的方向
@@ -3011,6 +3013,7 @@ zh-cn:
   spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個異步結算接口)
   spotNormalCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
   spotTradesHistoryTips: 如果不傳<code>startTime</code>，只能查詢最近7天的交易數據。如果要查詢一周之前的歷史交易數據，需要傳startTime
+  spotTradesHisotryTips_order: 返回的結果是以<code>ticketId</code>從大到小排序
   spotOrdersHistoryTips: 如果不傳<code>startTime</code>，只能查詢按時間倒序的下單數據。
   row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spotServerTime: 服務器時間
@@ -3234,7 +3237,7 @@ zh-cn:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transferId</code>字段為<code>UUID</code>全局唯一。</p>
     <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p>
     <p>轉入和轉出賬戶類型不能相同。</p>
-  universaltransferunderstanding_notice: 萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code> 合同</code>、<code>SPOT</code>等）之間劃轉。
+  universaltransferunderstanding_notice: 萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code>CONTRACT</code>、<code>SPOT</code>等）之間劃轉。
   enableuniversaltransfer_notice: 你需要通過這個接口來設置可互相劃轉的子賬號。如果不設置，這些賬戶之間不能互相劃轉
   universaltransfer_join_notice: 要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬</a> 接口。
 
@@ -3286,7 +3289,9 @@ zh-cn:
   row_comment_from_memberId: 劃出的賬號uid
   row_comment_to_memberId: 劃入的賬號uid
   row_comment_from_accountType: 劃出賬戶類型，目前只支持："SPOT"、"CONTRACT"
+  transferCoinList_fromAccountType: 劃出賬戶類型. 劃入劃出帳戶類型必須不一樣
   row_comment_to_accountType: 劃入賬戶類型，目前只支持："SPOT"、"CONTRACT"
+  transferCoinList_toAccountType: 劃入賬戶類型. 劃入劃出帳戶類型必須不一樣
   getSubmemberIdList: 查詢子賬戶列表
   queryUniverseTransferList: 查詢萬能劃轉記錄
   row_comment_sub_user_id_list: 所有子賬號列表
@@ -3485,6 +3490,8 @@ zh-cn:
   time: 時間戳，到毫秒
   cursor: 透傳數據
   usdcBaseCoin: 標的幣種
+  usdcBaseCoin_new: 資產幣種. 返回所有對應資產幣種的結果. 若不傳, 則默認返回BTC的結果
+  usdcBaseCoin_cancel: 資產幣種. 撤銷所有資產幣種相關的訂單. 若不傳, 則默認撤銷所有BTC相關的訂單
 
   usdcQuoteCoin: 結算幣種
   usdcSettleCoin: 結算貨幣
@@ -3769,8 +3776,9 @@ zh-cn:
   totalTheta: 總theta
   usdcIm: 初始保證金
   usdcMm: 維持保證金
-  sessionUpl: 未實現損益
-  sessionRpl: 已實現損益
+  sessionUpl: 未實現損益. 返回空字符串<code>""</code>
+  sessionRpl: 已實現損益. 返回空字符串<code>""</code>
+  usdcOption_reminder: 鑒於接口很多返回值類型是String，因此請特別注意如需要轉number使用，請判斷非空。若查詢字段結果為空或者不存在，則返回空字符串。
 
   usdcMarginMode: 保證金模式 <a href="#margin-mode-marginmode">Margin Mode</a>
   usdcInfo: info是組合保證金模式下的強平資產組合symbols信息
@@ -4762,3 +4770,5 @@ zh-cn:
   accountCoinBalance_para: |
     支持查詢母帳戶的幣種餘額，以及母帳戶下各子帳戶的幣種餘額。<br>
     <b>注</b>：不支持使用子帳戶apikey查詢母帳戶的幣種餘額
+  usdc_isBlockTrade: 是否為大宗交易
+  usdc_side: taker的买卖方向

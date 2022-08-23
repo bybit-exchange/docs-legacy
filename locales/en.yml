@@ -140,7 +140,7 @@ en:
   row_comment_created_at_position: The account creation time
   row_comment_created_at_in_exchange: Exchange time
   row_comment_updated_at: Update time
-  row_comment_updated_id: Update id
+  row_comment_updated_id: Update id. Please override your local orderbook when you receive "u"=1
   row_comment_margin_result: User margin
   row_comment_activeOrderType: Active order type
   row_comment_stopOrderType: Conditional order type
@@ -1094,6 +1094,7 @@ en:
     <p>Order price: If it is a conditional order, this parameter is required. When there is no position, the price should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument.</b></p>
+    <p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
 
 
   account_para_placeActive_v3: |
@@ -1128,7 +1129,7 @@ en:
   account_para_getActive_v3: |
     <p><p><b>Interface:</b></p>
     <p>Access my open order list.</p>
-    <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real-time, call the interface enquiring information on open orders in real-time.</p></p>
+    <p>As order creation/cancellation is asynchronous, the data returned from the interface may be delayed. To access order information in real-time, call the <a href="#t-dv_queryorderrealtime">interface</a> enquiring information on open orders in real-time.</p></p>
 
   usdcBatchOrdersDescV3: |
     <p><p><b>instruction: </b></p>
@@ -2956,6 +2957,7 @@ en:
     <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>price_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
+    <p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   linear_row_comment_stopPx: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure stop_px > max(market price, base_price) else, stop_px < min(market price, base_price)
 
@@ -3487,6 +3489,7 @@ en:
   spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is an asynchronous settlement API)
   spotNormalCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
   spotTradesHistoryTips: If <code>startTime</code> is not specified, you can only query for records in the last 7 days. If you want to query for records older than 7 days, <code>startTime</code> is required.
+  spotTradesHisotryTips_order: The records is sorted by <code>ticketId</code> in descend.
   spotOrdersHistoryTips: If <code>startTime</code> is not specified, you can only query the recent orders records in reverse order by time.
   #spot_ws_v1
   spot_price: Price
@@ -3720,7 +3723,9 @@ en:
   row_comment_from_memberId: From UID
   row_comment_to_memberId: To UID
   row_comment_from_accountType: From account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code>
+  transferCoinList_fromAccountType: From account type. Ensure from/to are different account type
   row_comment_to_accountType: To account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code>
+  transferCoinList_toAccountType: To account type. Ensure from/to are different account type
   getSubmemberIdList: Get Submember Id List
   queryUniverseTransferList: Query Universal Transfer List
   row_comment_sub_user_id_list: List of all subaccounts
@@ -3928,6 +3933,8 @@ en:
   cursor: API pass-through
   usdcBaseCoin: Base currency
   usdcAccountInfo: Wallet Info
+  usdcBaseCoin_new: Base coin. Returns all records with base coin. If not passed, it returns records with BTC in default
+  usdcBaseCoin_cancel: Base coin. Cancel all base coin related orders. If not passed, it'll cancel all BTC related orders
 
   usdcQuoteCoin: Quote currency
   usdcSettleCoin: Settle Coin
@@ -4211,9 +4218,9 @@ en:
   totalTheta: Total theta
   usdcIm: Initial margin
   usdcMm: Maintenance margin
-  sessionUpl: Session UPL
-  sessionRpl: Session RPL
-
+  sessionUpl: Session UPL. Return null string <code>""</code>
+  sessionRpl: Session RPL. Return null string <code>""</code>
+  usdcOption_reminder: Please note that many numbers are returned as strings, and null values could be returned as <code>""</code>. You should check if the value is <code>""</code> before casting it from a string to a float.
   usdcMarginMode: Margin mode <a href="#margin-mode-marginmode">Margin Mode</a>
   usdcInfo: Symbol info of liquidated assets under Portfolio Margin
 
@@ -5238,3 +5245,5 @@ en:
   accountCoinBalance_para: |
     You could get coin balance under the master account, and those sub account coin balance of master account.<br>
     <b>Notice</b>: It's not allowed to get master account coin balance via sub account api key.
+  usdc_isBlockTrade: Is block trade
+  usdc_side: Buy or Sell of taker
