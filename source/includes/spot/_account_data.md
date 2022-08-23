@@ -769,6 +769,10 @@ print(session_auth.user_trade_records(
 <aside class="notice">
 t(:spotTradesHistoryTips)
 </aside>
+
+<aside class="notice">
+t(:spotTradesHisotryTips_order)
+</aside>
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=svMyTrades>/spot/v1/myTrades</span></code>

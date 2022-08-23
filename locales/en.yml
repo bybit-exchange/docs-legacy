@@ -140,7 +140,7 @@ en:
   row_comment_created_at_position: The account creation time
   row_comment_created_at_in_exchange: Exchange time
   row_comment_updated_at: Update time
-  row_comment_updated_id: Update id
+  row_comment_updated_id: Update id. Please override your local orderbook when you receive "u"=1
   row_comment_margin_result: User margin
   row_comment_activeOrderType: Active order type
   row_comment_stopOrderType: Conditional order type
@@ -3487,6 +3487,7 @@ en:
   spotFastCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.(It is an asynchronous settlement API)
   spotNormalCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
   spotTradesHistoryTips: If <code>startTime</code> is not specified, you can only query for records in the last 7 days. If you want to query for records older than 7 days, <code>startTime</code> is required.
+  spotTradesHisotryTips_order: The records is sorted by <code>ticketId</code> in descend.
   spotOrdersHistoryTips: If <code>startTime</code> is not specified, you can only query the recent orders records in reverse order by time.
   #spot_ws_v1
   spot_price: Price
@@ -4215,9 +4216,9 @@ en:
   totalTheta: Total theta
   usdcIm: Initial margin
   usdcMm: Maintenance margin
-  sessionUpl: Session UPL
-  sessionRpl: Session RPL
-
+  sessionUpl: Session UPL. Return null string <code>""</code>
+  sessionRpl: Session RPL. Return null string <code>""</code>
+  usdcOption_reminder: Please note that make an isEmpty operation before getting value since many respond fields are STRING type. If the value is null or not exist, it will return <code>""</code>
   usdcMarginMode: Margin mode <a href="#margin-mode-marginmode">Margin Mode</a>
   usdcInfo: Symbol info of liquidated assets under Portfolio Margin
 

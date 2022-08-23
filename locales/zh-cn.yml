@@ -109,7 +109,7 @@ zh-cn:
   row_comment_created_at: 創建時間
   row_comment_created_at_in_exchange: 兌換時間
   row_comment_updated_at: 更新時間
-  row_comment_updated_id: 更新id
+  row_comment_updated_id: 更新id. 當收到"u"=1時，则該推送為全量數據，請覆蓋本地保存的orderbook
   row_comment_margin_result: 倉位保證金
   row_comment_order_type: 交易記錄類型
   row_comment_exec_type: 執行類型
@@ -3011,6 +3011,7 @@ zh-cn:
   spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個異步結算接口)
   spotNormalCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
   spotTradesHistoryTips: 如果不傳<code>startTime</code>，只能查詢最近7天的交易數據。如果要查詢一周之前的歷史交易數據，需要傳startTime
+  spotTradesHisotryTips_order: 返回的結果是以<code>ticketId</code>從大到小排序
   spotOrdersHistoryTips: 如果不傳<code>startTime</code>，只能查詢按時間倒序的下單數據。
   row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spotServerTime: 服務器時間
@@ -3773,8 +3774,9 @@ zh-cn:
   totalTheta: 總theta
   usdcIm: 初始保證金
   usdcMm: 維持保證金
-  sessionUpl: 未實現損益
-  sessionRpl: 已實現損益
+  sessionUpl: 未實現損益. 返回空字符串<code>""</code>
+  sessionRpl: 已實現損益. 返回空字符串<code>""</code>
+  usdcOption_reminder: 鑒於接口很多返回值類型是String，因此請特別注意如需要轉number使用，請判斷非空。若查詢字段結果為空或者不存在，則返回空字符串。
 
   usdcMarginMode: 保證金模式 <a href="#margin-mode-marginmode">Margin Mode</a>
   usdcInfo: info是組合保證金模式下的強平資產組合symbols信息
