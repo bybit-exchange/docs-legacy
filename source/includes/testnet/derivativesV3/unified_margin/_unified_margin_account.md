@@ -276,6 +276,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
+|baseCoin |false |string |t(:unified_baseCoin_param)   |
 |orderId |false |string |t(:row_comment_query_orderId_v3) |
 |orderLinkId |false |string |t(:row_comment_query_orderLinkId_v3) |
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
@@ -392,6 +393,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
+|baseCoin |false |string |t(:unified_baseCoin_param_2)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |orderStatus |false |string |t(:row_comment_orderStatus_v3)   |
@@ -914,6 +916,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
+|baseCoin |false |string |t(:unified_baseCoin_param_3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
@@ -1249,6 +1252,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
+|baseCoin |false |string |t(:unified_baseCoin_param_3)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |

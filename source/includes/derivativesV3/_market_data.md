@@ -371,6 +371,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_2) |
 |symbol |false |string |t(:row_comment_symbol) |
+|baseCoin |false |string |t(:unified_baseCoin_param) |
 |limit |false |string |t(:row_comment_limit_500_1000) |
 |cursor |false |string |t(:dv_cursor) |
 
@@ -693,6 +694,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |symbol |false |string |t(:row_comment_symbol) |
+|baseCoin |false |string |t(:unified_baseCoin_param) |
 |direction |false |string |t(:row_comment_direction_v3) |
 |limit|false |string |t(:row_comment_limit_50_200) |
 |cursor|false |string |t(:dv_cursor) |
@@ -754,6 +756,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_1) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
+|baseCoin |false |string |t(:unified_baseCoin_param) |
 |optionType |false |string |t(:dv_OptionType) |
 |limit |false |int |t(:row_comment_limit_500_1000)|
 
