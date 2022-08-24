@@ -576,8 +576,6 @@ ws.send('{"op":"subscribe","args":["user.position.unifiedAccount"]}');
 			"leverage": "10",
 			"positionMargin": "0.00000000",
 			"markPrice": "46475.00000000",
-			"sessionUPL": "0.00000000",
-			"sessionRPL": "",
 			"positionIM": "0.00000000",
 			"positionMM": "0.00000000",
 			"takeProfit": "",
@@ -615,8 +613,6 @@ t(:websocketpositionV3)
 |leverage |string |t(:row_comment_query_leverage_v3)  |
 |positionMargin |string |t(:row_comment_query_positionMargin_v3)  |
 |markPrice |string |t(:row_comment_query_markPrice_v3)  |
-|sessionUPL |string |t(:row_comment_query_sessionUPL_v3)  |
-|sessionRPL |string |t(:row_comment_query_sessionRPL_v3)  |
 |positionIM |string |t(:row_comment_query_positionIM_v3)  |
 |positionMM |string |t(:row_comment_query_positionMM_v3)  |
 |takeProfit |string |t(:row_comment_query_takeProfit_v3)  |

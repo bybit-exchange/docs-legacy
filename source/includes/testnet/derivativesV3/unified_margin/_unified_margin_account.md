@@ -931,8 +931,6 @@ GET
 |list> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
 |list> leverage |string |t(:row_comment_query_leverage_v3)  |
 |list> markPrice |string |t(:row_comment_query_markPrice_v3)  |
-|list> sessionUPL |string |t(:row_comment_query_sessionUPL_v3)  |
-|list> sessionRPL |string |t(:row_comment_query_sessionRPL_v3)  |
 |list> positionIM |string |t(:row_comment_query_positionIM_v3)  |
 |list> positionMM |string |t(:row_comment_query_positionMM_v3)  |
 |list > takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
@@ -1387,24 +1385,25 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 
 ```javascript
 {
-  "retCode": 0,
+    "retCode": 0,
     "retMsg": "Success",
     "result": {
-    "nextPageCursor": "2248%3A0%2C2248%3A0",
-      "category": "linear",
-      "list": [
-      {
-        "symbol": "BTCPERP",
-        "side": "Sell",
-        "markPrice": "19691.22000000",
-        "size": "-0.0100",
-        "sessionRpl": "-3.80370000",
-        "time": "1657699200000",
-        "sessionAvgPrice": "19691.22000000"
-      }
-    ]
-  },
-  "time": 1657716316682
+        "nextPageCursor": "110%3A0%2C110%3A0",
+        "category": "linear",
+        "list": [
+            {
+                "realisedPnl": "2.45000000",
+                "symbol": "BTCPERP",
+                "side": "None",
+                "markPrice": "24354.81000000",
+                "size": "",
+                "time": "1660233600000",
+                "sessionAvgPrice": "24354.81000000"
+            }
+        ]
+    },
+    "retExtInfo": null,
+    "time": 1661326904055
 }
 ```
 
@@ -1430,11 +1429,11 @@ POST
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
 |list> symbol |string |t(:row_comment_symbol_v3)   |
+|list> realisedPnl |string |t(:row_comment_realisedPnl_v3)   |
 |list> side |string |t(:row_comment_query_side_v3)  |
 |list> size |string |t(:row_comment_query_size_v3)  |
 |list> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
 |list> markPrice |string |t(:row_comment_query_markPrice_v3)  |
-|list> sessionRpl |string |t(:row_comment_query_sessionRPL_v3)  |
 |list> time |string |t(:settlementTime)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
