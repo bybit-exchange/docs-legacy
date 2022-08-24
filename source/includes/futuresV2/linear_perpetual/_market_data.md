@@ -2,7 +2,7 @@
 t(:market_para_auth)
 
 ### t(:orderbook)
-<a href="/docs/futuersV2/inverse#t-orderbook">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-orderbook">t(:shared_endpoint_desc)</a>
 
 ### t(:querykline)
 > t(:codequote_curlExample)
@@ -83,7 +83,7 @@ GET
 
 
 ### t(:latestsymbolinfo)
-<a href="/docs/futuersV2/inverse#t-latestsymbolinfo">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-latestsymbolinfo">t(:shared_endpoint_desc)</a>
 
 
 
@@ -160,10 +160,10 @@ GET
 
 
 ### t(:querysymbol)
-<a href="/docs/futuersV2/inverse#t-querysymbol">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-querysymbol">t(:shared_endpoint_desc)</a>
 
 ### t(:query_liqrecords)
-<a href="/docs/futuersV2/inverse#t-query_liqrecords">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-query_liqrecords">t(:shared_endpoint_desc)</a>
 
 ### t(:fundingrate)
 > t(:codequote_curlExample)
@@ -446,26 +446,26 @@ GET
 
 ## t(:advanceddata)
 ### t(:marketopeninterest)
-<a href="/docs/futuersV2/inverse#t-marketopeninterest">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-marketopeninterest">t(:shared_endpoint_desc)</a>
 ### t(:marketbigdeal)
-<a href="/docs/futuersV2/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
 ### t(:marketaccountratio)
-<a href="/docs/futuersV2/inverse#t-marketaccountratio">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-marketaccountratio">t(:shared_endpoint_desc)</a>
 
 
 
 <!--
 ## t(:advanceddata)
 ### t(:marketfundingrate)
-<a href="/docs/futuersV2/inverse#t-marketfundingrate">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-marketfundingrate">t(:shared_endpoint_desc)</a>
 ### t(:marketopeninterest)
-<a href="/docs/futuersV2/inverse#t-marketopeninterest">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-marketopeninterest">t(:shared_endpoint_desc)</a>
 ### t(:marketaccountratio)
-<a href="/docs/futuersV2/inverse#t-marketaccountratio">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-marketaccountratio">t(:shared_endpoint_desc)</a>
 ### t(:marketeliteratio)
-<a href="/docs/futuersV2/inverse#t-marketeliteratio">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-marketeliteratio">t(:shared_endpoint_desc)</a>
 ### t(:marketbigdeal)
-<a href="/docs/futuersV2/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
+<a href="/docs/futuresV2/inverse#t-marketbigdeal">t(:shared_endpoint_desc)</a>
 -->
 
 
