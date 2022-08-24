@@ -5094,6 +5094,7 @@ en:
     <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>priceFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
+    <p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
 
   # Contract Account >> Account
   contract_account: Account
