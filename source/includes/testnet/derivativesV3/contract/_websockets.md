@@ -731,27 +731,32 @@ ws.send('{"op":"subscribe","args":["user.order.contractAccount"]}');
     "topic": "user.order.contractAccount",
     "data": [
         {
-            "symbol": "BITUSDT",
-            "orderId": "ddbea432-2bd7-45dd-ab42-52d920b8136d",
+            "symbol": "BTCUSD",
+            "orderId": "ee013d82-fafc-4504-97b1-d92aca21eedd",
             "side": "Buy",
             "orderType": "Market",
             "stopOrderType": "UNKNOWN",
-            "price": "0.707",
-            "qty": "50",
+            "price": "21920.00",
+            "qty": "200",
             "timeInForce": "ImmediateOrCancel",
             "orderStatus": "Filled",
-            "triggerPrice": "0.000",
-            "orderLinkId": "b001",
-            "createdTime": "1659057535081",
-            "updatedTime": "1659057535085",
-            "takeProfit": "0.000",
-            "stopLoss": "0.000",
+            "triggerPrice": "0.00",
+            "orderLinkId": "inv001",
+            "createdTime": "1661338622771",
+            "updatedTime": "1661338622775",
+            "takeProfit": "0.00",
+            "stopLoss": "0.00",
             "tpTriggerBy": "UNKNOWN",
             "slTriggerBy": "UNKNOWN",
             "triggerBy": "UNKNOWN",
             "reduceOnly": false,
             "closeOnTrigger": false,
-            "triggerDirection": 0
+            "triggerDirection": 0,
+            "leavesQty": "0",
+            "lastExecQty": "200",
+            "lastExecPrice": "21282.00",
+            "cumExecQty": "200",
+            "cumExecValue": "0.00939761"
         }
     ]
 }
@@ -784,6 +789,11 @@ t(:contract_websocketOrder)
 |t(:contract_param_executionTriggerBy) |string |t(:row_comment_query_triggerBy_v3)  |
 |reduceOnly |bool |t(:row_comment_query_reduceOnly_v3)  |
 |closeOnTrigger |bool |t(:row_comment_query_closeOnTrigger_v3)  |
+|leavesQty |string |t(:leavesQty)  |
+|lastExecPrice |string |t(:lastExecPrice)  |
+|lastExecQty |string |t(:lastExecQty)  |
+|cumExecQty |string |t(:cumExecQty)  |
+|cumExecValue |string |t(:cumExecValue)  |
 
 
 ### t(:websocketwallet)
