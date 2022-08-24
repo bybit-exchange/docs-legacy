@@ -283,6 +283,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|baseCoin |false|string|t(:usdcBaseCoin_new)|
 |direction|false|string|t(:direction)|
 |limit|false|string|t(:usdcDeliveryLimit)|
 |cursor|false|string|t(:cursor)|
@@ -338,6 +339,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|baseCoin |false|string|t(:usdcBaseCoin_new)|
 |optionType|false|string|t(:usdcOptionType)|
 |limit|false|string|t(:usdcLimitMax500)|
 

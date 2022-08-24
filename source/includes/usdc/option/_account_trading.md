@@ -442,8 +442,8 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol|string|t(:usdcSymbol)|
-|baseCoin|string|t(:usdcBaseCoin_cancel)|
+|symbol|false|string|t(:usdcSymbol)|
+|baseCoin|false|string|t(:usdcBaseCoin_cancel)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -619,7 +619,7 @@ POST
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
-|baseCoin|string|t(:usdcBaseCoin_new)|
+|baseCoin |false|string|t(:usdcBaseCoin_new)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |direction|false|string|t(:direction)|
