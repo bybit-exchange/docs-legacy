@@ -2636,6 +2636,7 @@ zh-cn:
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
   restapi_update_200220809: 新增止盈止損訂單信息私有推送
   restapi_update_20220805: 更新保證金推送響應字段從<code>baseCoin</code>變為<code>settleCoin</code>
+  restapi_update_20220825: 新增<code>take_profit</code>和<code>stop_order</code>字段
   restapi_update_20220708: 添加註意，对於spot private topic，一個ip最多可以同時連接50個websockets連接，
   restapi_update_20220630: 新增返回參數 <code>page_token</code>。
   restapi_update_20220617: 新增LT 全量資產基礎信息查詢
@@ -3234,10 +3235,12 @@ zh-cn:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transfer_id</code>字段為<code>UUID</code>全局唯一。</p>
     <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p>
     <p>轉入和轉出賬戶類型不能相同。</p>
+    <p>升級到統一保證金帳戶後，僅支持從現貨帳戶轉帳USDT到統保帳戶。</p>
   transfer_api_v3_notice:
     <p>請註意該接口入參<code>請求</code>數據中的<code>transferId</code>字段為<code>UUID</code>全局唯一。</p>
     <p>請註意該接口支持<code>期貨賬戶</code>、<code>現貨賬戶</code>、<code>理財賬戶</code>。</p>
     <p>轉入和轉出賬戶類型不能相同。</p>
+    <p>升級到統一保證金帳戶後，僅支持從現貨帳戶轉帳USDT到統保帳戶。</p>
   universaltransferunderstanding_notice: 萬能轉賬使您可以在兩個子賬戶（而不是子 -> 主 -> 子）和任何<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>（<code>CONTRACT</code>、<code>SPOT</code>等）之間劃轉。
   enableuniversaltransfer_notice: 你需要通過這個接口來設置可互相劃轉的子賬號。如果不設置，這些賬戶之間不能互相劃轉
   universaltransfer_join_notice: 要發送<a href="#account-type-from_account_type-to_account_type">賬戶類型</a>和父子不可知的轉賬，請使用<a href="#t-createuniversaltransfer">創建萬能轉賬</a> 接口。

@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-08-25
+### WEBSOCKET API
+- [t(:websocketstoporder)](##t-websocketstoporder) [t(:changelog_update)]
+  - t(:restapi_update_20220825)
+
 ## 2022-04-29
 ### REST API
 - [t(:placeactive)](#t-placeactive) & [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]

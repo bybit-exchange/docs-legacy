@@ -3068,6 +3068,7 @@ en:
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
   restapi_update_200220809: Add private topic for TP/SL order
   restapi_update_20220805: Update insurance topic response filed from <code>baseCoin</code> to <code>settleCoin</code>
+  restapi_update_20220825: Add <code>take_profit</code> and <code>stop_order</code> fields
   restapi_update_20220718_2: Abandon response field <code>total_turnover</code>.
   restapi_update_20220718_1: Abandon response field <code>total_turnover_e8</code>.
   restapi_update_20220708: Add notice that an IP can connect to a maximum of 50 private spot websocket connections simultaneously
@@ -3673,11 +3674,13 @@ en:
   createinternaltransfer: Create Internal Transfer
   trigger_transfer: Transfers funds between the different sections of an individual's account (<i>not</i> between subaccounts). For example, between the spot and derivatives accounts.
   transfer_api_notice: |
-    Please note that this interface supports Futures Account, Spot Account, Investment Account.
-    The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.
+    <p>Please note that this interface supports Futures Account, Spot Account, Investment Account.
+    The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.</p>
+    <p>It's allowed to transfer USDT from <b>SPOT</b> ONLY after upgraded to Unified Margin Account.</p>
   transfer_api_v3_notice: |
-    Please note that this interface supports Contract Account, Spot Account, Investment Account.
-    The <code>transferIn</code> and <code>transferOut</code> account types cannot be the same.
+    <p>Please note that this interface supports Contract Account, Spot Account, Investment Account.
+    The <code>transferIn</code> and <code>transferOut</code> account types cannot be the same.</p>
+    <p>It's allowed to transfer USDT from <b>SPOT</b> ONLY after upgraded to Unified Margin Account.</p>
   universaltransferunderstanding_notice: A universal transfer enables you to transfer funds directly between two subaccounts (rather than sub -> master -> sub) and any <a href="#account-type-from_account_type-to_account_type">account type</a> (<code>CONTRACT</code>, <code>SPOT</code>, etc).
   enableuniversaltransfer_notice: Use this endpoint to enable subaccounts to take part in a universal transfer. It is a one-time switch which, once thrown, enables a subaccount permanently. If not set, your subaccounts cannot use universal tranfers.
   universaltransfer_join_notice: To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.
