@@ -154,7 +154,13 @@ t(:websocket_para_intervals)
 > t(:websocket_codequote_response)
 
 ```javascript
-{"success": true, "ret_msg": "", "conn_id": "fd79c21d-df3c-4439-aaab-c802bcb60e02", "req_id": "customize_00001", "op": "subscribe"}
+{
+  "success": true,
+  "ret_msg": "",
+  "conn_id": "fd79c21d-df3c-4439-aaab-c802bcb60e02",
+  "req_id": "customize_00001",
+  "op": "subscribe"
+}
 ```
 
 t(:websocket_para_response)
@@ -368,7 +374,7 @@ ws.send('{"op": "subscribe", "args": ["tickers.BTCUSDT"]}')
       "ask1Price":"22019.50",
       "ask1Size":"7.041"
   },
-  "cs":14236992274, 
+  "cs":14236992274,
     "ts":1658145103883091
 }
 

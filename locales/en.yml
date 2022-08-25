@@ -178,7 +178,7 @@ en:
   row_comment_category_v3: |
     Type of derivatives product: linear or option.
   row_comment_symbol_v3: Name of Contract
-  row_comment_realisedPnl_v3: The realisedPnl of this settlement
+  row_comment_realisedPnl_v3: The realised PNL of this settlement
   row_comment_positionIdx_v3: <p>Position idx, used to identify positions in different position modes. Required if you are under One-Way Mode:</p>
     <p>0-One-Way Mode</p>
     <p>1-Buy side of both side mode</p>
@@ -3069,8 +3069,8 @@ en:
   restapi_update_200220809: Add private topic for TP/SL order
   restapi_update_20220805: Update insurance topic response filed from <code>baseCoin</code> to <code>settleCoin</code>
   restapi_update_20220825: Add <code>take_profit</code> and <code>stop_order</code> fields
-  restapi_update_20220824_1: Remove <code>sessionRPL</code>和<code>sessionUPL</code> fields
-  restapi_update_20220824: Add <code>baseCoin</code> field，which is used to support multiple assets
+  restapi_update_20220824_1: Remove <code>sessionRPL</code> and <code>sessionUPL</code> fields
+  restapi_update_20220824: Add <code>baseCoin</code> field, which is used to support multiple assets
   restapi_update_20220718_2: Abandon response field <code>total_turnover</code>.
   restapi_update_20220718_1: Abandon response field <code>total_turnover_e8</code>.
   restapi_update_20220708: Add notice that an IP can connect to a maximum of 50 private spot websocket connections simultaneously
@@ -3678,11 +3678,11 @@ en:
   transfer_api_notice: |
     <p>Please note that this interface supports Futures Account, Spot Account, Investment Account.
     The <code>transfer_in</code> and <code>transfer_out</code> account types cannot be the same.</p>
-    <p>It's allowed to transfer USDT from <b>SPOT</b> ONLY after upgraded to Unified Margin Account.</p>
+    <p>You may transfer USDT from <b>SPOT</b> ONLY after upgraded to Unified Margin Account.</p>
   transfer_api_v3_notice: |
     <p>Please note that this interface supports Contract Account, Spot Account, Investment Account.
     The <code>transferIn</code> and <code>transferOut</code> account types cannot be the same.</p>
-    <p>It's allowed to transfer USDT from <b>SPOT</b> ONLY after upgraded to Unified Margin Account.</p>
+    <p>You may transfer USDT from <b>SPOT</b> ONLY after upgraded to Unified Margin Account.</p>
   universaltransferunderstanding_notice: A universal transfer enables you to transfer funds directly between two subaccounts (rather than sub -> master -> sub) and any <a href="#account-type-from_account_type-to_account_type">account type</a> (<code>CONTRACT</code>, <code>SPOT</code>, etc).
   enableuniversaltransfer_notice: Use this endpoint to enable subaccounts to take part in a universal transfer. It is a one-time switch which, once thrown, enables a subaccount permanently. If not set, your subaccounts cannot use universal tranfers.
   universaltransfer_join_notice: To send a transfer which is <a href="#account-type-from_account_type-to_account_type">account type</a> & parent/sub agnostic, use the <a href="#t-createuniversaltransfer">Create Universal Transfer</a> endpoint.
@@ -3939,7 +3939,7 @@ en:
   cursor: API pass-through
   usdcBaseCoin: Base currency
   usdcAccountInfo: Wallet Info
-  usdcBaseCoin_new: Base coin. Returns all records with base coin. If not passed, it returns records with BTC in default
+  usdcBaseCoin_new: Base coin. Returns all records with base coin. If not passed, it returns records with BTC by default
   usdcBaseCoin_cancel: Base coin. Cancel all base coin related orders. If not passed, it'll cancel all BTC related orders
 
   usdcQuoteCoin: Quote currency
@@ -4185,7 +4185,7 @@ en:
   orderStatus: <a href="#order-status-status">Order status</a>
   usdcOptionOrderStatus: <a href="#order-status-orderstatus">Order status</a>
   lastExecPrice: Filled price
-  lastExecQty: Last Filled qty
+  lastExecQty: Last filled qty
   basePrice: Market price during order placement
   row_comment_basePrice_v3: It will be used to compare with the value of <code>triggerPrice</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   perpBasePrice: |
@@ -5255,6 +5255,6 @@ en:
     <b>Notice</b>: It's not allowed to get master account coin balance via sub account api key.
   usdc_isBlockTrade: Is block trade
   usdc_side: Buy or Sell of taker
-  unified_baseCoin_param: Base coin. Only valid when <code>category</code>=option，if not passed, BTC in default
-  unified_baseCoin_param_2: Base coin. When <code>category</code>=option, if not passed, BTC in default; when <code>category</code>=linear, if <b>BTC</code> passed, BTCPERP & BTCUSDT returned
-  unified_baseCoin_param_3: Base coin. When <code>category</code>=option, if not passed, BTC in default
+  unified_baseCoin_param: Base coin. Only valid when <code>category</code>=option. If not passed, BTC by default.
+  unified_baseCoin_param_2: Base coin. When <code>category</code>=option. If not passed, BTC by default; when <code>category</code>=linear, if <b>BTC</code> passed, BTCPERP & BTCUSDT returned.
+  unified_baseCoin_param_3: Base coin. When <code>category</code>=option. If not passed, BTC by default.
