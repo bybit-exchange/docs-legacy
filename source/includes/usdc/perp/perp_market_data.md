@@ -663,15 +663,21 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-la
         "dataList": [
             {
                 "symbol": "BTCPERP",
-                "orderQty": "0.157",
-                "orderPrice": "22359.00",
-                "time": "1655189065841"
+                "side": "Sell",
+                "orderQty": "0.001",
+                "orderPrice": "21663.5000",
+                "time": "1661420870266",
+                "tradeId": "471b298b-a03a-5df4-ac9e-f4669bd8f0a3",
+                "isBlockTrade": false
             },
             {
                 "symbol": "BTCPERP",
-                "orderQty": "0.052",
-                "orderPrice": "22340.00",
-                "time": "1655189059840"
+                "side": "Sell",
+                "orderQty": "0.498",
+                "orderPrice": "21669.5000",
+                "time": "1661420856495",
+                "tradeId": "031a4d19-143e-54ad-b1f1-03f336e492f3",
+                "isBlockTrade": false
             }
         ]
     },
@@ -679,7 +685,6 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-la
     "retMsg": "Success."
 }
 ```
-t(:usdcLast500TradeDesc)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
@@ -691,11 +696,11 @@ GET
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcPerpCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|<a href="#base-coin-basecoin">baseCoin</a> |false|string|t(:usdcBaseCoin)|
 |limit|false|string|t(:usdcLimitMax500)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |resultTotalSize|number|t(:resultTotalSize)|
@@ -705,7 +710,9 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
+|side |string|t(:usdc_side)|
 |orderQty|string|t(:usdcOrderQty)|
 |orderPrice|string|t(:usdcOrderPrice)|
+|isBlockTrade|boolean|t(:usdc_isBlockTrade)|
 |time|string|t(:time)|
 
