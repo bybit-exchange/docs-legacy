@@ -1622,6 +1622,29 @@ zh-cn:
     </p>
     <p>所有private接口都需要認證，public 接口不需要認證.</p>
     </ul>
+  spot_websocket_para_endpoint_v3: |
+    Websocket服務器地址:
+        <ul>
+        <p>
+          <li>測試網:
+            <span id="testnet_address">公共Topics: wss://stream-testnet.bybit.com/spot/public/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+            <br/>
+            <span id="testnet_address_2">私有Topics: wss://stream-testnet.bybit.com/spot/ws</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          </li>
+        </p>
+        <p>
+          <li>主網(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
+            <span id="mainnet_address">公共Topics: wss://stream.bybit.com/spot/public/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+            <br/>
+            <span id="mainnet_address_2">私有Topics: wss://stream.bybit.com/spot/ws</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          </li>
+        </p>
+        <p>所有private接口都需要認證，public 接口不需要認證.</p>
+        </ul>
   websocket_aside_auth: <b>公共類</b>topics不需要進行驗證. 以下部分只適用於 <b>私有</b> 類接口.
   websocket_aside_push_trigger: 通常，只有在發生更改時才會推送 websocket 消息。 除非另有說明，否則您不會在訂閱後立即收到快照消息。 這意味著當訂閱您的 <code>position</code> 時，例如您的頭寸規模發生變化之前，您不會收到任何頭寸消息。
   websocket_para_methods: 驗證示例如右側代碼區所示
@@ -3125,6 +3148,9 @@ zh-cn:
 
   spot_websocket_orderbook_delta_v1: 訂單簿(增量深度)
   websocketLtNetvalue: lt
+  websocketrealtimes: 實時價格
+  websocketdepth: 深度
+  websocketBid1Ask1: 買一賣一
   spot_websocket_lt_nav_desc_v1: Leveraged Token 淨值推送。300ms推送一次，最大延迟400ms
   spot_websocket_orderbook_delta_desc_v1: |
     <p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿（单邊推送 200 個深度信息），接下來推送增量部分。</p>

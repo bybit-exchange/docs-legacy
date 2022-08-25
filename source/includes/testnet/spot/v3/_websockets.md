@@ -40,7 +40,7 @@ ws.send(
 t(:spot_websocket_endpoints_aside)
 </aside>
 
-t(:spot_websocket_para_endpoint)
+t(:spot_websocket_para_endpoint_v3)
 
 <aside class="notice">
 t(:websocket_aside_auth)
@@ -115,6 +115,33 @@ t(:spot_websocket_unsubscribe_desc)
 t(:spot_websocket_para_response)
 
 ## t(:publictopics)
+### t(:websocketdepth)
+> t(:codequote_subscribe)
+
+```javascript
+
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+
+```
+
+t(:spot_websocket_orderbook_desc_v1)
+
+t(:spot_public_websocket_frequency_300_delay_650)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:----- |----- |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+
+
 ### t(:websockettrade)
 > t(:codequote_subscribe)
 
@@ -137,38 +164,9 @@ t(:spot_websocket_trade_desc_v1)
 t(:spot_public_websocket_frequency_300_delay_400)
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | t(:row_parameter_symbol) | string | t(:spot_symbol) |
-
-
-
-### t(:websocketrealtimes)
-> t(:codequote_subscribe)
-
-```javascript
-
-```
-
-```python--pybit
-
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-
-```
-
-t(:spot_websocket_ticker_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_400)
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-
 
 
 ### t(:websocketkline)
@@ -197,8 +195,7 @@ t(:spot_public_websocket_frequency_300_delay_400)
 |:----- |:-----|----- |
 
 
-
-### t(:websocketdepth)
+### t(:websocketrealtimes)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -215,173 +212,16 @@ t(:spot_public_websocket_frequency_300_delay_400)
 
 ```
 
-t(:spot_websocket_orderbook_desc_v1)
+t(:spot_websocket_ticker_desc_v1)
 
-t(:spot_public_websocket_frequency_300_delay_650)
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:----- |----- |
-| t(:row_parameter_symbol) | string | t(:spot_symbol) |
-
-
-### t(:websocketmergeddepth)
-> t(:codequote_subscribe)
-
-```javascript
-
-```
-
-```python--pybit
-
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-
-```
-
-t(:spot_websocket_orderbook_merge_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_650)
+t(:spot_public_websocket_frequency_300_delay_400)
 
 <p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:----- |----- |
-
-
-### t(:websocketdiffdepth)
-> t(:codequote_subscribe)
-
-```javascript
-{
-    "topic": "diffDepth",
-    "event": "sub",
-    "symbol": "BTCUSDT",
-    "params": {
-        "binary": false
-    }
-}
-```
-
-```python--pybit
-
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-
-```
-
-t(:spot_websocket_orderbook_delta_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_650)
-
-<p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 
 
-
-### t(:websocketLtNetvalue)
-> t(:codequote_subscribe)
-
-```javascript
-{
-    "topic": "lt",
-    "symbol": "BTC3LUSDTNAV",
-    "event": "sub",
-    "params": {
-        "binary": false
-    }
-}
-```
-
-```python--pybit
-
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-
-```
-t(:spot_websocket_lt_nav_desc_v1)
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-
-
-
-## t(:publictopics_v2)
-### t(:websocketv2depth)
-> t(:codequote_subscribe)
-
-```javascript
-
-```
-
-```python--pybit
-
-```
-
-> t(:codequote_snapshot)
-
-```javascript
-
-```
-t(:spot_websocket_orderbook_desc_v2)
-
-t(:spot_public_websocket_frequency_100)
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-
-
-
-### t(:websocketv2kline)
-> t(:codequote_subscribe)
-
-```javascript
-{
-    "topic": "kline",
-    "event": "sub",
-    "params": {
-        "symbol": "BTCUSDT",
-        "klineType": "1m",
-        "binary": false
-    }
-}
-```
-
-```python--pybit
-
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-
-```
-t(:spot_websocket_kline_desc_v2)
-
-t(:spot_public_websocket_frequency_near_realtime)
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| topic | string | t(:spot_topic) |
-
-### t(:websocketv2trade)
+### t(:websocketBid1Ask1)
 > t(:codequote_subscribe)
 
 ```javascript
@@ -398,68 +238,13 @@ t(:spot_public_websocket_frequency_near_realtime)
 
 ```
 
-t(:spot_websocket_trade_desc_v2)
+t(:新建一個key作為給買1賣1這個推送的描述)
 
-t(:spot_public_websocket_frequency_near_realtime)
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-
-
-### t(:websocketv2bookticker)
-> t(:codequote_subscribe)
-
-```javascript
-
-```
-
-```python--pybit
-
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-
-```
-t(:spot_websocket_ticker_desc_v2)
-
-t(:spot_public_websocket_frequency_250_delay_300)
+t(:新建一個key作為買1賣1的頻率描述)
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-
-
-
-### t(:websocketv2realtimes)
-> t(:codequote_subscribe)
-
-```javascript
-
-```
-
-```python--pybit
-
-```
-
-> t(:codequote_responseExampleFormatAll)
-
-```javascript
-
-```
-t(:spot_websocket_symbol_ticker_desc_v2)
-
-t(:spot_public_websocket_frequency_near_realtime)
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-
 
 
 ## t(:privatetopics)
@@ -484,7 +269,6 @@ t(:outboundAccountInfo_desc)
 t(:spot_public_websocket_frequency_realtime)
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 
