@@ -1816,6 +1816,34 @@ en:
         </ul>
       </li>
     </ul>
+  spot_websocket_para_endpoint_v3: |
+    Base endpoints:
+        <ul>
+          <li>Testnet:
+            <ul>
+              <li>
+                Public Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/spot/public/v3</span>
+                <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+              </li>
+              <li>
+                Private Topics: <span id="testnet_address_3">wss://stream-testnet.bybit.com/spot/ws</span>
+                <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address_3"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+              </li>
+            </ul>
+          </li>
+          <li>Mainnet:
+            <ul>
+              <li>
+                Public Topics: <span id="mainnet_address">wss://stream.bybit.com/spot/public/v3</span>
+                <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+              </li>
+              <li>
+                Private Topics: <span id="mainnet_address_3">wss://stream.bybit.com/spot/ws</span>
+                <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address_3"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+              </li>
+            </ul>
+          </li>
+        </ul>
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
   websocket_aside_push_trigger: Typically, websocket messages will only be pushed when a change occurs. You won't receive a snapshot message immediately upon subscription unless otherwise stated. This means that when subscribing to your <code>position</code>, you won't receive any position messages until (for example) your position size changes.
   websocket_para_methods: Authentication examples are shown in the code block.
@@ -3568,6 +3596,7 @@ en:
 
   spot_broker_info: brokerinfo return
   websocketdepth: depth
+  websocketBid1Ask1: Ask1&Bid1
   spot_websocket_orderbook_desc_v1: |
     <p>This topic pushes order book data.</p>
     <ul>
