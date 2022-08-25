@@ -316,11 +316,14 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-la
         "resultTotalSize": 1,
         "dataList": [
             {
-                "symbol": "BTC-14JUN22-24500-C",
-                "orderQty": "0.300",
-                "orderPrice": "1540.00",
-                "time": "1655088048651"
-            }
+                "symbol": "BTC-30SEP22-28000-C",
+                "side": "Buy",
+                "orderQty": "0.050",
+                "orderPrice": "280.0000",
+                "time": "1661418665878",
+                "tradeId": "828706ba-6b80-5949-9a24-f4e428bf7aa0",
+                "isBlockTrade": false
+            },
         ]
     },
     "retCode": 0,
@@ -357,5 +360,6 @@ GET
 |orderPrice|string|t(:usdcOrderPrice)|
 |orderQty|string|t(:usdcOrderQty)|
 |time|string|t(:time)|
+|tradeId|string|t(:tradeId)|
 |isBlockTrade|boolean|t(:usdc_isBlockTrade)|
 
