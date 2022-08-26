@@ -15,12 +15,14 @@ curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/or
 --header 'Content-Type: application/json' \
 --data-raw '{
     "symbol": "BTCUSDT",
-    "orderQty":"0.05",
-    "side": "Sell",
+    "orderQty":"0.01",
+    "side": "Buy",
     "orderType": "LIMIT",
     "timeInForce": "GTC",
-    "orderPrice": "24500",
-    "orderLinkId": "spotA0008"
+    "orderPrice": "21300",
+    "orderLinkId": "spotx006",
+    "orderCategory": 1,
+    "triggerPrice": "21700"
 }'
 ```
 
@@ -34,30 +36,31 @@ curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/or
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "orderId": "1210808889719664384",
-        "orderLinkId": "spotA0009",
+        "orderId": "1230969397479298560",
+        "orderLinkId": "spotx006",
         "symbol": "BTCUSDT",
-        "createTime": "1659075667525",
-        "orderPrice": "24500",
-        "orderQty": "0.05",
+        "createTime": "1661478987332",
+        "orderPrice": "21300",
+        "orderQty": "0.01",
         "orderType": "LIMIT",
-        "side": "SELL",
-        "status": "NEW",
+        "side": "BUY",
+        "status": "ORDER_NEW",
         "timeInForce": "GTC",
-        "accountId": "533287",
-        "execQty": "0"
+        "accountId": "554118",
+        "orderCategory": 1,
+        "triggerPrice": "21700"
     },
     "retExtMap": {},
-    "retExtInfo": {},
-    "time": 1659075667539
+    "retExtInfo": null,
+    "time": 1661478987364
 }
 ```
 
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=svPostOrder>/spot/v3/private/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPostOrder"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=svPlaceOrder>/spot/v3/private/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPlaceOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 | t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)         |
@@ -69,6 +72,8 @@ POST
 | timeInForce          | false               | string          | t(:row_comment_timeInForce) |
 | orderPrice           | false               | string          | t(:spotPostOrderPrice)      |
 | orderLinkId          | false               | string          | t(:spotOrderLinkId)         |
+| orderCategory        | false               | int             | t(:spotv3_orderCategory)         |
+| triggerPrice         | false               | string          | t(:spotv3_triggerPrice)         |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -86,6 +91,8 @@ POST
 | timeInForce          | string          | t(:row_comment_timeInForce) |
 | accountId            | string          | t(:spotAccountId)           |
 | execQty              | string          | t(:spotExecQty)             |
+| orderCategory        | int             | t(:spotv3_orderCategory)    |
+| triggerPrice         | string          | t(:spotv3_triggerPrice)     |
 
 
 ### t(:getactive)

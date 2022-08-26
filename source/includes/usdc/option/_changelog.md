@@ -2,15 +2,23 @@
 
 ## 2022-08-24
 ### REST API
-- [t(:querySymbolInfo)](#t-querysymbolinfo) 
-- [t(:queryLatest500Trades)](#t-querylatest500trades) 
-- [t(:usdcCancelAll)](#t-usdccancelall) 
-- [t(:usdcQryUnOrPartFilled_new)](#t-usdcqryunorpartfilled_new) 
-- [t(:usdcQryUnOrPartFilled)](#t-usdcqryunorpartfilled) 
-- [t(:usdcQryOrderHistory)](#t-usdcqryorderhistory) 
-- [t(:usdcTradeHistory)](#t-usdctradehistory) 
-- [t(:transactionLog)](#t-transactionlog) 
-- [t(:queryPosition)](#t-queryposition)[t(:changelog_update)]
+- [t(:querySymbolInfo)](#t-querysymbolinfo) [t(:changelog_update)]
+  - t(:restapi_update_20220824)
+- [t(:queryLatest500Trades)](#t-querylatest500trades) [t(:changelog_update)]
+  - t(:restapi_update_20220824)
+- [t(:usdcCancelAll)](#t-usdccancelall) [t(:changelog_update)]
+  - t(:restapi_update_20220824)
+- [t(:usdcQryUnOrPartFilled_new)](#t-usdcqryunorpartfilled_new) [t(:changelog_update)]
+  - t(:restapi_update_20220824)
+- [t(:usdcQryUnOrPartFilled)](#t-usdcqryunorpartfilled) [t(:changelog_update)]
+  - t(:restapi_update_20220824)
+- [t(:usdcQryOrderHistory)](#t-usdcqryorderhistory) [t(:changelog_update)]
+  - t(:restapi_update_20220824)
+- [t(:usdcTradeHistory)](#t-usdctradehistory) [t(:changelog_update)]
+  - t(:restapi_update_20220824)
+- [t(:transactionLog)](#t-transactionlog) [t(:changelog_update)]
+  - t(:restapi_update_20220824)
+- [t(:queryPosition)](#t-queryposition) [t(:changelog_update)]
   - t(:restapi_update_20220824)
 
 ## 2022-08-05

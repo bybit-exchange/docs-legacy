@@ -85,15 +85,17 @@ ws.send('{"op":"ping"}');
 > t(:codequote_responseExample)
 
 ```javascript
+// pong response sample for usdt, usdc perp and inverse
 {
-    "success": true, // Whether ping is successful
+    "success": true,
     "ret_msg": "pong",
-    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700",// current connection id
-    "request": {
-        "op": "ping",
-        "args": null
-    }
+    "conn_id": "1a30f215-b7d2-4542-bac8-563a79963b35",
+    "req_id": "",
+    "op": "ping"
 }
+
+// pong response sample for usdc option
+{"args":["1661495699455"],"op":"pong"}
 ```
 
 
@@ -122,7 +124,9 @@ ws.send('{"op":"subscribe","args":["publicTrade.BTCUSDT"],"req_id": "customised_
 // Example: Subscribing to the trade data for BTCUSDT and XRPUSDT
 ws.send('{"op":"subscribe","args":["publicTrade.BTCUSDT", "publicTrade.XRPUSDT"],"req_id": "customised_id"}')
 ```
-
+<aside class="notice">
+t(:websocketfilters_notice)
+</aside>
 
 t(:websocket_para_filters)
 
@@ -173,7 +177,7 @@ t(:websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}')
 ```
 > t(:codequote_snapshot)
 
@@ -265,7 +269,7 @@ t(:websocketOrderBook_v3)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["publicTrade.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["publicTrade.BTCUSDT"]}')
 ```
 
 ```python--pybit
@@ -313,7 +317,7 @@ t(:websocket_para_trade_ud)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["tickers.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["tickers.BTCUSDT"]}')
 ```
 
 ```python--pybit
@@ -488,7 +492,7 @@ t(:websocket_aside_instrumentInfo_ud)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","args":["kline.1.BTCUSDT"]}')
+ws.send('{"op":"subscribe","req_id": "10110001", "args":["kline.1.BTCUSDT"]}')
 ```
 
 ```python--pybit

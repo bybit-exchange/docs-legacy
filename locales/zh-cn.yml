@@ -2279,7 +2279,7 @@ zh-cn:
   err_20070: 缺少參數<code>margin</code>
   err_20071: <code>margin</code>必須大於0
   err_20084: <code>order_id</code>和<code>order_link_id</code>必須二選一
-  err_30001: <code>order_link_id</code>重復
+  err_20094: <code>order_link_id</code>重復
   err_30003: <code>qty</code>太小
   err_30004: <code>qty</code>太大
   err_30005: <code>price</code>太大
@@ -2634,11 +2634,15 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_200220826: 新增字段<code>t</code> 成交Id
   restapi_update_200220809: 新增止盈止損訂單信息私有推送
+  restapi_update_20220805_2: 當<code>category</code>=linear，支持<code>baseCoin</code> 和 <code>settleCoin</code> 撤銷
+  restapi_update_20220805_1: 批量相關接口支持<code>linear</code>
   restapi_update_20220805: 更新保證金推送響應字段從<code>baseCoin</code>變為<code>settleCoin</code>
   restapi_update_20220824_1: 移除<code>sessionRPL</code>和<code>sessionUPL</code>字段
   restapi_update_20220824: 新增<code>baseCoin</code>字段，用於支持多資產查詢
-  restapi_update_20220825: 新增<code>take_profit</code>和<code>stop_order</code>字段
+  restapi_update_20220825: 新增<code>take_profit</code>和<code>stop_order</code>字段。<b>注</b>：當<code>stop_order_type</code>為<code>StopLoss</code>、<code>TakeProfit</code>、<code>TrailingStop</code>可忽略這兩個字段。
+  restapi_update_20220810: 新增 <code>orderCategory</code> 和 <code>triggerPrice</code>, 用於支持下止盈止損單。
   restapi_update_20220708: 添加註意，对於spot private topic，一個ip最多可以同時連接50個websockets連接，
   restapi_update_20220630: 新增返回參數 <code>page_token</code>。
   restapi_update_20220617: 新增LT 全量資產基礎信息查詢
@@ -2916,6 +2920,8 @@ zh-cn:
   spotTime: 撮合引擎中的創建時間
   spotExecutionTime: 訂單完成時間
   spotOrderLinkId: 特殊訂單ID，用戶自己生成
+  spotv3_orderCategory: 訂單類型. <code>0</code>是普通訂單; <code>1</code>是<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a>
+  spotv3_triggerPrice: 觸發價格
   spotTradeId: 交易ID
   spotIsWorking: 是否生效
   spotUpdateTime: 訂單上次更新的時間戳
@@ -4398,6 +4404,7 @@ zh-cn:
   interestBillStatement: 利息帳單
   queryLoanInterest: 查詢借貸利率
   websocketfilters_unified: Websocket訂閱方式 - 統保
+  websocketfilters_notice: <code>req_id</code> 對於<b>私有</b>訂閱以及<b>期權</b>的公共推送不起作用
   websocketunsubfilters_unified: Websocket取消訂閱方式 - 統保
   websocketOrderBookDepth: orderbook
   privatetopics_unified: 私有 Topics
@@ -4545,9 +4552,6 @@ zh-cn:
         USDT合約: <span id="usdt_mainnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
-        反向合約: <span id="inverse_mainnet_address">wss://stream.bybit.com/contract/inverse/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
         USDC合約: <span id="usdc_mainnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
@@ -4557,9 +4561,6 @@ zh-cn:
     <li><b>測試網</b>:<br/>
         USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
         USDC合約: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
@@ -4593,12 +4594,6 @@ zh-cn:
         <br/>
         反向合約: <span id="inverse_mainnet_address">wss://stream.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC合約: <span id="usdc_mainnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC期權: <span id="option_mainnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
     <li><b>測試網</b>:<br/>
         USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
@@ -4606,12 +4601,6 @@ zh-cn:
         <br/>
         反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC合約: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC期權: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
      </p>
     </ul>

@@ -85,15 +85,17 @@ ws.send('{"op":"ping"}');
 > t(:codequote_responseExample)
 
 ```javascript
+// pong response sample for usdt, usdc perp and inverse
 {
-    "success": true, // Whether ping is successful
+    "success": true,
     "ret_msg": "pong",
-    "conn_id": "036e5d21-804c-4447-a92d-b65a44d00700",// current connection id
-    "request": {
-        "op": "ping",
-        "args": null
-    }
+    "conn_id": "1a30f215-b7d2-4542-bac8-563a79963b35",
+    "req_id": "",
+    "op": "ping"
 }
+
+// pong response sample for usdc option
+{"args":["1661495699455"],"op":"pong"}
 ```
 
 
@@ -123,6 +125,9 @@ ws.send('{"op":"subscribe","args":["publicTrade.BTCUSDT"],"req_id": "customised_
 ws.send('{"op":"subscribe","args":["publicTrade.BTCUSDT", "publicTrade.XRPUSDT"],"req_id": "customised_id}')
 ```
 
+<aside class="notice">
+t(:websocketfilters_notice)
+</aside>
 
 t(:websocket_para_filters)
 
