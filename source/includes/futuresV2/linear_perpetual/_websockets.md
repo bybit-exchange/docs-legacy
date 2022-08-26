@@ -1076,7 +1076,9 @@ while True:
             "update_time": "2022-06-23T04:08:47.960950878Z",
             "reduce_only": true,
             "close_on_trigger": true,
-            "position_idx": "1"
+            "position_idx": "1",
+            "take_profit": 0.65,
+            "stop_loss": 0.25
         }
     ]
 }
@@ -1105,6 +1107,8 @@ while True:
 |reduce_only |bool |t(:row_comment_reduceOnly) |
 |close_on_trigger | bool |t(:row_comment_closeOnTrigger) |
 |position_idx |string |t(:row_comment_position_idx)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
 
 
 ### t(:websocketwallet)
