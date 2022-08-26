@@ -85,7 +85,7 @@ ws.send('{"op":"ping"}');
 > t(:codequote_responseExample)
 
 ```javascript
-// pong response sample for usdt, usdc perp and inverse
+// pong response sample for usdt perp and inverse
 {
     "success": true,
     "ret_msg": "pong",
@@ -93,9 +93,6 @@ ws.send('{"op":"ping"}');
     "req_id": "",
     "op": "ping"
 }
-
-// pong response sample for usdc option
-{"args":["1661495699455"],"op":"pong"}
 ```
 
 
