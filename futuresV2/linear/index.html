@@ -1813,7 +1813,7 @@
                     <a href="#20084" class="toc-h2 toc-link" data-title="20084">20084</a>
                   </li>
                   <li>
-                    <a href="#30001" class="toc-h2 toc-link" data-title="30001">30001</a>
+                    <a href="#20094" class="toc-h2 toc-link" data-title="20094">20094</a>
                   </li>
                   <li>
                     <a href="#30003" class="toc-h2 toc-link" data-title="30003">30003</a>
@@ -2523,7 +2523,7 @@ clipboard.on('error', function(e) {
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
 <h1 id='t-changelog'>Changelog</h1><h2 id='2022-08-25'>2022-08-25</h2><h3 id='websocket-api'>WEBSOCKET API</h3>
 <ul>
-<li><a href="##t-websocketstoporder">stop_order</a> [update]
+<li><a href="#t-websocketstoporder">stop_order</a> [update]
 
 <ul>
 <li>Add <code>take_profit</code> and <code>stop_order</code> fields</li>
@@ -10808,7 +10808,9 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
             <span class="dl">"</span><span class="s2">update_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-06-23T04:08:47.960950878Z</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">reduce_only</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">close_on_trigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">take_profit</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.65</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">stop_loss</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.25</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -10922,6 +10924,16 @@ This topic pushes all executions <i>except</i> <a href="#exec-type-exec_type"><c
 <td style="text-align: left">string</td>
 <td>Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
 </td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">string</td>
+<td>Take profit price</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">string</td>
+<td>Stop loss price</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketwallet'>wallet</h3>
@@ -11376,7 +11388,7 @@ ELSE
 <p><code>margin</code> must be greater than zero</p>
 <h2 id='20084'>20084</h2>
 <p><code>order_id</code> or <code>order_link_id</code> is required</p>
-<h2 id='30001'>30001</h2>
+<h2 id='20094'>20094</h2>
 <p><code>order_link_id</code> is not unique.</p>
 <h2 id='30003'>30003</h2>
 <p><code>qty</code> must be higher than the minimum allowed.</p>

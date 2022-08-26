@@ -787,6 +787,16 @@
           </li>
           <li>
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2022-08-10" class="toc-h2 toc-link" data-title="2022-08-10">2022-08-10</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#t-authentication" class="toc-h1 toc-link" data-title="鑒權/認證">鑒權/認證</a>
@@ -1278,7 +1288,15 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>中文社區和參考資料</h1><h5 id='t-intro_para'><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></h5><h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h1 id='t-authentication'>鑒權/認證</h1>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-08-10'>2022-08-10</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-placeactive">創建活動委托單</a> [更新]
+
+<ul>
+<li>新增 <code>orderCategory</code> 和 <code>triggerPrice</code>, 用於支持下止盈止損單。</li>
+</ul></li>
+</ul>
+<h1 id='t-authentication'>鑒權/認證</h1>
 <aside class="notice">
 請先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>測試網</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主網</b></a>API KEY。
 </aside>
@@ -2273,12 +2291,14 @@ curl --location --request GET &#39;https://api-testnet.bybit.com/spot/v3/public/
 --header 'Content-Type: application/json' \
 --data-raw '{
     "symbol": "BTCUSDT",
-    "orderQty":"0.05",
-    "side": "Sell",
+    "orderQty":"0.01",
+    "side": "Buy",
     "orderType": "LIMIT",
     "timeInForce": "GTC",
-    "orderPrice": "24500",
-    "orderLinkId": "spotA0008"
+    "orderPrice": "21300",
+    "orderLinkId": "spotx006",
+    "orderCategory": 1,
+    "triggerPrice": "21700"
 }'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
@@ -2288,29 +2308,30 @@ curl --location --request GET &#39;https://api-testnet.bybit.com/spot/v3/public/
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210808889719664384</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotA0009</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1230969397479298560</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotx006</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659075667525</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24500</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.05</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1661478987332</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21300</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">NEW</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ORDER_NEW</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">554118</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderCategory</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21700</span><span class="dl">"</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659075667539</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661478987364</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
-<code><span id=svPostOrder>/spot/v3/private/order</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPostOrder"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+<code><span id=svPlaceOrder>/spot/v3/private/order</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svPlaceOrder"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -2364,6 +2385,18 @@ curl --location --request GET &#39;https://api-testnet.bybit.com/spot/v3/public/
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>特殊訂單ID，用戶自己生成</td>
+</tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>訂單類型. <code>0</code>是普通訂單; <code>1</code>是<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a></td>
+</tr>
+<tr>
+<td style="text-align: left">triggerPrice</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>觸發價格</td>
 </tr>
 </tbody></table>
 
@@ -2435,6 +2468,16 @@ curl --location --request GET &#39;https://api-testnet.bybit.com/spot/v3/public/
 <td style="text-align: left">execQty</td>
 <td style="text-align: left">string</td>
 <td>請忽略</td>
+</tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">int</td>
+<td>訂單類型. <code>0</code>是普通訂單; <code>1</code>是<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a></td>
+</tr>
+<tr>
+<td style="text-align: left">triggerPrice</td>
+<td style="text-align: left">string</td>
+<td>觸發價格</td>
 </tr>
 </tbody></table>
 <h3 id='t-getactive'>查詢活動委托</h3>

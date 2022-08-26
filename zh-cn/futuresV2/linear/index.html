@@ -1813,7 +1813,7 @@
                     <a href="#20084" class="toc-h2 toc-link" data-title="20084">20084</a>
                   </li>
                   <li>
-                    <a href="#30001" class="toc-h2 toc-link" data-title="30001">30001</a>
+                    <a href="#20094" class="toc-h2 toc-link" data-title="20094">20094</a>
                   </li>
                   <li>
                     <a href="#30003" class="toc-h2 toc-link" data-title="30003">30003</a>
@@ -2523,10 +2523,10 @@ clipboard.on('error', function(e) {
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
 <h1 id='t-changelog'>更新日誌</h1><h2 id='2022-08-25'>2022-08-25</h2><h3 id='websocket-api'>WEBSOCKET API</h3>
 <ul>
-<li><a href="##t-websocketstoporder">條件單</a> [更新]
+<li><a href="#t-websocketstoporder">條件單</a> [更新]
 
 <ul>
-<li>新增<code>take_profit</code>和<code>stop_order</code>字段</li>
+<li>新增<code>take_profit</code>和<code>stop_order</code>字段。<b>注</b>：當<code>stop_order_type</code>為<code>StopLoss</code>、<code>TakeProfit</code>、<code>TrailingStop</code>可忽略這兩個字段。</li>
 </ul></li>
 </ul>
 <h2 id='2022-07-18'>2022-07-18</h2><h3 id='rest-api'>REST API</h3>
@@ -10748,7 +10748,9 @@ B用戶：
             <span class="dl">"</span><span class="s2">update_time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2022-06-23T04:08:47.960950878Z</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">reduce_only</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">close_on_trigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="dl">"</span><span class="s2">position_idx</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">take_profit</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.65</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">stop_loss</span><span class="dl">"</span><span class="p">:</span> <span class="mf">0.25</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -10861,6 +10863,16 @@ B用戶：
 <td style="text-align: left">position_idx</td>
 <td style="text-align: left">string</td>
 <td>Position idx, 用於在不同倉位模式下標識倉位：<br/>0-單向持倉 <br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">string</td>
+<td>止盈價格</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">string</td>
+<td>止損價格</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketwallet'>錢包</h3>
@@ -11309,7 +11321,7 @@ ELSE
 <p><code>margin</code>必須大於0</p>
 <h2 id='20084'>20084</h2>
 <p><code>order_id</code>和<code>order_link_id</code>必須二選一</p>
-<h2 id='30001'>30001</h2>
+<h2 id='20094'>20094</h2>
 <p><code>order_link_id</code>重復</p>
 <h2 id='30003'>30003</h2>
 <p><code>qty</code>太小</p>

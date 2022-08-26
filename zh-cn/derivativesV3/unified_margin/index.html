@@ -767,10 +767,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-08-24" class="toc-h2 toc-link" data-title="2022-08-24">2022-08-24</a>
+                    <a href="#2022-08-25" class="toc-h2 toc-link" data-title="2022-08-25">2022-08-25</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-08-24" class="toc-h2 toc-link" data-title="2022-08-24">2022-08-24</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -1449,23 +1457,77 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-08-24'>2022-08-24</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-08-25'>2022-08-25</h2><h3 id='rest-api'>REST API</h3>
 <ul>
-<li><a href="#t-dv_instrhead">查询衍生品交易规格</a> </li>
-<li><a href="#t-dv_optiondeliveryhead">查詢期權價格交割時間</a> </li>
-<li><a href="#t-dv_publictradingrecords">平臺交易歷史數據</a> </li>
-<li><a href="#t-dv_queryorderrealtime">實時查詢委托</a> </li>
-<li><a href="#t-dv_getorder">查詢訂單</a></li>
-<li><a href="#t-dv_myposition">獲取持倉（實時）</a></li>
-<li><a href="#t-dv_usertraderecords7day">查詢7日成交記錄</a></li>
-<li><a href="#t-dv_getorder">查詢訂單</a>[更新]
+<li><a href="#t-dv_batchplaceorder">批量創建訂單</a> [更新]
+
+<ul>
+<li>批量相關接口支持<code>linear</code></li>
+</ul></li>
+<li><a href="#t-dv_batchreplaceorders">批量修改訂單信息</a> [更新]
+
+<ul>
+<li>批量相關接口支持<code>linear</code></li>
+</ul></li>
+<li><a href="#t-dv_batchcancelorders">批量撤銷訂單</a> [更新]
+
+<ul>
+<li>批量相關接口支持<code>linear</code></li>
+</ul></li>
+<li><a href="#t-dv_cancelallorders">撤銷全部訂單</a> [更新]
+
+<ul>
+<li>當<code>category</code>=linear，支持<code>baseCoin</code> 和 <code>settleCoin</code> 撤銷</li>
+</ul></li>
+</ul>
+<h2 id='2022-08-24'>2022-08-24</h2><h3 id='rest-api-2'>REST API</h3>
+<ul>
+<li><a href="#t-dv_instrhead">查询衍生品交易规格</a> [更新]
 
 <ul>
 <li>新增<code>baseCoin</code>字段，用於支持多資產查詢</li>
 </ul></li>
-<li><a href="#t-dv_myposition">獲取持倉（實時）</a> </li>
-<li><a href="#t-dv_querysettlelogs">查詢結算記錄</a> </li>
-<li><a href="#t-websocketposition">持倉</a>[更新]
+<li><a href="#t-dv_optiondeliveryhead">查詢期權價格交割時間</a> [更新]
+
+<ul>
+<li>新增<code>baseCoin</code>字段，用於支持多資產查詢</li>
+</ul></li>
+<li><a href="#t-dv_publictradingrecords">平臺交易歷史數據</a> [更新]
+
+<ul>
+<li>新增<code>baseCoin</code>字段，用於支持多資產查詢</li>
+</ul></li>
+<li><a href="#t-dv_queryorderrealtime">實時查詢委托</a> [更新]
+
+<ul>
+<li>新增<code>baseCoin</code>字段，用於支持多資產查詢</li>
+</ul></li>
+<li><a href="#t-dv_getorder">查詢訂單</a> [更新]
+
+<ul>
+<li>新增<code>baseCoin</code>字段，用於支持多資產查詢</li>
+</ul></li>
+<li><a href="#t-dv_myposition">獲取持倉（實時）</a> [更新]
+
+<ul>
+<li>新增<code>baseCoin</code>字段，用於支持多資產查詢</li>
+</ul></li>
+<li><a href="#t-dv_usertraderecords7day">查詢7日成交記錄</a> [更新]
+
+<ul>
+<li>新增<code>baseCoin</code>字段，用於支持多資產查詢</li>
+</ul></li>
+<li><a href="#t-dv_myposition">獲取持倉（實時）</a> [更新]
+
+<ul>
+<li>移除<code>sessionRPL</code>和<code>sessionUPL</code>字段</li>
+</ul></li>
+<li><a href="#t-dv_querysettlelogs">查詢結算記錄</a> [更新]
+
+<ul>
+<li>移除<code>sessionRPL</code>和<code>sessionUPL</code>字段</li>
+</ul></li>
+<li><a href="#t-websocketposition">持倉</a> [更新]
 
 <ul>
 <li>移除<code>sessionRPL</code>和<code>sessionUPL</code>字段</li>
@@ -7712,9 +7774,6 @@ B用戶：
     USDT合約: <span id="usdt_mainnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_mainnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
-    反向合約: <span id="inverse_mainnet_address">wss://stream.bybit.com/contract/inverse/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
     USDC合約: <span id="usdc_mainnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_mainnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
@@ -7724,9 +7783,6 @@ B用戶：
 <li><b>測試網</b>:<br/>
     USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
     USDC合約: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
@@ -7773,15 +7829,17 @@ B用戶：
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Whether ping is successful</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// pong response sample for usdt, usdc perp and inverse</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">036e5d21-804c-4447-a92d-b65a44d00700</span><span class="dl">"</span><span class="p">,</span><span class="c1">// current connection id</span>
-    <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ping</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
-    <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1a30f215-b7d2-4542-bac8-563a79963b35</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ping</span><span class="dl">"</span>
 <span class="p">}</span>
+
+<span class="c1">// pong response sample for usdc option</span>
+<span class="p">{</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">1661495699455</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">}</span>
 </code></pre></div>
 <aside class="warning">
 由於網絡或者程序不穩定,我們強烈建議您使用 <code>ping</code> 心跳包來維持連接. 心跳包建議每<b>20</b>秒發送一次.
@@ -7804,6 +7862,10 @@ B用戶：
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSDT and XRPUSDT</span>
 <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSDT", "publicTrade.XRPUSDT"],"req_id": "customised_id}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
+<aside class="notice">
+<code>req_id</code> 對於<b>私有</b>訂閱以及<b>期權</b>的公共推送不起作用
+</aside>
+
 <p>建立連接後, 可以通過發送JSON請求來訂閱topic. 其中binary為false表示不進行壓縮傳輸，為true時表示以GZIP格式進行壓縮，請求格式如下:
 </p>
 

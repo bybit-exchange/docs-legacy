@@ -788,10 +788,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-08-24" class="toc-h2 toc-link" data-title="2022-08-24">2022-08-24</a>
+                    <a href="#2022-08-25" class="toc-h2 toc-link" data-title="2022-08-25">2022-08-25</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-08-24" class="toc-h2 toc-link" data-title="2022-08-24">2022-08-24</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -1470,23 +1478,77 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-08-24'>2022-08-24</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-08-25'>2022-08-25</h2><h3 id='rest-api'>REST API</h3>
 <ul>
-<li><a href="#t-dv_instrhead">Get Instrument Info</a> </li>
-<li><a href="#t-dv_optiondeliveryhead">Get Option Delivery Price</a> </li>
-<li><a href="#t-dv_publictradingrecords">Get Public Trading History</a> </li>
-<li><a href="#t-dv_queryorderrealtime">Get Open Orders</a> </li>
-<li><a href="#t-dv_getorder">Get Orders</a></li>
-<li><a href="#t-dv_myposition">Get Position (real-time)</a></li>
-<li><a href="#t-dv_usertraderecords7day">Get 7-day Trading History</a></li>
-<li><a href="#t-dv_getorder">Get Orders</a>[update]
+<li><a href="#t-dv_batchplaceorder">Batch Place Orders</a> [update]
+
+<ul>
+<li>Add <code>linear</code> support</li>
+</ul></li>
+<li><a href="#t-dv_batchreplaceorders">Batch Replace Orders</a> [update]
+
+<ul>
+<li>Add <code>linear</code> support</li>
+</ul></li>
+<li><a href="#t-dv_batchcancelorders">Batch Cancel Orders</a> [update]
+
+<ul>
+<li>Add <code>linear</code> support</li>
+</ul></li>
+<li><a href="#t-dv_cancelallorders">Cancel All Orders</a> [update]
+
+<ul>
+<li><code>baseCoin</code> and <code>settleCoin</code> is supported for when <code>category</code>=linear</li>
+</ul></li>
+</ul>
+<h2 id='2022-08-24'>2022-08-24</h2><h3 id='rest-api-2'>REST API</h3>
+<ul>
+<li><a href="#t-dv_instrhead">Get Instrument Info</a> [update]
 
 <ul>
 <li>Add <code>baseCoin</code> field, which is used to support multiple assets</li>
 </ul></li>
-<li><a href="#t-dv_myposition">Get Position (real-time)</a> </li>
-<li><a href="#t-dv_querysettlelogs">Get Settlement History (Perpetual)</a> </li>
-<li><a href="#t-websocketposition">position</a>[update]
+<li><a href="#t-dv_optiondeliveryhead">Get Option Delivery Price</a> [update]
+
+<ul>
+<li>Add <code>baseCoin</code> field, which is used to support multiple assets</li>
+</ul></li>
+<li><a href="#t-dv_publictradingrecords">Get Public Trading History</a> [update]
+
+<ul>
+<li>Add <code>baseCoin</code> field, which is used to support multiple assets</li>
+</ul></li>
+<li><a href="#t-dv_queryorderrealtime">Get Open Orders</a> [update]
+
+<ul>
+<li>Add <code>baseCoin</code> field, which is used to support multiple assets</li>
+</ul></li>
+<li><a href="#t-dv_getorder">Get Orders</a> [update]
+
+<ul>
+<li>Add <code>baseCoin</code> field, which is used to support multiple assets</li>
+</ul></li>
+<li><a href="#t-dv_myposition">Get Position (real-time)</a> [update]
+
+<ul>
+<li>Add <code>baseCoin</code> field, which is used to support multiple assets</li>
+</ul></li>
+<li><a href="#t-dv_usertraderecords7day">Get 7-day Trading History</a> [update]
+
+<ul>
+<li>Add <code>baseCoin</code> field, which is used to support multiple assets</li>
+</ul></li>
+<li><a href="#t-dv_myposition">Get Position (real-time)</a> [update]
+
+<ul>
+<li>Remove <code>sessionRPL</code> and <code>sessionUPL</code> fields</li>
+</ul></li>
+<li><a href="#t-dv_querysettlelogs">Get Settlement History (Perpetual)</a> [update]
+
+<ul>
+<li>Remove <code>sessionRPL</code> and <code>sessionUPL</code> fields</li>
+</ul></li>
+<li><a href="#t-websocketposition">position</a> [update]
 
 <ul>
 <li>Remove <code>sessionRPL</code> and <code>sessionUPL</code> fields</li>
@@ -7690,10 +7752,10 @@ Prior notice will be given via the website if we update this mechanism.
     <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div>
-<p><p>WebSocket public channel:</p>
+<p><p><b>WebSocket public channel</b>:</p>
 <ul>
 <p>
-<li>Mainnet:<br/>
+<li><b>Mainnet</b>:<br/>
     USDT contract: <span id="usdt_mainnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_mainnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
@@ -7703,7 +7765,7 @@ Prior notice will be given via the website if we update this mechanism.
     USDC Options: <span id="option_mainnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_mainnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
-<li>Testnet:<br/>
+<li><b>Testnet</b>:<br/>
     USDT contract: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
@@ -7715,14 +7777,14 @@ Prior notice will be given via the website if we update this mechanism.
 </li>
  </p>
 </ul>
-<p>WebSocket private channel:</p>
+<p><b>WebSocket private channel</b>:</p>
 <ul>
 <p>
-<li>Mainnet:<br/>
+<li><b>Mainnet</b>:<br/>
     Unified margin account: <span id="uma_mainnet_address">wss://stream.bybit.com/unified/private/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uma_mainnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
-<li>Testnet:<br/>
+<li><b>Testnet</b>:<br/>
     Unified margin account: <span id="uma_testnet_address">wss://stream-testnet.bybit.com/unified/private/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uma_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
@@ -7752,15 +7814,17 @@ Due to network complexity, your may get disconnected at any time. Please follow 
 <blockquote>
 <p>Response Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Whether ping is successful</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// pong response sample for usdt, usdc perp and inverse</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">036e5d21-804c-4447-a92d-b65a44d00700</span><span class="dl">"</span><span class="p">,</span><span class="c1">// current connection id</span>
-    <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ping</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span>
-    <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1a30f215-b7d2-4542-bac8-563a79963b35</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ping</span><span class="dl">"</span>
 <span class="p">}</span>
+
+<span class="c1">// pong response sample for usdc option</span>
+<span class="p">{</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="dl">"</span><span class="s2">1661495699455</span><span class="dl">"</span><span class="p">],</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">}</span>
 </code></pre></div>
 <aside class="warning">
 To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
@@ -7783,6 +7847,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSDT and XRPUSDT</span>
 <span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSDT", "publicTrade.XRPUSDT"],"req_id": "customised_id"}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
+<aside class="notice">
+<code>req_id</code> does not work for <b>private</b> channel and <b>option</b> public channel
+</aside>
+
 <p>After establishing the connection, one can subscribe to a new topic by sending a JSON request. The specific formats are as follows:
 </p>
 
@@ -7828,7 +7896,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Snapshot Response Example - format of the first response</p>
@@ -7949,7 +8017,7 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["publicTrade.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "req_id": "10110001", "args": ["publicTrade.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -8039,7 +8107,7 @@ Push frequency: <b>real-time</b><br><br>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "args": ["tickers.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "req_id": "10110001", "args": ["tickers.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -8419,7 +8487,7 @@ This topic will utilises the <code>snapshot</code> field and  <code>delta</code>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["kline.1.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","req_id": "10110001", "args":["kline.1.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
