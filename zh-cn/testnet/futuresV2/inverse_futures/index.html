@@ -788,6 +788,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2022-08-25" class="toc-h2 toc-link" data-title="2022-08-25">2022-08-25</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WEBSOCKET API">WEBSOCKET API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-04-29" class="toc-h2 toc-link" data-title="2022-04-29">2022-04-29</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -810,7 +818,7 @@
                             <a href="#2021-09-03" class="toc-h3 toc-link" data-title="2021-09-03">2021-09-03</a>
                               <ul class="toc-list-h4">
                                   <li>
-                                    <a href="#websocket-api" class="toc-h4 toc-link" data-title="WebSocket API">WebSocket API</a>
+                                    <a href="#websocket-api-2" class="toc-h4 toc-link" data-title="WebSocket API">WebSocket API</a>
                                   </li>
                               </ul>
                           </li>
@@ -909,7 +917,7 @@
                                     <a href="#rest-api-14" class="toc-h4 toc-link" data-title="REST API">REST API</a>
                                   </li>
                                   <li>
-                                    <a href="#websocket-api-2" class="toc-h4 toc-link" data-title="WebSocket API">WebSocket API</a>
+                                    <a href="#websocket-api-3" class="toc-h4 toc-link" data-title="WebSocket API">WebSocket API</a>
                                   </li>
                               </ul>
                           </li>
@@ -2269,7 +2277,15 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-04-29'>2022-04-29</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-08-25'>2022-08-25</h2><h3 id='websocket-api'>WEBSOCKET API</h3>
+<ul>
+<li><a href="##t-websocketstoporder">條件單</a> [更新]
+
+<ul>
+<li>新增<code>take_profit</code>和<code>stop_order</code>字段</li>
+</ul></li>
+</ul>
+<h2 id='2022-04-29'>2022-04-29</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-placeactive">創建活動委托單</a> &amp; <a href="#t-querysymbol">查詢合約信息</a> [更新]
 
@@ -2285,7 +2301,7 @@ clipboard.on('error', function(e) {
 <li>支持<code>coin</code>级别切换單倉模式和雙倉模式。</li>
 </ul></li>
 </ul>
-<h2 id='2021'>2021</h2><h3 id='2021-09-03'>2021-09-03</h3><h4 id='websocket-api'>WebSocket API</h4>
+<h2 id='2021'>2021</h2><h3 id='2021-09-03'>2021-09-03</h3><h4 id='websocket-api-2'>WebSocket API</h4>
 <ul>
 <li><a href="#t-websocketinstrumentinfo">行情</a> [更新]
 <ul>
@@ -2407,7 +2423,7 @@ clipboard.on('error', function(e) {
 <ul>
 <li>反向交割合約API發布</li>
 </ul>
-<h4 id='websocket-api-2'>WebSocket API</h4>
+<h4 id='websocket-api-3'>WebSocket API</h4>
 <ul>
 <li>websocket支持交割合約</li>
 </ul>
@@ -8970,7 +8986,9 @@ B用戶：
             <span class="dl">"</span><span class="s2">trigger_by</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LastPrice</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">trigger_price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8584.5</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">close_on_trigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-14T14:11:22.062Z</span><span class="dl">"</span>
+            <span class="dl">"</span><span class="s2">timestamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2020-01-14T14:11:22.062Z</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">take_profit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">stop_loss</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7500</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -9068,6 +9086,16 @@ B用戶：
 <td style="text-align: left">timestamp</td>
 <td style="text-align: left">string</td>
 <td>UTC 時間</td>
+</tr>
+<tr>
+<td style="text-align: left">take_profit</td>
+<td style="text-align: left">string</td>
+<td>止盈價格</td>
+</tr>
+<tr>
+<td style="text-align: left">stop_loss</td>
+<td style="text-align: left">string</td>
+<td>止損價格</td>
 </tr>
 </tbody></table>
 <h1 id='t-archivedata'>歸檔數據</h1><h3 id='t-historicalmarketdata'>歷史行情</h3>

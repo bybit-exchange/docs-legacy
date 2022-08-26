@@ -791,10 +791,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-05-12" class="toc-h2 toc-link" data-title="2022-05-12">2022-05-12</a>
+                    <a href="#2022-08-24" class="toc-h2 toc-link" data-title="2022-08-24">2022-08-24</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-05-12" class="toc-h2 toc-link" data-title="2022-05-12">2022-05-12</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -1078,6 +1086,9 @@
                   <li>
                     <a href="#tick-direction-tickdirection" class="toc-h2 toc-link" data-title="Tick Direction(tickDirection)">Tick Direction(<code>tickDirection</code>)</a>
                   </li>
+                  <li>
+                    <a href="#base-coin-basecoin" class="toc-h2 toc-link" data-title="Base Coin(baseCoin)">Base Coin(<code>baseCoin</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1283,7 +1294,19 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>中文社區和參考資料</h1><h5 id='t-intro_para'><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></h5><h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-05-12'>2022-05-12</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-08-24'>2022-08-24</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-querylatest500trades">最近500條成交記錄</a> </li>
+<li><a href="#t-usdcqryunorpartfilled">查詢未成交/部分成交訂單</a> </li>
+<li><a href="#t-usdcqryorderhistory">查詢單筆/全部訂單歷史</a> </li>
+<li><a href="#t-usdctradehistory">成交記錄</a> </li>
+<li><a href="#t-queryPposition">查詢持倉</a>[更新]
+
+<ul>
+<li>新增<code>baseCoin</code>字段，用於支持多資產查詢</li>
+</ul></li>
+</ul>
+<h2 id='2022-05-12'>2022-05-12</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-fundingrate">查詢上個周期的資金費率</a> &amp; <a href="#t-predictedfunding">查詢預測資金費率和資金費用</a> [新增]
 
@@ -2653,15 +2676,21 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
         <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.157</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22359.00</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1655189065841</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21663.5000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1661420870266</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">471b298b-a03a-5df4-ac9e-f4669bd8f0a3</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isBlockTrade</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
             <span class="p">},</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.052</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22340.00</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1655189059840</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.498</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21669.5000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1661420856495</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">031a4d19-143e-54ad-b1f1-03f336e492f3</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isBlockTrade</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
@@ -2669,8 +2698,6 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>響應內容默認為<b>吃單方買入</b>數據</p>
-
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
@@ -2698,6 +2725,12 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約名稱</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#base-coin-basecoin">baseCoin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>標的幣種</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
@@ -2746,6 +2779,11 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td>合約名稱</td>
 </tr>
 <tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>taker的买卖方向</td>
+</tr>
+<tr>
 <td style="text-align: left">orderQty</td>
 <td style="text-align: left">string</td>
 <td>訂單數量</td>
@@ -2754,6 +2792,11 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td style="text-align: left">orderPrice</td>
 <td style="text-align: left">string</td>
 <td>訂單價格</td>
+</tr>
+<tr>
+<td style="text-align: left">isBlockTrade</td>
+<td style="text-align: left">boolean</td>
+<td>是否為大宗交易</td>
 </tr>
 <tr>
 <td style="text-align: left">time</td>
@@ -3453,6 +3496,12 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td>合約名稱</td>
 </tr>
 <tr>
+<td style="text-align: left"><a href="#base-coin-basecoin">baseCoin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>標的幣種</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -3752,6 +3801,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約名稱</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#base-coin-basecoin">baseCoin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>標的幣種</td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -4054,6 +4109,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約名稱</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#base-coin-basecoin">baseCoin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>標的幣種</td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -4855,6 +4916,12 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約名稱</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#base-coin-basecoin">baseCoin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>標的幣種</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
@@ -7151,6 +7218,16 @@ DCP的開和關, 僅限機構類型用戶
 <li><code>ZeroPlusTick</code> 跟上一次持平，上一次跟上上一次是漲</li>
 <li><code>MinusTick</code> 跌</li>
 <li><code>ZeroMinusTick</code> 跟上一次持平，上一次跟上上一次是跌</li>
+</ul>
+<h2 id='base-coin-basecoin'>Base Coin(<code>baseCoin</code>)</h2>
+<ul>
+<li><code>BTC</code></li>
+<li><code>ETH</code></li>
+<li><code>GMT</code></li>
+<li><code>ADA</code></li>
+<li><code>AVAX</code></li>
+<li><code>SOL</code></li>
+<li><code>XRP</code></li>
 </ul>
 <h1 id='t-errors'>錯誤碼</h1>
 <p>Bybit使用以下HTTP Code和錯誤碼：</p>

@@ -764,6 +764,19 @@
               </ul>
           </li>
           <li>
+            <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2022-08-24" class="toc-h2 toc-link" data-title="2022-08-24">2022-08-24</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-faq" class="toc-h1 toc-link" data-title="FAQ">FAQ</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1436,6 +1449,28 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-08-24'>2022-08-24</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-dv_instrhead">Get Instrument Info</a> </li>
+<li><a href="#t-dv_optiondeliveryhead">Get Option Delivery Price</a> </li>
+<li><a href="#t-dv_publictradingrecords">Get Public Trading History</a> </li>
+<li><a href="#t-dv_queryorderrealtime">Get Open Orders</a> </li>
+<li><a href="#t-dv_getorder">Get Orders</a></li>
+<li><a href="#t-dv_myposition">Get Position (real-time)</a></li>
+<li><a href="#t-dv_usertraderecords7day">Get 7-day Trading History</a></li>
+<li><a href="#t-dv_getorder">Get Orders</a>[update]
+
+<ul>
+<li>Add <code>baseCoin</code> field, which is used to support multiple assets</li>
+</ul></li>
+<li><a href="#t-dv_myposition">Get Position (real-time)</a> </li>
+<li><a href="#t-dv_querysettlelogs">Get Settlement History (Perpetual)</a> </li>
+<li><a href="#t-websocketposition">position</a>[update]
+
+<ul>
+<li>Remove <code>sessionRPL</code> and <code>sessionUPL</code> fields</li>
+</ul></li>
+</ul>
 <h1 id='t-faq'>FAQ</h1><h2 id='t-faq_reduce_only'><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</h2>
 <p><ul>
 <li>To close your position, submit <a href="#t-placeactive">an order</a> and specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
@@ -2291,6 +2326,12 @@ The response is in the snapshot format.
 <td>Symbol</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. Only valid when <code>category</code>=option. If not passed, BTC by default.</td>
+</tr>
+<tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -2941,6 +2982,12 @@ The response is in the snapshot format.
 <td>Symbol</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. Only valid when <code>category</code>=option. If not passed, BTC by default.</td>
+</tr>
+<tr>
 <td style="text-align: left">direction</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -3054,6 +3101,12 @@ The response is in the snapshot format.
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. Only valid when <code>category</code>=option. If not passed, BTC by default.</td>
 </tr>
 <tr>
 <td style="text-align: left">optionType</td>
@@ -3815,6 +3868,12 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td>Name of Contract</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. Only valid when <code>category</code>=option. If not passed, BTC by default.</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -4083,6 +4142,12 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Name of Contract</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. When <code>category</code>=option. If not passed, BTC by default; when <code>category</code>=linear, if <b>BTC</code> passed, BTCPERP & BTCUSDT returned.</td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -4392,7 +4457,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -4490,7 +4555,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -4621,7 +4686,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -4681,7 +4746,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -4799,7 +4864,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -4841,7 +4906,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -4953,7 +5018,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -4998,7 +5063,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -5124,6 +5189,12 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td>Name of Contract</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. When <code>category</code>=option. If not passed, BTC by default.</td>
+</tr>
+<tr>
 <td style="text-align: left">direction</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -5207,16 +5278,6 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">list&gt; markPrice</td>
 <td style="text-align: left">string</td>
 <td>Mark price</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; sessionUPL</td>
-<td style="text-align: left">string</td>
-<td>Session UPL, for USDC only</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; sessionRPL</td>
-<td style="text-align: left">string</td>
-<td>Session RPL, for USDC only</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; positionIM</td>
@@ -5774,6 +5835,12 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td>Name of Contract</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. When <code>category</code>=option. If not passed, BTC by default.</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -6124,24 +6191,25 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2248%3A0%2C2248%3A0</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19691.22000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.0100</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionRpl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-3.80370000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1657699200000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19691.22000000</span><span class="dl">"</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1657716316682</span>
+        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">110%3A0%2C110%3A0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">realisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2.45000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">None</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24354.81000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1660233600000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24354.81000000</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661326904055</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p><b>Interface:</b></p>
@@ -6221,6 +6289,11 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td>Name of Contract</td>
 </tr>
 <tr>
+<td style="text-align: left">list&gt; realisedPnl</td>
+<td style="text-align: left">string</td>
+<td>The realised PNL of this settlement</td>
+</tr>
+<tr>
 <td style="text-align: left">list&gt; side</td>
 <td style="text-align: left">string</td>
 <td>Direction</td>
@@ -6239,11 +6312,6 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">list&gt; markPrice</td>
 <td style="text-align: left">string</td>
 <td>Mark price</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; sessionRpl</td>
-<td style="text-align: left">string</td>
-<td>Session RPL, for USDC only</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; time</td>
@@ -7719,24 +7787,24 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>How to subscribe with a filter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSDT"],"req_id": "customised_id"}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>How to subscribe with multiple filters</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSDT and XRPUSDT</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSDT", "publicTrade.XRPUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSDT", "publicTrade.XRPUSDT"],"req_id": "customised_id}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>After establishing the connection, one can subscribe to a new topic by sending a JSON request. The specific formats are as follows:
 </p>
 
-<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;]}&#39;);</code></p>
+<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;],&quot;req_id&quot;: &quot;customised_id&quot;}&#39;);</code></p>
 
 <p><p>The <code>topic</code> indicates the data you would like to receive whilst the <code>filter</code> parses for the specific data you desire - for example, the symbol. The <code>topic</code> is mandatory but the <code>filter</code> is optional.</p>
 <p>To subscribe to more than one topic, simply list multiple topics out, like so:</p>
 </p>
 
-<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;]}&#39;);</code></p>
+<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;],&quot;req_id&quot;: &quot;customised_id&quot;}&#39;);</code></p>
 
 <p><p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
 
@@ -7747,12 +7815,12 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>How to unsubscribe with a filter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Unsubscribing from the trade data for ETHUSDT</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["publicTrade.ETHUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["publicTrade.ETHUSDT"],"req_id": "customised_id"}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>You can dynamically subscribe and unsubscribe from topics (with or without filters) without websocket disconnection as follows:
 </p>
 
-<p><code>ws.send(&#39;{&quot;op&quot;: &quot;unsubscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;]}&#39;);</code></p>
+<p><code>ws.send(&#39;{&quot;op&quot;: &quot;unsubscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;],&quot;req_id&quot;: &quot;customised_id&quot;}&#39;);</code></p>
 <h3 id='t-intervals'>Intervals</h3>
 <p>Some topics are pushed at intervals. If the <code>args</code> contain a millisecond param, such as <code>100ms</code>, this topic is pushed at intervals. Otherwise, it is pushed constantly.</p>
 <h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
@@ -7760,15 +7828,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>Subscription Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-   <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Whether subscription is successful</span>
-   <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>   <span class="c1">// Successful subscription: "", otherwise it shows error message</span>
-   <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">e0e10eee-4eff-4d21-881e-a0c55c25e2da</span><span class="dl">"</span><span class="p">,</span><span class="c1">// current connection id</span>
-   <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>     <span class="c1">// Request to your subscription</span>
-       <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-           <span class="dl">"</span><span class="s2">kline.1.BTCUSDT</span><span class="dl">"</span>
-       <span class="p">]</span>
-   <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">fd79c21d-df3c-4439-aaab-c802bcb60e02</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">customize_00001</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Each subscription will have a response. You can determine whether the subscription is successful based on the response.</p>
@@ -8043,7 +8107,7 @@ Push frequency: <b>real-time</b><br><br>
       <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.50</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7.041</span><span class="dl">"</span>
   <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992274</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992274</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658145103883091</span>
 <span class="p">}</span>
 

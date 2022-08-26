@@ -2294,6 +2294,12 @@ function copyStringToClipboard (endpoint) {
 <td>合約類型</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>交易幣種. 目前僅<code>category</code>=option時有效，期權下若不傳該字段，則默認返回BTC</td>
+</tr>
+<tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -2941,6 +2947,12 @@ function copyStringToClipboard (endpoint) {
 <td>合約類型</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>交易幣種. 目前僅<code>category</code>=option時有效，期權下若不傳該字段，則默認返回BTC</td>
+</tr>
+<tr>
 <td style="text-align: left">direction</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -3054,6 +3066,12 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>交易幣種. 目前僅<code>category</code>=option時有效，期權下若不傳該字段，則默認返回BTC</td>
 </tr>
 <tr>
 <td style="text-align: left">optionType</td>
@@ -3289,6 +3307,7 @@ function copyStringToClipboard (endpoint) {
 <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
 <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSDT的活動單、280個ETHUSDT合約的活動單。</b></p>
 <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduceOnly</code> 或 <code>closeOnTrigger</code>的訂單。</b></p>
+<p><b><code>PostOnly</code>的最大下單量是普通訂單的5倍。</b></p>
 </p>
 
 <p class="fake_header">HTTP 請求</p>
@@ -6251,22 +6270,41 @@ B用戶：
     <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div>
-<p><p>WebSocket 公共頻道:</p>
+<p><p><b>WebSocket 公共頻道</b>:</p>
 <ul>
 <p>
-<li>測試網:<br/>
-    USDT合約: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+<li><b>主網</b>:<br/>
+    USDT合約: <span id="usdt_mainnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_mainnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    反向合約: <span id="inverse_mainnet_address">wss://stream.bybit.com/contract/inverse/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    USDC合約: <span id="usdc_mainnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_mainnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    USDC期權: <span id="option_mainnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_mainnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+</li>
+<li><b>測試網</b>:<br/>
+    USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
     反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    USDC合約: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    USDC期權: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
  </p>
 </ul>
-<p>WebSocket 私有頻道:</p>
+<p><b>WebSocket 私有頻道</b>:</p>
 <ul>
 <p>
-<li>測試網:<br/>
+<li><b>測試網</b>:<br/>
     合约帳戶: <span id="ca_testnet_address">wss://stream-testnet.bybit.com/contract/private/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ca_testnet_address"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
@@ -6319,23 +6357,23 @@ B用戶：
 <p>直接訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD"],"req_id": "customised_id"}}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>通過分隔符來訂閱多個topic</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSD and XRPUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD", "publicTrade.XRPUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD", "publicTrade.XRPUSD"],"req_id": "customised_id"}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>建立連接後, 可以通過發送JSON請求來訂閱topic. 其中binary為false表示不進行壓縮傳輸，為true時表示以GZIP格式進行壓縮，請求格式如下:
 </p>
 
-<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;]}&#39;);</code></p>
+<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;],&quot;req_id&quot;: &quot;customised_id&quot;}&#39;);</code></p>
 
 <p><p>您也可以同時訂閱多個感興趣的topic，訂閱方式如下</p>
 </p>
 
-<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;]}&#39;);</code></p>
+<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;],&quot;req_id&quot;: &quot;customised_id&quot;}&#39;);</code></p>
 
 <p><p>您可以使用管道符號(<code>|</code>)來分割多個參數，前提是這些參數都是合法的, 具體用法見右側代碼欄</p>
 
@@ -6346,12 +6384,12 @@ B用戶：
 <p>取消訂閱</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Unsubscribing from the trade data for ETHUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["publicTrade.ETHUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["publicTrade.ETHUSD"],"req_id": "customised_id"}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>您可以在不斷開連接的前提下動態調整您要訂閱的信息，取消訂閱方式如下:
 </p>
 
-<p><code>ws.send(&#39;{&quot;op&quot;: &quot;unsubscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;]}&#39;);</code></p>
+<p><code>ws.send(&#39;{&quot;op&quot;: &quot;unsubscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;],&quot;req_id&quot;: &quot;customised_id&quot;}&#39;);</code></p>
 <h3 id='t-intervals'>推送周期</h3>
 <p>如果topic名中包含一個<code>推送周期</code>，如<code>100ms</code>, 那麽表明這個topic是每隔<code>100ms</code>推送一次.否則, 這個topic<code>只要有消息就會推送</code>.</p>
 <h2 id='t-websocketresponse'>訂閱結果</h2>
@@ -6359,15 +6397,11 @@ B用戶：
 <p>訂閱推送</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-   <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Whether subscription is successful</span>
-   <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>   <span class="c1">// Successful subscription: "", otherwise it shows error message</span>
-   <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">e0e10eee-4eff-4d21-881e-a0c55c25e2da</span><span class="dl">"</span><span class="p">,</span><span class="c1">// current connection id</span>
-   <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>     <span class="c1">// Request to your subscription</span>
-       <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-           <span class="dl">"</span><span class="s2">kline.1.BTCUSD</span><span class="dl">"</span>
-       <span class="p">]</span>
-   <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">fd79c21d-df3c-4439-aaab-c802bcb60e02</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">customize_00001</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>每個topic訂閱請求都會有對應的響應，您可以根據返回結果判斷是否訂閱成功。</p>
@@ -7442,27 +7476,32 @@ B用戶：
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user.order.contractAccount</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BITUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ddbea432-2bd7-45dd-ab42-52d920b8136d</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ee013d82-fafc-4504-97b1-d92aca21eedd</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.707</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">50</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21920.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ImmediateOrCancel</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">b001</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659057535081</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659057535085</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">inv001</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1661338622771</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1661338622775</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">lastExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">lastExecPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21282.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00939761</span><span class="dl">"</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -7587,6 +7626,31 @@ B用戶：
 <td style="text-align: left">closeOnTrigger</td>
 <td style="text-align: left">bool</td>
 <td>是否平倉委托 true-平倉 false-開倉</td>
+</tr>
+<tr>
+<td style="text-align: left">leavesQty</td>
+<td style="text-align: left">string</td>
+<td>剩餘委託數量</td>
+</tr>
+<tr>
+<td style="text-align: left">lastExecPrice</td>
+<td style="text-align: left">string</td>
+<td>最近一次成交價</td>
+</tr>
+<tr>
+<td style="text-align: left">lastExecQty</td>
+<td style="text-align: left">string</td>
+<td>最近一次成交數量</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecQty</td>
+<td style="text-align: left">string</td>
+<td>累計成交數量</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>累計成交價值</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketwallet'>錢包</h3>

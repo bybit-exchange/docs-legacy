@@ -2298,6 +2298,12 @@ The response is in the snapshot format.
 <td>Symbol</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. Only valid when <code>category</code>=option. If not passed, BTC by default.</td>
+</tr>
+<tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -2948,6 +2954,12 @@ The response is in the snapshot format.
 <td>Symbol</td>
 </tr>
 <tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. Only valid when <code>category</code>=option. If not passed, BTC by default.</td>
+</tr>
+<tr>
 <td style="text-align: left">direction</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -3061,6 +3073,12 @@ The response is in the snapshot format.
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. Only valid when <code>category</code>=option. If not passed, BTC by default.</td>
 </tr>
 <tr>
 <td style="text-align: left">optionType</td>
@@ -3295,6 +3313,7 @@ The response is in the snapshot format.
 <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>priceFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
 <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
 <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
+<p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
 </p>
 
 <p class="fake_header">HTTP Request</p>
@@ -6354,24 +6373,24 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>How to subscribe with a filter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD"],"req_id": "customised_id"}}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>How to subscribe with multiple filters</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSD and XRPUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD", "publicTrade.XRPUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","args":["publicTrade.BTCUSD", "publicTrade.XRPUSD"],"req_id": "customised_id"}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>After establishing the connection, one can subscribe to a new topic by sending a JSON request. The specific formats are as follows:
 </p>
 
-<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;]}&#39;);</code></p>
+<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;],&quot;req_id&quot;: &quot;customised_id&quot;}&#39;);</code></p>
 
 <p><p>The <code>topic</code> indicates the data you would like to receive whilst the <code>filter</code> parses for the specific data you desire - for example, the symbol. The <code>topic</code> is mandatory but the <code>filter</code> is optional.</p>
 <p>To subscribe to more than one topic, simply list multiple topics out, like so:</p>
 </p>
 
-<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;]}&#39;);</code></p>
+<p><code>ws.send(&#39;{&quot;op&quot;: &quot;subscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;],&quot;req_id&quot;: &quot;customised_id&quot;}&#39;);</code></p>
 
 <p><p>It is possible to use multiple filters for the same topic by splitting them with a pipe (<code>|</code>) - of course, these filters must all be applicable to the selected <code>topic</code>.</p>
 
@@ -6382,12 +6401,12 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>How to unsubscribe with a filter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Unsubscribing from the trade data for ETHUSD</span>
-<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["publicTrade.ETHUSD"]}</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"unsubscribe","args":["publicTrade.ETHUSD"],"req_id": "customised_id"}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <p>You can dynamically subscribe and unsubscribe from topics (with or without filters) without websocket disconnection as follows:
 </p>
 
-<p><code>ws.send(&#39;{&quot;op&quot;: &quot;unsubscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;]}&#39;);</code></p>
+<p><code>ws.send(&#39;{&quot;op&quot;: &quot;unsubscribe&quot;, &quot;args&quot;: [&quot;topic.filter&quot;, &quot;topic.filter&quot;],&quot;req_id&quot;: &quot;customised_id&quot;}&#39;);</code></p>
 <h3 id='t-intervals'>Intervals</h3>
 <p>Some topics are pushed at intervals. If the <code>args</code> contain a millisecond param, such as <code>100ms</code>, this topic is pushed at intervals. Otherwise, it is pushed constantly.</p>
 <h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
@@ -6395,15 +6414,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>Subscription Response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-   <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Whether subscription is successful</span>
-   <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>   <span class="c1">// Successful subscription: "", otherwise it shows error message</span>
-   <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">e0e10eee-4eff-4d21-881e-a0c55c25e2da</span><span class="dl">"</span><span class="p">,</span><span class="c1">// current connection id</span>
-   <span class="dl">"</span><span class="s2">request</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>     <span class="c1">// Request to your subscription</span>
-       <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
-       <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-           <span class="dl">"</span><span class="s2">kline.1.BTCUSD</span><span class="dl">"</span>
-       <span class="p">]</span>
-   <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">fd79c21d-df3c-4439-aaab-c802bcb60e02</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">customize_00001</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Each subscription will have a response. You can determine whether the subscription is successful based on the response.</p>
@@ -7482,27 +7497,32 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user.order.contractAccount</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BITUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ddbea432-2bd7-45dd-ab42-52d920b8136d</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ee013d82-fafc-4504-97b1-d92aca21eedd</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.707</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">50</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21920.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ImmediateOrCancel</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">b001</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659057535081</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659057535085</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">inv001</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1661338622771</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1661338622775</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">lastExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">lastExecPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21282.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00939761</span><span class="dl">"</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -7627,6 +7647,31 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td style="text-align: left">closeOnTrigger</td>
 <td style="text-align: left">bool</td>
 <td>Closed order? True – close order   false – open order</td>
+</tr>
+<tr>
+<td style="text-align: left">leavesQty</td>
+<td style="text-align: left">string</td>
+<td>Unfilled quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">lastExecPrice</td>
+<td style="text-align: left">string</td>
+<td>Filled price</td>
+</tr>
+<tr>
+<td style="text-align: left">lastExecQty</td>
+<td style="text-align: left">string</td>
+<td>Last filled qty</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecQty</td>
+<td style="text-align: left">string</td>
+<td>Total filled quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>Total order value of filled orders</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketwallet'>wallet</h3>
