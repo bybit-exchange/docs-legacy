@@ -123,6 +123,9 @@ ws.send('{"op":"subscribe","args":["publicTrade.BTCUSDT"],"req_id": "customised_
 ws.send('{"op":"subscribe","args":["publicTrade.BTCUSDT", "publicTrade.XRPUSDT"],"req_id": "customised_id}')
 ```
 
+<aside class="notice">
+t(:websocketfilters_notice)
+</aside>
 
 t(:websocket_para_filters)
 

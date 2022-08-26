@@ -173,7 +173,7 @@ t(:websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}')
 ```
 > t(:codequote_snapshot)
 
@@ -265,7 +265,7 @@ t(:websocketOrderBook_contract)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["publicTrade.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["publicTrade.BTCUSDT"]}')
 ```
 
 ```python--pybit
@@ -313,7 +313,7 @@ t(:websocket_para_trade_ud)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["tickers.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["tickers.BTCUSDT"]}')
 ```
 
 ```python--pybit
@@ -488,7 +488,7 @@ t(:websocket_aside_instrumentInfo_ud)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","args":["kline.1.BTCUSDT"]}')
+ws.send('{"op":"subscribe","req_id": "10110001", "args":["kline.1.BTCUSDT"]}')
 ```
 
 ```python--pybit
@@ -548,7 +548,7 @@ t(:websocket_aside_klineV2)
 
 
 ```javascript
-ws.send('{"op":"subscribe","args":["user.position.contractAccount"]}');
+ws.send('{"op":"subscribe","req_id": "10110001","args":["user.position.contractAccount"]}');
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -662,7 +662,7 @@ t(:contract_websocketPosition)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","args":["user.execution.contractAccount"]}');
+ws.send('{"op":"subscribe","req_id": "10110001","args":["user.execution.contractAccount"]}');
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -727,7 +727,7 @@ t(:contract_websocketExecution)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","args":["user.order.contractAccount"]}');
+ws.send('{"op":"subscribe","req_id": "10110001","args":["user.order.contractAccount"]}');
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -806,7 +806,7 @@ t(:contract_websocketOrder)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["user.wallet.contractAccount"]}')
+ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["user.wallet.contractAccount"]}')
 ```
 
 > t(:codequote_responseExampleFormatAll)
