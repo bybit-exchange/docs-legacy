@@ -1147,7 +1147,9 @@ while True:
             "trigger_by": "LastPrice",
             "trigger_price": "8584.5",
             "close_on_trigger": false,
-            "timestamp": "2020-01-14T14:11:22.062Z"
+            "timestamp": "2020-01-14T14:11:22.062Z",
+            "take_profit": 10000,
+            "stop_loss": 7500
         }
     ]
 }
@@ -1173,6 +1175,8 @@ while True:
 |trigger_price | string | t(:stop_order_trigger_price)|
 |close_on_trigger | bool | t(:row_comment_closeOnTrigger)|
 |timestamp |string |t(:row_response_comment_time)  |
+|take_profit |string |t(:row_comment_take_profit)  |
+|stop_loss |string |t(:row_comment_stop_loss)  |
 
 
 ### t(:websocketwallet)

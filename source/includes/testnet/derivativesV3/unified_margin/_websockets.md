@@ -113,24 +113,24 @@ t(:websocket_para_limit)
 
 ```javascript
 // Subscribing to the trade data for BTCUSDT
-ws.send('{"op":"subscribe","args":["publicTrade.BTCUSDT"]}')
+ws.send('{"op":"subscribe","args":["publicTrade.BTCUSDT"],"req_id": "customised_id"}')
 ```
 
 > t(:websocket_codequote_filters2)
 
 ```javascript
 // Example: Subscribing to the trade data for BTCUSDT and XRPUSDT
-ws.send('{"op":"subscribe","args":["publicTrade.BTCUSDT", "publicTrade.XRPUSDT"]}')
+ws.send('{"op":"subscribe","args":["publicTrade.BTCUSDT", "publicTrade.XRPUSDT"],"req_id": "customised_id"}')
 ```
 
 
 t(:websocket_para_filters)
 
-`ws.send('{"op": "subscribe", "args": ["topic.filter"]}');`
+`ws.send('{"op": "subscribe", "args": ["topic.filter"],"req_id": "customised_id"}');`
 
 t(:websocket_para_filters1)
 
-`ws.send('{"op": "subscribe", "args": ["topic.filter", "topic.filter"]}');`
+`ws.send('{"op": "subscribe", "args": ["topic.filter", "topic.filter"],"req_id": "customised_id"}');`
 
 t(:websocket_para_filters3)
 t(:websocket_para_filter_resp)
@@ -140,12 +140,12 @@ t(:websocket_para_filter_resp)
 
 ```javascript
 // Unsubscribing from the trade data for ETHUSDT
-ws.send('{"op":"unsubscribe","args":["publicTrade.ETHUSDT"]}')
+ws.send('{"op":"unsubscribe","args":["publicTrade.ETHUSDT"],"req_id": "customised_id"}')
 ```
 
 t(:websocket_para_unsubfilters)
 
-`ws.send('{"op": "unsubscribe", "args": ["topic.filter", "topic.filter"]}');`
+`ws.send('{"op": "unsubscribe", "args": ["topic.filter", "topic.filter"],"req_id": "customised_id"}');`
 
 ### t(:intervals)
 t(:websocket_para_intervals)
@@ -155,15 +155,11 @@ t(:websocket_para_intervals)
 
 ```javascript
 {
-   "success": true, // Whether subscription is successful
-   "ret_msg": "",   // Successful subscription: "", otherwise it shows error message
-   "conn_id":"e0e10eee-4eff-4d21-881e-a0c55c25e2da",// current connection id
-   "request": {     // Request to your subscription
-       "op": "subscribe",
-       "args": [
-           "kline.1.BTCUSDT"
-       ]
-   }
+  "success": true,
+  "ret_msg": "",
+  "conn_id": "fd79c21d-df3c-4439-aaab-c802bcb60e02",
+  "req_id": "customize_00001",
+  "op": "subscribe"
 }
 ```
 
@@ -576,8 +572,6 @@ ws.send('{"op":"subscribe","args":["user.position.unifiedAccount"]}');
 			"leverage": "10",
 			"positionMargin": "0.00000000",
 			"markPrice": "46475.00000000",
-			"sessionUPL": "0.00000000",
-			"sessionRPL": "",
 			"positionIM": "0.00000000",
 			"positionMM": "0.00000000",
 			"takeProfit": "",
@@ -615,8 +609,6 @@ t(:websocketpositionV3)
 |leverage |string |t(:row_comment_query_leverage_v3)  |
 |positionMargin |string |t(:row_comment_query_positionMargin_v3)  |
 |markPrice |string |t(:row_comment_query_markPrice_v3)  |
-|sessionUPL |string |t(:row_comment_query_sessionUPL_v3)  |
-|sessionRPL |string |t(:row_comment_query_sessionRPL_v3)  |
 |positionIM |string |t(:row_comment_query_positionIM_v3)  |
 |positionMM |string |t(:row_comment_query_positionMM_v3)  |
 |takeProfit |string |t(:row_comment_query_takeProfit_v3)  |

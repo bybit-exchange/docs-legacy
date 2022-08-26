@@ -290,6 +290,7 @@ t(:usdcCommonDesc)
                 "size":"0.01",
                 "tradeTime":"1636510323144",
                 "side":"Buy",
+                "isBlockTrade": false,
                 "crossSeq":"118388"
             }
         ]
@@ -310,6 +311,7 @@ t(:usdc_current_24_total)
 | size |string |t(:row_comment_position_size) |
 | t(:row_parameter_price) |string |t(:row_comment_exec_price) |
 | tradeId |string | t(:tradeId) |
+| isBlockTrade |bool | t(:usdc_isBlockTrade) |
 | crossSeq |string | t(:usdcCrossSeq) |
 
 

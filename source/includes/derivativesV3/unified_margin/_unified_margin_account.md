@@ -276,6 +276,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
+|baseCoin |false |string |t(:unified_baseCoin_param)   |
 |orderId |false |string |t(:row_comment_query_orderId_v3) |
 |orderLinkId |false |string |t(:row_comment_query_orderLinkId_v3) |
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
@@ -392,6 +393,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
+|baseCoin |false |string |t(:unified_baseCoin_param_2)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |orderStatus |false |string |t(:row_comment_orderStatus_v3)   |
@@ -522,7 +524,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
 |request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
@@ -542,7 +544,7 @@ POST
 <p>result：</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
+|list> category |string |t(:dv_category)t(:dv_categorySuffix_4) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
@@ -635,7 +637,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
 |request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
@@ -649,7 +651,7 @@ POST
 <p>result：</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
+|list> category |string |t(:dv_category)t(:dv_categorySuffix_4) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
@@ -734,7 +736,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
 |request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> orderId |false |string |t(:row_comment_orderId_v3_post) |
@@ -745,7 +747,7 @@ POST
 <p>result：</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> category |string |t(:dv_category)t(:dv_categorySuffix_8) |
+|list> category |string |t(:dv_category)t(:dv_categorySuffix_4) |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
@@ -821,7 +823,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
 |baseCoin |false |string |t(:row_comment_cancelAll_baseCoin_v3)   |
 |settleCoin |false |string |t(:row_comment_settleCoin_v3) |
 |symbol |false |string |t(:row_comment_symbol_v3) |
@@ -831,7 +833,7 @@ POST
 <p>result：</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|category |string |t(:dv_category)t(:dv_categorySuffix_4)    |
 |list> symbol |string |t(:row_comment_symbol_v3) |
 |list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
@@ -914,6 +916,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
+|baseCoin |false |string |t(:unified_baseCoin_param_3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
@@ -931,8 +934,6 @@ GET
 |list> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
 |list> leverage |string |t(:row_comment_query_leverage_v3)  |
 |list> markPrice |string |t(:row_comment_query_markPrice_v3)  |
-|list> sessionUPL |string |t(:row_comment_query_sessionUPL_v3)  |
-|list> sessionRPL |string |t(:row_comment_query_sessionRPL_v3)  |
 |list> positionIM |string |t(:row_comment_query_positionIM_v3)  |
 |list> positionMM |string |t(:row_comment_query_positionMM_v3)  |
 |list > takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
@@ -1251,6 +1252,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
+|baseCoin |false |string |t(:unified_baseCoin_param_3)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
@@ -1387,24 +1389,25 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 
 ```javascript
 {
-  "retCode": 0,
+    "retCode": 0,
     "retMsg": "Success",
     "result": {
-    "nextPageCursor": "2248%3A0%2C2248%3A0",
-      "category": "linear",
-      "list": [
-      {
-        "symbol": "BTCPERP",
-        "side": "Sell",
-        "markPrice": "19691.22000000",
-        "size": "-0.0100",
-        "sessionRpl": "-3.80370000",
-        "time": "1657699200000",
-        "sessionAvgPrice": "19691.22000000"
-      }
-    ]
-  },
-  "time": 1657716316682
+        "nextPageCursor": "110%3A0%2C110%3A0",
+        "category": "linear",
+        "list": [
+            {
+                "realisedPnl": "2.45000000",
+                "symbol": "BTCPERP",
+                "side": "None",
+                "markPrice": "24354.81000000",
+                "size": "",
+                "time": "1660233600000",
+                "sessionAvgPrice": "24354.81000000"
+            }
+        ]
+    },
+    "retExtInfo": null,
+    "time": 1661326904055
 }
 ```
 
@@ -1430,11 +1433,11 @@ POST
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
 |list> symbol |string |t(:row_comment_symbol_v3)   |
+|list> realisedPnl |string |t(:row_comment_realisedPnl_v3)   |
 |list> side |string |t(:row_comment_query_side_v3)  |
 |list> size |string |t(:row_comment_query_size_v3)  |
 |list> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
 |list> markPrice |string |t(:row_comment_query_markPrice_v3)  |
-|list> sessionRpl |string |t(:row_comment_query_sessionRPL_v3)  |
 |list> time |string |t(:settlementTime)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 

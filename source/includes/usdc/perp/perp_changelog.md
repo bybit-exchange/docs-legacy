@@ -1,4 +1,14 @@
 # t(:changelog)
+
+## 2022-08-24
+### REST API
+- [t(:queryLatest500Trades)](#t-querylatest500trades) 
+- [t(:usdcQryUnOrPartFilled)](#t-usdcqryunorpartfilled) 
+- [t(:usdcQryOrderHistory)](#t-usdcqryorderhistory) 
+- [t(:usdcTradeHistory)](#t-usdctradehistory) 
+- [t(:queryPosition)](#t-queryPposition)[t(:changelog_update)]
+  - t(:restapi_update_20220824)
+
 ## 2022-05-12
 ### REST API
 - [t(:fundingrate)](#t-fundingrate) & [t(:predictedfunding)](#t-predictedfunding) [t(:changelog_new)]

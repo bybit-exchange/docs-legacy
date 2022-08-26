@@ -1,4 +1,18 @@
 # t(:changelog)
+
+## 2022-08-24
+### REST API
+- [t(:querySymbolInfo)](#t-querysymbolinfo) 
+- [t(:queryLatest500Trades)](#t-querylatest500trades) 
+- [t(:usdcCancelAll)](#t-usdccancelall) 
+- [t(:usdcQryUnOrPartFilled_new)](#t-usdcqryunorpartfilled_new) 
+- [t(:usdcQryUnOrPartFilled)](#t-usdcqryunorpartfilled) 
+- [t(:usdcQryOrderHistory)](#t-usdcqryorderhistory) 
+- [t(:usdcTradeHistory)](#t-usdctradehistory) 
+- [t(:transactionLog)](#t-transactionlog) 
+- [t(:queryPosition)](#t-queryposition)[t(:changelog_update)]
+  - t(:restapi_update_20220824)
+
 ## 2022-08-05
 ### WebSocket API
 - [t(:websocketinsurance)](#t-websocketinsurance) [t(:changelog_update)]

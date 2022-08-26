@@ -78,3 +78,8 @@ t(:usdcPriceRule)
 ## LastLiquidityInd (`LastLiquidityInd`)
 * `TAKER`
 * `MAKER`
+
+## Base Coin (`baseCoin`)
+* `BTC`
+* `ETH`
+* `SOL`

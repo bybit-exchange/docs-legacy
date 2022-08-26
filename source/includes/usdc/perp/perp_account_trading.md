@@ -381,6 +381,7 @@ POST
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcPerpCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|<a href="#base-coin-basecoin">baseCoin</a> |false|string|t(:usdcBaseCoin)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |orderFilter|false|string|t(:usdcOrderFilter)|
@@ -511,6 +512,7 @@ POST
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcPerpCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|<a href="#base-coin-basecoin">baseCoin</a> |false|string|t(:usdcBaseCoin)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
 |orderStatus|false|string|t(:orderStatus)|
@@ -626,6 +628,7 @@ POST
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcPerpCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|<a href="#base-coin-basecoin">baseCoin</a> |false|string|t(:usdcBaseCoin)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:usdcOrderLinkId)|
 |startTime|false|string|t(:usdcStartTime_ms)|
@@ -1069,6 +1072,7 @@ POST
 |:----- |:-------|:-----|----- |
 |category|<b>true</b>|string|t(:usdcPerpCategory)|
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
+|<a href="#base-coin-basecoin">baseCoin</a> |false|string|t(:usdcBaseCoin)|
 |cursor|false|string|t(:cursor)|
 |direction|false|string|t(:direction)|
 |limit|number|string|t(:usdcPositionLimit)|

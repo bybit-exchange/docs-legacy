@@ -83,3 +83,12 @@ t(:tick_direction)
 * `ZeroPlusTick` t(:zeroPlusTick)
 * `MinusTick` t(:minusTick)
 * `ZeroMinusTick` t(:zeroMinusTick)
+
+## Base Coin(`baseCoin`)
+* `BTC`
+* `ETH`
+* `GMT`
+* `ADA`
+* `AVAX`
+* `SOL`
+* `XRP`
