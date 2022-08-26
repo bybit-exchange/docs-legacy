@@ -1,4 +1,13 @@
-# t(:changelog)   
+# t(:changelog)
+
+## 2022-08-25
+### REST API
+- [t(:dv_batchPlaceOrder)](#t-dv_batchplaceorder)
+- [t(:dv_batchReplaceOrders)](#t-dv_batchreplaceorders)
+- [t(:dv_batchCancelOrders)](#t-dv_batchcancelorders)[t(:changelog_update)]
+  - t(:restapi_update_20220805_1)
+- [t(:dv_cancelAllOrders)](#t-dv_cancelallorders)[t(:changelog_update)]
+  - t(:restapi_update_20220805_2)
 
 ## 2022-08-24
 ### REST API
