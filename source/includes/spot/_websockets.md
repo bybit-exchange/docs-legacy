@@ -1245,42 +1245,41 @@ while True:
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-[
-  {
-    "e": "executionReport",      
-    "E": "1499405658658",            
-    "s": "ETHBTC",                 
-    "c": "1000087761",               
-    "S": "BUY",                    
-    "o": "LIMIT",                  
-    "f": "GTC",                    
-    "q": "1.00000000",             
-    "p": "0.10264410",             
-    "X": "NEW",                    
-    "i": "4293153",     
-    "M": "0",             
-    "l": "0.00000000",             
-    "z": "0.00000000",             
-    "L": "0.00000000",             
-    "n": "0",                      
-    "N": "BTC",                     
-    "u": true,                     
-    "w": true,                     
-    "m": false,                    
-    "O": "1499405658657",            
-    "Z": "473.199",
+{
+    "e": "executionReport",
+    "E": "1661505745347",
+    "s": "BITUSDT",
+    "c": "1661505744705",
+    "S": "BUY",
+    "o": "MARKET_OF_QUOTE",
+    "f": "GTC",
+    "q": "20",
+    "p": "0",
+    "X": "CANCELED",
+    "i": "1231193858535151104",
+    "M": "1231190924099373824",
+    "l": "14.16",
+    "z": "14.16",
+    "L": "1.4121",
+    "n": "0.01416",
+    "N": "BIT",
+    "u": true,
+    "w": true,
+    "m": true,
+    "O": "1661505745176",
+    "Z": "19.995336",
     "A": "0",
     "C": false,
-    "v": "0"              
-  }
-]
+    "v": "0",
+    "d": "NO_LIQ",
+    "t": "2120000000001252630"
+}
 ```
 t(:executionReport_desc)
 
 t(:spot_public_websocket_frequency_realtime)
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | e | string | t(:spot_event_type) |
@@ -1309,6 +1308,7 @@ t(:spot_public_websocket_frequency_realtime)
 | C | boolean | t(:spot_is_close) |
 | v | string | t(:spot_leverage) |
 | d | string | t(:spot_liquidation_type) |
+| t | string | t(:spotTicketId) |
 
 
 ### t(:stop_executionReport)
