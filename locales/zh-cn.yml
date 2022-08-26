@@ -2638,7 +2638,8 @@ zh-cn:
   restapi_update_20220805: 更新保證金推送響應字段從<code>baseCoin</code>變為<code>settleCoin</code>
   restapi_update_20220824_1: 移除<code>sessionRPL</code>和<code>sessionUPL</code>字段
   restapi_update_20220824: 新增<code>baseCoin</code>字段，用於支持多資產查詢
-  restapi_update_20220825: 新增<code>take_profit</code>和<code>stop_order</code>字段
+  restapi_update_20220825: 新增<code>take_profit</code>和<code>stop_order</code>字段。<b>注</b>：當<code>stop_order_type</code>為<code>StopLoss</code>、<code>TakeProfit</code>、<code>TrailingStop</code>可忽略這兩個字段。
+  restapi_update_20220810: 新增 <code>orderCategory</code> 和 <code>triggerPrice</code>, 用於支持下止盈止損單。
   restapi_update_20220708: 添加註意，对於spot private topic，一個ip最多可以同時連接50個websockets連接，
   restapi_update_20220630: 新增返回參數 <code>page_token</code>。
   restapi_update_20220617: 新增LT 全量資產基礎信息查詢
@@ -2916,6 +2917,8 @@ zh-cn:
   spotTime: 撮合引擎中的創建時間
   spotExecutionTime: 訂單完成時間
   spotOrderLinkId: 特殊訂單ID，用戶自己生成
+  spotv3_orderCategory: 訂單類型. <code>0</code>是普通訂單; <code>1</code>是<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a>
+  spotv3_triggerPrice: 觸發價格
   spotTradeId: 交易ID
   spotIsWorking: 是否生效
   spotUpdateTime: 訂單上次更新的時間戳
