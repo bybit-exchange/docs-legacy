@@ -119,34 +119,94 @@ t(:spot_websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-
+{
+    "topic": "depth",
+    "event": "sub",
+    "params": {
+        "symbol": "BTCUSDT",
+        "binary": false
+    }
+}
 ```
 
 ```python--pybit
 
 ```
 
-> t(:codequote_responseExampleFormatAll)
+> t(:codequote_snapshot)
 
 ```javascript
-
+{
+  "topic": "depth",
+  "params": {
+    "symbol": "BTCUSDT",
+    "binary": "false",
+    "symbolName": "BTCUSDT"
+  },
+  "data": {
+    "s": "BTCUSDT",
+    "t": 1582001376853,
+    "v": "13850022_2",
+    "b": [
+      [
+        "9780.79",
+        "0.01"
+      ],
+      [
+        "9780.5",
+        "0.1"
+      ],
+      [
+        "9780.4",
+        "0.517813"
+      ], ...
+    "a": [
+      [
+        "9781.21",
+        "0.042842"
+      ],
+      [
+        "9782",
+        "0.3"
+      ],
+      [
+        "9782.1",
+        "0.226"
+      ], ...
+    ]
+  }
+}
 ```
+t(:spot_websocket_orderbook_desc_v2)
 
-t(:spot_websocket_orderbook_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_650)
+t(:spot_public_websocket_frequency_100)
 
 <p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:----- |----- |
-| t(:row_parameter_symbol) | string | t(:spot_symbol) |
 
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| topic | string | t(:spot_topic) |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| symbolName | string | t(:spot_symbol) |
+| binary | string | t(:spot_binary) |
+| t | number | t(:spot_timestamp2) |
+| s | string | t(:spot_symbol) |
+| v | string | t(:spot_version) |
+| b | string | t(:spot_buy) |
+| a | string | t(:spot_sell) |
 
 ### t(:websockettrade)
 > t(:codequote_subscribe)
 
 ```javascript
-
+{
+    "topic": "trade",
+    "params": {
+        "symbol": "BTCUSDT",
+        "binary": false
+    },
+    "event": "sub"
+}
 ```
 
 ```python--pybit
@@ -156,24 +216,54 @@ t(:spot_public_websocket_frequency_300_delay_650)
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-
+{
+  "topic": "trade",
+  "params": {
+    "symbol": "BTCUSDT",
+    "binary": "false",
+    "symbolName": "BTCUSDT"
+  },
+  "data": {
+    "v": "564265886622695424",
+    "t": 1582001735462,
+    "p": "9787.5",
+    "q": "0.195009",
+    "m": true
+  }
+}
 ```
 
-t(:spot_websocket_trade_desc_v1)
+t(:spot_websocket_trade_desc_v2)
 
-t(:spot_public_websocket_frequency_300_delay_400)
+t(:spot_public_websocket_frequency_near_realtime)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| topic | string | t(:spot_topic) |
 | t(:row_parameter_symbol) | string | t(:spot_symbol) |
-
+| binary | string | t(:spot_binary) |
+| symbolName | string | t(:spot_symbol) |
+| v | string | t(:spot_transactId) |
+| t | number | t(:spot_time) |
+| p | string | t(:spot_price) |
+| q | string | t(:spot_quantity)|
+| m | boolean | t(:spot_side) |
 
 ### t(:websocketkline)
 > t(:codequote_subscribe)
 
 ```javascript
-
+{
+    "topic": "kline",
+    "event": "sub",
+    "params": {
+        "symbol": "BTCUSDT",
+        "klineType": "1m",
+        "binary": false
+    }
+}
 ```
 
 ```python--pybit
@@ -183,23 +273,61 @@ t(:spot_public_websocket_frequency_300_delay_400)
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-
+{
+  "topic": "kline",
+  "params": {
+    "symbol": "BTCUSDT",
+    "binary": "false",
+    "klineType": "1m",
+    "symbolName": "BTCUSDT"
+  },
+  "data": {
+    "t": 1582001880000,
+    "s": "BTCUSDT",
+    "sn": "BTCUSDT",
+    "c": "9799.4",
+    "h": "9801.4",
+    "l": "9798.91",
+    "o": "9799.4",
+    "v": "15.917433"
+  }
+}
 ```
+t(:spot_websocket_kline_desc_v2)
 
-t(:spot_websocket_kline_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_400)
+t(:spot_public_websocket_frequency_near_realtime)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| topic | string | t(:spot_topic) |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| binary | string | t(:spot_binary) |
+| klineType | string | t(:spot_kline_type) |
+| symbolName | string | t(:spot_symbol) |
+| t | number | t(:row_comment_resp_open_time) |
+| s | string | t(:spot_symbol) |
+| sn | string | t(:spot_symbol) |
+| c | string | t(:spot_close)|
+| h | string | t(:spot_high)|
+| l | string | t(:spot_low)|
+| o | string | t(:spot_open)|
+| v | string | t(:spot_volume)|
 
 
-### t(:websocketrealtimes)
+### t(:spot_websocket_tickers_v3)
 > t(:codequote_subscribe)
 
 ```javascript
-
+{
+    "topic": "realtimes",
+    "event": "sub",
+    "params": {
+        "symbol": "BTCUSDT",
+        "binary": false
+    }
+}
 ```
 
 ```python--pybit
@@ -209,23 +337,61 @@ t(:spot_public_websocket_frequency_300_delay_400)
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-
+{
+  "topic": "realtimes",
+  "params": {
+    "symbol": "BTCUSDT",
+    "binary": "false",
+    "symbolName": "BTCUSDT"
+  },
+  "data": {
+    "t": 1582001616500,
+    "s": "BTCUSDT",
+    "o": "9736.5",
+    "h": "9830.19",
+    "l": "9455.71",
+    "c": "9796.75",
+    "v": "77211.561764",
+    "qv": "740412516.91255711",
+    "m": "0.0062"
+  }
+}
 ```
+t(:spot_websocket_symbol_ticker_desc_v2)
 
-t(:spot_websocket_ticker_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_400)
+t(:spot_public_websocket_frequency_near_realtime)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| topic | string | t(:spot_topic) |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| binary | string | t(:spot_binary) |
+| symbolName | string | t(:spot_symbol) |
+| t | number | t(:spot_time) |
+| s | string | t(:spot_symbol) |
+| c | string | t(:spot_close)|
+| h | string | t(:spot_high)|
+| l | string | t(:spot_low)|
+| o | string | t(:spot_open)|
+| v | string | t(:spot_volume)|
+| qv | string | t(:spot_quote_volume)|
+| m | string | t(:spot_gains)|
 
 
-### t(:websocketBid1Ask1)
+### t(:spot_websocekt_bookticker_v3)
 > t(:codequote_subscribe)
 
 ```javascript
-
+{
+    "topic": "bookTicker",
+    "event": "sub",
+    "params": {
+        "symbol": "BTCUSDT",
+        "binary": false
+    }
+}
 ```
 
 ```python--pybit
@@ -235,16 +401,40 @@ t(:spot_public_websocket_frequency_300_delay_400)
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-
+{
+  "topic": "bookTicker",
+  "params": {
+    "symbol": "BTCUSDT",
+    "binary": "false",
+    "symbolName": "BTCUSDT"
+  },
+  "data": {
+    "symbol": "BTCUSDT",
+    "bidPrice": "9797.79",
+    "bidQty": "0.177976",
+    "askPrice": "9799",
+    "askQty": "0.65",
+    "time": 1582001830346
+  }
+}
 ```
+t(:spot_websocket_ticker_desc_v2)
 
-t(:新建一個key作為給買1賣1這個推送的描述)
-
-t(:新建一個key作為買1賣1的頻率描述)
+t(:spot_public_websocket_frequency_250_delay_300)
 
 <p class="fake_header">t(:responseparameters)</p>
+
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+| topic | string | t(:spot_topic) |
+| t(:row_parameter_symbol) | string | t(:spot_symbol) |
+| binary | string | t(:spot_binary) |
+| symbolName | string | t(:spot_symbol) |
+| bidPrice | string | t(:spot_buy_price) |
+| bidQty | string | t(:spot_buy_qty) |
+| askPrice | string | t(:spot_sell_price)|
+| askQty | boolean | t(:spot_sell_qty) |
+| time | member | t(:spot_timestamp2) |
 
 
 ## t(:privatetopics)
