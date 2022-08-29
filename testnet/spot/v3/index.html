@@ -884,6 +884,51 @@
               </ul>
           </li>
           <li>
+            <a href="#t-websocket" class="toc-h1 toc-link" data-title="WebSocket Data">WebSocket Data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-websocketauthentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#t-heartbeat" class="toc-h2 toc-link" data-title="How to Send Heartbeat Packet">How to Send Heartbeat Packet</a>
+                  </li>
+                  <li>
+                    <a href="#t-subscribe" class="toc-h2 toc-link" data-title="How to Subscribe to Topics">How to Subscribe to Topics</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-websocketfilters" class="toc-h3 toc-link" data-title="Understanding Websocket Filters">Understanding Websocket Filters</a>
+                          </li>
+                          <li>
+                            <a href="#t-websocketunfilters" class="toc-h3 toc-link" data-title="Understanding Websocket Filters unsubscription">Understanding Websocket Filters unsubscription</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#t-websocketresponse" class="toc-h2 toc-link" data-title="Understanding Subscription Response">Understanding Subscription Response</a>
+                  </li>
+                  <li>
+                    <a href="#t-publictopics" class="toc-h2 toc-link" data-title="Public Topics">Public Topics</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-websocketdepth" class="toc-h3 toc-link" data-title="depth">depth</a>
+                          </li>
+                          <li>
+                            <a href="#t-websockettrade" class="toc-h3 toc-link" data-title="trade">trade</a>
+                          </li>
+                          <li>
+                            <a href="#t-websocketkline" class="toc-h3 toc-link" data-title="kline">kline</a>
+                          </li>
+                          <li>
+                            <a href="#t-websockettickers" class="toc-h3 toc-link" data-title="tickers">tickers</a>
+                          </li>
+                          <li>
+                            <a href="#t-websocektbookticker" class="toc-h3 toc-link" data-title="bookTicker">bookTicker</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-archivedata" class="toc-h1 toc-link" data-title="Archive Data">Archive Data</a>
               <ul class="toc-list-h2">
                   <li>
@@ -3723,6 +3768,592 @@ If <code>startTime</code> is not specified, you can only query for records in th
 <td style="text-align: left">serverTime</td>
 <td style="text-align: left">string</td>
 <td>Bybit server time</td>
+</tr>
+</tbody></table>
+<h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
+<blockquote>
+<p><p>Apply for authentication when establishing a connection.</p>
+<p>Note: if you're using <a href="https://github.com/bybit-exchange/pybit">pybit</a> or another high-level library, you can ignore this code - as authentication is handled for you.</p>
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="c1"># based on: https://github.com/bybit-exchange/pybit/blob/master/pybit/_http_manager.py
+</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">websocket</span>
+
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">api_secret</span> <span class="o">=</span> <span class="s">""</span>
+
+<span class="c1"># Generate expires.
+</span><span class="n">expires</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c1"># Generate signature.
+</span><span class="n">signature</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">hmac</span><span class="p">.</span><span class="n">new</span><span class="p">(</span>
+    <span class="nb">bytes</span><span class="p">(</span><span class="n">api_secret</span><span class="p">,</span> <span class="s">"utf-8"</span><span class="p">),</span>
+    <span class="nb">bytes</span><span class="p">(</span><span class="sa">f</span><span class="s">"GET/realtime</span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="s">"utf-8"</span><span class="p">),</span> <span class="n">digestmod</span><span class="o">=</span><span class="s">"sha256"</span>
+<span class="p">).</span><span class="n">hexdigest</span><span class="p">())</span>
+
+<span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+    <span class="p">...</span>
+<span class="p">)</span>
+
+<span class="c1"># Authenticate with API.
+</span><span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span>
+    <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
+        <span class="s">"op"</span><span class="p">:</span> <span class="s">"auth"</span><span class="p">,</span>
+        <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span><span class="n">api_key</span><span class="p">,</span> <span class="n">expires</span><span class="p">,</span> <span class="n">signature</span><span class="p">]</span>
+    <span class="p">})</span>
+<span class="p">)</span>
+</code></pre></div>
+<aside class="notice">
+<b>Note that the following endpoints only apply to <i>Spot</i></b>. To listen to other websockets, go to:
+<ul>
+  <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual/Futures</a></li>
+  <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
+</ul>
+
+</aside>
+
+<p>Base endpoints:
+    <ul>
+      <li><b>Testnet</b>:</br>
+        <ul>
+          <li>
+            Public Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/spot/public/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+          </li>
+        </ul>
+      </li>
+      <li><b>Mainnet</b>:</br>
+        <ul>
+          <li>
+            Public Topics: <span id="mainnet_address">wss://stream.bybit.com/spot/public/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+</p>
+
+<aside class="notice">
+<b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
+</aside>
+
+<p>Authentication examples are shown in the code block.</p>
+
+<aside class="notice">
+Example signature algorithms can be found <a href="https://github.com/bybit-exchange/api-usage-examples">here</a>.
+</aside>
+
+<aside class="warning">
+Due to network complexity, your may get disconnected at any time. Please follow the instructions below to ensure that you receive WebSocket messages on time:</span> <p>1. Keep connection alive by <a href="#t-heartbeat">sending heartbeat packet</a></p> <p>2. Reconnect as soon as possible if disconnected</p>
+</aside>
+<h2 id='t-heartbeat'>How to Send Heartbeat Packet</h2>
+<blockquote>
+<p>How to Send</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// req_id is a customised id, which is optional</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100001</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ping</span><span class="dl">"</span><span class="p">}));</span>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// with req_id</span>
+<span class="p">{</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="mi">1661741630642</span><span class="p">],</span><span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">100001</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">706b870c</span><span class="dl">"</span><span class="p">}</span>
+
+<span class="c1">// without req_id</span>
+<span class="p">{</span><span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">pong</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:[</span><span class="mi">1661741654529</span><span class="p">],</span><span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">706b870c</span><span class="dl">"</span><span class="p">}</span>
+</code></pre></div>
+<aside class="warning">
+To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
+</aside>
+
+<!-- 连接数限制
+## Rate Limits
+
+-->
+<h2 id='t-subscribe'>How to Subscribe to Topics</h2><h3 id='t-websocketfilters'>Understanding Websocket Filters</h3>
+<blockquote>
+<p>How to subscribe with a filter</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Subscribing to the trade data for BTCUSDT</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10001</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// optional</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">trade.BTCUSDT</span><span class="dl">"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>support many symbol, separate with ','.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// Example: Subscribing to the trade data for BTCUSDT and ETHUSDT</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10001</span><span class="dl">"</span><span class="p">,</span> <span class="c1">// optional</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">trade.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">trade.ETHUSDT
+    ]
+}
+</span></code></pre></div>
+<p><p>After establishing the connection, you can subscribe to a new topic by sending a JSON request. The request formats are as follows:</p>
+<p>ws.send('{"req_id": "10001", "op": "subscribe", "args": ["trade.BTCUSDT", "trade.ETHUSDT", "tickers.BTCUSDT", "bookticker.BTCUSDT"]}')</p>
+</p>
+<h3 id='t-websocketunfilters'>Understanding Websocket Filters unsubscription</h3>
+<p><p>After successful subscription, you can unsubscribe by sending a JSON request. The request formats are as follows:</p>
+<p>ws.send('{"req_id": "10002", "op": "unsubscribe", "args": ["trade.BTCUSDT""]}');</p>
+</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// unsubscribe response sample</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">unsubscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10002</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">unsubscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">46f097b7</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div><h2 id='t-websocketresponse'>Understanding Subscription Response</h2>
+<blockquote>
+<p>Subscription Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10001</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">conn_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">46f097b7</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Once you subscribe successfully, you'd receive result information. You can determine whether the subscription is successful based on the response.</p>
+<h2 id='t-publictopics'>Public Topics</h2><h3 id='t-websocketdepth'>depth</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">depth00001</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//optional</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">orderbook.200.BTCUSDT</span><span class="dl">"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example - format of all responses</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661743689733</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">19721.9</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.784806</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">19719.37</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">1.215194</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">19713.18</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span>
+            <span class="p">]</span>
+            <span class="p">...</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">19721.91</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.192687</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">19727.85</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.914128</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">19731.24</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">1.008273</span><span class="dl">"</span>
+            <span class="p">]</span>
+            <span class="p">...</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.200.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661743689735</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><p>This topic pushes order book data.</p>
+<ul>
+  <li>Snapshot depth: 200 per side.</li>
+  <li>Events which trigger a message push to this topic:
+    <ul>
+      <li>Order enters order book</li>
+      <li>Order leaves order book</li>
+      <li>Order quantity changes</li>
+      <li>Order filled</li>
+    </ul>
+  </li>
+</ul>
+</p>
+
+<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.</p>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">number</td>
+<td>Timestamp (last update time of the order book)</td>
+</tr>
+<tr>
+<td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">b</td>
+<td style="text-align: left">list</td>
+<td>Bid price, quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">a</td>
+<td style="text-align: left">list</td>
+<td>Ask price, quantity</td>
+</tr>
+</tbody></table>
+<h3 id='t-websockettrade'>trade</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade0001</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//optional</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">trade.BTCUSDT</span><span class="dl">"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example - format of all responses</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2100000000001992601</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742109857</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19706.87</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000158</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742109863</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><p>This topic pushes raw data for each trade.</p>
+<p>After a successful subscription message, the first data message (as indicated by <code>"f": true</code>) consists of the last 60 trades. After this payload (<code>"f": false</code>), only new trades are pushed.</p>
+<p>Variable <code>v</code> is a trade ID which is unique across the platform.</p>
+</p>
+
+<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">v</td>
+<td style="text-align: left">string</td>
+<td>TradeId</td>
+</tr>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">number</td>
+<td>Timestamp (trading time in the match box)</td>
+</tr>
+<tr>
+<td style="text-align: left">p</td>
+<td style="text-align: left">string</td>
+<td>Price</td>
+</tr>
+<tr>
+<td style="text-align: left">q</td>
+<td style="text-align: left">string</td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">m</td>
+<td style="text-align: left">boolean</td>
+<td>True indicates buy side is taker, false indicates sell side is taker</td>
+</tr>
+</tbody></table>
+<h3 id='t-websocketkline'>kline</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline00001</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//optional</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">kline.1h.BTCUSDT</span><span class="dl">"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example - format of all responses</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742000000</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19685.55</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19756.95</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19674.61</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19705.38</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.232154</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline.1h.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661745259605</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><p>This topic pushes kline data.</p>
+<p>To subscribe to different intervals, append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
+</p>
+
+<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">number</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">c</td>
+<td style="text-align: left">string</td>
+<td>Close price</td>
+</tr>
+<tr>
+<td style="text-align: left">h</td>
+<td style="text-align: left">string</td>
+<td>High price</td>
+</tr>
+<tr>
+<td style="text-align: left">l</td>
+<td style="text-align: left">string</td>
+<td>Low price</td>
+</tr>
+<tr>
+<td style="text-align: left">o</td>
+<td style="text-align: left">string</td>
+<td>Open price</td>
+</tr>
+<tr>
+<td style="text-align: left">v</td>
+<td style="text-align: left">string</td>
+<td>Trading volume</td>
+</tr>
+<tr>
+<td style="text-align: left">m</td>
+<td style="text-align: left">boolean</td>
+<td>True indicates buy side is taker, false indicates sell side is taker</td>
+</tr>
+</tbody></table>
+<h3 id='t-websockettickers'>tickers</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="p">{</span>
+    <span class="s">"req_id"</span><span class="p">:</span> <span class="s">"ticker00001"</span><span class="p">,</span> <span class="o">//</span><span class="n">optional</span>
+    <span class="s">"op"</span><span class="p">:</span> <span class="s">"subscribe"</span><span class="p">,</span>
+    <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s">"tickers.BTCUSDT"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>Response Example - format of all responses</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216005</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19820</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20071.93</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19365.85</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19694.27</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9997.246174</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">qv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">197357775.97621786</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.0063</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216011</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The 24-hr statistics of a trading pair.
+</p>
+
+<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">number</td>
+<td>Timestamp (trading time in the match box)</td>
+</tr>
+<tr>
+<td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">o</td>
+<td style="text-align: left">string</td>
+<td>Open price</td>
+</tr>
+<tr>
+<td style="text-align: left">h</td>
+<td style="text-align: left">string</td>
+<td>High price</td>
+</tr>
+<tr>
+<td style="text-align: left">l</td>
+<td style="text-align: left">string</td>
+<td>Low price</td>
+</tr>
+<tr>
+<td style="text-align: left">c</td>
+<td style="text-align: left">string</td>
+<td>Close price</td>
+</tr>
+<tr>
+<td style="text-align: left">v</td>
+<td style="text-align: left">string</td>
+<td>Trading volume</td>
+</tr>
+<tr>
+<td style="text-align: left">qv</td>
+<td style="text-align: left">string</td>
+<td>Trading quote volume</td>
+</tr>
+<tr>
+<td style="text-align: left">m</td>
+<td style="text-align: left">string</td>
+<td>Change</td>
+</tr>
+</tbody></table>
+<h3 id='t-websocektbookticker'>bookTicker</h3>
+<blockquote>
+<p>How to Subscribe</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bookticker00001</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//optional</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">bookticker.BTCUSDT</span><span class="dl">"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example - format of all responses</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19693.04</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bq</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.913957</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ap</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19694.27</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">aq</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.705447</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216108</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bookticker.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216109</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Best bid price and best ask price</p>
+
+<p>Pushes data at a frequency of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.</p>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">s</td>
+<td style="text-align: left">string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td style="text-align: left">bp</td>
+<td style="text-align: left">string</td>
+<td>Best bid price</td>
+</tr>
+<tr>
+<td style="text-align: left">bq</td>
+<td style="text-align: left">string</td>
+<td>Bid quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">ap</td>
+<td style="text-align: left">string</td>
+<td>Best ask price</td>
+</tr>
+<tr>
+<td style="text-align: left">aq</td>
+<td style="text-align: left">boolean</td>
+<td>Ask quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">t</td>
+<td style="text-align: left">number</td>
+<td>Timestamp (last update time of the order book)</td>
 </tr>
 </tbody></table>
 <h1 id='t-archivedata'>Archive Data</h1><h3 id='t-historicalmarketdata'>Historical Market Data</h3>
