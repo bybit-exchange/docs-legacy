@@ -1623,6 +1623,23 @@ zh-cn:
     </p>
     <p>所有private接口都需要認證，public 接口不需要認證.</p>
     </ul>
+  spot_websocket_para_endpoint_v3: |
+    Websocket服務器地址:
+        <ul>
+        <p>
+          <li><b>測試網</b>:</br>
+            公共Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/spot/public/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          </li>
+        </p>
+        <p>
+          <li><b>主網</b>:<br/>
+            公共Topics: <span id="mainnet_address">wss://stream.bybit.com/spot/public/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+          </li>
+        </p>
+        <p>所有private接口都需要認證，public 接口不需要認證.</p>
+        </ul>
   websocket_aside_auth: <b>公共類</b>topics不需要進行驗證. 以下部分只適用於 <b>私有</b> 類接口.
   websocket_aside_push_trigger: 通常，只有在發生更改時才會推送 websocket 消息。 除非另有說明，否則您不會在訂閱後立即收到快照消息。 這意味著當訂閱您的 <code>position</code> 時，例如您的頭寸規模發生變化之前，您不會收到任何頭寸消息。
   websocket_para_methods: 驗證示例如右側代碼區所示
@@ -1753,6 +1770,8 @@ zh-cn:
   websocket_aside_klineV2: |
     註意如果字段<code>confirm</code>為<code>True</code>, 則表明這是這根K線的最後一個tick；否則，這只是一個快照數據，即中間價格
   websocketkline: K線
+  spot_websocket_tickers_v3: 實時價格
+  websocektBookticker: 買一賣一
   websocket_usdc_platform_insurance: 0:00、8:00、16:00 UTC+0，保險基金將分別推送一次。
 
   ## Private Topics
@@ -3050,6 +3069,7 @@ zh-cn:
   spot_first: 是否首次返回
   spot_timestamp: 時間戳
   spot_timestamp2: 時間戳 (orderbook最後更新時間)
+  spot_v3_trade_v: 成交id
   spot_timestamp_kline: k線開始時間
   spot_time_in_force: 訂單時間指令（Time in Force）。可能出現的值為：GTC（Good Till Canceled，一直有效），FOK（Fill or Kill，全部成交或者取消），IOC（Immediate or Cancel，立即成交或者取消）
   spot_close: 收盤價
@@ -3061,6 +3081,8 @@ zh-cn:
   spot_version: 版本號
   spot_buy: 買一價、數量
   spot_sell: 賣一價、數量
+  spot_bid_v3: 買價，數量
+  spot_ask_v3: 賣價，數量
   spot_binary: 是否壓縮 true壓縮, false未壓縮（默認）
   spot_kline_type: k線間隔
   spot_topic: topic名稱
@@ -3135,6 +3157,9 @@ zh-cn:
 
   spot_websocket_orderbook_delta_v1: 訂單簿(增量深度)
   websocketLtNetvalue: lt
+  websocketrealtimes: 實時價格
+  websocketTickers: 實時價格
+  websocketdepth: 深度
   spot_websocket_lt_nav_desc_v1: Leveraged Token 淨值推送。300ms推送一次，最大延迟400ms
   spot_websocket_orderbook_delta_desc_v1: |
     <p>推送訂單簿的變化部分（如果有）。第一次推送的是全量的訂單簿（单邊推送 200 個深度信息），接下來推送增量部分。</p>
@@ -3155,9 +3180,15 @@ zh-cn:
     <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
     <p>支持多幣種，用','隔開(V2 不適用)</p>
     <p>ws.send('{"symbol":"BTCUSDT,ETHUSDT","topic":"trade","event":"sub","params":{"binary":false}}');</p>
+  spot_websocket_subscribe_desc_v3: |
+    <p>建立連接後, 可以通過發送JSON請求來訂閱topic. 請求格式如下:</p>
+    <p>ws.send('{"req_id": "10001", "op": "subscribe", "args": ["trade.BTCUSDT", "trade.ETHUSDT", "tickers.BTCUSDT", "bookticker.BTCUSDT"]}')</p>
   spot_websocket_unsubscribe_desc: |
     <p>訂閱成功後，可以通過發送JSON請求來取消訂閱. 請求格式如下:</p>
     <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"cancel","params":{"binary":false}}');</p>
+  spot_websocket_unsubscribe_desc_v3: |
+    <p>訂閱成功後，可以通過發送JSON請求來取消訂閱. 請求格式如下:</p>
+    <p>ws.send('{"req_id": "10002", "op": "unsubscribe", "args": ["trade.BTCUSDT""]}');</p>
 
   #用戶
   spot_websocket_user_account: 賬戶變更
