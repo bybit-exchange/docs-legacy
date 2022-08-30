@@ -357,8 +357,8 @@ GET
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |side |string|t(:usdc_side)|
-|orderPrice|string|t(:usdcOrderPrice)|
-|orderQty|string|t(:usdcOrderQty)|
+|orderPrice|string|t(:usdcExecPrice)|
+|orderQty|string|t(:usdcExecQty)|
 |time|string|t(:time)|
 |tradeId|string|t(:tradeId)|
 |isBlockTrade|boolean|t(:usdc_isBlockTrade)|
