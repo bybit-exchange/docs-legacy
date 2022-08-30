@@ -140,7 +140,7 @@ en:
   row_comment_created_at_position: The account creation time
   row_comment_created_at_in_exchange: Exchange time
   row_comment_updated_at: Update time
-  row_comment_updated_id: Update id. Please override your local orderbook when you receive "u"=1
+  row_comment_updated_id: Update id, is always in sequence. Occasionally, you'll receive "u"=1, which is a snapshot data due to the restart of the service. So please overwrite the locally saved orderbook
   row_comment_margin_result: User margin
   row_comment_activeOrderType: Active order type
   row_comment_stopOrderType: Conditional order type
@@ -2210,6 +2210,8 @@ en:
   fee_refund: ""
   interest: ""
   bonusEnum: ""
+  currencyBuy: ""
+  currencySell: ""
 
   ## spot tp sl order status (`X`)
   order_new: Untriggered

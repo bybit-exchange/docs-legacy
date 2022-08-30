@@ -202,6 +202,8 @@ t(:date)
 * `FEE_REFUND` t(:fee_refund)
 * `INTEREST` t(:interest)
 * `BONUS` t(:bonusEnum)
+* `CURRENCY_SELL` t(:currencySell)
+* `CURRENCY_BUY` t(:currencyBuy)
 
 ## Order Filter (`orderFilter`)
 * `Order`
