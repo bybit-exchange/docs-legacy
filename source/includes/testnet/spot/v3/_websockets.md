@@ -322,7 +322,6 @@ t(:spot_public_websocket_frequency_300_delay_400)
 |l | string | t(:spotLow) |
 |o | string | t(:spotOpen) |
 |v | string | t(:spot_volume) |
-|m | boolean | t(:spot_side) |
 
 ### t(:websocketTickers)
 > t(:codequote_subscribe)
