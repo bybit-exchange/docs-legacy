@@ -3558,8 +3558,9 @@ zh-cn:
   cursor: 透傳數據
   usdcBaseCoin: 標的幣種
   usdcBaseCoin_new: 資產幣種. 返回所有對應資產幣種的結果. 若不傳, 則默認返回BTC的結果
+  usdcBaseCoin_transLog: 資產幣種. <p>若<code>type</code>=TRANSFER_IN 或TRANSFER_OUT，則該字段無意義，若傳入，則返回空</p> <p>若type傳入其他類型，且baseCoin不傳，則返回全部數據</p>
+  usdcBaseCoinUM_transLog: 資產幣種. <p>若<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_SELL 或 CURRENCY_BUY，則該字段無意義，若傳入，則返回空</p> <p>若type傳入其他類型，且baseCoin不傳，則返回全部數據</p>
   usdcBaseCoin_cancel: 資產幣種. 撤銷所有資產幣種相關的訂單. 若不傳, 則默認撤銷所有BTC相關的訂單
-
   usdcQuoteCoin: 結算幣種
   usdcSettleCoin: 結算貨幣
   usdcTakerFee: Taker 手續費
@@ -3762,6 +3763,7 @@ zh-cn:
   usdcOptionOrderType: 參考<a href="#order-type-ordertype">下單類型</a>（市場目前僅支持IOC（ImmediateOrCancel）訂單）
   usdcOptionPlaceOrderPrice: 下單價格。 對於期權，如果 iv有值，則最終訂單價格將通過隱含波動率計算。 如果 orderType 是 Market，則不需要 orderPrice。
   optionIv_order: 隱含波動率。 如果 orderType 是 Market，iv 不能有值，否則訂單會失敗。
+  usdcOption_timeInForce: 對於市價單，僅支持<code>ImmediateOrCancel</code>
 
   optionIv: 期權iv, 小數點後保留叁位小數
   optionPlaceMode: 期權下單模式，高級或者是基礎模式下單,期貨不需傳，期權需要。 1：基礎模式下單，2：高級模式下單。如果1，orderQty和orderPrice是必傳字段。如果是2， 參照 placeType.

@@ -124,7 +124,7 @@ POST
 |orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv_order)|
-|t(:row_parameter_timeInForce)|false|string|t(:row_comment_timeInForce)|
+|t(:row_parameter_timeInForce)|<b>true</b>|string|t(:usdcOption_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
 |mmp|false|string|t(:mmp)|
@@ -957,7 +957,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |type|<b>true</b>|string|t(:usdcTransactionType)|
-|baseCoin|false|string|t(:usdcBaseCoin_new)|
+|baseCoin|false|string|t(:usdcBaseCoin_transLog)|
 |startTime|false|string|t(:usdcStartTime_ms)|
 |endTime|false|string|t(:usdcEndTime)|
 |direction|false|string|t(:direction)|

@@ -4004,7 +4004,8 @@ en:
   usdcAccountInfo: Wallet Info
   usdcBaseCoin_new: Base coin. Returns all records with base coin. If not passed, it returns records with BTC by default
   usdcBaseCoin_cancel: Base coin. Cancel all base coin related orders. If not passed, it'll cancel all BTC related orders
-
+  usdcBaseCoin_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT，this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums，and baseCoin is not passed，it returns all records.</p>
+  usdcBaseCoinUM_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY or CURRENCY_SELL，this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums，and baseCoin is not passed，it returns all records.</p>
   usdcQuoteCoin: Quote currency
   usdcSettleCoin: Settle Coin
   usdcTakerFee: Taker fee
@@ -4206,6 +4207,7 @@ en:
   usdcOptionOrderType: refer to <a href="#order-type-ordertype">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
   usdcOptionPlaceOrderPrice: Order price. For option, if iv has value, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
   optionIv_order: Implied volatility. If orderType is Market, iv is not required, otherwise the order will fail.
+  usdcOption_timeInForce: For Market order，it must be <code>ImmediateOrCancel</code>
 
   optionIv: Implied volatility
   optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.

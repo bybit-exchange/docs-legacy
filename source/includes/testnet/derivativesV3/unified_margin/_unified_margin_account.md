@@ -1679,7 +1679,7 @@ GET
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |currency |<b>true</b> |string |t(:row_comment_query_currency_v3)   |
-|baseCoin |false |string |t(:row_comment_baseCoin_v3)   |
+|baseCoin |false |string |t(:usdcBaseCoinUM_transLog)   |
 |t(:row_comment_query_transType_v3) |false |string |t(:row_comment_type_v3)   |
 |startTime |false |number |t(:row_comment_startTime_v3)   |
 |endTime |false |number |t(:row_comment_endTime_v3)   |
