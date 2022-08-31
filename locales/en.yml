@@ -1931,7 +1931,12 @@ en:
   websocket_para_instrumentInfo: |
     <p>Get latest information for symbol.</p>
     <p>Push frequency: <b>100ms</b></p>
-  websocket_para_ticker_v3: |
+  websocket_para_ticker_UM: |
+    <p>Get latest information for symbol.</p>
+    <p>Push frequency: <b>100ms</b>(Futures), <b>200ms</b>(Option)</p>
+    <p><b>Topic:</b></p>
+    <p><code>tickers.{symbol}</code></p>
+  websocket_para_ticker_contract: |
     <p>Get latest information for symbol.</p>
     <p>Push frequency: <b>100ms</b></p>
     <p><b>Topic:</b></p>
@@ -1940,8 +1945,11 @@ en:
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
     Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 / 10^4</code>, which equals <code>8158.5</code>.
-  websocket_aside_instrumentInfo_ud: |
+  websocket_aside_instrumentInfo_contract: |
     This topic will utilises the <code>snapshot</code> field and  <code>delta</code> fields. If a key is not found in the field, its value has not changed.
+  websocket_aside_instrumentInfo_um: |
+    <p><b>Futures</b>: topic will utilises the <code>snapshot</code> field and  <code>delta</code> fields. If a key is not found in the field, its value has not changed.</p>
+    <p><b>Option</b>: topic only has the <code>snapshot</code> type of data.</p>
   ### klineV2
   websocketklineV2: klineV2
   websocket_para_klineV2: |

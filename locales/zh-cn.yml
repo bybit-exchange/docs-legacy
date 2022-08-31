@@ -1731,7 +1731,12 @@ zh-cn:
   websocket_para_instrumentInfo: |
     <p>獲取合約的最新數據.</p>
     <p>Push frequency: <b>100ms</b></p>
-  websocket_para_ticker_v3: |
+  websocket_para_ticker_UM: |
+    <p>獲取合約的最新數據.</p>
+    <p>推送頻率: <b>100ms</b>(期貨), <b>200ms</b>(期權)</p>
+    <p><b>Topic:</b></p>
+    <p><code>tickers.{symbol}</code></p>
+  websocket_para_ticker_contract: |
     <p>獲取合約的最新數據.</p>
     <p>推送頻率: <b>100ms</b></p>
     <p><b>Topic:</b></p>
@@ -1741,8 +1746,11 @@ zh-cn:
   websocket_aside_instrumentInfo2: |
     一些值以以科學計數法的形式被返回. 根據這個值的key的後綴, 如<code>total_turnover_e8</code>,則表明這個數字需要除以10^8. <br/>
     例如<code>last_price_e4</code>的值為<code>81585000</code>, 那麽<code>81585000 / 10^4</code>,等於<code>8158.5</code>才是這個字段的真實值.
-  websocket_aside_instrumentInfo_ud: |
+  websocket_aside_instrumentInfo_contract: |
     注意，該topic推送delta數據和snapshot数据。如果delta數據為空，表明信息沒有發生變化。
+  websocket_aside_instrumentInfo_um: |
+    <p><b>期貨</b>：該topic推送delta數據和snapshot数据。如果delta數據為空，表明信息沒有發生變化。</p>
+    <p><b>期權</b>：該topic只推送snapshot数据。</p>
   ### klineV2
   websocketklineV2: K線
   websocket_para_klineV2: |

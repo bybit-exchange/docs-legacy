@@ -423,10 +423,10 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["tickers.BTCUSDT"]}'
 
 ```
 
-t(:websocket_para_ticker_v3)
+t(:websocket_para_ticker_UM)
 
 <aside class="warning">
-t(:websocket_aside_instrumentInfo_ud)
+t(:websocket_aside_instrumentInfo_um)
 </aside>
 
 
