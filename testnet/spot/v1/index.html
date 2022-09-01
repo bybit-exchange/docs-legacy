@@ -8402,38 +8402,8 @@ Pushes data in <b>real-time</b>
 </p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
 <p><ul>
-<li>Active order<ul>
-<li>Must be an integral multiple of <code>tick_size</code><ul>
-<li>Information about current trading pair (e.g. <code>tick_size</code>) can be queried with the <a href="#t-querysymbol">Query Symbol endpoint</a>.</li>
-<li>Modulo (<code>%</code>) can be used to calculate whether the price will be accepted:<pre class="center-column">
-IF price % tick_size = 0
-    // send request
-ELSE
-    // do not send request as the price will not be accepted by the system
-</pre></li>
-</ul>
-</li>
-<li>Must be less than the symbol's <code>max_price</code></li>
-<li>If the user has no open position, the order price must be higher than 10% of the last traded price<ul>
-<li>For example, if the last traded price (last price) is <code>10314</code>, the min. order price will be <code>1031.5</code>.</li>
-<li>Pseudocode (assuming the price is a multiple of 0.5):<pre class="center-column">
-IF price > (last_price * 0.1)
-    // send request
-ELSE
-    // do not send request as the price will not be accepted by the system
-</pre></li>
-</ul>
-</li>
-<li>If the user has an open position, the order price must be better than the liquidation price.<ul>
-<li>For example, if the liquidation price of a long position is <code>5176.5</code>, the min. order price will be <code>5177</code>. For short position, the order price must be less than the liquidation price.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Conditional order<ul>
-<li>Must be greater than or equal to <code>1</code></li>
-</ul>
-</li>
+    <li>Must be an integral multiple of <code>minPricePrecision</code><ul>
+    <li>Information about current trading pair (e.g. <code>minPricePrecision</code>) can be queried with the <a href="#t-spot_querysymbol">Query Symbol endpoint</a>.</li>
 </ul>
 </p>
 <h2 id='time-in-force-time_in_force'>Time in force (<code>time_in_force</code>)</h2>

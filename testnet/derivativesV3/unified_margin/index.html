@@ -788,6 +788,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2022-08-30" class="toc-h2 toc-link" data-title="2022-08-30">2022-08-30</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WEBSOCKET API">WEBSOCKET API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-08-25" class="toc-h2 toc-link" data-title="2022-08-25">2022-08-25</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -1003,36 +1011,6 @@
                   </li>
                   <li>
                     <a href="#t-raisemylimit" class="toc-h2 toc-link" data-title="How to Increase API Limits">How to Increase API Limits</a>
-                  </li>
-                  <li>
-                    <a href="#t-liquidity" class="toc-h2 toc-link" data-title="Understanding Bybit's Liquidity System">Understanding Bybit's Liquidity System</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#t-ofrthreshold" class="toc-h3 toc-link" data-title="Order Fill Ratio (OFR) Threshold">Order Fill Ratio (OFR) Threshold</a>
-                              <ul class="toc-list-h4">
-                                  <li>
-                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="Minimum OFR Threshold">Minimum OFR Threshold</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ofrratio" class="toc-h4 toc-link" data-title="Order Fill Ratio (OFR)">Order Fill Ratio (OFR)</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ofrratioexample" class="toc-h4 toc-link" data-title="Order Fill Ratio Example">Order Fill Ratio Example</a>
-                                  </li>
-                              </ul>
-                          </li>
-                          <li>
-                            <a href="#t-frequencylimit" class="toc-h3 toc-link" data-title="Rate Limits for API Requests">Rate Limits for API Requests</a>
-                              <ul class="toc-list-h4">
-                                  <li>
-                                    <a href="#t-liquiditypoints" class="toc-h4 toc-link" data-title="Liquidity Contribution Points (LCP)">Liquidity Contribution Points (LCP)</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ratelimitsexplanation" class="toc-h4 toc-link" data-title="Explanation">Explanation</a>
-                                  </li>
-                              </ul>
-                          </li>
-                      </ul>
                   </li>
               </ul>
           </li>
@@ -1478,7 +1456,15 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-08-25'>2022-08-25</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-08-30'>2022-08-30</h2><h3 id='websocket-api'>WEBSOCKET API</h3>
+<ul>
+<li><a href="#t-websocketorder">order</a> [update]
+
+<ul>
+<li>Add new response field <code>leavesQty</code>、<code>cumExecQty</code>、<code>cumExecValue</code>、<code>cumExecFee</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-08-25'>2022-08-25</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-dv_batchplaceorder">Batch Place Orders</a> [update]
 
@@ -2001,7 +1987,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>close</code>, <code>high</code>, <code>low</code>, <code>volume</code>, <code>turnover</code></td>
+<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>, <code>turnover</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_tickerhead'>Get Latest Information For Symbol</h3>
@@ -2654,7 +2640,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>close</code>, <code>high</code>, <code>low</code></td>
+<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_indexpricekline'>Get Index Price Kline</h3>
@@ -2765,7 +2751,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>close</code>, <code>high</code>, <code>low</code>, <code>volume</code>, <code>turnover</code></td>
+<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>, <code>turnover</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_historyfundingratehead'>Get Funding Rate History</h3>
@@ -6823,7 +6809,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">baseCoin</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>For example<span>:</span> The base coin of USDC is BTC, and the base coin of USDT is the enum of the current trading coin. For example<span>:</span> The base coin of BTCUSDT is BTC. If both do not match, it shall be returned as null.</td>
+<td>Base coin. <p>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY or CURRENCY_SELL，this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums，and baseCoin is not passed，it returns all records.</p></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transaction-log-type-type">type</a></td>
@@ -7565,8 +7551,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 </p>
 <h2 id='t-raisemylimit'>How to Increase API Limits</h2>
 <p><ul>
-<li>Please refer to <a href="#t-liquidity">Understanding Bybit&#39;s Liquidity System</a> regarding how our system automatically allocates rate limits for users who place over 2,000 orders per day.</li>
-<li>Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following information. We will reply within 1-4 working days:</li>
+Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following information. We will reply within 1-4 working days:
   <ol>
     <li>Your name and your company details</li>
     <li>Your Bybit UID or registered email, and the assets you are trading</li>
@@ -7576,123 +7561,6 @@ can the price be null! To protect the market order from serious slippage, Bybit 
   </ol>
 </ul>
 </p>
-<h2 id='t-liquidity'>Understanding Bybit's Liquidity System</h2>
-<p><p>Bybit uses <code>Order Fill Ratio (OFR)</code> and <code>Liquidity Contribution Points (LCP)</code> to measure customers&#39; contribution to our executable liquidity.</p>
-<p>The <code>LCP</code> and <code>OFR</code> of different assets are calculated separately.</p>
-</p>
-<h3 id='t-ofrthreshold'>Order Fill Ratio (OFR) Threshold</h3>
-<p>If you place more than <code>2000</code> orders per day on Bybit, please make sure that your 7-day OFR is above a <code>Minimum OFR threshold</code>. Otherwise, Bybit may reduce the rate limits for your API request.
-</p>
-<h4 id='t-ofrminimum'>Minimum OFR Threshold</h4>
-<p>7-day OFR must be kept above 0.1%.</p>
-<h4 id='t-ofrratio'>Order Fill Ratio (OFR)</h4>
-<p><ul>
-<li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
-<li><code>Orders Submitted to Bybit</code>: any order submitted to Bybit.</li>
-<li><code>Orders Filled</code>: any order that has been filled (regardless of filled quantity).</li>
-<li><code>OFR = (number of orders filled / number of orders submitted to Bybit)</code></li>
-</ul>
-</p>
-<h4 id='t-ofrratioexample'>Order Fill Ratio Example</h4>
-<pre class="center-column-nonindent">
-User A:
-Orders Filled = 2
-Orders Submitted to Bybit = 8
-OFR = 2/8 = 25%
-
-</pre>
-
-<pre class="center-column-nonindent">
-User B:
-Orders Filled = 1
-Orders Submitted to Bybit = 1
-OFR = 1/1 = 100%
-
-</pre>
-<h3 id='t-frequencylimit'>Rate Limits for API Requests</h3>
-<p>The rate limits for your API requests are based on your min. <code>Liquidity Contribution Points (LCP)</code> within <code>7</code> days.</p>
-
-<table><thead>
-<tr>
-<th>LCP</th>
-<th>Order Frequency Limit</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>20-100</td>
-<td>800 times per minute</td>
-</tr>
-<tr>
-<td>10-20</td>
-<td>600 times per minute</td>
-</tr>
-<tr>
-<td>5-10</td>
-<td>400 times per minute</td>
-</tr>
-<tr>
-<td>2-5</td>
-<td>200 times per minute</td>
-</tr>
-<tr>
-<td>&lt;2</td>
-<td>100 times per minute</td>
-</tr>
-</tbody></table>
-<h4 id='t-liquiditypoints'>Liquidity Contribution Points (LCP)</h4>
-<p><ul>
-<li><code>Liquidity Contribution Points (LCP) = POU * POA * 100</code></li>
-</ul>
-</p>
-<h4 id='t-ratelimitsexplanation'>Explanation</h4><h5 id='t-pricerange'>Effective Price Range</h5>
-<p><ul>
-<li><p><code>effective price range</code>: order price that falls within the lower and upper price bounds.</p>
-</li>
-<li><p>Min <code>effective price</code>:   (best bid price + best ask price) / 2 - (3 * tick_size)</p>
-</li>
-<li><p>Max <code>effective price</code>:  (best bid price + best ask price) / 2 + (3 * tick_size)</p>
-</li>
-</ul>
-</p>
-<h5 id='t-pricerangeexample'>Effective Price Range Example</h5>
-<pre class="center-column-nonindent">
-BTC best bid = 10000
-BTC best ask = 10001
-Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
-
-</pre>
-<h5 id='t-pou'>POU</h5>
-<p><ul>
-<li><code>POU</code>: The size of your orders that fall within the <code>effective price range</code> in proportion to the total size of your orders in the order book.</li>
-</ul>
-<p>Bybit calculates the size of your orders that fall within the <code>effective price range</code> / the total size of your orders in the order book per second, and then computes the time-weighted-average of the day.</p>
-</p>
-
-<pre class="center-column-nonindent">
-amount of User C's orders within effective price range = 8000
-amount of all User C's orders = 2000 + 8000 = 10000
-POU = 8000 / 10000 = 0.8
-
-</pre>
-<h5 id='t-poa'>POA</h5>
-<p><ul>
-<li><code>POA</code>: the proportion of your orders within <code>effective price range</code> to all orders within <code>effective price range</code> in orderbook.</li>
-</ul>
-<p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
-</p>
-<h5 id='t-poaexample'>POA example</h5>
-<p>The size of user C's orders that fall within the effective price range is 8,000, while the total size of orders in the order book that fall within the effective price range is 200,000.</p>
-
-<pre class="center-column-nonindent">
-Size of user C's orders within effective price range = 8000
-Total size of orders within effective price range = 200000
-POA = 8000 / 200000 = 0.04
-
-</pre>
-
-<aside class="notice">
-Prior notice will be given via the website if we update this mechanism.
-</aside>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
 <p>Authentication methods:
@@ -8010,7 +7878,7 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 <tr>
 <td style="text-align: left">u</td>
 <td style="text-align: left">number</td>
-<td>Update id. Please override your local orderbook when you receive "u"=1</td>
+<td>Update id, is always in sequence. Occasionally, you'll receive "u"=1, which is a snapshot data due to the restart of the service. So please overwrite the locally saved orderbook</td>
 </tr>
 </tbody></table>
 <h3 id='t-websockettrade'>trade</h3>
@@ -8207,13 +8075,14 @@ Push frequency: <b>real-time</b><br><br>
 
 </code></pre></div>
 <p><p>Get latest information for symbol.</p>
-<p>Push frequency: <b>100ms</b></p>
+<p>Push frequency: <b>100ms</b>(Futures), <b>200ms</b>(Option)</p>
 <p><b>Topic:</b></p>
 <p><code>tickers.{symbol}</code></p>
 </p>
 
 <aside class="warning">
-This topic will utilises the <code>snapshot</code> field and  <code>delta</code> fields. If a key is not found in the field, its value has not changed.
+<p><b>Futures</b>: topic will utilises the <code>snapshot</code> field and  <code>delta</code> fields. If a key is not found in the field, its value has not changed.</p>
+<p><b>Option</b>: topic only has the <code>snapshot</code> type of data.</p>
 
 </aside>
 
@@ -8930,42 +8799,47 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <blockquote>
 <p>Response Example - format of all responses</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2f81572c-e0fa-4370-b080-1a1ee0e43174</span><span class="dl">"</span><span class="p">,</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">f91080af-5187-4261-a802-7604419771aa</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user.order.unifiedAccount</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1649150255791</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661932033707</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
-            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cc171fdb-d189-4ade-a098-9205e2b7a25e</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">lin-sit-perp-1046</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">47000.00000000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0500</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1649150255604</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1649150255666</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
-        <span class="p">}],</span>
-        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="mi">18</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">415f8961-4073-4d74-bc3e-df2830e52843</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17000.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0100</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661932033636</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661932033644</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">blockTradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0100</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="mi">284</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span>
 <span class="p">}</span>
-
 </code></pre></div>
 <p><p><p><b>Notice:</b></p>
 <p>Pushing incremental orders only. Merged with conditional orders into one topic.</p>
@@ -8983,14 +8857,19 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>Name of Contract</td>
-</tr>
-<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>Institutional customized order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Name of Contract</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -9003,11 +8882,6 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Order type</td>
 </tr>
 <tr>
-<td style="text-align: left">stopOrderType</td>
-<td style="text-align: left">string</td>
-<td>Conditional order type</td>
-</tr>
-<tr>
 <td style="text-align: left">price</td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
@@ -9016,11 +8890,6 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td style="text-align: left">qty</td>
 <td style="text-align: left">string</td>
 <td>Order quantity</td>
-</tr>
-<tr>
-<td style="text-align: left">iv</td>
-<td style="text-align: left">string</td>
-<td>Implied volatility</td>
 </tr>
 <tr>
 <td style="text-align: left">timeInForce</td>
@@ -9033,15 +8902,45 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Order status</td>
 </tr>
 <tr>
+<td style="text-align: left">cumExecQty</td>
+<td style="text-align: left">string</td>
+<td>Total filled quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>Total order value of filled orders</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecFee</td>
+<td style="text-align: left">string</td>
+<td>Total trading fees</td>
+</tr>
+<tr>
+<td style="text-align: left">stopOrderType</td>
+<td style="text-align: left">string</td>
+<td>Conditional order type</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerBy</td>
+<td style="text-align: left">string</td>
+<td>Type of trigger price, latest market price by default.</td>
+</tr>
+<tr>
 <td style="text-align: left">triggerPrice</td>
 <td style="text-align: left">string</td>
 <td>If the stop_order_type is TrailingProfit, it is the activation price, otherwise, it is the trigger price.
 </td>
 </tr>
 <tr>
-<td style="text-align: left">orderLinkId</td>
-<td style="text-align: left">string</td>
-<td>Institutional customized order ID</td>
+<td style="text-align: left">reduceOnly</td>
+<td style="text-align: left">bool</td>
+<td>Close position? True – close position, false – open position</td>
+</tr>
+<tr>
+<td style="text-align: left">closeOnTrigger</td>
+<td style="text-align: left">bool</td>
+<td>Closed order? True – close order   false – open order</td>
 </tr>
 <tr>
 <td style="text-align: left">createdTime</td>
@@ -9052,6 +8951,16 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td style="text-align: left">updatedTime</td>
 <td style="text-align: left">number</td>
 <td>Time of Update</td>
+</tr>
+<tr>
+<td style="text-align: left">iv</td>
+<td style="text-align: left">string</td>
+<td>Implied volatility</td>
+</tr>
+<tr>
+<td style="text-align: left">orderIM</td>
+<td style="text-align: left">string</td>
+<td>Initial margin of an order.</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -9079,19 +8988,14 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <td>Market price when the order is placed</td>
 </tr>
 <tr>
-<td style="text-align: left">triggerBy</td>
+<td style="text-align: left">blockTradeId</td>
 <td style="text-align: left">string</td>
-<td>Type of trigger price, latest market price by default.</td>
+<td>The batch id from paradigm. It is null if normal trade.</td>
 </tr>
 <tr>
-<td style="text-align: left">reduceOnly</td>
-<td style="text-align: left">bool</td>
-<td>Close position? True – close position, false – open position</td>
-</tr>
-<tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">bool</td>
-<td>Closed order? True – close order   false – open order</td>
+<td style="text-align: left">leavesQty</td>
+<td style="text-align: left">string</td>
+<td>Unfilled quantity</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketwallet'>wallet</h3>
@@ -9618,6 +9522,8 @@ ELSE
 <li><code>FEE_REFUND</code> </li>
 <li><code>INTEREST</code> </li>
 <li><code>BONUS</code> </li>
+<li><code>CURRENCY_SELL</code> </li>
+<li><code>CURRENCY_BUY</code> </li>
 </ul>
 <h2 id='order-filter-orderfilter'>Order Filter (<code>orderFilter</code>)</h2>
 <ul>

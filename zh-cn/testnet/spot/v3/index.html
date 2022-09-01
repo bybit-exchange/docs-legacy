@@ -4180,11 +4180,6 @@ curl --location --request GET &#39;https://api-testnet.bybit.com/spot/v3/public/
 <td style="text-align: left">string</td>
 <td>成交量</td>
 </tr>
-<tr>
-<td style="text-align: left">m</td>
-<td style="text-align: left">boolean</td>
-<td>true 表示買方是 taker，false 表示賣方是 taker</td>
-</tr>
 </tbody></table>
 <h3 id='t-websockettickers'>實時價格</h3>
 <blockquote>
@@ -4415,32 +4410,15 @@ curl --location --request GET &#39;https://api-testnet.bybit.com/spot/v3/public/
 <p><ul> <li>最大值1百萬 (<code>1000000</code>)</li> <li>必須是正整數： <ul> <li><code>40</code> - 合法</li> <li><code>30.5</code> - 非法</li> </ul> </li> </ul></p>
 <h2 id='price-price'>Price (<code>price</code>)</h2>
 <p><ul>
-<li>活動單<ul>
-<li>必須是<code>tick_size</code>的整數倍<ul>
-<li>當前symbol信息(如<code>tick_size</code>)，可以通過<a href="#t-querysymbol">交易對接口</a>接口獲得。</li>
+<li>普通單</li>
+<ul>
+<li>必須是<code>minPricePrecision</code>的整數倍</li>
+<li>當前symbol信息(如<code>minPricePrecision</code>)，可以通過<a href="#t-spot_querysymbol">交易對接口</a>接口獲得。</li>
 </ul>
-</li>
-<li>必須小於一百萬 (<code>1000000</code>)</li>
-<li>如果用戶沒有未平倉，則價格必須大於市場價格的10%<ul>
-<li>如, 若當前市場價(last price) 為 10314, 那麽下單價格的最小值為 1031.5。</li>
-<li>偽代碼(假設價格是0.5的增量):<pre class="center-column">
-IF price > (last_price * 0.1)
-// 發送訂單
-ELSE
-//  不會發送訂單，因為價格將不被系統接受
-</pre></li>
+<li>止盈止損單</li>
+<ul>
+<li>買入單的訂單價格不得超過觸發價格的 110%，而賣出單的訂單價格不得低於觸發價格的 90%。</li>
 </ul>
-</li>
-<li>如果已持有倉位，那麽價格必須高於強平價格<ul>
-<li>如, 若多倉的強平價格為 5176.5 那麽價格最小為 5177. 在做空的情況下，價格必須低於強平價格。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>條件單<ul>
-<li>必須大於等於 <code>1</code></li>
-</ul>
-</li>
 </ul>
 </p>
 <h2 id='time-in-force-time_in_force'>Time in force (<code>time_in_force</code>)</h2>

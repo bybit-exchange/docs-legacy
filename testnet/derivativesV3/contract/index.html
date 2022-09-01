@@ -972,36 +972,6 @@
                   <li>
                     <a href="#t-raisemylimit" class="toc-h2 toc-link" data-title="How to Increase API Limits">How to Increase API Limits</a>
                   </li>
-                  <li>
-                    <a href="#t-liquidity" class="toc-h2 toc-link" data-title="Understanding Bybit's Liquidity System">Understanding Bybit's Liquidity System</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#t-ofrthreshold" class="toc-h3 toc-link" data-title="Order Fill Ratio (OFR) Threshold">Order Fill Ratio (OFR) Threshold</a>
-                              <ul class="toc-list-h4">
-                                  <li>
-                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="Minimum OFR Threshold">Minimum OFR Threshold</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ofrratio" class="toc-h4 toc-link" data-title="Order Fill Ratio (OFR)">Order Fill Ratio (OFR)</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ofrratioexample" class="toc-h4 toc-link" data-title="Order Fill Ratio Example">Order Fill Ratio Example</a>
-                                  </li>
-                              </ul>
-                          </li>
-                          <li>
-                            <a href="#t-frequencylimit" class="toc-h3 toc-link" data-title="Rate Limits for API Requests">Rate Limits for API Requests</a>
-                              <ul class="toc-list-h4">
-                                  <li>
-                                    <a href="#t-liquiditypoints" class="toc-h4 toc-link" data-title="Liquidity Contribution Points (LCP)">Liquidity Contribution Points (LCP)</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ratelimitsexplanation" class="toc-h4 toc-link" data-title="Explanation">Explanation</a>
-                                  </li>
-                              </ul>
-                          </li>
-                      </ul>
-                  </li>
               </ul>
           </li>
           <li>
@@ -1890,7 +1860,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>close</code>, <code>high</code>, <code>low</code>, <code>volume</code>, <code>turnover</code></td>
+<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>, <code>turnover</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_tickerhead'>Get Latest Information For Symbol</h3>
@@ -2543,7 +2513,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>close</code>, <code>high</code>, <code>low</code></td>
+<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_indexpricekline'>Get Index Price Kline</h3>
@@ -2654,7 +2624,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>close</code>, <code>high</code>, <code>low</code>, <code>volume</code>, <code>turnover</code></td>
+<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>, <code>turnover</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_historyfundingratehead'>Get Funding Rate History</h3>
@@ -6118,8 +6088,7 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 </p>
 <h2 id='t-raisemylimit'>How to Increase API Limits</h2>
 <p><ul>
-<li>Please refer to <a href="#t-liquidity">Understanding Bybit&#39;s Liquidity System</a> regarding how our system automatically allocates rate limits for users who place over 2,000 orders per day.</li>
-<li>Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following information. We will reply within 1-4 working days:</li>
+Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following information. We will reply within 1-4 working days:
   <ol>
     <li>Your name and your company details</li>
     <li>Your Bybit UID or registered email, and the assets you are trading</li>
@@ -6129,123 +6098,6 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
   </ol>
 </ul>
 </p>
-<h2 id='t-liquidity'>Understanding Bybit's Liquidity System</h2>
-<p><p>Bybit uses <code>Order Fill Ratio (OFR)</code> and <code>Liquidity Contribution Points (LCP)</code> to measure customers&#39; contribution to our executable liquidity.</p>
-<p>The <code>LCP</code> and <code>OFR</code> of different assets are calculated separately.</p>
-</p>
-<h3 id='t-ofrthreshold'>Order Fill Ratio (OFR) Threshold</h3>
-<p>If you place more than <code>2000</code> orders per day on Bybit, please make sure that your 7-day OFR is above a <code>Minimum OFR threshold</code>. Otherwise, Bybit may reduce the rate limits for your API request.
-</p>
-<h4 id='t-ofrminimum'>Minimum OFR Threshold</h4>
-<p>7-day OFR must be kept above 0.1%.</p>
-<h4 id='t-ofrratio'>Order Fill Ratio (OFR)</h4>
-<p><ul>
-<li><code>Order Fill Ratio (OFR)</code>: <code>Orders Filled</code> to <code>Orders Submitted to Bybit</code> to Bybit.</li>
-<li><code>Orders Submitted to Bybit</code>: any order submitted to Bybit.</li>
-<li><code>Orders Filled</code>: any order that has been filled (regardless of filled quantity).</li>
-<li><code>OFR = (number of orders filled / number of orders submitted to Bybit)</code></li>
-</ul>
-</p>
-<h4 id='t-ofrratioexample'>Order Fill Ratio Example</h4>
-<pre class="center-column-nonindent">
-User A:
-Orders Filled = 2
-Orders Submitted to Bybit = 8
-OFR = 2/8 = 25%
-
-</pre>
-
-<pre class="center-column-nonindent">
-User B:
-Orders Filled = 1
-Orders Submitted to Bybit = 1
-OFR = 1/1 = 100%
-
-</pre>
-<h3 id='t-frequencylimit'>Rate Limits for API Requests</h3>
-<p>The rate limits for your API requests are based on your min. <code>Liquidity Contribution Points (LCP)</code> within <code>7</code> days.</p>
-
-<table><thead>
-<tr>
-<th>LCP</th>
-<th>Order Frequency Limit</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>20-100</td>
-<td>800 times per minute</td>
-</tr>
-<tr>
-<td>10-20</td>
-<td>600 times per minute</td>
-</tr>
-<tr>
-<td>5-10</td>
-<td>400 times per minute</td>
-</tr>
-<tr>
-<td>2-5</td>
-<td>200 times per minute</td>
-</tr>
-<tr>
-<td>&lt;2</td>
-<td>100 times per minute</td>
-</tr>
-</tbody></table>
-<h4 id='t-liquiditypoints'>Liquidity Contribution Points (LCP)</h4>
-<p><ul>
-<li><code>Liquidity Contribution Points (LCP) = POU * POA * 100</code></li>
-</ul>
-</p>
-<h4 id='t-ratelimitsexplanation'>Explanation</h4><h5 id='t-pricerange'>Effective Price Range</h5>
-<p><ul>
-<li><p><code>effective price range</code>: order price that falls within the lower and upper price bounds.</p>
-</li>
-<li><p>Min <code>effective price</code>:   (best bid price + best ask price) / 2 - (3 * tick_size)</p>
-</li>
-<li><p>Max <code>effective price</code>:  (best bid price + best ask price) / 2 + (3 * tick_size)</p>
-</li>
-</ul>
-</p>
-<h5 id='t-pricerangeexample'>Effective Price Range Example</h5>
-<pre class="center-column-nonindent">
-BTC best bid = 10000
-BTC best ask = 10001
-Effective Price Range: [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
-
-</pre>
-<h5 id='t-pou'>POU</h5>
-<p><ul>
-<li><code>POU</code>: The size of your orders that fall within the <code>effective price range</code> in proportion to the total size of your orders in the order book.</li>
-</ul>
-<p>Bybit calculates the size of your orders that fall within the <code>effective price range</code> / the total size of your orders in the order book per second, and then computes the time-weighted-average of the day.</p>
-</p>
-
-<pre class="center-column-nonindent">
-amount of User C's orders within effective price range = 8000
-amount of all User C's orders = 2000 + 8000 = 10000
-POU = 8000 / 10000 = 0.8
-
-</pre>
-<h5 id='t-poa'>POA</h5>
-<p><ul>
-<li><code>POA</code>: the proportion of your orders within <code>effective price range</code> to all orders within <code>effective price range</code> in orderbook.</li>
-</ul>
-<p>Bybit calculates your amount of orders within <code>effective price range</code> / amount of all orders within <code>effective price range</code> in orderbook, and then performs a 1-Day Time-Weighted-Average over the series of seconds rates.</p>
-</p>
-<h5 id='t-poaexample'>POA example</h5>
-<p>The size of user C's orders that fall within the effective price range is 8,000, while the total size of orders in the order book that fall within the effective price range is 200,000.</p>
-
-<pre class="center-column-nonindent">
-Size of user C's orders within effective price range = 8000
-Total size of orders within effective price range = 200000
-POA = 8000 / 200000 = 0.04
-
-</pre>
-
-<aside class="notice">
-Prior notice will be given via the website if we update this mechanism.
-</aside>
 <h1 id='t-websocket'>WebSocket Data</h1><h2 id='t-websocketauthentication'>Authentication</h2>
 <blockquote>
 <p>Authentication methods:
@@ -6538,7 +6390,7 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 <tr>
 <td style="text-align: left">u</td>
 <td style="text-align: left">number</td>
-<td>Update id. Please override your local orderbook when you receive "u"=1</td>
+<td>Update id, is always in sequence. Occasionally, you'll receive "u"=1, which is a snapshot data due to the restart of the service. So please overwrite the locally saved orderbook</td>
 </tr>
 </tbody></table>
 <h3 id='t-websockettrade'>trade</h3>
@@ -8021,6 +7873,8 @@ ELSE
 <li><code>FEE_REFUND</code> </li>
 <li><code>INTEREST</code> </li>
 <li><code>BONUS</code> </li>
+<li><code>CURRENCY_SELL</code> </li>
+<li><code>CURRENCY_BUY</code> </li>
 </ul>
 <h2 id='order-filter-orderfilter'>Order Filter (<code>orderFilter</code>)</h2>
 <ul>

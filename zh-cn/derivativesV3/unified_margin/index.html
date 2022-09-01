@@ -767,6 +767,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2022-09-01" class="toc-h2 toc-link" data-title="2022-09-01">2022-09-01</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WEBSOCKET API">WEBSOCKET API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-08-25" class="toc-h2 toc-link" data-title="2022-08-25">2022-08-25</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -982,36 +990,6 @@
                   </li>
                   <li>
                     <a href="#t-raisemylimit" class="toc-h2 toc-link" data-title="如何提高頻率限製">如何提高頻率限製</a>
-                  </li>
-                  <li>
-                    <a href="#t-liquidity" class="toc-h2 toc-link" data-title="Bybit流動性貢獻系統">Bybit流動性貢獻系統</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#t-ofrthreshold" class="toc-h3 toc-link" data-title="報單成交率">報單成交率</a>
-                              <ul class="toc-list-h4">
-                                  <li>
-                                    <a href="#t-ofrminimum" class="toc-h4 toc-link" data-title="API 交易用戶最小報單成交率門檻">API 交易用戶最小報單成交率門檻</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ofrratio" class="toc-h4 toc-link" data-title="報單成交率">報單成交率</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ofrratioexample" class="toc-h4 toc-link" data-title="報單成交率舉例">報單成交率舉例</a>
-                                  </li>
-                              </ul>
-                          </li>
-                          <li>
-                            <a href="#t-frequencylimit" class="toc-h3 toc-link" data-title="API 交易用戶提高頻率的條件">API 交易用戶提高頻率的條件</a>
-                              <ul class="toc-list-h4">
-                                  <li>
-                                    <a href="#t-liquiditypoints" class="toc-h4 toc-link" data-title="流動性貢獻打分">流動性貢獻打分</a>
-                                  </li>
-                                  <li>
-                                    <a href="#t-ratelimitsexplanation" class="toc-h4 toc-link" data-title="名詞解釋">名詞解釋</a>
-                                  </li>
-                              </ul>
-                          </li>
-                      </ul>
                   </li>
               </ul>
           </li>
@@ -1457,7 +1435,15 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-08-25'>2022-08-25</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-09-01'>2022-09-01</h2><h3 id='websocket-api'>WEBSOCKET API</h3>
+<ul>
+<li><a href="#t-websocketorder">訂單</a> [更新]
+
+<ul>
+<li>新增字段<code>leavesQty</code>、<code>cumExecQty</code>、<code>cumExecValue</code>、<code>cumExecFee</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-08-25'>2022-08-25</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-dv_batchplaceorder">批量創建訂單</a> [更新]
 
@@ -1976,7 +1962,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>元素為單個蠟燭的數組，以<code>start</code>倒序排列, 數組內默認排序規則為<code>start</code>，<code>open</code>，<code>close</code>，<code>high</code>，<code>low</code>，<code>volume</code>，<code>turnover</code></td>
+<td>元素為單個蠟燭的數組，以<code>start</code>倒序排列, 數組內默認排序規則為<code>start</code>，<code>open</code>，<code>high</code>，<code>low</code>，<code>close</code>，<code>volume</code>，<code>turnover</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_tickerhead'>衍生品最新行情信息</h3>
@@ -2628,7 +2614,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>元素為單個蠟燭的數組，以<code>start</code>倒序排列, 數組內默認排序規則為<code>start</code>，<code>open</code>，<code>close</code>，<code>high</code>，<code>low</code></td>
+<td>元素為單個蠟燭的數組，以<code>start</code>倒序排列, 數組內默認排序規則為<code>start</code>，<code>open</code>，<code>high</code>，<code>low</code>，<code>close</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_indexpricekline'>查詢指數價格K線數據</h3>
@@ -2738,7 +2724,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>元素為單個蠟燭的數組，以<code>start</code>倒序排列, 數組內默認排序規則為<code>start</code>，<code>open</code>，<code>close</code>，<code>high</code>，<code>low</code>，<code>volume</code>，<code>turnover</code></td>
+<td>元素為單個蠟燭的數組，以<code>start</code>倒序排列, 數組內默認排序規則為<code>start</code>，<code>open</code>，<code>high</code>，<code>low</code>，<code>close</code>，<code>volume</code>，<code>turnover</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_historyfundingratehead'>查詢歷史資金費率</h3>
@@ -6799,7 +6785,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">baseCoin</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>例如： USDC就是BTC；USDT就是現在現有的交易幣種枚舉，例如： BTCUSDT 的 baseCoin 是 BTC 不匹配時已確認返回空</td>
+<td>資產幣種. <p>若<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_SELL 或 CURRENCY_BUY，則該字段無意義，若傳入，則返回空</p> <p>若type傳入其他類型，且baseCoin不傳，則返回全部數據</p></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transaction-log-type-type">type</a></td>
@@ -7576,8 +7562,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </p>
 <h2 id='t-raisemylimit'>如何提高頻率限製</h2>
 <p><ul>
-<li>請先閱讀<a href="#t-raisemylimit">如何滿足提高頻率限製條件</a></li>
-<li>請發送郵件到 <a href="mailto:api@bybit.com">api@bybit.com</a>，我們會在 1-4 個工作日內答復。郵件內容必須包含以下內容：</li>
+請發送郵件到 <a href="mailto:api@bybit.com">api@bybit.com</a>，我們會在 1-4 個工作日內答復。郵件內容必須包含以下內容：
 <ol>
   <li>您的姓名和公司名稱和簡介</li>
   <li>您的bybit 賬號uid或註冊郵箱手機號,以及您要申請提頻的交易對</li>
@@ -7587,127 +7572,6 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </ol>
 </ul>
 </p>
-<h2 id='t-liquidity'>Bybit流動性貢獻系統</h2>
-<p><p>Bybit 使用<code>報單成交率</code> 和 <code>流動性貢獻打分</code>來評價用戶對改善bybit可執行流動性作出的貢獻。</p>
-<p>不同symbol的<code>貢獻分</code>和<code>報單成交率</code>是獨立計算的。</p>
-</p>
-<h3 id='t-ofrthreshold'>報單成交率</h3>
-<p>平臺上每天提交超過<code>2000</code>個報單的賬戶，需要保持<code>7天</code>的報單成交率高於<code>最小報單成交率門檻值</code>，違反此規則將會被降低頻率或禁用 API。
-</p>
-<h4 id='t-ofrminimum'>API 交易用戶最小報單成交率門檻</h4>
-<p><code>7</code>日內API 交易用戶最小報單成交率門檻 0.1%</p>
-<h4 id='t-ofrratio'>報單成交率</h4>
-<p><ul>
-<li><code>報單成交率</code>: 定義為 一段時間段內，用戶已成交報單數量占該用戶已提交報單數量的比例</li>
-<li><code>已提交報單</code>: 是任何已成功發送到平臺的委托</li>
-<li><code>已成交報單</code>: 是成交了任何數量的委托</li>
-<li><code>報單成交率 = ( 一段時間內用戶的已成交報單數量 / 一段時間內已提交報單數量)</code></li>
-</ul>
-</p>
-<h4 id='t-ofrratioexample'>報單成交率舉例</h4>
-<pre class="center-column-nonindent">
-A用戶：
-已成交報單數量 = 2
-已提交報單數量 = 8
-報單成交率 = 2 / 8 = 25％
-
-</pre>
-
-<pre class="center-column-nonindent">
-B用戶：
-已成交報單數量 = 1
-已提交報單數量 = 1
-報單成交率 = 1 / 1 = 100％
-
-</pre>
-<h3 id='t-frequencylimit'>API 交易用戶提高頻率的條件</h3>
-<p>平臺會根據API用戶近<code>7</code>日掛單對<code>平臺流動性貢獻分</code>的最低值，對滿足條件的用戶進行提高頻率上限的獎勵</p>
-
-<table><thead>
-<tr>
-<th>流動性貢獻分</th>
-<th>Order頻率限製</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>20-100</td>
-<td>800次 / 每分鐘</td>
-</tr>
-<tr>
-<td>10-20</td>
-<td>600次 / 每分鐘</td>
-</tr>
-<tr>
-<td>5-10</td>
-<td>400次 / 每分鐘</td>
-</tr>
-<tr>
-<td>2-5</td>
-<td>200次 / 每分鐘</td>
-</tr>
-<tr>
-<td>&lt;2</td>
-<td>100次 / 每分鐘</td>
-</tr>
-</tbody></table>
-<h4 id='t-liquiditypoints'>流動性貢獻打分</h4>
-<p><ul>
-<li><code>流動性貢獻打分 = 有效價格掛單自占比 * 有效價格掛單量平臺占比 * 100</code></li>
-</ul>
-</p>
-<h4 id='t-ratelimitsexplanation'>名詞解釋</h4><h5 id='t-pricerange'>有效價格掛單</h5>
-<p><ul>
-<li><p><code>有效價格掛單</code>: 定義為在距離盤口中間價較近的規定範圍內的掛單被定義為有效價格掛單.</p>
-</li>
-<li><p><code>最佳競價中間價</code>:  (最佳競買價 + 最佳競賣價) 的均值</p>
-</li>
-<li><p><code>最佳競價中間價 = 1/2*（最佳競買價 + 最佳競賣價）</code></p>
-</li>
-</ul>
-</p>
-<h5 id='t-pricerangeexample'>有效價格範圍</h5>
-<pre class="center-column-nonindent">
-[最佳競價中間價 - 3 * 價格最小變動單位, 最佳競價中間價 + 3 * 價格最小變動單位]
-
-舉例：
- BTC最佳競買價 = 10000
- BTC最佳競賣價 = 10001
- 「有效價格」範圍：
- [(10000 + 10001) / 2 - 3* 0.5, (10000 + 10001) / 2 + 3* 0.5] = [9999,10002]
-
-</pre>
-<h5 id='t-pou'>有效價格掛單自占比</h5>
-<p><ul>
-<li><code>有效價格掛單自占比</code>: 定義為該用戶在 <code>有效價格 </code> 範圍內的掛單數量占該用戶在當前時間提交的掛單總數量的比例。</li>
-</ul>
-<p>每秒計算 該用戶在<code>有效價格</code>範圍內的報掛單數量 /該用戶提交的掛單總數量，然後每日計算用戶當日占比的平均值。</p>
-</p>
-
-<pre class="center-column-nonindent">
-該用戶在<code>有效價格</code>範圍內的掛單數量 = 8000
-該用戶提交的掛單總數量 = 10000
-有效價格掛單自占比 = 8000 / 10000 = 0.8
-
-</pre>
-<h5 id='t-poa'>有效價格掛單平臺占比</h5>
-<p><ul>
-<li><code>有效價格掛單平臺占比</code>: 定義為該用戶在有效價格範圍內的掛單數量占平臺所有用戶在<code>有效價格</code>範圍內的掛單總數量的比例.</li>
-</ul>
-<p>每秒計算 該用戶在<code>有效價格</code>範圍內的掛單數量 / 平臺所有用戶在<code>有效價格</code>範圍內的掛單總數量，然後每日計算用戶當日占比的平均值。</p>
-</p>
-<h5 id='t-poaexample'>有效價格掛單平臺占比舉例：</h5>
-<p>某一秒，用戶在「有效價格」範圍：[9999, 10002] 內的掛單有8000張，全平臺的交易委托賬本在 [9999, 10002] 內的掛單總量為200000。</p>
-
-<pre class="center-column-nonindent">
-該用戶在<code>有效價格</code>範圍內的掛單數量 = 8000
-平臺所有用戶在<code>有效價格</code>範圍內的掛單總數量 = 200000
-有效價格掛單量平臺占比 = 8000 / 200000 = 0.04
-
-</pre>
-
-<aside class="notice">
-如果機製有更新，我們會提前通過官網提前通知。
-</aside>
 <h1 id='t-websocket'>WebSocket接口</h1><h2 id='t-websocketauthentication'>鑒權/認證</h2>
 <blockquote>
 <p>認證方式:
@@ -8024,7 +7888,7 @@ B用戶：
 <tr>
 <td style="text-align: left">u</td>
 <td style="text-align: left">number</td>
-<td>更新id. 當收到"u"=1時，则該推送為全量數據，請覆蓋本地保存的orderbook</td>
+<td>更新id, 一般情況下該id是連續的。偶爾會因後台的重啟而發送"u"=1的全量數據，接收到後請覆蓋本地保存的orderbook</td>
 </tr>
 </tbody></table>
 <h3 id='t-websockettrade'>平臺成交</h3>
@@ -8221,13 +8085,14 @@ B用戶：
 
 </code></pre></div>
 <p><p>獲取合約的最新數據.</p>
-<p>推送頻率: <b>100ms</b></p>
+<p>推送頻率: <b>100ms</b>(期貨), <b>200ms</b>(期權)</p>
 <p><b>Topic:</b></p>
 <p><code>tickers.{symbol}</code></p>
 </p>
 
 <aside class="warning">
-注意，該topic推送delta數據和snapshot数据。如果delta數據為空，表明信息沒有發生變化。
+<p><b>期貨</b>：該topic推送delta數據和snapshot数据。如果delta數據為空，表明信息沒有發生變化。</p>
+<p><b>期權</b>：該topic只推送snapshot数据。</p>
 
 </aside>
 
@@ -8954,42 +8819,47 @@ B用戶：
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2f81572c-e0fa-4370-b080-1a1ee0e43174</span><span class="dl">"</span><span class="p">,</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">f91080af-5187-4261-a802-7604419771aa</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user.order.unifiedAccount</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1649150255791</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661932033707</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[{</span>
-            <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cc171fdb-d189-4ade-a098-9205e2b7a25e</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">lin-sit-perp-1046</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">47000.00000000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0500</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1649150255604</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1649150255666</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
-        <span class="p">}],</span>
-        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="mi">18</span>
+        <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">415f8961-4073-4d74-bc3e-df2830e52843</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17000.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0100</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661932033636</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661932033644</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">blockTradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0100</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="mi">284</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span>
 <span class="p">}</span>
-
 </code></pre></div>
 <p><p><p><b>說明：</b></p>
 <p>仅推增量订单与条件单合并成一个 Topic</p>
@@ -9007,14 +8877,19 @@ B用戶：
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">symbol</td>
-<td style="text-align: left">string</td>
-<td>合約名稱</td>
-</tr>
-<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">string</td>
 <td>訂單 ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>機構自定義訂單 ID</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>合約名稱</td>
 </tr>
 <tr>
 <td style="text-align: left">side</td>
@@ -9027,11 +8902,6 @@ B用戶：
 <td>訂單類型枚舉</td>
 </tr>
 <tr>
-<td style="text-align: left">stopOrderType</td>
-<td style="text-align: left">string</td>
-<td>條件單類型</td>
-</tr>
-<tr>
 <td style="text-align: left">price</td>
 <td style="text-align: left">string</td>
 <td>訂單價格</td>
@@ -9040,11 +8910,6 @@ B用戶：
 <td style="text-align: left">qty</td>
 <td style="text-align: left">string</td>
 <td>訂單數量</td>
-</tr>
-<tr>
-<td style="text-align: left">iv</td>
-<td style="text-align: left">string</td>
-<td>隱含波動率</td>
 </tr>
 <tr>
 <td style="text-align: left">timeInForce</td>
@@ -9057,15 +8922,45 @@ B用戶：
 <td>訂單狀態</td>
 </tr>
 <tr>
+<td style="text-align: left">cumExecQty</td>
+<td style="text-align: left">string</td>
+<td>累計成交數量</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>累計成交價值</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExecFee</td>
+<td style="text-align: left">string</td>
+<td>累計成交手續費</td>
+</tr>
+<tr>
+<td style="text-align: left">stopOrderType</td>
+<td style="text-align: left">string</td>
+<td>條件單類型</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerBy</td>
+<td style="text-align: left">string</td>
+<td>觸發價格類型，默認為市價</td>
+</tr>
+<tr>
 <td style="text-align: left">triggerPrice</td>
 <td style="text-align: left">string</td>
 <td>如果stop_order_type為TrailingProfit時，為激活價格，否則為觸發價格。
 </td>
 </tr>
 <tr>
-<td style="text-align: left">orderLinkId</td>
-<td style="text-align: left">string</td>
-<td>機構自定義訂單 ID</td>
+<td style="text-align: left">reduceOnly</td>
+<td style="text-align: left">bool</td>
+<td>是否平倉單 true-平倉 false-開倉</td>
+</tr>
+<tr>
+<td style="text-align: left">closeOnTrigger</td>
+<td style="text-align: left">bool</td>
+<td>是否平倉委托 true-平倉 false-開倉</td>
 </tr>
 <tr>
 <td style="text-align: left">createdTime</td>
@@ -9076,6 +8971,16 @@ B用戶：
 <td style="text-align: left">updatedTime</td>
 <td style="text-align: left">number</td>
 <td>更新時間</td>
+</tr>
+<tr>
+<td style="text-align: left">iv</td>
+<td style="text-align: left">string</td>
+<td>隱含波動率</td>
+</tr>
+<tr>
+<td style="text-align: left">orderIM</td>
+<td style="text-align: left">string</td>
+<td>訂單初始保證金</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -9103,19 +9008,14 @@ B用戶：
 <td>下單時市價</td>
 </tr>
 <tr>
-<td style="text-align: left">triggerBy</td>
+<td style="text-align: left">blockTradeId</td>
 <td style="text-align: left">string</td>
-<td>觸發價格類型，默認為市價</td>
+<td>取Paradigm請求的批次ID; 普通交易則為空</td>
 </tr>
 <tr>
-<td style="text-align: left">reduceOnly</td>
-<td style="text-align: left">bool</td>
-<td>是否平倉單 true-平倉 false-開倉</td>
-</tr>
-<tr>
-<td style="text-align: left">closeOnTrigger</td>
-<td style="text-align: left">bool</td>
-<td>是否平倉委托 true-平倉 false-開倉</td>
+<td style="text-align: left">leavesQty</td>
+<td style="text-align: left">string</td>
+<td>剩餘委託數量</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketwallet'>錢包</h3>
@@ -9626,7 +9526,9 @@ ELSE
 <li><code>INSURANCE_FUND</code> 保險費用</li>
 <li><code>FEE_REFUND</code> 手續費返還</li>
 <li><code>INTEREST</code> 利息</li>
-<li><code>BONUS</code> 體驗金領區</li>
+<li><code>BONUS</code> 體驗金領取</li>
+<li><code>CURRENCY_SELL</code> 賣幣</li>
+<li><code>CURRENCY_BUY</code> 買幣</li>
 </ul>
 <h2 id='order-filter-orderfilter'>Order Filter (<code>orderFilter</code>)</h2>
 <ul>
