@@ -3133,6 +3133,9 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_200220901_1: Support place TP/Sl order
+  restapi_update_200220901_2: Add new API
+  restapi_update_200220901_3: Add new response fields <code>takeProfit</code>、<code>stopLoss</code>、<code>tpTriggerBy</code>、<code>slTriggerBy</code>
   restapi_update_200220831_1: Add new response fields <code>iv</code>、<code>markIv</code>、<code>underlyingPrice</code>、<code>indexPrice</code>、<code>markPrice</code>
   restapi_update_200220831_2: Add new response fields <code>iv</code>、<code>cancelType</code>、<code>updateTimeStamp</code>
   restapi_update_200220831_3: Add new response field <code>updateTimeStamp</code>
@@ -4840,6 +4843,7 @@ en:
   ct_order: Order
   ct_order_list: Order List
   ct_create_order: Create Order
+  ct_trading_stop: Set trading stop
   ct_close_order: Close Order
   ct_cancel_order: Cancel Order
   ct_positon_list: Position List
@@ -4848,6 +4852,10 @@ en:
   ct_wallet_transfer: Transfer
   ct_set_leverage: Set Leverage
   ct_set_leverage_desc: Only integers can be set to set the leverage
+  ct_parentOrderId: Parent orderId
+  ct_parentOrderLinkId: Parent orderLinkid
+  ct_tradingStopTakeProfit: Take profit price. Pass <code>0</code>, it means remove take profit; Pass <code>""</code>, it means no modification
+  ct_tradingStopStopLoss: Stop Loss price. Pass <code>0</code>, it means remove stop loss; Pass <code>""</code>, it means no modification
 
   accountType_copytrade: ""
   copy_trade_row_comment_parentOrderIdNotparentOrderLinkId:  <b>Required</b> if not passing <code>parent_order_link_id</code>

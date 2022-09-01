@@ -1,6 +1,6 @@
 # t(:changelog)
 
-## 2022-08-31
+## 2022-09-01
 ### REST API
 - [t(:queryLatest500Trades)](#t-querylatest500trades) [t(:changelog_update)]
   - t(:restapi_update_200220831_1)
