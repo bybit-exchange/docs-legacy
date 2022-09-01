@@ -39,12 +39,14 @@ t(:usdcPriceRule)
 
 
 ## Transaction type (`type`)
-* `TRANSFER_IN`
-* `TRANSFER_OUT`
-* `TRADE`
-* `SETTLEMENT`
-* `DELIVERY`
-* `LIQUIDATION`
+* `TRANSFER_IN` t(:transfer_in)
+* `TRANSFER_OUT` t(:transfer_out)
+* `TRADE` t(:trade)
+* `SETTLEMENT` t(:settlement)
+* `DELIVERY` t(:delivery)
+* `LIQUIDATION` t(:liquidation)
+* `FEE_REFUND` t(:fee_refund)
+* `BONUS` t(:bonusEnum)
 
 ## Margin Mode (`marginMode`)
 * `REGULAR_MARGIN`
@@ -83,3 +85,23 @@ t(:usdcPriceRule)
 * `BTC`
 * `ETH`
 * `SOL`
+
+## Period (`period`)
+
+BTC & ETH
+`7`
+`14`
+`21`
+`30`
+`60`
+`90`
+`180`
+`270`days
+
+SOL
+`7`
+`14`
+`21`
+`30`
+`60`
+`90`days

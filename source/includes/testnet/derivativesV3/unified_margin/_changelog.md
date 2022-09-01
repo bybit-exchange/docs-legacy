@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-08-30
+### WEBSOCKET API
+- [t(:websocketOrder)](#t-websocketorder) [t(:changelog_update)]
+  - t(:restapi_update_200220830)
+
 ## 2022-08-25
 ### REST API
 - [t(:dv_batchPlaceOrder)](#t-dv_batchplaceorder) [t(:changelog_update)]

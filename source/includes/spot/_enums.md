@@ -74,7 +74,7 @@ t(:spotCrossMarginTradingEndpoint)
 t(:quantity)
 
 ## Price (`price`)
-t(:price)
+t(:spotv1_Price)
 
 ## Time in force (`time_in_force`)
 * `GTC` t(:goodTillCancel)

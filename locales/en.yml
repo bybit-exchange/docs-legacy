@@ -28,8 +28,8 @@ en:
   row_comment_side: Side
   row_comment_side_taker: Side of taker order
   row_comment_symbol: Symbol
-  row_comment_kline_list: an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>close</code>, <code>high</code>, <code>low</code>, <code>volume</code>, <code>turnover</code>
-  row_comment_mark_kline_list: an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>close</code>, <code>high</code>, <code>low</code>
+  row_comment_kline_list: an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>, <code>turnover</code>
+  row_comment_mark_kline_list: an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>
   row_comment_margin: margin
   row_comment_position_id: PositionID
   row_comment_position_idx: |
@@ -140,7 +140,7 @@ en:
   row_comment_created_at_position: The account creation time
   row_comment_created_at_in_exchange: Exchange time
   row_comment_updated_at: Update time
-  row_comment_updated_id: Update id. Please override your local orderbook when you receive "u"=1
+  row_comment_updated_id: Update id, is always in sequence. Occasionally, you'll receive "u"=1, which is a snapshot data due to the restart of the service. So please overwrite the locally saved orderbook
   row_comment_margin_result: User margin
   row_comment_activeOrderType: Active order type
   row_comment_stopOrderType: Conditional order type
@@ -1582,6 +1582,17 @@ en:
         <li>Optional: your order history in CSV format</li>
       </ol>
     </ul>
+  rate_para_raise_v3: |
+    <ul>
+    Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following information. We will reply within 1-4 working days:
+      <ol>
+        <li>Your name and your company details</li>
+        <li>Your Bybit UID or registered email, and the assets you are trading</li>
+        <li>General description of your trading strategy and reasons for higher rate limits</li>
+        <li>Screenshot of previous monthly trading volume (maker/taker) on other platforms</li>
+        <li>Optional: your order history in CSV format</li>
+      </ol>
+    </ul>
   ### Understanding Bybit's Liquidity System
   liquidity: Understanding Bybit's Liquidity System
   rate_para_liquidity: |
@@ -1931,7 +1942,12 @@ en:
   websocket_para_instrumentInfo: |
     <p>Get latest information for symbol.</p>
     <p>Push frequency: <b>100ms</b></p>
-  websocket_para_ticker_v3: |
+  websocket_para_ticker_UM: |
+    <p>Get latest information for symbol.</p>
+    <p>Push frequency: <b>100ms</b>(Futures), <b>200ms</b>(Option)</p>
+    <p><b>Topic:</b></p>
+    <p><code>tickers.{symbol}</code></p>
+  websocket_para_ticker_contract: |
     <p>Get latest information for symbol.</p>
     <p>Push frequency: <b>100ms</b></p>
     <p><b>Topic:</b></p>
@@ -1940,8 +1956,18 @@ en:
     This topic only utilises the <code>update</code> field. Both the <code>delete</code> and <code>insert</code> fields are null. If a key is not found in the <code>update</code> field, its value has not changed.
   websocket_aside_instrumentInfo2: |
     Some values use scientific notation. This is indicated by that value's key, which will be appended with, for example, <code>e6</code>. If the key is <code>last_price_e4</code> and the value is <code>81585000</code>, then to find the true value we can do <code>81585000 / 10^4</code>, which equals <code>8158.5</code>.
-  websocket_aside_instrumentInfo_ud: |
+  websocket_aside_instrumentInfo_contract: |
     This topic will utilises the <code>snapshot</code> field and  <code>delta</code> fields. If a key is not found in the field, its value has not changed.
+  websocket_aside_instrumentInfo_um: |
+    <p><b>Futures</b>: topic will utilises the <code>snapshot</code> field and  <code>delta</code> fields. If a key is not found in the field, its value has not changed.</p>
+    <p><b>Option</b>: topic only has the <code>snapshot</code> type of data.</p>
+  ## symbol state notify
+  websocketSymbolNotify: Symbol state
+  websocketSymbolNotify_para: |
+    <p><b>Push frequency: real-time</b></p>
+    <p><b>Topic:</b> instrument.state.notification.{baseCoin}</p>
+  usdcSymbolStatus: Symbol status
+  usdcOnlineTime: Online time in ms
   ### klineV2
   websocketklineV2: klineV2
   websocket_para_klineV2: |
@@ -2088,6 +2114,23 @@ en:
     </ul>
     </li>
     </ul>
+  spotv1_Price: |
+    <ul>
+        <li>Must be an integral multiple of <code>minPricePrecision</code><ul>
+        <li>Information about current trading pair (e.g. <code>minPricePrecision</code>) can be queried with the <a href="#t-spot_querysymbol">Query Symbol endpoint</a>.</li>
+    </ul>
+  spotv3_Price: |
+    <ul>
+    <li>order</li>
+    <ul>
+      <li>Must be an integral multiple of <code>minPricePrecision</code></li>
+      <li>Information about current trading pair (e.g. <code>minPricePrecision</code>) can be queried with the <a href="#t-spot_querysymbol">Query Symbol endpoint</a>.</li>
+    </ul>
+    <li>TP/SL order</li>
+    <ul>
+      <li>The order price of a buy order cannot exceed 110% of the trigger price, and the order price of a sell order cannot be lower than 90% of the trigger price.</li>
+    </ul>
+    </ul>
   ## Time in force (`time_in_force`)
   goodTillCancel:     ""
   immediateOrCancel:  ""
@@ -2210,6 +2253,8 @@ en:
   fee_refund: ""
   interest: ""
   bonusEnum: ""
+  currencyBuy: ""
+  currencySell: ""
 
   ## spot tp sl order status (`X`)
   order_new: Untriggered
@@ -3088,6 +3133,15 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_200220901_1: Support place TP/Sl order
+  restapi_update_200220901_2: Add new API
+  restapi_update_200220901_3: Add new response fields <code>takeProfit</code>、<code>stopLoss</code>、<code>tpTriggerBy</code>、<code>slTriggerBy</code>
+  restapi_update_200220831_1: Add new response fields <code>iv</code>、<code>markIv</code>、<code>underlyingPrice</code>、<code>indexPrice</code>、<code>markPrice</code>
+  restapi_update_200220831_2: Add new response fields <code>iv</code>、<code>cancelType</code>、<code>updateTimeStamp</code>
+  restapi_update_200220831_3: Add new response field <code>updateTimeStamp</code>
+  restapi_update_200220831_4: Add api "Query historical volatility"
+  restapi_update_200220831_5: Add wss "Symbol state notification"
+  restapi_update_200220830: Add new response field <code>leavesQty</code>、<code>cumExecQty</code>、<code>cumExecValue</code>、<code>cumExecFee</code>
   restapi_update_200220826: Add new response field <code>t</code> (tradeId)
   restapi_update_200220809: Add private topic for TP/SL order
   restapi_update_20220805_2: <code>baseCoin</code> and <code>settleCoin</code> is supported for when <code>category</code>=linear
@@ -3959,6 +4013,7 @@ en:
   usdcIndexPrice: Index Price
   usdcMarkPrice: Mark Price
   usdcMarkPriceIv: Implied volatility for mark price
+  usdcIv: iv. In extreme cases, due to abnormal data acquisition, the IV may be empty, which must be compatible with empty strings.
   usdcChange24h: 24-hour change
   usdcHigh24h: 24-hour high
   usdcLow24h: 24-hour low
@@ -3972,6 +4027,8 @@ en:
   id: id
   side: Direction
   usdcOrderPrice: Order price
+  usdcExecPrice: Order executed price
+  usdcExecQty: Order executed size
   usdcPlaceOrderPrice: Order price.For Perpetual, order price can not be empty. For option, if placeType is 2, the final order price will be calculated by Implied volatility
   usdcOrderQty: Order quantity
   time: Timestamp, unit in milliseconds
@@ -3980,7 +4037,8 @@ en:
   usdcAccountInfo: Wallet Info
   usdcBaseCoin_new: Base coin. Returns all records with base coin. If not passed, it returns records with BTC by default
   usdcBaseCoin_cancel: Base coin. Cancel all base coin related orders. If not passed, it'll cancel all BTC related orders
-
+  usdcBaseCoin_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT，this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums，and baseCoin is not passed，it returns all records.</p>
+  usdcBaseCoinUM_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY or CURRENCY_SELL，this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums，and baseCoin is not passed，it returns all records.</p>
   usdcQuoteCoin: Quote currency
   usdcSettleCoin: Settle Coin
   usdcTakerFee: Taker fee
@@ -4182,6 +4240,7 @@ en:
   usdcOptionOrderType: refer to <a href="#order-type-ordertype">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
   usdcOptionPlaceOrderPrice: Order price. For option, if iv has value, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
   optionIv_order: Implied volatility. If orderType is Market, iv is not required, otherwise the order will fail.
+  usdcOption_timeInForce: For Market order，it must be <code>ImmediateOrCancel</code>
 
   optionIv: Implied volatility
   optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.
@@ -4246,6 +4305,7 @@ en:
   tradeId: Transaction ID
   feeRate: Taker or maker fee rate
   cashBalance: Cash balance
+  blockTradeId: Block trade id
 
 
   equity: Equity
@@ -4367,6 +4427,7 @@ en:
   createType: Order placement
   cancelType: Order cancelation
   usdcCrossSeq: System internal param. Just ignore
+  usdc2CancelType: The type/reason of cancellation. If it is active order, it returns <code>""</code>
 
   platFormOrderHistory: platform order history
   querySymbolInfo: Contract Info
@@ -4512,6 +4573,17 @@ en:
     <p>topic:</p>
     <p>Option: user.openapi.option.order</p>
 
+  queryHistoricalVolatility: Query historical volatility
+  historicalVolatilityPara: |
+    <p>The data is in hourly.</p>
+    <p>If time field is not passed, it returns the recent 1 hour data by default.</p>
+    <p>It could be any timeframe by inputting startTime & endTime, but it must satisfy [endTime - startTime] <= 30 days.</p>
+  historicalVolatilityNotice: |
+    <p>It returns all data in 2 years when startTime & endTime are not passed.</p>
+    <p>Both <b>startTime</b> & <b>endTime</b> entered together or both are left blank</p>
+  baseCoin: Base coin. If not passed, BTC returned by default
+  usdcPeriod_2: Period. if not passed, it returns 7 days by default
+  usdcVolatility: Volatility
   usdcCommonDesc: |
     <p>When the link is established successfully, a full package will be added first. If you place an order again, you will receive an incremental data package.</p>
     <p>-If the dataType is NEW, full data will be pushed  </p>
@@ -4771,6 +4843,7 @@ en:
   ct_order: Order
   ct_order_list: Order List
   ct_create_order: Create Order
+  ct_trading_stop: Set trading stop
   ct_close_order: Close Order
   ct_cancel_order: Cancel Order
   ct_positon_list: Position List
@@ -4779,6 +4852,10 @@ en:
   ct_wallet_transfer: Transfer
   ct_set_leverage: Set Leverage
   ct_set_leverage_desc: Only integers can be set to set the leverage
+  ct_parentOrderId: Parent orderId
+  ct_parentOrderLinkId: Parent orderLinkid
+  ct_tradingStopTakeProfit: Take profit price. Pass <code>0</code>, it means remove take profit; Pass <code>""</code>, it means no modification
+  ct_tradingStopStopLoss: Stop Loss price. Pass <code>0</code>, it means remove stop loss; Pass <code>""</code>, it means no modification
 
   accountType_copytrade: ""
   copy_trade_row_comment_parentOrderIdNotparentOrderLinkId:  <b>Required</b> if not passing <code>parent_order_link_id</code>

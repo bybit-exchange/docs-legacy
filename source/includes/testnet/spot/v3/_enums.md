@@ -53,7 +53,7 @@ The transfer API also includes:
 t(:quantity)
 
 ## Price (`price`)
-t(:price)
+t(:spotv3_Price)
 
 ## Time in force (`time_in_force`)
 * `GTC` t(:goodTillCancel)
