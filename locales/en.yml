@@ -2107,6 +2107,23 @@ en:
     </ul>
     </li>
     </ul>
+  spotv1_Price: |
+    <ul>
+        <li>Must be an integral multiple of <code>minPricePrecision</code><ul>
+        <li>Information about current trading pair (e.g. <code>minPricePrecision</code>) can be queried with the <a href="#t-spot_querysymbol">Query Symbol endpoint</a>.</li>
+    </ul>
+  spotv3_Price: |
+    <ul>
+    <li>order</li>
+    <ul>
+      <li>Must be an integral multiple of <code>minPricePrecision</code></li>
+      <li>Information about current trading pair (e.g. <code>minPricePrecision</code>) can be queried with the <a href="#t-spot_querysymbol">Query Symbol endpoint</a>.</li>
+    </ul>
+    <li>TP/SL order</li>
+    <ul>
+      <li>The order price of a buy order cannot exceed 110% of the trigger price, and the order price of a sell order cannot be lower than 90% of the trigger price.</li>
+    </ul>
+    </ul>
   ## Time in force (`time_in_force`)
   goodTillCancel:     ""
   immediateOrCancel:  ""

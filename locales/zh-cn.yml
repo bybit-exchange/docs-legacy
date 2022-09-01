@@ -1897,6 +1897,24 @@ zh-cn:
     </ul>
     </li>
     </ul>
+  spotv1_Price: |
+    <ul>
+    <li>必須是<code>minPricePrecision</code>的整數倍<ul>
+    <li>當前symbol信息(如<code>minPricePrecision</code>)，可以通過<a href="#t-spot_querysymbol">交易對接口</a>接口獲得。</li>
+    </ul>
+    </li>
+  spotv3_Price: |
+    <ul>
+    <li>普通單</li>
+    <ul>
+    <li>必須是<code>minPricePrecision</code>的整數倍</li>
+    <li>當前symbol信息(如<code>minPricePrecision</code>)，可以通過<a href="#t-spot_querysymbol">交易對接口</a>接口獲得。</li>
+    </ul>
+    <li>止盈止損單</li>
+    <ul>
+    <li>買入單的訂單價格不得超過觸發價格的 110%，而賣出單的訂單價格不得低於觸發價格的 90%。</li>
+    </ul>
+    </ul>
   ## Time in force (`time_in_force`)
   goodTillCancel:     "一直有效至取消"
   immediateOrCancel:  "立即成交或取消"
