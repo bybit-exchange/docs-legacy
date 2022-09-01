@@ -1961,6 +1961,13 @@ en:
   websocket_aside_instrumentInfo_um: |
     <p><b>Futures</b>: topic will utilises the <code>snapshot</code> field and  <code>delta</code> fields. If a key is not found in the field, its value has not changed.</p>
     <p><b>Option</b>: topic only has the <code>snapshot</code> type of data.</p>
+  ## symbol state notify
+  websocketSymbolNotify: Symbol state
+  websocketSymbolNotify_para: |
+    <p><b>Push frequency: real-time</b></p>
+    <p><b>Topic:</b> instrument.state.notification.{baseCoin}</p>
+  usdcSymbolStatus: Symbol status
+  usdcOnlineTime: Online time in ms
   ### klineV2
   websocketklineV2: klineV2
   websocket_para_klineV2: |
@@ -3126,6 +3133,11 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_200220831_1: Add new response fields <code>iv</code>、<code>markIv</code>、<code>underlyingPrice</code>、<code>indexPrice</code>、<code>markPrice</code>
+  restapi_update_200220831_2: Add new response fields <code>iv</code>、<code>cancelType</code>、<code>updateTimeStamp</code>
+  restapi_update_200220831_3: Add new response field <code>updateTimeStamp</code>
+  restapi_update_200220831_4: Add api "Query historical volatility"
+  restapi_update_200220831_5: Add wss "Symbol state notification"
   restapi_update_200220830: Add new response field <code>leavesQty</code>、<code>cumExecQty</code>、<code>cumExecValue</code>、<code>cumExecFee</code>
   restapi_update_200220826: Add new response field <code>t</code> (tradeId)
   restapi_update_200220809: Add private topic for TP/SL order
@@ -3998,6 +4010,7 @@ en:
   usdcIndexPrice: Index Price
   usdcMarkPrice: Mark Price
   usdcMarkPriceIv: Implied volatility for mark price
+  usdcIv: iv. In extreme cases, due to abnormal data acquisition, the IV may be empty, which must be compatible with empty strings.
   usdcChange24h: 24-hour change
   usdcHigh24h: 24-hour high
   usdcLow24h: 24-hour low
@@ -4289,6 +4302,7 @@ en:
   tradeId: Transaction ID
   feeRate: Taker or maker fee rate
   cashBalance: Cash balance
+  blockTradeId: Block trade id
 
 
   equity: Equity
@@ -4410,6 +4424,7 @@ en:
   createType: Order placement
   cancelType: Order cancelation
   usdcCrossSeq: System internal param. Just ignore
+  usdc2CancelType: The type/reason of cancellation. If it is active order, it returns <code>""</code>
 
   platFormOrderHistory: platform order history
   querySymbolInfo: Contract Info
@@ -4555,6 +4570,17 @@ en:
     <p>topic:</p>
     <p>Option: user.openapi.option.order</p>
 
+  queryHistoricalVolatility: Query historical volatility
+  historicalVolatilityPara: |
+    <p>The data is in hourly.</p>
+    <p>If time field is not passed, it returns the recent 1 hour data by default.</p>
+    <p>It could be any timeframe by inputting startTime & endTime, but it must satisfy [endTime - startTime] <= 30 days.</p>
+  historicalVolatilityNotice: |
+    <p>It returns all data in 2 years when startTime & endTime are not passed.</p>
+    <p>Both <b>startTime</b> & <b>endTime</b> entered together or both are left blank</p>
+  baseCoin: Base coin. If not passed, BTC returned by default
+  usdcPeriod_2: Period. if not passed, it returns 7 days by default
+  usdcVolatility: Volatility
   usdcCommonDesc: |
     <p>When the link is established successfully, a full package will be added first. If you place an order again, you will receive an incremental data package.</p>
     <p>-If the dataType is NEW, full data will be pushed  </p>

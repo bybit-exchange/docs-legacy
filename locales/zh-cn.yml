@@ -1762,6 +1762,13 @@ zh-cn:
   websocket_aside_instrumentInfo_um: |
     <p><b>期貨</b>：該topic推送delta數據和snapshot数据。如果delta數據為空，表明信息沒有發生變化。</p>
     <p><b>期權</b>：該topic只推送snapshot数据。</p>
+  ## symbol state notify
+  websocketSymbolNotify: Symbol狀態
+  websocketSymbolNotify_para: |
+    <p><b>推送頻率: 實時</b></p>
+    <p><b>Topic:</b> instrument.state.notification.{baseCoin}</p>
+  usdcSymbolStatus: 合約狀態
+  usdcOnlineTime: 上線時間，精確到毫秒
   ### klineV2
   websocketklineV2: K線
   websocket_para_klineV2: |
@@ -2692,6 +2699,11 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_200220831_1: 新增響應字段<code>iv</code>、<code>markIv</code>、<code>underlyingPrice</code>、<code>indexPrice</code>、<code>markPrice</code>
+  restapi_update_200220831_2: 新增響應字段<code>iv</code>、<code>cancelType</code>、<code>updateTimeStamp</code>
+  restapi_update_200220831_3: 新增響應字段 <code>updateTimeStamp</code>
+  restapi_update_200220831_4: 新增接口 "查詢歷史波動率"
+  restapi_update_200220831_5: 新增wss推送 "合約狀態通知"
   restapi_update_200220830: 新增字段<code>leavesQty</code>、<code>cumExecQty</code>、<code>cumExecValue</code>、<code>cumExecFee</code>
   restapi_update_200220826: 新增字段<code>t</code> 成交Id
   restapi_update_200220809: 新增止盈止損訂單信息私有推送
@@ -3555,6 +3567,7 @@ zh-cn:
   usdcIndexPrice: 指數價格
   usdcMarkPrice: 標記價格
   usdcMarkPriceIv: 標記價iv
+  usdcIv: iv. 極端情況下因數據獲取異常，可能導致IV為空，需兼容空串
   usdcChange24h: 24小時漲跌幅
   usdcHigh24h: 24小時最高價
   usdcLow24h: 24小時最低價
@@ -3846,6 +3859,7 @@ zh-cn:
   tradeId: 交易id
   feeRate: 手續費率
   cashBalance: 現金餘額
+  blockTradeId: 大宗交易訂單號
 
 
   equity: 淨資產
@@ -3966,6 +3980,7 @@ zh-cn:
   createType: 下單操作的觸發場景
   cancelType: 取消操作的觸發場景
   usdcCrossSeq: 系統內部使用字段，無實際意義，請忽略
+  usdc2CancelType: 取消訂單類型（原因），若訂單為活動單，則返回空串
 
   platFormOrderHistory: 平台歷史交易數據
   querySymbolInfo: 查詢合約信息
@@ -4102,6 +4117,18 @@ zh-cn:
   usdcActiveOrder: |
     <p>topic:</p>
     <p>user.openapi.option.order</p>
+
+  queryHistoricalVolatility: 查詢歷史波動率
+  historicalVolatilityPara: |
+    <p>數據為每小時數據。</p>
+    <p>若沒有入参時間，則默認返回最近1小時的數據，即最近的一條數據</p>
+    <p>輸入查詢起止時間，可以是任意時間段，但時間範圍[endTime - startTime] 必須小於等於30天。</p>
+  historicalVolatilityNotice: |
+    <p>當startTime和endTime都沒有入参，則默認返回2年的全部數據</p>
+    <p>starTime和endTime要麼都傳，要麼都不傳</p>
+  baseCoin: 資產幣種. 不傳入則默認返回BTC
+  usdcPeriod_2: 計算數據的加權週期. 不傳入，默認返回7天的數據
+  usdcVolatility: 波動率
 
   usdcCommonDesc: |
     <p>鏈接建立成功時,會首先增收一個全量包,如再次下單,會收到增量的數據包. </p>

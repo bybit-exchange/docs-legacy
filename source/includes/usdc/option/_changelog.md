@@ -1,5 +1,25 @@
 # t(:changelog)
 
+## 2022-08-31
+### REST API
+- [t(:queryLatest500Trades)](#t-querylatest500trades) [t(:changelog_update)]
+  - t(:restapi_update_200220831_1)
+- [t(:usdcQryUnOrPartFilled_new)](#t-usdcqryunorpartfilled_new) [t(:changelog_update)]
+  - t(:restapi_update_200220831_2)
+- [t(:usdcQryUnOrPartFilled)](#t-usdcqryunorpartfilled) [t(:changelog_update)]
+  - t(:restapi_update_200220831_3)
+- [t(:usdcTradeHistory)](#t-usdctradehistory) [t(:changelog_update)]
+  - t(:restapi_update_200220831_1)
+- [t(:queryHistoricalVolatility)](#t-queryhistoricalvolatility) [t(:changelog_new)]
+  - t(:restapi_update_200220831_4)
+
+### WEBSOCKET API
+- [t(:websocketSymbolNotify)](#t-websocketsymbolnotify) [t(:changelog_new)]
+  - t(:restapi_update_200220831_5)
+- [t(:userFilledHistory)](#t-userfilledhistory) [t(:changelog_update)]
+  - t(:restapi_update_200220831_1)
+
+
 ## 2022-08-24
 ### REST API
 - [t(:querySymbolInfo)](#t-querysymbolinfo) [t(:changelog_update)]

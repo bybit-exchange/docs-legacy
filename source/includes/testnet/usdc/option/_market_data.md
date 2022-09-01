@@ -316,12 +316,17 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/query-trade-la
         "resultTotalSize": 1,
         "dataList": [
             {
-                "symbol": "BTC-30SEP22-28000-C",
+                "symbol": "BTC-30SEP22-22000-C",
+                "underlyingPrice": "20098.8800",
                 "side": "Buy",
-                "orderQty": "0.050",
-                "orderPrice": "280.0000",
-                "time": "1661418665878",
-                "tradeId": "828706ba-6b80-5949-9a24-f4e428bf7aa0",
+                "markPrice": "759.5557",
+                "indexPrice": "20103.2800",
+                "markIv": "0.6447",
+                "orderQty": "0.200",
+                "orderPrice": "780.0000",
+                "time": "1662010998250",
+                "iv": "0.6544782237284431",
+                "tradeId": "b7fd308e-09b3-5094-92e9-c9c49ca8f982",
                 "isBlockTrade": false
             },
         ]
@@ -356,10 +361,80 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
+|underlyingPrice |string|t(:usdcUnderlyingPrice)|
 |side |string|t(:usdc_side)|
-|orderPrice|string|t(:usdcExecPrice)|
+|markPrice |string|t(:usdcMarkPrice)|
+|indexPrice |string|t(:usdcIndexPrice)|
+|markIv |string|t(:usdcMarkPriceIv)|
 |orderQty|string|t(:usdcExecQty)|
+|orderPrice|string|t(:usdcExecPrice)|
 |time|string|t(:time)|
+|iv|string|t(:usdcIv)|
 |tradeId|string|t(:tradeId)|
 |isBlockTrade|boolean|t(:usdc_isBlockTrade)|
+
+
+### t(:queryHistoricalVolatility)
+
+> t(:codequote_curlExample)
+
+```console
+curl 'https://api.bybit.com/option/usdc/openapi/public/v1/query-historical-volatility?baseCoin=BTC&startTime=1659283200000&endTime=1660060800000'
+```
+
+```python
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "SUCCESS",
+    "result": [
+        {
+            "period": 7,
+            "value": "0.66571152",
+            "time": "1659283200000"
+        },
+        ....
+        {
+            "period": 7,
+            "value": "0.45435445",
+            "time": "1660060800000"
+        }
+    ]
+}
+```
+t(:historicalVolatilityPara)
+
+<aside class="notice">
+t(:historicalVolatilityNotice)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=usdchisvol>/option/usdc/openapi/public/v1/query-historical-volatility</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdchisvol"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#base-coin-basecoin">baseCoin</a>|false|string|t(:baseCoin)|
+|<a href="#period-period">period</a> |false|string|t(:usdcPeriod_2)|
+|startTime |false|string|t(:row_comment_startTime_v3)|
+|endTime|false|string|t(:row_comment_endTime_v3)|
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|result|list|t(:dataList)|
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
+|period|string|t(:usdcPeriod_2)|
+|value|string|t(:usdcVolatility)|
+|time|string|t(:time)|
 

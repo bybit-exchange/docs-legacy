@@ -85,3 +85,23 @@ t(:usdcPriceRule)
 * `BTC`
 * `ETH`
 * `SOL`
+
+## Period (`period`)
+
+BTC & ETH
+`7`
+`14`
+`21`
+`30`
+`60`
+`90`
+`180`
+`270`days
+
+SOL
+`7`
+`14`
+`21`
+`30`
+`60`
+`90`days

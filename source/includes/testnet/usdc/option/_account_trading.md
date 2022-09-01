@@ -481,30 +481,22 @@ curl GET 'https://api-testnet.bybit.com/option/usdc/openapi/private/v1/trade/que
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "resultTotalSize": 2,
-        "cursor": "id%3D1657785223205%23cd05e436-1e04-4391-94db-82b660638364",
+        "resultTotalSize": 1,
+        "cursor": "id%3D1662019818569%23df31e03b-fc00-4b4c-bd1c-b97fd72b5c5c",
         "dataList": [
             {
-                "orderId": "bd4a5ce3-cefd-455c-ac8d-1eaf2ae76b24",
-                "orderLinkId": "1426a049-f999-0000026",
-                "symbol": "BTC-14JUL22-10000-P",
+                "orderId": "df31e03b-fc00-4b4c-bd1c-b97fd72b5c5c",
+                "orderLinkId": "",
+                "symbol": "BTC-2SEP22-18000-C",
                 "orderStatus": "New",
-                "orderPrice": "0.2",
-                "side": "Sell",
-                "remainingQty": "0.01",
+                "orderPrice": "500",
+                "side": "Buy",
+                "remainingQty": "0.1",
                 "orderType": "Limit",
-                "qty": "0.01"
-            },
-            {
-                "orderId": "cd05e436-1e04-4391-94db-82b660638364",
-                "orderLinkId": "1426a049-f999-0000027",
-                "symbol": "BTC-14JUL22-10000-P",
-                "orderStatus": "New",
-                "orderPrice": "0.2",
-                "side": "Sell",
-                "remainingQty": "0.01",
-                "orderType": "Limit",
-                "qty": "0.01"
+                "qty": "0.1",
+                "iv": "0.0000",
+                "cancelType": "",
+                "updateTimestamp": "1662019818579"
             }
         ]
     }
@@ -546,6 +538,9 @@ GET
 |remainingQty |string|t(:row_comment_leaves_qty)|
 |orderType|string|t(:uscdOrderType)|
 |qty|string|t(:usdcOrderQty)|
+|iv|string|t(:usdcIv)|
+|cancelType|string|t(:usdc2CancelType)|
+|updateTimeStamp |string|t(:row_comment_updated_at)|
 
 
 ### t(:usdcQryUnOrPartFilled)
@@ -567,38 +562,40 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-o
 ```javascript
 {
     "result": {
-        "cursor": "9843d39e-dd8f-4499-bd8e-988f4c597980%3A1655092443445%2C9843d39e-dd8f-4499-bd8e-988f4c597980%3A1655092443445",
+        "cursor": "df31e03b-fc00-4b4c-bd1c-b97fd72b5c5c%3A1662019818569%2Cdf31e03b-fc00-4b4c-bd1c-b97fd72b5c5c%3A1662019818569",
         "resultTotalSize": 1,
         "dataList": [
             {
-                "symbol": "BTC-14JUN22-24500-C",
+                "symbol": "BTC-2SEP22-18000-C",
                 "orderType": "Limit",
-                "orderLinkId": "option10006",
-                "orderId": "9843d39e-dd8f-4499-bd8e-988f4c597980",
+                "orderLinkId": "",
+                "orderId": "df31e03b-fc00-4b4c-bd1c-b97fd72b5c5c",
                 "stopOrderType": "UNKNOWN",
                 "orderStatus": "New",
                 "takeProfit": "",
+                "updateTimeStamp": "1662019818594",
                 "cumExecValue": "0.0000",
-                "createdAt": "1655092443445",
+                "createdAt": "1662019818569",
+                "blockTradeId": "",
                 "orderPnl": "",
-                "price": "600.0",
+                "price": "500.0",
                 "tpTriggerBy": "",
                 "timeInForce": "GoodTillCancel",
                 "basePrice": "",
                 "side": "Buy",
                 "triggerPrice": "",
                 "cumExecFee": "0.0000",
-                "leavesQty": "0.220",
+                "leavesQty": "0.100",
                 "slTriggerBy": "",
                 "iv": "0.000",
                 "closeOnTrigger": "",
                 "cumExecQty": "0.000",
                 "reduceOnly": 0,
-                "qty": "0.220",
+                "qty": "0.100",
                 "stopLoss": "",
                 "lastExecPrice": "",
                 "triggerBy": "",
-                "orderIM": "133.6895"
+                "orderIM": "50.5962"
             }
         ]
     },
@@ -643,6 +640,7 @@ POST
 |stopOrderType |string|t(:usdcStopOrderType)|
 |orderStatus |string|t(:usdcOptionOrderStatus)|
 |takeProfit |string|t(:takeProfit)|
+|updateTimeStamp |string|t(:row_comment_updated_at)|
 |cumExecValue |string|t(:cumExecValue)|
 |createdAt |string|t(:createdAt)|
 |orderPnl |string|t(:usdcOrderPnl)|
@@ -812,31 +810,36 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/execution-list
 
 ```javascript
 {
-  "result": {
-    "cursor": "34%3A0%2C34%3A0",
-      "resultTotalSize": 1,
-      "dataList": [
-      {
-        "symbol": "BTC-31DEC21-18000-P",
-        "tradeTime": "1640834911093",
-        "orderLinkId": "test2021122417000218",
-        "side": "Sell",
-        "orderId": "13ad19bf-5e23-479b-8261-54f1baf290e1",
-        "execPrice": "1.00",
-        "lastLiquidityInd": "TAKER",
-        "execValue": "",
-        "execType": "TRADE",
-        "execQty": "0.010",
-        "execFee": "0.0010",
-        "feeRate": "0.000300",
-        "tradeId": "77fdaeef-b931-51f4-96c8-33f97c722053"
-      }
-    ]
-  },
-  "retCode": 0,
+    "result": {
+        "cursor": "108%3A0%2C108%3A0",
+        "resultTotalSize": 1,
+        "dataList": [
+            {
+                "symbol": "BTC-1SEP22-19000-C",
+                "underlyingPrice": "19954.0375",
+                "orderLinkId": "",
+                "side": "Buy",
+                "indexPrice": "19953.1300",
+                "orderId": "afadf011-8605-4cb0-8861-a986e0e7f2d0",
+                "execFee": "0.1796",
+                "feeRate": "0.000300",
+                "iv": "0.0",
+                "blockTradeId": "",
+                "tradeTime": "1662015658706",
+                "markPrice": "954.0376",
+                "execPrice": "750.00",
+                "markIv": "0.8883",
+                "lastLiquidityInd": "MAKER",
+                "execValue": "22.5000",
+                "execType": "Trade",
+                "execQty": "0.030",
+                "tradeId": "ee0bd366-91bb-59b1-b806-0be26ad53727"
+            }
+        ]
+    },
+    "retCode": 0,
     "retMsg": "Success."
 }
-
 ```
 
 <aside class="notice">
@@ -873,17 +876,23 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|tradeTime|string|t(:tradeTime)|
+|underlyingPrice |string|t(:usdcUnderlyingPrice)|
 |orderLinkId|string|t(:orderLinkId)|
 |t(:row_parameter_side) |string|t(:side)|
+|indexPrice |string|t(:usdcIndexPrice)|
 |orderId|string|t(:usdcOrderId)|
+|execFee|string|t(:fee)|
+|feeRate|string|t(:feeRate)|
+|iv|string|t(:usdcIv)|
+|blockTradeId|string|t(:blockTradeId)|
+|tradeTime|string|t(:tradeTime)|
+|markPrice |string|t(:usdcMarkPrice)|
 |execPrice|string|t(:tradePrice)|
+|markIv |string|t(:usdcMarkPriceIv)|
 |lastLiquidityInd|string|t(:lastLiquidityInd)|
 |execValue|string|t(:execValue)|
 |execType|string|t(:execType)|
 |execQty|string|t(:uscdSize)|
-|execFee|string|t(:fee)|
-|feeRate|string|t(:feeRate)|
 |tradeId|string|t(:usdcTradeId)|
 
 
