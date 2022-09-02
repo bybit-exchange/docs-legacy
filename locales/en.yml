@@ -198,6 +198,10 @@ en:
   row_comment_timeInForce_v3: Time in force
   row_comment_orderLinkId_v3: |
     Institutional customized order ID. A max of 36 characters. In addition, for customized IDs of the same institution, the ID cannot be repeated. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported. Not required for futures, but required for options.
+  row_comment_orderLinkId_um: |
+    Institutional customized order ID. A max of 36 characters. In addition, for customized IDs of the same institution, the ID cannot be repeated. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported. Not required for futures, but <b>required for options</b>.</br>
+    <b>Duplicate rule for futures</b>: <p>1. The orderLinkId of USDC PERP and USDT PERP is isolated，i.e. orderLinkId can be the same</p>
+    <p>2. OrderLinkId needs to be unique before orders are completely filled or cancelled; OrderLinkId could be the old one when orders are completed filled or cancelled.</p>
   row_comment_takeProfit_v3: Take-profit price, only valid when positions are opened.
   row_comment_stopLoss_v3: Stop-loss price, only valid when positions are opened.
   account_row_comment_tp_trigger_by_v3: Type of take-profit activation price, LastPrice by default.

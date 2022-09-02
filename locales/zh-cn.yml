@@ -429,6 +429,10 @@ zh-cn:
   row_comment_timeInForce_v3: 執行策略
   row_comment_orderLinkId_v3: |
     機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復支持數字、字母（大小寫）、中劃線、下劃線這些字符的組合。期貨業務非必填，期權業務必填。
+  row_comment_orderLinkId_um: |
+    機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID支持數字、字母（大小寫）、中劃線、下劃線這些字符的組合。期貨業務非必填，<b>期權業務必填</b>。</br>
+    <b>期貨下查重規則</b>: <p>1. USDC永續和USDT永續的orderLinkId互相獨立，即orderLinkId可相同</p>
+    <p>2. 在訂單未完全成交或取消前，orderLinkId需保持不一致; 訂單完全成交或取消後，orderLinkId可使用之前使用過的</p>
   row_comment_takeProfit_v3: 止盈價格，僅開倉時生效
   row_comment_stopLoss_v3: 止損價格，僅開倉時生效
   account_row_comment_tp_trigger_by_v3: 止盈激活價格類型，默認為LastPrice
