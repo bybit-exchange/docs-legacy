@@ -105,3 +105,9 @@ SOL
 `30`
 `60`
 `90`days
+
+## Symbol status (`status`)
+* `WAITING_ONLINE` t(:waiting_online)
+* `ONLINE` t(:online)
+* `DELIVERING` t(:delivering)
+* `OFFLINE` t(:offline)

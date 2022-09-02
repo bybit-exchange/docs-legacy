@@ -463,7 +463,7 @@ t(:websocketSymbolNotify_para)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | symbol |string |t(:usdcSymbol) |
-| status |string |t(:usdcSettleCoin) |
+| <a href="#symbol-status-status">status</a> |string |t(:usdcStatus) |
 | baseCoin |string |t(:usdcBaseCoin) |
 | quoteCoin |string |t(:usdcQuoteCoin) |
 | onlineTime |string |t(:usdcOnlineTime) |
