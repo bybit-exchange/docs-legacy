@@ -691,7 +691,7 @@ t(:usdcWssOrderNewDesc)
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderStatus |string|t(:orderStatus)|
 |t(:row_parameter_side) |string|t(:side)|
-|<a href="#price-price">order_price</a> |string|t(:usdcOrderPrice)|
+|<a href="#price-price">orderPrice</a> |string|t(:usdcOrderPrice)|
 |orderAllSize |string|t(:usdcOrderAllSize)|
 |orderFilledSize |string|t(:usdcOrderFilledSize)|
 |orderRemainingSize |string|t(:row_comment_leaves_qty)|
