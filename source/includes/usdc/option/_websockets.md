@@ -463,7 +463,7 @@ t(:websocketSymbolNotify_para)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | symbol |string |t(:usdcSymbol) |
-| status |string |t(:usdcSettleCoin) |
+| <a href="#symbol-status-status">status</a> |string |t(:usdcStatus) |
 | baseCoin |string |t(:usdcBaseCoin) |
 | quoteCoin |string |t(:usdcQuoteCoin) |
 | onlineTime |string |t(:usdcOnlineTime) |
@@ -686,7 +686,7 @@ t(:usdcWssOrderNewDesc)
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderStatus |string|t(:orderStatus)|
 |t(:row_parameter_side) |string|t(:side)|
-|<a href="#price-price">order_price</a> |string|t(:usdcOrderPrice)|
+|<a href="#price-price">orderPrice</a> |string|t(:usdcOrderPrice)|
 |orderAllSize |string|t(:usdcOrderAllSize)|
 |orderFilledSize |string|t(:usdcOrderFilledSize)|
 |orderRemainingSize |string|t(:row_comment_leaves_qty)|

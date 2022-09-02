@@ -81,10 +81,9 @@ ws.send(JSON.stringify({"req_id": "100001", "op": "ping"}));
 t(:websocket_aside_heartbeat)
 </aside>
 
-<!-- 连接数限制
+
 ## t(:websocketlimit)
-t(:websocket_para_limit)
--->
+<p>t(:websocket_spot_para_apiLimit)</P>
 
 
 ## t(:subscribe)
@@ -118,6 +117,9 @@ t(:websocket_para_limit)
 ```
 
 t(:spot_websocket_subscribe_desc_v3)
+<aside class="warning">
+t(:spot_websocket_subscribe_args_warning_v3)
+</aside>
 
 ### t(:websocketunfilters)
 
@@ -211,9 +213,7 @@ t(:spot_websocket_para_response)
 }
 ```
 
-t(:spot_websocket_orderbook_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_650)
+t(:spot_websocket_orderbook_desc_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -258,9 +258,7 @@ t(:spot_public_websocket_frequency_300_delay_650)
 }
 ```
 
-t(:spot_websocket_trade_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_400)
+t(:spot_websocket_trade_desc_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -308,9 +306,7 @@ t(:spot_public_websocket_frequency_300_delay_400)
 }
 ```
 
-t(:spot_websocket_kline_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_400)
+t(:spot_websocket_kline_desc_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -327,10 +323,6 @@ t(:spot_public_websocket_frequency_300_delay_400)
 > t(:codequote_subscribe)
 
 ```javascript
-
-```
-
-```python--pybit
 {
     "req_id": "ticker00001", //optional
     "op": "subscribe",
@@ -338,6 +330,10 @@ t(:spot_public_websocket_frequency_300_delay_400)
         "tickers.BTCUSDT"
     ]
 }
+```
+
+```python--pybit
+
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -361,9 +357,7 @@ t(:spot_public_websocket_frequency_300_delay_400)
 }
 ```
 
-t(:spot_websocket_ticker_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_400)
+t(:spot_websocket_symbol_ticker_desc_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -413,9 +407,7 @@ t(:spot_public_websocket_frequency_300_delay_400)
     "ts": 1661742216109
 }
 ```
-t(:spot_websocket_ticker_desc_v2)
-
-t(:spot_public_websocket_frequency_250_delay_300)
+t(:spot_websocket_ticker_desc_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -426,4 +418,3 @@ t(:spot_public_websocket_frequency_250_delay_300)
 | ap | string | t(:spot_sell_price)|
 | aq | boolean | t(:spot_sell_qty) |
 | t | number | t(:spot_timestamp2) |
-

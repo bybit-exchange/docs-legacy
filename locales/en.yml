@@ -197,7 +197,11 @@ en:
   row_comment_iv_v3: Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed
   row_comment_timeInForce_v3: Time in force
   row_comment_orderLinkId_v3: |
-    Institutional customized order ID. A max of 36 characters. In addition, for customized IDs of the same institution, the ID cannot be repeated. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported. Not required for futures, but required for options.
+    User customized order ID. A max of 36 characters. A user cannot reuse an orderLinkId. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported. Not required for futures, but required for options.
+  row_comment_orderLinkId_um: |
+    <p>User customized order ID. A max of 36 characters. A user cannot reuse an orderLinkId, with some exceptions. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported. Not required for futures, but <b>required for options</b>.</p>
+    <p>1. The same orderLinkId can be used for both USDC PERP and USDT PERP.</p>
+    <p>2. An orderLinkId can be reused once the original order is either <code>Filled</code> or <code>Cancelled</code.</p>
   row_comment_takeProfit_v3: Take-profit price, only valid when positions are opened.
   row_comment_stopLoss_v3: Stop-loss price, only valid when positions are opened.
   account_row_comment_tp_trigger_by_v3: Type of take-profit activation price, LastPrice by default.
@@ -663,7 +667,8 @@ en:
   usdcVersion: version
   usdcUserId: uid
   usdcPlayMode: Please ignore
-  usdcPlayType: Please ignore
+  usdcPlayType: |
+    Place order type. enums: <code>price</code> <code>iv</code>
 
 
 
@@ -1830,21 +1835,22 @@ en:
   spot_websocket_para_endpoint_v3: |
     Base endpoints:
         <ul>
+        <p>
           <li><b>Testnet</b>:</br>
-            <ul>
-              <li>
-                Public Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/spot/public/v3</span>
-                <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-              </li>
-            </ul>
+              Public Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/spot/public/v3</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+              </br>
+              Private Topics: <span id="testnet_private_address">wss://stream-testnet.bybit.com/spot/private/v3</span>
+              <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
           </li>
           <li><b>Mainnet</b>:</br>
-            <ul>
               <li>
                 Public Topics: <span id="mainnet_address">wss://stream.bybit.com/spot/public/v3</span>
                 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+                </br>
+                Private Topics: <span id="mainnet_private_address">wss://stream.bybit.com/spot/private/v3</span>
+                <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
               </li>
-            </ul>
           </li>
         </ul>
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
@@ -1864,6 +1870,7 @@ en:
   ## Rate Limits
   websocketlimit: Rate Limits
   websocket_para_limit: ""
+  websocket_spot_para_apiLimit: Each API key may have a maximum of 100 private WebSocket connections. The 101st connection will be rejected.
   ## How to Subscribe to Topics
   subscribe: How to Subscribe to Topics
   ### Understanding Websocket Filters
@@ -2261,6 +2268,12 @@ en:
   order_canceled: ""
   order_filled: Triggered
   order_failed: fail to trigger
+
+  ## option Symbol status
+  waiting_online: Waiting to be online (10 mins before online)
+  online: ""
+  delivering: ""
+  offline: ""
 
   # Error Code
   errors_intro: The Bybit API uses the following HTTP codes and error codes<span>:</span>
@@ -3700,6 +3713,7 @@ en:
   spot_websocket_subscribe_desc_v3: |
     <p>After establishing the connection, you can subscribe to a new topic by sending a JSON request. The request formats are as follows:</p>
     <p>ws.send('{"req_id": "10001", "op": "subscribe", "args": ["trade.BTCUSDT", "trade.ETHUSDT", "tickers.BTCUSDT", "bookticker.BTCUSDT"]}')</p>
+  spot_websocket_subscribe_args_warning_v3: You can pass a maximum of <b>10</b> args in <code>args</code>
   spot_websocket_unsubscribe_desc: |
     <p>After successful subscription, you can unsubscribe by sending a JSON request. The request formats are as follows:</p>
     <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"cancel","params":{"binary":false}}');</p>
@@ -3734,16 +3748,27 @@ en:
 
   websocketv2bookticker: bookTicker
   spot_websocket_ticker_desc_v2: Best bid price and best ask price
+  spot_websocket_ticker_desc_v3: |
+    <p>Best bid price and best ask price</p>
+    <p><b>Push frequency</b>: 100ms</p>
+    <p><b>Topic</b>: <code>bookticker.{symbol}</code></p>
 
   websocketv2kline: kline
   spot_websocket_kline_desc_v2: |
     <p>The topic name is <code>kline</code>. To subscribe to different intervals, pass your desired interval with the <code>klineType</code> parameter. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
-
+  spot_websocket_kline_desc_v3: |
+    <p>The topic name is <code>kline</code>. To subscribe to different intervals, pass your desired interval with the <code>klineType</code> parameter. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
+    <p><b>Push frequency</b>: real-time</p>
+    <p><b>Topic</b>: <code>kline.{interval}.{symbol}</code></p>
   websocketv2trade: trade
   spot_websocket_trade_desc_v2: |
     <p>This topic pushes raw trade information; each trade has a unique buyer and seller.</p>
-    <p>Variable "v" acts as a tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their version (which is "v") will be consecutive: 112, 113, 114.</p>
-
+    <p>Variable "v" acts as a tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their tradeId (which is "v") will be consecutive: 112, 113, 114.</p>
+  spot_websocket_trade_desc_v3: |
+    <p>This topic pushes raw trade information; each trade has a unique buyer and seller.</p>
+    <p>Variable "v" acts as a tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their tradeId (which is "v") will be consecutive: 112, 113, 114.</p>
+    <p><b>Push frequency</b>: real-time</p>
+    <p><b>Topic</b>: <code>trade.{symbol}</code></p>
   websocketv2depth: depth
   spot_websocket_orderbook_desc_v2: |
     <p>Market depth data for a trading pair: </p>
@@ -3758,10 +3783,30 @@ en:
         </ul>
       </li>
     </ul>
+  spot_websocket_orderbook_desc_v3: |
+    <p>Market depth data for a trading pair: </p>
+    <ul>
+      <li>Snapshot depth: <b>40</b> each for asks and bids.</li>
+      <li>Events trigger order book version change:
+        <ul>
+          <li>order enters order book</li>
+          <li>order leaves order book</li>
+          <li>order quantity changes</li>
+          <li>order filled</li>
+        </ul>
+      </li>
+    </ul>
+    <p>Pushes snapshot data only, please ignore type=<code>delta</code> in the message</p>
+    <p><b>Push frequency</b>: 100ms</p>
+    <p><b>Topic</b>: <code>orderbook.40.{symbol}</code>
 
   websocketv2realtimes: realtimes
   spot_websocket_symbol_ticker_desc_v2: |
     The 24-hr statistics of a trading pair.
+  spot_websocket_symbol_ticker_desc_v3: |
+    <p>The 24-hr statistics of a trading pair.</p>
+    <p><b>Push frequency</b>: real-time</p>
+    <p><b>Topic</b>: <code>tickers.{symbol}</code></p>
 
   # Transfer API Data Endpoints
   transfer_api: Transfer Data Endpoints
@@ -4034,11 +4079,12 @@ en:
   time: Timestamp, unit in milliseconds
   cursor: API pass-through
   usdcBaseCoin: Base currency
+  usdcStatus: Symbol status
   usdcAccountInfo: Wallet Info
   usdcBaseCoin_new: Base coin. Returns all records with base coin. If not passed, it returns records with BTC by default
   usdcBaseCoin_cancel: Base coin. Cancel all base coin related orders. If not passed, it'll cancel all BTC related orders
-  usdcBaseCoin_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT，this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums，and baseCoin is not passed，it returns all records.</p>
-  usdcBaseCoinUM_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY or CURRENCY_SELL，this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums，and baseCoin is not passed，it returns all records.</p>
+  usdcBaseCoin_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p>
+  usdcBaseCoinUM_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY or CURRENCY_SELL, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p>
   usdcQuoteCoin: Quote currency
   usdcSettleCoin: Settle Coin
   usdcTakerFee: Taker fee
@@ -4240,7 +4286,7 @@ en:
   usdcOptionOrderType: refer to <a href="#order-type-ordertype">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
   usdcOptionPlaceOrderPrice: Order price. For option, if iv has value, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
   optionIv_order: Implied volatility. If orderType is Market, iv is not required, otherwise the order will fail.
-  usdcOption_timeInForce: For Market order，it must be <code>ImmediateOrCancel</code>
+  usdcOption_timeInForce: For Market order, it must be <code>ImmediateOrCancel</code>
 
   optionIv: Implied volatility
   optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.

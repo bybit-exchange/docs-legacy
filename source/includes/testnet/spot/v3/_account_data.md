@@ -69,7 +69,7 @@ POST
 | orderQty             | <b>true</b>         | string          | t(:spotQtyPlaceOrder)       |
 | side                 | <b>true</b>         | string          | t(:spotV3_comment_side)     |
 | orderType            | <b>true</b>         | string          | t(:spotOrderType)           |
-| timeInForce          | false               | string          | t(:row_comment_timeInForce) |
+| <a href="#time-in-force-time_in_force">timeInForce</a>| false               | string          | t(:row_comment_timeInForce) |
 | orderPrice           | false               | string          | t(:spotPostOrderPrice)      |
 | orderLinkId          | false               | string          | t(:spotOrderLinkId)         |
 | orderCategory        | false               | int             | t(:spotv3_orderCategory)         |
