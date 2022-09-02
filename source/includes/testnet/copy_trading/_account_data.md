@@ -234,9 +234,9 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCancel"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|symbol |<b>true</b> |string |t(:row_comment_symbol) |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
 
@@ -288,7 +288,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |false |string |t(:row_comment_symbol)   |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
 |orderLinkId |false |string |t(:row_comment_orderLinkId) |
 |parentOrderId |false |string |t(:copy_trade_row_comment_parentOrderIdNotparentOrderLinkId) |
 |parentOrderLinkId |false |string |t(:copy_trade_row_comment_parentOrderLinkIdNotOrderId) |
