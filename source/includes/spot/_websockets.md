@@ -1057,7 +1057,7 @@ while True:
 ```
 t(:spot_websocket_ticker_desc_v2)
 
-t(:spot_public_websocket_frequency_250_delay_300)
+t(:spot_public_websocket_frequency_100)
 
 <p class="fake_header">t(:responseparameters)</p>
 

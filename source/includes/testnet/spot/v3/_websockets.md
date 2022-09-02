@@ -81,10 +81,10 @@ ws.send(JSON.stringify({"req_id": "100001", "op": "ping"}));
 t(:websocket_aside_heartbeat)
 </aside>
 
-<!-- 连接数限制
+
 ## t(:websocketlimit)
-t(:websocket_para_limit)
--->
+<p>t(:websocket_spot_para_apiLimit)</P>
+<p>t(:websocket_max_50_connection)</p>
 
 
 ## t(:subscribe)
@@ -118,6 +118,9 @@ t(:websocket_para_limit)
 ```
 
 t(:spot_websocket_subscribe_desc_v3)
+<aside class="warning">
+t(:spot_websocket_subscribe_args_warning_v3)
+</aside>
 
 ### t(:websocketunfilters)
 
@@ -211,9 +214,7 @@ t(:spot_websocket_para_response)
 }
 ```
 
-t(:spot_websocket_orderbook_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_650)
+t(:spot_websocket_orderbook_desc_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -258,9 +259,7 @@ t(:spot_public_websocket_frequency_300_delay_650)
 }
 ```
 
-t(:spot_websocket_trade_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_400)
+t(:spot_websocket_trade_desc_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -308,9 +307,7 @@ t(:spot_public_websocket_frequency_300_delay_400)
 }
 ```
 
-t(:spot_websocket_kline_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_400)
+t(:spot_websocket_kline_desc_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -327,10 +324,6 @@ t(:spot_public_websocket_frequency_300_delay_400)
 > t(:codequote_subscribe)
 
 ```javascript
-
-```
-
-```python--pybit
 {
     "req_id": "ticker00001", //optional
     "op": "subscribe",
@@ -338,6 +331,10 @@ t(:spot_public_websocket_frequency_300_delay_400)
         "tickers.BTCUSDT"
     ]
 }
+```
+
+```python--pybit
+
 ```
 
 > t(:codequote_responseExampleFormatAll)
@@ -361,9 +358,7 @@ t(:spot_public_websocket_frequency_300_delay_400)
 }
 ```
 
-t(:spot_websocket_ticker_desc_v1)
-
-t(:spot_public_websocket_frequency_300_delay_400)
+t(:spot_websocket_symbol_ticker_desc_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -413,9 +408,7 @@ t(:spot_public_websocket_frequency_300_delay_400)
     "ts": 1661742216109
 }
 ```
-t(:spot_websocket_ticker_desc_v2)
-
-t(:spot_public_websocket_frequency_250_delay_300)
+t(:spot_websocket_ticker_desc_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -426,4 +419,241 @@ t(:spot_public_websocket_frequency_250_delay_300)
 | ap | string | t(:spot_sell_price)|
 | aq | boolean | t(:spot_sell_qty) |
 | t | number | t(:spot_timestamp2) |
+
+
+## t(:privatetopics)
+t(:spot_private_topics_auth_sub)
+
+### t(:outboundAccountInfo)
+> t(:spot_private_topics_auth_sub)
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+[
+    {
+        "e":"outboundAccountInfo",
+        "E":"1629969654753",
+        "T":true,
+        "W":true,
+        "D":true,
+        "B":[
+            {
+                "a":"BTC",
+                "f":"10000000097.1982823144",
+                "l":"0"
+            }
+        ]
+    }
+]
+```
+
+t(:outboundAccountInfo_desc)
+
+t(:spot_public_websocket_frequency_realtime)
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| e | string | t(:spot_event_type) |
+| E | string | t(:spot_timestamp) |
+| T | boolean | t(:spot_allow_trade) |
+| W | boolean | t(:spot_allow_withdraw) |
+| D | boolean | t(:spot_allow_deposit)|
+| B | list | t(:spot_balance_change) |
+| a | string | t(:spot_asset) |
+| f | string | t(:spot_available_qty) |
+| l | string | t(:spot_frozen_qty) |
+
+### t(:executionReport)
+> t(:spot_private_topics_auth_sub)
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+{
+    "e": "executionReport",
+    "E": "1661505745347",
+    "s": "BITUSDT",
+    "c": "1661505744705",
+    "S": "BUY",
+    "o": "MARKET_OF_QUOTE",
+    "f": "GTC",
+    "q": "20",
+    "p": "0",
+    "X": "CANCELED",
+    "i": "1231193858535151104",
+    "M": "1231190924099373824",
+    "l": "14.16",
+    "z": "14.16",
+    "L": "1.4121",
+    "n": "0.01416",
+    "N": "BIT",
+    "u": true,
+    "w": true,
+    "m": true,
+    "O": "1661505745176",
+    "Z": "19.995336",
+    "A": "0",
+    "C": false,
+    "v": "0",
+    "d": "NO_LIQ",
+    "t": "2120000000001252630"
+}
+```
+t(:executionReport_desc)
+
+t(:spot_public_websocket_frequency_realtime)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| e | string | t(:spot_event_type) |
+| E | string | t(:spot_event_timestamp) |
+| s | string | t(:spot_symbol) |
+| c | string | t(:spot_order_client_id) |
+| S | string | t(:spot_side_private) |
+| <a href="#order-type-type-ordertypes">o</a> | string | t(:spotType) |
+| <a href="#timeinforce-timeinforce">f</a> | string | t(:row_comment_timeInForce) |
+| q | string | t(:spot_quantity) |
+| p | string | t(:spot_price) |
+| <a href="#order-status-status">X</a> | string | t(:spotStatus) |
+| i | string | t(:spot_order_id) |
+| M | string | t(:spot_match_order_id) |
+| l | string | t(:spot_recent_qty) |
+| z | string | t(:spot_cumulative_qty) |
+| L | string | t(:spot_recent_price) |
+| n | string | t(:spot_fee) |
+| N | string | t(:spot_fee_symbol) |
+| u | boolean | t(:spot_is_normal) |
+| w | boolean | t(:spot_is_working) |
+| m | boolean | t(:spot_is_limit_maker) |
+| O | string | t(:spot_order_create_timestamp) |
+| Z | string | t(:spot_cumulative_trade) |
+| A | string | t(:spot_match_account_id) |
+| C | boolean | t(:spot_is_close) |
+| v | string | t(:spot_leverage) |
+| d | string | t(:spot_liquidation_type) |
+| t | string | t(:spotTicketId) |
+
+
+### t(:stop_executionReport)
+> t(:spot_private_topics_auth_sub)
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+[
+  {
+      "e": "stop_executionReport",
+      "E": "1660031832249",
+      "s": "BTCUSDT",
+      "c": "1660031262869",
+      "S": "BUY",
+      "o": "MARKET_OF_QUOTE",
+      "f": "GTC",
+      "q": "0",
+      "p": "0",
+      "X": "ORDER_CANCELED",
+      "i": "1218825007084354304",
+      "T": "1660031263181",
+      "t": "0",
+      "C": "1660031832223",
+      "qp": "23668.86",
+      "eo": "1218825007084354305",
+      "ti": "4add1fe84e577026",
+      "si": "bc86964648a3c395"
+  }
+]
+```
+t(:stop_executionReport_desc)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| e | string | t(:spot_event_type) |
+| E | string | t(:spot_event_timestamp) |
+| s | string | t(:spot_symbol) |
+| c | string | t(:spot_order_client_id) |
+| S | string | t(:spot_side_private) |
+| <a href="#order-type-type-ordertypes">o</a> | string | t(:spotType) |
+| <a href="#timeinforce-timeinforce">f</a> | string | t(:row_comment_timeInForce) |
+| q | string | t(:spot_quantity) |
+| p | string | t(:spot_price) |
+| <a href="#order-status-status">X</a> | string | t(:spot_stop_orderStatus) |
+| i | string | t(:spot_order_id) |
+| T | string | t(:spot_stop_orderCreateTime) |
+| t | string | t(:spot_stop_orderTriggerTime) |
+| C | string | t(:spot_stop_orderUpdateTime) |
+| qp | string | t(:spot_stop_marketPrice) |
+| eo | string | t(:spot_stop_normalOrderId) |
+| ti | string | t(:spot_stop_siTi) |
+| si | string | t(:spot_stop_siTi) |
+
+
+### t(:ticketInfo)
+> t(:spot_private_topics_auth_sub)
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+[
+  {
+    "e":"ticketInfo",
+    "E":"1621912542359",
+    "s":"BTCUSDT",
+    "q":"0.001639",
+    "t":"1621912542314",
+    "p":"61000.0",
+    "T":"899062000267837441",
+    "o":"899048013515737344",
+    "c":"1621910874883",
+    "O":"899062000118679808",
+    "a":"10043",
+    "A":"10024",
+    "m":true,
+    "S":"BUY"
+  }
+]
+```
+
+t(:ticketInfo_para)
+
+t(:spot_public_websocket_frequency_realtime)
+
+<p class="fake_header">t(:responseparameters)</p>
+
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| e | string | t(:spot_event_type) |
+| E | string | t(:spot_event_timestamp) |
+| s | string | t(:spot_symbol) |
+| q | string | t(:spot_quantity) |
+| t | string | t(:spot_timestamp) |
+| p | string | t(:spot_price) |
+| T | string | t(:spot_transactId) |
+| o | string | t(:spot_order_id) |
+| c | string | t(:spot_order_client_id) |
+| O | string | t(:spot_match_order_id) |
+| a | string | t(:spot_account_id) |
+| A | string | t(:spot_match_account_id) |
+| m | boolean | t(:spot_ticket_info_maker) |
+| S | string | t(:spot_ticket_info_side) |
 

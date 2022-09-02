@@ -1639,14 +1639,20 @@ zh-cn:
         <ul>
         <p>
           <li><b>測試網</b>:</br>
-            公共Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/spot/public/v3</span>
-            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+            公共Topics: <span id="testnet_public_address">wss://stream-testnet.bybit.com/spot/public/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_public_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+            </br>
+            私有Topics: <span id="testnet_private_address">wss://stream-testnet.bybit.com/spot/private/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
           </li>
         </p>
         <p>
           <li><b>主網</b>:<br/>
-            公共Topics: <span id="mainnet_address">wss://stream.bybit.com/spot/public/v3</span>
-            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+            公共Topics: <span id="mainnet_public_address">wss://stream.bybit.com/spot/public/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_public_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+            </br>
+            私有Topics: <span id="mainnet_private_address">wss://stream.bybit.com/spot/private/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
           </li>
         </p>
         <p>所有private接口都需要認證，public 接口不需要認證.</p>
@@ -1667,6 +1673,7 @@ zh-cn:
   ## Rate Limits
   websocketlimit: 頻率限製
   websocket_para_limit: 註意，每個api_key最多可以保持20個Websocket連接.超過20個連接後的新連接會被服務器拒絕.
+  websocket_spot_para_apiLimit: <b>僅適用於私有頻道</b>：</br>每個api_key最多可以保持100個websocket私有連接，超過100個連接後的新連接會被服務器拒絕。
   ## How to Subscribe to Topics
   subscribe: 訂閱方式
   ### Understanding Websocket Filters
@@ -3238,6 +3245,7 @@ zh-cn:
   spot_websocket_subscribe_desc_v3: |
     <p>建立連接後, 可以通過發送JSON請求來訂閱topic. 請求格式如下:</p>
     <p>ws.send('{"req_id": "10001", "op": "subscribe", "args": ["trade.BTCUSDT", "trade.ETHUSDT", "tickers.BTCUSDT", "bookticker.BTCUSDT"]}')</p>
+  spot_websocket_subscribe_args_warning_v3: <code>args</code>裡的參數最多是10個，超過會報錯
   spot_websocket_unsubscribe_desc: |
     <p>訂閱成功後，可以通過發送JSON請求來取消訂閱. 請求格式如下:</p>
     <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"cancel","params":{"binary":false}}');</p>
@@ -3267,6 +3275,10 @@ zh-cn:
   #spot_ws_v2
   spot_websocket_ticker_v2: 訂單簿的Ticker
   spot_websocket_ticker_desc_v2: '最優買一賣一價'
+  spot_websocket_ticker_desc_v3: |
+    <p>最優買一賣一價</p>
+    <p><b>推送頻率</b>: 100ms</p>
+    <p><b>Topic</b>: <code>bookticker.{symbol}</code></p>
 
   spot_websocket_kline_v2: K線/蠟燭圖
   spot_websocket_kline_desc_v2: |
@@ -3287,12 +3299,35 @@ zh-cn:
       <li>1w</li>
       <li>1M</li>
       </ul>
-
+  spot_websocket_kline_desc_v3: |
+    <p>訂閱Kline需要提供間隔參數，最短為分鐘線，最長為月線。支持以下間隔:</p>
+    <p>m -> 分鐘; h -> 小時; d -> 天; w -> 周; M -> 月</p>
+      <ul>
+      <li>1m</li>
+      <li>3m</li>
+      <li>5m</li>
+      <li>15m</li>
+      <li>30m</li>
+      <li>1h</li>
+      <li>2h</li>
+      <li>4h</li>
+      <li>6h</li>
+      <li>12h</li>
+      <li>1d</li>
+      <li>1w</li>
+      <li>1M</li>
+      </ul>
+    <p><b>推送頻率</b>: 實時</p>
+    <p><b>Topic</b>: <code>kline.{interval}.{symbol}</code></p>
   spot_websocket_trade_v2: 逐筆交易
   spot_websocket_trade_desc_v2: |
     <p>逐筆交易推送每一筆成交的信息。成交，或者說交易的定義是僅有一個吃單者與一個掛單者相互交易。</p>
     <p>變量「v」可以理解成一個交易ID。這個變量是全局遞增的並且獨特的。例如：假設過去5秒有3筆交易發生，分別是ETHUSDT、BTCUSDT、BHTBTC。它們的「v」會為連續的值（112，113，114）。</p>
-
+  spot_websocket_trade_desc_v3: |
+    <p>逐筆交易推送每一筆成交的信息。成交，或者說交易的定義是僅有一個吃單者與一個掛單者相互交易。</p>
+    <p>變量「v」可以理解成一個交易ID。這個變量是全局遞增的並且獨特的。例如：假設過去5秒有3筆交易發生，分別是ETHUSDT、BTCUSDT、BHTBTC。它們的「v」會為連續的值（112，113，114）。</p>
+    <p><b>推送頻率</b>: 實時</p>
+    <p><b>Topic</b>: <code>trade.{symbol}</code></p>
   spot_websocket_orderbook_v2: 訂單簿(全量深度)
   spot_websocket_orderbook_desc_v2: |
     <p>Symbol的深度信息。</p>
@@ -3311,10 +3346,31 @@ zh-cn:
     </ul>
     <p>這個訂閱會推送全量深度信息，因此數據量大。如果想要推送評率更快，請訂閱合並深度。</p>
 
+  spot_websocket_orderbook_desc_v3: |
+    <p>Symbol的深度信息。</p>
+    <p>這裏是訂單簿快照推送的詳細信息：</p>
+    <ul>
+      <li>訂單簿快照頻率深度：bids 和 asks各<b>40</b></li>
+      <li>訂單簿版本變更觸發事件：
+        <ul>
+          <li>訂單進入訂單簿</li>
+          <li>訂單離開訂單簿</li>
+          <li>訂單數量變更</li>
+          <li>訂單已完成</li>
+        </ul>
+      </li>
+    </ul>
+    <p>當前只有快照類型數據，請忽視響應數據中的type=<code>delta</code>, 當前無意義。</p>
+    <p><b>推送頻率</b>: 100ms</p>
+    <p><b>Topic</b>: <code>orderbook.40.{symbol}</code>
   spot_websocket_symbol_ticker_v2: symbol的Ticker
   spot_websocket_symbol_ticker_desc_v2: 交易對的 24 小時統計數據。
+  spot_websocket_symbol_ticker_desc_v3: |
+    <p>交易對的 24 小時統計數據。</p>
+    <p><b>推送頻率</b>: 實時</p>
+    <p><b>Topic</b>: <code>tickers.{symbol}</code></p>
 
-  spot_public_websocket_frequency_100: <b>300ms</b>推送一次。
+  spot_public_websocket_frequency_100: <b>100ms</b>推送一次。
   spot_public_websocket_frequency_300_delay_400: <b>300ms</b>推送一次，最大延遲<b>400ms</b>。
   spot_public_websocket_frequency_300_delay_650: <b>300ms</b>推送一次，最大延遲<b>650ms</b>。
   spot_public_websocket_frequency_250_delay_300: <b>250ms</b>推送一次，最大延遲<b>300ms</b>。
