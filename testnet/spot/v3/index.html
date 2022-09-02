@@ -893,6 +893,9 @@
                     <a href="#t-heartbeat" class="toc-h2 toc-link" data-title="How to Send Heartbeat Packet">How to Send Heartbeat Packet</a>
                   </li>
                   <li>
+                    <a href="#t-websocketlimit" class="toc-h2 toc-link" data-title="Rate Limits">Rate Limits</a>
+                  </li>
+                  <li>
                     <a href="#t-subscribe" class="toc-h2 toc-link" data-title="How to Subscribe to Topics">How to Subscribe to Topics</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -2416,7 +2419,7 @@ If symbol is not specified, the best order price from all symbols will be return
 <td>Order type</td>
 </tr>
 <tr>
-<td style="text-align: left">timeInForce</td>
+<td style="text-align: left"><a href="#time-in-force-time_in_force">timeInForce</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
@@ -3819,21 +3822,22 @@ If <code>startTime</code> is not specified, you can only query for records in th
 
 <p>Base endpoints:
     <ul>
+    <p>
       <li><b>Testnet</b>:</br>
-        <ul>
-          <li>
-            Public Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/spot/public/v3</span>
-            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-          </li>
-        </ul>
+          Public Topics: <span id="testnet_address">wss://stream-testnet.bybit.com/spot/public/v3</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+          </br>
+          Private Topics: <span id="testnet_private_address">wss://stream-testnet.bybit.com/spot/private/v3</span>
+          <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_private_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
       </li>
       <li><b>Mainnet</b>:</br>
-        <ul>
           <li>
             Public Topics: <span id="mainnet_address">wss://stream.bybit.com/spot/public/v3</span>
             <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+            </br>
+            Private Topics: <span id="mainnet_private_address">wss://stream.bybit.com/spot/private/v3</span>
+            <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
           </li>
-        </ul>
       </li>
     </ul>
 </p>
@@ -3870,11 +3874,8 @@ Due to network complexity, your may get disconnected at any time. Please follow 
 <aside class="warning">
 To avoid networks or program issues, we recommend that you send the <code>ping</code> heartbeat packet every <b>20</b> seconds to maintain the WebSocket connection.
 </aside>
-
-<!-- 连接数限制
-## Rate Limits
-
--->
+<h2 id='t-websocketlimit'>Rate Limits</h2>
+<p>Each API key may have a maximum of 100 private WebSocket connections. The 101st connection will be rejected.</P>
 <h2 id='t-subscribe'>How to Subscribe to Topics</h2><h3 id='t-websocketfilters'>Understanding Websocket Filters</h3>
 <blockquote>
 <p>How to subscribe with a filter</p>
@@ -3903,7 +3904,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </span></code></pre></div>
 <p><p>After establishing the connection, you can subscribe to a new topic by sending a JSON request. The request formats are as follows:</p>
 <p>ws.send('{"req_id": "10001", "op": "subscribe", "args": ["trade.BTCUSDT", "trade.ETHUSDT", "tickers.BTCUSDT", "bookticker.BTCUSDT"]}')</p>
-</p>
+
+<aside class="warning">
+You can pass a maximum of <b>10</b> args in <code>args</code>
+</aside></p>
 <h3 id='t-websocketunfilters'>Understanding Websocket Filters unsubscription</h3>
 <p><p>After successful subscription, you can unsubscribe by sending a JSON request. The request formats are as follows:</p>
 <p>ws.send('{"req_id": "10002", "op": "unsubscribe", "args": ["trade.BTCUSDT""]}');</p>
@@ -3985,21 +3989,22 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661743689735</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>This topic pushes order book data.</p>
+<p><p>Market depth data for a trading pair: </p>
 <ul>
-  <li>Snapshot depth: 200 per side.</li>
-  <li>Events which trigger a message push to this topic:
+  <li>Snapshot depth: <b>40</b> each for asks and bids.</li>
+  <li>Events trigger order book version change:
     <ul>
-      <li>Order enters order book</li>
-      <li>Order leaves order book</li>
-      <li>Order quantity changes</li>
-      <li>Order filled</li>
+      <li>order enters order book</li>
+      <li>order leaves order book</li>
+      <li>order quantity changes</li>
+      <li>order filled</li>
     </ul>
   </li>
 </ul>
+<p>Pushes snapshot data only, please ignore type=<code>delta</code> in the message</p>
+<p><b>Push frequency</b>: 100ms</p>
+<p><b>Topic</b>: <code>orderbook.40.{symbol}</code>
 </p>
-
-<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>650ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4060,12 +4065,11 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742109863</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>This topic pushes raw data for each trade.</p>
-<p>After a successful subscription message, the first data message (as indicated by <code>"f": true</code>) consists of the last 60 trades. After this payload (<code>"f": false</code>), only new trades are pushed.</p>
-<p>Variable <code>v</code> is a trade ID which is unique across the platform.</p>
+<p><p>This topic pushes raw trade information; each trade has a unique buyer and seller.</p>
+<p>Variable "v" acts as a tradeId. This variable is shared across different symbols; however, each ID is unique. For example, suppose in the last 5 seconds 3 trades happened in ETHUSDT, BTCUSDT, and BHTBTC. Their tradeId (which is "v") will be consecutive: 112, 113, 114.</p>
+<p><b>Push frequency</b>: real-time</p>
+<p><b>Topic</b>: <code>trade.{symbol}</code></p>
 </p>
-
-<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4133,11 +4137,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661745259605</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><p>This topic pushes kline data.</p>
-<p>To subscribe to different intervals, append your desired interval to the topic name. For 1 minute klines, set the topic as <code>kline_1m</code>, for 1 hour klines use <code>kline_1h</code>, etc. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
+<p><p>The topic name is <code>kline</code>. To subscribe to different intervals, pass your desired interval with the <code>klineType</code> parameter. Available intervals are listed <a href="#kline-interval-interval">here</a>.</p>
+<p><b>Push frequency</b>: real-time</p>
+<p><b>Topic</b>: <code>kline.{interval}.{symbol}</code></p>
 </p>
-
-<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4188,14 +4191,14 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="p">{</span>
-    <span class="s">"req_id"</span><span class="p">:</span> <span class="s">"ticker00001"</span><span class="p">,</span> <span class="o">//</span><span class="n">optional</span>
-    <span class="s">"op"</span><span class="p">:</span> <span class="s">"subscribe"</span><span class="p">,</span>
-    <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s">"tickers.BTCUSDT"</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">req_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ticker00001</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//optional</span>
+    <span class="dl">"</span><span class="s2">op</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">subscribe</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">args</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span>
     <span class="p">]</span>
 <span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>Response Example - format of all responses</p>
@@ -4217,10 +4220,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216011</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The 24-hr statistics of a trading pair.
+<p><p>The 24-hr statistics of a trading pair.</p>
+<p><b>Push frequency</b>: real-time</p>
+<p><b>Topic</b>: <code>tickers.{symbol}</code></p>
 </p>
-
-<p>Pushes data at a frequency of <b>300ms</b>. Message received with a maximum delay of <b>400ms</b>.</p>
 
 <p class="fake_header">Response Parameters</p>
 
@@ -4307,9 +4310,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216109</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Best bid price and best ask price</p>
-
-<p>Pushes data at a frequency of <b>250ms</b>. Message received with a maximum delay of <b>300ms</b>.</p>
+<p><p>Best bid price and best ask price</p>
+<p><b>Push frequency</b>: 100ms</p>
+<p><b>Topic</b>: <code>bookticker.{symbol}</code></p>
+</p>
 
 <p class="fake_header">Response Parameters</p>
 

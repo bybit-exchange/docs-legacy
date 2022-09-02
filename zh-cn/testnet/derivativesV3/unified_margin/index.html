@@ -3492,7 +3492,9 @@ price可為空！為了保護市價單遭遇嚴重的滑點，Bybit將市價單�
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復支持數字、字母（大小寫）、中劃線、下劃線這些字符的組合。期貨業務非必填，期權業務必填。
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID支持數字、字母（大小寫）、中劃線、下劃線這些字符的組合。期貨業務非必填，<b>期權業務必填</b>。</br>
+<b>期貨下查重規則</b>: <p>1. USDC永續和USDT永續的orderLinkId互相獨立，即orderLinkId可相同</p>
+<p>2. 在訂單未完全成交或取消前，orderLinkId需保持不一致; 訂單完全成交或取消後，orderLinkId可使用之前使用過的</p>
 </td>
 </tr>
 <tr>
@@ -4582,7 +4584,9 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">list&gt; orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID不可重復支持數字、字母（大小寫）、中劃線、下劃線這些字符的組合。期貨業務非必填，期權業務必填。
+<td>機構自定義訂單ID, 最大長度36位，且同一機構下自定義ID支持數字、字母（大小寫）、中劃線、下劃線這些字符的組合。期貨業務非必填，<b>期權業務必填</b>。</br>
+<b>期貨下查重規則</b>: <p>1. USDC永續和USDT永續的orderLinkId互相獨立，即orderLinkId可相同</p>
+<p>2. 在訂單未完全成交或取消前，orderLinkId需保持不一致; 訂單完全成交或取消後，orderLinkId可使用之前使用過的</p>
 </td>
 </tr>
 <tr>

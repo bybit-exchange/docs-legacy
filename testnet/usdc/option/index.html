@@ -1118,6 +1118,9 @@
                   <li>
                     <a href="#period-period" class="toc-h2 toc-link" data-title="Period (period)">Period (<code>period</code>)</a>
                   </li>
+                  <li>
+                    <a href="#symbol-status-status" class="toc-h2 toc-link" data-title="Symbol status (status)">Symbol status (<code>status</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -2684,7 +2687,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>For Market order，it must be <code>ImmediateOrCancel</code></td>
+<td>For Market order, it must be <code>ImmediateOrCancel</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderLinkId</td>
@@ -4458,7 +4461,7 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 <td style="text-align: left">baseCoin</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT，this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums，and baseCoin is not passed，it returns all records.</p></td>
+<td>Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p></td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
@@ -6680,9 +6683,9 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td>Contract name</td>
 </tr>
 <tr>
-<td style="text-align: left">status</td>
+<td style="text-align: left"><a href="#symbol-status-status">status</a></td>
 <td style="text-align: left">string</td>
-<td>Settle Coin</td>
+<td>Symbol status</td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -7077,7 +7080,7 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <td>Direction</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#price-price">order_price</a></td>
+<td style="text-align: left"><a href="#price-price">orderPrice</a></td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
 </tr>
@@ -7159,7 +7162,8 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <tr>
 <td style="text-align: left">placeType</td>
 <td style="text-align: left">string</td>
-<td>Please ignore</td>
+<td>Place order type. enums: <code>price</code> <code>iv</code>
+</td>
 </tr>
 </tbody></table>
 <h3 id='t-activeorders'>orders</h3>
@@ -7704,6 +7708,13 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <code>30</code>
 <code>60</code>
 <code>90</code>days</p>
+<h2 id='symbol-status-status'>Symbol status (<code>status</code>)</h2>
+<ul>
+<li><code>WAITING_ONLINE</code> Waiting to be online (10 mins before online)</li>
+<li><code>ONLINE</code> </li>
+<li><code>DELIVERING</code> </li>
+<li><code>OFFLINE</code> </li>
+</ul>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
 

@@ -1097,6 +1097,9 @@
                   <li>
                     <a href="#period-period" class="toc-h2 toc-link" data-title="Period (period)">Period (<code>period</code>)</a>
                   </li>
+                  <li>
+                    <a href="#symbol-status-status" class="toc-h2 toc-link" data-title="Symbol status (status)">Symbol status (<code>status</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -6634,9 +6637,9 @@ DCP的開和關, 僅限機構類型用戶
 <td>合約名稱</td>
 </tr>
 <tr>
-<td style="text-align: left">status</td>
+<td style="text-align: left"><a href="#symbol-status-status">status</a></td>
 <td style="text-align: left">string</td>
-<td>結算貨幣</td>
+<td>合約狀態</td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -7028,7 +7031,7 @@ DCP的開和關, 僅限機構類型用戶
 <td>買賣方向</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#price-price">order_price</a></td>
+<td style="text-align: left"><a href="#price-price">orderPrice</a></td>
 <td style="text-align: left">string</td>
 <td>訂單價格</td>
 </tr>
@@ -7110,7 +7113,7 @@ DCP的開和關, 僅限機構類型用戶
 <tr>
 <td style="text-align: left">placeType</td>
 <td style="text-align: left">string</td>
-<td>請忽略</td>
+<td>下單類型. 枚舉值：<code>price</code>, <code>iv</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-activeorders'>訂單</h3>
@@ -7633,6 +7636,13 @@ DCP的開和關, 僅限機構類型用戶
 <code>30</code>
 <code>60</code>
 <code>90</code>days</p>
+<h2 id='symbol-status-status'>Symbol status (<code>status</code>)</h2>
+<ul>
+<li><code>WAITING_ONLINE</code> 待上線（距離上線前10分鐘）</li>
+<li><code>ONLINE</code> 已上線</li>
+<li><code>DELIVERING</code> 交割中</li>
+<li><code>OFFLINE</code> 已下線</li>
+</ul>
 <h1 id='t-errors'>錯誤碼</h1>
 <p>Bybit使用以下HTTP Code和錯誤碼：</p>
 
