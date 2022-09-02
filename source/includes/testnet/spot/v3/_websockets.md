@@ -84,7 +84,6 @@ t(:websocket_aside_heartbeat)
 
 ## t(:websocketlimit)
 <p>t(:websocket_spot_para_apiLimit)</P>
-<p>t(:websocket_max_50_connection)</p>
 
 
 ## t(:subscribe)
@@ -419,5 +418,3 @@ t(:spot_websocket_ticker_desc_v3)
 | ap | string | t(:spot_sell_price)|
 | aq | boolean | t(:spot_sell_qty) |
 | t | number | t(:spot_timestamp2) |
-
-

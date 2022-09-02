@@ -667,7 +667,8 @@ en:
   usdcVersion: version
   usdcUserId: uid
   usdcPlayMode: Please ignore
-  usdcPlayType: Place order type. enums：<code>price</code> <code>iv</code>
+  usdcPlayType: |
+    Place order type. enums: <code>price</code> <code>iv</code>
 
 
 
@@ -1869,7 +1870,7 @@ en:
   ## Rate Limits
   websocketlimit: Rate Limits
   websocket_para_limit: ""
-  websocket_spot_para_apiLimit: <b>Private channel only</b>:</br>Please note that each api key could build maximum of 100 wss private connections simultaneously. It'll be rejected for the 101th connection.
+  websocket_spot_para_apiLimit: Each API key may have a maximum of 100 private WebSocket connections. The 101st connection will be rejected.
   ## How to Subscribe to Topics
   subscribe: How to Subscribe to Topics
   ### Understanding Websocket Filters
@@ -2269,7 +2270,7 @@ en:
   order_failed: fail to trigger
 
   ## option Symbol status
-  waiting_online: wait to be online (10mins before online)
+  waiting_online: Waiting to be online (10 mins before online)
   online: ""
   delivering: ""
   offline: ""
@@ -3712,7 +3713,7 @@ en:
   spot_websocket_subscribe_desc_v3: |
     <p>After establishing the connection, you can subscribe to a new topic by sending a JSON request. The request formats are as follows:</p>
     <p>ws.send('{"req_id": "10001", "op": "subscribe", "args": ["trade.BTCUSDT", "trade.ETHUSDT", "tickers.BTCUSDT", "bookticker.BTCUSDT"]}')</p>
-  spot_websocket_subscribe_args_warning_v3: You could pass <b>10</b> args in <code>args</code> at most
+  spot_websocket_subscribe_args_warning_v3: You can pass a maximum of <b>10</b> args in <code>args</code>
   spot_websocket_unsubscribe_desc: |
     <p>After successful subscription, you can unsubscribe by sending a JSON request. The request formats are as follows:</p>
     <p>ws.send('{"symbol":"BTCUSDT","topic":"trade","event":"cancel","params":{"binary":false}}');</p>
@@ -4082,8 +4083,8 @@ en:
   usdcAccountInfo: Wallet Info
   usdcBaseCoin_new: Base coin. Returns all records with base coin. If not passed, it returns records with BTC by default
   usdcBaseCoin_cancel: Base coin. Cancel all base coin related orders. If not passed, it'll cancel all BTC related orders
-  usdcBaseCoin_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT，this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums，and baseCoin is not passed，it returns all records.</p>
-  usdcBaseCoinUM_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY or CURRENCY_SELL，this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums，and baseCoin is not passed，it returns all records.</p>
+  usdcBaseCoin_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p>
+  usdcBaseCoinUM_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY or CURRENCY_SELL, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p>
   usdcQuoteCoin: Quote currency
   usdcSettleCoin: Settle Coin
   usdcTakerFee: Taker fee
@@ -4285,7 +4286,7 @@ en:
   usdcOptionOrderType: refer to <a href="#order-type-ordertype">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
   usdcOptionPlaceOrderPrice: Order price. For option, if iv has value, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
   optionIv_order: Implied volatility. If orderType is Market, iv is not required, otherwise the order will fail.
-  usdcOption_timeInForce: For Market order，it must be <code>ImmediateOrCancel</code>
+  usdcOption_timeInForce: For Market order, it must be <code>ImmediateOrCancel</code>
 
   optionIv: Implied volatility
   optionPlaceMode: Order mode, can be Advanced or Basic.For Perpetual, can be empty,But for Option, can not be empty.Number 1 is basic and number 2 is advanced.If 1, <code>orderQty</code> and <code>orderPrice</code> can not be empty. If 2, refer to <code>placeType</code>.
