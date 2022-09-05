@@ -1,5 +1,22 @@
 # t(:changelog)
 
+## 2022-09-05
+### REST API
+- [t(:ct_create_order)](#t-ct_create_order) [t(:changelog_update)]
+<br>
+t(:restapi_update_200220901_1)
+- [t(:ct_order_list)](#t-ct_order_list) [t(:changelog_update)]
+<br>
+t(:restapi_update_200220901_3)
+- [t(:ct_trading_stop)](#t-ct_trading_stop) [t(:changelog_new)]
+<br>
+t(:restapi_update_200220901_2)
+
+### WEBSOCKET API
+- [t(:websocketorder)](#t-websocketorder) [t(:changelog_update)]
+<br>
+t(:restapi_update_200220901_3)
+
 ## 2022-08-08
 ### REST API
 - [t(:ct_wallet_transfer)](#t-ct_wallet_transfer) [t(:changelog_update)]

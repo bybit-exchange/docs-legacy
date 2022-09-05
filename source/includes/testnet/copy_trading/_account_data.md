@@ -96,8 +96,8 @@ t(:ct_trading_stop)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoCreate>/contract/v3/private/copytrading/order/create</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+<code><span id=tradingStop>/contract/v3/private/copytrading/order/trading-stop</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#tradingStop"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|

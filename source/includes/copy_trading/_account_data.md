@@ -45,6 +45,10 @@ POST
 |t(:row_parameter_copytrading_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
 |t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty) |
 |t(:row_parameter_price) |<b>true</b> |string |t(:row_comment_resp_price) |
+|takeProfit |false |string |t(:row_comment_take_profit) |
+|stopLoss |false |string |t(:row_comment_stop_loss) |
+|<a href="#trigger-price-type-trigger_by">tpTriggerBy</a> |false |string |t(:account_row_comment_tpTriggerBy_v3) |
+|<a href="#trigger-price-type-trigger_by">slTriggerBy</a> |false |string |t(:account_row_comment_slTriggerBy_v3) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId) |
 
 
@@ -53,6 +57,63 @@ POST
 |:----- |:-----|----- |
 |orderId |string |t(:row_comment_order_id) |
 |orderLinkId |string |t(:row_comment_orderLinkId)  |
+
+
+### t(:ct_trading_stop)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api.bybit.com/contract/v3/private/copytrading/order/trading-stop' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 680d2f2d40500756a803a0d2558964896c6573b982b4fa32865f337d45534938' \
+--header 'X-BAPI-API-KEY: XXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1662026807816' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "symbol": "BTCUSDT",
+    "parentOrderId": "XXXXXXXX",
+    "takeProfit": "0",
+    "stopLoss": "0",
+    "tpTriggerBy": "MarkPrice",
+    "slTriggerBy": "LastPrice",
+    "parentOrderLinkId": "XXXXXXXX"
+}'
+```
+
+```python--pybit
+
+```
+
+
+> t(:codequote_responseExample)
+
+```javascript
+
+```
+
+t(:ct_trading_stop)
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=vpoCreate>/contract/v3/private/copytrading/order/trading-stop</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoCreate"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
+|parentOrderId |<b>true</b> |string |t(:ct_parentOrderId)   |
+|takeProfit |false |string |t(:row_comment_take_profit) |
+|stopLoss |false |string |t(:row_comment_stop_loss) |
+|tpTriggerBy |false |string |t(:ct_tradingStopTakeProfit) |
+|slTriggerBy |false |string |t(:ct_tradingStopStopLoss) |
+|parentOrderLinkId |false |string |t(:ct_parentOrderLinkId) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
 
 
 ### t(:ct_order_list)
@@ -130,6 +191,10 @@ GET
 |leavesValue |string |t(:row_comment_leaves_value) |
 |cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
 |cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
+|takeProfit |string |t(:row_comment_take_profit) |
+|stopLoss |string |t(:row_comment_stop_loss) |
+|tpTriggerBy |string |t(:account_row_comment_tpTriggerBy_v3) |
+|slTriggerBy |string |t(:account_row_comment_slTriggerBy_v3) |
 |createdTime |string |t(:row_comment_created_at)  |
 |updatedTime |string |t(:row_comment_updated_at)  |
 
