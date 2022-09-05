@@ -3726,17 +3726,35 @@ en:
 
   outboundAccountInfo: outboundAccountInfo
   outboundAccountInfo_desc: Pushes data about your account.
+  spotV3_outboundAccountInfo_desc: |
+    <p>This topic pushes account information</p>
+    <p><b>Push frequency</b>: real-time</p>
+    <p><b>Topic</b>: <code>outboundAccountInfo</code></p>
 
   executionReport: executionReport
+  spotV3_order_desc: |
+    <p>This topic pushes order information，avg.filledPrice = Z / z</p>
+    <p><b>Push frequency</b>: real-time</p>
+    <p><b>Topic</b>: <code>order</code></p>
   executionReport_desc: Pushes data about your orders. <code>Z</code> divided by <code>z</code> equals the average filled price.
   stop_executionReport: stop_executionReport
   stop_executionReport_desc: |
     Pushes data about your TP/SL orders. It will be triggered as long as tp/sl order status is changed.<br>
     Pushes data in <b>real-time</b>
+  spotV3_stopOrder: |
+    <p>This topic pushes conditional order, TP/SL order information placed by <b>web/app</b> channel, and TP/SL order information placed by <b>open api</b> channel. It'll be triggered as long as order status is changed</p>
+    <p><b>Push frequency</b>: real-time</p>
+    <p><b>Topic</b>: <code>stopOrder</code></p>
+  websocketSpotStopOrder: stopOrder
+  websocketSpotOrder: order
 
   ticketInfo: ticketInfo
   ticketInfo_para: |
     Pushes data about your trades (fills). When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>executionReport</code>
+  spotV3_ticketInfo_desc: |
+    <p>This topic pushes filled trades information. When an order is filled, you will receive two messages: one from <code>ticketInfo</code>, and one from <code>order / stopOrder</code></p>
+    <p><b>Push frequency</b>: real-time</p>
+    <p><b>Topic</b>: <code>ticketInfo</code></p>
   spot_ticket_info_maker: Is MAKER. true=maker, false=taker
   spot_ticket_info_side: BUY or SELL
   spotLtSymbolNav: Please make sure to add "NAV" as a suffix to the name of the pair you're querying

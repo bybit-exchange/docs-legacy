@@ -3270,11 +3270,27 @@ zh-cn:
   spot_websocket_user_order_desc: 訂單通過executionReport事件進行更新。詳細說明信息請查看這裏。通過將Z除以z可以找到平均價格。
   spot_websocket_ticket_info: TicketInfo
   outboundAccountInfo_desc: 賬戶信息推送
+  spotV3_outboundAccountInfo_desc: |
+    <p>該訂閱用於推送帳戶信息</p>
+    <p><b>推送頻率</b>: 實時</p>
+    <p><b>Topic</b>: <code>outboundAccountInfo</code></p>
   executionReport_desc: 訂單信息推送. Z/z 等於成交均價
+  spotV3_order_desc: |
+    <p>該訂閱用於推送訂單信息，其中 成交均價 = Z / z</p>
+    <p><b>推送頻率</b>: 實時</p>
+    <p><b>Topic</b>: <code>order</code></p>
   stop_executionReport_desc: |
     止盈止損訂單信息推送，只要訂單狀態發生改變，就會推送消息。<br>
     推送頻率: <b>實時推送</b>
+  spotV3_stopOrder: |
+    <p>該訂閱推送web/app下的條件和止盈止損訂單信息或者是openAPI下的止盈止損訂單信息推送。只要訂單狀態發生改變，就會推送消息。</p>
+    <p><b>推送頻率</b>: 實時</p>
+    <p><b>Topic</b>: <code>stopOrder</code></p>
   ticketInfo_para: 成交信息推送
+  spotV3_ticketInfo_desc: |
+    <p>該訂閱推送成交信息。</p>
+    <p><b>推送頻率</b>: 實時</p>
+    <p><b>Topic</b>: <code>ticketInfo</code></p>
   spot_ticket_info_maker: 是否為MAKER。true為maker, false為taker
   spot_ticket_info_side: 買入 或者 賣出
   spot_public_websocket_frequency_realtime: 實時推送
