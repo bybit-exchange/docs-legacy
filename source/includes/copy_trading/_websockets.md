@@ -883,6 +883,10 @@ while True:
       "cumExecValue":"19.59950000",
       "lastExecPrice":"1959.949951",
       "cumExecQty":"0.010000",
+      "takeProfit": "1750"
+      "stopLoss": "2000"
+      "tpTriggerBy": "LastPrice"
+      "slTriggerBy": "LastPrice"
       "createTime":1652932133873,
       "updateTime":1652932133892,
       "copyTradeOrderStatus":"OpenOrderFilled"
@@ -906,6 +910,10 @@ while True:
 |cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
 |lastExecPrice |string |t(:row_comment_last_exec_price)  |
 |cumExecQty |string |t(:linear_resp_field_cum_exec_qty)  |
+|takeProfit |string |t(:row_comment_take_profit) |
+|stopLoss |string |t(:row_comment_stop_loss) |
+|tpTriggerBy |string |t(:account_row_comment_tpTriggerBy_v3) |
+|slTriggerBy |string |t(:account_row_comment_slTriggerBy_v3) |
 |createTime |string |t(:row_comment_timestamp)  |
 |updateTime |string |t(:row_comment_resp_update_time)  |
 |copyTradeOrderStatus |string |t(:copytrade_field_order_status)  |
