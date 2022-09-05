@@ -12,7 +12,7 @@ t(:restapi_update_200220901_3)
 <br>
 t(:restapi_update_200220901_2)
 
-### WEBSOCKET API
+### WebSocket API
 - [t(:websocketorder)](#t-websocketorder) [t(:changelog_update)]
 <br>
 t(:restapi_update_200220901_3)

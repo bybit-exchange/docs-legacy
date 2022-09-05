@@ -1,7 +1,7 @@
 # t(:changelog)   
 
 ## 2022-08-25
-### WEBSOCKET API
+### WebSocket API
 - [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_update)]
   - t(:restapi_update_20220825)
 
