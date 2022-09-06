@@ -13,7 +13,7 @@
 - [t(:queryHistoricalVolatility)](#t-queryhistoricalvolatility) [t(:changelog_new)]
   - t(:restapi_update_200220831_4)
 
-### WEBSOCKET API
+### WebSocket API
 - [t(:websocketSymbolNotify)](#t-websocketsymbolnotify) [t(:changelog_new)]
   - t(:restapi_update_200220831_5)
 - [t(:userFilledHistory)](#t-userfilledhistory) [t(:changelog_update)]
