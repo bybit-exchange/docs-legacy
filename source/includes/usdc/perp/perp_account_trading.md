@@ -789,16 +789,16 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-b
 ```javascript
 {
     "result": {
-        "walletBalance": "999.6758",
-        "accountMM": "0.3728",
+        "walletBalance": "233694603.2386",
+        "accountMM": "197.8124",
         "bonus": "0.0000",
-        "accountIM": "6.4519",
-        "totalSessionRPL": "-0.2120",
-        "equity": "995.2654",
-        "totalRPL": "-0.2120",
-        "marginBalance": "995.2654",
-        "availableBalance": "988.8135",
-        "totalSessionUPL": "-4.4104"
+        "accountIM": "392.2333",
+        "totalSessionRPL": "",
+        "equity": "233694453.2634",
+        "totalRPL": "-8180.6277",
+        "marginBalance": "233694603.2454",
+        "availableBalance": "233694211.0121",
+        "totalSessionUPL": ""
     },
     "retCode": 0,
     "retMsg": "Success."
@@ -820,12 +820,12 @@ POST
 |accountMM|string|t(:accountMm)|
 |bonus|string|t(:bonus)|
 |accountIM|string|t(:accountIm)|
-|totalSessionRPL|string|t(:totalSessionRpl)|
+|totalSessionRPL|string|t(:sessionRpl)|
 |equity|string|t(:equity)|
 |totalRPL|string|t(:totalRpl)|
 |marginBalance|string|t(:marginBalance)|
 |availableBalance|string|t(:availableBalance)|
-|totalSessionUPL|string|t(:totalSessionUpl)|
+|totalSessionUPL|string|t(:sessionUpl)|
 
 
 ### t(:assetInfo)

@@ -13,6 +13,21 @@
 - [t(:queryPosition)](#t-queryPposition) [t(:changelog_update)]
   - t(:restapi_update_20220824)
 
+## 2022-08-22
+### REST API
+- [t(:usdcAccountInfo)](#t-usdcaccountinfo) [t(:changelog_update)]
+  - t(:restapi_update_200220822_1)
+- [t(:assetInfo)](#t-assetinfo) [t(:changelog_update)]
+  - t(:restapi_update_200220822_2)
+- [t(:queryPosition)](#t-queryposition) [t(:changelog_update)]
+  - t(:restapi_update_200220822_2)
+- [t(:querySettleLogs)](#t-querysettlelogs) [t(:changelog_update)]
+  - t(:restapi_update_200220822_3)
+
+### WEBSOCKET API
+- [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
+  - t(:restapi_update_200220822_2)
+
 ## 2022-05-12
 ### REST API
 - [t(:fundingrate)](#t-fundingrate) & [t(:predictedfunding)](#t-predictedfunding) [t(:changelog_new)]
