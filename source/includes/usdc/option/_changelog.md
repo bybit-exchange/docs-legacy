@@ -41,6 +41,21 @@
 - [t(:queryPosition)](#t-queryposition) [t(:changelog_update)]
   - t(:restapi_update_20220824)
 
+## 2022-08-22
+### REST API
+- [t(:usdcAccountInfo)](#t-usdcaccountinfo) [t(:changelog_update)]
+  - t(:restapi_update_200220822_1)
+- [t(:assetInfo)](#t-assetinfo) [t(:changelog_update)]
+  - t(:restapi_update_200220822_2)
+- [t(:queryPosition)](#t-queryposition) [t(:changelog_update)]
+  - t(:restapi_update_200220822_2)
+- [t(:queryPositionInfo)](#t-querypositioninfo) [t(:changelog_update)]
+  - t(:restapi_update_200220822_2)
+
+### WEBSOCKET API
+- [t(:userPositionsInfo)](#t-userpositionsinfo) [t(:changelog_update)]
+  - t(:restapi_update_200220822_2)
+
 ## 2022-08-05
 ### WebSocket API
 - [t(:websocketinsurance)](#t-websocketinsurance) [t(:changelog_update)]

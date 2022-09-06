@@ -1057,12 +1057,12 @@ POST
 |accountMM|string|t(:accountMm)|
 |bonus|string|t(:bonus)|
 |accountIM|string|t(:accountIm)|
-|totalSessionRPL|string|t(:totalSessionRpl)|
+|totalSessionRPL|string|t(:sessionRpl)|
 |equity|string|t(:equity)|
 |totalRPL|string|t(:totalRpl)|
 |marginBalance|string|t(:marginBalance)|
 |availableBalance|string|t(:availableBalance)|
-|totalSessionUPL|string|t(:totalSessionUpl)|
+|totalSessionUPL|string|t(:sessionUpl)|
 
 
 ### t(:assetInfo)
