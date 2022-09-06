@@ -778,10 +778,21 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2022-05-12" class="toc-h2 toc-link" data-title="2022-05-12">2022-05-12</a>
+                    <a href="#2022-08-22" class="toc-h2 toc-link" data-title="2022-08-22">2022-08-22</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WEBSOCKET API">WEBSOCKET API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-05-12" class="toc-h2 toc-link" data-title="2022-05-12">2022-05-12</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -789,7 +800,7 @@
                     <a href="#2022-04-14" class="toc-h2 toc-link" data-title="2022-04-14">2022-04-14</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1301,7 +1312,38 @@ clipboard.on('error', function(e) {
 <li>新增<code>baseCoin</code>字段，用於支持多資產查詢</li>
 </ul></li>
 </ul>
-<h2 id='2022-05-12'>2022-05-12</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2022-08-22'>2022-08-22</h2><h3 id='rest-api-2'>REST API</h3>
+<ul>
+<li><a href="#t-usdcaccountinfo">錢包信息</a> [更新]
+
+<ul>
+<li>廢棄<code>totalSessionRPL</code> 和 <code>totalSessionUPL</code>字段，總是返回<code>""</code></li>
+</ul></li>
+<li><a href="#t-assetinfo">資產信息</a> [更新]
+
+<ul>
+<li>廢棄<code>sessionRPL</code> 和 <code>sessionUPL</code>字段，總是返回<code>""</code></li>
+</ul></li>
+<li><a href="#t-queryposition">查詢持倉</a> [更新]
+
+<ul>
+<li>廢棄<code>sessionRPL</code> 和 <code>sessionUPL</code>字段，總是返回<code>""</code></li>
+</ul></li>
+<li><a href="#t-querysettlelogs">查詢倉位結算記錄</a> [更新]
+
+<ul>
+<li>廢棄<code>sessionRPL</code>字段，總是返回<code>""</code></li>
+</ul></li>
+</ul>
+<h3 id='websocket-api'>WEBSOCKET API</h3>
+<ul>
+<li><a href="#t-websocketposition">持倉</a> [更新]
+
+<ul>
+<li>廢棄<code>sessionRPL</code> 和 <code>sessionUPL</code>字段，總是返回<code>""</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-05-12'>2022-05-12</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li><a href="#t-fundingrate">查詢上個周期的資金費率</a> &amp; <a href="#t-predictedfunding">查詢預測資金費率和資金費用</a> [新增]
 
@@ -1309,7 +1351,7 @@ clipboard.on('error', function(e) {
 <li>Add USDC Perpetual Funding API</li>
 </ul></li>
 </ul>
-<h2 id='2022-04-14'>2022-04-14</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h2 id='2022-04-14'>2022-04-14</h2><h3 id='websocket-api-2'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketinsurance">保險基金</a> [新增]
 
@@ -4493,16 +4535,16 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">walletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">999.6758</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">accountMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.3728</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">walletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">233694603.2386</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">197.8124</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">bonus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">accountIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6.4519</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalSessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.2120</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">equity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">995.2654</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.2120</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">marginBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">995.2654</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">availableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">988.8135</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalSessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-4.4104</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">accountIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">392.2333</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalSessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">equity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">233694453.2634</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-8180.6277</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">marginBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">233694603.2454</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">availableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">233694211.0121</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalSessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
@@ -4546,7 +4588,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">totalSessionRPL</td>
 <td style="text-align: left">string</td>
-<td>已實現損益</td>
+<td>已實現損益. 返回空字符串<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">equity</td>
@@ -4571,7 +4613,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">totalSessionUPL</td>
 <td style="text-align: left">string</td>
-<td>未實現損益</td>
+<td>未實現損益. 返回空字符串<code>""</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-assetinfo'>資產信息</h3>

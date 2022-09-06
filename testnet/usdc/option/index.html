@@ -810,10 +810,21 @@
                       </ul>
                   </li>
                   <li>
+                    <a href="#2022-08-22" class="toc-h2 toc-link" data-title="2022-08-22">2022-08-22</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WEBSOCKET API">WEBSOCKET API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-08-05" class="toc-h2 toc-link" data-title="2022-08-05">2022-08-05</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -821,7 +832,7 @@
                     <a href="#2022-06-16" class="toc-h2 toc-link" data-title="2022-06-16">2022-06-16</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -829,7 +840,7 @@
                     <a href="#2022-06-02" class="toc-h2 toc-link" data-title="2022-06-02">2022-06-02</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1415,7 +1426,38 @@ clipboard.on('error', function(e) {
 <li>Add <code>baseCoin</code> field, which is used to support multiple assets</li>
 </ul></li>
 </ul>
-<h2 id='2022-08-05'>2022-08-05</h2><h3 id='websocket-api-2'>WebSocket API</h3>
+<h2 id='2022-08-22'>2022-08-22</h2><h3 id='rest-api-3'>REST API</h3>
+<ul>
+<li><a href="#t-usdcaccountinfo">Wallet Info</a> [update]
+
+<ul>
+<li>Deprecate <code>totalSessionRPL</code> and <code>totalSessionUPL</code>，return <code>""</code></li>
+</ul></li>
+<li><a href="#t-assetinfo">Asset Info</a> [update]
+
+<ul>
+<li>Deprecate <code>sessionRPL</code> and <code>sessionUPL</code>，return <code>""</code></li>
+</ul></li>
+<li><a href="#t-queryposition">Query My Positions</a> [update]
+
+<ul>
+<li>Deprecate <code>sessionRPL</code> and <code>sessionUPL</code>，return <code>""</code></li>
+</ul></li>
+<li><a href="#t-querypositioninfo">Query Positions Info Upon Expiry</a> [update]
+
+<ul>
+<li>Deprecate <code>sessionRPL</code> and <code>sessionUPL</code>，return <code>""</code></li>
+</ul></li>
+</ul>
+<h3 id='websocket-api-2'>WEBSOCKET API</h3>
+<ul>
+<li><a href="#t-userpositionsinfo">myposition</a> [update]
+
+<ul>
+<li>Deprecate <code>sessionRPL</code> and <code>sessionUPL</code>，return <code>""</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-08-05'>2022-08-05</h2><h3 id='websocket-api-3'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketinsurance">insurance</a> [update]
 
@@ -1423,7 +1465,7 @@ clipboard.on('error', function(e) {
 <li>Update insurance topic response filed from <code>baseCoin</code> to <code>settleCoin</code></li>
 </ul></li>
 </ul>
-<h2 id='2022-06-16'>2022-06-16</h2><h3 id='rest-api-3'>REST API</h3>
+<h2 id='2022-06-16'>2022-06-16</h2><h3 id='rest-api-4'>REST API</h3>
 <ul>
 <li><a href="#t-setmarginmode">Set Margin Mode</a> [new]
 
@@ -1431,7 +1473,7 @@ clipboard.on('error', function(e) {
 <li>Add Set Margin Mode API for USDC</li>
 </ul></li>
 </ul>
-<h2 id='2022-06-02'>2022-06-02</h2><h3 id='websocket-api-3'>WebSocket API</h3>
+<h2 id='2022-06-02'>2022-06-02</h2><h3 id='websocket-api-4'>WebSocket API</h3>
 <ul>
 <li><a href="#t-usermmpevent">mmpevent</a> [new]
 
@@ -4638,16 +4680,16 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">walletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">accountMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">walletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">233694603.2386</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">197.8124</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">bonus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">accountIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">133.6697</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalSessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">equity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">marginBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">availableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">866.3303</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalSessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">accountIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">392.2333</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalSessionRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">equity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">233694453.2634</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalRPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-8180.6277</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">marginBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">233694603.2454</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">availableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">233694211.0121</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalSessionUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
@@ -4691,7 +4733,7 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 <tr>
 <td style="text-align: left">totalSessionRPL</td>
 <td style="text-align: left">string</td>
-<td>Session RPL</td>
+<td>Session RPL. Return null string <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">equity</td>
@@ -4716,7 +4758,7 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 <tr>
 <td style="text-align: left">totalSessionUPL</td>
 <td style="text-align: left">string</td>
-<td>Session UPL</td>
+<td>Session UPL. Return null string <code>""</code></td>
 </tr>
 </tbody></table>
 <h3 id='t-assetinfo'>Asset Info</h3>
