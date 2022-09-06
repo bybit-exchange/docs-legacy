@@ -1026,16 +1026,16 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-wallet-b
 ```javascript
 {
     "result": {
-        "walletBalance": "1000.0000",
-        "accountMM": "0.0000",
+        "walletBalance": "233694603.2386",
+        "accountMM": "197.8124",
         "bonus": "0.0000",
-        "accountIM": "133.6697",
-        "totalSessionRPL": "0.0000",
-        "equity": "1000.0000",
-        "totalRPL": "0.0000",
-        "marginBalance": "1000.0000",
-        "availableBalance": "866.3303",
-        "totalSessionUPL": "0.0000"
+        "accountIM": "392.2333",
+        "totalSessionRPL": "",
+        "equity": "233694453.2634",
+        "totalRPL": "-8180.6277",
+        "marginBalance": "233694603.2454",
+        "availableBalance": "233694211.0121",
+        "totalSessionUPL": ""
     },
     "retCode": 0,
     "retMsg": "Success."
