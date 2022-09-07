@@ -683,19 +683,17 @@
           </li>
 
         <!-- Spot V3(Spot v1, Spot v3) -->
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn">Spot
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="/docs/testnet/spot/v3" >v3</a>
-                    <a href="/docs/testnet/spot/v1" >v1</a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Spot
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/testnet/spot/v3" >v3</a>
+                  <a href="/docs/testnet/spot/v1" >v1</a>
               </div>
-            </li>
-
-        <!-- Spot -->
+            </div>
+          </li>
 
         <!-- Account asset V3(asset v1, asset v3) -->
             <li>
@@ -739,9 +737,7 @@
                   <a href=/docs/derivativesV3/unified_margin>Mainnet</a>
                   <span class="dropdown-content-selected"><a href=/docs/testnet/derivativesV3/unified_margin>Testnet</a></span>
 
-              <!-- it's for spot mainnet switch to spot v1 testnet -->
-
-              <!-- it's for spot v1 testnet switch to spot mainnet -->
+              <!-- it's for spot testnet switch to spot mainnet -->
 
               <!-- it's for asset mainnet switch to asset v1 testnet -->
 
@@ -5070,6 +5066,11 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <p><p><b>instruction: </b></p>
 <p>This API provides the cancellation of all open orders under the unified margin account. Order cancellation of futures and options cannot be canceled in one request at the same time. If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type.</p>
 </p>
+
+<aside class="notice">
+When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCoin</code>, <code>symbol</code> must be passed.
+
+</aside>
 
 <p class="fake_header">HTTP Request</p>
 

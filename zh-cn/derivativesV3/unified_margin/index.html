@@ -682,9 +682,17 @@
           </li>
 
         <!-- Spot V3(Spot v1, Spot v3) -->
-
-        <!-- Spot -->
-          	<li><a href="/docs/zh-cn/spot"">現貨</a></li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">現貨
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-cn/spot/v3" >v3</a>
+                  <a href="/docs/zh-cn/spot/v1" >v1</a>
+              </div>
+            </div>
+          </li>
 
         <!-- Account asset V3(asset v1, asset v3) -->
 
@@ -718,9 +726,7 @@
                   <span class="dropdown-content-selected"><a href=/docs/zh-cn/derivativesV3/unified_margin>Mainnet</a></span>
                   <a href=/docs/zh-cn/testnet/derivativesV3/unified_margin>Testnet</a>
 
-              <!-- it's for spot mainnet switch to spot v1 testnet -->
-
-              <!-- it's for spot v1 testnet switch to spot mainnet -->
+              <!-- it's for spot testnet switch to spot mainnet -->
 
               <!-- it's for asset mainnet switch to asset v1 testnet -->
 
@@ -5045,6 +5051,11 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <p><p><p><b>接口說明：</b></p>
 <p>本API提供了交易統一保證金賬戶下的撤銷全部活動委托單，期貨和期權的訂單撤銷無法同時在一次請求裏同時撤單。如果期貨和期權的訂單都在一個請求裏，則根據category的類型，僅會操作與category相匹配的訂單。</p></p>
 </p>
+
+<aside class="notice">
+當category=<code>linear</code>時，<code>baseCoin</code>、<code>settleCoin</code>、<code>symbol</code>至少傳一個。
+
+</aside>
 
 <p class="fake_header">HTTP 請求</p>
 
