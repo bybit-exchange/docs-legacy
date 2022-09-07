@@ -1158,7 +1158,8 @@ en:
   account_para_cancelAllActive_v3: |
     <p><b>instruction: </b></p>
     <p>This API provides the cancellation of all open orders under the unified margin account. Order cancellation of futures and options cannot be canceled in one request at the same time. If both futures and options orders are in one request, only the orders matching the category will be operated according to the category type.</p>
-
+  account_para_cancelAllActive_v3_notice: |
+    When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCoin</code>, <code>symbol</code> must be passed.
   account_para_myPosition_v3: |
     <p><p><b>Interface:</b></p>
     <p>Accessing personal list of positions. Users can access their position holding information through this interface, such as the number of position holdings and wallet balance.</p></p>
@@ -1843,14 +1844,13 @@ en:
               Private Topics: <span id="testnet_private_address">wss://stream-testnet.bybit.com/spot/private/v3</span>
               <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
           </li>
+          </br>
           <li><b>Mainnet</b>:</br>
-              <li>
                 Public Topics: <span id="mainnet_address">wss://stream.bybit.com/spot/public/v3</span>
                 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
                 </br>
                 Private Topics: <span id="mainnet_private_address">wss://stream.bybit.com/spot/private/v3</span>
                 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_private_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-              </li>
           </li>
         </ul>
   websocket_aside_auth: <b>Public</b> topics do not require authentication. The following section applies to <b>private</b> topics only.
@@ -1870,7 +1870,7 @@ en:
   ## Rate Limits
   websocketlimit: Rate Limits
   websocket_para_limit: ""
-  websocket_spot_para_apiLimit: Each API key may have a maximum of 100 private WebSocket connections. The 101st connection will be rejected.
+  websocket_spot_para_apiLimit: <b>Private channel ONLY</b>：</br>Each API key may have a maximum of 100 private WebSocket connections. The 101st connection will be rejected.
   ## How to Subscribe to Topics
   subscribe: How to Subscribe to Topics
   ### Understanding Websocket Filters
@@ -2085,6 +2085,16 @@ en:
     <li><code>30.5</code> - not allowed</li>
     </ul>
     </ul>
+  quantity_v3: |
+    <ul>
+    <li>The maximum qty for an order (<code>maxTradingQty</code>) can be queried with the <a href="#t-getsymbols">Get All Symbols</a>.</li>
+    <li>Must be a positive integer
+    <li>Must conform to the symbol's <code>qty_step</code>. For example, for the inverse perpetual BTCUSD market:</li>
+    <ul>
+    <li><code>40</code> - allowed</li>
+    <li><code>30.5</code> - not allowed</li>
+    </ul>
+    </ul>
   ## Price (`price`)
   price: |
     <ul>
@@ -2131,7 +2141,7 @@ en:
     <li>order</li>
     <ul>
       <li>Must be an integral multiple of <code>minPricePrecision</code></li>
-      <li>Information about current trading pair (e.g. <code>minPricePrecision</code>) can be queried with the <a href="#t-spot_querysymbol">Query Symbol endpoint</a>.</li>
+      <li>Information about current trading pair (e.g. <code>minPricePrecision</code>) can be queried with the <a href="#t-getsymbols">Get All Symbols</a>.</li>
     </ul>
     <li>TP/SL order</li>
     <ul>
@@ -3146,6 +3156,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_200220907: Add new response field <code>is_block_trade</code>
   restapi_update_200220901_1: Add support for placing TP/SL orders
   restapi_update_200220901_2: Add new API
   restapi_update_200220901_3: Add new response fields <code>takeProfit</code>, <code>stopLoss</code>, <code>tpTriggerBy</code>, <code>slTriggerBy</code>
@@ -3435,7 +3446,7 @@ en:
   spotAccountId: Account ID
   spotExchangeId: Exchange ID
   spotOrderLinkId: User-generated order ID
-  spotv3_orderCategory: Order category. <code>0</code>：normal order; <code>1</code>：<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">TP/SL order</a>
+  spotv3_orderCategory: Order category. <code>0</code>：normal order; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>
   spotv3_triggerPrice: Trigger price
   spot_Alias: Alias
   spotBaseCurrency: Base currency
@@ -3451,6 +3462,7 @@ en:
   spotInnovation: True indicates that the price of this currency is relatively volatile
   spotshowStatus: True indicates that the symbol open for trading
   spot_trading_symbol_comment: You can get all symbols with the <a href="#t-spot_querysymbol">Query Symbol</a> endpoint.
+  spotV3_trading_symbol_comment: You can get all symbols with the <a href="#t-getsymbols">Query Symbol</a> endpoint.
   spotSymbol: Name of the trading pair
   spotId: Irrelevant for API usage. This field reflects the "Transaction ID" from the <a href="https://www.bybit.com/user/assets/order/spot-history/active">Trade History</a> section of the website
   spotQty: Order quantity
@@ -5408,7 +5420,7 @@ en:
     Different requests need different message formats. Message format for <b>GET</b> requests:
   spotV3_comment_innovation: <code>1</code> indicates that the price of this currency is relatively volatile
   spotV3_comment_showStatus: <code>1</code> indicates that the symbol open for trading
-  spotV3_comment_side: Side. <code>BUY</code>, <code>SELL</code>
+  spotV3_comment_side: Side. <code>Buy</code>, <code>Sell</code>
   spotV3_comment_isWorking: Is working. <code>0</code>：valid, <code>1</code>：invalid
   spotV3_comment_cummulativeQuoteQty: Total order quantity. For some historical data, it might less than 0, and that means it is not applicable
   spotV3_comment_orderLinkId: Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code>

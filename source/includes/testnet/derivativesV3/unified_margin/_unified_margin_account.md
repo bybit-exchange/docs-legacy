@@ -815,6 +815,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
 
 t(:account_para_cancelAllActive_v3)
 
+<aside class="notice">
+t(:account_para_cancelAllActive_v3_notice)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCancelAll>/unified/v3/private/order/cancel-all</span></code>
