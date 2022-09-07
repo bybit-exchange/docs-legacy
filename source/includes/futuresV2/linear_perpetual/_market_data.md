@@ -124,7 +124,8 @@ print(session_unauth.public_trading_records(
             "qty": 9500,
             "side": "Buy",
             "time": "2019-11-19T08:03:04.077Z",
-            "trade_time_ms":1587638305175
+            "trade_time_ms":1587638305175,
+            "is_block_trade": false
         }
     ],
     "time_now": "1567109419.049271"
@@ -154,6 +155,7 @@ GET
 |t(:row_parameter_side) |string |t(:row_comment_side_taker)  |
 |time |string |t(:row_response_comment_time)  |
 |trade_time_ms |number |t(:row_response_comment_nill_time)  |
+|is_block_trade |boolean |t(:usdc_isBlockTrade)  |
 
 
 

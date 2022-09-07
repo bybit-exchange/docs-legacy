@@ -1252,7 +1252,8 @@ zh-cn:
   account_para_cancelAllActive_v3: |
     <p><p><b>接口說明：</b></p>
     <p>本API提供了交易統一保證金賬戶下的撤銷全部活動委托單，期貨和期權的訂單撤銷無法同時在一次請求裏同時撤單。如果期貨和期權的訂單都在一個請求裏，則根據category的類型，僅會操作與category相匹配的訂單。</p></p>
-
+  account_para_cancelAllActive_v3_notice: |
+    當category=<code>linear</code>時，<code>baseCoin</code>、<code>settleCoin</code>、<code>symbol</code>至少傳一個。
 
   websocketpositionV3: |
     <p><p><b>說明：</b></p>
@@ -1885,6 +1886,16 @@ zh-cn:
     </ul>
     </li>
     </ul>
+  quantity_v3: |
+    <ul>
+    <li>最大值1百萬 (<code>1000000</code>)</li>
+    <li>必須是正整數：
+    <ul>
+    <li><code>40</code> - 合法</li>
+    <li><code>30.5</code> - 非法</li>
+    </ul>
+    </li>
+    </ul>
   ## Price (`price`)
   price: |
     <ul>
@@ -1926,7 +1937,7 @@ zh-cn:
     <li>普通單</li>
     <ul>
     <li>必須是<code>minPricePrecision</code>的整數倍</li>
-    <li>當前symbol信息(如<code>minPricePrecision</code>)，可以通過<a href="#t-spot_querysymbol">交易對接口</a>接口獲得。</li>
+    <li>當前symbol信息(如<code>minPricePrecision</code>)，可以通過<a href="#t-getsymbols">交易對接口</a>接口獲得。</li>
     </ul>
     <li>止盈止損單</li>
     <ul>
@@ -2716,6 +2727,7 @@ zh-cn:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_200220907: 新增字段<code>is_block_trade</code>
   restapi_update_200220901_1: 新增功能支持止盈止損
   restapi_update_200220901_2: 新增接口
   restapi_update_200220901_3: 新增響應字段<code>takeProfit</code>、<code>stopLoss</code>、<code>tpTriggerBy</code>、<code>slTriggerBy</code>
@@ -2994,6 +3006,7 @@ zh-cn:
   spotInnovation: True 表示創新區：這個幣種價格波動比較大
   spotshowStatus: True 表示該現貨開放交易
   spot_trading_symbol_comment: 您可以根據<a href="#t-spot_querysymbol">Query Symbol</a>接口獲取所有交易中的symbol。
+  spotV3_trading_symbol_comment: 您可以根據<a href="#t-getsymbols">Query Symbol</a>接口獲取所有交易中的symbol。
   spotQuoteAssetVolume: 行情資產數量
   spotOrderLocked: 鎖定數量（如果為0，則說明該筆訂單的資金已完成結算）
 
@@ -4962,7 +4975,7 @@ zh-cn:
     <b>GET</b>請求格式（查詢訂單）:
   spotV3_comment_innovation: <code>1</code> 表示創新區：這個幣種價格波動比較大
   spotV3_comment_showStatus: <code>1</code> 表示該現貨開放交易
-  spotV3_comment_side: 買賣方向. <code>BUY</code>：買入, <code>SELL</code>：賣出
+  spotV3_comment_side: 買賣方向. <code>Buy</code>：買入, <code>Sell</code>：賣出
   spotV3_comment_isWorking: 是否生效. <code>0</code>：未生效, <code>1</code>：已生效
   spotV3_comment_cummulativeQuoteQty: 鎖定數量（如果為0，則說明該筆訂單的資金已完成結算）
   spotV3_comment_orderId: 訂單ID. 當<code>orderLinkId</code>為空時, 則<b>必傳</b>
