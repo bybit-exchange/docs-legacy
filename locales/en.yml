@@ -1508,7 +1508,7 @@ en:
       </tr>
       <tr>
         <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-        <tr><td>shared between </br>spot v1 and spot v3</td><td>/spot/v1, /spot/v3</td>
+        <tr><td>Spot V1,<br>Spot V3</td><td>/spot/v1, /spot/v3</td>
       </tr>
       <tr>
         <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
@@ -3157,14 +3157,15 @@ en:
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
   restapi_update_200220907: Add new response field <code>is_block_trade</code>
-  restapi_update_20220905_2: Deprecated <code>created_at</code> and <code>updated_at</code>, empty string is returned
-  restapi_update_20220905_1: Deprecated the following fields, and default value will be returned instead
-    <br/> <code>countdown_hour</code> <span>:</span> 0
-    <br/> <code>predicted_funding_rate</code> <span>:</span> ""
-    <br/> <code>total_turnover</code> <span>:</span> ""
-    <br/> <code>total_volume</code> <span>:</span> 0
-    <br/> <code>price_1h_pcnt</code> <span>:</span> ""
-    <br/> <code>open_value</code> <span>:</span> ""
+  restapi_update_20220905_2: Deprecated <code>created_at</code> and <code>updated_at</code>. Now returns an empty string.
+  restapi_update_20220905_1: |
+    Deprecated the following fields. Now returns a default value:
+    <br/> <code>countdown_hour</code>: 0
+    <br/> <code>predicted_funding_rate</code>: ""
+    <br/> <code>total_turnover</code>: ""
+    <br/> <code>total_volume</code>: 0
+    <br/> <code>price_1h_pcnt</code>: ""
+    <br/> <code>open_value</code>: ""
   restapi_update_200220901_1: Add support for placing TP/SL orders
   restapi_update_200220901_2: Add new API
   restapi_update_200220901_3: Add new response fields <code>takeProfit</code>, <code>stopLoss</code>, <code>tpTriggerBy</code>, <code>slTriggerBy</code>
