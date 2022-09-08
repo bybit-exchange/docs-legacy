@@ -39,6 +39,19 @@ The transfer API also includes:
 * `XLM`
 * `USD`
 
+t(:spotCrossMarginTradingEndpoint)
+
+* `BTC`
+* `ETH`
+* `XRP`
+* `SOL`
+* `LTC`
+* `EOS`
+* `LINK`
+* `XLM`
+* `USDC`
+* `USDT`
+
 
 ## Order status (`status`)
 * `NEW`
