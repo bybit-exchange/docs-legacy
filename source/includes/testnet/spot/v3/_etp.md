@@ -4,57 +4,57 @@
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/spot/lt/v1/infos?ltCode=BTC3S \
+https://api.bybit.com/spot/v3/public/infos?ltCode=BTC3S \
 ```
 
 > t(:codequote_responseExample)
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "",
-    "ext_code": null,
-    "ext_info": null,
-    "result": [
-        {
-            "ltCode": "BTC3S",
-            "ltName": "3X Short",
-            "maxPurchase": "1000000",
-            "minPurchase": "10",
-            "maxPurchaseDaily": "200000",
-            "maxRedeem": "1000",
-            "minRedeem": "100",
-            "maxRedeemDaily": "5000",
-            "purchaseFeeRate": "0.01",
-            "redeemFeeRate": "0.01",
-            "status": "1",
-            "fundFee": "-263.9050275",
-            "fundFeeTime": "1655452800000",
-            "manageFeeRate": "0.0001",
-            "manageFeeTime": "1655481787000",
-            "value": "549750319.6491748121231980105",
-            "total": "5000000",
-            "netValue": "39.350964984796264668"
-        }
-    ]
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "list": [
+            {
+                "fundFee": "-77.80535586",
+                "fundFeeTime": 1662566400000,
+                "ltCode": "BTC3SUSDT",
+                "ltName": "3X Short",
+                "manageFeeRate": "0.00005",
+                "manageFeeTime": 1662598800000,
+                "maxPurchase": "10000",
+                "maxPurchaseDaily": "200000",
+                "maxRedeem": "1000",
+                "maxRedeemDaily": "60000",
+                "minPurchase": "100",
+                "minRedeem": "5",
+                "netValue": "27.86850988224310062",
+                "purchaseFeeRate": "0.0005",
+                "redeemFeeRate": "0.0005",
+                "status": "1",
+                "total": "5000000",
+                "value": "503990989.499587242974184768"
+            }
+        ]
+    },
+    "retExtInfo": null,
+    "time": 1662545667108
 }
 ```
 
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=ltInfos>/spot/lt/v1/infos</span></code>
+<code><span id=ltInfos>/spot/v3/public/infos</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltInfos"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |ltCode|false|string|t(:spotLtCode)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |ltCode|string|t(:spotResLtCode)|
@@ -76,80 +76,6 @@ GET
 |total|string|t(:spotResTotal)|
 |netValue|string|t(:spotResNetValue)|
 
-### t(:ltInfo)
-> t(:codequote_curlExample)
-
-```console
-curl https://api-testnet.bybit.com/spot/lt/v1/info \
--H "Content-Type: application/x-www-form-urlencoded" \
--d 'api_key={api_key}&ltCode={ltCode}&timestamp=1637669364000'
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-  "ret_code": 0,
-    "ret_msg": null,
-    "result": {
-      "ltCode": "BTC3L",
-      "ltName": "3X Long",
-      "maxPurchase": "300024.12345678",
-      "minPurchase": "0.12345678",
-      "maxPurchaseDaily": "500000.12345678",
-      "maxRedeem": "1000.12345678",
-      "minRedeem": "1.12345678",
-      "maxRedeemDaily": "1000002.12345678",
-      "purchaseFeeRate": "0.12345678",
-      "redeemFeeRate": "0.12345678",
-      "status": "1",
-      "fundFee": "0.12345678",
-      "fundFeeTime": 1620917160000,
-      "manageFeeRate": "-0.12345678",
-      "manageFeeTime": 1620917160000,
-      "value": "1212432.12345678",
-      "total": "200000000.12345678",
-      "netValue": "10.12345678"
-  },
-  "ext_code": null,
-  "ext_info": null
-}
-```
-
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=ltInfo>/spot/lt/v1/info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltInfo"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|ltCode|<b>true</b>|string|t(:spotLtCode)|
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|ltCode|string|t(:spotResLtCode)|
-|ltName|string|t(:spotResLtName)|
-|maxPurchase|string|t(:spotResMaxPurchase)|
-|minPurchase|string|t(:spotResMinPurchase)|
-|maxPurchaseDaily|string|t(:spotResMaxPurchaseDaily)|
-|maxRedeem|string|t(:spotResMaxRedeem)|
-|minRedeem|string|t(:spotResMinRedeem)|
-|maxRedeemDaily|string|t(:spotResMaxRedeemDaily)|
-|purchaseFeeRate|string|t(:spotResPurchaseFee)|
-|redeemFeeRate|string|t(:spotResRedeemFee)|
-|t(:row_parameter_ltStatus)|string|t(:spotResLtStatus)|
-|fundFee|string|t(:spotResFundFee)|
-|fundFeeTime|long|t(:spotResFundFeeTime)|
-|manageFeeRate|string|t(:spotResManageFee)|
-|manageFeeTime|long|t(:spotResManageFeeTime)|
-|value|string|t(:spotResValue)|
-|total|string|t(:spotResTotal)|
-|netValue|string|t(:spotResNetValue)|
 
 <aside class="notice">
 t(:lt_para)
@@ -158,229 +84,267 @@ t(:lt_para)
 ### t(:ltQuoteReference)
 > t(:codequote_curlExample)
 
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "ret_code": 0,
-    "ret_msg": "",
-    "ext_code": null,
-    "ext_info": null,
-    "result": {
-        "ltCode": "BTC3L",
-        "nav": "8.348543196938590649",
-        "navTime": "1650259325443",
-        "basket": "14.063000000262307568",
-        "leverage": "3.451925561403627643",
-        "circulation": "18969.901970158967556311"
-    }
-}
-``` 
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=ltReference>/spot/lt/v1/reference</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltReference"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|ltCode|<b>true</b>|string|t(:spotLtCode)|
-
-<p class="fake_header">t(:responseparameters)</p>
-
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|ltCode|string|t(:spotResLtCode)|
-|nav|string|t(:spotLtQuoteNav)|
-|navTime|string|t(:spotLtQuoteNavTime)|
-|basket|string|t(:spotTotalPositionValue)|
-|leverage|string|t(:spotLeverage)|
-|circulation|string|t(:spotResCirculation)|
-
-### t(:ltPurchase)
-> t(:codequote_curlExample)
-
 ```console
-curl https://api-testnet.bybit.com/spot/lt/v1/purchase \
--H "Content-Type: application/x-www-form-urlencoded" \
--d 'api_key={api_key}&ltCode={ltCode}&ltAmount={ltAmount}&serialNo={serialNo}&timestamp=1637669364000'
+curl --location --request GET 'https://api.bybit.com/spot/v3/private/reference?ltCode=BTC3S' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-API-KEY: XXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1662549197919' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: c9a7c916aece021143c891fa3c87bc1469087a3927847ef757e50ff0e783282c'
 ```
 
 > t(:codequote_responseExample)
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": null,
+    "retCode": 0,
+    "retMsg": "success",
     "result": {
-        "ltCode": "BTC3L",
-        "orderStatus": "1",
-        "orderQuantity": "12",
-        "orderAmount": "123.12345678",
-        "amount": "123.12345678",
-        "timestamp": 1620917160000,
-        "id": 1,
-        "valueCoin": "USDT",
-        "serialNo": "0a65e75f165543103539010011"
+        "basket": "-111.537000043436201394",
+        "circulation": "26876.652597034302633009",
+        "leverage": "-2.797206317443581498",
+        "ltCode": "BTC3S",
+        "nav": "27.833235232732847932",
+        "navTime": 1662546552568
     },
-    "ext_code": null,
-    "ext_info": null
+    "retExtInfo": null,
+    "time": 1662546552602
+}
+``` 
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=ltReference>/spot/v3/private/reference</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltReference"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|ltCode|<b>true</b>|string|t(:spotLtCode)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|basket|string|t(:spotTotalPositionValue)|
+|circulation|string|t(:spotResCirculation)|
+|leverage|string|t(:spotLeverage)|
+|ltCode|string|t(:spotResLtCode)|
+|nav|string|t(:spotLtQuoteNav)|
+|navTime|long|t(:spotLtQuoteNavTime)|
+
+### t(:ltPurchase)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/purchase' \
+--header 'Content-Type: application/json' \
+--header 'X-BAPI-API-KEY: XXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1662549845240' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 9f787f824122ea1ef6d368a4a24c775e7853128decd9651cab91824162261b21' \
+--data-raw '{
+    "ltCode": "DOT3LUSDT",
+    "ltAmount": "100",
+    "serialNo": "x005"
+}'
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "amount": "100",
+        "id": "2085",
+        "ltCode": "DOT3LUSDT",
+        "orderAmount": "",
+        "orderQuantity": "",
+        "orderStatus": "2",
+        "serialNo": "x005",
+        "timestamp": 1662549845373,
+        "valueCoin": "USDT"
+    },
+    "retExtInfo": null,
+    "time": 1662549845453
 }
 ``` 
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ltPurchase>/spot/lt/v1/purchase</span></code>
+<code><span id=ltPurchase>/spot/v3/private/purchase</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltPurchase"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |ltCode|<b>true</b>|string|t(:spotLtCode)|
 |ltAmount|<b>true</b>|number|t(:spotLtAmount)|
-|timestamp|<b>true</b>|number|t(:spot_timestamp)|
 |serialNo|false|string|t(:spotLtSerialNo)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|ltCode|string|t(:spotResLtCode)|
-|t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
-|orderQuantity|string|t(:spotResPurchaseOrderQuantity)|
-|orderAmount|string|t(:spotResPurchaseOrderAmount)|
 |amount|string|t(:spotResPurchaseAmount)|
-|timestamp|long|t(:spot_timestamp)|
-|id|long|t(:spotResId)|
-|valueCoin|string|t(:spotResValueCoin)|
+|id|string|t(:spotResId)|
+|ltCode|string|t(:spotResLtCode)|
+|orderAmount|string|t(:spotResPurchaseOrderAmount)|
+|orderQuantity|string|t(:spotResPurchaseOrderQuantity)|
+|t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
 |serialNo|string|t(:spotLtSerialNo)|
+|timestamp|long|t(:spot_timestamp)|
+|valueCoin|string|t(:spotResValueCoin)|
 
 
 ### t(:ltRedeem)
 > t(:codequote_curlExample)
 
 ```console
-curl https://api-testnet.bybit.com/spot/lt/v1/redeem \
--H "Content-Type: application/x-www-form-urlencoded" \
--d 'api_key={api_key}&ltCode={ltCode}&ltQuantity={ltQuantity}&serialNo={serialNo}&timestamp=1637669364000'
+curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/redeem' \
+--header 'Content-Type: application/json' \
+--header 'X-BAPI-API-KEY: XXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1662605726010' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: c6a4d178988d07045c06528b7038842f4d75dde8be840cc8c538ca434f6fc617' \
+--data-raw '{
+    "ltCode": "DOT3LUSDT",
+    "ltQuantity": "50",
+    "serialNo": "r001"
+}'
 ```
 
 > t(:codequote_responseExample)
 
 ```javascript
 {
-  "ret_code": 0,
-    "ret_msg": null,
+    "retCode": 0,
+    "retMsg": "success",
     "result": {
-      "ltCode": "BTC3L",
-      "orderStatus": "1",
-      "quantity": "12",
-      "orderQuantity": "123.12345678",
-      "orderAmount": "123.12345678",
-      "timestamp": 1620917160000,
-      "id": 1,
-      "valueCoin": "USDT",
-      "serialNo": "0a65e75f165543122947310021"
-  },
-  "ext_code": null, 
-  "ext_info": null
+        "id": "2087",
+        "ltCode": "DOT3LUSDT",
+        "orderAmount": "",
+        "orderQuantity": "50",
+        "orderStatus": "2",
+        "quantity": "",
+        "serialNo": "r001",
+        "timestamp": 1662605726326,
+        "valueCoin": "DOT3L"
+    },
+    "retExtInfo": null,
+    "time": 1662605727987
 }
 ``` 
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=ltRedeem>/spot/lt/v1/redeem</span></code>
+<code><span id=ltRedeem>/spot/v3/private/redeem</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltRedeem"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |ltCode|<b>true</b>|string|t(:spotLtCode)|
 |ltQuantity|<b>true</b>|number|t(:spotLtQuantity)|
-|timestamp|<b>true</b>|number|t(:spot_timestamp)|
 |serialNo|false|string|t(:spotLtSerialNo)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|ltCode|string|t(:spotResLtCode)|
-|t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
-|<a href="#quantity-qty">quantity</a> |string|t(:spotResRedeemQuantity)|
-|orderQuantity|string|t(:spotResRedeemOrderQuantity)|
-|orderAmount|string|t(:spotResRedeemOrderAmount)|
-|timestamp|long|t(:spot_timestamp)|
 |id|long|t(:spotResId)|
-|valueCoin|string|t(:spotResValueCoin)|
+|ltCode|string|t(:spotResLtCode)|
+|orderAmount|string|t(:spotV3ResRedeemOrderAmount)|
+|orderQuantity|string|t(:spotResRedeemOrderQuantity)|
+|t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
+|<a href="#quantity-qty">quantity</a> |string|t(:spotV3ResRedeemQuantity)|
 |serialNo|string|t(:spotLtSerialNo)|
+|timestamp|long|t(:spot_timestamp)|
+|valueCoin|string|t(:spotResValueCoin)|
 
 
 ### t(:ltRecord)
 > t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/record?ltCode=DOT3L&startTime=1662548400000&endTime=1662549840000' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-API-KEY: XXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1662608374151' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 6f864a0df2989ba8b58a7ee0cb5c76434728acca2cd60d76d9aba456b60b59ad'
+```
 
 
 > t(:codequote_responseExample)
 
 ```javascript
 {
-    "ret_code": 0,
-    "ret_msg": "",
-    "ext_code": null,
-    "ext_info": null,
-    "result": [
-        {
-            "ltCode": "BTC3L",
-            "orderId": "1049",
-            "orderType": 1,
-            "orderTime": "1650253091000",
-            "excTime": "1650253107000",
-            "orderStatus": "1",
-            "fee": "0",
-            "amount": "9.44245991",
-            "value": "85.50095708",
-            "valueCoin": "USDT",
-            "serialNo": "0a65e240165025309566610041"
-        }
-    ]
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "list": [
+            {
+                "amount": "",
+                "excTime": 1662549752000,
+                "fee": "",
+                "ltCode": "DOT3L",
+                "orderId": "2083",
+                "orderStatus": "3",
+                "orderTime": 1662549752000,
+                "orderType": 1,
+                "serialNo": "x003",
+                "value": "",
+                "valueCoin": "USDT"
+            },
+            {
+                "amount": "",
+                "excTime": 1662549702000,
+                "fee": "",
+                "ltCode": "DOT3L",
+                "orderId": "2082",
+                "orderStatus": "3",
+                "orderTime": 1662549702000,
+                "orderType": 1,
+                "serialNo": "x002",
+                "value": "",
+                "valueCoin": "USDT"
+            }
+        ]
+    },
+    "retExtInfo": null,
+    "time": 1662608374640
 }
 ``` 
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=ltRecord>/spot/lt/v1/record</span></code>
+<code><span id=ltRecord>/spot/v3/private/record</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltRecord"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|ltCode|<b>false</b>|string|t(:spotLtCode)|
-|orderId|<b>false</b>|long|t(:spotLtOrderId)|
-|timestamp|<b>true</b>|long|t(:spot_timestamp)|
-|startTime|<b>false</b>|long|t(:spotLtStartTime)|
-|endTime|<b>false</b>|long|t(:spotLtEndTime)|
-|limit|<b>false</b>|int|t(:row_comment_limit_100_500)|
-|t(:row_parameter_ltOrderType)|<b>false</b>|int|t(:spotLtOrderType)|
-|serialNo|<b>false</b>|string|t(:spotLtSerialNo)|
+|ltCode|false|string|t(:spotLtCode)|
+|orderId|false|string|t(:spotLtOrderId)|
+|startTime|false|long|t(:spot_start_time)|
+|endTime|false|long|t(:spot_end_time)|
+|limit|false|int|t(:row_comment_limit_100_500)|
+|t(:row_parameter_ltOrderType)|false|int|t(:spotLtOrderType)|
+|serialNo|false|string|t(:spotLtSerialNo)|
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|amount|string|t(:spotResOrderQuantity)|
+|excTime|long|t(:spotResExcTime)|
+|fee|string|t(:spotResFee)|
 |ltCode|string|t(:spotResLtCode)|
 |orderId|string|t(:spotLtOrderId)|
-|t(:row_parameter_ltOrderType)|int|t(:spotLtOrderType)|
-|orderTime|string|t(:spotResOrderTime)|
-|excTime|string|t(:spotResExcTime)|
 |t(:row_parameter_ltOrderStatus)|string|t(:spotResOrderStatus)|
-|fee|string|t(:spotResFee)|
-|amount|string|t(:spotResOrderQuantity)|
+|orderTime|long|t(:spotResOrderTime)|
+|t(:row_parameter_ltOrderType)|int|t(:spotLtOrderType)|
+|serialNo|string|t(:spotLtSerialNo)|
 |value|string|t(:spotResRecordValue)|
 |valueCoin|string|t(:spotResValueCoin)|
-|serialNo|string|t(:spotLtSerialNo)|
