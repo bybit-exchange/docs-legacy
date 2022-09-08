@@ -4124,9 +4124,9 @@ en:
   usdcStatus: Symbol status
   usdcAccountInfo: Wallet Info
   usdcBaseCoin_new: Base coin. Returns all records with base coin. If not passed, it returns records with BTC by default
+  usdcBaseCoin_transLog: Base coin.<li>When type=<code>TRANSFER_IN</code>or<code>TRANSFER_OUT</code>，<code>category</code> must be <b>null</b></li><li>When <code>type</code> is null or other types，<ol><li>If <code>category</code>is null，then baseCoin does not work</li><li>If category=<code>option</code>, it returns BTC by default without baseCoin passed</li><li>If category=<code>PERPETUAL</code>, It returns all coins without baseCoin passed</li></ol></li>
   usdcBaseCoin_cancel: Base coin. Cancel all base coin related orders. If not passed, it'll cancel all BTC related orders
-  usdcBaseCoin_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p>
-  usdcBaseCoinUM_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY or CURRENCY_SELL, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p>
+  usdcBaseCoinUM_transLog: Base coin. <li>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY, CURRENCY_SELL, FEE_REFUND, BONUS OR INTEREST, this field is useless. If passed, then return null.</li> <li>If <code>type</code> is other enums, it returns all coins without baseCoin passed</p>
   usdcQuoteCoin: Quote currency
   usdcSettleCoin: Settle Coin
   usdcTakerFee: Taker fee

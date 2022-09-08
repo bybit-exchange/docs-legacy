@@ -45,8 +45,7 @@ t(:usdcPriceRule)
 * `SETTLEMENT` t(:settlement)
 * `DELIVERY` t(:delivery)
 * `LIQUIDATION` t(:liquidation)
-* `FEE_REFUND` t(:fee_refund)
-* `BONUS` t(:bonusEnum)
+
 
 ## Margin Mode (`marginMode`)
 * `REGULAR_MARGIN`

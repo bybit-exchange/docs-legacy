@@ -1,5 +1,14 @@
 # t(:changelog)
 
+## 2022-09-07
+### REST API
+- [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_update)]
+  - t(:restapi_update_200220907)
+
+### WebSocket API
+- [t(:websockettrade)](#t-websockettrade) [t(:changelog_update)]
+  - t(:restapi_update_200220907)
+
 ## 2022-09-05
 ### REST API
 - [t(:getrisklimit)](#t-risklimit) [t(:changelog_update)]
