@@ -431,12 +431,13 @@ while True:
         {
             "symbol": "BTCUSDT",
             "tick_direction": "PlusTick",
-            "price": 8098,
-            "size": 328,
-            "timestamp":"2020-03-30T02:21:06.000Z",
-            "trade_time_ms":"1585534866418",
-            "side":"Sell",
-            "trade_id":"01e79e28-d1f4-59ac-b079-ca909606d91a"
+            "price": "19163.50",
+            "size": 0.001,
+            "timestamp": "2022-09-08T08:21:10.000Z",
+            "trade_time_ms": "1662625270662",
+            "side": "Buy",
+            "trade_id": "1250f670-85e6-5ab7-bdd0-52e7a4d97111",
+            "is_block_trade": "false"
         }
     ]
 }
@@ -455,6 +456,7 @@ t(:websocket_para_trade)
 |trade_time_ms |string |t(:row_response_comment_nill_time)  |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |trade_id |string |t(:row_response_comment_trade_id)  |
+|is_block_trade |string |t(:usdc_isBlockTrade)  |
 
 
 ### t(:websocketinstrumentInfo)

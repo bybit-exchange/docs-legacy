@@ -5,6 +5,10 @@
 - [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_update)]
   - t(:restapi_update_200220907)
 
+### WebSocket API
+- [t(:websockettrade)](#t-websockettrade) [t(:changelog_update)]
+  - t(:restapi_update_200220907)
+
 ## 2022-08-25
 ### WebSocket API
 - [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_update)]
