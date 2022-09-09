@@ -1,4 +1,43 @@
 # t(:changelog)
+
+## 2022-09-07
+### REST API
+- [t(:publictradingrecords)](#t-publictradingrecords) [t(:changelog_update)]
+  - t(:restapi_update_200220907)
+
+### WebSocket API
+- [t(:websockettrade)](#t-websockettrade) [t(:changelog_update)]
+  - t(:restapi_update_200220907)
+
+## 2022-09-05
+### REST API
+- [t(:getrisklimit)](#t-risklimit) [t(:changelog_update)]
+  - t(:restapi_update_20220905_2)
+
+## 2022-08-25
+### WEBSOCKET API
+- [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_update)]
+  - t(:restapi_update_20220825)
+
+## 2022-07-18
+### REST API
+- [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
+  - t(:restapi_update_20220718_2)
+
+### WebSocket API
+- [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
+  - t(:restapi_update_20220718_1)
+
+## 2022-06-30
+### REST API
+- [t(:userhistorytraderecords)](#t-userhistorytraderecords) [t(:changelog_update)]
+  - t(:restapi_update_20220630)
+
+## 2022-04-29
+### REST API
+- [t(:placeactive)](#t-placeactive) & [t(:querysymbol)](#t-querysymbol) [t(:changelog_update)]
+  - t(:restapi_update_20220429)
+
 ## 2022-04-28
 ### REST API
 - [t(:userhistorytraderecords)](#t-userhistorytraderecords) [t(:changelog_new)]

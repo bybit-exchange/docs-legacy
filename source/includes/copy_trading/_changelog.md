@@ -8,6 +8,10 @@
   - t(:restapi_update_200220901_3)
 - [t(:ct_trading_stop)](#t-ct_trading_stop) [t(:changelog_new)]
   - t(:restapi_update_200220901_2)
+- [t(:ct_cancel_order)](#t-ct_cancel_order) [t(:changelog_update)]
+  - t(:restapi_update_200220901_4)
+- [t(:ct_close_order)](#t-ct_close_order) [t(:changelog_update)]
+  - t(:restapi_update_200220901_4)
 
 ### WebSocket API
 - [t(:websocketorder)](#t-websocketorder) [t(:changelog_update)]

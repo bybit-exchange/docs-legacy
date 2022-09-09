@@ -98,7 +98,7 @@ POST
 |orderPrice|string|t(:usdcOrderPrice)|
 |iv|string|t(:optionIv)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|orderStatus|string|t(:orderStatus)|
+|t(:usdcOptionOrderStatus)|string|t(:row_comment_orderStatus)|
 |createdAt|string|t(:createdAt)|
 |basePrice|string|t(:basePrice)|
 |triggerPrice|string|t(:triggerPrice)|
@@ -199,7 +199,7 @@ POST
 |qty|string|t(:usdcOrderQty)
 |price|string|t(:usdcOrderPrice)
 |timeInForce|string|t(:row_comment_timeInForce)
-|orderStatus|string|t(:orderStatus)
+|t(:usdcOptionOrderStatus)|string|t(:row_comment_orderStatus)
 |triggerPrice|string|t(:triggerPrice)
 
 
@@ -405,7 +405,7 @@ POST
 |orderLinkId|string|t(:orderLinkId)|
 |orderId|string|t(:usdcOrderId)|
 |stopOrderType|string|t(:usdcStopOrderType)|
-|orderStatus|string|t(:orderStatus)|
+|t(:usdcOptionOrderStatus)|string|t(:row_comment_orderStatus)|
 |takeProfit|string|t(:takeProfit)|
 |cumExecValue|string|t(:cumExecValue)|
 |createdAt|string|t(:createdAt)|
@@ -515,7 +515,7 @@ POST
 |<a href="#base-coin-basecoin">baseCoin</a> |false|string|t(:usdcBaseCoin)|
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
-|orderStatus|false|string|t(:orderStatus)|
+|t(:usdcOptionOrderStatus)|false|string|t(:row_comment_orderStatus)|
 |orderFilter|false|string|t(:usdcOrderFilter)|
 |direction|false|string|t(:direction)|
 |limit|false|number|t(:row_comment_limit)|
@@ -538,7 +538,7 @@ POST
 |orderId|string|t(:usdcOrderId)|
 |cancelType|string|t(:cancelType)|
 |stopOrderType|string|t(:usdcStopOrderType)|
-|orderStatus|string|t(:orderStatus)|
+|t(:usdcOptionOrderStatus)|string|t(:row_comment_orderStatus)|
 |takeProfit|string|t(:takeProfit)|
 |createdAt|string|t(:createdAt)|
 |orderPnl|string|t(:usdcOrderPnl)|
@@ -727,10 +727,10 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryTransaction"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|type|<b>true</b>|string|t(:usdcTransactionType)|
+|type|false|string|t(:usdcTransactionType)|
+|baseCoin|false|string|t(:usdcBaseCoin_transLog)|
 |startTime|false|string|t(:usdcStartTime_ms)|
 |endTime|false|string|t(:usdcEndTime)|
 |direction|false|string|t(:direction)|

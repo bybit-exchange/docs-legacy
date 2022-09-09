@@ -1508,7 +1508,7 @@ en:
       </tr>
       <tr>
         <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-        <tr><td>Spot</td><td>/spot</td>
+        <tr><td>Spot V1,<br>Spot V3</td><td>/spot/v1, /spot/v3</td>
       </tr>
       <tr>
         <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
@@ -3157,9 +3157,19 @@ en:
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
   restapi_update_200220907: Add new response field <code>is_block_trade</code>
+  restapi_update_20220905_2: Deprecated <code>created_at</code> and <code>updated_at</code>. Now returns an empty string.
+  restapi_update_20220905_1: |
+    Deprecated the following fields. Now returns a default value:
+    <br/> <code>countdown_hour</code>: 0
+    <br/> <code>predicted_funding_rate</code>: ""
+    <br/> <code>total_turnover</code>: ""
+    <br/> <code>total_volume</code>: 0
+    <br/> <code>price_1h_pcnt</code>: ""
+    <br/> <code>open_value</code>: ""
   restapi_update_200220901_1: Add support for placing TP/SL orders
   restapi_update_200220901_2: Add new API
   restapi_update_200220901_3: Add new response fields <code>takeProfit</code>, <code>stopLoss</code>, <code>tpTriggerBy</code>, <code>slTriggerBy</code>
+  restapi_update_200220901_4: <code>symbol</code> now is <b>required</b>
   restapi_update_200220831_1: Add new response fields <code>iv</code>, <code>markIv</code>, <code>underlyingPrice</code>, <code>indexPrice</code>, <code>markPrice</code>
   restapi_update_200220831_2: Add new response fields <code>iv</code>, <code>cancelType</code>, <code>updateTimeStamp</code>
   restapi_update_200220831_3: Add new response field <code>updateTimeStamp</code>
@@ -4115,9 +4125,9 @@ en:
   usdcStatus: Symbol status
   usdcAccountInfo: Wallet Info
   usdcBaseCoin_new: Base coin. Returns all records with base coin. If not passed, it returns records with BTC by default
+  usdcBaseCoin_transLog: Base coin.<li>When type=<code>TRANSFER_IN</code>or<code>TRANSFER_OUT</code>，<code>category</code> must be <b>null</b></li><li>When <code>type</code> is null or other types，<ol><li>If <code>category</code>is null，then baseCoin does not work</li><li>If category=<code>option</code>, it returns BTC by default without baseCoin passed</li><li>If category=<code>PERPETUAL</code>, It returns all coins without baseCoin passed</li></ol></li>
   usdcBaseCoin_cancel: Base coin. Cancel all base coin related orders. If not passed, it'll cancel all BTC related orders
-  usdcBaseCoin_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p>
-  usdcBaseCoinUM_transLog: Base coin. <p>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY or CURRENCY_SELL, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p>
+  usdcBaseCoinUM_transLog: Base coin. <li>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY, CURRENCY_SELL, FEE_REFUND, BONUS OR INTEREST, this field is useless. If passed, then return null.</li> <li>If <code>type</code> is other enums, it returns all coins without baseCoin passed</p>
   usdcQuoteCoin: Quote currency
   usdcSettleCoin: Settle Coin
   usdcTakerFee: Taker fee
@@ -4360,7 +4370,7 @@ en:
   cumExecFee: Total trading fees
   im: Initial margin
   orderStatus: <a href="#order-status-status">Order status</a>
-  usdcOptionOrderStatus: <a href="#order-status-orderstatus">Order status</a>
+  usdcOptionOrderStatus: <a href="#order-status-orderstatus">orderStatus</a>
   lastExecPrice: Filled price
   lastExecQty: Last filled qty
   basePrice: Market price during order placement
@@ -5019,7 +5029,7 @@ en:
   dv_querySettleLogs: Get Settlement History (Perpetual)
   dv_balance: Get Wallet Balance
   dv_upgradeUnifiedAccount: Upgrade to Unified Margin Account
-  dv_queryTransactionLogs: Get Trading History
+  dv_queryTransactionLogs: Transaction Log
   dv_transfer: Transfer Funds (V2)
   dv_queryExchangeRecords: Exchange Coins
   dv_interestBillStatement: Get Borrow History

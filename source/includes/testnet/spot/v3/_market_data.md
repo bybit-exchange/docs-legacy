@@ -210,10 +210,9 @@ GET
 
 ### t(:publictradingrecords)
 > t(:codequote_curlExample)
-curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/quote/trades?symbol=BTCUSDT&limit=1'
 
 ```console
-
+curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/quote/trades?symbol=BTCUSDT&limit=1'
 ```
 
 ```python--pybit

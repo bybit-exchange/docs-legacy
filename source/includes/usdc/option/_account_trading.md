@@ -965,7 +965,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|type|<b>true</b>|string|t(:usdcTransactionType)|
+|type|false|string|t(:usdcTransactionType)|
 |baseCoin|false|string|t(:usdcBaseCoin_transLog)|
 |startTime|false|string|t(:usdcStartTime_ms)|
 |endTime|false|string|t(:usdcEndTime)|
