@@ -180,7 +180,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |ltCode|<b>true</b>|string|t(:spotLtCode)|
-|ltAmount|<b>true</b>|number|t(:spotLtAmount)|
+|ltAmount|<b>true</b>|string|t(:spotLtAmount)|
 |serialNo|false|string|t(:spotLtSerialNo)|
 
 
@@ -246,7 +246,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |ltCode|<b>true</b>|string|t(:spotLtCode)|
-|ltQuantity|<b>true</b>|number|t(:spotLtQuantity)|
+|ltQuantity|<b>true</b>|string|t(:spotLtQuantity)|
 |serialNo|false|string|t(:spotLtSerialNo)|
 
 

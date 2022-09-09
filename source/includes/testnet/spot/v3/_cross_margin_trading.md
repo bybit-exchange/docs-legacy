@@ -42,7 +42,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#currency-currency-coin">currency</a>|<b>true</b>|string|t(:spotCurrency)|
+|<a href="#currency-currency-coin">coin</a>|<b>true</b>|string|t(:spotCurrency)|
 |qty|<b>true</b>|string|t(:spotBorrowQty)|
 
 
@@ -90,7 +90,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#currency-currency-coin">currency</a>|<b>true</b>|string|t(:spotCurrency)|
+|<a href="#currency-currency-coin">coin</a>|<b>true</b>|string|t(:spotCurrency)|
 |qty|<b>true</b>|string|t(:spotRepayQty)|
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -147,7 +147,7 @@ GET
 |:----- |:-------|:-----|----- |
 |startTime|false|long|t(:spot_orders_start_time)|
 |endTime|false|long|t(:spot_orders_end_time)|
-|<a href="#currency-currency-coin">currency</a>|false|string|t(:spotCurrency)|
+|<a href="#currency-currency-coin">coin</a>|false|string|t(:spotCurrency)|
 |status|false|int|t(:spotCrossMarginOrderStatus)|
 |limit|false|int|t(:spotCrossMarginLimit)|
 
@@ -237,14 +237,14 @@ GET
 |acctBalanceSum|string|t(:spotAcctBalanceSum)|
 |debtBalanceSum|string|t(:spotDebtBalanceSum)|
 |loanAccountList|array|Object|
-|free|string|t(:spotFree)|
-|interest|string|t(:spotInterest)|
-|loan|string|t(:spotLiability)|
-|locked|string|t(:spotLocked)|
-|tokenId|string|t(:spotTokenId)|
-|total|string|t(:spotTotal)|
+|> free|string|t(:spotFree)|
+|> interest|string|t(:spotInterest)|
+|> loan|string|t(:spotLiability)|
+|> locked|string|t(:spotLocked)|
+|> tokenId|string|t(:spotTokenId)|
+|> total|string|t(:spotTotal)|
 |riskRate|string|t(:spotResRiskRate)|
-|status|string|t(:spotCrossMarginAccountStatus)|
+|status|int|t(:spotCrossMarginAccountStatus)|
 
 ### t(:QueryInterestQuota)
 > t(:codequote_curlExample)
@@ -283,7 +283,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#currency-currency-coin">currency</a>|<b>true</b>|string|t(:spotCurrency)|
+|<a href="#currency-currency-coin">coin</a>|<b>true</b>|string|t(:spotCurrency)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -361,8 +361,8 @@ GET
 |repayMarginOrderId|string|t(:spotRepayMarginOrderId)|
 |repayTime|string|t(:spotRepayTime)|
 |transactIds|array|Object|
-|repaidAmount|string|t(:spotRepaidAmount)|
-|repaidInterest|string|t(:spotRepaidInterest)|
-|repaidPrincipal|string|t(:spotRepaidPrincipal)|
-|repaidSerialNumber|string|t(:spotRepaidSerialNumber)|
-|transactId|string|t(:spotTransactId)|
+|> repaidAmount|string|t(:spotRepaidAmount)|
+|> repaidInterest|string|t(:spotRepaidInterest)|
+|> repaidPrincipal|string|t(:spotRepaidPrincipal)|
+|> repaidSerialNumber|string|t(:spotRepaidSerialNumber)|
+|> transactId|string|t(:spotTransactId)|

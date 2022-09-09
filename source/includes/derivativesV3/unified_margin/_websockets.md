@@ -282,20 +282,21 @@ ws.send('{"op": "subscribe", "args": ["publicTrade.BTCUSDT"]}')
 
 ```javascript
 {
-  "topic":"publicTrade.BTCUSDT",
-    "type":"snapshot",
-    "ts":1658143402593,
-    "data":[
-    {
-      "T":1658143402590,
-      "s":"BTCUSDT",
-      "S":"Buy",
-      "v":"0.001",
-      "p":"23337.00",
-      "L":"PlusTick",
-      "i":"83010f18-4476-55c0-84ab-ebd243e156cf"
-    }
-  ]
+    "topic": "publicTrade.BTCUSDT",
+    "type": "snapshot",
+    "ts": 1662694953823,
+    "data": [
+        {
+            "T": 1662694953819,
+            "s": "BTCUSDT",
+            "S": "Buy",
+            "v": "0.010",
+            "p": "19792.50",
+            "L": "PlusTick",
+            "i": "5c9ab13e-6010-522c-aecd-02c4d9c8db3d",
+            "BT": "false"
+        }
+    ]
 }
 ```
 
@@ -312,7 +313,7 @@ t(:websocket_para_trade_ud)
 |L |string |t(:row_comment_position_tick_direction)  |
 |i|string |t(:row_response_comment_trade_id)  |
 |ts|string |t(:row_response_comment_time)  |
-|BT|bool |t(:row_response_comment_blocktrade)  |
+|BT|string |t(:row_response_comment_blocktrade)  |
 
 ### t(:websocketTicker_v3)
 > t(:codequote_subscribe)
