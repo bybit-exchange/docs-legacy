@@ -7919,20 +7919,21 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 <p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">publicTrade.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658143402593</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:[</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658143402590</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">S</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">23337.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">PlusTick</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">83010f18-4476-55c0-84ab-ebd243e156cf</span><span class="dl">"</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">publicTrade.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1662694953823</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">T</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1662694953819</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">S</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19792.50</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PlusTick</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5c9ab13e-6010-522c-aecd-02c4d9c8db3d</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">BT</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><b>instruction:</b><br>
@@ -7994,8 +7995,8 @@ Push frequency: <b>real-time</b><br><br>
 </tr>
 <tr>
 <td style="text-align: left">BT</td>
-<td style="text-align: left">bool</td>
-<td>is or not block trade, yse=true, no=false</td>
+<td style="text-align: left">string</td>
+<td>is or not block trade</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketticker_v3'>ticker</h3>
@@ -9782,24 +9783,24 @@ ELSE
       $this = $(this);
       var currentUrl = window.location.href;
       if ($this.text() == 'English') {
-        window.location=currentUrl.replace(/\/zh-cn/,"");
+        window.location=currentUrl.replace(/\/zh-my/,"");
       } else {
         if (currentUrl.indexOf("futuresV2") > -1) {
-	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-cn/$1");
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-my/$1");
         } else if (currentUrl.indexOf("inverse") > -1) {
-          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-cn/$1");
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-my/$1");
         } else if(currentUrl.indexOf("spot") > -1) {
-          window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-cn/$1");
+          window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-my/$1");
         } else if(currentUrl.indexOf("account_asset") > -1) {
-          window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-cn/$1");
+          window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-my/$1");
         } else if(currentUrl.indexOf("linear") > -1) {
-          window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-cn/$1");
+          window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-my/$1");
         } else if(currentUrl.indexOf("copy_trading") > -1) {
-          window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-cn/$1");
+          window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-my/$1");
         } else if(currentUrl.indexOf("usdc") > -1) {
-          window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-cn/$1");
+          window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-my/$1");
 	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
-	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-cn/$1");
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-my/$1");
 	      }
       }
     });
