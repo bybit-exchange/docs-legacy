@@ -4,7 +4,7 @@
 > t(:codequote_curlExample)
 
 ```console
-https://api.bybit.com/spot/v3/public/infos?ltCode=BTC3S \
+https://api-testnet.bybit.com/spot/v3/public/infos?ltCode=BTC3S
 ```
 
 > t(:codequote_responseExample)
