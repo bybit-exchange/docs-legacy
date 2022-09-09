@@ -1806,14 +1806,30 @@ Bybit的跟單交易API目前僅適用於<a href="https://www.bybit.com/en-US/he
 <h1 id='t-changelog'>更新日誌</h1><h2 id='2022-09-01'>2022-09-01</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-ct_create_order">交易員創建訂單</a> [更新]
-<br>
-新增功能支持止盈止損</li>
+
+<ul>
+<li>新增功能支持止盈止損</li>
+</ul></li>
 <li><a href="#t-ct_order_list">查詢交易員帶單訂單</a> [更新]
-<br>
-新增響應字段<code>takeProfit</code>、<code>stopLoss</code>、<code>tpTriggerBy</code>、<code>slTriggerBy</code></li>
+
+<ul>
+<li>新增響應字段<code>takeProfit</code>、<code>stopLoss</code>、<code>tpTriggerBy</code>、<code>slTriggerBy</code></li>
+</ul></li>
 <li><a href="#t-ct_trading_stop">設置止盈止損</a> [新增]
-<br>
-新增接口</li>
+
+<ul>
+<li>新增接口</li>
+</ul></li>
+<li><a href="#t-ct_cancel_order">交易員取消訂單</a> [更新]
+
+<ul>
+<li><code>symbol</code>改為<b>必傳</b></li>
+</ul></li>
+<li><a href="#t-ct_close_order">交易員發起平倉-訂單</a> [更新]
+
+<ul>
+<li><code>symbol</code>改為<b>必傳</b></li>
+</ul></li>
 </ul>
 <h3 id='websocket-api'>WebSocket API</h3>
 <ul>
@@ -1838,7 +1854,7 @@ Bybit的跟單交易API目前僅適用於<a href="https://www.bybit.com/en-US/he
 <li><a href="#t-ct_positon_close">交易員一鍵平倉</a> [更新]</li>
 <li><a href="#t-ct_wallet_balance">交易員獲取錢包余額</a> [更新]</li>
 <li><a href="#t-ct_wallet_transfer">交易員劃轉資金</a> [更新]</li>
-<li><a href="#t-ct_set_leverage">交易員設置帶單槓桿</a> [更新] 
+<li><a href="#t-ct_set_leverage">交易員設置帶單槓桿</a> [更新]
 <br/>
 更新上述copytrading接口的URL。</li>
 </ul>
@@ -3401,7 +3417,7 @@ REST接口根URL:
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>現貨</td><td>/spot</td>
+    <tr><td>現貨v1、v3共享</td><td>/spot/v1, /spot/v3</td>
   </tr>
   <tr>
     <td rowspan="3">2mins 50/s;<br>5s 70/s</td>

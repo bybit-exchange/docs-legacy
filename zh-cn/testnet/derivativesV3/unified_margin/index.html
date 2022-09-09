@@ -6811,7 +6811,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">baseCoin</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>資產幣種. <p>若<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_SELL 或 CURRENCY_BUY，則該字段無意義，若傳入，則返回空</p> <p>若type傳入其他類型，且baseCoin不傳，則返回全部數據</p></td>
+<td>資產幣種. <li>當<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_SELL, CURRENCY_BUY, FEE_REFUND, BONUS或INTEREST时，baseCoin字段無意義，若傳入，則返回空</li><li>若type傳入其他類型, 此時baseCoin若有入参，則返回baseCoin相關數據，否則默認返回全量幣對</li></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transaction-log-type-type">type</a></td>

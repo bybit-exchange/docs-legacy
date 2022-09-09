@@ -3100,9 +3100,9 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left"><a href="#order-status-orderstatus">訂單狀態</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">訂單狀態</a></td>
+<td>訂單狀態</td>
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
@@ -3328,9 +3328,9 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td><a href="https://www.bybit.com/zh-TW/help-center/bybitHC_Article?language=zh_TW&id=000001044">執行策略</a></td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left"><a href="#order-status-orderstatus">訂單狀態</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">訂單狀態</a></td>
+<td>訂單狀態</td>
 </tr>
 <tr>
 <td style="text-align: left">triggerPrice</td>
@@ -3652,9 +3652,9 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td>參考 <a href="#stop-order-type-stopordertype">Stop Order Type</a></td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left"><a href="#order-status-orderstatus">訂單狀態</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">訂單狀態</a></td>
+<td>訂單狀態</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -3875,10 +3875,10 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td>關聯訂單號，最大不成超過32位</td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left"><a href="#order-status-orderstatus">訂單狀態</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">訂單狀態</a></td>
+<td>訂單狀態</td>
 </tr>
 <tr>
 <td style="text-align: left">orderFilter</td>
@@ -3970,9 +3970,9 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td>參考 <a href="#stop-order-type-stopordertype">Stop Order Type</a></td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left"><a href="#order-status-orderstatus">訂單狀態</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">訂單狀態</a></td>
+<td>訂單狀態</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -4376,9 +4376,15 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </thead><tbody>
 <tr>
 <td style="text-align: left">type</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td><a href="#transaction-type-type">Transaction type</a></td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>資產幣種. <li>當type=<code>TRANSFER_IN</code>或<code>TRANSFER_OUT</code>時，<code>category</code>字段須為空</li><li>當type為空或傳入其他類型時，<ol><li>若<code>category</code>字段不傳，則baseCoin不生效</li><li>若category=<code>option</code>, baseCoin傳了則生效，不傳則默認返回BTC</li><li>若category=<code>PERPETUAL</code>, baseCoin傳了則生效，不傳則默認所有幣對</li></ol></li></td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
@@ -5790,7 +5796,7 @@ curl https://api-testnet.bybit.com/v2/public/time
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>現貨</td><td>/spot</td>
+    <tr><td>現貨v1、v3共享</td><td>/spot/v1, /spot/v3</td>
   </tr>
   <tr>
     <td rowspan="3">2mins 50/s;<br>5s 70/s</td>

@@ -4467,7 +4467,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 </thead><tbody>
 <tr>
 <td style="text-align: left">type</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td><a href="#transaction-type-type">Transaction type</a></td>
 </tr>
@@ -4475,7 +4475,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td style="text-align: left">baseCoin</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>資產幣種. <p>若<code>type</code>=TRANSFER_IN 或TRANSFER_OUT，則該字段無意義，若傳入，則返回空</p> <p>若type傳入其他類型，且baseCoin不傳，則返回全部數據</p></td>
+<td>資產幣種. <li>當type=<code>TRANSFER_IN</code>或<code>TRANSFER_OUT</code>時，<code>category</code>字段須為空</li><li>當type為空或傳入其他類型時，<ol><li>若<code>category</code>字段不傳，則baseCoin不生效</li><li>若category=<code>option</code>, baseCoin傳了則生效，不傳則默認返回BTC</li><li>若category=<code>PERPETUAL</code>, baseCoin傳了則生效，不傳則默認所有幣對</li></ol></li></td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
@@ -5938,7 +5938,7 @@ curl https://api-testnet.bybit.com/v2/public/time
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>現貨</td><td>/spot</td>
+    <tr><td>現貨v1、v3共享</td><td>/spot/v1, /spot/v3</td>
   </tr>
   <tr>
     <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
@@ -7620,8 +7620,6 @@ DCP的開和關, 僅限機構類型用戶
 <li><code>SETTLEMENT</code> 結算</li>
 <li><code>DELIVERY</code> 交割</li>
 <li><code>LIQUIDATION</code> 強平</li>
-<li><code>FEE_REFUND</code> 手續費返還</li>
-<li><code>BONUS</code> 體驗金領取</li>
 </ul>
 <h2 id='margin-mode-marginmode'>Margin Mode (<code>marginMode</code>)</h2>
 <ul>

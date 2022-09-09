@@ -967,7 +967,7 @@
                             <a href="#t-dv_upgradeunifiedaccount" class="toc-h3 toc-link" data-title="Upgrade to Unified Margin Account">Upgrade to Unified Margin Account</a>
                           </li>
                           <li>
-                            <a href="#t-dv_querytransactionlogs" class="toc-h3 toc-link" data-title="Get Trading History">Get Trading History</a>
+                            <a href="#t-dv_querytransactionlogs" class="toc-h3 toc-link" data-title="Transaction Log">Transaction Log</a>
                           </li>
                           <li>
                             <a href="#t-dv_transfer" class="toc-h3 toc-link" data-title="Transfer Funds (V2)">Transfer Funds (V2)</a>
@@ -6729,7 +6729,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">update account failed. Please cancel the usdt perpetual open orders in USDC Account.</td>
 </tr>
 </tbody></table>
-<h3 id='t-dv_querytransactionlogs'>Get Trading History</h3>
+<h3 id='t-dv_querytransactionlogs'>Transaction Log</h3>
 <p><p><b>Interface:</b></p>
 <p>Query trading history</p></p>
 </p>
@@ -6814,7 +6814,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">baseCoin</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Base coin. <p>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY or CURRENCY_SELL, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p></td>
+<td>Base coin. <li>If<code>type</code>=TRANSFER_IN, TRANSFER_OUT, INTEREST, CURRENCY_BUY, CURRENCY_SELL, FEE_REFUND, BONUS OR INTEREST, this field is useless. If passed, then return null.</li> <li>If <code>type</code> is other enums, it returns all coins without baseCoin passed</p></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#transaction-log-type-type">type</a></td>

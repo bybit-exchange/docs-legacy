@@ -1846,10 +1846,9 @@ function copyStringToClipboard (endpoint) {
 </tbody></table>
 <h3 id='t-publictradingrecords'>平臺交易歷史數據</h3>
 <blockquote>
-<p>請求示例
-curl --location --request GET &#39;https://api-testnet.bybit.com/spot/v3/public/quote/trades?symbol=BTCUSDT&amp;limit=1&#39;</p>
+<p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/quote/trades?symbol=BTCUSDT&amp;limit=1'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>響應示例</p>
@@ -3829,7 +3828,7 @@ curl --location --request GET &#39;https://api-testnet.bybit.com/spot/v3/public/
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>現貨</td><td>/spot</td>
+    <tr><td>現貨v1、v3共享</td><td>/spot/v1, /spot/v3</td>
   </tr>
   <tr>
     <td rowspan="3">2mins 50/s;<br>5s 70/s</td>

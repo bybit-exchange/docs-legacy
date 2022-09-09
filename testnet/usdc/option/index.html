@@ -3516,7 +3516,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-orderstatus">Order status</a></td>
+<td><a href="#order-status-orderstatus">orderStatus</a></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#price-price">price</a></td>
@@ -3739,7 +3739,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-orderstatus">Order status</a></td>
+<td><a href="#order-status-orderstatus">orderStatus</a></td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -3964,7 +3964,7 @@ The endpoint only supports up to 30 days of queried records
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-orderstatus">Order status</a></td>
+<td><a href="#order-status-orderstatus">orderStatus</a></td>
 </tr>
 <tr>
 <td style="text-align: left">direction</td>
@@ -4053,7 +4053,7 @@ The endpoint only supports up to 30 days of queried records
 <tr>
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-orderstatus">Order status</a></td>
+<td><a href="#order-status-orderstatus">orderStatus</a></td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -4491,7 +4491,7 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 </thead><tbody>
 <tr>
 <td style="text-align: left">type</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>refer to <a href="#transaction-type-type">Transaction type</a></td>
 </tr>
@@ -4499,7 +4499,7 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 <td style="text-align: left">baseCoin</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Base coin. <p>If<code>type</code>=TRANSFER_IN or TRANSFER_OUT, this field is useless. If passed, then return null.</p> <p>If <code>type</code> is other enums, and baseCoin is not passed, it returns all records.</p></td>
+<td>Base coin.<li>When type=<code>TRANSFER_IN</code>or<code>TRANSFER_OUT</code>，<code>category</code> must be <b>null</b></li><li>When <code>type</code> is null or other types，<ol><li>If <code>category</code>is null，then baseCoin does not work</li><li>If category=<code>option</code>, it returns BTC by default without baseCoin passed</li><li>If category=<code>PERPETUAL</code>, It returns all coins without baseCoin passed</li></ol></li></td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
@@ -5965,7 +5965,7 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>Spot</td><td>/spot</td>
+    <tr><td>Spot V1,<br>Spot V3</td><td>/spot/v1, /spot/v3</td>
   </tr>
   <tr>
     <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
@@ -7682,8 +7682,6 @@ At 0:00, 8:00, and 16:00 UTC+0, the insurance fund will be pushed.
 <li><code>SETTLEMENT</code> </li>
 <li><code>DELIVERY</code> </li>
 <li><code>LIQUIDATION</code> </li>
-<li><code>FEE_REFUND</code> </li>
-<li><code>BONUS</code> </li>
 </ul>
 <h2 id='margin-mode-marginmode'>Margin Mode (<code>marginMode</code>)</h2>
 <ul>

@@ -1809,6 +1809,16 @@ Bybit的跟單交易API目前僅適用於<a href="https://www.bybit.com/en-US/he
 <ul>
 <li>新增接口</li>
 </ul></li>
+<li><a href="#t-ct_cancel_order">交易員取消訂單</a> [更新]
+
+<ul>
+<li><code>symbol</code>改為<b>必傳</b></li>
+</ul></li>
+<li><a href="#t-ct_close_order">交易員發起平倉-訂單</a> [更新]
+
+<ul>
+<li><code>symbol</code>改為<b>必傳</b></li>
+</ul></li>
 </ul>
 <h3 id='websocket-api'>WebSocket API</h3>
 <ul>
@@ -3400,7 +3410,7 @@ REST接口根URL:
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>現貨</td><td>/spot</td>
+    <tr><td>現貨v1、v3共享</td><td>/spot/v1, /spot/v3</td>
   </tr>
   <tr>
     <td rowspan="3">2mins 50/s;<br>5s 70/s</td>

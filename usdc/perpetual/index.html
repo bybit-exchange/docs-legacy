@@ -3100,9 +3100,9 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left"><a href="#order-status-orderstatus">orderStatus</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">Order status</a></td>
+<td>Order status</td>
 </tr>
 <tr>
 <td style="text-align: left">createdAt</td>
@@ -3328,9 +3328,9 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left"><a href="#order-status-orderstatus">orderStatus</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">Order status</a></td>
+<td>Order status</td>
 </tr>
 <tr>
 <td style="text-align: left">triggerPrice</td>
@@ -3653,9 +3653,9 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td>refer to <a href="#stop-order-type-stopordertype">Stop Order Type</a></td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left"><a href="#order-status-orderstatus">orderStatus</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">Order status</a></td>
+<td>Order status</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -3876,10 +3876,10 @@ The endpoint only supports up to 30 days of queried records
 <td>Custom ID used for cross-platform strategy remarks; a max. of 32 characters</td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left"><a href="#order-status-orderstatus">orderStatus</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">Order status</a></td>
+<td>Order status</td>
 </tr>
 <tr>
 <td style="text-align: left">orderFilter</td>
@@ -3972,9 +3972,9 @@ The endpoint only supports up to 30 days of queried records
 <td>refer to <a href="#stop-order-type-stopordertype">Stop Order Type</a></td>
 </tr>
 <tr>
-<td style="text-align: left">orderStatus</td>
+<td style="text-align: left"><a href="#order-status-orderstatus">orderStatus</a></td>
 <td style="text-align: left">string</td>
-<td><a href="#order-status-status">Order status</a></td>
+<td>Order status</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -4379,9 +4379,15 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 </thead><tbody>
 <tr>
 <td style="text-align: left">type</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>refer to <a href="#transaction-type-type">Transaction type</a></td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin.<li>When type=<code>TRANSFER_IN</code>or<code>TRANSFER_OUT</code>，<code>category</code> must be <b>null</b></li><li>When <code>type</code> is null or other types，<ol><li>If <code>category</code>is null，then baseCoin does not work</li><li>If category=<code>option</code>, it returns BTC by default without baseCoin passed</li><li>If category=<code>PERPETUAL</code>, It returns all coins without baseCoin passed</li></ol></li></td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
@@ -5793,7 +5799,7 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>Spot</td><td>/spot</td>
+    <tr><td>Spot V1,<br>Spot V3</td><td>/spot/v1, /spot/v3</td>
   </tr>
   <tr>
     <td rowspan="3">2mins 50/s;<br>5s 70/s</td>

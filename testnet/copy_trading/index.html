@@ -1806,14 +1806,30 @@ Bybit's Copy Trading API is only available to <a href="https://www.bybit.com/en-
 <h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-01'>2022-09-01</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-ct_create_order">Create Order</a> [update]
-<br>
-Add support for placing TP/SL orders</li>
+
+<ul>
+<li>Add support for placing TP/SL orders</li>
+</ul></li>
 <li><a href="#t-ct_order_list">Order List</a> [update]
-<br>
-Add new response fields <code>takeProfit</code>, <code>stopLoss</code>, <code>tpTriggerBy</code>, <code>slTriggerBy</code></li>
+
+<ul>
+<li>Add new response fields <code>takeProfit</code>, <code>stopLoss</code>, <code>tpTriggerBy</code>, <code>slTriggerBy</code></li>
+</ul></li>
 <li><a href="#t-ct_trading_stop">Set Trading Stop</a> [new]
-<br>
-Add new API</li>
+
+<ul>
+<li>Add new API</li>
+</ul></li>
+<li><a href="#t-ct_cancel_order">Cancel Order</a> [update]
+
+<ul>
+<li><code>symbol</code> now is <b>required</b></li>
+</ul></li>
+<li><a href="#t-ct_close_order">Close Order</a> [update]
+
+<ul>
+<li><code>symbol</code> now is <b>required</b></li>
+</ul></li>
 </ul>
 <h3 id='websocket-api'>WebSocket API</h3>
 <ul>
@@ -1838,7 +1854,7 @@ Transfer endpoint supports transfer from/to <code>UNIFIED</code>, and new error 
 <li><a href="#t-ct_positon_close">Close Position</a> [update]</li>
 <li><a href="#t-ct_wallet_balance">Get Wallet Balance</a> [update]</li>
 <li><a href="#t-ct_wallet_transfer">Transfer</a> [update]</li>
-<li><a href="#t-ct_set_leverage">Set Leverage</a> [update] 
+<li><a href="#t-ct_set_leverage">Set Leverage</a> [update]
 <br/>
 URLs of the above copytrading endpoints are updated.</li>
 </ul>
@@ -3404,7 +3420,7 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>Spot</td><td>/spot</td>
+    <tr><td>Spot V1,<br>Spot V3</td><td>/spot/v1, /spot/v3</td>
   </tr>
   <tr>
     <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
