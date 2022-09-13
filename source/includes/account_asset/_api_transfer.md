@@ -1167,7 +1167,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&coin=LTC&timestamp=1641789312824&recv_window=50000&sign=XXXXXXXXXXXXXXXXXXX'
+curl --location --request GET 'https://api.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXX&coin=GMT&timestamp=1663074198991&recv_window=5000&sign=73f79d2d8c0d41dddc30fd118b5da0db3fe92deb2f4ea39cd3dbbb8f3745f8b1&chain_type=SOL'
 ```
 
 ```python--pybit
@@ -1181,21 +1181,18 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/de
     "ret_msg": "OK",
     "ext_code": "",
     "result": {
-        "coin": "LTC",
+        "coin": "GMT",
         "chains": [
             {
-                "chain_type": "LTC",
-                "address_deposit": "XXXXXXXXXXXXXXXXXXXX",
+                "chain_type": "SOL",
+                "address_deposit": "H29uWKkPVux8nkB5xKU1DVxbEtt1UyMjC6tHsPHbMRsn",
                 "tag_deposit": "",
-                "chain": "LTC"
+                "chain": "SOL"
             }
         ]
     },
     "ext_info": null,
-    "time_now": 1641789383364,
-    "rate_limit_status": 28,
-    "rate_limit_reset_ms": 1641789383364,
-    "rate_limit": 2
+    "time_now": 1663074199341
 }
 ```
 
@@ -1210,6 +1207,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:coin_info_coin)|
+|chain_type |false |string |t(:coin_info_chain_type)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
