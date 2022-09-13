@@ -37,9 +37,10 @@ t(:dv_enum_comment_getSymbol)
 * `InverseFutures`
 
 ## Contract Status(`status`)
-* `Trading`
-* `Settling`
-* `Closed`
+* `Pending` t(:waiting_online)
+* `Trading` t(:online)
+* `Settling` t(:delivering)
+* `Closed` t(:offline)
 
 ## Account type (`from_account_type`/`to_account_type`)
 * `CONTRACT`  t(:accountType_contract)
