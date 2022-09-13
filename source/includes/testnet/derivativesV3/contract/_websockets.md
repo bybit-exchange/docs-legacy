@@ -288,7 +288,7 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["publicTrade.BTCUSDT
             "p": "19792.50",
             "L": "PlusTick",
             "i": "5c9ab13e-6010-522c-aecd-02c4d9c8db3d",
-            "BT": "false"
+            "BT": false
         }
     ]
 }
@@ -307,7 +307,7 @@ t(:websocket_para_trade_ud)
 |L |string |t(:row_comment_position_tick_direction)  |
 |i|string |t(:row_response_comment_trade_id)  |
 |ts|string |t(:row_response_comment_time)  |
-|BT|string |t(:row_response_comment_blocktrade)  |
+|BT|boolean |t(:row_response_comment_blocktrade)  |
 
 ### t(:websocketTicker_v3)
 > t(:codequote_subscribe)
