@@ -1235,6 +1235,76 @@ GET
 |nextPageCursor |string |t(:contract_comment_nextPageCursor)  |
 
 
+### t(:OILimitInfo)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/limit-info?symbol=ETHUSDT' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: eb16a696924a92a3a47d769caf44d7373eca9ed6a644384ff6e8cd729ee9f7b1' \
+--header 'X-BAPI-API-KEY: XXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1658914264517' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "currentLimitPcnt": "0.1000",
+        "totalBuyPositionSize": "0.1000",
+        "totalSellPositionSize": "0.0000",
+        "estMaxPositionSize": "28581.1950",
+        "openInterest": "285811.95",
+        "list": [
+            {
+                "userId": "533285",
+                "positionSize": "0.1000",
+                "side": "Buy"
+            }
+        ],
+        "updateTime": "1663050089990"
+    },
+    "retExtInfo": null,
+    "time": 1663050089990
+}
+```
+
+t(:OILimitInfo_para)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=pltcLpnl>/contract/v3/private/position/limit-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcLpnl"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)|
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|currentLimitPcnt |string |t(:row_resp_comment_currentLimitPcnt)  |
+|totalBuyPositionSize |string |t(:row_resp_comment_totalBuyPositionSize)  |
+|totalSellPositionSize |string |t(:row_resp_comment_totalSellPositionSize)  |
+|estMaxPositionSize |string |t(:row_resp_comment_estMaxPositionSize)  |
+|openInterest |string |t(:row_resp_comment_openInterest)  |
+|list |array |Object  |
+|> userId |string |t(:row_resp_comment_userId)  |
+|> positionSize |string |t(:row_resp_comment_positionSize)  |
+|> side |string |t(:row_resp_comment_side)  |
+|updateTime |string |t(:row_resp_comment_updateTime)  |
+
+
 ## t(:contract_account)
 t(:contract_accountPara)
 

@@ -1445,6 +1445,11 @@ POST
 |list> time |string |t(:settlementTime)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
+
+### t(:OILimitInfo)
+<a href="/docs/testnet/derivativesV3/contract#t-oilimitinfo">t(:shared_endpoint_desc)</a>
+
+
 ## t(:account)
 t(:wallet_para)
 

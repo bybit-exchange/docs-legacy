@@ -66,4 +66,10 @@ t(:rate_para_understanding)
     <td>1 / request</td>
   </tr>
   <tr><td>/private/linear/funding/predicted-funding </td><td>1 / request</td></tr>
+
+  <tr>
+    <td rowspan="2">120/min</td>
+    <td>/contract/v3/private/position/limit-info</td>
+    <td>12 / request</td>
+  </tr>
 </table>

@@ -2202,6 +2202,71 @@ GET
 |created_at |number |t(:row_comment_created_at)  |
 
 
+### t(:OILimitInfo)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/limit-info?symbol=ETHUSDT&api_key=XXXXXXX&timestamp=1663056036628&sign=9123f7542b201b369d34e87f2f1d4103e3d842ffaa41f06310df5ccff06ecd81'
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "currentLimitPcnt": "0.1000",
+        "totalBuyPositionSize": "0.1000",
+        "totalSellPositionSize": "0.0000",
+        "estMaxPositionSize": "28581.1950",
+        "openInterest": "285811.95",
+        "list": [
+            {
+                "userId": "533285",
+                "positionSize": "0.1000",
+                "side": "Buy"
+            }
+        ],
+        "updateTime": "1663050089990"
+    },
+    "retExtInfo": null,
+    "time": 1663050089990
+}
+```
+
+t(:OILimitInfo_para)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=pltcLpnl>/contract/v3/private/position/limit-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcLpnl"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)|
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|currentLimitPcnt |string |t(:row_resp_comment_currentLimitPcnt)  |
+|totalBuyPositionSize |string |t(:row_resp_comment_totalBuyPositionSize)  |
+|totalSellPositionSize |string |t(:row_resp_comment_totalSellPositionSize)  |
+|estMaxPositionSize |string |t(:row_resp_comment_estMaxPositionSize)  |
+|openInterest |string |t(:row_resp_comment_openInterest)  |
+|list |array |Object  |
+|> userId |string |t(:row_resp_comment_userId)  |
+|> positionSize |string |t(:row_resp_comment_positionSize)  |
+|> side |string |t(:row_resp_comment_side)  |
+|updateTime |string |t(:row_resp_comment_updateTime)  |
+
+
 ## t(:risklimit)
 ### t(:getrisklimit)
 > t(:codequote_curlExample)
