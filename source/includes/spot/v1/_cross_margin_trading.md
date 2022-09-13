@@ -217,7 +217,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |status|string|t(:spotCrossMarginAccountStatus)|
-|riskRate|string|t(:spotResOrderStatus)|
+|riskRate|string|t(:spotResRiskRate)|
 |acctBalanceSum|string|t(:spotAcctBalanceSum)|
 |debtBalanceSum|string|t(:spotDebtBalanceSum)|
 |loanAccountList|List|Object|

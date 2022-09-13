@@ -1,5 +1,5 @@
 ---
-zh-cn:
+zh-my:
   # universal/global
   international: English
   inverse_perpetual: 反向永續
@@ -2334,6 +2334,59 @@ zh-cn:
   err_6031: 借貸精度超過設置精度
   err_6032: 還款精度過高
 
+  # v3 Cross Margin Trading
+  cm_error_12601: 獲取用戶還款紀錄失敗
+  cm_error_12602: 獲取用戶帳戶信息失敗
+  cm_error_12603: 獲取用戶借款紀錄失敗
+  cm_error_12604: 獲取歷史紀錄的startTime大於endTime
+  cm_error_12605: 借款失敗
+  cm_error_12606: 還款失敗
+  cm_error_12607: 未找到借貸帳戶
+  cm_error_12608: 借貸帳戶未開通全倉槓桿,請先在web端開啟
+  cm_error_12609: 借貸帳戶未開通全倉槓桿,請先在web端和APP端開啟
+  cm_error_12610: 未找到借貸幣種
+  cm_error_12611: 幣種未開啟借貸
+  cm_error_12612: 未找到交易幣對
+  cm_error_12613: 交易比對未開啟借貸
+  cm_error_12614: 還款請求重複
+  cm_error_12615: 還款帳戶餘額不足
+  cm_error_12616: 無欠款,無需還款
+  cm_error_12617: 還款金額超過欠款金額
+  cm_error_12618: 用戶幣種已在還款中
+  cm_error_12619: 用戶還款計息強平衝突
+  cm_error_12620: 查詢不到還款紀錄
+  cm_error_12621: 借貸請求重複
+  cm_error_12622: 借貸幣種全量未開放
+  cm_error_12623: 交易對全量未開放
+  cm_error_12624: 借貸用戶狀態非正常
+  cm_error_12625: 借貸數量不能小於單詞最小借貸量
+  cm_error_12626: 借貸數量不能大於單次最大借貸量
+  cm_error_12627: 借貸數量不能大於平臺允許的單用戶最大借貸量
+  cm_error_12628: 借貸申請數量超過平臺最大借貸量
+  cm_error_12629: 借款申請數量超過用戶預估最大可借貸量
+  cm_error_12630: 獲取用戶借貸信息失敗
+  cm_error_12631: 借貸精度超過設置精度
+  cm_error_12632: 還款精度過高
+
+  # v3 Leveraged Token
+  lt_error_12400: serialNo已使用過
+  lt_error_12401: 今日申購限額不足,請稍候嘗試
+  lt_error_12402: 申購訂單積壓較多,請稍後重試
+  lt_error_12403: 餘額不足,請充值後重試
+  lt_error_12404: 今日贖回限額不足,請稍候重試
+  lt_error_12405: 贖回訂單積壓較多,請稍後重試
+  lt_error_12406: 餘額不足,請充值後重試
+  lt_error_12407: 此訂單不存在
+  lt_error_12408: 當前申購未開啟
+  lt_error_12409: 申購金額超出上限
+  lt_error_12410: 您還未通過風險測試無法參與槓桿代幣的申贖和交易,請先在網頁端完成練習
+  lt_error_12412: 當前贖回未開啟
+  lt_error_12413: 贖回數量超過上限
+  lt_error_12414: 申購入口暫時關閉
+  lt_error_12415: 贖回入口暫時關閉
+  lt_error_12416: 輸入值格式不符合要求：精度或長度超出
+  lt_error_12417: 下單失敗：超出槓桿代幣持倉最大限制當前限制是XXXX USDT
+
   err_4000: serialNum已使用過
   err_4001: 今日申購限額不足，請稍後再試
   err_4002: 申購訂單積壓較多，請稍後重試
@@ -4448,8 +4501,10 @@ zh-cn:
   spotResPurchaseOrderAmount: 實際成交金額
   spotResPurchaseAmount: 下單的LT資產金額
   spotResRedeemQuantity: 下單的LT資產數量
+  spotV3ResRedeemQuantity: 下單的LT資產數量. 一般返回<code>""</code>
   spotResRedeemOrderQuantity: 實際成交的LT資產數量
   spotResRedeemOrderAmount: 實際成交的金額
+  spotV3ResRedeemOrderAmount: 實際成交的金額. 一般返回<code>""</code>
   spotResOrderQuantity: 實際成交的LT資產數量
 
   spotResId: 交易單號
@@ -4528,6 +4583,7 @@ zh-cn:
   spotCurrency: 幣種
   spotBorrowQty: 借幣數量
   spotResult: 借款訂單id
+  spotV3RepayId: 還款id
   RepayMarginLoan: 歸還借幣
   spotRepayQty: 歸還數量
   QueryBorrowingInfo: 查詢借幣訂單
