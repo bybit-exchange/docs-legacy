@@ -646,13 +646,17 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/my-
 <aside class="notice">
 t(:spotTradesHistoryTips)
 </aside>
+
+<aside class="notice">
+t(:spotTradesHisotryTips_order)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=svMyTrades>/spot/v3/private/my-trades</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svMyTrades"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 | t(:column_parameter) | t(:column_required) | t(:column_type) | t(:column_comments)           |
 |:---------------------|:--------------------|:----------------|-------------------------------|
 | symbol               | false               | string          | t(:spotSymbol)                |
@@ -664,7 +668,6 @@ GET
 | toTradeId            | false               | string          | t(:spot_to_id)                |
 
 <p class="fake_header">t(:responseparameters)</p>
-
 | t(:column_parameter)  | t(:column_type) | t(:column_comments)   |
 |:----------------------|:----------------|-----------------------|
 | symbol                | string          | t(:spotSymbol)        |

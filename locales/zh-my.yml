@@ -3193,7 +3193,7 @@ zh-my:
   spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個異步結算接口)
   spotNormalCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
   spotTradesHistoryTips: 如果不傳<code>startTime</code>，只能查詢最近7天的交易數據。如果要查詢一周之前的歷史交易數據，需要傳startTime
-  spotTradesHisotryTips_order: 返回的結果是以<code>ticketId</code>從大到小排序
+  spotTradesHisotryTips_order: 僅當不傳入<code>orderId</code>, 不傳入<code>toTicketId</code>，但傳入<code>fromTicketId</code>時，返回的結果是以<code>ticketId</code>從小到大排序；否則，返回的結果以<code>ticketId</code>從大到小排序
   spotOrdersHistoryTips: 如果不傳<code>startTime</code>，只能查詢按時間倒序的下單數據。
   row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spotServerTime: 服務器時間
