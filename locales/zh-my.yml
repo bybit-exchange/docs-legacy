@@ -2780,6 +2780,8 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_200220913_1: 更新響應字段<code>BT</code>的數據類型，從<code>string</code>改為<code>boolean</code>
+  restapi_update_200220913: 新增接口，用於查詢限倉信息。
   restapi_update_200220907: 新增字段<code>is_block_trade</code>
   restapi_update_20220905_2: 廢棄字段 <code>created_at</code> 和 <code>updated_at</code>, 返回空字符串
   restapi_update_20220905_1: 廢棄以下字段, 僅返回默認值
@@ -3192,7 +3194,7 @@ zh-my:
   spotFastCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。(這是個異步結算接口)
   spotNormalCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
   spotTradesHistoryTips: 如果不傳<code>startTime</code>，只能查詢最近7天的交易數據。如果要查詢一周之前的歷史交易數據，需要傳startTime
-  spotTradesHisotryTips_order: 返回的結果是以<code>ticketId</code>從大到小排序
+  spotTradesHisotryTips_order: 僅當不傳入<code>orderId</code>, 不傳入<code>toTicketId</code>，但傳入<code>fromTicketId</code>時，返回的結果是以<code>ticketId</code>從小到大排序；否則，返回的結果以<code>ticketId</code>從大到小排序
   spotOrdersHistoryTips: 如果不傳<code>startTime</code>，只能查詢按時間倒序的下單數據。
   row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spotServerTime: 服務器時間
@@ -5034,6 +5036,28 @@ zh-my:
   contract_comment_lastLiqInd: 只有當<code>execType</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效
   contract_comment_autoAddMargin: 自動追加保證金開關. <code>0</code>：關閉. <code>1</code>：開啟
   dv_enum_comment_getSymbol: 您可以根據<a href="#t-dv_instrhead">查询衍生品交易规格</a>接口獲取所有交易中的symbol。
+  # open interest limit info
+  OILimitInfo: 查詢限倉信息
+  OILimitInfo_para: |
+    該接口可查詢到用戶的限倉信息。
+    <p>
+    <b>注意:</b></br>
+    <ul>
+      <li>僅支持母帳戶的api key查詢.</li>
+      <li>該接口適用於統一保證金帳戶.</li>
+      <li>當前僅支持USDT正向合約.</li>
+      <li>支持期貨v2的鑒權方式.</li>
+    </ul>
+    </p>
+  row_resp_comment_currentLimitPcnt: 當前倉位對該user group的限倉比例，返回示例<code>0.0000</code>
+  row_resp_comment_totalBuyPositionSize: 當前所有user group的倉位總和，做多方向的倉位總size
+  row_resp_comment_totalSellPositionSize: 當前所有user group的倉位總和，做空方向的倉位總size
+  row_resp_comment_estMaxPositionSize: 預估按照當前最大可開的單邊限倉額度。計算方式：最新的Open Interest * 當前限倉比例
+  row_resp_comment_openInterest: 當前合約的最近5分鐘的未平倉合約數量
+  row_resp_comment_userId: 限倉的userId
+  row_resp_comment_positionSize: 當前每個userId下的持倉數量，數據會有延遲
+  row_resp_comment_side: 持倉方向，<code>Buy</code>, <code>Sell</code>
+  row_resp_comment_updateTime: 最新數據的更新時間
 
   # spot v3
   spotV3_auth_codequote_construct: |
