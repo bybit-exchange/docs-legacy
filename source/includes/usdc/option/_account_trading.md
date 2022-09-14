@@ -514,7 +514,7 @@ GET
 |:----- |:-------|:-----|----- |
 |orderId|false|string|t(:usdcOrderId)|
 |orderLinkId|false|string|t(:orderLinkId)|
-|t(:row_parameter_symbol) |<b>true</b>|string|t(:usdcSymbol)|
+|t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
 |baseCoin |false |string|t(:usdcBaseCoin_new)|
 |direction|false|string|t(:direction)|
 |limit|false|number|t(:row_comment_limit)|
