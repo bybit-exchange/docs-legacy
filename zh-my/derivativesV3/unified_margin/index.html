@@ -944,6 +944,9 @@
                           <li>
                             <a href="#t-dv_querysettlelogs" class="toc-h3 toc-link" data-title="查詢結算記錄">查詢結算記錄</a>
                           </li>
+                          <li>
+                            <a href="#t-oilimitinfo" class="toc-h3 toc-link" data-title="查詢限倉信息">查詢限倉信息</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -6384,6 +6387,8 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>翻頁標記</td>
 </tr>
 </tbody></table>
+<h3 id='t-oilimitinfo'>查詢限倉信息</h3>
+<p><a href="/docs/testnet/derivativesV3/contract#t-oilimitinfo">請點擊查看接口描述。</a></p>
 <h2 id='t-account'>帳戶</h2>
 <p>錢包相關接口需要認證。</p>
 <h3 id='t-dv_balance'>獲取錢包余額</h3>
@@ -9337,9 +9342,10 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </ul>
 <h2 id='contract-status-status'>Contract Status(<code>status</code>)</h2>
 <ul>
-<li><code>Trading</code></li>
-<li><code>Settling</code></li>
-<li><code>Closed</code></li>
+<li><code>Pending</code> 待上線（距離上線前10分鐘）</li>
+<li><code>Trading</code> 已上線</li>
+<li><code>Settling</code> 交割中</li>
+<li><code>Closed</code> 已下線</li>
 </ul>
 <h2 id='account-type-from_account_type-to_account_type'>Account type (<code>from_account_type</code>/<code>to_account_type</code>)</h2>
 <ul>

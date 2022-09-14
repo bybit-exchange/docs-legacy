@@ -784,10 +784,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-08-30" class="toc-h2 toc-link" data-title="2022-08-30">2022-08-30</a>
+                    <a href="#2022-09-13" class="toc-h2 toc-link" data-title="2022-09-13">2022-09-13</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-08-30" class="toc-h2 toc-link" data-title="2022-08-30">2022-08-30</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -954,6 +962,9 @@
                           </li>
                           <li>
                             <a href="#t-dv_querysettlelogs" class="toc-h3 toc-link" data-title="查詢結算記錄">查詢結算記錄</a>
+                          </li>
+                          <li>
+                            <a href="#t-oilimitinfo" class="toc-h3 toc-link" data-title="查詢限倉信息">查詢限倉信息</a>
                           </li>
                       </ul>
                   </li>
@@ -1452,7 +1463,15 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-08-30'>2022-08-30</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-09-13'>2022-09-13</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websockettrade">平臺成交</a> [更新]
+
+<ul>
+<li>更新響應字段<code>BT</code>的數據類型，從<code>string</code>改為<code>boolean</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-08-30'>2022-08-30</h2><h3 id='websocket-api-2'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketorder">訂單</a> [更新]
 
@@ -6395,6 +6414,8 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>翻頁標記</td>
 </tr>
 </tbody></table>
+<h3 id='t-oilimitinfo'>查詢限倉信息</h3>
+<p><a href="/docs/testnet/derivativesV3/contract#t-oilimitinfo">請點擊查看接口描述。</a></p>
 <h2 id='t-account'>帳戶</h2>
 <p>錢包相關接口需要認證。</p>
 <h3 id='t-dv_balance'>獲取錢包余額</h3>
@@ -7907,7 +7928,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
             <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19792.50</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PlusTick</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5c9ab13e-6010-522c-aecd-02c4d9c8db3d</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">BT</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+            <span class="dl">"</span><span class="s2">BT</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -7971,7 +7992,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </tr>
 <tr>
 <td style="text-align: left">BT</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">boolean</td>
 <td>成交类型是否大宗交易，是：true；否：false</td>
 </tr>
 </tbody></table>
@@ -9303,9 +9324,10 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </ul>
 <h2 id='contract-status-status'>Contract Status(<code>status</code>)</h2>
 <ul>
-<li><code>Trading</code></li>
-<li><code>Settling</code></li>
-<li><code>Closed</code></li>
+<li><code>Pending</code> 待上線（距離上線前10分鐘）</li>
+<li><code>Trading</code> 已上線</li>
+<li><code>Settling</code> 交割中</li>
+<li><code>Closed</code> 已下線</li>
 </ul>
 <h2 id='account-type-from_account_type-to_account_type'>Account type (<code>from_account_type</code>/<code>to_account_type</code>)</h2>
 <ul>

@@ -779,6 +779,22 @@
               </ul>
           </li>
           <li>
+            <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2022-09-13" class="toc-h2 toc-link" data-title="2022-09-13">2022-09-13</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-faq" class="toc-h1 toc-link" data-title="FAQ">FAQ</a>
               <ul class="toc-list-h2">
                   <li>
@@ -920,6 +936,9 @@
                           </li>
                           <li>
                             <a href="#t-dv_closedprofitandloss" class="toc-h3 toc-link" data-title="平倉盈虧">平倉盈虧</a>
+                          </li>
+                          <li>
+                            <a href="#t-oilimitinfo" class="toc-h3 toc-link" data-title="查詢限倉信息">查詢限倉信息</a>
                           </li>
                       </ul>
                   </li>
@@ -1409,6 +1428,22 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-09-13'>2022-09-13</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-oilimitinfo">查詢限倉信息</a> [新增]
+
+<ul>
+<li>新增接口，用於查詢限倉信息。</li>
+</ul></li>
+</ul>
+<h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websockettrade">平臺成交</a> [更新]
+
+<ul>
+<li>更新響應字段<code>BT</code>的數據類型，從<code>string</code>改為<code>boolean</code></li>
+</ul></li>
+</ul>
 <h1 id='t-faq'>FAQ</h1><h2 id='t-faq_reduce_only'><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</h2>
 <p><ul>
 <li>To close your position, submit <a href="#t-placeactive">an order</a> and specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
@@ -5538,6 +5573,139 @@ function copyStringToClipboard (endpoint) {
 <td>翻頁游標</td>
 </tr>
 </tbody></table>
+<h3 id='t-oilimitinfo'>查詢限倉信息</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/limit-info?symbol=ETHUSDT' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: eb16a696924a92a3a47d769caf44d7373eca9ed6a644384ff6e8cd729ee9f7b1' \
+--header 'X-BAPI-API-KEY: XXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1658914264517' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">currentLimitPcnt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalBuyPositionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalSellPositionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">estMaxPositionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">28581.1950</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">285811.95</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">userId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533285</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1663050089990</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1663050089990</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>該接口可查詢到用戶的限倉信息。
+<p>
+<b>注意:</b></br>
+<ul>
+  <li>僅支持母帳戶的api key查詢.</li>
+  <li>該接口適用於統一保證金帳戶.</li>
+  <li>當前僅支持USDT正向合約.</li>
+  <li>支持期貨v2的鑒權方式.</li>
+</ul>
+</p>
+</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=pltcLpnl>/contract/v3/private/position/limit-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcLpnl"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>合約類型</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currentLimitPcnt</td>
+<td style="text-align: left">string</td>
+<td>當前倉位對該user group的限倉比例，返回示例<code>0.0000</code></td>
+</tr>
+<tr>
+<td style="text-align: left">totalBuyPositionSize</td>
+<td style="text-align: left">string</td>
+<td>當前所有user group的倉位總和，做多方向的倉位總size</td>
+</tr>
+<tr>
+<td style="text-align: left">totalSellPositionSize</td>
+<td style="text-align: left">string</td>
+<td>當前所有user group的倉位總和，做空方向的倉位總size</td>
+</tr>
+<tr>
+<td style="text-align: left">estMaxPositionSize</td>
+<td style="text-align: left">string</td>
+<td>預估按照當前最大可開的單邊限倉額度。計算方式：最新的Open Interest * 當前限倉比例</td>
+</tr>
+<tr>
+<td style="text-align: left">openInterest</td>
+<td style="text-align: left">string</td>
+<td>當前合約的最近5分鐘的未平倉合約數量</td>
+</tr>
+<tr>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; userId</td>
+<td style="text-align: left">string</td>
+<td>限倉的userId</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; positionSize</td>
+<td style="text-align: left">string</td>
+<td>當前每個userId下的持倉數量，數據會有延遲</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; side</td>
+<td style="text-align: left">string</td>
+<td>持倉方向，<code>Buy</code>, <code>Sell</code></td>
+</tr>
+<tr>
+<td style="text-align: left">updateTime</td>
+<td style="text-align: left">string</td>
+<td>最新數據的更新時間</td>
+</tr>
+</tbody></table>
 <h2 id='t-contract_account'>帳戶</h2>
 <p>帳戶相關接口需要認證.</p>
 <h3 id='t-balance'>獲取錢包余額</h3>
@@ -6379,7 +6547,7 @@ function copyStringToClipboard (endpoint) {
             <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19792.50</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PlusTick</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5c9ab13e-6010-522c-aecd-02c4d9c8db3d</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">BT</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+            <span class="dl">"</span><span class="s2">BT</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -6443,7 +6611,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">BT</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">boolean</td>
 <td>成交类型是否大宗交易，是：true；否：false</td>
 </tr>
 </tbody></table>
@@ -7612,9 +7780,10 @@ function copyStringToClipboard (endpoint) {
 </ul>
 <h2 id='contract-status-status'>Contract Status(<code>status</code>)</h2>
 <ul>
-<li><code>Trading</code></li>
-<li><code>Settling</code></li>
-<li><code>Closed</code></li>
+<li><code>Pending</code> 待上線（距離上線前10分鐘）</li>
+<li><code>Trading</code> 已上線</li>
+<li><code>Settling</code> 交割中</li>
+<li><code>Closed</code> 已下線</li>
 </ul>
 <h2 id='account-type-from_account_type-to_account_type'>Account type (<code>from_account_type</code>/<code>to_account_type</code>)</h2>
 <ul>

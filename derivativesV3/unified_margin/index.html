@@ -944,6 +944,9 @@
                           <li>
                             <a href="#t-dv_querysettlelogs" class="toc-h3 toc-link" data-title="Get Settlement History (Perpetual)">Get Settlement History (Perpetual)</a>
                           </li>
+                          <li>
+                            <a href="#t-oilimitinfo" class="toc-h3 toc-link" data-title="Get Open Interest Limit Info">Get Open Interest Limit Info</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -6387,6 +6390,8 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td>API pass-through</td>
 </tr>
 </tbody></table>
+<h3 id='t-oilimitinfo'>Get Open Interest Limit Info</h3>
+<p><a href="/docs/testnet/derivativesV3/contract#t-oilimitinfo">Please see the shared endpoint.</a></p>
 <h2 id='t-account'>Account</h2>
 <p>The following wallet data endpoints require authentication.</p>
 <h3 id='t-dv_balance'>Get Wallet Balance</h3>
@@ -9341,9 +9346,10 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </ul>
 <h2 id='contract-status-status'>Contract Status(<code>status</code>)</h2>
 <ul>
-<li><code>Trading</code></li>
-<li><code>Settling</code></li>
-<li><code>Closed</code></li>
+<li><code>Pending</code> Waiting to be online (10 mins before online)</li>
+<li><code>Trading</code> </li>
+<li><code>Settling</code> </li>
+<li><code>Closed</code> </li>
 </ul>
 <h2 id='account-type-from_account_type-to_account_type'>Account type (<code>from_account_type</code>/<code>to_account_type</code>)</h2>
 <ul>

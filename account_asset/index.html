@@ -3205,7 +3205,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXXXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641789312824&amp;recv_window=50000&amp;sign=XXXXXXXXXXXXXXXXXXX'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api.bybit.com/asset/v1/private/deposit/address?api_key=XXXXXXXXX&amp;coin=GMT&amp;timestamp=1663074198991&amp;recv_window=5000&amp;sign=73f79d2d8c0d41dddc30fd118b5da0db3fe92deb2f4ea39cd3dbbb8f3745f8b1&amp;chain_type=SOL'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -3215,21 +3215,18 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
     <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GMT</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">chains</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">address_deposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XXXXXXXXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">chain_type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SOL</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">address_deposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">H29uWKkPVux8nkB5xKU1DVxbEtt1UyMjC6tHsPHbMRsn</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">tag_deposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LTC</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SOL</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641789383364</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit_reset_ms</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1641789383364</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1663074199341</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Rules: Sub-account can not deposit
@@ -3256,6 +3253,12 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Coin</td>
+</tr>
+<tr>
+<td style="text-align: left">chain_type</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>chain type</td>
 </tr>
 </tbody></table>
 
