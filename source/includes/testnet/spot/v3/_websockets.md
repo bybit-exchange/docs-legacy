@@ -234,7 +234,7 @@ t(:spot_websocket_para_response)
         ]
     },
     "type": "delta",
-    "topic": "orderbook.200.BTCUSDT",
+    "topic": "orderbook.40.BTCUSDT",
     "ts": 1661743689735
 }
 ```
@@ -244,10 +244,11 @@ t(:spot_websocket_orderbook_desc_v3)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:----- |----- |
-| t | number | t(:spot_timestamp2) |
+| t | long | t(:spot_timestamp2) |
 | s | string | t(:spot_symbol) |
 | b | list | t(:spot_bid_v3) |
 | a | list | t(:spot_ask_v3) |
+| ts | long | t(:spot_wss_ts) |
 
 
 ### t(:websockettrade)
@@ -290,10 +291,11 @@ t(:spot_websocket_trade_desc_v3)
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |v | string | t(:spot_v3_trade_v) |
-|t | number | t(:spot_time) |
+|t | long | t(:spot_time) |
 |p | string | t(:spot_price) |
 |q | string | t(:spot_quantity) |
 |m | boolean | t(:spot_side) |
+| ts | long | t(:spot_wss_ts) |
 
 
 ### t(:websocketkline)
@@ -337,13 +339,14 @@ t(:spot_websocket_kline_desc_v3)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|t | number | t(:row_comment_startTime_ms) |
+|t | long | t(:row_comment_startTime_ms) |
 |s | string | t(:spot_symbol) |
 |c | string | t(:spotClose) |
 |h | string | t(:spotHigh) |
 |l | string | t(:spotLow) |
 |o | string | t(:spotOpen) |
 |v | string | t(:spot_volume) |
+| ts | long | t(:spot_wss_ts) |
 
 ### t(:websocketTickers)
 > t(:codequote_subscribe)
@@ -388,7 +391,7 @@ t(:spot_websocket_symbol_ticker_desc_v3)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|t | number | t(:spot_time) |
+|t | long | t(:spot_time) |
 |s | string | t(:spot_symbol) |
 |o | string | t(:spotOpen) |
 |h | string | t(:spotHigh) |
@@ -397,6 +400,7 @@ t(:spot_websocket_symbol_ticker_desc_v3)
 |v | string | t(:spot_volume) |
 |qv | string | t(:spot_quote_volume) |
 |m | string | t(:spot_gains) |
+| ts | long | t(:spot_wss_ts) |
 
 
 ### t(:websocektBookticker)
@@ -443,7 +447,8 @@ t(:spot_websocket_ticker_desc_v3)
 | bq | string | t(:spot_buy_qty) |
 | ap | string | t(:spot_sell_price)|
 | aq | boolean | t(:spot_sell_qty) |
-| t | number | t(:spot_timestamp2) |
+| t | long | t(:spot_timestamp2) |
+| ts | long | t(:spot_wss_ts) |
 
 
 ## t(:privatetopics)

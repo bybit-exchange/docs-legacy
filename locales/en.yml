@@ -141,6 +141,10 @@ en:
   row_comment_created_at_in_exchange: Exchange time
   row_comment_updated_at: Update time
   row_comment_updated_id: Update id, is always in sequence. Occasionally, you'll receive "u"=1, which is a snapshot data due to the restart of the service. So please overwrite the locally saved orderbook
+  row_comment_dv3_ts: timestamp(ms). The time that system generates the data.
+  row_comment_trade_T: timestamp(ms). The time that the order is filled
+  row_comment_tickers_cs: Please ignore
+  row_comment_kline_timestamp: timestamp(ms). The time of the last matched order in the candle
   row_comment_margin_result: User margin
   row_comment_activeOrderType: Active order type
   row_comment_stopOrderType: Conditional order type
@@ -3596,8 +3600,8 @@ en:
   spot_orders_end_time: End time, unit in millisecond
   orderhistory: Order History
   tradehistory: Trade History
-  spot_from_id:  Query greater than the trade ID. (fromTicketId < trade ID)
-  spot_to_id: Query smaller than the trade ID. (trade ID < toTicketId)
+  spot_from_id:  Query greater than the trade ID. (fromTicketId <= trade ID)
+  spot_to_id: Query smaller than the trade ID. (trade ID <= toTicketId)
   spot_start_time: Start time, unit in millisecond
   spot_end_time: End time, unit in millisecond
   spot_token: Asset
@@ -3679,7 +3683,8 @@ en:
   spot_order_client_id: User-generated order ID
   spot_first: First message for this topic since subscription
   spot_timestamp: Timestamp
-  spot_timestamp2: Timestamp (last update time of the order book)
+  spot_timestamp2: timestamp(ms). The time that system generates the data.
+  spot_wss_ts: The time that message is sent out
   spot_v3_trade_v: TradeId
   spot_close: Close price
   spot_high: High price
@@ -4246,7 +4251,7 @@ en:
   usdcQryUnOrPartFilled_new_para: |
     <p>This is <code><b>GET</b></code> request, and pass <code>orderLinkId</code> could only query current active orders.<p>
     <p>It's able to query orders in last 7 days including fully/partial filled & cancelled orders if <code>orderId</code> is passed. We recommend to save the response into your database.<p>
-    <p>Query priority: <code>orderId</code> > <code>orderLinkId</code> > both null.</p>
+    <p>Query priority: <code>orderId</code> > <code>orderLinkId</code> > <code>baseCoin</code> > both null.</p>
     <p><code>cursor</code> is not necessary when do first querying. However, it must be passed with the exact same value from response while getting next page.</p>
   usdcQryOrderHistory: Query Order History
   usdcFundingApi: Funding API
