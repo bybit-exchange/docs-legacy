@@ -3734,13 +3734,13 @@ If the <code>orderId</code> is null, <code>fromTicketId</code> is passed, and <c
 <td style="text-align: left">fromTradeId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Query greater than the trade ID. (fromTicketId < trade ID)</td>
+<td>Query greater than the trade ID. (fromTicketId <= trade ID)</td>
 </tr>
 <tr>
 <td style="text-align: left">toTradeId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Query smaller than the trade ID. (trade ID < toTicketId)</td>
+<td>Query smaller than the trade ID. (trade ID <= toTicketId)</td>
 </tr>
 </tbody></table>
 
@@ -5647,7 +5647,7 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.200.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.40.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661743689735</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -5679,8 +5679,8 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
 </thead><tbody>
 <tr>
 <td style="text-align: left">t</td>
-<td style="text-align: left">number</td>
-<td>Timestamp (last update time of the order book)</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that system generates the data.</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -5696,6 +5696,11 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
 <td style="text-align: left">a</td>
 <td style="text-align: left">list</td>
 <td>Ask price, quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>The time that message is sent out</td>
 </tr>
 </tbody></table>
 <h3 id='t-websockettrade'>trade</h3>
@@ -5749,7 +5754,7 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
 </tr>
 <tr>
 <td style="text-align: left">t</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">long</td>
 <td>Timestamp (trading time in the match box)</td>
 </tr>
 <tr>
@@ -5766,6 +5771,11 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
 <td style="text-align: left">m</td>
 <td style="text-align: left">boolean</td>
 <td>True indicates buy side is taker, false indicates sell side is taker</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>The time that message is sent out</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketkline'>kline</h3>
@@ -5815,7 +5825,7 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
 </thead><tbody>
 <tr>
 <td style="text-align: left">t</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">long</td>
 <td>Start timestamp point for result, in milliseconds</td>
 </tr>
 <tr>
@@ -5847,6 +5857,11 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
 <td style="text-align: left">v</td>
 <td style="text-align: left">string</td>
 <td>Trading volume</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>The time that message is sent out</td>
 </tr>
 </tbody></table>
 <h3 id='t-websockettickers'>tickers</h3>
@@ -5898,7 +5913,7 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
 </thead><tbody>
 <tr>
 <td style="text-align: left">t</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">long</td>
 <td>Timestamp (trading time in the match box)</td>
 </tr>
 <tr>
@@ -5940,6 +5955,11 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
 <td style="text-align: left">m</td>
 <td style="text-align: left">string</td>
 <td>Change</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>The time that message is sent out</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocektbookticker'>bookTicker</h3>
@@ -6013,8 +6033,13 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
 </tr>
 <tr>
 <td style="text-align: left">t</td>
-<td style="text-align: left">number</td>
-<td>Timestamp (last update time of the order book)</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that system generates the data.</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>The time that message is sent out</td>
 </tr>
 </tbody></table>
 <h2 id='t-privatetopics'>Private Topics</h2><h3 id='t-outboundaccountinfo'>outboundAccountInfo</h3><div class="highlight"><pre class="highlight python tab-python--pybit"><code>

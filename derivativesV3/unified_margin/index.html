@@ -773,10 +773,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-09-01" class="toc-h2 toc-link" data-title="2022-09-01">2022-09-01</a>
+                    <a href="#2022-09-14" class="toc-h2 toc-link" data-title="2022-09-14">2022-09-14</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-09-01" class="toc-h2 toc-link" data-title="2022-09-01">2022-09-01</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1444,7 +1452,15 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-01'>2022-09-01</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-14'>2022-09-14</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websockettrade">trade</a> [update]
+
+<ul>
+<li>Update the data type of response field <code>BT</code> from <code>string</code> to <code>boolean</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-09-01'>2022-09-01</h2><h3 id='websocket-api-2'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketorder">order</a> [update]
 
@@ -7893,6 +7909,11 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that system generates the data.</td>
+</tr>
+<tr>
 <td style="text-align: left">s</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
@@ -7936,7 +7957,7 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
             <span class="dl">"</span><span class="s2">p</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19792.50</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">L</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">PlusTick</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5c9ab13e-6010-522c-aecd-02c4d9c8db3d</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">BT</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">false</span><span class="dl">"</span>
+            <span class="dl">"</span><span class="s2">BT</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
@@ -7959,9 +7980,14 @@ Push frequency: <b>real-time</b><br><br>
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that system generates the data.</td>
+</tr>
+<tr>
 <td style="text-align: left">T</td>
-<td style="text-align: left">number</td>
-<td>timestamp,ms</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that the order is filled</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -7994,13 +8020,8 @@ Push frequency: <b>real-time</b><br><br>
 <td>Trade ID</td>
 </tr>
 <tr>
-<td style="text-align: left">ts</td>
-<td style="text-align: left">string</td>
-<td>UTC time</td>
-</tr>
-<tr>
 <td style="text-align: left">BT</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">boolean</td>
 <td>is or not block trade</td>
 </tr>
 </tbody></table>
@@ -8041,7 +8062,7 @@ Push frequency: <b>real-time</b><br><br>
       <span class="dl">"</span><span class="s2">deliveryFeeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992078</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658145103785070</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1663203915102</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
@@ -8247,6 +8268,16 @@ Push frequency: <b>real-time</b><br><br>
 <td style="text-align: left">predicatedDeliveryPrice</td>
 <td style="text-align: left">string</td>
 <td>Predicated delivery price. Inverse futures only</td>
+</tr>
+<tr>
+<td style="text-align: left">cs</td>
+<td style="text-align: left">long</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that system generates the data.</td>
 </tr>
 </tbody></table>
 
@@ -8490,13 +8521,18 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </tr>
 <tr>
 <td style="text-align: left">confirm</td>
-<td style="text-align: left">bool</td>
+<td style="text-align: left">boolean</td>
 <td>Is confirm</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">integer</td>
-<td>End timestamp point for result, in seconds</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time of the last matched order in the candle</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that system generates the data.</td>
 </tr>
 </tbody></table>
 <h2 id='t-privatetopics_unified'>Private Topics</h2><h3 id='t-websocketposition'>position</h3>

@@ -4101,13 +4101,13 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">fromTicketId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>從大於此trade ID 開始查詢 (fromTicketId < trade ID)</td>
+<td>從大於此trade ID 開始查詢 (fromTicketId <= trade ID)</td>
 </tr>
 <tr>
 <td style="text-align: left">toTicketId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>以小於此trade ID 為終點 (trade ID < toTicketId)</td>
+<td>以小於此trade ID 為終點 (trade ID <= toTicketId)</td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -6610,7 +6610,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
-<td>時間戳 (orderbook最後更新時間)</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -6779,7 +6779,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
-<td>時間戳 (orderbook最後更新時間)</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -6939,7 +6939,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
-<td>時間戳 (orderbook最後更新時間)</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -7219,7 +7219,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">t</td>
 <td style="text-align: left">number</td>
-<td>時間戳 (orderbook最後更新時間)</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -7606,7 +7606,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">time</td>
 <td style="text-align: left">member</td>
-<td>時間戳 (orderbook最後更新時間)</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketv2realtimes'>realtimes</h3>

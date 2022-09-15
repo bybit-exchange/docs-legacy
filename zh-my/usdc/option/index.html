@@ -3345,7 +3345,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <h3 id='t-usdcqryunorpartfilled_new'>查詢未成交/部分成交訂單(實時)</h3>
 <p><p>這是<b>GET</b>請求, 傳入<code>orderLinkId</code>僅能查詢當前的活動單。<p>
 <p>如果有傳入<code>orderId</code>可查詢7天內的訂單數據（包括已完結的歷史訂單）, 建議用戶查詢到後保存到自己數據庫。<p>
-<p>查詢優先級: orderId > orderLinkId > 兩個字段都不傳。</p>
+<p>查詢優先級: orderId > orderLinkId > baseCoin > 兩個字段都不傳。</p>
 <p>第一次查詢時, cursor字段可為空; 但需要翻頁時, 則將response裏的cursor響應字段保持不變的回傳。</p>
 </p>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/option/usdc/openapi/private/v1/trade/query-active-orders?orderLinkId=option0005&amp;symbol=BTC-30SEP22-28000-C' \
@@ -3414,7 +3414,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約名稱</td>
 </tr>

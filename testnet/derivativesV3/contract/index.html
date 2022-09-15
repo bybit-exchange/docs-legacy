@@ -6537,6 +6537,11 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that system generates the data.</td>
+</tr>
+<tr>
 <td style="text-align: left">s</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
@@ -6603,9 +6608,14 @@ Push frequency: <b>real-time</b><br><br>
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that system generates the data.</td>
+</tr>
+<tr>
 <td style="text-align: left">T</td>
-<td style="text-align: left">number</td>
-<td>timestamp,ms</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that the order is filled</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -6636,11 +6646,6 @@ Push frequency: <b>real-time</b><br><br>
 <td style="text-align: left">i</td>
 <td style="text-align: left">string</td>
 <td>Trade ID</td>
-</tr>
-<tr>
-<td style="text-align: left">ts</td>
-<td style="text-align: left">string</td>
-<td>UTC time</td>
 </tr>
 <tr>
 <td style="text-align: left">BT</td>
@@ -6685,7 +6690,7 @@ Push frequency: <b>real-time</b><br><br>
       <span class="dl">"</span><span class="s2">deliveryFeeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992078</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658145103785070</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1663203915102</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
@@ -6890,6 +6895,16 @@ This topic will utilises the <code>snapshot</code> field and  <code>delta</code>
 <td style="text-align: left">predicatedDeliveryPrice</td>
 <td style="text-align: left">string</td>
 <td>Predicated delivery price. Inverse futures only</td>
+</tr>
+<tr>
+<td style="text-align: left">cs</td>
+<td style="text-align: left">long</td>
+<td>Please ignore</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that system generates the data.</td>
 </tr>
 </tbody></table>
 
@@ -7133,13 +7148,18 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </tr>
 <tr>
 <td style="text-align: left">confirm</td>
-<td style="text-align: left">bool</td>
+<td style="text-align: left">boolean</td>
 <td>Is confirm</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">integer</td>
-<td>End timestamp point for result, in seconds</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time of the last matched order in the candle</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>timestamp(ms). The time that system generates the data.</td>
 </tr>
 </tbody></table>
 <h2 id='t-contract_privatetopic'>Private Topics</h2><h3 id='t-websocketposition'>position</h3>

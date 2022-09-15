@@ -3365,7 +3365,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <h3 id='t-usdcqryunorpartfilled_new'>Query Unfilled/Partially Filled Orders(real-time)</h3>
 <p><p>This is <code><b>GET</b></code> request, and pass <code>orderLinkId</code> could only query current active orders.<p>
 <p>It's able to query orders in last 7 days including fully/partial filled & cancelled orders if <code>orderId</code> is passed. We recommend to save the response into your database.<p>
-<p>Query priority: <code>orderId</code> > <code>orderLinkId</code> > both null.</p>
+<p>Query priority: <code>orderId</code> > <code>orderLinkId</code> > <code>baseCoin</code> > both null.</p>
 <p><code>cursor</code> is not necessary when do first querying. However, it must be passed with the exact same value from response while getting next page.</p>
 </p>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/option/usdc/openapi/private/v1/trade/query-active-orders?orderLinkId=option0005&amp;symbol=BTC-30SEP22-28000-C' \
@@ -3434,7 +3434,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Contract name</td>
 </tr>

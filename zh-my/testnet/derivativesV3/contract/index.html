@@ -6504,6 +6504,11 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
+</tr>
+<tr>
 <td style="text-align: left">s</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
@@ -6570,9 +6575,14 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
+</tr>
+<tr>
 <td style="text-align: left">T</td>
-<td style="text-align: left">number</td>
-<td>时间戳，毫秒</td>
+<td style="text-align: left">long</td>
+<td>時間戳(毫秒). 訂單撮合成交的時間</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -6603,11 +6613,6 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">i</td>
 <td style="text-align: left">string</td>
 <td>交易ID</td>
-</tr>
-<tr>
-<td style="text-align: left">ts</td>
-<td style="text-align: left">string</td>
-<td>UTC 時間</td>
 </tr>
 <tr>
 <td style="text-align: left">BT</td>
@@ -6652,7 +6657,7 @@ function copyStringToClipboard (endpoint) {
       <span class="dl">"</span><span class="s2">deliveryFeeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
   <span class="p">},</span>
   <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992078</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658145103785070</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1663203915102</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
@@ -6857,6 +6862,16 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">predicatedDeliveryPrice</td>
 <td style="text-align: left">string</td>
 <td>预期交割价，仅交割合约有效</td>
+</tr>
+<tr>
+<td style="text-align: left">cs</td>
+<td style="text-align: left">long</td>
+<td>撮合序列號. 請忽略</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
 </tr>
 </tbody></table>
 
@@ -7100,13 +7115,18 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">confirm</td>
-<td style="text-align: left">bool</td>
+<td style="text-align: left">boolean</td>
 <td>是否確認</td>
 </tr>
 <tr>
 <td style="text-align: left">timestamp</td>
-<td style="text-align: left">integer</td>
-<td>結束時間戳（秒）</td>
+<td style="text-align: left">long</td>
+<td>時間戳(毫秒). 蠟燭中最後一筆訂單成交的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
 </tr>
 </tbody></table>
 <h2 id='t-contract_privatetopic'>私有 Topics</h2><h3 id='t-websocketposition'>持倉</h3>

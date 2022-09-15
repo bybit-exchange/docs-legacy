@@ -3732,13 +3732,13 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">fromTradeId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>從大於此trade ID 開始查詢 (fromTicketId < trade ID)</td>
+<td>從大於此trade ID 開始查詢 (fromTicketId <= trade ID)</td>
 </tr>
 <tr>
 <td style="text-align: left">toTradeId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>以小於此trade ID 為終點 (trade ID < toTicketId)</td>
+<td>以小於此trade ID 為終點 (trade ID <= toTicketId)</td>
 </tr>
 </tbody></table>
 
@@ -5648,7 +5648,7 @@ function copyStringToClipboard (endpoint) {
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.200.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.40.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661743689735</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -5681,8 +5681,8 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">t</td>
-<td style="text-align: left">number</td>
-<td>時間戳 (orderbook最後更新時間)</td>
+<td style="text-align: left">long</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
 </tr>
 <tr>
 <td style="text-align: left">s</td>
@@ -5698,6 +5698,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">a</td>
 <td style="text-align: left">list</td>
 <td>賣價，數量</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>消息被推送出來的時間戳</td>
 </tr>
 </tbody></table>
 <h3 id='t-websockettrade'>平臺成交</h3>
@@ -5751,7 +5756,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">t</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">long</td>
 <td>時間（撮合引擎撮合时间）</td>
 </tr>
 <tr>
@@ -5768,6 +5773,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">m</td>
 <td style="text-align: left">boolean</td>
 <td>true 表示買方是 taker，false 表示賣方是 taker</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>消息被推送出來的時間戳</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocketkline'>K線</h3>
@@ -5833,7 +5843,7 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">t</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">long</td>
 <td>開始時間戳（毫秒)</td>
 </tr>
 <tr>
@@ -5865,6 +5875,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">v</td>
 <td style="text-align: left">string</td>
 <td>成交量</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>消息被推送出來的時間戳</td>
 </tr>
 </tbody></table>
 <h3 id='t-websockettickers'>實時價格</h3>
@@ -5916,7 +5931,7 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">t</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">long</td>
 <td>時間（撮合引擎撮合时间）</td>
 </tr>
 <tr>
@@ -5958,6 +5973,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">m</td>
 <td style="text-align: left">string</td>
 <td>漲幅</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>消息被推送出來的時間戳</td>
 </tr>
 </tbody></table>
 <h3 id='t-websocektbookticker'>買一賣一</h3>
@@ -6031,8 +6051,13 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">t</td>
-<td style="text-align: left">number</td>
-<td>時間戳 (orderbook最後更新時間)</td>
+<td style="text-align: left">long</td>
+<td>時間戳(毫秒). 為系統生成該數據的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">ts</td>
+<td style="text-align: left">long</td>
+<td>消息被推送出來的時間戳</td>
 </tr>
 </tbody></table>
 <h2 id='t-privatetopics'>私有 Topics</h2><h3 id='t-outboundaccountinfo'>outboundAccountInfo</h3><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
