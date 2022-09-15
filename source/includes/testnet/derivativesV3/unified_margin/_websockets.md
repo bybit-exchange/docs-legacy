@@ -257,6 +257,7 @@ t(:websocketOrderBook_v3)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
+|ts |long |t(:row_comment_dv3_ts)  |
 |s |string |t(:row_comment_symbol)  |
 |b|array |t(:row_comment_resp_bid)    |
 |a |array|t(:row_comment_resp_ask)  |
@@ -304,14 +305,14 @@ t(:websocket_para_trade_ud)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|T |number |t(:row_response_comment_timestamp)  |
+|ts|long |t(:row_comment_dv3_ts)  |
+|T |long |t(:row_comment_trade_T)  |
 |s |string |t(:row_comment_symbol)  |
 |S|string |t(:websocketTradeSide)    |
 |v |string |t(:row_comment_position_size)  |
 |p |string |t(:row_response_comment_price)  |
 |L |string |t(:row_comment_position_tick_direction)  |
 |i|string |t(:row_response_comment_trade_id)  |
-|ts|string |t(:row_response_comment_time)  |
 |BT|boolean |t(:row_response_comment_blocktrade)  |
 
 ### t(:websocketTicker_v3)
@@ -458,6 +459,8 @@ t(:websocket_aside_instrumentInfo_um)
 |prevPrice1h |string |t(:row_comment_resp_prev_price_1h_v3)  |
 |deliveryTime |string |t(:deliveryTime_v3)  |
 |predicatedDeliveryPrice |string |t(:predicatedDeliveryPrice_v3)  |
+|cs |long |t(:row_comment_tickers_cs)  |
+|ts |long |t(:row_comment_dv3_ts)  |
 
 <p class="fake_header">t(:optionResponseParameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -543,8 +546,9 @@ t(:websocket_aside_klineV2)
 |low|string |t(:row_comment_low)    |
 |volume|string |t(:row_comment_resp_volume)    |
 |turnover|string |t(:row_comment_resp_turnover)    |
-|confirm|bool |t(:row_comment_confirm)    |
-|timestamp|integer |t(:row_comment_endTime)    |
+|confirm|boolean |t(:row_comment_confirm)    |
+|timestamp|long |t(:row_comment_kline_timestamp)    |
+|ts|long |t(:row_comment_dv3_ts)    |
 
 
 ## t(:privatetopics_unified)
