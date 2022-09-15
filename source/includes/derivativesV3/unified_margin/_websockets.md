@@ -356,7 +356,7 @@ ws.send('{"op": "subscribe", "args": ["tickers.BTCUSDT"]}')
       "deliveryFeeRate":"0"
   },
   "cs":14236992078,
-    "ts":1658145103785070
+    "ts":1663203915102
 }
 ```
 
