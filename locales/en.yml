@@ -4246,7 +4246,7 @@ en:
   usdcQryUnOrPartFilled_new_para: |
     <p>This is <code><b>GET</b></code> request, and pass <code>orderLinkId</code> could only query current active orders.<p>
     <p>It's able to query orders in last 7 days including fully/partial filled & cancelled orders if <code>orderId</code> is passed. We recommend to save the response into your database.<p>
-    <p>Query priority: <code>orderId</code> > <code>orderLinkId</code> > both null.</p>
+    <p>Query priority: <code>orderId</code> > <code>orderLinkId</code> > <code>baseCoin</code> > both null.</p>
     <p><code>cursor</code> is not necessary when do first querying. However, it must be passed with the exact same value from response while getting next page.</p>
   usdcQryOrderHistory: Query Order History
   usdcFundingApi: Funding API
