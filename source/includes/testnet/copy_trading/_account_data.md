@@ -104,10 +104,10 @@ POST
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
 |parentOrderId |<b>true</b> |string |t(:ct_parentOrderId)   |
-|takeProfit |false |string |t(:row_comment_take_profit) |
-|stopLoss |false |string |t(:row_comment_stop_loss) |
-|tpTriggerBy |false |string |t(:ct_tradingStopTakeProfit) |
-|slTriggerBy |false |string |t(:ct_tradingStopStopLoss) |
+|takeProfit |false |string |t(:ct_tradingStopTakeProfit) |
+|stopLoss |false |string |t(:ct_tradingStopStopLoss) |
+|tpTriggerBy |false |string |t(:account_row_comment_tpTriggerBy_v3) |
+|slTriggerBy |false |string |t(:account_row_comment_slTriggerBy_v3) |
 |parentOrderLinkId |false |string |t(:ct_parentOrderLinkId) |
 
 
