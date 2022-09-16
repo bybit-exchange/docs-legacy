@@ -342,8 +342,8 @@ t(:spot_kline_latest_records)
 |t(:row_parameter_symbol) |<b>true</b>|string|t(:spotSymbol)|
 | <a href="#kline-interval-interval">interval</a> |<b>true</b> | string | t(:spot_kline_interval)|
 | limit | false | integer | t(:spot_trades_limit) |
-| startTime | false | number | t(:spot_orders_start_time) |
-| endTime | false | number | t(:spot_orders_end_time) |
+| startTime | false | long | t(:spot_orders_start_time) |
+| endTime | false | long | t(:spot_orders_end_time) |
 
 
 <p class="fake_header">t(:responseparameters)</p>

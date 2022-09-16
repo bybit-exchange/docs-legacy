@@ -679,12 +679,11 @@ GET
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |false|string|t(:spotSymbol)|
 |orderId|false|string|t(:spotOrderId4Pagination)|
-|limit|false|integer|t(:spot_order_list_limit)|
+|limit|false|integer|t(:spot_historyOrder_limit)|
 |startTime|false|long|t(:spot_start_time)|
 |endTime|false|long|t(:spot_end_time)|
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |accountId|long |t(:spotAccountId)|

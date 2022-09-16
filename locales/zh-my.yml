@@ -2784,6 +2784,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_200220916: 更新<code>limit</code>和<code>startTime</code>以及<code>endTime</code>的入参規則
   restapi_update_200220913_1: 更新響應字段<code>BT</code>的數據類型，從<code>string</code>改為<code>boolean</code>
   restapi_update_200220913: 新增接口，用於查詢限倉信息。
   restapi_update_200220907: 新增字段<code>is_block_trade</code>
@@ -3131,6 +3132,7 @@ zh-my:
   batchcancelactiveorderbyids: 根據訂單號批量撤銷訂單
   openorders: 訂單列表
   spot_order_list_limit: 默認500，最大500
+  spot_historyOrder_limit: 默認100，最大500
   spot_orders_start_time: 第一條返回的時間戳(毫秒)
   spot_orders_end_time: 最後一條返回的時間戳(毫秒)
   orderhistory: 歷史訂單
@@ -3199,7 +3201,7 @@ zh-my:
   spotNormalCancelTips: 此接口只提交取消請求，實際取消結果需要通過訂單狀態，撮合狀態等接口來確認。
   spotTradesHistoryTips: 如果不傳<code>startTime</code>，只能查詢最近7天的交易數據。如果要查詢一周之前的歷史交易數據，需要傳startTime
   spotTradesHisotryTips_order: 僅當不傳入<code>orderId</code>, 不傳入<code>toTicketId</code>，但傳入<code>fromTicketId</code>時，返回的結果是以<code>ticketId</code>從小到大排序；否則，返回的結果以<code>ticketId</code>從大到小排序
-  spotOrdersHistoryTips: 如果不傳<code>startTime</code>，只能查詢按時間倒序的下單數據。
+  spotOrdersHistoryTips: 如果<code>startTime</code>和<code>endTime</code>都不傳，則默認查詢近7天的數據。市商為3天。
   row_parameter_timeInForce: <a href="#time-in-force-timeinforce">timeInForce</a>
   spotServerTime: 服務器時間
 
