@@ -776,10 +776,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-08-10" class="toc-h2 toc-link" data-title="2022-08-10">2022-08-10</a>
+                    <a href="#2022-09-16" class="toc-h2 toc-link" data-title="2022-09-16">2022-09-16</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-08-10" class="toc-h2 toc-link" data-title="2022-08-10">2022-08-10</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -1546,7 +1554,15 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-08-10'>2022-08-10</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-16'>2022-09-16</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-orderhistory">Order History</a> [update]
+
+<ul>
+<li>Update the rule of <code>limit</code> and <code>startTime</code> <code>endTime</code>.</li>
+</ul></li>
+</ul>
+<h2 id='2022-08-10'>2022-08-10</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-placeactive">Place Active Order</a> [update]
 
@@ -3468,7 +3484,7 @@ If symbol is not specified, the best order price from all symbols will be return
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-If <code>startTime</code> is not specified, you can only query the recent orders records in reverse order by time.
+If <code>startTime</code> and <code>endTime</code> are both not specified, it returns last 7 days records by default. 3 days records for institutional clients.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -3502,19 +3518,19 @@ If <code>startTime</code> is not specified, you can only query the recent orders
 <tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Default value is 500, max 500</td>
+<td style="text-align: left">integer</td>
+<td>Default value is 100, max 500</td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">int</td>
+<td style="text-align: left">long</td>
 <td>Start time, unit in millisecond</td>
 </tr>
 <tr>
 <td style="text-align: left">endTime</td>
 <td style="text-align: left">false</td>
-<td style="text-align: left">int</td>
+<td style="text-align: left">long</td>
 <td>End time, unit in millisecond</td>
 </tr>
 </tbody></table>
