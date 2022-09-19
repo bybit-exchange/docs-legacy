@@ -1341,7 +1341,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 t(:wallet_para_delivery_record_v3)
 
 <p class="fake_header">t(:httprequest)</p>
-POST
+GET
 <code><span id=uopvQueryDelivery>/unified/v3/private/delivery-record</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryDelivery"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
@@ -1418,7 +1418,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 t(:wallet_para_settlement_record_v3)
 
 <p class="fake_header">t(:httprequest)</p>
-POST
+GET
 <code><span id=upovSession>/unified/v3/private/settlement-record</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovSession"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
