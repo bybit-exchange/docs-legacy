@@ -716,46 +716,44 @@ t(:usdcWssOrderNewDesc)
 > t(:codequote_snapshot)
 
 ```javascript
-
 {
-  "id":"d031f695-b546-49f6-8de3-8dac0f06ca14",
-  "topic":"user.openapi.option.order",
-  "creationTime":1646211968954,
-  "data":{
-  "result":[
-    {
-      "orderId":"5fcb8198-b22b-4116-8171-cf40539efbd7",
-      "orderLinkId":"1000ss0004",
-      "createdAt":1646209468927,
-      "updatedAt":1646209468927,
-      "symbol":"BTC-24JUN22-25000-P",
-      "orderStatus":"New",
-      "side":"Buy",
-      "price":"100",
-      "cashFlow":null,
-      "realisedPnl":"",
-      "qty":"1.0000",
-      "cumExecQty":"0.0000",
-      "leavesQty":"1.0000",
-      "orderIM":"110",
-      "orderType":"Limit",
-      "reduceOnly":0,
-      "timeInForce":"GoodTillCancel",
-      "cumExecFee":"0.00000000",
-      "iv":"0.5370",
-      "orderPnl":"",
-      "cumExecValue":"",
-      "cancelType":"UNKNOWN"
+    "id": "aaded9fc-3d77-4536-9a21-720a94dc68a6",
+    "topic": "user.openapi.option.order",
+    "creationTime": 1663659235491,
+    "data": {
+        "result": [
+            {
+                "orderId": "960475fd-dcdb-4e8b-b4c8-884b7108c727",
+                "orderLinkId": "",
+                "createdAt": 1663659012992,
+                "updatedAt": 1663659012992,
+                "symbol": "ETH-20SEP22-1350-C",
+                "orderStatus": "New",
+                "side": "Buy",
+                "price": "12.00000000",
+                "cashFlow": null,
+                "realisedPnl": "",
+                "qty": "5.0000",
+                "cumExecQty": "0.0000",
+                "leavesQty": "5.0000",
+                "orderIM": "62.0481300000000000",
+                "orderType": "Limit",
+                "reduceOnly": 0,
+                "timeInForce": "GoodTillCancel",
+                "cumExecFee": "0.00000000",
+                "iv": "0.000",
+                "orderPnl": "",
+                "cumExecValue": "",
+                "cancelType": "UNKNOWN",
+                "blockTradeId": "",
+                "updateTimeStamp": 1663659013014
+            }
+        ],
+        "baseLine": 5,
+        "dataType": "NEW",
+        "version": 3
     }
-  ],
-    "version":12,
-    "baseLine":2,
-    "dataType":"NEW"
 }
-}
-
-
-
 ```
 
 
@@ -813,7 +811,7 @@ t(:usdcCommonDesc)
 |orderId|string |t(:usdcOrderId)|
 |orderLinkId |string|t(:orderLinkId)|
 |createdAt|number|t(:createdAt)|
-|updatedAt|number|t(:updatedAt)|
+|updatedAt|number|t(:updatedAt_depreciate)|
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |orderStatus |string|t(:orderStatus)|
 |t(:row_parameter_side) |string|t(:side)|
@@ -832,6 +830,8 @@ t(:usdcCommonDesc)
 |orderPnl |string| Order PNL|
 |cumExecValue |string|t(:cumExecValue)|
 |cancelType|string|t(:usdcCancelType)|
+|updateTimestamp|long|t(:updatedAt)|
+
 
 ### t(:websocketService)
 
