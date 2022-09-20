@@ -116,15 +116,15 @@ t(:websocket_para_limit)
 > t(:websocket_codequote_filters1)
 
 ```javascript
-// Subscribing to the trade data for BTCUSD
-ws.send('{"op":"subscribe","args":["trade.BTCUSD"]}')
+// Subscribing to the trade data for BTCUSDT
+ws.send('{"op":"subscribe","args":["trade.BTCUSDT"]}')
 ```
 
 > t(:websocket_codequote_filters2)
 
 ```javascript
-// Example: Subscribing to the trade data for BTCUSD and XRPUSD
-ws.send('{"op":"subscribe","args":["trade.BTCUSD|XRPUSD"]}')
+// Example: Subscribing to the trade data for BTCUSDT and XRPUSDT
+ws.send('{"op":"subscribe","args":["trade.BTCUSDT|XRPUSDT"]}')
 ```
 
 
@@ -172,7 +172,7 @@ t(:websocket_para_intervals)
    "request": {     // Request to your subscription
        "op": "subscribe",
        "args": [
-           "kline.BTCUSD.1m"
+           "kline.BTCUSDT.1m"
        ]
    }
 }
@@ -185,13 +185,13 @@ t(:websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSD"]}');
+ws.send('{"op": "subscribe", "args": ["orderBookL2_25.BTCUSDT"]}');
 ```
 
 ```python--pybit
 from pybit import WebSocket
 subs = [
-    "orderBookL2_25.BTCUSD"
+    "orderBookL2_25.BTCUSDT"
 ]
 ws = WebSocket(
     "wss://stream-testnet.bybit.com/realtime",
@@ -207,19 +207,19 @@ while True:
 
 ```javascript
 {
-     "topic": "orderBookL2_25.BTCUSD",
+     "topic": "orderBookL2_25.BTCUSDT",
      "type": "snapshot",
      "data": [
         {
             "price": "2999.00",
-            "symbol": "BTCUSD",
+            "symbol": "BTCUSDT",
             "id": 29990000,
             "side": "Buy",
             "size": 9
         },
         {
             "price": "3001.00",
-            "symbol": "BTCUSD",
+            "symbol": "BTCUSDT",
             "id": 30010000,
             "side": "Sell",
             "size": 10
@@ -234,13 +234,13 @@ while True:
 
 ```javascript
 {
-     "topic": "orderBookL2_25.BTCUSD",
+     "topic": "orderBookL2_25.BTCUSDT",
      "type": "delta",
      "data": {
           "delete": [
              {
                    "price": "3001.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 30010000,
                    "side": "Sell"
              }
@@ -248,7 +248,7 @@ while True:
           "update": [
              {
                    "price": "2999.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 29990000,
                    "side": "Buy",
                    "size": 8
@@ -257,7 +257,7 @@ while True:
           "insert": [
              {
                    "price": "2998.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 29980000,
                    "side": "Buy",
                    "size": 8
@@ -297,13 +297,13 @@ t(:websocket_para_orderbook252)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSD"]}');
+ws.send('{"op": "subscribe", "args": ["orderBook_200.100ms.BTCUSDT"]}');
 ```
 
 ```python--pybit
 from pybit import WebSocket
 subs = [
-    "orderBook_200.100ms.BTCUSD"
+    "orderBook_200.100ms.BTCUSDT"
 ]
 ws = WebSocket(
     "wss://stream-testnet.bybit.com/realtime",
@@ -319,19 +319,19 @@ while True:
 
 ```javascript
 {
-     "topic": "orderBook_200.100ms.BTCUSD",
+     "topic": "orderBook_200.100ms.BTCUSDT",
      "type": "snapshot",
      "data": [
         {
             "price": "2999.00",
-            "symbol": "BTCUSD",
+            "symbol": "BTCUSDT",
             "id": 29990000,
             "side": "Buy",
             "size": 9
         },
         {
             "price": "3001.00",
-            "symbol": "BTCUSD",
+            "symbol": "BTCUSDT",
             "id": 30010000,
             "side": "Sell",
             "size": 10
@@ -346,13 +346,13 @@ while True:
 
 ```javascript
 {
-     "topic": "orderBook_200.100ms.BTCUSD",
+     "topic": "orderBook_200.100ms.BTCUSDT",
      "type": "delta",
      "data": {
           "delete": [
              {
                    "price": "3001.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 30010000,
                    "side": "Sell"
              }
@@ -360,7 +360,7 @@ while True:
           "update": [
              {
                    "price": "2999.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 29990000,
                    "side": "Buy",
                    "size": 8
@@ -369,7 +369,7 @@ while True:
           "insert": [
              {
                    "price": "2998.00",
-                   "symbol": "BTCUSD",
+                   "symbol": "BTCUSDT",
                    "id": 29980000,
                    "side": "Buy",
                    "size": 8
@@ -420,12 +420,12 @@ while True:
 
 ```javascript
 {
-    "topic": "trade.BTCUSD",
+    "topic": "trade.BTCUSDT",
     "data": [
         {
             "timestamp": "2020-01-12T16:59:59.000Z",
             "trade_time_ms": 1582793344685, // trade time in millisecond
-            "symbol": "BTCUSD",
+            "symbol": "BTCUSDT",
             "side": "Sell",
             "size": 328,
             "price": 8098,
@@ -508,13 +508,13 @@ t(:websocket_aside_insurance)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSD"]}')
+ws.send('{"op": "subscribe", "args": ["instrument_info.100ms.BTCUSDT"]}')
 ```
 
 ```python--pybit
 from pybit import WebSocket
 subs = [
-    "instrument_info.100ms.BTCUSD"
+    "instrument_info.100ms.BTCUSDT"
 ]
 ws = WebSocket(
     "wss://stream-testnet.bybit.com/realtime",
@@ -530,11 +530,11 @@ while True:
 
 ```javascript
 {
-    "topic":"instrument_info.100ms.BTCUSD",
+    "topic":"instrument_info.100ms.BTCUSDT",
     "type":"snapshot",
     "data": {
          "id": 1,
-         "symbol": "BTCUSD",                           //instrument name
+         "symbol": "BTCUSDT",                           //instrument name
          "last_price_e4": 81165000,                    //the latest price
          "last_price": "81165000",  
          "bid1_price_e4":400025000,                    // best bid price
@@ -581,14 +581,14 @@ while True:
 
 ```javascript
 {
-    "topic": "instrument_info.100ms.BTCUSD",
+    "topic": "instrument_info.100ms.BTCUSDT",
     "type": "delta",
     "data": {
         "delete": [],
         "update": [
             {
                 "id": 1,
-                "symbol": "BTCUSD",
+                "symbol": "BTCUSDT",
                 "prev_price_24h_e4": 81565000,
                 "prev_price_24h": "81565000",
                 "price_24h_pcnt_e6": -4904,
@@ -657,13 +657,13 @@ t(:websocket_aside_instrumentInfo2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSD"]}')
+ws.send('{"op":"subscribe","args":["klineV2.1.BTCUSDT"]}')
 ```
 
 ```python--pybit
 from pybit import WebSocket
 subs = [
-    "klineV2.1.BTCUSD"
+    "klineV2.1.BTCUSDT"
 ]
 ws = WebSocket(
     "wss://stream-testnet.bybit.com/realtime",
@@ -679,7 +679,7 @@ while True:
 
 ```javascript
 {
-    "topic": "klineV2.1.BTCUSD",                //topic name
+    "topic": "klineV2.1.BTCUSDT",                //topic name
     "data": [{
         "start": 1572425640,                    //start time of the candle
         "end": 1572425700,                      //end time of the candle
