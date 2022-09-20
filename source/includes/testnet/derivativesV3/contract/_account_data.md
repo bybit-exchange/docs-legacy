@@ -377,8 +377,8 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderId |false |string |t(:row_comment_orderId_replace) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId_replace) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
 |qty |false |string |t(:row_comment_pRQty) |
 |price |false |string |t(:row_comment_pRPrice) |

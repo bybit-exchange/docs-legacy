@@ -129,8 +129,8 @@ POST
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderId |false |string |t(:row_comment_orderId_replace) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId_replace) |
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
 |iv |false |string |t(:row_comment_iv_v3) |
 |triggerPrice |false |string |t(:row_comment_triggerPrice_replace_v3) |
