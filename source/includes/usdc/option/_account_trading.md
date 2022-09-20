@@ -549,7 +549,7 @@ GET
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
 -H "Content-Type: application/json" \
--D '{"category": "OPTION", "symbol": "BTC-14JUN22-24500-C"}'
+-D '{"category": "OPTION", "symbol": "ETH-20SEP22-1350-C"}'
 
 ```
 
@@ -563,40 +563,40 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-o
 ```javascript
 {
     "result": {
-        "cursor": "df31e03b-fc00-4b4c-bd1c-b97fd72b5c5c%3A1662019818569%2Cdf31e03b-fc00-4b4c-bd1c-b97fd72b5c5c%3A1662019818569",
+        "cursor": "960475fd-dcdb-4e8b-b4c8-884b7108c727%3A1663659012992%2C960475fd-dcdb-4e8b-b4c8-884b7108c727%3A1663659012992",
         "resultTotalSize": 1,
         "dataList": [
             {
-                "symbol": "BTC-2SEP22-18000-C",
+                "symbol": "ETH-20SEP22-1350-C",
                 "orderType": "Limit",
                 "orderLinkId": "",
-                "orderId": "df31e03b-fc00-4b4c-bd1c-b97fd72b5c5c",
+                "orderId": "960475fd-dcdb-4e8b-b4c8-884b7108c727",
                 "stopOrderType": "UNKNOWN",
                 "orderStatus": "New",
                 "takeProfit": "",
-                "updateTimeStamp": "1662019818594",
+                "updateTimeStamp": "1663659013014",
                 "cumExecValue": "0.0000",
-                "createdAt": "1662019818569",
+                "createdAt": "1663659012992",
                 "blockTradeId": "",
                 "orderPnl": "",
-                "price": "500.0",
+                "price": "12.0",
                 "tpTriggerBy": "",
                 "timeInForce": "GoodTillCancel",
                 "basePrice": "",
                 "side": "Buy",
                 "triggerPrice": "",
                 "cumExecFee": "0.0000",
-                "leavesQty": "0.100",
+                "leavesQty": "5.000",
                 "slTriggerBy": "",
                 "iv": "0.000",
                 "closeOnTrigger": "",
                 "cumExecQty": "0.000",
                 "reduceOnly": 0,
-                "qty": "0.100",
+                "qty": "5.000",
                 "stopLoss": "",
                 "lastExecPrice": "",
                 "triggerBy": "",
-                "orderIM": "50.5962"
+                "orderIM": "62.0538"
             }
         ]
     },

@@ -156,30 +156,31 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=l
         "list": [
             {
                 "symbol": "BTCUSDT",
-                "bidPrice": "20254.5",
-                "askPrice": "20256.5",
-                "lastPrice": "20260.00",
-                "lastTickDirection": "PlusTick",
-                "prevPrice24h": "19517.00",
-                "price24hPcnt": "0.038069",
-                "highPrice24h": "20498.00",
-                "lowPrice24h": "18899.00",
-                "prevPrice1h": "20282.00",
-                "markPrice": "20260.00",
-                "indexPrice": "20266.13",
-                "openInterest": "15523.054",
-                "turnover24h": "367014108.36799973",
-                "volume24h": "18674.032",
+                "bidPrice": "19255",
+                "askPrice": "19255.5",
+                "lastPrice": "19255.50",
+                "lastTickDirection": "ZeroPlusTick",
+                "prevPrice24h": "18634.50",
+                "price24hPcnt": "0.033325",
+                "highPrice24h": "19675.00",
+                "lowPrice24h": "18610.00",
+                "prevPrice1h": "19278.00",
+                "markPrice": "19255.00",
+                "indexPrice": "19260.68",
+                "openInterest": "48069.549",
+                "turnover24h": "4686694853.047006",
+                "volume24h": "243730.252",
                 "fundingRate": "0.0001",
-                "nextFundingTime": "2022-07-14T08:00:00Z",
+                "nextFundingTime": "1663689600000",
                 "predictedDeliveryPrice": "",
-                "basisRate": "0",
-                "deliveryFeeRate": "0",
-                "deliveryTime": ""
+                "basisRate": "",
+                "deliveryFeeRate": "",
+                "deliveryTime": "0"
             }
         ]
     },
-    "time": 1657769883695
+    "retExtInfo": null,
+    "time": 1663670053454
 }
 // option response
 {

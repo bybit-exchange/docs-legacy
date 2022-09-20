@@ -1,5 +1,15 @@
 # t(:changelog)
 
+## 2022-09-20
+### REST API
+- [t(:usdcQryUnOrPartFilled)](#t-usdcqryunorpartfilled) [t(:changelog_update)]
+  - t(:restapi_update_20220920)
+
+### WebSocket API
+- [t(:activeOrders)](#t-activeorders) [t(:changelog_update)]
+  - t(:restapi_update_20220920)
+
+
 ## 2022-09-01
 ### REST API
 - [t(:queryLatest500Trades)](#t-querylatest500trades) [t(:changelog_update)]

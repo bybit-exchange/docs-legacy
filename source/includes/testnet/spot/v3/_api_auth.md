@@ -55,7 +55,7 @@ t(:auth_para_dv3_construct2)
 > t(:spotV3_auth_codequote_construct)
 
 ```http
-GET /spot/v3/private/open-orders?1659072951686T0d98KyVamQ62YBzN85000symbol=BTCUSDT HTTP/1.1
+GET /spot/v3/private/open-orders?symbol=BTCUSDT HTTP/1.1
 Host: api-testnet.bybit.com
 -H 'X-BAPI-SIGN-TYPE: 2' \
 -H 'X-BAPI-SIGN: eb431d99a1a203a434a82ac3ea8e107b5f94a967e9aaf922c41e84fb3ec9df78' \

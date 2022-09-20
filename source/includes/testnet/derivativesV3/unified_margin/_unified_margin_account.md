@@ -129,8 +129,8 @@ POST
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
-|orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
+|orderId |false |string |t(:row_comment_orderId_replace) |
+|orderLinkId |false |string |t(:row_comment_orderLinkId_replace) |
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
 |iv |false |string |t(:row_comment_iv_v3) |
 |triggerPrice |false |string |t(:row_comment_triggerPrice_replace_v3) |
@@ -1341,7 +1341,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 t(:wallet_para_delivery_record_v3)
 
 <p class="fake_header">t(:httprequest)</p>
-POST
+GET
 <code><span id=uopvQueryDelivery>/unified/v3/private/delivery-record</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#uopvQueryDelivery"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
@@ -1418,7 +1418,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 t(:wallet_para_settlement_record_v3)
 
 <p class="fake_header">t(:httprequest)</p>
-POST
+GET
 <code><span id=upovSession>/unified/v3/private/settlement-record</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#upovSession"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
