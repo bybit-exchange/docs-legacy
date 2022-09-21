@@ -56,6 +56,9 @@ curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/or
 }
 ```
 
+<aside class="notice">
+t(:placeactive_notice_v3)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -72,8 +75,8 @@ POST
 | <a href="#time-in-force-time_in_force">timeInForce</a>| false               | string          | t(:row_comment_timeInForce) |
 | orderPrice           | false               | string          | t(:spotPostOrderPrice)      |
 | orderLinkId          | false               | string          | t(:spotOrderLinkId)         |
-| orderCategory        | false               | int             | t(:spotv3_orderCategory)         |
-| triggerPrice         | false               | string          | t(:spotv3_triggerPrice)         |
+| orderCategory        | false               | int             | t(:spotv3_orderCategory)    |
+| triggerPrice         | false               | string          | t(:spotv3_triggerPrice)     |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -148,14 +151,13 @@ GET
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#svGetOrder"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 | t(:column_parameter) | t(:column_required) | t(:column_type)  | t(:column_comments)                             |
 |:---------------------|:--------------------|:-----------------|-------------------------------------------------|
 | orderId              | false               | string           | t(:spotV3_comment_orderId) |
 | orderLinkId          | false               | string           | t(:spotV3_comment_orderLinkId) |
+| orderCategory        | false               | int             | t(:spotv3_orderCategory)    |
 
 <p class="fake_header">t(:responseparameters)</p>
-
 | t(:column_parameter) | t(:column_type) | t(:column_comments)         |
 |:---------------------|:----------------|-----------------------------|
 | accountId            | string          | t(:spotAccountId)           |
@@ -235,6 +237,7 @@ POST
 |:---------------------|:--------------------|:----------------|--------------------------  |
 | orderId              | false               | string          | t(:spotV3_comment_orderId) |
 | orderLinkId          | false               | string          | t(:spotV3_comment_orderLinkId) |
+| orderCategory        | false               | int             | t(:spotv3_orderCategory)    |
 
 <p class="fake_header">t(:responseparameters)</p>
 | t(:column_parameter)  | t(:column_type) | t(:column_comments)         |
@@ -304,6 +307,7 @@ POST
 | symbol                | <b>true</b>         | string          | t(:spotSymbol)      |
 | side                  | false               | string          | t(:spotV3_comment_side) |
 | orderTypes            | false               | string          | t(:spotV3_comment_orderTypes) |
+| orderCategory        | false               | int             | t(:spotv3_orderCategory)    |
 
 <p class="fake_header">t(:responseparameters)</p>
 | t(:column_parameter) | t(:column_type) | t(:column_comments)  |
@@ -371,13 +375,12 @@ POST
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#soBatchCancelIds"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
-
 | t(:column_parameter)  | t(:column_required) | t(:column_type) | t(:column_comments)         |
 |:----------------------|:--------------------|:----------------|-----------------------------|
 | orderIds              | <b>true</b>         | string          | t(:spotCancelOrderIds)      |
+| orderCategory        | false               | int             | t(:spotv3_orderCategory)    |
 
 <p class="fake_header">t(:responseparameters)</p>
-
 | t(:column_parameter) | t(:column_type) | t(:column_comments) |
 |:---------------------|:----------------|---------------------|
 | list> orderId        | string          | t(:spotOrderId)     |
@@ -444,6 +447,7 @@ GET
 | symbol               | false               | string          | t(:spotSymbol)               |
 | orderId              | false               | string          | t(:spotOrderId4Pagination)   |
 | limit                | false               | string          | t(:spot_order_list_limit)    |
+| orderCategory        | false               | int             | t(:spotv3_orderCategory)    |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -554,6 +558,7 @@ GET
 | limit                | false               | integer          | t(:spot_historyOrder_limit)  |
 | startTime            | false               | long             | t(:spot_start_time)        |
 | endTime              | false               | long             | t(:spot_end_time)          |
+| orderCategory        | false               | int             | t(:spotv3_orderCategory)    |
 
 
 <p class="fake_header">t(:responseparameters)</p>

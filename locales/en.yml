@@ -3101,6 +3101,7 @@ en:
   linear_row_comment_reduceOnly: <a href="https://help.bybit.com/hc/en-us/articles/360039260574-What-is-a-reduce-only-order-"> What is a reduce-only order?</a> True means your position can only reduce in size if this order is triggered. When <code>reduce_only</code> is true, take profit/stop loss cannot be set
   linear_row_comment_closeOnTrigger: <a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
   placeactive: Place Active Order
+  placeactive_notice_v3: Do not use the duplicate <b>orderLinkId</b> in normal order & TP/SL order
   linear_account_para_placeActive: |
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
@@ -3217,8 +3218,10 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20220920_1: Add new request param <code>orderCategory</code>
   restapi_update_20220920: Add new response field <code>updateTimestamp</code>
   restapi_update_200220916: Update the rule of <code>limit</code> and <code>startTime</code> <code>endTime</code>.
+  restapi_update_20220914: Support new account type <code>UNIFIED</code>, <code>OPTION</code>
   restapi_update_200220913_1: Update the data type of response field <code>BT</code> from <code>string</code> to <code>boolean</code>
   restapi_update_200220913: Add new api to query open interest limit information
   restapi_update_200220907: Add new response field <code>is_block_trade</code>
@@ -3521,7 +3524,7 @@ en:
   spotAccountId: Account ID
   spotExchangeId: Exchange ID
   spotOrderLinkId: User-generated order ID
-  spotv3_orderCategory: Order category. <code>0</code>：normal order; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>
+  spotv3_orderCategory: Order category. <code>0</code>：normal order by default; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>, <b>Required</b> for TP/SL order.
   spotv3_triggerPrice: Trigger price
   spot_Alias: Alias
   spotBaseCurrency: Base currency
@@ -3976,9 +3979,9 @@ en:
   createuniversaltransfer: Create Universal Transfer
   row_comment_from_memberId: From UID
   row_comment_to_memberId: To UID
-  row_comment_from_accountType: From account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code>
+  row_comment_from_accountType: From account type
   transferCoinList_fromAccountType: From account type. Ensure from/to are different account type
-  row_comment_to_accountType: To account type. Currently supports <code>SPOT</code> and <code>CONTRACT</code>
+  row_comment_to_accountType: To account type
   transferCoinList_toAccountType: To account type. Ensure from/to are different account type
   getSubmemberIdList: Get Submember Id List
   queryUniverseTransferList: Query Universal Transfer List
@@ -5508,7 +5511,7 @@ en:
   row_resp_comment_currentLimitPcnt: The current limit percentage of the position under user group. The value is like <code>0.0000</code>
   row_resp_comment_totalBuyPositionSize: The total position size of <code>Buy</code> side under user group
   row_resp_comment_totalSellPositionSize: The total position size of <code>Sell</code> side under user group
-  row_resp_comment_estMaxPositionSize: The estimated maximum position size of single side. Calculation：<code>The latest Open Interest * currentLimitPcnt</code>
+  row_resp_comment_estMaxPositionSize: The estimated maximum position size. Calculation：<code>The latest Open Interest * currentLimitPcnt</code>. Single side max(long position size, short position size)
   row_resp_comment_openInterest: The open interest of the recent 5 mins
   row_resp_comment_userId: User ID
   row_resp_comment_positionSize: The position size of this user id. <b>Note</b>：the data might be latency
