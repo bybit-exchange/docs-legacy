@@ -787,7 +787,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-09-16" class="toc-h2 toc-link" data-title="2022-09-16">2022-09-16</a>
+                    <a href="#2022-09-20" class="toc-h2 toc-link" data-title="2022-09-20">2022-09-20</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -795,10 +795,18 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2022-08-10" class="toc-h2 toc-link" data-title="2022-08-10">2022-08-10</a>
+                    <a href="#2022-09-16" class="toc-h2 toc-link" data-title="2022-09-16">2022-09-16</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-08-10" class="toc-h2 toc-link" data-title="2022-08-10">2022-08-10</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -1557,7 +1565,40 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-16'>2022-09-16</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-20'>2022-09-20</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-getactive">Get Active Order</a> [update]
+
+<ul>
+<li>Add new request param <code>orderCategory</code></li>
+</ul></li>
+<li><a href="#t-cancelactive">Cancel Active Order</a> [update]
+
+<ul>
+<li>Add new request param <code>orderCategory</code></li>
+</ul></li>
+<li><a href="#t-batchcancelactiveorder">Batch Cancel Active Order</a> [update]
+
+<ul>
+<li>Add new request param <code>orderCategory</code></li>
+</ul></li>
+<li><a href="#t-batchcancelactiveorderbyids">Batch Cancel Active Order By IDs</a> [update]
+
+<ul>
+<li>Add new request param <code>orderCategory</code></li>
+</ul></li>
+<li><a href="#t-openorders">Open Orders</a> [update]
+
+<ul>
+<li>Add new request param <code>orderCategory</code></li>
+</ul></li>
+<li><a href="#t-orderhistory">Order History</a> [update]
+
+<ul>
+<li>Add new request param <code>orderCategory</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-09-16'>2022-09-16</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-orderhistory">Order History</a> [update]
 
@@ -1565,7 +1606,7 @@ clipboard.on('error', function(e) {
 <li>Update the rule of <code>limit</code> and <code>startTime</code> <code>endTime</code>.</li>
 </ul></li>
 </ul>
-<h2 id='2022-08-10'>2022-08-10</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2022-08-10'>2022-08-10</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li><a href="#t-placeactive">Place Active Order</a> [update]
 
@@ -2605,6 +2646,10 @@ If symbol is not specified, the best order price from all symbols will be return
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661478987364</span>
 <span class="p">}</span>
 </code></pre></div>
+<aside class="notice">
+Do not use the duplicate <b>orderLinkId</b> in normal order & TP/SL order
+</aside>
+
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
@@ -2668,7 +2713,7 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">orderCategory</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">int</td>
-<td>Order category. <code>0</code>：normal order; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a></td>
+<td>Order category. <code>0</code>：normal order by default; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>, <b>Required</b> for TP/SL order.</td>
 </tr>
 <tr>
 <td style="text-align: left">triggerPrice</td>
@@ -2750,7 +2795,7 @@ If symbol is not specified, the best order price from all symbols will be return
 <tr>
 <td style="text-align: left">orderCategory</td>
 <td style="text-align: left">int</td>
-<td>Order category. <code>0</code>：normal order; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a></td>
+<td>Order category. <code>0</code>：normal order by default; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>, <b>Required</b> for TP/SL order.</td>
 </tr>
 <tr>
 <td style="text-align: left">triggerPrice</td>
@@ -2827,6 +2872,12 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
+</tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Order category. <code>0</code>：normal order by default; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>, <b>Required</b> for TP/SL order.</td>
 </tr>
 </tbody></table>
 
@@ -3003,6 +3054,12 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">string</td>
 <td>Unique user-set order ID. <b>Required</b> if not passing <code>orderId</code></td>
 </tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Order category. <code>0</code>：normal order by default; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>, <b>Required</b> for TP/SL order.</td>
+</tr>
 </tbody></table>
 
 <p class="fake_header">Response Parameters</p>
@@ -3138,6 +3195,12 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">string</td>
 <td>Order type. <code>LIMIT</code> in default. It allows multiple types, separated by comma, e.a LIMIT,LIMIT_MAKER</td>
 </tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Order category. <code>0</code>：normal order by default; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>, <b>Required</b> for TP/SL order.</td>
+</tr>
 </tbody></table>
 
 <p class="fake_header">Response Parameters</p>
@@ -3219,6 +3282,12 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>Order ID, use commas to indicate multiple orderIds. Maximum of 100 ids.</td>
+</tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Order category. <code>0</code>：normal order by default; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>, <b>Required</b> for TP/SL order.</td>
 </tr>
 </tbody></table>
 
@@ -3319,6 +3388,12 @@ If symbol is not specified, the best order price from all symbols will be return
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Default value is 500, max 500</td>
+</tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Order category. <code>0</code>：normal order by default; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>, <b>Required</b> for TP/SL order.</td>
 </tr>
 </tbody></table>
 
@@ -3535,6 +3610,12 @@ If <code>startTime</code> and <code>endTime</code> are both not specified, it re
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
 <td>End time, unit in millisecond</td>
+</tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Order category. <code>0</code>：normal order by default; <code>1</code>：<a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=us_EN&id=000001736">TP/SL order</a>, <b>Required</b> for TP/SL order.</td>
 </tr>
 </tbody></table>
 

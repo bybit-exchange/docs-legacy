@@ -776,7 +776,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-09-16" class="toc-h2 toc-link" data-title="2022-09-16">2022-09-16</a>
+                    <a href="#2022-09-20" class="toc-h2 toc-link" data-title="2022-09-20">2022-09-20</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -784,10 +784,18 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2022-08-10" class="toc-h2 toc-link" data-title="2022-08-10">2022-08-10</a>
+                    <a href="#2022-09-16" class="toc-h2 toc-link" data-title="2022-09-16">2022-09-16</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-08-10" class="toc-h2 toc-link" data-title="2022-08-10">2022-08-10</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -1554,7 +1562,40 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>中文社區和參考資料</h1><h5 id='t-intro_para'><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></h5><h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-09-16'>2022-09-16</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-09-20'>2022-09-20</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-getactive">查詢活動委托</a> [更新]
+
+<ul>
+<li>新增入参<code>orderCategory</code></li>
+</ul></li>
+<li><a href="#t-cancelactive">撤銷活動委托單</a> [更新]
+
+<ul>
+<li>新增入参<code>orderCategory</code></li>
+</ul></li>
+<li><a href="#t-batchcancelactiveorder">批量撤銷訂單</a> [更新]
+
+<ul>
+<li>新增入参<code>orderCategory</code></li>
+</ul></li>
+<li><a href="#t-batchcancelactiveorderbyids">根據訂單號批量撤銷訂單</a> [更新]
+
+<ul>
+<li>新增入参<code>orderCategory</code></li>
+</ul></li>
+<li><a href="#t-openorders">訂單列表</a> [更新]
+
+<ul>
+<li>新增入参<code>orderCategory</code></li>
+</ul></li>
+<li><a href="#t-orderhistory">歷史訂單</a> [更新]
+
+<ul>
+<li>新增入参<code>orderCategory</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-09-16'>2022-09-16</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-orderhistory">歷史訂單</a> [更新]
 
@@ -1562,7 +1603,7 @@ clipboard.on('error', function(e) {
 <li>更新<code>limit</code>和<code>startTime</code>以及<code>endTime</code>的入参規則</li>
 </ul></li>
 </ul>
-<h2 id='2022-08-10'>2022-08-10</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2022-08-10'>2022-08-10</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li><a href="#t-placeactive">創建活動委托單</a> [更新]
 
@@ -2600,6 +2641,10 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661478987364</span>
 <span class="p">}</span>
 </code></pre></div>
+<aside class="notice">
+普通單和止盈止損單的<b>orderLinkId</b>不能重複
+</aside>
+
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
@@ -2663,7 +2708,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">orderCategory</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">int</td>
-<td>訂單類型. <code>0</code>是普通訂單; <code>1</code>是<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a></td>
+<td>訂單類型. 默認為<code>0</code>：普通訂單; <code>1</code>：<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a>，若是止盈止損則<b>必傳</b></td>
 </tr>
 <tr>
 <td style="text-align: left">triggerPrice</td>
@@ -2745,7 +2790,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">orderCategory</td>
 <td style="text-align: left">int</td>
-<td>訂單類型. <code>0</code>是普通訂單; <code>1</code>是<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a></td>
+<td>訂單類型. 默認為<code>0</code>：普通訂單; <code>1</code>：<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a>，若是止盈止損則<b>必傳</b></td>
 </tr>
 <tr>
 <td style="text-align: left">triggerPrice</td>
@@ -2822,6 +2867,12 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>用戶自定義ID. 當<code>orderId</code>為空時, 則<b>必傳</b></td>
+</tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>訂單類型. 默認為<code>0</code>：普通訂單; <code>1</code>：<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a>，若是止盈止損則<b>必傳</b></td>
 </tr>
 </tbody></table>
 
@@ -2998,6 +3049,12 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">string</td>
 <td>用戶自定義ID. 當<code>orderId</code>為空時, 則<b>必傳</b></td>
 </tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>訂單類型. 默認為<code>0</code>：普通訂單; <code>1</code>：<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a>，若是止盈止損則<b>必傳</b></td>
+</tr>
 </tbody></table>
 
 <p class="fake_header">返回參數</p>
@@ -3133,6 +3190,12 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">string</td>
 <td>訂單類型. 默認為<code>LIMIT</code>. 支持多個訂單類型取消, 用英文逗號分開, 例如：LIMIT,LIMIT_MAKER</td>
 </tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>訂單類型. 默認為<code>0</code>：普通訂單; <code>1</code>：<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a>，若是止盈止損則<b>必傳</b></td>
+</tr>
 </tbody></table>
 
 <p class="fake_header">返回參數</p>
@@ -3214,6 +3277,12 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
 <td>訂單號, 可用英文逗號拼接表示多個訂單, 不超過100個。</td>
+</tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>訂單類型. 默認為<code>0</code>：普通訂單; <code>1</code>：<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a>，若是止盈止損則<b>必傳</b></td>
 </tr>
 </tbody></table>
 
@@ -3314,6 +3383,12 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>默認500，最大500</td>
+</tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>訂單類型. 默認為<code>0</code>：普通訂單; <code>1</code>：<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a>，若是止盈止損則<b>必傳</b></td>
 </tr>
 </tbody></table>
 
@@ -3530,6 +3605,12 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">false</td>
 <td style="text-align: left">long</td>
 <td>結束時間（單位毫秒）</td>
+</tr>
+<tr>
+<td style="text-align: left">orderCategory</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>訂單類型. 默認為<code>0</code>：普通訂單; <code>1</code>：<a href="https://www.bybit.com/zh-CN/help-center/bybitHC_Article?language=zh_CN&id=000001736">止盈止損訂單</a>，若是止盈止損則<b>必傳</b></td>
 </tr>
 </tbody></table>
 
