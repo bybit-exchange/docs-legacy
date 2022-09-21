@@ -56,6 +56,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/or
 }
 ```
 
+<aside class="notice">
+t(:placeactive_notice_v3)
+</aside>
+
 
 <p class="fake_header">t(:httprequest)</p>
 POST
