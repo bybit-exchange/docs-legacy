@@ -1051,7 +1051,6 @@ POST
 
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |walletBalance|string|t(:cashBalance)
@@ -1060,7 +1059,7 @@ POST
 |accountIM|string|t(:accountIm)|
 |totalSessionRPL|string|t(:sessionRpl)|
 |equity|string|t(:equity)|
-|totalRPL|string|t(:totalRpl)|
+|totalRPL|string|t(:walletTotalRpl)|
 |marginBalance|string|t(:marginBalance)|
 |availableBalance|string|t(:availableBalance)|
 |totalSessionUPL|string|t(:sessionUpl)|
@@ -1129,7 +1128,7 @@ POST
 |totalGamma|string|t(:totalGamma)|
 |totalVega|string|t(:totalVega)|
 |totalTheta|string|t(:totalTheta)|
-|totalRpl|string|t(:totalRpl)|
+|totalRpl|string|t(:assetTotalRpl)|
 |sessionUpl|string|t(:sessionUpl)|
 |sessionRpl|string|t(:sessionRpl)|
 |im|string|t(:usdcIm)|

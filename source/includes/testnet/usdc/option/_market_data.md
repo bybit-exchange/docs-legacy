@@ -433,7 +433,6 @@ GET
 
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |period|string|t(:usdcPeriod_2)|
 |value|string|t(:usdcVolatility)|
 |time|string|t(:time)|
