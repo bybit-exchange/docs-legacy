@@ -454,6 +454,17 @@ t(:spot_websocket_ticker_desc_v3)
 ## t(:privatetopics)
 
 ### t(:outboundAccountInfo)
+> t(:codequote_subscribe)
+
+```javascript
+{
+    "req_id": "acctInfo_1", //optional
+    "op": "subscribe",
+    "args": [
+        "outboundAccountInfo"
+    ]
+}
+```
 
 ```python--pybit
 
@@ -502,6 +513,17 @@ t(:spotV3_outboundAccountInfo_desc)
 | l | string | t(:spot_frozen_qty) |
 
 ### t(:websocketSpotOrder)
+> t(:codequote_subscribe)
+
+```javascript
+{
+    "req_id": "order_1", //optional
+    "op": "subscribe",
+    "args": [
+        "order"
+    ]
+}
+```
 
 ```python--pybit
 
@@ -582,6 +604,17 @@ t(:spotV3_order_desc)
 
 
 ### t(:websocketSpotStopOrder)
+> t(:codequote_subscribe)
+
+```javascript
+{
+    "req_id": "stopOrder_1", //optional
+    "op": "subscribe",
+    "args": [
+        "stopOrder"
+    ]
+}
+```
 
 ```python--pybit
 
@@ -644,6 +677,17 @@ t(:spotV3_stopOrder)
 
 
 ### t(:ticketInfo)
+> t(:codequote_subscribe)
+
+```javascript
+{
+    "req_id": "ticketInfo_1", //optional
+    "op": "subscribe",
+    "args": [
+        "ticketInfo"
+    ]
+}
+```
 
 ```python--pybit
 

@@ -491,8 +491,8 @@ POST
 |order_id |false |string |t(:row_comment_order_id_replace) |
 |order_link_id |false |string |t(:row_comment_order_link_id_replace) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol). |
-|p_r_qty |false |integer |t(:row_comment_pRQty) |
-|p_r_price |false |string |t(:row_comment_pRPrice) |
+|p_r_qty |false |number |t(:row_comment_pRQty) |
+|p_r_price |false |number |t(:row_comment_pRPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
 |t(:row_parameter_tp_trigger_by) |false |string |t(:account_row_comment_tp_trigger_by) |
@@ -1092,8 +1092,8 @@ POST
 |stop_order_id |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |order_link_id |false |string |t(:misc_row_comment_orderLinkIdNotStopOrderId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol). |
-|p_r_qty |false |integer |t(:row_comment_pRQty) |
-|p_r_price |false |string |t(:row_comment_pRPrice) |
+|p_r_qty |false |number |t(:row_comment_pRQty) |
+|p_r_price |false |number |t(:row_comment_pRPrice) |
 |p_r_trigger_price |false |string |t(:row_comemnt_pRTriggerPrice) |
 |take_profit |false |number |t(:row_comemnt_replace_take_profit)  |
 |stop_loss |false |number |t(:row_comemnt_replace_stop_loss)  |
@@ -2474,34 +2474,39 @@ print(session_auth.api_key_info())
 ```javascript
 {
     "ret_code": 0,
-    "ret_msg": "ok",
+    "ret_msg": "OK",
     "ext_code": "",
+    "ext_info": "",
     "result": [
         {
-            "api_key": "7GkMBBLTbGRfa0Nuh1",
+            "api_key": "XXXXXX",
             "type": "personal",
-            "user_id": 1,
-            "inviter_id": 3,
+            "user_id": XXXX,
+            "inviter_id": 0,
             "ips": [
                 "*"
             ],
-            "note": "scalping_bot",
+            "note": "apikey",
             "permissions": [
                 "Order",
-                "Position"
+                "Position",
+                "SpotTrade",
+                "AccountTransfer",
+                "OptionsTrade",
+                "DerivativesTrade"
             ],
-            "created_at": "2019-10-28T13:22:39.000Z",
-            "expired_at": "2020-01-28T13:22:39.000Z",
+            "created_at": "2022-08-25T07:16:07Z",
+            "expired_at": "2022-11-25T07:16:07Z",
             "read_only": false,
-            "vip_level":"",
-            "mkt_maker_level":""
+            "vip_level": "VIP-1",
+            "mkt_maker_level": "0",
+            "affiliate_id": 0
         }
     ],
-    "ext_info": null,
-    "time_now": "1577445138.790150",
-    "rate_limit_status": 99,
-    "rate_limit_reset_ms": 1577445138812,
-    "rate_limit": 100
+    "time_now": "1664188595.552202",
+    "rate_limit_status": 599,
+    "rate_limit_reset_ms": 1664188595514,
+    "rate_limit": 600
 }
 ```
 
@@ -2531,6 +2536,7 @@ GET
 |read_only |bool |t(:row_comment_read_only)  |
 |vip_level |string |t(:row_comment_vip_level)  |
 |mkt_maker_level |string |t(:row_comment_mkt_maker_level)  |
+|affiliate_id |number |t(:row_comment_affiliate_id)  |
 
 ## t(:lcp)
 > t(:codequote_curlExample)

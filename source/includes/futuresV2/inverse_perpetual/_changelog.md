@@ -1,4 +1,9 @@
-# t(:changelog)   
+# t(:changelog)
+
+## 2022-09-19
+### REST API
+- [t(:key)](#t-key) [t(:changelog_new)]
+  - t(:restapi_update_20220919)
 
 ## 2022-08-25
 ### WebSocket API

@@ -1263,7 +1263,7 @@ GET
 |startTime |false |number |t(:row_comment_startTime_v3)   |
 |endTime |false |number |t(:row_comment_endTime_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
-|limit |false |number |t(:row_comment_limit_v3)   |
+|limit |false |number |t(:row_comment_limit_100_50)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
 |execType |false |string |t(:row_comment_execType_v3)   |
 
