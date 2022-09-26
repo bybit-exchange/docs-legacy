@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-09-19
+### REST API
+- [t(:key)](#t-key) [t(:changelog_new)]
+  - t(:restapi_update_20220919)
+
 ## 2022-09-05
 ### REST API
 - [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
