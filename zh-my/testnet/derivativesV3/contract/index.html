@@ -970,9 +970,6 @@
                   <li>
                     <a href="#t-servertime" class="toc-h2 toc-link" data-title="服務器時間">服務器時間</a>
                   </li>
-                  <li>
-                    <a href="#t-announcement" class="toc-h2 toc-link" data-title="公告">公告</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -2039,7 +2036,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">predictedDeliveryPrice</td>
 <td style="text-align: left">string</td>
-<td>預期交割價, 僅交割合約. category為期權時, 顯示期權的預估交割價格</td>
+<td>預期交割價, 適用於反向交割和期權, 交割前30分鐘才有值</td>
 </tr>
 <tr>
 <td style="text-align: left">indexPrice</td>
@@ -2938,7 +2935,7 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>衍生品產品類型.目前支持期權：option</td>
 </tr>
@@ -6104,21 +6101,21 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/time
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">HTTP</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">HTTP</span><span class="p">(</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">session</span><span class="p">.</span><span class="n">server_time</span><span class="p">())</span>  
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v3/public/time
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577444332.192859</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">timeSecond</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1664267152</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeNano</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1664267152228343045</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1664267152228</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>獲取Bybit服務器時間</p>
@@ -6126,53 +6123,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
-<code><span id=vpTime>/v2/public/time</span></code>
+<code><span id=vpTime>/v3/public/time</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">請求參數</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
-</tr>
-</thead><tbody>
-</tbody></table>
-<h3 id='t-announcement'>公告</h3>
-<blockquote>
-<p>請求示例</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/announcement
-</span></code></pre></div>
-<blockquote>
-<p>響應示例</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-12-02 RELEASE</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">link</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/CHANGELOG.md</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">summary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;p&gt;New `cancel all` endpoint is here now!&lt;/p&gt;&lt;p&gt;Additionally, we strongly recommend that you use the new released place and cancel active V2 endpoints, which are more stable and efficient.The old ones are deprecated (although still working for the time be</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-12-02T11:33:42Z</span><span class="dl">"</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577444818.227082</span><span class="dl">"</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>獲取Bybit最近30天OpenAPI公告（時間倒敘排列）</p>
-
-<p class="fake_header">HTTP 請求</p>
-
-<p>GET
-<code><span id=vpAnnouncement>/v2/public/announcement</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpAnnouncement"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
