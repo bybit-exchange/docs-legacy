@@ -1129,8 +1129,8 @@ POST
 |totalRpl|string|t(:assetTotalRpl)|
 |sessionUpl|string|t(:sessionUpl)|
 |sessionRpl|string|t(:sessionRpl)|
-|im|string|t(:usdcIm)|
-|mm|string|t(:usdcMm)|
+|im|string|t(:usdcImOption)|
+|mm|string|t(:usdcMmOption)|
 
 ### t(:setMarginMode)
 <aside class="notice">
