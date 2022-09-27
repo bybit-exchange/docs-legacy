@@ -2307,6 +2307,20 @@ zh-my:
   spotV3_err_12213: 订单不存在
   spotV3_err_12217: 該交易對僅支持LIMIT_MAKER訂單
   spotV3_err_12218: 由於價格無效，該筆LIMIT_MAKER訂單被拒絕
+  spotV3_err_12221: 幣種不存在
+  spotV3_err_12222: 請求過快
+  spotV3_err_12223: 場外借貸帳戶觸發吿警或爆倉
+  spotV3_err_12224: 非創新區用戶
+  spotV3_err_12225: 查詢用戶是否開通槓桿代幣協議失敗
+  spotV3_err_12226: 全倉用戶帳戶爆倉中
+  spotV3_err_12227: 功能未開放
+  spotV3_err_12228: 買入額度超過預估最大買入額
+  spotV3_err_12229: 賣出數量超過預估最大賣出量
+  spotV3_err_12230: 全倉槓桿中, 預佔額度校驗ltv不通過
+  spotV3_err_12231: 不允許全倉槓桿用戶交易大宗交易
+  spotV3_err_12232: 不允許場外借貸用戶交易大宗交易
+  spotV3_err_12233: 不允許ETP幣對交易大宗交易
+  spotV3_err_12234: 系統錯誤
 
   # Cross Margin Trading
   err_6001: 查詢用戶還款歷史錯誤
@@ -2792,6 +2806,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20220926: 新增響應字段<code>placeType</code>
   restapi_update_20220920_1: 新增入参<code>orderCategory</code>
   restapi_update_20220920: 新增響應字段<code>updateTimestamp</code>
   restapi_update_20220919: 新增響應字段<code>affiliate_id</code>
@@ -4066,7 +4081,9 @@ zh-my:
   totalVega: 總vega
   totalTheta: 總theta
   usdcIm: 初始保證金
+  usdcImOption: 初始保證金. 若獲取不到，則返回空串<code>""</code>
   usdcMm: 維持保證金
+  usdcMmOption: 維持保證金. 若獲取不到，則返回空串<code>""</code>
   sessionUpl: 未實現損益. 返回空字符串<code>""</code>
   sessionRpl: 已實現損益. 返回空字符串<code>""</code>
   usdcOption_reminder: 鑒於接口很多返回值類型是String，因此請特別注意如需要轉number使用，請判斷非空。若查詢字段結果為空或者不存在，則返回空字符串。
@@ -4611,7 +4628,8 @@ zh-my:
   RepayMarginLoan: 歸還借幣
   spotRepayQty: 歸還數量
   QueryBorrowingInfo: 查詢借幣訂單
-  spotCrossMarginOrderStatus: 狀態（0，全部  1，未還清  2，已還清）
+  req_spotCrossMarginOrderStatus: 狀態. <code>0</code>：查詢所有狀態, <code>1</code>：查詢未還清, <code>2</code>：查詢已還清. 默认为<code>1</code>
+  resp_spotCrossMarginOrderStatus: 狀態. <code>1</code>：未還清, <code>2</code>：已還清
   spotCrossMarginLimit: 默認500，最大500
   spotBorrowingId: 借幣ID
   spotLoanAmount: 借幣本金總額
@@ -4792,7 +4810,7 @@ zh-my:
   dv_tickerSymbol: 合約類型. 若category是<code>option</code>則必傳
   # respParam
 
-  dv_tickPredictedDeliveryPrice: 預期交割價, 僅交割合約. category為期權時, 顯示期權的預估交割價格
+  dv_tickPredictedDeliveryPrice: 預期交割價, 適用於反向交割和期權, 交割前30分鐘才有值
 
   dv_openInterestRespValue: 未平倉合約價值
 

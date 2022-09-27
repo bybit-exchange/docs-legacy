@@ -693,7 +693,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8) |
+|category |false |string |t(:dv_category)t(:dv_categorySuffix_8) |
 |symbol |false |string |t(:row_comment_symbol) |
 |baseCoin |false |string |t(:unified_baseCoin_param) |
 |direction |false |string |t(:row_comment_direction_v3) |

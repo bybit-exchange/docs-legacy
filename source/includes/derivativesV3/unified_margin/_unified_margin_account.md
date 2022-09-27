@@ -28,7 +28,6 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
 
 ```
 
-
 > t(:codequote_responseExample)
 
 ```javascript
@@ -37,7 +36,6 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
     "retMsg": "OK",
     "result": {
         "orderId": "42c86d66331e41998d12c2440ce90c1a",
-        "orderLinkId": "e80d558e-ed"
     }
 }
 ```
@@ -77,9 +75,8 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments) |
 |:----- |:-----|----- |
-|category |string |t(:row_comment_category_v3) |
 |orderId |string |t(:row_comment_order_id) |
-|orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
+
 
 ### t(:dv_replaceOrder)
 > t(:codequote_curlExample)
@@ -145,7 +142,6 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:row_comment_category_v3) |
 |orderId |string |t(:row_comment_order_id) |
 |orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
@@ -206,7 +202,6 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:row_comment_category_v3) |
 |orderId |string |t(:row_comment_order_id) |
 |orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 

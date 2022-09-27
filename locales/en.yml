@@ -2564,6 +2564,20 @@ en:
   spotV3_err_12213: Order does not exist.
   spotV3_err_12217: Only LIMIT-MAKER order is supported for the current pair.
   spotV3_err_12218: The LIMIT-MAKER order is rejected due to invalid price.
+  spotV3_err_12221: This coin does not exist
+  spotV3_err_12222: Too many requests in this time frame
+  spotV3_err_12223: Your Spot Account with Institutional Lending triggers an alert or liquidation
+  spotV3_err_12224: You're not a user of the Innovation Zone
+  spotV3_err_12225: You've failed to check the Risk Alert for Leveraged Tokens
+  spotV3_err_12226: Your Spot Account for Margin Trading is being liquidated
+  spotV3_err_12227: This feature is not supported
+  spotV3_err_12228: The purchase amount of each order exceeds the estimated maximum purchase amount
+  spotV3_err_12229: The sell quantity per order exceeds the estimated maximum sell quantity
+  spotV3_err_12230: The reserved quota for Spot Margin Trading does not meet the LTV ratio requirement
+  spotV3_err_12231: Users with Spot Margin Trading are not allowed to perform Block Trades
+  spotV3_err_12232: Users with Institutional Lending are not allowed to perform Block Trades
+  spotV3_err_12233: Users with Leverage Tokens are not allowed to perform Block Trades
+  spotV3_err_12234: System Error
 
   # Cross Margin Trading
   err_6001: Query user repay history error
@@ -3221,6 +3235,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20220926: Add new response param <code>placeType</code>
   restapi_update_20220920_1: Add new request param <code>orderCategory</code>
   restapi_update_20220920: Add new response field <code>updateTimestamp</code>
   restapi_update_20220919: Add new response field <code>affiliate_id</code>
@@ -4490,7 +4505,9 @@ en:
   totalVega: Total vega
   totalTheta: Total theta
   usdcIm: Initial margin
+  usdcImOption: Initial margin. It returns <code>""</code> when fail to get data
   usdcMm: Maintenance margin
+  usdcMmOption: Maintenance margin. It returns <code>""</code> when fail to get data
   sessionUpl: Session UPL. Return null string <code>""</code>
   sessionRpl: Session RPL. Return null string <code>""</code>
   usdcOption_reminder: Please note that many numbers are returned as strings, and null values could be returned as <code>""</code>. You should check if the value is <code>""</code> before casting it from a string to a float.
@@ -5052,7 +5069,8 @@ en:
   RepayMarginLoan: Repay Margin Loan
   spotRepayQty: Repayment Amount
   QueryBorrowingInfo: Query Borrowing Info
-  spotCrossMarginOrderStatus: Status (0.Total 1.  Cleared 2. Not Cleared)
+  req_spotCrossMarginOrderStatus: Status. <code>0</code>：get all kinds of status, <code>1</code>：cleared, <code>2</code>：uncleared. <code>1</code> by default
+  resp_spotCrossMarginOrderStatus: Status. <code>1</code>：cleared, <code>2</code>：uncleared
   spotCrossMarginLimit: Default is 500; Maximum is 500
   spotBorrowingId: Borrowing Id
   spotLoanAmount: Principal Amount
@@ -5225,7 +5243,7 @@ en:
   dv_tickerSymbol: Name of the trading pair. If category is <code>option</code> REQUIRED
   # respParam
 
-  dv_tickPredictedDeliveryPrice: Predicted delivery price. Futures only. If category is <code>option</code>, it is predicted delivery price for option.
+  dv_tickPredictedDeliveryPrice: Predicted delivery price. Applicable to inverse future and option. There will be value 30 mins before delivery
 
   dv_openInterestRespValue: The value of open Interest.
 

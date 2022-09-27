@@ -717,51 +717,49 @@ t(:usdcWssOrderNewDesc)
 
 ```javascript
 {
-    "id": "aaded9fc-3d77-4536-9a21-720a94dc68a6",
+    "id": "9cc72f54-a80b-4ce0-b20b-e2c485797af1",
     "topic": "user.openapi.option.order",
-    "creationTime": 1663659235491,
+    "creationTime": 1664184773564,
     "data": {
         "result": [
             {
-                "orderId": "960475fd-dcdb-4e8b-b4c8-884b7108c727",
+                "orderId": "4c1e6c4f-e778-460d-8155-cb19ae6ee144",
                 "orderLinkId": "",
-                "createdAt": 1663659012992,
-                "updatedAt": 1663659012992,
-                "symbol": "ETH-20SEP22-1350-C",
+                "createdAt": 1664184773539,
+                "updatedAt": 1664184773539,
+                "symbol": "BTC-27SEP22-21000-P",
                 "orderStatus": "New",
                 "side": "Buy",
-                "price": "12.00000000",
+                "price": "500.00000000",
                 "cashFlow": null,
                 "realisedPnl": "",
-                "qty": "5.0000",
-                "cumExecQty": "0.0000",
-                "leavesQty": "5.0000",
-                "orderIM": "62.0481300000000000",
+                "qty": "0.5",
+                "cumExecQty": "0",
+                "leavesQty": "0.5",
+                "orderIM": "252.8784385000000000",
                 "orderType": "Limit",
                 "reduceOnly": 0,
                 "timeInForce": "GoodTillCancel",
-                "cumExecFee": "0.00000000",
+                "cumExecFee": "0",
                 "iv": "0.000",
                 "orderPnl": "",
-                "cumExecValue": "",
+                "cumExecValue": "0",
                 "cancelType": "UNKNOWN",
+                "placeType": "price",
                 "blockTradeId": "",
-                "updateTimeStamp": 1663659013014
+                "updateTimeStamp": 1664184773557
             }
         ],
-        "baseLine": 5,
-        "dataType": "NEW",
-        "version": 3
+        "baseLine": 6,
+        "dataType": "CHANGE",
+        "version": 2
     }
 }
 ```
 
-
 > t(:codequote_delta)
 
 ```javascript
-
-
 {
   "id":"620aeb31-b281-4736-9318-b9193c95ec33",
   "topic":"user.openapi.option.order",
@@ -798,9 +796,7 @@ t(:usdcWssOrderNewDesc)
     "dataType":"CHANGE"
 }
 }
-
 ```
-
 
 t(:usdcActiveOrder)
 t(:usdcCommonDesc)
@@ -830,6 +826,7 @@ t(:usdcCommonDesc)
 |orderPnl |string| Order PNL|
 |cumExecValue |string|t(:cumExecValue)|
 |cancelType|string|t(:usdcCancelType)|
+|placeType|string|t(:optionPlaceType_comment)|
 |updateTimestamp|long|t(:updatedAt)|
 
 
