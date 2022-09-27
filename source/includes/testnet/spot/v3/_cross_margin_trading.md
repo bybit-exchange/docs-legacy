@@ -148,7 +148,7 @@ GET
 |startTime|false|long|t(:spot_orders_start_time)|
 |endTime|false|long|t(:spot_orders_end_time)|
 |<a href="#currency-currency-coin">coin</a>|false|string|t(:spotCurrency)|
-|status|false|int|t(:spotCrossMarginOrderStatus)|
+|status|false|int|t(:req_spotCrossMarginOrderStatus)|
 |limit|false|int|t(:spotCrossMarginLimit)|
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -163,7 +163,7 @@ GET
 |interestBalance|string|t(:spotInterestBalance)|
 |loanAmount|string|t(:spotLoanAmount)|
 |loanBalance|string|t(:spotLoanBalance)|
-|status|int|t(:spotCrossMarginOrderStatus)|
+|status|int|t(:resp_spotCrossMarginOrderStatus)|
 |type|int|t(:spotCrossMarginType)|
 
 
