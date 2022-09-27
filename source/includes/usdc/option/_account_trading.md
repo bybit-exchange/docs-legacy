@@ -549,7 +549,7 @@ GET
 ```console
 curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-orders \
 -H "Content-Type: application/json" \
--D '{"category": "OPTION", "symbol": "ETH-20SEP22-1350-C"}'
+-D '{"category": "OPTION", "symbol": "BTC-27SEP22-21000-P"}'
 
 ```
 
@@ -557,46 +557,46 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-active-o
 
 ```
 
-
 > t(:codequote_responseExample)
 
 ```javascript
 {
     "result": {
-        "cursor": "960475fd-dcdb-4e8b-b4c8-884b7108c727%3A1663659012992%2C960475fd-dcdb-4e8b-b4c8-884b7108c727%3A1663659012992",
+        "cursor": "4c1e6c4f-e778-460d-8155-cb19ae6ee144%3A1664184773539%2C4c1e6c4f-e778-460d-8155-cb19ae6ee144%3A1664184773539",
         "resultTotalSize": 1,
         "dataList": [
             {
-                "symbol": "ETH-20SEP22-1350-C",
+                "symbol": "BTC-27SEP22-21000-P",
                 "orderType": "Limit",
                 "orderLinkId": "",
-                "orderId": "960475fd-dcdb-4e8b-b4c8-884b7108c727",
+                "orderId": "4c1e6c4f-e778-460d-8155-cb19ae6ee144",
                 "stopOrderType": "UNKNOWN",
                 "orderStatus": "New",
                 "takeProfit": "",
-                "updateTimeStamp": "1663659013014",
+                "updateTimeStamp": "1664184773557",
                 "cumExecValue": "0.0000",
-                "createdAt": "1663659012992",
+                "createdAt": "1664184773539",
                 "blockTradeId": "",
                 "orderPnl": "",
-                "price": "12.0",
+                "price": "500.0",
                 "tpTriggerBy": "",
                 "timeInForce": "GoodTillCancel",
                 "basePrice": "",
                 "side": "Buy",
                 "triggerPrice": "",
                 "cumExecFee": "0.0000",
-                "leavesQty": "5.000",
+                "leavesQty": "0.500",
                 "slTriggerBy": "",
                 "iv": "0.000",
+                "placeType": "price",
                 "closeOnTrigger": "",
                 "cumExecQty": "0.000",
                 "reduceOnly": 0,
-                "qty": "5.000",
+                "qty": "0.500",
                 "stopLoss": "",
                 "lastExecPrice": "",
                 "triggerBy": "",
-                "orderIM": "62.0538"
+                "orderIM": "252.8776"
             }
         ]
     },
@@ -655,6 +655,7 @@ POST
 |leavesQty |string|t(:row_comment_leaves_qty)|
 |slTriggerBy |string|t(:usdcSlTriggerBy)|
 |iv |string|t(:optionIv)|
+|placeType |string|t(:optionPlaceType_comment)|
 |closeOnTrigger |bool|t(:closeOnTrigger)|
 |cumExecQty |string|t(:cumExecQty)|
 |reduceOnly |number|t(:reduceOnly)|
