@@ -94,3 +94,12 @@ t(:tick_direction)
 * `AVAX`
 * `SOL`
 * `XRP`
+
+## Stop Order Type (`stopOrderType`)
+* `Stop`
+* `TakeProfit`
+* `StopLoss`
+* `TrailingStop`
+* `TrailingProfit`
+* `PartialTakeProfit`
+* `PartialStopLoss`
