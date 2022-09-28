@@ -2831,6 +2831,26 @@ en:
   err_90016: Rejected by risk control. It may cause liquidation after the transfer.
   err_90015: Insufficient balance
 
+  # copy trade new error code
+  cptd_err_131200: server err
+  cptd_err_131201: biz err
+  cptd_err_131212: user insufficient balance
+  cptd_err_131217: risk check err
+  cptd_err_131203: request parameter err
+  cptd_err_131204: account info err
+  cptd_err_131215: amount err
+  cptd_err_131216: query balance error
+  cptd_err_131218: unify transfer out risk，user's positions are currently under forced liquidation
+  cptd_err_131219: unify transfer out risk，transfer out waring
+  cptd_err_131220: unify transfer out risk，transfer out interest-free-load-limit waring
+  cptd_err_131221: unify transfer out risk，transfer out waring
+  cptd_err_131222: unify transfer out risk，reconciliation check fail
+  cptd_err_131223: unify transfer out risk，refused
+  cptd_err_131224: unify transfer out risk，balance not enough
+  cptd_err_131214: transferId exist
+  cptd_err_131225: unsupported unify state
+  cptd_err_131206: cannot be transfer
+
   # v3 shared errors
   v3_err_10001: params error
   v3_err_10002: Invalid request, please check your timestamp and recv_window param
@@ -5069,8 +5089,8 @@ en:
   RepayMarginLoan: Repay Margin Loan
   spotRepayQty: Repayment Amount
   QueryBorrowingInfo: Query Borrowing Info
-  req_spotCrossMarginOrderStatus: Status. <code>0</code>：get all kinds of status, <code>1</code>：cleared, <code>2</code>：uncleared. <code>1</code> by default
-  resp_spotCrossMarginOrderStatus: Status. <code>1</code>：cleared, <code>2</code>：uncleared
+  req_spotCrossMarginOrderStatus: Status. <code>0</code> by default<li><code>0</code>：get all kinds of status</li><li><code>1</code>：uncleared</li><li><code>2</code>：cleared</li>
+  resp_spotCrossMarginOrderStatus: Status. <code>1</code>：uncleared, <code>2</code>：cleared
   spotCrossMarginLimit: Default is 500; Maximum is 500
   spotBorrowingId: Borrowing Id
   spotLoanAmount: Principal Amount

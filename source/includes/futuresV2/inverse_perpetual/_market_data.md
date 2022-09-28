@@ -279,6 +279,7 @@ GET
 | delivery_fee_rate |string |t(:row_comment_resp_delivery_fee_rate) |
 | predicted_delivery_price |string |t(:row_comment_resp_predicted_delivery_price) |
 | delivery_time |string |t(:row_comment_resp_delivery_time) |
+
 ### t(:publictradingrecords)
 > t(:codequote_curlExample)
 

@@ -1322,7 +1322,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
-|leverage |string|t(:usdcSymbol)|
+|leverage |string|t(:usdcLeverage)|
 |occClosingFee |string|t(:occClosingFee)|
 |liqPrice|string|t(:liqPrice)|
 |positionValue|string|t(:positionValue)|

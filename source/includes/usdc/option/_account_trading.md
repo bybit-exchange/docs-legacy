@@ -1325,7 +1325,7 @@ POST
 |:----- |:-----|----- |
 |t(:row_parameter_symbol) |string|t(:usdcSymbol)|
 |leverage |string|t(:usdcSymbol)|
-|occClosingFee |string|t(:occClosingFee)|
+|occClosingFee |string|t(:usdcLeverage)|
 |liqPrice|string|t(:liqPrice)|
 |positionValue|string|t(:positionValue)|
 |takeProfit|string|t(:trakeProfit)|
