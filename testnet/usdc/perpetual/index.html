@@ -1096,6 +1096,9 @@
                   <li>
                     <a href="#base-coin-basecoin" class="toc-h2 toc-link" data-title="Base Coin(baseCoin)">Base Coin(<code>baseCoin</code>)</a>
                   </li>
+                  <li>
+                    <a href="#stop-order-type-stopordertype" class="toc-h2 toc-link" data-title="Stop Order Type (stopOrderType)">Stop Order Type (<code>stopOrderType</code>)</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -5060,7 +5063,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-margin-i
 <tr>
 <td style="text-align: left">leverage</td>
 <td style="text-align: left">string</td>
-<td>Contract name</td>
+<td>Must be greater than zero and less than the max. leverage allowed</td>
 </tr>
 <tr>
 <td style="text-align: left">occClosingFee</td>
@@ -7327,6 +7330,16 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <li><code>AVAX</code></li>
 <li><code>SOL</code></li>
 <li><code>XRP</code></li>
+</ul>
+<h2 id='stop-order-type-stopordertype'>Stop Order Type (<code>stopOrderType</code>)</h2>
+<ul>
+<li><code>Stop</code></li>
+<li><code>TakeProfit</code></li>
+<li><code>StopLoss</code></li>
+<li><code>TrailingStop</code></li>
+<li><code>TrailingProfit</code></li>
+<li><code>PartialTakeProfit</code></li>
+<li><code>PartialStopLoss</code></li>
 </ul>
 <h1 id='t-errors'>Errors</h1>
 <p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
