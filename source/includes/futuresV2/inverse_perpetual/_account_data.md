@@ -2126,18 +2126,13 @@ print(session_unauth.get_risk_limit(
 
 ```javascript
 {
-    "ret_code":0,
-    "ret_msg":"OK",
-    "ext_code":"",
-    "ext_info":"",
-    "result":[
+    "ret_code": 0,
+    "ret_msg": "OK",
+    "result": [
         {
-            "id":1,
-            "symbol":"BTCUSD",
-            "limit":1000000,
-            "maintain_margin":0.005,
-            "starting_margin":0.01,
-            "section":[
+            "id": 11,
+            "is_lowest_risk": 1,
+            "section": [
                 "1",
                 "2",
                 "3",
@@ -2147,35 +2142,42 @@ print(session_unauth.get_risk_limit(
                 "50",
                 "100"
             ],
-            "is_lowest_risk":1,
-            "created_at":"2021-03-17T08:20:53.000Z",
-            "updated_at":"2021-03-17T08:20:53.000Z",
-            "max_leverage":100
+            "symbol": "ETHUSD",
+            "limit": 500,
+            "max_leverage": "100",
+            "starting_margin": "1",
+            "maintain_margin": "0.5",
+            "coin": "ETH",
+            "created_at": "",
+            "updated_at": ""
         },
         ...
         {
-            "id":10,
-            "symbol":"BTCUSD",
-            "limit":10000000,
-            "maintain_margin":0.05,
-            "starting_margin":0.055,
-            "section":[
+            "id": 21,
+            "is_lowest_risk": 0,
+            "section": [
                 "1",
                 "2",
                 "3",
                 "4",
                 "5",
-                "10",
-                "15",
-                "18"
+                "7",
+                "8",
+                "9"
             ],
-            "is_lowest_risk":0,
-            "created_at":"2021-03-17T08:21:12.000Z",
-            "updated_at":"2021-03-17T08:21:12.000Z",
-            "max_leverage":18.18
+            "symbol": "ETHUSD",
+            "limit": 30000,
+            "max_leverage": "9.1",
+            "starting_margin": "11",
+            "maintain_margin": "5.5",
+            "coin": "ETH",
+            "created_at": "",
+            "updated_at": ""
         }
     ],
-    "time_now":"1616052270.701108"
+    "ext_code": "",
+    "ext_info": "",
+    "time_now": "1662629588.663921"
 }
 ```
 
