@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-09-29
+### REST API
+- [t(:dv_placeOrder)](#t-dv_placeorder) [t(:changelog_update)]
+  - t(:restapi_update_20220929)
+
 ## 2022-09-14
 ### WebSocket API
 - [t(:websockettrade)](#t-websockettrade) [t(:changelog_update)]

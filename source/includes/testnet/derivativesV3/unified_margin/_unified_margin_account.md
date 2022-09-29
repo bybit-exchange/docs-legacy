@@ -35,8 +35,11 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "orderId": "42c86d66331e41998d12c2440ce90c1a",
-    }
+        "orderId": "e10b0716-7c91-4091-b98a-1fa0f401c7d5",
+        "orderLinkId": "test0000003"
+    },
+    "retExtInfo": null,
+    "time": 1664441344238
 }
 ```
 
@@ -76,6 +79,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments) |
 |:----- |:-----|----- |
 |orderId |string |t(:row_comment_order_id) |
+|orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 ### t(:dv_replaceOrder)
 > t(:codequote_curlExample)
