@@ -35,8 +35,11 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "orderId": "42c86d66331e41998d12c2440ce90c1a",
-    }
+        "orderId": "e10b0716-7c91-4091-b98a-1fa0f401c7d5",
+        "orderLinkId": "test0000003"
+    },
+    "retExtInfo": null,
+    "time": 1664441344238
 }
 ```
 
@@ -76,6 +79,7 @@ POST
 |t(:column_parameter)|t(:column_type)|t(:column_comments) |
 |:----- |:-----|----- |
 |orderId |string |t(:row_comment_order_id) |
+|orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
 
 ### t(:dv_replaceOrder)
@@ -996,13 +1000,13 @@ POST
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|buyLeverage |<b>true</b> |number |t(:row_comment_buyLeverage_v3)    |
-|sellLeverage |<b>true</b> |number |t(:row_comment_sellLeverage_v3)   |
+|buyLeverage |<b>true</b> |string |t(:row_comment_buyLeverage_v3)    |
+|sellLeverage |<b>true</b> |string |t(:row_comment_sellLeverage_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|leverage |number |t(:row_comment_query_set_leverage_v3)  |
+
 
 ### t(:dv_switchmode)
 
@@ -1052,12 +1056,11 @@ POST
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|tpSlMode |<b>true</b> |number |t(:row_comment_tpSlMode_v3)    |
+|<a href="#tp-sl-mode-tpslmode">tpSlMode</a> |<b>true</b> |string |t(:row_comment_tpSlMode_v3)    |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|tpSlMode |string |t(:row_comment_query_tpslMode_v3)  |
 
 
 ### t(:dv_setrisklimit)
@@ -1109,13 +1112,12 @@ POST
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |riskId |<b>true</b> |number |t(:row_comment_riskId_v3)  |
-|positionIdx |<b>true</b> |number |t(:row_comment_positionIdx_um)  |
+|positionIdx |false |string |t(:row_comment_positionIdx_um)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:row_comment_category_v3)    |
-|riskId |number |t(:row_comment_riskId_v3)  |
+
 
 ### t(:dv_tradingstop)
 > t(:codequote_curlExample)
@@ -1181,6 +1183,10 @@ POST
 |slSize |false |string |t(:account_row_comment_slSize_v3) |
 |tpSize |false |string |t(:row_comment_tpSize_v3) |
 |positionIdx |false |string |t(:row_comment_positionIdx_um) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
 
 
 ### t(:dv_userTradeRecords7Day)
