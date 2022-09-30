@@ -773,6 +773,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2022-09-29" class="toc-h2 toc-link" data-title="2022-09-29">2022-09-29</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-09-14" class="toc-h2 toc-link" data-title="2022-09-14">2022-09-14</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -792,7 +800,7 @@
                     <a href="#2022-08-25" class="toc-h2 toc-link" data-title="2022-08-25">2022-08-25</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -800,7 +808,7 @@
                     <a href="#2022-08-24" class="toc-h2 toc-link" data-title="2022-08-24">2022-08-24</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -1449,7 +1457,15 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-14'>2022-09-14</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-29'>2022-09-29</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-dv_placeorder">Place Order</a> [update]
+
+<ul>
+<li>Add new response param <code>orderLinkId</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-09-14'>2022-09-14</h2><h3 id='websocket-api'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websockettrade">trade</a> [update]
 
@@ -1465,7 +1481,7 @@ clipboard.on('error', function(e) {
 <li>Add new response field <code>leavesQty</code>, <code>cumExecQty</code>, <code>cumExecValue</code>, <code>cumExecFee</code></li>
 </ul></li>
 </ul>
-<h2 id='2022-08-25'>2022-08-25</h2><h3 id='rest-api'>REST API</h3>
+<h2 id='2022-08-25'>2022-08-25</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-dv_batchplaceorder">Batch Place Orders</a> [update]
 
@@ -1488,7 +1504,7 @@ clipboard.on('error', function(e) {
 <li><code>baseCoin</code> and <code>settleCoin</code> is supported for when <code>category</code>=linear</li>
 </ul></li>
 </ul>
-<h2 id='2022-08-24'>2022-08-24</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2022-08-24'>2022-08-24</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li><a href="#t-dv_instrhead">Get Instrument Info</a> [update]
 
@@ -3390,8 +3406,11 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">42c86d66331e41998d12c2440ce90c1a</span><span class="dl">"</span><span class="p">,</span>
-    <span class="p">}</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">e10b0716-7c91-4091-b98a-1fa0f401c7d5</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">test0000003</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1664441344238</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p><p><b>Interface:</b></p>
@@ -3563,6 +3582,11 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>Strategy linked order ID</td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_replaceorder'>Replace Order</h3>
@@ -5468,13 +5492,13 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <tr>
 <td style="text-align: left">buyLeverage</td>
 <td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>0 < leverage < leverage of the corresponding risk limit</td>
 </tr>
 <tr>
 <td style="text-align: left">sellLeverage</td>
 <td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">string</td>
 <td>0 < leverage < leverage of the corresponding risk limit</td>
 </tr>
 </tbody></table>
@@ -5488,11 +5512,6 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <th>Comment</th>
 </tr>
 </thead><tbody>
-<tr>
-<td style="text-align: left">leverage</td>
-<td style="text-align: left">number</td>
-<td>User's leverage</td>
-</tr>
 </tbody></table>
 <h3 id='t-dv_switchmode'>Switch TP/SL Mode</h3>
 <blockquote>
@@ -5558,10 +5577,10 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td>Name of Contract</td>
 </tr>
 <tr>
-<td style="text-align: left">tpSlMode</td>
+<td style="text-align: left"><a href="#tp-sl-mode-tpslmode">tpSlMode</a></td>
 <td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
-<td>TP/SL mode   Full<span>:</span> 1, Partial<span>:</span> 0</td>
+<td style="text-align: left">string</td>
+<td>TP/SL mode</td>
 </tr>
 </tbody></table>
 
@@ -5574,11 +5593,6 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <th>Comment</th>
 </tr>
 </thead><tbody>
-<tr>
-<td style="text-align: left">tpSlMode</td>
-<td style="text-align: left">string</td>
-<td>TP/SL mode</td>
-</tr>
 </tbody></table>
 <h3 id='t-dv_setrisklimit'>Set Risk Limit</h3>
 <blockquote>
@@ -5612,7 +5626,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 
 </code></pre></div>
 <p><p><b>Interface:</b></p>
-<p>For risk limit, click here to learn more.</p></p>
+<p>For risk limit, click <a href="https://www.bybit.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Article?language=en_US&id=000001164">here</a> to learn more.</p></p>
 </p>
 
 <p class="fake_header">HTTP Request</p>
@@ -5652,8 +5666,8 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 </tr>
 <tr>
 <td style="text-align: left">positionIdx</td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
 <td>Position mode. unified margin account is only available in One-Way mode, which is <code>0</code></td>
 </tr>
 </tbody></table>
@@ -5667,17 +5681,6 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <th>Comment</th>
 </tr>
 </thead><tbody>
-<tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>Type of derivatives product: linear or option.
-</td>
-</tr>
-<tr>
-<td style="text-align: left">riskId</td>
-<td style="text-align: left">number</td>
-<td>Risk limit ID</td>
-</tr>
 </tbody></table>
 <h3 id='t-dv_tradingstop'>Set TP/SL</h3>
 <blockquote>
@@ -5804,6 +5807,17 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">string</td>
 <td>Position mode. unified margin account is only available in One-Way mode, which is <code>0</code></td>
 </tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
 </tbody></table>
 <h3 id='t-dv_usertraderecords7day'>Get 7-day Trading History</h3>
 <blockquote>
