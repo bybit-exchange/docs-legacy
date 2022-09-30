@@ -999,13 +999,13 @@ POST
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|buyLeverage |<b>true</b> |number |t(:row_comment_buyLeverage_v3)    |
-|sellLeverage |<b>true</b> |number |t(:row_comment_sellLeverage_v3)   |
+|buyLeverage |<b>true</b> |string |t(:row_comment_buyLeverage_v3)    |
+|sellLeverage |<b>true</b> |string |t(:row_comment_sellLeverage_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|leverage |number |t(:row_comment_query_set_leverage_v3)  |
+
 
 ### t(:dv_switchmode)
 
@@ -1055,12 +1055,11 @@ POST
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|tpSlMode |<b>true</b> |number |t(:row_comment_tpSlMode_v3)    |
+|tpSlMode |<b>true</b> |string |t(:row_comment_tpSlMode_v3)    |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|tpSlMode |string |t(:row_comment_query_tpslMode_v3)  |
 
 
 ### t(:dv_setrisklimit)
@@ -1112,13 +1111,12 @@ POST
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |riskId |<b>true</b> |number |t(:row_comment_riskId_v3)  |
-|positionIdx |<b>true</b> |number |t(:row_comment_positionIdx_um)  |
+|positionIdx |<b>true</b> |string |t(:row_comment_positionIdx_um)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:row_comment_category_v3)    |
-|riskId |number |t(:row_comment_riskId_v3)  |
+
 
 ### t(:dv_tradingstop)
 > t(:codequote_curlExample)
@@ -1184,6 +1182,10 @@ POST
 |slSize |false |string |t(:account_row_comment_slSize_v3) |
 |tpSize |false |string |t(:row_comment_tpSize_v3) |
 |positionIdx |false |string |t(:row_comment_positionIdx_um) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
 
 
 ### t(:dv_userTradeRecords7Day)
