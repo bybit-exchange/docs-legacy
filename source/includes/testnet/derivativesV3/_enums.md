@@ -148,6 +148,7 @@ Only for conditional orders:
 * `AdlTrade` t(:exec_adlTrade)
 * `Funding` t(:exec_funding)
 * `BustTrade` t(:exec_bustTrade)
+* `Settle` t(:exec_settle)
 
 ## Liquidity type (`lastLiquidityInd`)
 * `AddedLiquidity` t(:addedLiquidity)
