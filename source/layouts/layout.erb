@@ -407,60 +407,56 @@ under the License.
 
         <!-- Account asset V3(asset v1, asset v3) -->
         <% if page_classes.include?("v1") %>
-          <% if page_classes.include?("testnet") %>
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn"><%=t(:account_asset)%>
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v3" ><%=t(:assetV3)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v1" ><%=t(:assetV1)%></a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"><%=t(:account_asset)%>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <% if page_classes.include?("testnet") %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v3" ><%=t(:assetV3)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v1" ><%=t(:assetV1)%></a>
+                <% else %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset/v3" ><%=t(:assetV3)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset/v1" ><%=t(:assetV1)%></a>
+                <% end %>
               </div>
-            </li>
-          <% end %>
+            </div>
+          </li>
         <% elsif page_classes.include?("v3") %>
-          <% if page_classes.include?("testnet") %>
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn"><%=t(:account_asset)%>
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v3" ><%=t(:assetV3)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v1" ><%=t(:assetV1)%></a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"><%=t(:account_asset)%>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <% if page_classes.include?("testnet") %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v3" ><%=t(:assetV3)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v1" ><%=t(:assetV1)%></a>
+                <% else %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset/v3" ><%=t(:assetV3)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset/v1" ><%=t(:assetV1)%></a>
+                <% end %>
               </div>
-            </li>
-          <% end %>
+            </div>
+          </li>
         <% else %>
-          <% if page_classes.include?("testnet") %>
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn"><%=t(:account_asset)%>
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v3" ><%=t(:assetV3)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v1" ><%=t(:assetV1)%></a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"><%=t(:account_asset)%>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <% if page_classes.include?("testnet") %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v3" ><%=t(:assetV3)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v1" ><%=t(:assetV1)%></a>
+                <% else %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset/v3" ><%=t(:assetV3)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset/v1" ><%=t(:assetV1)%></a>
+                <% end %>
               </div>
-            </li>
-          <% end %>
-        <% end %>
-
-        <!-- Account Asset -->
-        <% if page_classes.end_with?("account_asset_index") %>
-        	<% if page_classes.include?("testnet") %>
-        	<% else %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset" class="selected"><%=t(:account_asset)%></a></li>
-        	<% end %>
-        <% else %>
-        	<% if page_classes.include?("testnet") %>
-        	<% else %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset""><%=t(:account_asset)%></a></li>
-        	<% end %>
+            </div>
+          </li>
         <% end %>
 
         <!-- Copy Trading -->
@@ -601,26 +597,26 @@ under the License.
                 <% end %>
               <% end %>
 
-              <!-- it's for asset mainnet switch to asset v1 testnet -->
-              <% if page_classes.end_with?("account_asset_index") %>
-                <% if page_classes.include?("testnet") %>
-                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset>Mainnet</a>
-                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v1>Testnet</a></span>
-                <% else %>
-                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset>Mainnet</a></span>
-                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v1>Testnet</a>
-                <% end %>
-              <% end %>
-
-              <!-- it's for asset v1 testnet switch to asset mainnet -->
+              <!-- it's for asset mainnet switch to asset testnet -->
               <% if page_classes.end_with?("v1_index") %>
                 <% if page_classes.include?("account_asset") %>
                   <% if page_classes.include?("testnet") %>
-                    <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset>Mainnet</a>
+                    <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset/v1>Mainnet</a>
                     <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v1>Testnet</a></span>
                   <% else %>
-                    <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset>Mainnet</a></span>
+                    <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset/v1>Mainnet</a></span>
                     <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v1>Testnet</a>
+                  <% end %>
+                <% end %>
+              <% end %>
+              <% if page_classes.end_with?("v3_index") %>
+                <% if page_classes.include?("account_asset") %>
+                  <% if page_classes.include?("testnet") %>
+                    <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset/v3>Mainnet</a>
+                    <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v3>Testnet</a></span>
+                  <% else %>
+                    <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/account_asset/v3>Mainnet</a></span>
+                    <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/account_asset/v3>Testnet</a>
                   <% end %>
                 <% end %>
               <% end %>
