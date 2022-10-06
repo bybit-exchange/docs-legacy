@@ -1790,7 +1790,7 @@ curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/order-book?sym
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>每頁數量, 最大200. 默認每頁200條</td>
+<td>每頁數量, 最大1000. 默認每頁500條</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
@@ -7104,6 +7104,11 @@ DCP的開和關, 僅限機構類型用戶
 <p>如果使用这个topic, 建议是先订阅这个topic,然后再进行交易相关操作.</p>
 </p>
 
+<aside class="notice">
+僅推送<b>增量</b>數據. 推薦提前調用<a href="#t-usdcqryunorpartfilled_new">獲取實時未成交/部分成交訂單列表</a>接口來獲取完整數據.
+
+</aside>
+
 <p class="fake_header">返回參數</p>
 
 <table><thead>
@@ -7315,6 +7320,11 @@ DCP的開和關, 僅限機構類型用戶
 <p>1:若dataType為NEW，則該條數據為全量數據</p>
 <p>2:若dataType為CHANGE，則該條數據為變化導致的增量數據</p>
 </p>
+
+<aside class="warning">
+<b>已廢棄</b>, 不再維護. 推薦使用<a href="#t-activeorders_new">訂單(純增量)</a>
+
+</aside>
 
 <p class="fake_header">返回參數</p>
 
