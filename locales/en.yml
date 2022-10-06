@@ -1581,6 +1581,12 @@ en:
     <li>Conditional orders: 10</li>
     </ul>
     <p>If you have reached the 500 active order limit, creating a new order will be successful, but the oldest existing order will be cancelled. However, if you have reached the 10 conditional order limit, creating a new order will result in an error, maintaining the existing 10 orders.</p>
+  rate_para_limits_contractV3: |
+    <p>Max. number of unfilled orders supported under each trading pair:</p>
+    <ul>
+    <li>Active orders: 500</li>
+    <li>Conditional orders: 10</li>
+    </ul>
   ### How to Raise Your API Limit
   raisemylimit: How to Increase API Limits
   rate_para_raise: |
@@ -4187,6 +4193,7 @@ en:
   usdcStartTime: Start time, unit in seconds
   usdcStartTime_ms: Start time, unit in milliseconds
   usdcLimit: Number of data per page; the max. value is 200, and the default value is 200
+  usdcLimit_max1000_default500: Number of data per page; the max. value is 1000, and the default value is 500
   usdcVolume: Trading volume
 
   usdcCategory: Type. OPTION or PERPETUAL
@@ -4794,6 +4801,9 @@ en:
     <p>-If the dataType is NEW, full data will be pushed  </p>
     <p>-if the dataType is CHANGE, incremental data will be pushed  </p>
 
+  usdc_websocket_orders_warning: |
+    <b>DEPRECIATED</b>, no more maintainence. It is recommended to <a href="#t-activeorders_new">use orders(delta only)</a>
+
   usdcWssOrderNew: |
     <p>topic: user.order</p>
 
@@ -4801,6 +4811,9 @@ en:
     <p>This topic reflects an order lifecycle.</p>
     <p>It only pushes delta data packages. So make sure you've subscribed the topic before placing an order</p>
     <p>It sometimes might push duplicate messages, so please ensure idempotent process.
+
+  usdc_websocket_orderDelta_notice: |
+    There is only <b>delta</b> stream available. It is recommended to call <a href="#t-usdcqryunorpartfilled_new">Real-time Unfilled/Partially Filled Orders</a> to get snapshot data in advance.
 
   usdcPerpCategory: Type. PERPETUAL
   usdcPerpOrderType: <a href="#order-type-ordertypes">Order Type</a>

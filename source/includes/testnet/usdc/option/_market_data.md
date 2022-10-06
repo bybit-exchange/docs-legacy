@@ -126,7 +126,7 @@ GET
 |status|false|string|t(:symbolStatus)|
 |baseCoin|false|string|t(:usdcBaseCoin_new)|
 |direction|false|string|t(:direction)|
-|limit|false|string|t(:usdcLimit)|
+|limit|false|string|t(:usdcLimit_max1000_default500)|
 |cursor|false|string|t(:cursor)|
 
 

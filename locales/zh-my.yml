@@ -1405,6 +1405,12 @@ zh-my:
     <li>活動單: 500</li>
     <li>條件單: 10</li>
     </ul>
+  rate_para_limits_contractV3: |
+    <p>每個交易對可以持有的訂單數量上限：</p>
+    <ul>
+    <li>活動單: 500</li>
+    <li>條件單: 10</li>
+    </ul>
   ### How to Raise Your API Limit
   raisemylimit: 如何提高頻率限製
   rate_para_raise: |
@@ -3765,6 +3771,7 @@ zh-my:
   usdcStartTime: 起始時間戳（單位秒）
   usdcStartTime_ms: 起始時間戳（單位毫秒）
   usdcLimit: 每頁數量, 最大200. 默認每頁200條
+  usdcLimit_max1000_default500: 每頁數量, 最大1000. 默認每頁500條
   usdcCategory: 類型. OPTION or PERPETUAL
   usdcOptionType: 期權時需要傳遞，CALL / PUT
   usdcOpen: 開始價格
@@ -3885,6 +3892,10 @@ zh-my:
     <p>该topic反应的是一个订单的变化周期.</p>
     <p>这是一个增量推送, 即有新的活动单时才会推送该topic.数据可能会重复推送, 请做好幂等处理.</p>
     <p>如果使用这个topic, 建议是先订阅这个topic,然后再进行交易相关操作.</p>
+
+  usdc_websocket_orderDelta_notice: |
+    僅推送<b>增量</b>數據. 推薦提前調用<a href="#t-usdcqryunorpartfilled_new">獲取實時未成交/部分成交訂單列表</a>接口來獲取完整數據.
+
   usdcQryOrderHistory: 查詢單筆/全部訂單歷史
   usdcFundingApi: 資金費率
 
@@ -4361,6 +4372,9 @@ zh-my:
     <p>鏈接建立成功時,會首先增收一個全量包,如再次下單,會收到增量的數據包. </p>
     <p>1:若dataType為NEW，則該條數據為全量數據</p>
     <p>2:若dataType為CHANGE，則該條數據為變化導致的增量數據</p>
+
+  usdc_websocket_orders_warning: |
+    <b>已廢棄</b>, 不再維護. 推薦使用<a href="#t-activeorders_new">訂單(純增量)</a>
 
   usdcPerpCategory: 類型 PERPETUAL
   usdcPerpOrderType: <a href="#order-type-ordertypes">訂單類型</a>

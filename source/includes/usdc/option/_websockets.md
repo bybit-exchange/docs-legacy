@@ -679,6 +679,10 @@ t(:usdcFilledHistory)
 t(:usdcWssOrderNew)
 t(:usdcWssOrderNewDesc)
 
+<aside class="notice">
+t(:usdc_websocket_orderDelta_notice)
+</aside>
+
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
@@ -800,6 +804,10 @@ t(:usdcWssOrderNewDesc)
 
 t(:usdcActiveOrder)
 t(:usdcCommonDesc)
+
+<aside class="warning">
+t(:usdc_websocket_orders_warning)
+</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
