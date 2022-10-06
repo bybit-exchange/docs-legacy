@@ -3892,6 +3892,10 @@ zh-my:
     <p>该topic反应的是一个订单的变化周期.</p>
     <p>这是一个增量推送, 即有新的活动单时才会推送该topic.数据可能会重复推送, 请做好幂等处理.</p>
     <p>如果使用这个topic, 建议是先订阅这个topic,然后再进行交易相关操作.</p>
+
+  usdc_websocket_orderDelta_notice: |
+    僅推送<b>增量</b>數據. 推薦提前調用<a href="#t-usdcqryunorpartfilled_new">獲取實時未成交/部分成交訂單列表</a>接口來獲取完整數據.
+
   usdcQryOrderHistory: 查詢單筆/全部訂單歷史
   usdcFundingApi: 資金費率
 
@@ -4368,6 +4372,9 @@ zh-my:
     <p>鏈接建立成功時,會首先增收一個全量包,如再次下單,會收到增量的數據包. </p>
     <p>1:若dataType為NEW，則該條數據為全量數據</p>
     <p>2:若dataType為CHANGE，則該條數據為變化導致的增量數據</p>
+
+  usdc_websocket_orders_warning: |
+    <b>已廢棄</b>, 不再維護. 推薦使用<a href="#t-activeorders_new">訂單(純增量)</a>
 
   usdcPerpCategory: 類型 PERPETUAL
   usdcPerpOrderType: <a href="#order-type-ordertypes">訂單類型</a>

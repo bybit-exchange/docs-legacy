@@ -4801,6 +4801,9 @@ en:
     <p>-If the dataType is NEW, full data will be pushed  </p>
     <p>-if the dataType is CHANGE, incremental data will be pushed  </p>
 
+  usdc_websocket_orders_warning: |
+    <b>DEPRECIATED</b>, no more maintainence. It is recommended to <a href="#t-activeorders_new">use orders(delta only)</a>
+
   usdcWssOrderNew: |
     <p>topic: user.order</p>
 
@@ -4808,6 +4811,9 @@ en:
     <p>This topic reflects an order lifecycle.</p>
     <p>It only pushes delta data packages. So make sure you've subscribed the topic before placing an order</p>
     <p>It sometimes might push duplicate messages, so please ensure idempotent process.
+
+  usdc_websocket_orderDelta_notice: |
+    There is only <b>delta</b> stream available. It is recommended to call <a href="#t-usdcqryunorpartfilled_new">Real-time Unfilled/Partially Filled Orders</a> to get snapshot data in advance.
 
   usdcPerpCategory: Type. PERPETUAL
   usdcPerpOrderType: <a href="#order-type-ordertypes">Order Type</a>
