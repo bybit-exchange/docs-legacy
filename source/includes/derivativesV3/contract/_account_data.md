@@ -1281,8 +1281,8 @@ t(:OILimitInfo_para)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pltcLpnl>/contract/v3/private/position/limit-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcLpnl"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=posiliin>/contract/v3/private/position/limit-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#posiliin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -1424,10 +1424,6 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
     "time": 1658739027301
 }
 ```
-
-<aside class="warning">
-t(:contract_feeRate_warning)
-</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 GET
