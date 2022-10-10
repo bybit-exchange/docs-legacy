@@ -4443,7 +4443,7 @@ en:
 
 
   usdcOrderType: refer to <a href="#order-type-ordertype">Order type</a> (MARKET is not supported currently for Options)
-  usdcOptionOrderType: refer to <a href="#order-type-ordertype">Order type</a> (Market is only supported currently for IOC（ImmediateOrCancel）orders)
+  usdcOptionOrderType: refer to <a href="#order-type-ordertype">Order type</a>
   usdcOptionPlaceOrderPrice: Order price. For option, if iv has value, the final order price will be calculated by Implied volatility. If orderType is Market, orderPrice is not required.
   optionIv_order: Implied volatility. If orderType is Market, iv is not required, otherwise the order will fail.
   usdcOption_timeInForce: For Market order, it must be <code>ImmediateOrCancel</code>
@@ -5527,7 +5527,7 @@ en:
   contract_para_getRealtimeOrder: |
     <p>Query real-time order information. If only <code>orderId</code> or <code>orderLinkId</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b></p>.
     <p>Ordered by <code>createdTime</code> in descending order. You could query multiple symbols in one request, but it costs <b>10</b> times for API rate limit per request.</p>
-  contract_comment_realtimeOrderSymbol: Symbol name. It enables multiple symbols, separated by commas, 10 symbols in max.
+  contract_comment_realtimeOrderSymbol: Symbol name.
   contract_comment_realtimeOrderSettleCoin: Settle coin. Either <code>symbol</code> or <code>settleCoin</code> is required. If both are passed, <code>symbol</code> is used first.
   contract_para_position: |
     <p><b>Interface:</b></p>

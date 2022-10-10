@@ -115,6 +115,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/ord
 > t(:codequote_responseExample)
 
 ```javascript
+// response of normal order
 {
     "retCode": 0,
     "retMsg": "OK",
@@ -142,6 +143,35 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/ord
     "retExtMap": {},
     "retExtInfo": {},
     "time": 1659076397365
+}
+
+// response of stop order
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "accountId": "533287",
+        "symbol": "BTCUSDT",
+        "orderLinkId": "testSpot_25",
+        "orderId": "1261611660550946304",
+        "orderPrice": "17000",
+        "orderQty": "0.1",
+        "status": "ORDER_NEW",
+        "timeInForce": "GTC",
+        "orderType": "LIMIT",
+        "side": "BUY",
+        "stopPrice": "0.0",
+        "icebergQty": "0.0",
+        "createTime": "1665131829743",
+        "updateTime": "1665131829743",
+        "isWorking": "1",
+        "executedOrderId": "1261611660550946305",
+        "triggerPrice": "22000",
+        "orderCategory": 1
+    },
+    "retExtMap": {},
+    "retExtInfo": null,
+    "time": 1665131916562
 }
 ```
 
@@ -404,6 +434,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/ope
 > t(:codequote_responseExample)
 
 ```javascript
+// response of normal order
 {
     "retCode": 0,
     "retMsg": "OK",
@@ -433,6 +464,38 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/ope
     },
     "retExtInfo": {},
     "time": 1659081570356
+}
+
+// response of stop order
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "list": [
+            {
+                "accountId": "533287",
+                "symbol": "BTCUSDT",
+                "orderLinkId": "testSpot_25",
+                "orderId": "1261611660550946304",
+                "orderPrice": "17000",
+                "orderQty": "0.1",
+                "status": "ORDER_NEW",
+                "timeInForce": "GTC",
+                "orderType": "LIMIT",
+                "side": "BUY",
+                "stopPrice": "0.0",
+                "icebergQty": "0.0",
+                "createTime": 1665131829743,
+                "updateTime": 1665131829743,
+                "isWorking": "1",
+                "executedOrderId": "1261611660550946305",
+                "triggerPrice": "22000",
+                "orderCategory": 1
+            }
+        ]
+    },
+    "retExtInfo": null,
+    "time": 1665131839884
 }
 ```
 
@@ -490,6 +553,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/his
 > t(:codequote_responseExample)
 
 ```javascript
+// response of normal order
 {
     "retCode": 0,
     "retMsg": "OK",
@@ -514,31 +578,43 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/his
                 "createTime": 1659081332185,
                 "updateTime": 1659081332225,
                 "isWorking": "1"
-            },
-            {
-                "accountId": "533287",
-                "symbol": "BTCUSDT",
-                "orderLinkId": "spotx002",
-                "orderId": "1210852013162639104",
-                "orderPrice": "23800",
-                "orderQty": "0.05",
-                "execQty": "0",
-                "cummulativeQuoteQty": "0",
-                "avgPrice": "0",
-                "status": "CANCELED",
-                "timeInForce": "GTC",
-                "orderType": "LIMIT_MAKER",
-                "side": "SELL",
-                "stopPrice": "0.0",
-                "icebergQty": "0.0",
-                "createTime": 1659080808240,
-                "updateTime": 1659080815265,
-                "isWorking": "1"
             }
         ]
     },
     "retExtInfo": {},
     "time": 1659082630638
+}
+
+// response of stop order
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "list": [
+            {
+                "accountId": "533287",
+                "symbol": "BTCUSDT",
+                "orderLinkId": "testSpot_21",
+                "orderId": "1261593545444244992",
+                "orderPrice": "20000",
+                "orderQty": "0.1",
+                "status": "ORDER_CANCELED",
+                "timeInForce": "GTC",
+                "orderType": "LIMIT",
+                "side": "BUY",
+                "stopPrice": "0.0",
+                "icebergQty": "0.0",
+                "createTime": 1665129670254,
+                "updateTime": 1665130043196,
+                "isWorking": "1",
+                "executedOrderId": "1261593545444244993",
+                "triggerPrice": "22000",
+                "orderCategory": 1
+            }
+        ]
+    },
+    "retExtInfo": null,
+    "time": 1665131956061
 }
 ```
 

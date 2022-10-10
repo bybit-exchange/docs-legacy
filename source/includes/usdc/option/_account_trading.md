@@ -45,7 +45,7 @@ POST
 |orderPrice|false|string|t(:usdcOptionPlaceOrderPrice)|
 |orderQty|<b>true</b>|string|t(:usdcOrderQty)|
 |iv|false|string|t(:optionIv_order)|
-|t(:row_parameter_timeInForce)|<b>true</b>|string|t(:row_comment_timeInForce)|
+|t(:row_parameter_timeInForce)|<b>true</b>|string|t(:usdcOption_timeInForce)|
 |orderLinkId|<b>true</b>|string|t(:orderLinkId)|
 |reduceOnly|false|bool|t(:reduceOnly)|
 |mmp|false|string|t(:mmp)|
