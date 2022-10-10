@@ -2855,7 +2855,8 @@ Do not use the duplicate <b>orderLinkId</b> in normal order & TP/SL order
 <blockquote>
 <p>Response Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// response of normal order</span>
+<span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -2882,6 +2883,35 @@ Do not use the duplicate <b>orderLinkId</b> in normal order & TP/SL order
     <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
     <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659076397365</span>
+<span class="p">}</span>
+
+<span class="c1">// response of stop order</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">testSpot_25</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1261611660550946304</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ORDER_NEW</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1665131829743</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1665131829743</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">executedOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1261611660550946305</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">orderCategory</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtMap</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1665131916562</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -3363,7 +3393,8 @@ Do not use the duplicate <b>orderLinkId</b> in normal order & TP/SL order
 <blockquote>
 <p>Response Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// response of normal order</span>
+<span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -3392,6 +3423,38 @@ Do not use the duplicate <b>orderLinkId</b> in normal order & TP/SL order
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081570356</span>
+<span class="p">}</span>
+
+<span class="c1">// response of stop order</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">testSpot_25</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1261611660550946304</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ORDER_NEW</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1665131829743</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1665131829743</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">executedOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1261611660550946305</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderCategory</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1665131839884</span>
 <span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP Request</p>
@@ -3549,7 +3612,8 @@ Do not use the duplicate <b>orderLinkId</b> in normal order & TP/SL order
 <blockquote>
 <p>Response Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// response of normal order</span>
+<span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -3573,31 +3637,43 @@ Do not use the duplicate <b>orderLinkId</b> in normal order & TP/SL order
                 <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081332185</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659081332225</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">spotx002</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1210852013162639104</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">23800</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.05</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">execQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cummulativeQuoteQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">avgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CANCELED</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT_MAKER</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SELL</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659080808240</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659080815265</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1659082630638</span>
+<span class="p">}</span>
+
+<span class="c1">// response of stop order</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">accountId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533287</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">testSpot_21</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1261593545444244992</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ORDER_CANCELED</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LIMIT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BUY</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">icebergQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1665129670254</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1665130043196</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isWorking</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">executedOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1261593545444244993</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">22000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderCategory</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1665131956061</span>
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
