@@ -51,6 +51,8 @@ t(:spotCrossMarginTradingEndpoint)
 * `XLM`
 * `USDC`
 * `USDT`
+</br>
+t(:spotCrossMarginCoins)
 
 
 ## Order status (`status`)
