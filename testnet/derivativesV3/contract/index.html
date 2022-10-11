@@ -1585,10 +1585,6 @@ param_str = "1658385579423PXOXCIFKHCWCAJTPKW5000{
 # category=option
 # symbol=BTC-29JUL22-25000-C
 </span></code></pre></div>
-<blockquote>
-<p>Note how the parameters are ordered in <b>alphabetical</b> order, with api_key first followed by leverage, then symbol, then timestamp.</p>
-</blockquote>
-
 <p><p>1. timestamp + api-key + [recv_window] + [queryString(order not needed) | jsonBodyString]</p>
 
 <div></div></p>
@@ -4116,7 +4112,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <span class="p">}</span>
 </code></pre></div>
 <p><p>Query real-time order information. If only <code>orderId</code> or <code>orderLinkId</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b></p>.
-<p>Ordered by <code>createdTime</code> in descending order. You could query multiple symbols in one request, but it costs <b>10</b> times for API rate limit per request.</p>
+<p>Ordered by <code>createdTime</code> in descending order.</p>
 </p>
 
 <p class="fake_header">HTTP Request</p>
