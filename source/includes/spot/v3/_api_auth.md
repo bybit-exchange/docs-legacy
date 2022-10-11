@@ -46,8 +46,6 @@ param_str =
 
 ```
 
-> t(:spot_auth_codequote_construct1b)
-
 t(:auth_para_dv3_construct1)
 <div></div>
 
