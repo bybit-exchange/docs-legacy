@@ -3803,7 +3803,7 @@ zh-my:
   usdcTotalVolume: 總成交量
 
   usdcTotalTurnover: 總成交額
-  usdcPredictedDeliveryPrice: 預期交割價
+  usdcPredictedDeliveryPrice: 預期交割價. 交割前30分鐘才有預計交割價，否則一直為<code>"0"</code>
   usdcUnderlyingPrice: 底層資產
   id: id
   side: 買賣方向
@@ -4656,6 +4656,8 @@ zh-my:
   CrossMarginTrading: 全倉槓桿接口
   borrowmarginloan: 申請借幣
   spotCrossMarginTradingEndpoint: 全倉槓桿接口支持以下幣種：
+  spotCrossMarginCoins: |
+    您可以通過<a href="https://www.bybit.com/zh-MY/trade/spot/leverage/vip">這裡</a>查詢全倉槓桿所支持的幣種。
   spotCurrency: 幣種
   spotBorrowQty: 借幣數量
   spotResult: 借款訂單id
@@ -5089,7 +5091,7 @@ zh-my:
   contract_getRealtimeOrder: 實時查詢委託單
   contract_para_getRealtimeOrder: |
     <p>實時查詢活動委托。當傳遞參數<code>orderId</code>或<code>orderLinkId</code>其中任意一個時，將返回單條訂單數據，如果參數<code>orderId</code>和<code>orderLinkId</code>都不傳遞時，將返回所有<b>未成交</b>的訂單，最多500條。</p>
-    <p>按照createdTime從近到遠排序. symbol支持輸入多個symbol, <b>如果輸入多個symbol的請求，限頻計數為10</b></p>
+    <p>按照createdTime從近到遠排序.</p>
   contract_comment_realtimeOrderSymbol: 合約類型.
   contract_comment_realtimeOrderSettleCoin: 結算幣種. <code>symbol</code>和<code>settleCoin</code>字段必須傳一個. 都傳的話，以<code>symbol</code>為準.
   contract_para_position: |

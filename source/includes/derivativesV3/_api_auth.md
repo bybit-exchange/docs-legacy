@@ -45,8 +45,6 @@ param_str = "1658384314791T0d98KyVamQ62YBzN85000category=option&symbol=BTC-29JUL
 # symbol=BTC-29JUL22-25000-C
 ```
 
-> t(:auth_codequote_construct1b)
-
 t(:auth_para_dv3_construct1)
 <div></div>
 

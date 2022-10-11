@@ -1,5 +1,12 @@
 # t(:changelog)
 
+## 2022-10-12
+### REST API
+- [t(:latestsymbolinfo)](#t-latestsymbolinfo) [t(:changelog_update)]
+  - t(:restapi_update_20220905_1)
+- [t(:getrisklimit)](#t-getrisklimit) [t(:changelog_update)]
+  - t(:restapi_update_20220905_2)
+
 ## 2022-08-25
 ### WebSocket API
 - [t(:websocketstoporder)](#t-websocketstoporder) [t(:changelog_update)]

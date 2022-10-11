@@ -409,7 +409,7 @@ t(:usdcLastestSymbolInfo)
 | totalVolume |string |t(:totalVolume) |
 | totalTurnOver |string |t(:totalTurnOver) |
 | openInterest |string |t(:openInterest) |
-| predictedDeliveryPrice |string |t(:predictedDeliveryPrice) |
+| predictedDeliveryPrice |string |t(:usdcPredictedDeliveryPrice) |
 
 ### t(:websocketinsurance)
 > t(:codequote_subscribe)
