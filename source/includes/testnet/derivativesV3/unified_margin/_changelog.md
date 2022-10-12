@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-10-12
+### REST API
+- [t(:dv_queryOrderRealtime)](#t-dv_queryorderrealtime) [t(:changelog_update)]
+  - t(:restapi_update_20221012)
+
 ## 2022-09-29
 ### REST API
 - [t(:dv_placeOrder)](#t-dv_placeorder) [t(:changelog_update)]
