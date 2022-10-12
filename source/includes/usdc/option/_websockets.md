@@ -835,6 +835,7 @@ t(:usdc_websocket_orders_warning)
 |cumExecValue |string|t(:cumExecValue)|
 |cancelType|string|t(:usdcCancelType)|
 |placeType|string|t(:optionPlaceType_comment)|
+|blockTradeId |string|t(:blockTradeId)|
 |updateTimestamp|long|t(:updatedAt)|
 
 
