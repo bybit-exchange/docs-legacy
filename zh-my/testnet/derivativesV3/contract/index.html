@@ -656,17 +656,14 @@
       <ul class="con">
 
         <!-- Derivatives V3 -->
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn">衍生品v3
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="/docs/zh-my/testnet/derivativesV3/unified_margin" class="dropdown-content-selected">統一保證金</a>
-                    <a href="/docs/zh-my/testnet/derivativesV3/contract" class="dropdown-content-selected">合約</a>
-                </div>
-              </div>
-            </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">衍生品v3
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-my/testnet/derivativesV3/unified_margin" class="dropdown-content-selected">統一保證金</a>
+                  <a href="/docs/zh-my/testnet/derivativesV3/contract" class="dropdown-content-selected">合約</a>
 
         <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
           <li>
@@ -734,6 +731,8 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+                  <a href=/docs/zh-my/derivativesV3/contract>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=/docs/zh-my/testnet/derivativesV3/contract>Testnet</a></span>
 
               <!-- it's for spot testnet switch to spot mainnet -->
 
@@ -977,6 +976,14 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP頻率限製">IP頻率限製</a>
+                  </li>
+                  <li>
+                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="賬戶頻率限製">賬戶頻率限製</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-perendpoint" class="toc-h3 toc-link" data-title="接口頻率限製表">接口頻率限製表</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#t-orderlimits" class="toc-h2 toc-link" data-title="下單限製">下單限製</a>
@@ -5619,8 +5626,8 @@ function copyStringToClipboard (endpoint) {
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
-<code><span id=pltcLpnl>/contract/v3/private/position/limit-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcLpnl"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=posiliin>/contract/v3/private/position/limit-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#posiliin"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -5890,10 +5897,6 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1658739027301</span>
 <span class="p">}</span>
 </code></pre></div>
-<aside class="warning">
-頻率限制, 每分鐘5個請求.
-</aside>
-
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
@@ -6153,6 +6156,35 @@ function copyStringToClipboard (endpoint) {
 </li>
 </ul>
 </p>
+<h2 id='t-understandingratelimits'>賬戶頻率限製</h2>
+<p>Bybit基於<b>每秒鍾</b>的滾動時間窗口來做頻率限製，並且是按<b>賬戶</b>（uid）來做劃分限製，每次請求API響應頭(response header)中都會包含如下字段：
+</p>
+<div class="highlight"><pre class="highlight plaintext"><code>// Response header
+
+Content-Type: application/json; charset=utf-8
+Content-Length: 957
+X-Bapi-Limit: 5
+X-Bapi-Limit-Status: 4
+X-Bapi-Limit-Reset-Timestamp: 1665397625986
+</code></pre></div>
+<ul>
+<li><code>X-Bapi-Limit-Status</code> - 該接口當前時間窗口剩余可用請求數</li>
+<li><code>X-Bapi-Limit</code> - 該接口當前頻率限製上限</li>
+<li><code>X-Bapi-Limit-Reset-Timestamp</code> - 如果您已超過該接口當前窗口頻率限製，該字段表示下個可用時間窗口的時間戳（毫秒），即什麽時候可以恢復訪問；如果您未超過該接口當前窗口頻率限製，該字段表示返回的是當前服務器時間（毫秒).</li>
+</ul>
+<h3 id='t-perendpoint'>接口頻率限製表</h3>
+<table class="custom_table">
+  <tr>
+    <th>頻率限製</th>
+    <th>請求路徑</th>
+  </tr>
+  <tr>
+    <td rowspan="1">5 requests/second</td>
+    <td>All private endpoints</td>
+  </tr>
+</table>
+
+<p>每個接口的頻率限製是單獨分開計算的。</p>
 <h2 id='t-orderlimits'>下單限製</h2>
 <p><p>每個交易對可以持有的訂單數量上限：</p>
 <ul>

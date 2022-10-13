@@ -656,17 +656,14 @@
       <ul class="con">
 
         <!-- Derivatives V3 -->
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn">Derivatives v3
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="/docs/testnet/derivativesV3/unified_margin" class="dropdown-content-selected">Unified Margin</a>
-                    <a href="/docs/testnet/derivativesV3/contract" class="dropdown-content-selected">Contract</a>
-                </div>
-              </div>
-            </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Derivatives v3
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/testnet/derivativesV3/unified_margin" class="dropdown-content-selected">Unified Margin</a>
+                  <a href="/docs/testnet/derivativesV3/contract" class="dropdown-content-selected">Contract</a>
 
         <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
           <li>
@@ -734,6 +731,8 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
+                  <a href=/docs/derivativesV3/contract>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=/docs/testnet/derivativesV3/contract>Testnet</a></span>
 
               <!-- it's for spot testnet switch to spot mainnet -->
 
@@ -977,6 +976,14 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
+                  </li>
+                  <li>
+                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="API Rate Limit">API Rate Limit</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-perendpoint" class="toc-h3 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#t-orderlimits" class="toc-h2 toc-link" data-title="Order Limits">Order Limits</a>
@@ -5653,8 +5660,8 @@ One order may have multiple trade records.
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=pltcLpnl>/contract/v3/private/position/limit-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcLpnl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<code><span id=posiliin>/contract/v3/private/position/limit-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#posiliin"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -5926,11 +5933,6 @@ One order may have multiple trade records.
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1658739027301</span>
 <span class="p">}</span>
 </code></pre></div>
-<aside class="warning">
-API rate limit: 5 requests in 1 minute.
-
-</aside>
-
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
@@ -6191,6 +6193,38 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 </li>
 </ul>
 </p>
+<h2 id='t-understandingratelimits'>API Rate Limit</h2>
+<p><aside class="warning">
+If you receive <a href="#10006"><code><b>"ret_msg": "Too many visits!"</b></code></a> in the JSON response, you have hit the API rate limit.
+</aside>
+<p>The API rate limit is based on <b>the rolling time window per second and UID</b>. In other words, it's per second per UID. Every request to the API returns response header shown in the code panel:</p>
+</p>
+<div class="highlight"><pre class="highlight plaintext"><code>// Response header
+
+Content-Type: application/json; charset=utf-8
+Content-Length: 957
+X-Bapi-Limit: 5
+X-Bapi-Limit-Status: 4
+X-Bapi-Limit-Reset-Timestamp: 1665397625986
+</code></pre></div>
+<ul>
+<li><code>X-Bapi-Limit-Status</code> - your remaining requests for current endpoint</li>
+<li><code>X-Bapi-Limit</code> - your current limit for current endpoint</li>
+<li><code>X-Bapi-Limit-Reset-Timestamp</code> - the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.</li>
+</ul>
+<h3 id='t-perendpoint'>Rate Limits For All Private Endpoints</h3>
+<table class="custom_table">
+  <tr>
+    <th>Limit</th>
+    <th>Path</th>
+  </tr>
+  <tr>
+    <td rowspan="1">5 requests/second</td>
+    <td>All private endpoints</td>
+  </tr>
+</table>
+
+<p>The rate limits for each private endpoint should be considered separately.</p>
 <h2 id='t-orderlimits'>Order Limits</h2>
 <p><p>Max. number of unfilled orders supported under each trading pair:</p>
 <ul>

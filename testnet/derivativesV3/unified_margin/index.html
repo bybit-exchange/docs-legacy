@@ -784,10 +784,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-09-29" class="toc-h2 toc-link" data-title="2022-09-29">2022-09-29</a>
+                    <a href="#2022-10-12" class="toc-h2 toc-link" data-title="2022-10-12">2022-10-12</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-09-29" class="toc-h2 toc-link" data-title="2022-09-29">2022-09-29</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -811,7 +819,7 @@
                     <a href="#2022-08-25" class="toc-h2 toc-link" data-title="2022-08-25">2022-08-25</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -819,7 +827,7 @@
                     <a href="#2022-08-24" class="toc-h2 toc-link" data-title="2022-08-24">2022-08-24</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -1017,6 +1025,12 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
+                  </li>
+                  <li>
+                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="API Rate Limit">API Rate Limit</a>
+                  </li>
+                  <li>
+                    <a href="#t-perendpoint" class="toc-h2 toc-link" data-title="Rate Limits For All Private Endpoints">Rate Limits For All Private Endpoints</a>
                   </li>
                   <li>
                     <a href="#t-orderlimits" class="toc-h2 toc-link" data-title="Order Limits">Order Limits</a>
@@ -1468,7 +1482,15 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-29'>2022-09-29</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-10-12'>2022-10-12</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-dv_queryorderrealtime">Get Open Orders</a> [update]
+
+<ul>
+<li>Add new response param <code>leavesQty</code>, <code>cumExecFee</code>, <code>cumExecQty</code>, <code>cumExecValue</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-09-29'>2022-09-29</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-dv_placeorder">Place Order</a> [update]
 
@@ -1492,7 +1514,7 @@ clipboard.on('error', function(e) {
 <li>Add new response field <code>leavesQty</code>, <code>cumExecQty</code>, <code>cumExecValue</code>, <code>cumExecFee</code></li>
 </ul></li>
 </ul>
-<h2 id='2022-08-25'>2022-08-25</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2022-08-25'>2022-08-25</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li><a href="#t-dv_batchplaceorder">Batch Place Orders</a> [update]
 
@@ -1515,7 +1537,7 @@ clipboard.on('error', function(e) {
 <li><code>baseCoin</code> and <code>settleCoin</code> is supported for when <code>category</code>=linear</li>
 </ul></li>
 </ul>
-<h2 id='2022-08-24'>2022-08-24</h2><h3 id='rest-api-3'>REST API</h3>
+<h2 id='2022-08-24'>2022-08-24</h2><h3 id='rest-api-4'>REST API</h3>
 <ul>
 <li><a href="#t-dv_instrhead">Get Instrument Info</a> [update]
 
@@ -3880,37 +3902,47 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <blockquote>
 <p>Response Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ddd0ec73-eb66-40b7-8fb3-0438dbc3f98d%3A1657714143666%2Cddd0ec73-eb66-40b7-8fb3-0438dbc3f98d%3A1657714143666</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">option</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">135ccc0d-8136-4e1b-8af3-07b11ee158d1%3A1665565610526%2C135ccc0d-8136-4e1b-8af3-07b11ee158d1%3A1665565610526</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC-14JUL22-17500-C</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHUSDT</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1657714143680</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">188889689-yuanzhen-551998998898</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ddd0ec73-eb66-40b7-8fb3-0438dbc3f98d</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">test0000005</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">135ccc0d-8136-4e1b-8af3-07b11ee158d1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">blockTradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1360.00000000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0200</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1657714143666</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">700.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1665565610526</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">27.31897412</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+                <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1665565610533</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1657714155151</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1665565614320</span>
 <span class="p">}</span>
-
 </code></pre></div>
 <p><p><p><b>Interface:</b></p>
 <p>Query unfilled orders in real-time.</p>
@@ -4016,19 +4048,19 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td>Name of Contract</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; orderId</td>
-<td style="text-align: left">string</td>
-<td>Order ID</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; side</td>
-<td style="text-align: left">string</td>
-<td>Direction</td>
-</tr>
-<tr>
 <td style="text-align: left">list&gt; orderType</td>
 <td style="text-align: left">string</td>
 <td>Order type</td>
+</tr>
+<tr>
+<td style="text-align: left">list&gt; orderLinkId</td>
+<td style="text-align: left">string</td>
+<td>Institutional customized order ID</td>
+</tr>
+<tr>
+<td style="text-align: left">list&gt; orderId</td>
+<td style="text-align: left">string</td>
+<td>Order ID</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; stopOrderType</td>
@@ -4036,19 +4068,39 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td>Conditional order type</td>
 </tr>
 <tr>
+<td style="text-align: left">list &gt; orderStatus</td>
+<td style="text-align: left">string</td>
+<td>Order status</td>
+</tr>
+<tr>
+<td style="text-align: left">list &gt; takeProfit</td>
+<td style="text-align: left">string</td>
+<td>Take-profit price</td>
+</tr>
+<tr>
+<td style="text-align: left">list &gt; cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>Total order value of filled orders</td>
+</tr>
+<tr>
+<td style="text-align: left">list &gt; blockTradeId</td>
+<td style="text-align: left">string</td>
+<td>Block trade id</td>
+</tr>
+<tr>
 <td style="text-align: left">list&gt; price</td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; qty</td>
-<td style="text-align: left">string</td>
-<td>Order quantity</td>
+<td style="text-align: left">list &gt; createdTime</td>
+<td style="text-align: left">number</td>
+<td>Time of Creation</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; iv</td>
+<td style="text-align: left">list &gt; tpTriggerBy</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility</td>
+<td>Type of take-profit activation price, LastPrice by default.</td>
 </tr>
 <tr>
 <td style="text-align: left">list &gt; timeInForce</td>
@@ -4056,9 +4108,19 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td>Time in force</td>
 </tr>
 <tr>
-<td style="text-align: left">list &gt; orderStatus</td>
+<td style="text-align: left">list &gt; basePrice</td>
 <td style="text-align: left">string</td>
-<td>Order status</td>
+<td>Market price when the order is placed</td>
+</tr>
+<tr>
+<td style="text-align: left">list &gt; updatedTime</td>
+<td style="text-align: left">number</td>
+<td>Time of Update</td>
+</tr>
+<tr>
+<td style="text-align: left">list&gt; side</td>
+<td style="text-align: left">string</td>
+<td>Direction</td>
 </tr>
 <tr>
 <td style="text-align: left">list &gt; triggerPrice</td>
@@ -4067,34 +4129,9 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 </td>
 </tr>
 <tr>
-<td style="text-align: left">list &gt; orderLinkId</td>
+<td style="text-align: left">list &gt; cumExecFee</td>
 <td style="text-align: left">string</td>
-<td>Institutional customized order ID</td>
-</tr>
-<tr>
-<td style="text-align: left">list &gt; createdTime</td>
-<td style="text-align: left">number</td>
-<td>Time of Creation</td>
-</tr>
-<tr>
-<td style="text-align: left">list &gt; updatedTime</td>
-<td style="text-align: left">number</td>
-<td>Time of Update</td>
-</tr>
-<tr>
-<td style="text-align: left">list &gt; takeProfit</td>
-<td style="text-align: left">string</td>
-<td>Take-profit price</td>
-</tr>
-<tr>
-<td style="text-align: left">list &gt; stopLoss</td>
-<td style="text-align: left">string</td>
-<td>Stop-loss price</td>
-</tr>
-<tr>
-<td style="text-align: left">list &gt; tpTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Type of take-profit activation price, LastPrice by default.</td>
+<td>Total trading fees</td>
 </tr>
 <tr>
 <td style="text-align: left">list &gt; slTriggerBy</td>
@@ -4102,14 +4139,19 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td>Type of stop-loss activation price, LastPrice by default.</td>
 </tr>
 <tr>
-<td style="text-align: left">list &gt; basePrice</td>
+<td style="text-align: left">list &gt; leavesQty</td>
 <td style="text-align: left">string</td>
-<td>Market price when the order is placed</td>
+<td>Unfilled quantity</td>
 </tr>
 <tr>
-<td style="text-align: left">list &gt; triggerBy</td>
+<td style="text-align: left">list &gt; closeOnTrigger</td>
+<td style="text-align: left">bool</td>
+<td>Closed order? True – close order   false – open order</td>
+</tr>
+<tr>
+<td style="text-align: left">list &gt; cumExecQty</td>
 <td style="text-align: left">string</td>
-<td>Type of trigger price, latest market price by default.</td>
+<td>Total filled quantity</td>
 </tr>
 <tr>
 <td style="text-align: left">list &gt; reduceOnly</td>
@@ -4117,9 +4159,29 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td>Close position? True – close position, false – open position</td>
 </tr>
 <tr>
-<td style="text-align: left">list &gt; closeOnTrigger</td>
-<td style="text-align: left">bool</td>
-<td>Closed order? True – close order   false – open order</td>
+<td style="text-align: left">list&gt; qty</td>
+<td style="text-align: left">string</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">list &gt; stopLoss</td>
+<td style="text-align: left">string</td>
+<td>Stop-loss price</td>
+</tr>
+<tr>
+<td style="text-align: left">list &gt; triggerBy</td>
+<td style="text-align: left">string</td>
+<td>Type of trigger price, latest market price by default.</td>
+</tr>
+<tr>
+<td style="text-align: left">list &gt; orderIM</td>
+<td style="text-align: left">string</td>
+<td>Initial margin of an order.</td>
+</tr>
+<tr>
+<td style="text-align: left">list&gt; iv</td>
+<td style="text-align: left">string</td>
+<td>Implied volatility</td>
 </tr>
 <tr>
 <td style="text-align: left">nextPageCursor</td>
@@ -7506,6 +7568,85 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 </li>
 </ul>
 </p>
+<h3 id='t-understandingratelimits'>API Rate Limit</h3>
+<p><aside class="warning">
+If you receive <a href="#10006"><code><b>"ret_msg": "Too many visits!"</b></code></a> in the JSON response, you have hit the API rate limit. The rate limit resets 60 seconds after your first request.
+</aside>
+<p>The API rate limit is based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. In other words, it's per minute per UID per symbol. Every request to the API returns the fields shown in the code panel:</p>
+</p>
+<div class="highlight"><pre class="highlight plaintext"><code>"rate_limit_status": 119,
+"rate_limit_reset_ms": 1572114055663,
+"rate_limit": 120
+</code></pre></div>
+<ul>
+<li><code>rate_limit_status</code> - your remaining requests for current endpoint</li>
+<li><code>rate_limit</code> - your current limit for current endpoint</li>
+<li><code>rate_limit_reset_ms</code> - the timestamp indicating when your request limit resets if you have exceeded your rate_limit. Otherwise, this is just the current timestamp.</li>
+</ul>
+<h3 id='t-perendpoint'>Rate Limits For All Private Endpoints</h3>
+<table class="custom_table">
+  <tr>
+    <th>Limit</th>
+    <th>Path</th>
+    <th>Consume</th>
+  </tr>
+  <tr>
+    <td rowspan="10">100/min</td>  
+  </tr>
+  <tr><td>/v2/private/order/cancel       </td><td>1 / request</td></tr>
+  <tr><td>/v2/private/stop-order/create  </td><td>1 / request</td></tr>
+  <tr><td>/v2/private/stop-order/cancel  </td><td>1 / request</td></tr>
+  <tr><td>/v2/private/order/replace      </td><td>1 / request</td></tr>
+  <tr><td>/v2/private/stop-order/replace </td><td>1 / request</td></tr>
+  <tr><td>/v2/private/order/create     </td><td>1 / request</td></tr>
+  <tr><td>/v2/private/order/cancel     </td><td>1 / request</td></tr>
+  <tr><td>/v2/private/order/cancelAll  </td><td>10 / request</td></tr>
+  <tr><td>/v2/private/stop-order/cancelAll </td><td>10 / request</td></tr>
+  <tr>
+    <td rowspan="3">600/min</td>
+    <td>/v2/private/order/list </td>
+    <td>1 / request</td>
+  </tr>
+  <tr><td>/v2/private/stop-order/list </td><td>1 / request</td></tr>
+  <tr><td>/v2/private/order </td><td>1 / request</td></tr>
+  <tr>
+    <td>120/min</td>
+    <td>/v2/private/execution/list</td>
+    <td>1 / request</td>
+  </tr>
+  <tr>
+    <td rowspan="5">75/min</td>
+    <td>/v2/private/position/leverage/save </td>
+    <td>1 / request</td>
+  </tr>
+  <tr><td>/v2/private/position/change-position-margin</td><td>1 / request</td></tr>
+  <tr><td>/v2/private/position/trading-stop</td><td>1 / request</td></tr>
+  <tr><td>/v2/private/tpsl/switch-mode</td><td>1 / request</td></tr>
+  <tr><td>/v2/private/position/fee-rate</td><td>1 / request</td></tr>
+  <tr>
+    <td rowspan="3">120/min</td>
+  </tr>
+  <tr><td>/v2/private/position/list</td><td>1 / request</td></tr>
+    <tr><td>/v2/private/wallet/balance</td><td>1 / request</td></tr>
+  <tr>
+    <td rowspan="4">120/min</td>
+    <tr><td>/v2/private/funding/prev-funding-rate</td>
+    <td>1 / request</td>
+  </tr>
+  <tr><td>/v2/private/funding/prev-funding</td><td>1 / request</td></tr>
+  <tr><td>/v2/private/funding/predicted-funding</td><td>1 / request</td></tr>
+  <tr>
+    <td rowspan="3">120/min</td>
+    <tr><td>/v2/private/wallet/fund/records</td>
+    <td>1 / request</td>
+  </tr>
+<tr><td>/v2/private/wallet/withdraw/list</td><td>1 / request</td></tr>
+<tr>
+    <td rowspan="2">600/min</td>
+    <tr><td>/v2/private/account/api-key</td>
+    <td>1 / request</td>
+  </tr>
+</table>
 <h2 id='t-orderlimits'>Order Limits</h2>
 <p><p>Max. number of unfilled orders supported under each trading pair:</p>
 <ul>
