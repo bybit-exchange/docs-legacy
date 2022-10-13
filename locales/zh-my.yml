@@ -1335,8 +1335,9 @@ zh-my:
         <th>Path</th>
       </tr>
       <tr>
-        <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
+        <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
         <tr><td>统一保证金</td><td>/unified</td>
+        <tr><td>合約v3</td><td>/contract</td>
         <tr><td>反向永續</td><td>/v2</td>
         <tr><td>反向交割</td><td>/futures</td>
         <tr><td>USDT永續</td><td>/public, /private</td>
@@ -1380,6 +1381,8 @@ zh-my:
   understandingratelimits: 賬戶頻率限製
   rate_para_understanding: |
     Bybit基於<b>每分鐘</b>的滾動時間窗口來做頻率限製，並且是按<b>賬戶</b>（uid）和交易對（symbol）來做劃分限製，每次請求API響應中都會包含如下字段：
+  rate_para_understanding_v3: |
+    Bybit基於<b>每秒鍾</b>的滾動時間窗口來做頻率限製，並且是按<b>賬戶</b>（uid）來做劃分限製，每次請求API響應頭(response header)中都會包含如下字段：
   spot_rate_para_understanding: |
     現貨鑒權接口（即需要簽名的接口）的限頻規則是每秒每個接口不超過20次
   rate_text_limitStatus_understanding: 該接口當前時間窗口剩余可用請求數

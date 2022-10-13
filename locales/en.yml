@@ -1506,8 +1506,9 @@ en:
         <th>Path</th>
       </tr>
       <tr>
-        <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
+        <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
         <tr><td>Unified Margin</td><td>/unified</td>
+        <tr><td>Contract v3</td><td>/contract</td>
         <tr><td>Inverse Perpetual</td><td>/v2</td>
         <tr><td>Inverse Futures</td><td>/futures</td>
         <tr><td>Linear Perpetual</td><td>/public, /private</td>
@@ -1553,6 +1554,11 @@ en:
     If you receive <a href="#10006"><code><b>"ret_msg": "Too many visits!"</b></code></a> in the JSON response, you have hit the API rate limit. The rate limit resets 60 seconds after your first request.
     </aside>
     <p>The API rate limit is based on <b>the rolling time window per minute and UID, and each symbol is independent</b>. In other words, it's per minute per UID per symbol. Every request to the API returns the fields shown in the code panel:</p>
+  rate_para_understanding_v3: |
+    <aside class="warning">
+    If you receive <a href="#10006"><code><b>"ret_msg": "Too many visits!"</b></code></a> in the JSON response, you have hit the API rate limit.
+    </aside>
+    <p>The API rate limit is based on <b>the rolling time window per second and UID</b>. In other words, it's per second per UID. Every request to the API returns response header shown in the code panel:</p>
   spot_rate_para_understanding: |
     For all endpoints that need authentication, the rate limit is 20 per second for each endpoint.
   rate_text_limitStatus_understanding: your remaining requests for current endpoint

@@ -1117,8 +1117,8 @@ GET
 |startTime |false |number |t(:contract_comment_startTime) |
 |endTime |false |number |t(:contract_comment_endTime) |
 |<a href="#exec-type-exectype">execType</a> |false |string |t(:linear_exec_type) |
+|page |false |integer |t(:row_comment_page_max50) |
 |limit |false |integer |t(:linear_row_comment_limit_50_200) |
-|cursor |false |string |t(:row_comment_resp_cursor)    |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1211,6 +1211,7 @@ GET
 |endTime |false |number |t(:row_comment_endTime) |
 |limit |false |integer |t(:linear_row_comment_limit_50_200) |
 |cursor |false |string |t(:row_comment_resp_cursor)    |
+
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1520,10 +1521,3 @@ GET
 |list> wallet_balance |string |t(:row_comment_wallet_balance)  |
 |list> exec_time |string |t(:row_comment_exec_timestamp)  |
 |nextPageCursor |string |t(:contract_accountNextPageCursor)  |
-
-
-## t(:key)
-<a href="/docs/inverse#t-key">t(:shared_endpoint_desc)</a>
-
-## t(:lcp)
-<a href="/docs/inverse#t-lcp">t(:shared_endpoint_desc)</a>

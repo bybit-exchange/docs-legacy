@@ -236,23 +236,27 @@ under the License.
                   <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/contract" class="dropdown-content-selected"><%=t(:dv_contract)%></a>
                 <% else %>
                   <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/derivativesV3/unified_margin" class="dropdown-content-selected"><%=t(:dv_unifiedMargin)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/derivativesV3/contract" class="dropdown-content-selected"><%=t(:dv_contract)%></a>
                 <% end %>
               </div>
             </div>
           </li>
         <% elsif page_classes.include?("contract") %>
-          <% if page_classes.include?("testnet") %>
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn"><%=t(:derivativesV3)%>
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/unified_margin" class="dropdown-content-selected"><%=t(:dv_unifiedMargin)%></a>
-                    <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/contract" class="dropdown-content-selected"><%=t(:dv_contract)%></a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"><%=t(:derivativesV3)%>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <% if page_classes.include?("testnet") %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/unified_margin" class="dropdown-content-selected"><%=t(:dv_unifiedMargin)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/contract" class="dropdown-content-selected"><%=t(:dv_contract)%></a>
+                <% else %>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/derivativesV3/unified_margin" class="dropdown-content-selected"><%=t(:dv_unifiedMargin)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/derivativesV3/contract" class="dropdown-content-selected"><%=t(:dv_contract)%></a>
               </div>
-            </li>
+            </div>
+          </li>
           <% end %>
         <% else %>
           <li>
@@ -266,6 +270,7 @@ under the License.
                   <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/testnet/derivativesV3/contract" ><%=t(:dv_contract)%></a>
                 <% else %>
                   <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/derivativesV3/unified_margin" class="dropdown-content-selected"><%=t(:dv_unifiedMargin)%></a>
+                  <a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s %>/derivativesV3/contract" class="dropdown-content-selected"><%=t(:dv_contract)%></a>
                 <% end %>
               </div>
             </div>
@@ -547,6 +552,15 @@ under the License.
                 <% else %>
                   <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3/unified_margin>Mainnet</a></span>
                   <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3/unified_margin>Testnet</a>
+                <% end %>
+              <% end %>
+              <% if page_classes.end_with?("contract_index") %>
+                <% if page_classes.include?("testnet") %>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3/contract>Mainnet</a>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3/contract>Testnet</a></span>
+                <% else %>
+                  <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/derivativesV3/contract>Mainnet</a></span>
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/derivativesV3/contract>Testnet</a>
                 <% end %>
               <% end %>
               <% if page_classes.end_with?("inverse_index") %>
