@@ -436,3 +436,93 @@ GET
 |value|string|t(:usdcVolatility)|
 |time|string|t(:time)|
 
+
+### t(:usdcAllTickerInfo)
+> t(:codequote_curlExample)
+
+```console
+curl 'https://api-testnet.bybit.com/option/usdc/openapi/public/v1/all-tickers?baseCoin=BTC'
+```
+
+```python
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "SUCCESS",
+    "result": [
+        {
+            "symbol": "BTC-21OCT22-16000-P",
+            "bid": "0",
+            "bidIv": "0",
+            "bidSize": "0",
+            "ask": "0",
+            "askIv": "0",
+            "askSize": "0",
+            "lastPrice": "115",
+            "openInterest": "99.15",
+            "indexPrice": "19171.99",
+            "markPrice": "84.81206918",
+            "markPriceIv": "0.8299",
+            "change24h": "0.04545455",
+            "high24h": "115",
+            "low24h": "115",
+            "volume24h": "0.01",
+            "turnover24h": "191.3837",
+            "totalVolume": "298",
+            "totalTurnover": "5842799",
+            "predictedDeliveryPrice": "0",
+            "underlyingPrice": "19162.1",
+            "delta": "-0.07273689",
+            "gamma": "0.00005566",
+            "vega": "4.14013074",
+            "theta": "-19.2782722"
+        }
+    ]
+}
+```
+
+t(:usdcAllTickerInfo_para)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=usdcAllTick>/option/usdc/openapi/public/v1/all-tickers</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdcAllTick"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|baseCoin |false |string|t(:usdcBaseCoin_new)|
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| t(:row_parameter_symbol) | string | t(:usdcSymbol) |
+| bid | string | t(:usdcBid) |
+| bidIv | string | t(:usdcBidIv) |
+| bidSize | string | t(:usdcBidSize) |
+| ask | string | t(:usdcAsk) |
+| askIv | string | t(:usdcAskIv) |
+| askSize | string | t(:usdcAskSize) |
+| lastPrice | string | t(:usdcLastPrice) |
+| openInterest | string | t(:usdcOpenInterest) |
+| indexPrice | string | t(:usdcIndexPrice) |
+| markPrice | string | t(:usdcMarkPrice) |
+| markPriceIv | string | t(:usdcMarkPriceIv) |
+| change24h | string | t(:usdcChange24h) |
+| high24h | string | t(:usdcHigh24h) |
+| low24h | string | t(:usdcLow24h) |
+| volume24h | string | t(:usdcVolume24h) |
+| turnover24h | string | t(:usdcTurnover24h) |
+| totalVolume | string | t(:usdcTotalVolume) |
+| totalTurnover | string | t(:usdcTotalTurnover) |
+| predictedDeliveryPrice | string | t(:usdcPredictedDeliveryPrice) |
+| underlyingPrice | string | t(:usdcUnderlyingPrice) |
+| delta | string | t(:delta) |
+| gamma | string | t(:gamma) |
+| vega | string | t(:vega) |
+| theta | string | t(:theta) |
