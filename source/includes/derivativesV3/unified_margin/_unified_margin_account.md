@@ -231,37 +231,47 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 > t(:codequote_responseExample)
 
 ```javascript
-
 {
     "retCode": 0,
     "retMsg": "Success",
     "result": {
-        "nextPageCursor": "ddd0ec73-eb66-40b7-8fb3-0438dbc3f98d%3A1657714143666%2Cddd0ec73-eb66-40b7-8fb3-0438dbc3f98d%3A1657714143666",
-        "category": "option",
+        "nextPageCursor": "135ccc0d-8136-4e1b-8af3-07b11ee158d1%3A1665565610526%2C135ccc0d-8136-4e1b-8af3-07b11ee158d1%3A1665565610526",
+        "category": "linear",
         "list": [
             {
-                "symbol": "BTC-14JUL22-17500-C",
+                "symbol": "ETHUSDT",
                 "orderType": "Limit",
-                "updatedTime": 1657714143680,
-                "side": "Buy",
-                "orderLinkId": "188889689-yuanzhen-551998998898",
-                "orderId": "ddd0ec73-eb66-40b7-8fb3-0438dbc3f98d",
+                "orderLinkId": "test0000005",
+                "orderId": "135ccc0d-8136-4e1b-8af3-07b11ee158d1",
+                "stopOrderType": "UNKNOWN",
                 "orderStatus": "New",
-                "iv": "0.00000000",
+                "takeProfit": "",
+                "cumExecValue": "0.00000000",
                 "blockTradeId": "",
-                "reduceOnly": false,
-                "price": "1360.00000000",
-                "qty": "0.0200",
-                "createdTime": 1657714143666,
+                "price": "700.00000000",
+                "createdTime": 1665565610526,
+                "tpTriggerBy": "UNKNOWN",
                 "timeInForce": "GoodTillCancel",
-                "orderIM": "27.31897412",
-                "basePrice": ""
+                "basePrice": "",
+                "updatedTime": 1665565610533,
+                "side": "Buy",
+                "triggerPrice": "",
+                "cumExecFee": "0.00000000",
+                "slTriggerBy": "UNKNOWN",
+                "leavesQty": "0.1000",
+                "closeOnTrigger": false,
+                "cumExecQty": "0.00000000",
+                "reduceOnly": false,
+                "qty": "0.1000",
+                "stopLoss": "",
+                "triggerBy": "UNKNOWN",
+                "orderIM": "0.00000000"
             }
         ]
     },
-    "time": 1657714155151
+    "retExtInfo": null,
+    "time": 1665565614320
 }
-
 ```
 t(:account_para_queryActive_v3)
 
@@ -289,27 +299,33 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
 |list> symbol |string |t(:row_comment_symbol_v3)   |
-|list> orderId |string |t(:row_comment_query_orderId_v3) |
-|list> side |string |t(:row_comment_query_side_v3)  |
 |list> orderType |string |t(:row_comment_query_orderType_v3)  |
+|list> orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
+|list> orderId |string |t(:row_comment_query_orderId_v3) |
 |list> stopOrderType |string |t(:row_comment_query_stopOrderType_v3)  |
-|list> price |string |t(:row_comment_query_price_v3)  |
-|list> qty |string |t(:row_comment_query_qty_v3)  |
-|list> iv |string |t(:row_comment_query_iv_v3)  |
-|list > timeInForce |string |t(:row_comment_query_timeInForce_v3)  |
 |list > orderStatus |string |t(:row_comment_query_orderStatus_v3)  |
-|list > triggerPrice |string |t(:row_comment_query_triggerPrice_v3)  |
-|list > orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
-|list > createdTime |number |t(:row_comment_query_createdTime_v3)  |
-|list > updatedTime |number |t(:row_comment_query_updatedTime_v3)  |
 |list > takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
-|list > stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
+|list > cumExecValue |string |t(:cumExecValue)  |
+|list > blockTradeId |string |t(:blockTradeId)  |
+|list> price |string |t(:row_comment_query_price_v3)  |
+|list > createdTime |number |t(:row_comment_query_createdTime_v3)  |
 |list > tpTriggerBy |string |t(:row_comment_query_tpTriggerBy_v3)  |
-|list > slTriggerBy |string |t(:row_comment_query_slTriggerBy_v3)  |
+|list > timeInForce |string |t(:row_comment_query_timeInForce_v3)  |
 |list > basePrice |string |t(:row_comment_query_basePrice_v3)  |
-|list > triggerBy |string |t(:row_comment_query_triggerBy_v3)  |
-|list > reduceOnly |bool |t(:row_comment_query_reduceOnly_v3)  |
+|list > updatedTime |number |t(:row_comment_query_updatedTime_v3)  |
+|list> side |string |t(:row_comment_query_side_v3)  |
+|list > triggerPrice |string |t(:row_comment_query_triggerPrice_v3)  |
+|list > cumExecFee |string |t(:cumExecFee)  |
+|list > slTriggerBy |string |t(:row_comment_query_slTriggerBy_v3)  |
+|list > leavesQty |string |t(:leavesQty)  |
 |list > closeOnTrigger |bool |t(:row_comment_query_closeOnTrigger_v3)  |
+|list > cumExecQty |string |t(:cumExecQty)  |
+|list > reduceOnly |bool |t(:row_comment_query_reduceOnly_v3)  |
+|list> qty |string |t(:row_comment_query_qty_v3)  |
+|list > stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
+|list > triggerBy |string |t(:row_comment_query_triggerBy_v3)  |
+|list > orderIM |string |t(:row_comment_query_orderIM_v3)  |
+|list> iv |string |t(:row_comment_query_iv_v3)  |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 

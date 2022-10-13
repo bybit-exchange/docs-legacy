@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-10-13
+### REST API
+- [t(:usdcAllTickerInfo)](#t-usdcalltickerinfo) [t(:changelog_new)]
+  - t(:restapi_update_20221013)
+
 ## 2022-09-26
 ### REST API
 - [t(:usdcQryUnOrPartFilled)](#t-usdcqryunorpartfilled) [t(:changelog_update)]

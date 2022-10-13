@@ -644,6 +644,7 @@ POST
 |updateTimeStamp |string|t(:row_comment_updated_at)|
 |cumExecValue |string|t(:cumExecValue)|
 |createdAt |string|t(:createdAt)|
+|blockTradeId |string|t(:blockTradeId)|
 |orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy |string|t(:usdcTptriggerby)
