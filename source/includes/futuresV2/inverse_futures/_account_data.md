@@ -2056,14 +2056,13 @@ GET
 |exec_value |string |t(:row_comment_exec_value)  |
 |fee_rate |string |t(:row_comment_fee_rate)  |
 |last_liquidity_ind |string |t(:row_comment_last_liquidity_ind)  |
-|t(:row_parameter_symbol) |string |t(:row_comment_exec_type) |
 |leaves_qty |number |t(:row_comment_leaves_qty)  |
 |nth_fill |number |t(:row_comment_nth_fill)  |
 |order_id |string |t(:row_comment_order_id)  |
 |order_link_id |string |t(:row_comment_orderLinkId)  |
 |order_price |string |t(:row_comment_order_price)  |
 |order_qty |number |t(:row_comment_order_qty)  |
-|t(:row_parameter_order_type) |string |t(:row_comment_exec_type) |
+|t(:row_parameter_order_type) |string |t(:row_comment_order_type) |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |t(:row_parameter_symbol) |string |t(:row_comment_symbol)  |
 |trade_time_ms |number |t(:row_comment_trade_time)  |
