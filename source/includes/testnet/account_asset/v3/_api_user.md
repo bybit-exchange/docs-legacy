@@ -1,5 +1,5 @@
 # t(:user_apikey_api)
-t(:transfer_para)
+t(:user_apikey_para)
 
 <aside class="notice">
 t(:user_apikey_notice)
@@ -16,7 +16,6 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/cr
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "uid": 533285,
     "username": "ciakf2ifhd06",
     "memberType": 1,
     "switch": 1,
@@ -31,14 +30,14 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/cr
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "uid": "1032068",
+        "uid": "1037883",
         "username": "ciakf2ifhd06",
         "memberType": 1,
         "status": 1,
-        "remark": "6th sub uid"
+        "remark": "test 9th sub uid"
     },
     "retExtInfo": null,
-    "time": 1665386966767
+    "time": 1665714504296
 }
 ```
 
@@ -52,7 +51,6 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|uid |<b>true</b> |int |t(:user_uid_req_comment) |
 |username |<b>true</b> |string |t(:user_username_req_comment) |
 |memberType |<b>true</b> |int |t(:user_memberType_req_comment) |
 |switch |false |int |t(:user_switch_req_comment) |
@@ -61,29 +59,32 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|uid |int |t(:user_uid_req_comment) |
+|uid |int |t(:user_uid_resp_comment) |
 |username |string |t(:user_username_req_comment) |
 |memberType |int |t(:user_memberType_req_comment) |
 |switch |int |t(:user_switch_req_comment) |
 |remark |string |t(:user_note_req_comment) |
 
 
-### t(:createsubaccounttransfer)
+### t(:create_subuser_apikey)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer' \
+curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/create-sub-api' \
+--header 'X-BAPI-SIGN: b5ab130814235091bc56884289d163ab9dca637824c818cebb4d59fe0d4f9b17' \
+--header 'X-BAPI-API-KEY: XXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1665715086395' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
---header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
---header 'X-BAPI-RECV-WINDOW: 999999999' \
---header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
-    "transferId": "xxxxxxx",
-    "coin": "BTC",
-    "amount": "0.11",
-    "subMemberId": 12,
-    "type": "IN",
+    "subuid": 1037883,
+    "note": "remakkkkkk for sub uid",
+    "readOnly": 0,
+    "permissions": {
+        "Wallet": [
+            "AccountTransfer"
+        ]
+    }
 }'
 ```
 
@@ -91,37 +92,48 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/t
 
 ```javascript
 {
-  "retCode":0,
-    "retMsg":"OK",
-    "result":{
-    "transferId": "xxxxxxxxxxx"
-  },
-  "retExtInfo":{},
-  "time":1652841868446
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "id": "350666",
+        "note": "remakkkkkk for sub uid",
+        "apiKey": "B20h175nOlwUpU5uh8",
+        "readOnly": 0,
+        "secret": "XXXXXXXXXXXXXX",
+        "permissions": {
+            "ContractTrade": [],
+            "Spot": [],
+            "Wallet": [
+                "AccountTransfer"
+            ],
+            "Options": [],
+            "Derivatives": [],
+            "CopyTrading": [],
+            "BlockTrade": [],
+            "Exchange": [],
+            "NFT": []
+        }
+    },
+    "retExtInfo": null,
+    "time": 1665715090979
 }
 ```
 
-t(:subMember_trigger_transfer)
-
-t(:universaltransfer_join_notice)
-
-<aside class="notice">
-t(:createsubaccounttransfer_api_v3_notice)
-</aside>
+t(:create_subuser_apikey_para)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=avpst>/asset/v3/private/transfer/sub-member-transfer</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#avpst"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=crsai>/user/v3/private/create-sub-api</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#crsai"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|transferId |<b>true</b> |string |t(:row_comment_transfer_id) |
-|<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:row_comment_currency) |
-|amount |<b>true</b> |string |t(:row_comment_to_amount) |
-|subMemberId |<b>true</b> |string |t(:row_comment_to_subUserId) |
-|<a href="#transfer-type-type">type</a> |<b>true</b> |string |t(:row_comment_transfertype) |
+|subuid |<b>true</b> |string |t(:row_comment_transfer_id) |
+|note |false |string |t(:row_comment_currency) |
+|readOnly |<b>true</b> |int |t(:row_comment_to_amount) |
+|ips |false |array[string] |t(:row_comment_to_subUserId) |
+|permissions |<b>true</b> |Object |t(:row_comment_transfertype) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
