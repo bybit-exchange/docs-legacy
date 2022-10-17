@@ -1317,6 +1317,8 @@ en:
       <li><code>ret_code</code>!=0 means create order fail</li>
       <li><code>ext_code</code> means please refer to <a href="#t-errors">Errors</a></li>
     </ul>
+  getOrderList_warning: |
+    This interface only supports to query <b>10k</b> orders per symbol for userId. If you need to get historical orders, please refer to the <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-contract_getorder">api</a> from contract v3, which enables to get all status orders in recent 7days, and <b>FILLED</b> orders over 7 days
 
   ### Get Conditional Order
   getcond: Get Conditional Order

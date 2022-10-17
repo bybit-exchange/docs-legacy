@@ -188,6 +188,10 @@ print(session_auth.get_active_order(
 
 t(:account_para_getActive)
 
+<aside class="warning">
+t(:getOrderList_warning)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=vpoList>/v2/private/order/list</span></code>
