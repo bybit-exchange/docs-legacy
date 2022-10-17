@@ -66,8 +66,8 @@ POST
 |iv |false |string |t(:row_comment_iv_v3) |
 |<a href="#time-in-force-timeinforce">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce_v3) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_um) |
-|takeProfit |false |number |t(:row_comment_takeProfit_v3) |
-|stopLoss |false |number |t(:row_comment_stopLoss_v3) |
+|takeProfit |false |string |t(:row_comment_takeProfit_v3) |
+|stopLoss |false |string |t(:row_comment_stopLoss_v3) |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by_v3) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by_v3) |
 |reduceOnly |false |bool |t(:row_comment_reduceOnly_v3) |
@@ -136,8 +136,8 @@ POST
 |triggerPrice |false |string |t(:row_comment_triggerPrice_replace_v3) |
 |t(:row_parameter_quantity) |false |string |t(:row_comment_qty_replace_v3) |
 |t(:row_parameter_price) |false |string |t(:row_comment_price_replace_v3) |
-|takeProfit |false |number |t(:row_comment_takeProfit_replace_v3) |
-|stopLoss |false |number |t(:row_comment_stopLoss_replace_v3) |
+|takeProfit |false |string |t(:row_comment_takeProfit_replace_v3) |
+|stopLoss |false |string |t(:row_comment_stopLoss_replace_v3) |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by_v3) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by_v3) |
 |<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
