@@ -3737,7 +3737,9 @@ en:
   spotNormalCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
   spotTradesHistoryTips: If <code>startTime</code> is not specified, you can only query for records in the last 7 days. If you want to query for records older than 7 days, <code>startTime</code> is required.
   spotTradesHisotryTips_order: If the <code>orderId</code> is null, <code>fromTicketId</code> is passed, and <code>toTicketId</code> is null, then the result is sorted by <code>ticketId</code> in ascend. Otherwise, the result is sorted by <code>ticketId</code> in descend.
-  spotOrdersHistoryTips: If <code>startTime</code> and <code>endTime</code> are both not specified, it returns last 7 days records by default. 3 days records for institutional clients.
+  spotOrdersHistoryTips: |
+    If <code>startTime</code> and <code>endTime</code> are both not specified, it returns last 7 days records by default. 3 days records for institutional clients.</br>
+    Support 3 months data per request, and the recent 6 months data is maxmium.
   #spot_ws_v1
   spot_price: Price
   spot_symbol: Trading pair
