@@ -972,10 +972,10 @@ REST接口根URL:
 <blockquote>
 <p>拼接參數示例（以獲取提現紀錄為例）</p>
 </blockquote>
-<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"1660633147433T0d98KyVamQ62YBzN85000startTime=1659283200000&amp;endTime=1660060800000&amp;coin=USDT"</span>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"1660633147433XXXXXXXXX5000startTime=1659283200000&amp;endTime=1660060800000&amp;coin=USDT"</span>
 
 <span class="c1"># timestamp: 1660633147433
-# api_key: T0d98KyVamQ62YBzN8
+# api_key: XXXXXXXXX
 # recv_window: 5000
 # startTime=1659283200000
 # endTime=1660060800000
@@ -1035,7 +1035,7 @@ REST接口根URL:
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/inter-transfer'
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -1137,7 +1137,7 @@ REST接口根URL:
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer' \
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -1238,7 +1238,7 @@ REST接口根URL:
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/inter-transfer/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 </span></code></pre></div>
@@ -1384,7 +1384,7 @@ REST接口根URL:
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 </span></code></pre></div>
@@ -1536,7 +1536,7 @@ REST接口根URL:
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 </span></code></pre></div>
@@ -1599,7 +1599,7 @@ REST接口根URL:
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/transfer-sub-member-save' \
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -1664,7 +1664,7 @@ REST接口根URL:
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/universal-transfer' \
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -1771,7 +1771,7 @@ REST接口根URL:
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/universal-transfer/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 </span></code></pre></div>
@@ -1940,7 +1940,7 @@ REST接口根URL:
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/transfer-coin/list/query?fromAccountType=SPOT&amp;toAccountType=CONTRACT' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 </span></code></pre></div>
@@ -2008,7 +2008,7 @@ REST接口根URL:
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com//asset/v3/private/transfer/account-coin/balance/query?memberId=123&amp;accountType=CONTRACT&amp;coin=BTC&amp;withBonus=0' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 </span></code></pre></div>
@@ -2141,7 +2141,7 @@ REST接口根URL:
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/asset-info/query?accountType=SPOT&amp;coin=BTC' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 </span></code></pre></div>

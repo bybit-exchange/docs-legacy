@@ -3314,10 +3314,10 @@ REST接口根URL:
 <blockquote>
 <p>拼接參數示例（以修改槓桿率為例）：</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">param_str = "api_key=B2Rou0PLPpGqcU0Vu2&amp;buy_leverage=100&amp;sell_leverage=110&amp;symbol=BTCUSDT&amp;timestamp=1542434791747"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"api_key=B2Rou0PLPpGqcU0Vu2&amp;buy_leverage=100&amp;sell_leverage=110&amp;symbol=BTCUSD&amp;timestamp=1542434791747"</span>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">param_str = "api_key=XXXXXXXXXXX&amp;buy_leverage=100&amp;sell_leverage=110&amp;symbol=BTCUSDT&amp;timestamp=1542434791747"
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"api_key=XXXXXXXXXXX&amp;buy_leverage=100&amp;sell_leverage=110&amp;symbol=BTCUSD&amp;timestamp=1542434791747"</span>
 
-<span class="c1"># api_key=B2Rou0PLPpGqcU0Vu2&amp;
+<span class="c1"># api_key=XXXXXXXXXXX&amp;
 # leverage=100&amp;
 # symbol=BTCUSD&amp;
 # timestamp=1542434791747
@@ -3335,7 +3335,7 @@ REST接口根URL:
 <p><b>GET</b>請求格式（查詢賬號余額）:
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/user/leverage?api_key=B2Rou0PLPpGqcU0Vu2&amp;timestamp=1542434791000&amp;sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/user/leverage?api_key=XXXXXXXXXXX&amp;timestamp=1542434791000&amp;sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 </code></pre></div>
 <blockquote>
@@ -3347,7 +3347,7 @@ REST接口根URL:
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2Rou0PLPpGqcU0Vu2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXXXX"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"leverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSD"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1542434791000</span><span class="p">,</span><span class="w">
@@ -4418,11 +4418,10 @@ GET
 <p><p>市價活動委托: 一個傳統的市場價格訂單,會以當前的最優價格為您成交訂單。當且僅當選擇市價單時，<code>price</code>可為空！</p>
 <p>限價活動委托: 您可以為您的訂單設置一個執行價格，當市場價格達到您的設置價格時，系統會為您成交訂單。</p>
 <p><b>止盈止損: 您僅能在開倉時設置止盈止損條件單，一旦持有倉位後提交活動委托時關聯的止盈止損則不會生效。如果不設置止盈止損觸發條件<code>trigger_by</code>則默認使用LastPrice</b></p>
-<p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。增減最小單位請參考交易對接口響應中的<code>lot_size_filter</code>字段。</p>
+<p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。注意：<b>PostOnly</code>的最大下單數量可以是普通訂單的5倍</b>。</p>
 <p>委托價格: 如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-querysymbol">交易對接口</a>響應中的<b>price_filter</b>字段。</p>
 <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
 <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSDT的活動單、280個ETHUSDT合約的活動單。</b></p>
-<p><b><code>PostOnly</code>的最大下單量是普通訂單的5倍。</b></p>
 <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduce_only</code> 或 <code>close_on_trigger</code>的訂單。</b></p>
 </p>
 
@@ -6633,8 +6632,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">my_position</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
@@ -6958,8 +6957,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">set_auto_add_margin</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7035,8 +7034,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">cross_isolated_margin_switch</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7113,8 +7112,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">position_mode_switch</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7176,8 +7175,8 @@ GET
 <h3 id='t-switchmode'>切換止盈止損模式</h3><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">full_partial_position_tp_sl_switch</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7262,8 +7261,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">add_reduce_margin</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7527,8 +7526,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">set_leverage</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7598,8 +7597,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">set_trading_stop</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7713,8 +7712,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">user_trade_records</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
@@ -7941,8 +7940,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">extended_user_trade_records</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
@@ -8177,8 +8176,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">closed_profit_and_loss</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
@@ -8672,8 +8671,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">set_risk_limit</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -8769,8 +8768,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">predicted_funding_rate</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
@@ -8848,8 +8847,8 @@ GET
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">my_last_funding_fee</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>

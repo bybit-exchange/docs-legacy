@@ -1573,7 +1573,7 @@ REST接口根URL:
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">GET
 rule: timestamp+api_key+recv_window+queryString
 
-param_str = "1658384314791T0d98KyVamQ62YBzN85000category=option&amp;symbol=BTC-29JUL22-25000-C"
+param_str = "1658384314791XXXXXXXXX5000category=option&amp;symbol=BTC-29JUL22-25000-C"
 
 POST
 rule: timestamp+api_key+recv_window+raw_request_body
@@ -1581,10 +1581,10 @@ rule: timestamp+api_key+recv_window+raw_request_body
 param_str = "1658385579423PXOXCIFKHCWCAJTPKW5000{
   "category": "option"
 }"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"1658384314791T0d98KyVamQ62YBzN85000category=option&amp;symbol=BTC-29JUL22-25000-C"</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"1658384314791XXXXXXXXX5000category=option&amp;symbol=BTC-29JUL22-25000-C"</span>
 
 <span class="c1"># timestamp: 1658384314791
-# api_key: T0d98KyVamQ62YBzN8
+# api_key: XXXXXXXXX
 # recv_window: 5000
 # category=option
 # symbol=BTC-29JUL22-25000-C
@@ -3264,7 +3264,7 @@ function copyStringToClipboard (endpoint) {
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/order/create' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: f02a18137c25c40d64b2c474f575c01a62ba076124946d38619238e19c86a2f2' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658884339826' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -3304,12 +3304,11 @@ function copyStringToClipboard (endpoint) {
 <p><p>市價活動委托: 一個傳統的市場價格訂單,會以當前的最優價格為您成交訂單。當且僅當選擇市價單時，<code>price</code>可為空！</p>
 <p>限價活動委托: 您可以為您的訂單設置一個執行價格，當市場價格達到您的設置價格時，系統會為您成交訂單。</p>
 <p><b>止盈止損: 您僅能在開倉時設置止盈止損條件單，一旦持有倉位後提交活動委托時關聯的止盈止損則不會生效。如果不設置止盈止損觸發條件<code>triggerBy</code>則默認使用LastPrice</b></p>
-<p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。增減最小單位請參考交易對接口響應中的<code>lotSizeFilter</code>字段。</p>
+<p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。增減最小單位請參考交易對接口響應中的<code>lotSizeFilter</code>字段。注意：<b><code>PostOnly</code>的最大下單數量是普通訂單的5倍</b></p>
 <p>委托價格: 如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-dv_instrhead">交易對接口</a>響應中的<b>priceFilter</b>字段。</p>
 <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
 <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSDT的活動單、280個ETHUSDT合約的活動單。</b></p>
 <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduceOnly</code> 或 <code>closeOnTrigger</code>的訂單。</b></p>
-<p><b><code>PostOnly</code>的最大下單量是普通訂單的5倍。</b></p>
 </p>
 
 <p class="fake_header">HTTP 請求</p>
@@ -4059,44 +4058,45 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XRPUSDT</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">db8b74b3-72d3-4264-bf3f-52d39b41956e</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Stop</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.4000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UnTriggered</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">x002</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658901865082</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658902610748</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.2000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.6000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MarkPrice</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">leavesValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1658902847238</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"retCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"retMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XRPUSDT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db8b74b3-72d3-4264-bf3f-52d39b41956e"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"stopOrderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stop"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.4000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"timeInForce"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GoodTillCancel"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UnTriggered"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"triggerPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderLinkId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x002"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"createdTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1658901865082"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"updatedTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1658902610748"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"takeProfit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.6000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"tpTriggerBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"slTriggerBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"triggerBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MarkPrice"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reduceOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"leavesQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"leavesValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"cumExecQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"cumExecValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"cumExecFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"triggerDirection"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"nextPageCursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"retExtInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1658902847238</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><p>實時查詢活動委托。當傳遞參數<code>orderId</code>或<code>orderLinkId</code>其中任意一個時，將返回單條訂單數據，如果參數<code>orderId</code>和<code>orderLinkId</code>都不傳遞時，將返回所有<b>未成交</b>的訂單，最多500條。</p>
 <p>按照createdTime從近到遠排序.</p>
 </p>
@@ -4153,6 +4153,13 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
 <td>每頁數量, 最大50. 默認每頁20條</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>翻頁標記,請使用返回的cursor,簽名時使用返回的原始數據，發送request時請進行urlencode
+</td>
 </tr>
 </tbody></table>
 
@@ -4284,6 +4291,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">list&gt; leavesValue</td>
 <td style="text-align: left">string</td>
 <td>剩余掛單數量對應的預估價值</td>
+</tr>
+<tr>
+<td style="text-align: left">nextPageCursor</td>
+<td style="text-align: left">string</td>
+<td>翻頁標記</td>
 </tr>
 </tbody></table>
 <h2 id='t-position'>持倉</h2><h3 id='t-dv_myposition'>獲取持倉（實時）</h3>
@@ -4618,7 +4630,7 @@ function copyStringToClipboard (endpoint) {
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-isolated' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: f178bda84f8a3fa971338b7424cce2204824c0114f196650b2516962371e3902' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658908531694' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -4702,7 +4714,7 @@ function copyStringToClipboard (endpoint) {
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-mode' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: b07d38c9719187a8a9a0cee739f465edd05a1c7a30618e02a1f1dc9fc3639d97' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658909270602' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -4779,7 +4791,7 @@ function copyStringToClipboard (endpoint) {
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-tpsl-mode' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 018fd4ae872bdb5a90e849dc324eeab4157a047de05250bb74efb7c3434d0597' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658909568597' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -5060,7 +5072,7 @@ function copyStringToClipboard (endpoint) {
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/set-risk-limit' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 82904cc14df4bb278722d4212bdb76dc7e1ec7a77e0e761d2e09b3361059a25c' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658911327616' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -5137,7 +5149,7 @@ function copyStringToClipboard (endpoint) {
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/execution/list?symbol=XRPUSDT' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: a7358fb068bf66570e7ecf063e39a6dbd11f1d5572ba79a63d5996221d864585' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658911518042' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
@@ -5382,7 +5394,7 @@ function copyStringToClipboard (endpoint) {
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/closed-pnl?symbol=XRPUSDT&amp;startTime=1658764800000&amp;endTime=1658937600000' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: eb16a696924a92a3a47d769caf44d7373eca9ed6a644384ff6e8cd729ee9f7b1' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658914264517' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
@@ -6170,7 +6182,7 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
     <th>請求路徑</th>
   </tr>
   <tr>
-    <td rowspan="1">5 requests/second</td>
+    <td rowspan="1">10 requests/second</td>
     <td>All private endpoints</td>
   </tr>
 </table>

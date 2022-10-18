@@ -3329,10 +3329,10 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <blockquote>
 <p>An example for adjusting leverage</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">param_str = "api_key=B2Rou0PLPpGqcU0Vu2&amp;buy_leverage=100&amp;sell_leverage=110&amp;symbol=BTCUSDT&amp;timestamp=1542434791747"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"api_key=B2Rou0PLPpGqcU0Vu2&amp;buy_leverage=100&amp;sell_leverage=110&amp;symbol=BTCUSD&amp;timestamp=1542434791747"</span>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">param_str = "api_key=XXXXXXXXXXX&amp;buy_leverage=100&amp;sell_leverage=110&amp;symbol=BTCUSDT&amp;timestamp=1542434791747"
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"api_key=XXXXXXXXXXX&amp;buy_leverage=100&amp;sell_leverage=110&amp;symbol=BTCUSD&amp;timestamp=1542434791747"</span>
 
-<span class="c1"># api_key=B2Rou0PLPpGqcU0Vu2&amp;
+<span class="c1"># api_key=XXXXXXXXXXX&amp;
 # leverage=100&amp;
 # symbol=BTCUSD&amp;
 # timestamp=1542434791747
@@ -3350,7 +3350,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <p>Different requests need different message formats. Message format for <b>GET</b> requests:
 </p>
 </blockquote>
-<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/user/leverage?api_key=B2Rou0PLPpGqcU0Vu2&amp;timestamp=1542434791000&amp;sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">/user/leverage?api_key=XXXXXXXXXXX&amp;timestamp=1542434791000&amp;sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
 </code></pre></div>
 <blockquote>
@@ -3362,7 +3362,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
 
 <span class="p">{</span><span class="w">
-    </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B2Rou0PLPpGqcU0Vu2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXXXXX"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"leverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTCUSD"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1542434791000</span><span class="p">,</span><span class="w">
@@ -4434,11 +4434,10 @@ GET
 <p><p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
 <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
 <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-<p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
+<p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. Note: <b>The allowed max trade quantity of <code>PostOnly</code> is 5 times bigger than normal orders</b>.</p>
 <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>price_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
 <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
 <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
-<p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
 </p>
 
 <aside class="warning">
@@ -6672,8 +6671,8 @@ Please note that you can only modify untriggered conditional orders.
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">my_position</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
@@ -7000,8 +6999,8 @@ Please note that you can only modify untriggered conditional orders.
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">set_auto_add_margin</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7078,8 +7077,8 @@ Please note that you can only modify untriggered conditional orders.
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">cross_isolated_margin_switch</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7156,8 +7155,8 @@ Please note that you can only modify untriggered conditional orders.
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">position_mode_switch</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7222,8 +7221,8 @@ Please note that you can only modify untriggered conditional orders.
 <h3 id='t-switchmode'>Full/Partial Position TP/SL Switch</h3><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">full_partial_position_tp_sl_switch</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7308,8 +7307,8 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">add_reduce_margin</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7578,8 +7577,8 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">set_leverage</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7649,8 +7648,8 @@ When set to Partial, TP/SL orders may have a quantity less than the position siz
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">set_trading_stop</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -7767,8 +7766,8 @@ Passing these parameters will create conditional orders controlled by the system
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">user_trade_records</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
@@ -7995,8 +7994,8 @@ One order may have multiple trade records.
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">extended_user_trade_records</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
@@ -8231,8 +8230,8 @@ One order may have multiple trade records.
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">closed_profit_and_loss</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
@@ -8727,8 +8726,8 @@ Read more about the risk limit <a href="https://www.bybit.com/en-US/help-center/
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">set_risk_limit</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span><span class="p">,</span>
@@ -8825,8 +8824,8 @@ Read more about the risk limit <a href="https://www.bybit.com/en-US/help-center/
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">predicted_funding_rate</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>
@@ -8904,8 +8903,8 @@ Read more about the risk limit <a href="https://www.bybit.com/en-US/help-center/
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">usdt_perpetual</span>
 <span class="n">session_auth</span> <span class="o">=</span> <span class="n">usdt_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
     <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span><span class="p">,</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="s">"cCrMK2P55002rmQh1z"</span><span class="p">,</span>
-    <span class="n">api_secret</span><span class="o">=</span><span class="s">"eTXOcGvu6Ue9MA916oO5ymqbj2UzBfSLKcti"</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s">"XXXXXXXXXXXX"</span><span class="p">,</span>
+    <span class="n">api_secret</span><span class="o">=</span><span class="s">"XXXXXXXXXXXXXXXXXXXXXX"</span>
 <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">session_auth</span><span class="p">.</span><span class="n">my_last_funding_fee</span><span class="p">(</span>
     <span class="n">symbol</span><span class="o">=</span><span class="s">"BTCUSDT"</span>

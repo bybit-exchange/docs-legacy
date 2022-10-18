@@ -912,7 +912,7 @@
                             <a href="#t-dv_switchpositionmode" class="toc-h3 toc-link" data-title="Switch Position Mode">Switch Position Mode</a>
                           </li>
                           <li>
-                            <a href="#t-dv_switchmode" class="toc-h3 toc-link" data-title="Switch TP/SL Mode">Switch TP/SL Mode</a>
+                            <a href="#t-dv_switchmode" class="toc-h3 toc-link" data-title="Switch Full/Partial Position TP/SL">Switch Full/Partial Position TP/SL</a>
                           </li>
                           <li>
                             <a href="#t-setleverage" class="toc-h3 toc-link" data-title="Set Leverage">Set Leverage</a>
@@ -1555,7 +1555,7 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">GET
 rule: timestamp+api_key+recv_window+queryString
 
-param_str = "1658384314791T0d98KyVamQ62YBzN85000category=option&amp;symbol=BTC-29JUL22-25000-C"
+param_str = "1658384314791XXXXXXXXXX5000category=option&amp;symbol=BTC-29JUL22-25000-C"
 
 POST
 rule: timestamp+api_key+recv_window+raw_request_body
@@ -1563,10 +1563,10 @@ rule: timestamp+api_key+recv_window+raw_request_body
 param_str = "1658385579423PXOXCIFKHCWCAJTPKW5000{
   "category": "option"
 }"
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"1658384314791T0d98KyVamQ62YBzN85000category=option&amp;symbol=BTC-29JUL22-25000-C"</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"1658384314791XXXXXXXXXX5000category=option&amp;symbol=BTC-29JUL22-25000-C"</span>
 
 <span class="c1"># timestamp: 1658384314791
-# api_key: T0d98KyVamQ62YBzN8
+# api_key: XXXXXXXXXX
 # recv_window: 5000
 # category=option&amp;
 # symbol=BTC-29JUL22-25000-C
@@ -3250,7 +3250,7 @@ The response is in the snapshot format.
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/order/create' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: f02a18137c25c40d64b2c474f575c01a62ba076124946d38619238e19c86a2f2' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658884339826' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -3289,12 +3289,11 @@ The response is in the snapshot format.
 </code></pre></div>
 <p><p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
 <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-<p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tpTriggerBy</code>/<code>slTriggerBy</code> default to LastPrice. Passing values to the <code>takeProfit</code> or <code>stopLoss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-<p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lotSizeFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
+<p><b>Take profit/Stop loss</b>: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tpTriggerBy</code>/<code>slTriggerBy</code> default to LastPrice. Passing values to the <code>takeProfit</code> or <code>stopLoss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</p>
+<p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lotSizeFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint. Note: The allowed max trade quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</p>
 <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>priceFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
 <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
 <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
-<p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
 </p>
 
 <p class="fake_header">HTTP Request</p>
@@ -4055,44 +4054,45 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <blockquote>
 <p>Response Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XRPUSDT</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">db8b74b3-72d3-4264-bf3f-52d39b41956e</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Stop</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.4000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UnTriggered</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">x002</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658901865082</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658902610748</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.2000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.6000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MarkPrice</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">leavesValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1658902847238</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"retCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"retMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XRPUSDT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db8b74b3-72d3-4264-bf3f-52d39b41956e"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"stopOrderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stop"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.4000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"timeInForce"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GoodTillCancel"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UnTriggered"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"triggerPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"orderLinkId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x002"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"createdTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1658901865082"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"updatedTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1658902610748"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"takeProfit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.6000"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"tpTriggerBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"slTriggerBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"triggerBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MarkPrice"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"reduceOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"leavesQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"leavesValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"cumExecQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"cumExecValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"cumExecFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"triggerDirection"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"nextPageCursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"retExtInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1658902847238</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><p>Query real-time order information. If only <code>orderId</code> or <code>orderLinkId</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b></p>.
 <p>Ordered by <code>createdTime</code> in descending order.</p>
 </p>
@@ -4149,6 +4149,13 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
 <td>Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>API pass-through. accountType + category + cursor +. If inconsistent, the following should be returned<span>:</span> The account type does not match the service inquiry.
+</td>
 </tr>
 </tbody></table>
 
@@ -4283,6 +4290,11 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">list&gt; leavesValue</td>
 <td style="text-align: left">string</td>
 <td>The estimated value corresponding to the number of remaining orders</td>
+</tr>
+<tr>
+<td style="text-align: left">nextPageCursor</td>
+<td style="text-align: left">string</td>
+<td>API pass-through</td>
 </tr>
 </tbody></table>
 <h2 id='t-position'>Position</h2><h3 id='t-dv_myposition'>Get Position (real-time)</h3>
@@ -4621,7 +4633,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-isolated' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: f178bda84f8a3fa971338b7424cce2204824c0114f196650b2516962371e3902' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658908531694' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -4706,7 +4718,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-mode' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: b07d38c9719187a8a9a0cee739f465edd05a1c7a30618e02a1f1dc9fc3639d97' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658909270602' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -4779,14 +4791,14 @@ Please note that only orders that are unfilled or partially filled can be modifi
 </tr>
 </thead><tbody>
 </tbody></table>
-<h3 id='t-dv_switchmode'>Switch TP/SL Mode</h3>
+<h3 id='t-dv_switchmode'>Switch Full/Partial Position TP/SL</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-tpsl-mode' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 018fd4ae872bdb5a90e849dc324eeab4157a047de05250bb74efb7c3434d0597' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658909568597' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -5071,7 +5083,7 @@ Passing these parameters will create conditional orders controlled by the system
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/set-risk-limit' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 82904cc14df4bb278722d4212bdb76dc7e1ec7a77e0e761d2e09b3361059a25c' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658911327616' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -5149,7 +5161,7 @@ Read more about the risk limit <a href="https://www.bybit.com/en-US/help-center/
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/execution/list?symbol=XRPUSDT' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: a7358fb068bf66570e7ecf063e39a6dbd11f1d5572ba79a63d5996221d864585' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658911518042' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
@@ -5395,7 +5407,7 @@ One order may have multiple trade records.
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/closed-pnl?symbol=XRPUSDT&amp;startTime=1658764800000&amp;endTime=1658937600000' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: eb16a696924a92a3a47d769caf44d7373eca9ed6a644384ff6e8cd729ee9f7b1' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658914264517' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
@@ -5879,7 +5891,7 @@ One order may have multiple trade records.
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/account/fee-rate?symbol=ETHUSDT' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: e65aad8dd5459774ad21aaca77420947332fdbfe433bef959c6507ce2379999f' \
---header 'X-BAPI-API-KEY: T0d98KyVamQ62YBzN8' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658739026859' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
