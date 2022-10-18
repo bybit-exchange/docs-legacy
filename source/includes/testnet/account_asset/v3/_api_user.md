@@ -63,29 +63,24 @@ POST
 |username |string |t(:user_username_req_comment) |
 |memberType |int |t(:user_memberType_req_comment) |
 |switch |int |t(:user_switch_req_comment) |
-|remark |string |t(:user_note_req_comment) |
+|remark |string |t(:user_remark_resp_comment) |
 
 
 ### t(:create_subuser_apikey)
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/create-sub-api' \
---header 'X-BAPI-SIGN: b5ab130814235091bc56884289d163ab9dca637824c818cebb4d59fe0d4f9b17' \
---header 'X-BAPI-API-KEY: XXXXXXXXX' \
---header 'X-BAPI-TIMESTAMP: 1665715086395' \
---header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'Content-Type: application/json' \
---data-raw '{
+{
     "subuid": 1037883,
     "note": "remakkkkkk for sub uid",
     "readOnly": 0,
+    "ips": ["180.156.243.XXX"],
     "permissions": {
-        "Wallet": [
-            "AccountTransfer"
-        ]
+            "Wallet": [
+                "AccountTransfer"
+            ]
     }
-}'
+}
 ```
 
 > t(:codequote_responseExample)
@@ -97,7 +92,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/cr
     "result": {
         "id": "350666",
         "note": "remakkkkkk for sub uid",
-        "apiKey": "B20h175nOlwUpU5uh8",
+        "apiKey": "XXXXXXXXXXXXXX",
         "readOnly": 0,
         "secret": "XXXXXXXXXXXXXX",
         "permissions": {
@@ -128,30 +123,37 @@ POST
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|subuid |<b>true</b> |string |t(:row_comment_transfer_id) |
-|note |false |string |t(:row_comment_currency) |
-|readOnly |<b>true</b> |int |t(:row_comment_to_amount) |
-|ips |false |array[string] |t(:row_comment_to_subUserId) |
-|permissions |<b>true</b> |Object |t(:row_comment_transfertype) |
+|:------ |:-------|:-----|----- |
+|subuid |<b>true</b> |string |t(:user_uid_resp_comment) |
+|note |false |string |t(:user_note_req_comment) |
+|readOnly |<b>true</b> |int |t(:user_readOnly_comment) |
+|ips |false |array[string] |t(:user_ips_req_comment) |
+|permissions |<b>true</b> |Object |t(:user_sub_permissions_req_comment) |
+|> ContractTrade |false |array |t(:user_permissions_ContractTrade_comment) |
+|> Spot |false |array |t(:user_permissions_Spot_comment) |
+|> Wallet |false |array |t(:user_permissions_Wallet_comment) |
+|> Options |false |array |t(:user_permissions_Options_comment) |
+|> Derivatives |false |array |t(:user_permissions_Derivatives_comment) |
+|> Exchange |false |array |t(:user_permissions_Exchange_comment) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|id |string |t(:row_comment_transfer_id) |
-|note |string |t(:row_comment_currency) |
-|apiKey |t(:row_comment_currency) |
-|readOnly |string |t(:row_comment_currency) |
-|secret |string |t(:row_comment_currency) |
-|permissions |Object |t(:row_comment_currency) |
-|> ContractTrade |array |t(:row_comment_currency) |
-|> Spot |array |t(:row_comment_currency) |
-|> Wallet |array |t(:row_comment_currency) |
-|> Options |array |t(:row_comment_currency) |
-|> CopyTrading |array |t(:row_comment_currency) |
-|> BlockTrade |array |t(:row_comment_currency) |
-|> Exchange |array |t(:row_comment_currency) |
-|> NFT |array |t(:row_comment_currency) |
+|id |string |t(:user_id_resp_comment) |
+|note |string |t(:user_remark_resp_comment) |
+|apiKey |string |t(:user_apiKey_resp_comment) |
+|readOnly |string |t(:user_readOnly_comment) |
+|secret |string |t(:user_secret_resp_comment) |
+|permissions |Object |t(:user_permissions_resp_comment) |
+|> ContractTrade |array |t(:user_permissions_ContractTrade_resp_comment) |
+|> Spot |array |t(:user_permissions_Spot_resp_comment) |
+|> Wallet |array |t(:user_permissions_Wallet_resp_comment) |
+|> Options |array |t(:user_permissions_Options_resp_comment) |
+|> Derivatives |array |t(:user_permissions_Derivatives_resp_comment) |
+|> CopyTrading |array |t(:user_sub_permissions_CopyTrading_resp_comment) |
+|> BlockTrade |array |t(:user_sub_permissions_BlockTrade_resp_comment) |
+|> Exchange |array |t(:user_permissions_Exchange_resp_comment) |
+|> NFT |array |t(:user_sub_permissions_NFT_resp_comment) |
 
 
 ### t(:get_sub_members_list)

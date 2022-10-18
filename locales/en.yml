@@ -5665,9 +5665,40 @@ en:
     <code>1</code>: normal sub account, <code>6</code>: custodial sub account
   user_switch_req_comment: |
     <code>0</code>: turn off quick login, <code>1</code>: turn on quick login. <b>0</b> by default
-  user_note_req_comment: Set a remark of the account
+  user_note_req_comment: Set a remark
+  user_remark_resp_comment: The remark
   create_subuser_apikey: Create Sub UID API key
   create_subuser_apikey_para: To create new API key for those newly created sub UID. Use <b>master</b> user's api key ONLY.
+  user_readOnly_comment: <code>0</code>：Read and Write. <code>1</code>：Read only
+  user_ips_req_comment: |
+    Set the IP bind. example: ["192.168.X.X.1"]<br/>
+    <b>note</b>: <li>don't pass <code>ips</code> or pass with ["*"] means no bind</li><li><b>No ip binded api key will be invalid after 90 days</b></li><li><b>api key will be invalid after 7 days once the account password is changed</b></li>
+  user_sub_permissions_req_comment: |
+    Tick the types of permission.<br/>
+    <b>note</b>: one of blew types must be passed, otherwise the error is thrown
+  user_permissions_ContractTrade_comment: <code>["Order","Position"]</code>
+  user_permissions_Spot_comment: <code>["SpotTrade"]</code>
+  user_permissions_Wallet_comment: <code>["AccountTransfer","SubMemberTransfer"]</code>
+  user_permissions_Options_comment: <code>["OptionsTrade"]</code>
+  user_permissions_Derivatives_comment: <code>["DerivativesTrade"]</code>
+  user_permissions_Exchange_comment: <code>["ExchangeHistory"]</code>
+  user_id_resp_comment: Unique id. Internal used
+  user_apiKey_resp_comment: The newly created api key
+  user_secret_resp_comment: |
+    The secret paired with api key.<br/>
+    <b>note</b>: The secret can't be queried by GET api. Please keep it properly
+  user_permissions_resp_comment: The types of permission
+  user_permissions_ContractTrade_resp_comment: Permisson of contract trade
+  user_permissions_Spot_resp_comment: Permisson of spot
+  user_permissions_Wallet_resp_comment: Permisson of wallet
+  user_permissions_Options_resp_comment: Permission of option
+  user_permissions_Derivatives_resp_comment: Permission of derivatives
+  user_sub_permissions_CopyTrading_resp_comment: Permission of copytrade. Not applicable to sub account, always <code>[]</code>
+  user_sub_permissions_BlockTrade_resp_comment: Permission of blocktrade. Not applicable to sub account, always <code>[]</code>
+  user_sub_permissions_NFT_resp_comment: Permission of NFT. Not applicable to sub account, always <code>[]</code>
+  user_permissions_Exchange_resp_comment: Permission of derivatives
+
+
   get_sub_members_list: Get Sub UID List
   get_sub_members_list_parap: Get all sub uid of master account. Use <b>master</b> user's api key ONLY.
   froze_sub_uid: Froze Sub UID

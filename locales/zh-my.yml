@@ -5187,3 +5187,39 @@ zh-my:
   unified_baseCoin_param: 交易幣種. 目前僅<code>category</code>=option時有效，期權下若不傳該字段，則默認返回BTC
   unified_baseCoin_param_2: 交易幣種. 當<code>category</code>=option時，不傳，則默認返回BTC；當<code>category</code>=linear時，傳入BTC，則默認返回BTCPERP和BTCUSDT
   unified_baseCoin_param_3: 交易幣種. 當<code>category</code>=option時，不傳，則默認返回BTC
+  # account asset - user
+  user_apikey_api: 母子帳戶相關接口
+  user_apikey_para: 以下接口都需要鑒權
+  user_apikey_notice: |
+    在調用母子帳戶相關接口時，使用的API key至少需要擁有以下其中一種權限
+    <li>子帳戶: "Account Transfer（資產帳戶劃轉）"</li>
+    <li>母帳號: "Account Transfer（資產帳戶劃轉）", "Subaccount Transfer（母子帳戶劃轉）", "Withdrawal（提幣）"</li>
+  create_sub_uid: 新建子帳戶
+  createSubUid_para: 創建新的子帳戶。需使用<b>母</b>帳戶的API key。
+  user_uid_resp_comment: 子帳戶userId
+  user_username_req_comment: |
+    給新的子帳戶創建一個用戶名
+    <li>6-16位字符，須同時含有數字和字母</li>
+    <li>不能與已存在或已刪除的帳戶用戶名重複</li>
+  user_memberType_req_comment: |
+    <code>1</code>: 普通子帳戶, <code>6</code>: 託管子帳戶
+  user_switch_req_comment: |
+    <code>0</code>: 關閉快捷登陸, <code>1</code>: 打開快捷登陸. 默認關閉
+  user_note_req_comment: 設置備註
+  user_remark_resp_comment: 備註
+  create_subuser_apikey: 新建子帳戶的API Key
+  create_subuser_apikey_para: 給新建好的子帳戶創建新的API key。需使用<b>母</b>帳戶的API key。
+  get_sub_members_list: 獲取子帳戶UID列表
+  get_sub_members_list_parap: 獲取當前母帳戶下所有的子帳戶列表。需使用<b>母</b>帳戶的API key。
+  froze_sub_uid: 凍結/解凍子帳戶
+  froze_sub_uid_para: 凍結或解凍子帳戶。需使用<b>母</b>帳戶的API key。
+  get_api_key_info: 獲取API Key相關信息
+  get_api_key_info_para: 獲取API key的相關信息。使用待查詢的api key調用接口。適用於母、子帳戶的api key。
+  modify_master_api_key: 修改母帳戶的API Key設置
+  modify_master_api_key_para: 修改母帳戶啊API key的設置。使用待修改的api key調用接口。需使用<b>母</b>帳戶的API key。
+  delete_master_api_key: 刪除母帳戶的API Key
+  delete_master_api_key_para: 刪除母帳戶下的api key。使用待刪除的api key調用接口。需使用<b>母</b>帳戶的API key。
+  modify_sub_api_key: 修改子帳戶的API Key設置
+  modify_sub_api_key_para: 修改子帳戶啊API key的設置。使用待修改的api key調用接口。需使用<b>子</b>帳戶的API key。
+  delete_sub_api_key: 刪除子帳戶的API Key
+  delete_sub_api_key_para: 刪除子帳戶下的api key。使用待刪除的api key調用接口。需使用<b>子</b>帳戶的API key。
