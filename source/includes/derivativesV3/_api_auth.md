@@ -26,7 +26,7 @@ t(:auth_aside_timestamp)
 GET
 rule: timestamp+api_key+recv_window+queryString
 
-param_str = "1658384314791T0d98KyVamQ62YBzN85000category=option&symbol=BTC-29JUL22-25000-C"
+param_str = "1658384314791XXXXXXXXXX5000category=option&symbol=BTC-29JUL22-25000-C"
 
 POST
 rule: timestamp+api_key+recv_window+raw_request_body
@@ -36,10 +36,10 @@ param_str = "1658385579423PXOXCIFKHCWCAJTPKW5000{
 }"
 ```
 ```python
-param_str = "1658384314791T0d98KyVamQ62YBzN85000category=option&symbol=BTC-29JUL22-25000-C"
+param_str = "1658384314791XXXXXXXXXX5000category=option&symbol=BTC-29JUL22-25000-C"
 
 # timestamp: 1658384314791
-# api_key: T0d98KyVamQ62YBzN8
+# api_key: XXXXXXXXXX
 # recv_window: 5000
 # category=option&
 # symbol=BTC-29JUL22-25000-C
