@@ -14,7 +14,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/t
     "amount": "0.1",
     "coin": "BTC",
     "transfer_id": "b668ce35-db92-4db4-9f81-0b5da57d4df6",
-    "api_key": "YtcjswsO9WjAmQVUx7",
+    "api_key": "XXXXXXXXXXX",
     "sign": "{{sign}}",
     "timestamp": "{{timestamp}}",
     "recv_window": "{{recvWindow}}"
@@ -99,7 +99,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/s
     "coin": "BTC",
     "sub_user_id": 251711,
     "type": "IN",
-    "api_key": "YtcjswsO9WjAmQVUx7",
+    "api_key": "XXXXXXXXXXX",
     "sign": "{{sign}}",
     "timestamp": "{{timestamp}}",
     "recv_window": "{{recvWindow}}"

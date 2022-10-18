@@ -23,9 +23,9 @@ t(:auth_aside_timestamp)
 > t(:auth_codequote_construct1a)
 
 ```python
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSDH21&timestamp=1542434791747"
+param_str = "api_key=XXXXXXXXXXX&leverage=100&symbol=BTCUSDH21&timestamp=1542434791747"
 
-# api_key=B2Rou0PLPpGqcU0Vu2&
+# api_key=XXXXXXXXXXX&
 # leverage=100&
 # symbol=BTCUSDH21&
 # timestamp=1542434791747
@@ -40,7 +40,7 @@ t(:auth_para_construct2)
 > t(:auth_codequote_construct2)
 
 ```http
-GET /asset/v1/private/transfer/list?api_key=q1ksyOX2T0G2SkK8nu&recvWindow=5000&timestamp=1623208423972&sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095 HTTP/1.1
+GET /asset/v1/private/transfer/list?api_key=XXXXXXXXXXX&recvWindow=5000&timestamp=1623208423972&sign=b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095 HTTP/1.1
 Host: api-testnet.bybit.com
 ```
 
