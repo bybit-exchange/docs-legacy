@@ -1317,6 +1317,8 @@ en:
       <li><code>ret_code</code>!=0 means create order fail</li>
       <li><code>ext_code</code> means please refer to <a href="#t-errors">Errors</a></li>
     </ul>
+  getOrderList_warning: |
+    This interface only supports to query <b>10k</b> orders per symbol for userId. If you need to get historical orders, please refer to the <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-contract_getorder">api</a> from contract v3, which enables to get all status orders in recent 7days, and <b>FILLED</b> orders over 7 days
 
   ### Get Conditional Order
   getcond: Get Conditional Order
@@ -1455,8 +1457,8 @@ en:
   ## Get Risk Limit
   getrisklimit: Get Risk Limit
   account_para_getRisk: Get risk limit. <b>This endpoint does not require authentication.</b>
-  account_aside_getRisk_inverse: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/360039749753-Risk-Limit-Inverse-Contract-">here</a>.
-  account_aside_getRisk_linear: Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">here</a>.
+  account_aside_getRisk_inverse: Read more about the risk limit <a href="https://www.bybit.com/en-US/help-center/bybitHC_Article/?language=zh_MY&id=000001095">here</a>.
+  account_aside_getRisk_linear: Read more about the risk limit <a href="https://www.bybit.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Article?language=en_US&id=000001164">here</a>.
 ## Set Risk Limit
   setrisklimit: Set Risk Limit
   account_para_setRisk: Set risk limit.
@@ -3737,7 +3739,9 @@ en:
   spotNormalCancelTips: The actual result of the cancellation request needs to be checked by order status or match result endpoints after submitting the request.
   spotTradesHistoryTips: If <code>startTime</code> is not specified, you can only query for records in the last 7 days. If you want to query for records older than 7 days, <code>startTime</code> is required.
   spotTradesHisotryTips_order: If the <code>orderId</code> is null, <code>fromTicketId</code> is passed, and <code>toTicketId</code> is null, then the result is sorted by <code>ticketId</code> in ascend. Otherwise, the result is sorted by <code>ticketId</code> in descend.
-  spotOrdersHistoryTips: If <code>startTime</code> and <code>endTime</code> are both not specified, it returns last 7 days records by default. 3 days records for institutional clients.
+  spotOrdersHistoryTips: |
+    If <code>startTime</code> and <code>endTime</code> are both not specified, it returns last 7 days records by default. 3 days records for institutional clients.</br>
+    Supports fetching 3 months worth of data per request. Returns data up to 6 months old.
   #spot_ws_v1
   spot_price: Price
   spot_symbol: Trading pair
@@ -3871,7 +3875,7 @@ en:
     <p>ws.send('{"req_id": "10002", "op": "unsubscribe", "args": ["trade.BTCUSDT""]}');</p>
 
   #user
-  spot_private_topics_auth_sub: Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.
+  spot_private_topics_auth_sub: Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 4 private topics.
 
   outboundAccountInfo: outboundAccountInfo
   outboundAccountInfo_desc: Pushes data about your account.
@@ -5380,22 +5384,33 @@ en:
     </ul>
 
   websocket_para_endpoint_contract: |
-    <p>WebSocket public channel:</p>
+    <p><b>WebSocket public channel</b>:</p>
     <ul>
     <p>
-    <li>Testnet:<br/>
+    <li><b>Mainnet</b>:<br/>
+        USDT contract: <span id="usdt_2_mainnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        Inverse contract: <span id="inverse_mainnet_address">wss://stream.bybit.com/contract/inverse/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+    <li><b>Testnet</b>:<br/>
         USDT contract: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
         <br/>
         Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
-     </p>
+    </p>
     </ul>
-    <p>WebSocket private channel:</p>
+    <p><b>WebSocket private channel</b>:</p>
     <ul>
     <p>
-    <li>Testnet:<br/>
+    <li><b>Mainnet</b>:<br/>
+        Contract account: <span id="ca_mainnet_address">wss://stream.bybit.com/contract/private/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ca_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+    </li>
+    <li><b>Testnet</b>:<br/>
         Contract account: <span id="ca_testnet_address">wss://stream-testnet.bybit.com/contract/private/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ca_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>

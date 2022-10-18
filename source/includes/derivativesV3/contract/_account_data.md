@@ -300,10 +300,6 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
 
 t(:contract_para_cancelAllOrders)
 
-<aside class="warning">
-t(:account_aside_cancelAllActive)
-</aside>
-
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCancelAll>/contract/v3/private/order/cancel-all</span></code>
@@ -584,10 +580,6 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
 ```
 
 t(:contract_para_position)
-
-<aside class="warning">
-t(:contract_notice_position)
-</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 GET
