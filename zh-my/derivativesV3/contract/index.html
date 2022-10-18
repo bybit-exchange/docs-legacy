@@ -3837,10 +3837,6 @@ function copyStringToClipboard (endpoint) {
 <p><p>撤銷所有未成交、部分成交的委托單。但全部成交的委托單不可取消。</p>
 </p>
 
-<aside class="warning">
-註意，此api每調用一次會導致<code>rate_limit</code>扣減10
-</aside>
-
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
@@ -4348,11 +4344,6 @@ function copyStringToClipboard (endpoint) {
 <p><p><b>接口說明：</b></p>
 <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息。</p>
 </p>
-
-<aside class="warning">
-如果傳單個symbol, 每個request計數1次。如果一次傳多個symbol, 每個request計數10次。
-
-</aside>
 
 <p class="fake_header">HTTP 請求</p>
 
@@ -5069,7 +5060,7 @@ function copyStringToClipboard (endpoint) {
 <p>設置風險限額。</p>
 
 <aside class="notice">
-關於風險限額，點擊<a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">這裏</a>了解更多。
+關於風險限額，點擊<a href="https://www.bybit.com/zh-MY/help-center/HelpCenterKnowledge/bybitHC_Article/?language=en_US&id=000001164">這裏</a>了解更多。
 </aside>
 
 <p class="fake_header">HTTP 請求</p>
@@ -6252,6 +6243,10 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <p><b>WebSocket 私有頻道</b>:</p>
 <ul>
 <p>
+<li><b>主網</b>:<br/>
+    合约帳戶: <span id="ca_mainnet_address">wss://stream.bybit.com/contract/private/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ca_mainnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+</li>
 <li><b>測試網</b>:<br/>
     合约帳戶: <span id="ca_testnet_address">wss://stream-testnet.bybit.com/contract/private/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ca_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>

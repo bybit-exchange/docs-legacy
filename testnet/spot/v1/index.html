@@ -3910,7 +3910,9 @@ The actual result of the cancellation request needs to be checked by order statu
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-If <code>startTime</code> and <code>endTime</code> are both not specified, it returns last 7 days records by default. 3 days records for institutional clients.
+If <code>startTime</code> and <code>endTime</code> are both not specified, it returns last 7 days records by default. 3 days records for institutional clients.</br>
+Supports fetching 3 months worth of data per request. Returns data up to 6 months old.
+
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -7789,10 +7791,10 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tr>
 </tbody></table>
 <h2 id='t-privatetopics'>Private Topics</h2>
-<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 4 private topics.</p>
 <h3 id='t-outboundaccountinfo'>outboundAccountInfo</h3>
 <blockquote>
-<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 4 private topics.</p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">spot</span>
@@ -7893,7 +7895,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tbody></table>
 <h3 id='t-executionreport'>executionReport</h3>
 <blockquote>
-<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 4 private topics.</p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">spot</span>
@@ -8097,7 +8099,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </tbody></table>
 <h3 id='t-stop_executionreport'>stop_executionReport</h3>
 <blockquote>
-<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 4 private topics.</p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
@@ -8233,7 +8235,7 @@ Pushes data in <b>real-time</b>
 </tbody></table>
 <h3 id='t-ticketinfo'>ticketInfo</h3>
 <blockquote>
-<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 3 private topics.</p>
+<p>Sending the <a href="#t-websocketauthentication">authentication message</a> automatically subscribes you to all 4 private topics.</p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
 <span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">spot</span>

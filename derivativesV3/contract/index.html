@@ -3851,10 +3851,6 @@ The response is in the snapshot format.
 <p><p>Cancel all orders that are unfilled or partially filled. Fully filled orders cannot be cancelled.</p>
 </p>
 
-<aside class="warning">
-This endpoint's <code>rate_limit</code> will decrease by 10 per request; ie, one request to this endpoint consumes 10 from the <a href="#t-perendpoint">limit allowed per minute</a>.
-</aside>
-
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
@@ -4368,11 +4364,6 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <p><p><b>Interface:</b></p>
 <p>Accessing personal list of positions. Users can access information about their open positions through this interface, such as the quantity and wallet balance.</p>
 </p>
-
-<aside class="warning">
-If symbol is passed in single, rate limit is counted as 1 per request. If symbol is passed in multiple, rate limit is counted as 10 per request.
-
-</aside>
 
 <p class="fake_header">HTTP Request</p>
 
@@ -5101,7 +5092,7 @@ Passing these parameters will create conditional orders controlled by the system
 <p>Set risk limit.</p>
 
 <aside class="notice">
-Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">here</a>.
+Read more about the risk limit <a href="https://www.bybit.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Article?language=en_US&id=000001164">here</a>.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -6270,22 +6261,33 @@ Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following
     <span class="p">})</span>
 <span class="p">)</span>
 </code></pre></div>
-<p><p>WebSocket public channel:</p>
+<p><p><b>WebSocket public channel</b>:</p>
 <ul>
 <p>
-<li>Testnet:<br/>
+<li><b>Mainnet</b>:<br/>
+    USDT contract: <span id="usdt_2_mainnet_address">wss://stream.bybit.com/contract/usdt/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_mainnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    Inverse contract: <span id="inverse_mainnet_address">wss://stream.bybit.com/contract/inverse/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+</li>
+<li><b>Testnet</b>:<br/>
     USDT contract: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdt_2_testnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
     <br/>
     Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
- </p>
+</p>
 </ul>
-<p>WebSocket private channel:</p>
+<p><b>WebSocket private channel</b>:</p>
 <ul>
 <p>
-<li>Testnet:<br/>
+<li><b>Mainnet</b>:<br/>
+    Contract account: <span id="ca_mainnet_address">wss://stream.bybit.com/contract/private/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ca_mainnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+</li>
+<li><b>Testnet</b>:<br/>
     Contract account: <span id="ca_testnet_address">wss://stream-testnet.bybit.com/contract/private/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ca_testnet_address"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>

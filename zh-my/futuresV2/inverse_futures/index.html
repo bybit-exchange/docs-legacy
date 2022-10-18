@@ -3027,6 +3027,11 @@ function copyStringToClipboard (endpoint) {
 <p>創建/取消訂單是異步的，因此<b>該接口可能返回的數據可能會有延遲</b>。如果要獲取訂單的實時信息，可以調用接口<a href="#t-queryactive">實時查詢活動單信息</a>.</p>
 </p>
 
+<aside class="warning">
+該接口僅支持查詢近<b>10,000</b>筆訂單（單用戶的單個交易對）。若需要查詢更遠歷史訂單，請使用合約v3的<a href="https://bybit-exchange.github.io/docs/zh-my/derivativesV3/contract/#t-contract_getorder">接口</a>, 該接口支持查詢近7天全狀態的訂單及7天前有成交紀錄的訂單。
+
+</aside>
+
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
@@ -6562,11 +6567,6 @@ function copyStringToClipboard (endpoint) {
 <td>只有當<code>exec_type</code>字段類型為<code>Trade</code>、<code>AdlTrade</code>、<code>BustTrade</code>時有效</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left">string</td>
-<td>執行類型</td>
-</tr>
-<tr>
 <td style="text-align: left">leaves_qty</td>
 <td style="text-align: left">number</td>
 <td>剩余委托數量</td>
@@ -6599,7 +6599,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left"><a href="#order-type-order_type">order_type</a></td>
 <td style="text-align: left">string</td>
-<td>執行類型</td>
+<td>交易記錄類型</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#side-side">side</a></td>
@@ -6869,7 +6869,7 @@ function copyStringToClipboard (endpoint) {
 <span class="p">}</span>
 </code></pre></div>
 <aside class="notice">
-關於風險限額，點擊<a href="https://help.bybit.com/hc/en-us/articles/360039749753-Risk-Limit-Inverse-Contract-">這裏</a>了解更多。
+關於風險限額，點擊<a href="https://www.bybit.com/zh-MY/help-center/bybitHC_Article?language=zh_MY&id=000001095">這裏</a>了解更多。
 </aside>
 
 <p class="fake_header">HTTP 請求</p>

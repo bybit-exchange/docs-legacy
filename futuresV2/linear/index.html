@@ -4747,6 +4747,11 @@ Please note:
 <p>Because order creation/cancellation is asynchronous, there can be a data delay in this endpoint. You can get real-time order info with the <a href="#t-queryactive">Query Active Order (real-time)</a> endpoint.</p>
 </p>
 
+<aside class="warning">
+This interface only supports to query <b>10k</b> orders per symbol for userId. If you need to get historical orders, please refer to the <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-contract_getorder">api</a> from contract v3, which enables to get all status orders in recent 7days, and <b>FILLED</b> orders over 7 days
+
+</aside>
+
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
@@ -8624,7 +8629,7 @@ One order may have multiple trade records.
 <p>Get risk limit. <b>This endpoint does not require authentication.</b></p>
 
 <aside class="notice">
-Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">here</a>.
+Read more about the risk limit <a href="https://www.bybit.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Article?language=en_US&id=000001164">here</a>.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
@@ -8751,7 +8756,7 @@ Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles
 <p>Set risk limit.</p>
 
 <aside class="notice">
-Read more about the risk limit <a href="https://help.bybit.com/hc/en-us/articles/900000170023-Risk-Limit-USDT-Contract-">here</a>.
+Read more about the risk limit <a href="https://www.bybit.com/en-US/help-center/HelpCenterKnowledge/bybitHC_Article?language=en_US&id=000001164">here</a>.
 </aside>
 
 <p class="fake_header">HTTP Request</p>
