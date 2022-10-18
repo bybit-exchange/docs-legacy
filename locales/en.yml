@@ -1103,11 +1103,10 @@ en:
        The converted limit price and executed price are both available in trade history.</b>.</p>
     <p>Limit price: You can set an execution price for your order. The system will fill your order once the last traded price reaches your execution price.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. All USD markets have a contract size of 1 USD. See more</p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. Note: <b>The allowed max trade quantity of <code>PostOnly</code> is 5 times bigger than normal orders</b>.</p>
     <p>Order price: If it is a conditional order, this parameter is required. When there is no position, the price should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument.</b></p>
-    <p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
 
 
   account_para_placeActive_v3: |
@@ -3157,11 +3156,10 @@ en:
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. Note: <b>The allowed max trade quantity of <code>PostOnly</code> is 5 times bigger than normal orders</b>.</p>
     <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>price_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
-    <p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   linear_row_comment_stopPx: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure stop_px > max(market price, base_price) else, stop_px < min(market price, base_price)
 
@@ -5170,7 +5168,6 @@ en:
   dv_getOrder: Get Orders
   dv_myposition: Get Position (real-time)
   dv_setleverage: Modify Leverage
-  dv_switchmode: Switch TP/SL Mode
   dv_setrisklimit: Set Risk Limit
   dv_tradingstop: Set TP/SL
   dv_userTradeRecords7Day: Get 7-day Trading History
@@ -5461,12 +5458,12 @@ en:
   contract_order_para: |
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tpTriggerBy</code>/<code>slTriggerBy</code> default to LastPrice. Passing values to the <code>takeProfit</code> or <code>stopLoss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lotSizeFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
+    <p><b>Take profit/Stop loss</b>: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tpTriggerBy</code>/<code>slTriggerBy</code> default to LastPrice. Passing values to the <code>takeProfit</code> or <code>stopLoss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lotSizeFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint. Note: The allowed max trade quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</p>
     <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>priceFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
-    <p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
+
 
   # Contract Account >> Account
   contract_account: Account
