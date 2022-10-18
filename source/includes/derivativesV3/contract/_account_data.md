@@ -410,7 +410,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
 
 > t(:codequote_responseExample)
 
-```javascript
+```json
 {
     "retCode": 0,
     "retMsg": "OK",
@@ -443,7 +443,8 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
                 "cumExecFee": "0",
                 "triggerDirection": 2
             }
-        ]
+        ],
+        "nextPageCursor": ""
     },
     "retExtInfo": {},
     "time": 1658902847238
@@ -467,6 +468,7 @@ GET
 |settleCoin |false |string | t(:contract_comment_realtimeOrderSettleCoin)|
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string | t(:row_comment_orderFilter_v3)|
 |limit |false |number |t(:row_comment_limit) |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -495,6 +497,7 @@ GET
 |list> cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
 |list> leavesQty |string |t(:row_comment_leaves_qty)  |
 |list> leavesValue |string |t(:row_comment_leaves_value)  |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 
 ## t(:position)
