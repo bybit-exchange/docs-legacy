@@ -3267,6 +3267,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221019: Add new public websocket topic
   restapi_update_20221013: Add new market data API
   restapi_update_20221012: Add new response param <code>leavesQty</code>, <code>cumExecFee</code>, <code>cumExecQty</code>, <code>cumExecValue</code>
   restapi_update_20220929: Add new response param <code>orderLinkId</code>
@@ -5643,3 +5644,18 @@ en:
   unified_baseCoin_param: Base coin. Only valid when <code>category</code>=option. If not passed, BTC by default.
   unified_baseCoin_param_2: Base coin. When <code>category</code>=option. If not passed, BTC by default; when <code>category</code>=linear, if <b>BTC</code> passed, BTCPERP & BTCUSDT returned.
   unified_baseCoin_param_3: Base coin. When <code>category</code>=option. If not passed, BTC by default.
+
+  # websocket USDC option underlying price
+  websocketunderlyingPrice: Underlying Price
+  websocketunderlyingPrice_um: underlying price(option)
+  usdc_wss_underlyingPrice_para: |
+    Get the stream of underlying price or estimated delivery price for those symbols deliveried at the same day.<br/>
+    <br/>
+    Push frequency: <b>1000ms</b><br/>
+    <br/>
+    <b>Topic</b>: <code>underlying.{baseCoin}_USD.{deliveryDate}</code> e.g. underlying.BTC_USD.19OCT22
+  usdc_expireTime: Delivery time
+  usdc_underlyingPrice: The underlying price. This value will become <b>estimated delivery price</b> when it comes to 30 mins before delivery, otherwise it is the same value as <code>underlyingOriginPrice</code>
+  usdc_timestamp: The timestamp calculate the price
+  usdc_underlyingOriginPrice: The underlying price
+  usdc_reqId: The traceId of the message. Internal used ONLY
