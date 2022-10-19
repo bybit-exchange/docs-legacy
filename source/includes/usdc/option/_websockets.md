@@ -410,6 +410,47 @@ t(:usdcLastestSymbolInfo)
 | predictedDeliveryPrice |string |t(:usdcPredictedDeliveryPrice) |
 
 
+### t(:websocketEstimatedDeliveryPrice)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op":"subscribe","id":"Customized id","args":["estimated_delivery_price.BTC_USD.19OCT22"]}');
+```
+> t(:codequote_responseExampleFormatAll)
+
+```json
+{
+  "id": "xpGadboW8t-239",
+  "topic": "estimated_delivery_price.BTC_USD.19OCT22",
+  "creationTime": 1666164911010,
+  "data": {
+    "baseCoin": "BTC",
+    "quoteCoin": "USD",
+    "expireTime": "1666166400",
+    "estimatedDeliveryPrice": "19209.32403847",
+    "timestamp": "1666164911",
+    "reqId": "xpGadboW8t-239"
+  }
+}
+```
+
+t(:websocketEstimatedDeliveryPrice_para)
+
+<aside class="notice">
+t(:websocketEstimatedDeliveryPrice_note)
+</aside>
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| baseCoin |string |t(:usdcBaseCoin) |
+| quoteCoin |string |t(:usdcQuoteCoin) |
+| expireTime |string |t(:usdc_expireTime) |
+| estimatedDeliveryPrice |string |t(:usdc_estimatedDeliveryPrice) |
+| timestamp |string |t(:usdc_timestamp) |
+| reqId |string |t(:usdc_reqId) |
+
+
 ### t(:websocketunderlyingPrice)
 > t(:codequote_subscribe)
 

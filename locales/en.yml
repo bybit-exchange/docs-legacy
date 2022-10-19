@@ -5649,7 +5649,7 @@ en:
   websocketunderlyingPrice: Underlying Price
   websocketunderlyingPrice_um: underlying price(option)
   usdc_wss_underlyingPrice_para: |
-    Get the stream of underlying price or estimated delivery price for those symbols deliveried at the same day.<br/>
+    Get the stream of underlying price for those symbols deliveried at the same day.<br/>
     <br/>
     Push frequency: <b>1000ms</b><br/>
     <br/>
@@ -5659,3 +5659,10 @@ en:
   usdc_timestamp: The timestamp calculate the price
   usdc_underlyingOriginPrice: The underlying price
   usdc_reqId: The traceId of the message. Internal used ONLY
+  websocketEstimatedDeliveryPrice: Estimated Delivery Price
+  websocketEstimatedDeliveryPrice_note: There is no stream pushed until 30 minutes before the delivery time.
+  websocketEstimatedDeliveryPrice_para: |
+    Get the stream of estimated delivery price for those symbols deliveried at the same day.<br/>
+    <br/>
+    <b>Topic</b>:<br/> <code>estimated_delivery_price.{baseCoin}_USD.{deliveryDate}</code><br/> e.g. estimated_delivery_price.BTC_USD.19OCT22
+  usdc_estimatedDeliveryPrice: Estimated delivery price

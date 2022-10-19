@@ -553,45 +553,6 @@ t(:websocket_aside_klineV2)
 |ts|long |t(:row_comment_dv3_ts)    |
 
 
-### t(:websocketunderlyingPrice_um)
-> t(:codequote_subscribe)
-
-```javascript
-ws.send('{"op":"subscribe","id":"Customized id","args":["underlying.ETH_USD.19OCT22"]}');
-```
-> t(:codequote_responseExampleFormatAll)
-
-```json
-{
-  "id": "amrA4Fgksl-239",
-    "topic": "underlying.ETH_USD.19OCT22",
-    "creationTime": 1666147645004,
-    "data": {
-      "baseCoin": "ETH",
-      "quoteCoin": "USD",
-      "expireTime": "1666166400",
-      "underlyingPrice": "1302.88340000",
-      "timestamp": "1666147645",
-      "underlyingOriginPrice": "1302.88340000",
-      "reqId": "amrA4Fgksl-239"
-  }
-}
-```
-
-t(:usdc_wss_underlyingPrice_para)
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-| baseCoin |string |t(:usdcBaseCoin) |
-| quoteCoin |string |t(:usdcQuoteCoin) |
-| expireTime |string |t(:usdc_expireTime) |
-| underlyingPrice |string |t(:usdc_underlyingPrice) |
-| timestamp |string |t(:usdc_timestamp) |
-| underlyingOriginPrice |string |t(:usdc_underlyingOriginPrice) |
-| reqId |string |t(:usdc_reqId) |
-
-
 ## t(:privatetopics_unified)
 ### t(:websocketposition)
 > t(:codequote_subscribe)

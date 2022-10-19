@@ -2,6 +2,10 @@
 
 ## 2022-10-19
 ### WebSocket API
+- [t(:websocketEstimatedDeliveryPrice)](#t-websocketestimateddeliveryprice) [t(:changelog_new)]
+  - t(:restapi_update_20221019)
+
+### WebSocket API
 - [t(:websocketunderlyingPrice)](#t-websocketunderlyingprice) [t(:changelog_new)]
   - t(:restapi_update_20221019)
 
