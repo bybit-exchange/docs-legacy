@@ -1124,7 +1124,7 @@ zh-my:
   ### User Trade Records
   usertraderecords: 用戶成交記錄
   userhistorytraderecords: 用戶曆史成交記錄
-  wallet_para_tradeRecords: 獲取用戶成交記錄，按時間升序排列。
+  wallet_para_tradeRecords: 獲取用戶成交記錄，按時間升序排列。若想獲取近2年的交易紀錄，請使用合約v3<a href="https://bybit-exchange.github.io/docs/zh-my/derivativesV3/contract/#t-usertraderecords">接口</a>
   wallet_aside_tradeRecords: 一個訂單可能有多筆成交記錄。
   wallet_row_comment_orderId: 訂單號，如果沒有填寫訂單號，將返回用戶交易記錄
   ## Get Risk Limit
@@ -2830,11 +2830,12 @@ zh-my:
   switchmode_aside: 當設置部分止盈止損模式時，止盈或者止損的訂單數量可以小於倉位大小, 請使用<a href="#t-tradingstop">Trading-Stop endpoint</a>。
   addmargin: 增加/減少保證金
   restapi_update_20200414: 更新 <code>BTCUSDT</code> 合約信息
-  linear_private_trade_records: 獲取用戶成交記錄，按時間降序排列。
+  linear_private_trade_records: 獲取用戶成交記錄，按時間降序排列。支持獲取到近2年的交易紀錄
   linear_private_closed_pnl_records: 獲取用戶平倉記錄，按時間降序排列。
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221019: 新增公共推送頻道
   restapi_update_20221013: 新增行情接口
   restapi_update_20221012: 新增響應字段<code>leavesQty</code>, <code>cumExecFee</code>, <code>cumExecQty</code>, <code>cumExecValue</code>
   restapi_update_20220929: 新增響應字段<code>orderLinkId</code>
@@ -5185,3 +5186,24 @@ zh-my:
   unified_baseCoin_param: 交易幣種. 目前僅<code>category</code>=option時有效，期權下若不傳該字段，則默認返回BTC
   unified_baseCoin_param_2: 交易幣種. 當<code>category</code>=option時，不傳，則默認返回BTC；當<code>category</code>=linear時，傳入BTC，則默認返回BTCPERP和BTCUSDT
   unified_baseCoin_param_3: 交易幣種. 當<code>category</code>=option時，不傳，則默認返回BTC
+  # websocket USDC option underlying price
+  websocketunderlyingPrice: 底層資產價格
+  websocketunderlyingPrice_um: 底層資產價格(僅期權)
+  usdc_wss_underlyingPrice_para: |
+    獲取同一天交割期權的底層資產價格<br/>
+    <br/>
+    推送頻率: <b>1000ms</b><br/>
+    <br/>
+    <b>Topic</b>: <code>underlying.{baseCoin}_USD.{deliveryDate}</code> 例如：underlying.BTC_USD.19OCT22
+  usdc_expireTime: 交割時間
+  usdc_underlyingPrice: 底層資產價格. 該值在交割前30分鐘變為<b>預期交割價</b>, 其餘時間的值都是和<code>underlyingOriginPrice</code>保持一致
+  usdc_timestamp: 計算價格的時間戳
+  usdc_underlyingOriginPrice: 底層資產價格
+  usdc_reqId: 消息的traceId. 僅內部使用
+  websocketEstimatedDeliveryPrice: 預估交割價格
+  websocketEstimatedDeliveryPrice_note: 直到交割前30分鐘，才開始會有消息推送。
+  websocketEstimatedDeliveryPrice_para: |
+    獲取同一天交割期權的預估交割價格<br/>
+    <br/>
+    <b>Topic</b>:<br/><code>estimated_delivery_price.{baseCoin}_USD.{deliveryDate}</code> <br/>e.g. estimated_delivery_price.BTC_USD.19OCT22
+  usdc_estimatedDeliveryPrice: 預估交割價格
