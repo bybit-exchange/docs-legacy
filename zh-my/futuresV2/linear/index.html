@@ -696,9 +696,17 @@
           </li>
 
         <!-- Account asset V3(asset v1, asset v3) -->
-
-        <!-- Account Asset -->
-          	<li><a href="/docs/zh-my/account_asset"">賬戶資產</a></li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">賬戶資產
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-my/account_asset/v3" >v3</a>
+                  <a href="/docs/zh-my/account_asset/v1" >v1</a>
+              </div>
+            </div>
+          </li>
 
         <!-- Copy Trading -->
           	<li><a href="/docs/zh-my/copy_trading">跟單交易</a></li>
@@ -729,9 +737,7 @@
 
               <!-- it's for spot testnet switch to spot mainnet -->
 
-              <!-- it's for asset mainnet switch to asset v1 testnet -->
-
-              <!-- it's for asset v1 testnet switch to asset mainnet -->
+              <!-- it's for asset mainnet switch to asset testnet -->
 
             </div>
           </div>
@@ -9087,13 +9093,16 @@ GET
     <th>Path</th>
   </tr>
   <tr>
-    <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
+    <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
     <tr><td>统一保证金</td><td>/unified</td>
     <tr><td>合約v3</td><td>/contract</td>
     <tr><td>反向永續</td><td>/v2</td>
     <tr><td>反向交割</td><td>/futures</td>
     <tr><td>USDT永續</td><td>/public, /private</td>
-    <tr><td>賬戶資產</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>帳戶資產v1、v3共享</td><td>/asset/v1, /asset/v3</td>
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>

@@ -696,19 +696,17 @@
           </li>
 
         <!-- Account asset V3(asset v1, asset v3) -->
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn">Account Asset
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="/docs/testnet/account_asset/v3" >v3</a>
-                    <a href="/docs/testnet/account_asset/v1" >v1</a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Account Asset
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/testnet/account_asset/v3" >v3</a>
+                  <a href="/docs/testnet/account_asset/v1" >v1</a>
               </div>
-            </li>
-
-        <!-- Account Asset -->
+            </div>
+          </li>
 
         <!-- Copy Trading -->
           	<li><a href="/docs/testnet/copy_trading">Copy Trading</a></li>
@@ -737,9 +735,9 @@
 
               <!-- it's for spot testnet switch to spot mainnet -->
 
-              <!-- it's for asset mainnet switch to asset v1 testnet -->
-
-              <!-- it's for asset v1 testnet switch to asset mainnet -->
+              <!-- it's for asset mainnet switch to asset testnet -->
+                    <a href=/docs/account_asset/v3>Mainnet</a>
+                    <span class="dropdown-content-selected"><a href=/docs/testnet/account_asset/v3>Testnet</a></span>
 
             </div>
           </div>
@@ -775,6 +773,57 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-resources" class="toc-h2 toc-link" data-title="API Resources and Support Channels">API Resources and Support Channels</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2022-10-20" class="toc-h2 toc-link" data-title="2022-10-20">2022-10-20</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-09-14" class="toc-h2 toc-link" data-title="2022-09-14">2022-09-14</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-06-15" class="toc-h2 toc-link" data-title="2022-06-15">2022-06-15</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-5" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-05-19" class="toc-h2 toc-link" data-title="2022-05-19">2022-05-19</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-6" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-7" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
@@ -840,6 +889,9 @@
                     <a href="#t-withdrawrecordquery" class="toc-h2 toc-link" data-title="Query Withdraw Records">Query Withdraw Records</a>
                   </li>
                   <li>
+                    <a href="#t-coin_info_query" class="toc-h2 toc-link" data-title="Query Coin Information">Query Coin Information</a>
+                  </li>
+                  <li>
                     <a href="#t-withdraw_info" class="toc-h2 toc-link" data-title="Withdraw">Withdraw</a>
                   </li>
                   <li>
@@ -856,9 +908,6 @@
                   <li>
                     <a href="#t-servertime" class="toc-h2 toc-link" data-title="Server Time">Server Time</a>
                   </li>
-                  <li>
-                    <a href="#t-announcement" class="toc-h2 toc-link" data-title="Announcement">Announcement</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -866,6 +915,17 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#t-ipratelimits" class="toc-h2 toc-link" data-title="IP Rate Limit">IP Rate Limit</a>
+                  </li>
+                  <li>
+                    <a href="#t-understandingratelimits" class="toc-h2 toc-link" data-title="API Rate Limit">API Rate Limit</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-perendpointtransfer" class="toc-h3 toc-link" data-title="Rate Limits For Transfer Endpoints">Rate Limits For Transfer Endpoints</a>
+                          </li>
+                          <li>
+                            <a href="#t-perendpointdepositwithdraw" class="toc-h3 toc-link" data-title="Rate Limits For Withdraw and Deposit Endpoints">Rate Limits For Withdraw and Deposit Endpoints</a>
+                          </li>
+                      </ul>
                   </li>
               </ul>
           </li>
@@ -892,6 +952,122 @@
                   </li>
                   <li>
                     <a href="#page-direction-direction" class="toc-h2 toc-link" data-title="Page direction (direction)">Page direction (<code>direction</code>)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#0" class="toc-h2 toc-link" data-title="0">0</a>
+                  </li>
+                  <li>
+                    <a href="#131200" class="toc-h2 toc-link" data-title="131200">131200</a>
+                  </li>
+                  <li>
+                    <a href="#131201" class="toc-h2 toc-link" data-title="131201">131201</a>
+                  </li>
+                  <li>
+                    <a href="#131202" class="toc-h2 toc-link" data-title="131202">131202</a>
+                  </li>
+                  <li>
+                    <a href="#131203" class="toc-h2 toc-link" data-title="131203">131203</a>
+                  </li>
+                  <li>
+                    <a href="#131204" class="toc-h2 toc-link" data-title="131204">131204</a>
+                  </li>
+                  <li>
+                    <a href="#131205" class="toc-h2 toc-link" data-title="131205">131205</a>
+                  </li>
+                  <li>
+                    <a href="#131206" class="toc-h2 toc-link" data-title="131206">131206</a>
+                  </li>
+                  <li>
+                    <a href="#131207" class="toc-h2 toc-link" data-title="131207">131207</a>
+                  </li>
+                  <li>
+                    <a href="#131208" class="toc-h2 toc-link" data-title="131208">131208</a>
+                  </li>
+                  <li>
+                    <a href="#131209" class="toc-h2 toc-link" data-title="131209">131209</a>
+                  </li>
+                  <li>
+                    <a href="#131210" class="toc-h2 toc-link" data-title="131210">131210</a>
+                  </li>
+                  <li>
+                    <a href="#131211" class="toc-h2 toc-link" data-title="131211">131211</a>
+                  </li>
+                  <li>
+                    <a href="#131212" class="toc-h2 toc-link" data-title="131212">131212</a>
+                  </li>
+                  <li>
+                    <a href="#131213" class="toc-h2 toc-link" data-title="131213">131213</a>
+                  </li>
+                  <li>
+                    <a href="#131214" class="toc-h2 toc-link" data-title="131214">131214</a>
+                  </li>
+                  <li>
+                    <a href="#131215" class="toc-h2 toc-link" data-title="131215">131215</a>
+                  </li>
+                  <li>
+                    <a href="#131216" class="toc-h2 toc-link" data-title="131216">131216</a>
+                  </li>
+                  <li>
+                    <a href="#131217" class="toc-h2 toc-link" data-title="131217">131217</a>
+                  </li>
+                  <li>
+                    <a href="#131001" class="toc-h2 toc-link" data-title="131001">131001</a>
+                  </li>
+                  <li>
+                    <a href="#131002" class="toc-h2 toc-link" data-title="131002">131002</a>
+                  </li>
+                  <li>
+                    <a href="#131003" class="toc-h2 toc-link" data-title="131003">131003</a>
+                  </li>
+                  <li>
+                    <a href="#131004" class="toc-h2 toc-link" data-title="131004">131004</a>
+                  </li>
+                  <li>
+                    <a href="#131085" class="toc-h2 toc-link" data-title="131085">131085</a>
+                  </li>
+                  <li>
+                    <a href="#131086" class="toc-h2 toc-link" data-title="131086">131086</a>
+                  </li>
+                  <li>
+                    <a href="#131088" class="toc-h2 toc-link" data-title="131088">131088</a>
+                  </li>
+                  <li>
+                    <a href="#131089" class="toc-h2 toc-link" data-title="131089">131089</a>
+                  </li>
+                  <li>
+                    <a href="#131090" class="toc-h2 toc-link" data-title="131090">131090</a>
+                  </li>
+                  <li>
+                    <a href="#131091" class="toc-h2 toc-link" data-title="131091">131091</a>
+                  </li>
+                  <li>
+                    <a href="#131092" class="toc-h2 toc-link" data-title="131092">131092</a>
+                  </li>
+                  <li>
+                    <a href="#131093" class="toc-h2 toc-link" data-title="131093">131093</a>
+                  </li>
+                  <li>
+                    <a href="#131094" class="toc-h2 toc-link" data-title="131094">131094</a>
+                  </li>
+                  <li>
+                    <a href="#131095" class="toc-h2 toc-link" data-title="131095">131095</a>
+                  </li>
+                  <li>
+                    <a href="#131096" class="toc-h2 toc-link" data-title="131096">131096</a>
+                  </li>
+                  <li>
+                    <a href="#131097" class="toc-h2 toc-link" data-title="131097">131097</a>
+                  </li>
+                  <li>
+                    <a href="#131098" class="toc-h2 toc-link" data-title="131098">131098</a>
+                  </li>
+                  <li>
+                    <a href="#131099" class="toc-h2 toc-link" data-title="131099">131099</a>
                   </li>
               </ul>
           </li>
@@ -924,6 +1100,62 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-10-20'>2022-10-20</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-querytransfercoinlist">Transferable coin list</a> [new]
+
+<ul>
+<li>Add new account asset endpoints</li>
+</ul></li>
+</ul>
+<h3 id='rest-api-2'>REST API</h3>
+<ul>
+<li><a href="#t-queryaccountcoinbalance">Coin balance in account</a> [new]
+
+<ul>
+<li>Add new account asset endpoints</li>
+</ul></li>
+</ul>
+<h3 id='rest-api-3'>REST API</h3>
+<ul>
+<li><a href="#t-coin_info_query">Query Coin Information</a> [update]
+
+<ul>
+<li>Add new response params</li>
+</ul></li>
+</ul>
+<h2 id='2022-09-14'>2022-09-14</h2><h3 id='rest-api-4'>REST API</h3>
+<ul>
+<li><a href="#t-createuniversaltransfer">Create Universal Transfer</a> [update]
+
+<ul>
+<li>Support new account type <code>UNIFIED</code>, <code>OPTION</code></li>
+</ul></li>
+</ul>
+<h2 id='2022-06-15'>2022-06-15</h2><h3 id='rest-api-5'>REST API</h3>
+<ul>
+<li><a href="#t-querysubaccountlist">Query Subaccount List</a> [update]</li>
+<li><a href="#t-enableuniversaltransfer">Enable Universal Transfer</a> [new]</li>
+<li><a href="#t-createuniversaltransfer">Create Universal Transfer</a> [new]</li>
+<li><a href="#t-queryuniversetransferlist">Query Universal Transfer List</a> [new]
+<br>
+
+<ul>
+<li>Universal Transfer released!</li>
+</ul></li>
+</ul>
+<h2 id='2022-05-19'>2022-05-19</h2><h3 id='rest-api-6'>REST API</h3>
+<ul>
+<li><a href="#t-withdraw_and_deposit">Withdraw and Deposit Endpoints</a> [new]
+
+<ul>
+<li>Withdraw and Deposit Endpoints released!</li>
+</ul></li>
+</ul>
+<h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api-7'>REST API</h3>
+<ul>
+<li>Asset Transfer API released!</li>
+</ul>
 <h1 id='t-authentication'>Authentication</h1>
 <aside class="notice">
 Please visit Bybit's <a href="https://testnet.bybit.com/app/user/api-management"> <b>testnet</b></a> or <a href="https://www.bybit.com/app/user/api-management"> <b>mainnet</b></a> to generate an API key
@@ -2383,7 +2615,6 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 --header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1660611015105' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: fc436a4643d3785bdab20748c64c7e9221da39dc5798b15536667732a7b1cf5c'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2566,7 +2797,6 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 --header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1660618971820' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: e1cff93188ab3a1905394cef79db371f63bf577b4061ec6f85676864f51638bf'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2743,6 +2973,147 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 </td>
 </tr>
 </tbody></table>
+<h3 id='t-coin_info_query'>Query Coin Information</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/coin-info/query?coin=BTC' \
+--header 'X-BAPI-SIGN: 34baf148a0fa3a674e8bbf5128dc7e5cc068ec3706438f39bbecde72d8b3f962' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1665457139188' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"retCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"retMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"rows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"coin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"remainAmount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"chains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"chainType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"withdrawFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0005"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"depositMin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0005"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"withdrawMin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.001"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"chain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"chainDeposit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"chainWithdraw"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"minAccuracy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"retExtInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1666235753264</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=pciq>/asset/v3/private/coin-info/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pciq"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Coin</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">string</td>
+<td>Name</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>Coin</td>
+</tr>
+<tr>
+<td style="text-align: left">remainAmount</td>
+<td style="text-align: left">string</td>
+<td>Current maximum withdrawal amount</td>
+</tr>
+<tr>
+<td style="text-align: left">chains</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; chainType</td>
+<td style="text-align: left">string</td>
+<td>chain type</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; confirmation</td>
+<td style="text-align: left">string</td>
+<td>deposit confirmation number</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; withdrawFee</td>
+<td style="text-align: left">string</td>
+<td>withdraw fee.  if withdraw fee is empty, It means that this coin does not support withdrawal</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; depositMin</td>
+<td style="text-align: left">string</td>
+<td>minimum deposit amount</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; withdrawMin</td>
+<td style="text-align: left">string</td>
+<td>minimum withdrawal amount</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; chain</td>
+<td style="text-align: left">string</td>
+<td>chain name</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; chainDeposit</td>
+<td style="text-align: left">string</td>
+<td>The chain status of deposit. <code>0</code>：suspend; <code>1</code>：normal</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; chainWithdraw</td>
+<td style="text-align: left">string</td>
+<td>The chain status of withdraw. <code>0</code>：suspend; <code>1</code>：normal</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; minAccuracy</td>
+<td style="text-align: left">string</td>
+<td>The precision of withdraw or deposit</td>
+</tr>
+</tbody></table>
 <h3 id='t-withdraw_info'>Withdraw</h3>
 <blockquote>
 <p>Request Example</p>
@@ -2752,7 +3123,6 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 --header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1660620568966' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "coin": "USDT",
@@ -2863,7 +3233,6 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 --header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1660620568966' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "id": 7642
@@ -2932,7 +3301,6 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 --header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1660632630317' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: 5a5ce5b26fd6a959c470b637ec0e9672b871d1ace105737b15e525de672c3fdb'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
 <blockquote>
 <p>Response Example</p>
@@ -2984,7 +3352,9 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <td style="text-align: left">chainType</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Chain type. Return all if not passed.</td>
+<td>Chain name. Return all if not passed. <br/>
+<b>Note</b>, pass chain name, e.g. <code>ETH</code> instead of <Code>ERC20</code>
+</td>
 </tr>
 </tbody></table>
 
@@ -3039,23 +3409,21 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/time
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">inverse_perpetual</span>
-<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">inverse_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
-    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
-<span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">server_time</span><span class="p">())</span>  
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v3/public/time
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577444332.192859</span><span class="dl">"</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">timeSecond</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1664267152</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeNano</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1664267152228343045</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1664267152228</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Get Bybit server time.</p>
@@ -3063,58 +3431,8 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=vpTime>/v2/public/time</span></code>
+<code><span id=vpTime>/v3/public/time</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
-
-<p class="fake_header">Request Parameters</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-</tbody></table>
-<h3 id='t-announcement'>Announcement</h3>
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v2/public/announcement
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="kn">from</span> <span class="nn">pybit</span> <span class="kn">import</span> <span class="n">inverse_perpetual</span>
-<span class="n">session_unauth</span> <span class="o">=</span> <span class="n">inverse_perpetual</span><span class="p">.</span><span class="n">HTTP</span><span class="p">(</span>
-    <span class="n">endpoint</span><span class="o">=</span><span class="s">"https://api-testnet.bybit.com"</span>
-<span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">session_unauth</span><span class="p">.</span><span class="n">announcement</span><span class="p">())</span>  
-</code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">ret_code</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ret_msg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_code</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ext_info</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-12-02 RELEASE</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">link</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://github.com/bybit-exchange/bybit-official-api-docs/blob/master/en/CHANGELOG.md</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">summary</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;p&gt;New `cancel all` endpoint is here now!&lt;/p&gt;&lt;p&gt;Additionally, we strongly recommend that you use the new released place and cancel active V2 endpoints, which are more stable and efficient.The old ones are deprecated (although still working for the time be</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">created_at</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-12-02T11:33:42Z</span><span class="dl">"</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1577444818.227082</span><span class="dl">"</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Get Bybit OpenAPI announcements in the last 30 days in reverse order.</p>
-
-<p class="fake_header">HTTP Request</p>
-
-<p>GET
-<code><span id=vpAnnouncement>/v2/public/announcement</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpAnnouncement"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
 
@@ -3161,13 +3479,16 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
     <th>Path</th>
   </tr>
   <tr>
-    <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
+    <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
     <tr><td>Unified Margin</td><td>/unified</td>
     <tr><td>Contract v3</td><td>/contract</td>
     <tr><td>Inverse Perpetual</td><td>/v2</td>
     <tr><td>Inverse Futures</td><td>/futures</td>
     <tr><td>Linear Perpetual</td><td>/public, /private</td>
-    <tr><td>Account Asset</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Asset V1,<br>Asset V3</td><td>/asset/v1, /asset/v3</td>
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
@@ -3181,6 +3502,66 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
 </table>
 <p>After violating the limit your IP will be banned for a set period of time (usually 30 minutes). Continually violating the limit will result in a permanent ban. We cannot undo permanent bans or shorten temporary bans.</p>
 </p>
+<h2 id='t-understandingratelimits'>API Rate Limit</h2>
+<p><aside class="warning">
+If you receive <a href="#10006"><code><b>"ret_msg": "Too many visits!"</b></code></a> in the JSON response, you have hit the API rate limit.
+</aside>
+<p>The API rate limit is based on <b>the rolling time window per second and UID</b>. In other words, it's per second per UID. Every request to the API returns response header shown in the code panel:</p>
+</p>
+
+<aside class="notice">
+Each endpoint has its own rate limit.
+</aside>
+<h3 id='t-perendpointtransfer'>Rate Limits For Transfer Endpoints</h3>
+<table class="custom_table">
+    <tr>
+        <th>Limit</th>
+        <th>Path</th>
+    </tr>
+    <tr>
+        <td rowspan="5">20/s</td>
+        <tr><td>/asset/v3/private/transfer/inter-transfer </td>
+        <tr><td>/asset/v3/private/transfer/sub-member-transfer </td>
+        <tr><td>/asset/v3/private/transfer/transfer-sub-member-save </td>
+        <tr><td>/asset/v3/private/transfer/universal-transfer </td>
+    </tr>
+    <tr>
+        <td rowspan="8">60/s</td>
+        <tr><td>/asset/v3/private/transfer/inter-transfer/list/query </td>
+        <tr><td>/asset/v3/private/transfer/sub-member-transfer/list/query </td>
+        <tr><td>/asset/v3/private/transfer/transfer-coin/list/query </td>
+        <tr><td>/asset/v3/private/transfer/sub-member/list/query </td>
+        <tr><td>/asset/v3/private/transfer/universal-transfer/list/query </td>
+        <tr><td>/asset/v3/private/transfer/account-coin/balance/query </td>
+        <tr><td>/asset/v3/private/transfer/asset-info/query </td>
+    </tr>
+</table>
+<h3 id='t-perendpointdepositwithdraw'>Rate Limits For Withdraw and Deposit Endpoints</h3>
+<table class="custom_table">
+    <tr>
+        <th>Limit</th>
+        <th>Path</th>
+    </tr>
+    <tr>
+        <td rowspan="5">300/s</td>
+        <tr><td>/asset/v3/public/deposit/allowed-deposit-list/query </td>
+        <tr><td>/asset/v3/private/deposit/record/query </td>
+        <tr><td>/asset/v3/private/withdraw/record/query </td>
+        <tr><td>/asset/v3/private/deposit/address/query </td>
+    </tr>
+    <tr>
+        <td rowspan="1">60/s</td>
+        <td>/asset/v3/private/withdraw/cancel </td>
+    </tr>
+    <tr>
+        <td rowspan="1">10/s</td>
+        <td>/asset/v3/private/withdraw/create </td>
+    </tr>
+    <tr>
+        <td rowspan="1">2/s</td>
+        <td>/asset/v3/private/coin-info/query </td>
+    </tr>
+</table>
 <h1 id='t-enums'>Enums Definitions</h1>
 <p>The following lists enumerator names for the request and response parameters of each endpoint.</p>
 <h2 id='account-type-from_account_type-to_account_type'>Account type (<code>from_account_type</code>/<code>to_account_type</code>)</h2>
@@ -3237,6 +3618,102 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
 <li><code>Prev</code></li>
 <li><code>Next</code></li>
 </ul>
+<h1 id='t-errors'>Errors</h1>
+<p>The Bybit API uses the following HTTP codes and error codes<span>:</span></p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Request is valid</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Access denied</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Request path not found</td>
+</tr>
+</tbody></table>
+<h2 id='0'>0</h2>
+<p>SUCCESS</p>
+<h2 id='131200'>131200</h2>
+<p>Service error</p>
+<h2 id='131201'>131201</h2>
+<p>Internal error</p>
+<h2 id='131202'>131202</h2>
+<p>Invalid memberId</p>
+<h2 id='131203'>131203</h2>
+<p>Request parameter error</p>
+<h2 id='131204'>131204</h2>
+<p>Account info error</p>
+<h2 id='131205'>131205</h2>
+<p>Query transfer error</p>
+<h2 id='131206'>131206</h2>
+<p>Fail to transfer</p>
+<h2 id='131207'>131207</h2>
+<p>Account not exist</p>
+<h2 id='131208'>131208</h2>
+<p>Forbid transfer</p>
+<h2 id='131209'>131209</h2>
+<p>Get subMember relation error</p>
+<h2 id='131210'>131210</h2>
+<p>Amount accuracy error</p>
+<h2 id='131211'>131211</h2>
+<p>fromAccountType can't be the same as toAccountType</p>
+<h2 id='131212'>131212</h2>
+<p>Insufficient balance</p>
+<h2 id='131213'>131213</h2>
+<p>TransferLTV check error</p>
+<h2 id='131214'>131214</h2>
+<p>TransferId exist</p>
+<h2 id='131215'>131215</h2>
+<p>Amount error</p>
+<h2 id='131216'>131216</h2>
+<p>Query balance error</p>
+<h2 id='131217'>131217</h2>
+<p>Risk check error</p>
+<h2 id='131001'>131001</h2>
+<p>Service error</p>
+<h2 id='131002'>131002</h2>
+<p>Parameter error</p>
+<h2 id='131003'>131003</h2>
+<p>Interal error</p>
+<h2 id='131004'>131004</h2>
+<p>KYC needed</p>
+<h2 id='131085'>131085</h2>
+<p>Withdrawal amount is greater than your availale balance (the deplayed withdrawal is triggered)</p>
+<h2 id='131086'>131086</h2>
+<p>Withdrawal amount exceeds risk limit (the risk limit of margin trade is triggered)</p>
+<h2 id='131088'>131088</h2>
+<p>Withdrawal amount exceed the KYC limit</p>
+<h2 id='131089'>131089</h2>
+<p>User sensitive operation, withdrawal is prohibited within 24 hours</p>
+<h2 id='131090'>131090</h2>
+<p>User withdraw has been banned</p>
+<h2 id='131091'>131091</h2>
+<p>Blocked login status does not allow withdrawals</p>
+<h2 id='131092'>131092</h2>
+<p>User status is abnormal</p>
+<h2 id='131093'>131093</h2>
+<p>The withdrawal address is not in the whitelist</p>
+<h2 id='131094'>131094</h2>
+<p>UserId is not in the whitelist</p>
+<h2 id='131095'>131095</h2>
+<p>Withdrawl amount exceeds the 24 hour platform limit</p>
+<h2 id='131096'>131096</h2>
+<p>Withdraw amount does not satify the lower limit or upper limit</p>
+<h2 id='131097'>131097</h2>
+<p>Withdrawal of this currency has been closed</p>
+<h2 id='131098'>131098</h2>
+<p>Withdrawal currently is not availble from new address</p>
+<h2 id='131099'>131099</h2>
+<p>Hot wallet status can cancel the withdraw</p>
 
       </div>
       <div class="dark-box">

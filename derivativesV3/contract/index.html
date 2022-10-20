@@ -696,9 +696,17 @@
           </li>
 
         <!-- Account asset V3(asset v1, asset v3) -->
-
-        <!-- Account Asset -->
-          	<li><a href="/docs/account_asset"">Account Asset</a></li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Account Asset
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/account_asset/v3" >v3</a>
+                  <a href="/docs/account_asset/v1" >v1</a>
+              </div>
+            </div>
+          </li>
 
         <!-- Copy Trading -->
           	<li><a href="/docs/copy_trading">Copy Trading</a></li>
@@ -729,9 +737,7 @@
 
               <!-- it's for spot testnet switch to spot mainnet -->
 
-              <!-- it's for asset mainnet switch to asset v1 testnet -->
-
-              <!-- it's for asset v1 testnet switch to asset mainnet -->
+              <!-- it's for asset mainnet switch to asset testnet -->
 
             </div>
           </div>
@@ -947,6 +953,14 @@
                             <a href="#t-dv_walletrecords" class="toc-h3 toc-link" data-title="Get Wallet Fund Records">Get Wallet Fund Records</a>
                           </li>
                       </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-api" class="toc-h1 toc-link" data-title="API Data Endpoints">API Data Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-servertime" class="toc-h2 toc-link" data-title="Server Time">Server Time</a>
                   </li>
               </ul>
           </li>
@@ -6109,6 +6123,48 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 <td>Next page cursor</td>
 </tr>
 </tbody></table>
+<h1 id='t-api'>API Data Endpoints</h1>
+<p>The following API data endpoints do not require authentication.</p>
+<h3 id='t-servertime'>Server Time</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl https://api-testnet.bybit.com/v3/public/time
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">timeSecond</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1664267152</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">timeNano</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1664267152228343045</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1664267152228</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Get Bybit server time.</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=vpTime>/v3/public/time</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpTime"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
 <h1 id='t-ratelimits'>Rate Limits</h1>
 <aside class="notice">
 There are two types of rate limit: <a href="#t-ipratelimits">IP rate limit</a> (measured per second) and <a href="#t-understandingratelimits">API rate limit</a> (measured per minute). The IP rate limit will count all of your requests and the API rate limit will only count your authenticated requests.
@@ -6143,13 +6199,16 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
     <th>Path</th>
   </tr>
   <tr>
-    <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
+    <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
     <tr><td>Unified Margin</td><td>/unified</td>
     <tr><td>Contract v3</td><td>/contract</td>
     <tr><td>Inverse Perpetual</td><td>/v2</td>
     <tr><td>Inverse Futures</td><td>/futures</td>
     <tr><td>Linear Perpetual</td><td>/public, /private</td>
-    <tr><td>Account Asset</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Asset V1,<br>Asset V3</td><td>/asset/v1, /asset/v3</td>
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>

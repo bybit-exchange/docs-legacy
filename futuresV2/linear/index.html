@@ -696,9 +696,17 @@
           </li>
 
         <!-- Account asset V3(asset v1, asset v3) -->
-
-        <!-- Account Asset -->
-          	<li><a href="/docs/account_asset"">Account Asset</a></li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">Account Asset
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/account_asset/v3" >v3</a>
+                  <a href="/docs/account_asset/v1" >v1</a>
+              </div>
+            </div>
+          </li>
 
         <!-- Copy Trading -->
           	<li><a href="/docs/copy_trading">Copy Trading</a></li>
@@ -729,9 +737,7 @@
 
               <!-- it's for spot testnet switch to spot mainnet -->
 
-              <!-- it's for asset mainnet switch to asset v1 testnet -->
-
-              <!-- it's for asset v1 testnet switch to asset mainnet -->
+              <!-- it's for asset mainnet switch to asset testnet -->
 
             </div>
           </div>
@@ -9140,13 +9146,16 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
     <th>Path</th>
   </tr>
   <tr>
-    <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
+    <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
     <tr><td>Unified Margin</td><td>/unified</td>
     <tr><td>Contract v3</td><td>/contract</td>
     <tr><td>Inverse Perpetual</td><td>/v2</td>
     <tr><td>Inverse Futures</td><td>/futures</td>
     <tr><td>Linear Perpetual</td><td>/public, /private</td>
-    <tr><td>Account Asset</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>Asset V1,<br>Asset V3</td><td>/asset/v1, /asset/v3</td>
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>

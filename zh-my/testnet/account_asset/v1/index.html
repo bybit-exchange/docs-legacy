@@ -696,19 +696,17 @@
           </li>
 
         <!-- Account asset V3(asset v1, asset v3) -->
-            <li>
-              <div class="dropdown">
-                <button class="dropbtn">賬戶資產
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="/docs/zh-my/testnet/account_asset/v3" >v3</a>
-                    <a href="/docs/zh-my/testnet/account_asset/v1" >v1</a>
-                </div>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">賬戶資產
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-my/testnet/account_asset/v3" >v3</a>
+                  <a href="/docs/zh-my/testnet/account_asset/v1" >v1</a>
               </div>
-            </li>
-
-        <!-- Account Asset -->
+            </div>
+          </li>
 
         <!-- Copy Trading -->
           	<li><a href="/docs/zh-my/testnet/copy_trading">跟單交易</a></li>
@@ -737,10 +735,8 @@
 
               <!-- it's for spot testnet switch to spot mainnet -->
 
-              <!-- it's for asset mainnet switch to asset v1 testnet -->
-
-              <!-- it's for asset v1 testnet switch to asset mainnet -->
-                    <a href=/docs/zh-my/account_asset>Mainnet</a>
+              <!-- it's for asset mainnet switch to asset testnet -->
+                    <a href=/docs/zh-my/account_asset/v1>Mainnet</a>
                     <span class="dropdown-content-selected"><a href=/docs/zh-my/testnet/account_asset/v1>Testnet</a></span>
 
             </div>
@@ -2393,7 +2389,7 @@ REST接口根URL:
 <tr>
 <td style="text-align: left">chain_type</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>鏈類型</td>
 </tr>
 <tr>
 <td style="text-align: left">block_confirm_number</td>
@@ -2909,7 +2905,7 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
 <tr>
 <td style="text-align: left">chain_type</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>鏈類型</td>
 </tr>
 <tr>
 <td style="text-align: left">confirmation</td>
@@ -3276,7 +3272,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <td style="text-align: left">chain_type</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>鏈類型</td>
 </tr>
 </tbody></table>
 
@@ -3307,7 +3303,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 <tr>
 <td style="text-align: left">chain_type</td>
 <td style="text-align: left">string</td>
-<td>鏈名</td>
+<td>鏈類型</td>
 </tr>
 <tr>
 <td style="text-align: left">address_deposit</td>
@@ -3453,13 +3449,16 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
     <th>Path</th>
   </tr>
   <tr>
-    <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
+    <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
     <tr><td>统一保证金</td><td>/unified</td>
     <tr><td>合約v3</td><td>/contract</td>
     <tr><td>反向永續</td><td>/v2</td>
     <tr><td>反向交割</td><td>/futures</td>
     <tr><td>USDT永續</td><td>/public, /private</td>
-    <tr><td>賬戶資產</td><td>/asset</td>
+  </tr>
+  <tr>
+    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+    <tr><td>帳戶資產v1、v3共享</td><td>/asset/v1, /asset/v3</td>
   </tr>
   <tr>
     <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
