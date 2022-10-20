@@ -653,6 +653,7 @@ GET
 |free |string |t(:row_comment_free) |
 |withdraw |string |t(:row_comment_withdraw) |
 
+
 # t(:withdraw_and_deposit)
 t(:transfer_para)
 
@@ -728,7 +729,6 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/de
 --header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1660611015105' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: fc436a4643d3785bdab20748c64c7e9221da39dc5798b15536667732a7b1cf5c'
 ```
 
 ```python--pybit
@@ -808,7 +808,6 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/wi
 --header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1660618971820' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: e1cff93188ab3a1905394cef79db371f63bf577b4061ec6f85676864f51638bf'
 ```
 
 ```python--pybit
@@ -891,6 +890,81 @@ GET
 |nextPageCursor|string|t(:withdraw_response_cursor)|
 
 
+### t(:coin_info_query)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/coin-info/query?coin=BTC' \
+--header 'X-BAPI-SIGN: 34baf148a0fa3a674e8bbf5128dc7e5cc068ec3706438f39bbecde72d8b3f962' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1665457139188' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+```
+
+```python--pybit
+```
+
+> t(:codequote_responseExample)
+
+```json
+{
+  "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+    "rows": [
+      {
+        "name": "BTC",
+        "coin": "BTC",
+        "remainAmount": "150",
+        "chains": [
+          {
+            "chainType": "BTC",
+            "confirmation": "10000",
+            "withdrawFee": "0.0005",
+            "depositMin": "0.0005",
+            "withdrawMin": "0.001",
+            "chain": "BTC",
+            "chainDeposit": "1",
+            "chainWithdraw": "1",
+            "minAccuracy": "8"
+          }
+        ]
+      }
+    ]
+  },
+  "retExtInfo": null,
+    "time": 1666235753264
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=pciq>/asset/v3/private/coin-info/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pciq"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:coin_info_coin)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|name|string|t(:coin_info_name)|
+|coin|string|t(:coin_info_coin)|
+|remainAmount|string|t(:coin_info_remain_amt)|
+|chains|array|Object|
+|> chainType|string|t(:coin_info_chain_type)|
+|> confirmation|string|t(:coin_info_confirmation)|
+|> withdrawFee|string|t(:coin_info_withdraw_fee)|
+|> depositMin|string|t(:coin_info_deposit_min)|
+|> withdrawMin|string|t(:coin_info_withdraw_min)|
+|> chain|string|t(:coin_info_chain)|
+|> chainDeposit|string|t(:coin_info_chainDeposit)|
+|> chainWithdraw|string|t(:coin_info_chainWithdraw)|
+|> minAccuracy|string|t(:coin_info_minAccuracy)|
+
+
 ### t(:withdraw_info)
 > t(:codequote_curlExample)
 
@@ -900,7 +974,6 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/w
 --header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1660620568966' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "coin": "USDT",
@@ -964,7 +1037,6 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/w
 --header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1660620568966' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "id": 7642
@@ -1014,7 +1086,6 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/de
 --header 'X-BAPI-API-KEY: {api key}' \
 --header 'X-BAPI-TIMESTAMP: 1660632630317' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: 5a5ce5b26fd6a959c470b637ec0e9672b871d1ace105737b15e525de672c3fdb'
 ```
 
 ```python--pybit
@@ -1065,84 +1136,3 @@ GET
 |addressDeposit|string|t(:deposit_address)|
 |tagDeposit|string|t(:deposit_tag)|
 |chain|string|t(:deposit_response_chainname)|
-
-
-### t(:coin_info_query)
-> t(:codequote_curlExample)
-
-```console
-curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/coin-info/query?coin=BTC' \
---header 'X-BAPI-SIGN: 34baf148a0fa3a674e8bbf5128dc7e5cc068ec3706438f39bbecde72d8b3f962' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
---header 'X-BAPI-TIMESTAMP: 1665457139188' \
---header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: 34baf148a0fa3a674e8bbf5128dc7e5cc068ec3706438f39bbecde72d8b3f962'
-```
-
-```python--pybit
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "OK",
-    "result": {
-        "rows": [
-            {
-                "name": "BTC",
-                "coin": "BTC",
-                "remainAmount": "150.000000000000000000",
-                "chains": [
-                    {
-                        "chainType": "BTC",
-                        "confirmation": "10000",
-                        "withdrawFee": "0.000500000000000000",
-                        "depositMin": "0.000500000000000000",
-                        "withdrawMin": "0.001000000000000000",
-                        "chain": "BTC",
-                        "chainDeposit": "1",
-                        "chainWithdraw": "1",
-                        "chainDepositStatus": "1",
-                        "chainWithdrawStatus": "1",
-                        "depositMinAccuracy": "8"
-                    }
-                ]
-            }
-        ]
-    },
-    "retExtInfo": null,
-    "time": 1665457257702
-}
-```
-
-t(:coin_info_desc)
-
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=pciq>/asset/v3/private/coin-info/query</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pciq"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|<a href="#currency-currency-coin">coin</a> |false |string |t(:coin_info_coin)|
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|name|string|t(:coin_info_name)|
-|coin|string|t(:coin_info_coin)|
-|remain_amount|string|t(:coin_info_remain_amt)|
-|chains|List|Object|
-|chainType|string|t(:coin_info_chain_type)|
-|confirmation|string|t(:coin_info_confirmation)|
-|withdrawFee|string|t(:coin_info_withdraw_fee)|
-|depositMin|string|t(:coin_info_deposit_min)|
-|withdrawMin|string|t(:coin_info_withdraw_min)|
-|chainDeposit|string|t(:coin_info_chainDeposit)|
-|chainWithdraw|string|t(:coin_info_chainWithdraw)|
-|chainDepositStatus|string|t(:coin_info_chainDepositStatus)|
-|chainWithdrawStatus|string|t(:coin_info_chainWithdrawStatus)|
-|depositMinAccuracy|string|t(:coin_info_depositAccuracy)|

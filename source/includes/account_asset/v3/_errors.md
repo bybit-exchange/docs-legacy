@@ -66,3 +66,56 @@ t(:assetV3_err_131216)
 ## 131217
 t(:assetV3_err_131217)
 
+## 131001
+t(:assetV3_err_131001)
+
+## 131002
+t(:assetV3_err_131002)
+
+## 131003
+t(:assetV3_err_131003)
+
+## 131004
+t(:assetV3_err_131004)
+
+## 131085
+t(:assetV3_err_131085)
+
+## 131086
+t(:assetV3_err_131086)
+
+## 131088
+t(:assetV3_err_131088)
+
+## 131089
+t(:assetV3_err_131089)
+
+## 131090
+t(:assetV3_err_131090)
+
+## 131091
+t(:assetV3_err_131091)
+
+## 131092
+t(:assetV3_err_131092)
+
+## 131093
+t(:assetV3_err_131093)
+
+## 131094
+t(:assetV3_err_131094)
+
+## 131095
+t(:assetV3_err_131095)
+
+## 131096
+t(:assetV3_err_131096)
+
+## 131097
+t(:assetV3_err_131097)
+
+## 131098
+t(:assetV3_err_131098)
+
+## 131099
+t(:assetV3_err_131099)
