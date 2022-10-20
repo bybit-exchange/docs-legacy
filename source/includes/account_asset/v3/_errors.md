@@ -10,139 +10,59 @@ HTTP Code | t(:errorcode_meaning)
 404 | t(:account_asset_http_404)
 
 ## 0    
-t(:account_asset_err_0)
+t(:assetV3_err_0)
 
-## 10001
-t(:account_asset_err_10001)
+## 131200
+t(:assetV3_err_131200)
 
-## 10016
-t(:account_asset_err_10016)
+## 131201
+t(:assetV3_err_131201)
 
-## 38000
-t(:account_asset_err_38000)
+## 131202
+t(:assetV3_err_131202)
 
-## 38001
-t(:account_asset_err_38001)
+## 131203
+t(:assetV3_err_131203)
 
-## 38002
-t(:account_asset_err_38002)
+## 131204
+t(:assetV3_err_131204)
 
-## 90001
-t(:account_asset_err_90001)
+## 131205
+t(:assetV3_err_131205)
 
-## 90002
-t(:account_asset_err_90002)
+## 131206
+t(:assetV3_err_131206)
 
-## 90003
-t(:account_asset_err_90003)
+## 131207
+t(:assetV3_err_131207)
 
-## 90004
-t(:account_asset_err_90004)
+## 131208
+t(:assetV3_err_131208)
 
-## 90005
-t(:account_asset_err_90005)
+## 131209
+t(:assetV3_err_131209)
 
-## 90006
-t(:account_asset_err_90006)
+## 131210
+t(:assetV3_err_131210)
 
-## 90007
-t(:account_asset_err_90007)
+## 131211
+t(:assetV3_err_131211)
 
-## 90008
-t(:account_asset_err_90008)
+## 131212
+t(:assetV3_err_131212)
 
-## 90009
-t(:account_asset_err_90009)
+## 131213
+t(:assetV3_err_131213)
 
-## 90010
-t(:account_asset_err_90010)
+## 131214
+t(:assetV3_err_131214)
 
-## 90011
-t(:account_asset_err_90011)
+## 131215
+t(:assetV3_err_131215)
 
-## 90012
-t(:account_asset_err_90012)
+## 131216
+t(:assetV3_err_131216)
 
-## 90013
-t(:account_asset_err_90013)
+## 131217
+t(:assetV3_err_131217)
 
-## 90014
-t(:account_asset_err_90014)
-
-## 90015
-t(:account_asset_err_90015)
-
-## 90016
-t(:account_asset_err_90016)
-
-## 90029
-t(:account_asset_err_90029)
-
-## 90030
-t(:account_asset_err_90030)
-
-## 90031
-t(:account_asset_err_90031)
-
-## 90032
-t(:account_asset_err_90032)
-
-## 90033
-t(:account_asset_err_90033)
-
-## 90034
-t(:account_asset_err_90034)
-
-## 90035
-t(:account_asset_err_90035)
-
-## 90036
-t(:account_asset_err_90036)
-
-## 90037
-t(:account_asset_err_90037)
-
-## 90038
-t(:account_asset_err_90038)
-
-## 90039
-t(:account_asset_err_90039)
-
-## 90040
-t(:account_asset_err_90040)
-
-## 90041
-t(:account_asset_err_90041)
-
-## 90042
-t(:account_asset_err_90042)
-
-## 90043
-t(:account_asset_err_90043)
-
-## 90044
-t(:account_asset_err_90044)
-
-## 90045
-t(:account_asset_err_90045)
-
-## 90046
-t(:account_asset_err_90046)
-
-## 90047
-t(:account_asset_err_90047)
-
-## 90048
-t(:account_asset_err_90048)
-
-## 90049
-t(:account_asset_err_90049)
-
-## 90050
-t(:account_asset_err_90050)
-
-## 90051
-t(:account_asset_err_90051)
-
-## 90052
-t(:account_asset_err_90052)

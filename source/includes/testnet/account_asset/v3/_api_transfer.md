@@ -1066,3 +1066,83 @@ GET
 |tagDeposit|string|t(:deposit_tag)|
 |chain|string|t(:deposit_response_chainname)|
 
+
+### t(:coin_info_query)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/coin-info/query?coin=BTC' \
+--header 'X-BAPI-SIGN: 34baf148a0fa3a674e8bbf5128dc7e5cc068ec3706438f39bbecde72d8b3f962' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1665457139188' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 34baf148a0fa3a674e8bbf5128dc7e5cc068ec3706438f39bbecde72d8b3f962'
+```
+
+```python--pybit
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "rows": [
+            {
+                "name": "BTC",
+                "coin": "BTC",
+                "remainAmount": "150.000000000000000000",
+                "chains": [
+                    {
+                        "chainType": "BTC",
+                        "confirmation": "10000",
+                        "withdrawFee": "0.000500000000000000",
+                        "depositMin": "0.000500000000000000",
+                        "withdrawMin": "0.001000000000000000",
+                        "chain": "BTC",
+                        "chainDeposit": "1",
+                        "chainWithdraw": "1",
+                        "chainDepositStatus": "1",
+                        "chainWithdrawStatus": "1",
+                        "depositMinAccuracy": "8"
+                    }
+                ]
+            }
+        ]
+    },
+    "retExtInfo": null,
+    "time": 1665457257702
+}
+```
+
+t(:coin_info_desc)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=pciq>/asset/v3/private/coin-info/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pciq"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:coin_info_coin)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|name|string|t(:coin_info_name)|
+|coin|string|t(:coin_info_coin)|
+|remain_amount|string|t(:coin_info_remain_amt)|
+|chains|List|Object|
+|chainType|string|t(:coin_info_chain_type)|
+|confirmation|string|t(:coin_info_confirmation)|
+|withdrawFee|string|t(:coin_info_withdraw_fee)|
+|depositMin|string|t(:coin_info_deposit_min)|
+|withdrawMin|string|t(:coin_info_withdraw_min)|
+|chainDeposit|string|t(:coin_info_chainDeposit)|
+|chainWithdraw|string|t(:coin_info_chainWithdraw)|
+|chainDepositStatus|string|t(:coin_info_chainDepositStatus)|
+|chainWithdrawStatus|string|t(:coin_info_chainWithdrawStatus)|
+|depositMinAccuracy|string|t(:coin_info_depositAccuracy)|
