@@ -1336,13 +1336,16 @@ zh-my:
         <th>Path</th>
       </tr>
       <tr>
-        <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
+        <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
         <tr><td>统一保证金</td><td>/unified</td>
         <tr><td>合約v3</td><td>/contract</td>
         <tr><td>反向永續</td><td>/v2</td>
         <tr><td>反向交割</td><td>/futures</td>
         <tr><td>USDT永續</td><td>/public, /private</td>
-        <tr><td>賬戶資產</td><td>/asset</td>
+      </tr>
+      <tr>
+        <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>帳戶資產v1、v3共享</td><td>/asset/v1, /asset/v3</td>
       </tr>
       <tr>
         <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
@@ -2136,6 +2139,46 @@ zh-my:
   account_asset_err_90051: 用戶提現被封禁
   account_asset_err_90052: 重放請求拒絕
 
+  # account asset v3 error code
+  assetV3_err_0: 成功
+  assetV3_err_131200: 服務不可用
+  assetV3_err_131201: 業務異常
+  assetV3_err_131202: 用戶id無效
+  assetV3_err_131203: 請求參數錯誤
+  assetV3_err_131204: 帳戶異常
+  assetV3_err_131205: 查詢劃轉失敗
+  assetV3_err_131206: 劃轉失敗
+  assetV3_err_131207: 帳戶不存在
+  assetV3_err_131208: 劃轉封禁
+  assetV3_err_131209: 查詢子帳戶關係失敗
+  assetV3_err_131210: 金額精度錯誤
+  assetV3_err_131211: 轉入賬戶類型不能作為轉出賬戶類型
+  assetV3_err_131212: 可用餘額不足
+  assetV3_err_131213: TransferLTV check error
+  assetV3_err_131214: 劃轉ID已存在
+  assetV3_err_131215: 金額錯誤
+  assetV3_err_131216: 查詢余額錯誤
+  assetV3_err_131217: 風險檢查失敗
+  # withdraw
+  assetV3_err_131001: 服務錯誤
+  assetV3_err_131002: 參數錯誤
+  assetV3_err_131003: 內部錯誤
+  assetV3_err_131004: 需要KYC認證
+  assetV3_err_131085: 提幣金額大於可用餘額，觸發延遲提幣
+  assetV3_err_131086: 提幣金額超過風控限制，觸發全倉槓桿限制
+  assetV3_err_131088: 提幣金額超過當前KYC限額
+  assetV3_err_131089: 用戶24小時內進行過銘感操作，提現被禁
+  assetV3_err_131090: 用戶提現封禁
+  assetV3_err_131091: 用戶登陸封禁，無法提幣
+  assetV3_err_131092: 用戶狀態異常
+  assetV3_err_131093: 提幣地址不在白名單內
+  assetV3_err_131094: 用戶ID不在白名單內
+  assetV3_err_131095: 提幣金額超過平台24小時限額
+  assetV3_err_131096: 檢查提幣金額是否滿足最小最大可提金額
+  assetV3_err_131097: 系統暫停提幣
+  assetV3_err_131098: 當前時間禁止從新地址提幣
+  assetV3_err_131099: 當前狀態不支持取消提幣請求
+
   err_10000: 處理請求時發生未知錯誤
   err_10001: 請檢查傳遞的值是否符合要求。例如，如果是浮點數，確保它符合<a href="#t-querysymbol"><code>tick_size</code>和<code>qty_step</code></a>
   #spot
@@ -2835,6 +2878,8 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221020: 新增帳戶資產接口
+  restapi_update_20221020_1: 新增響應字段
   restapi_update_20221019: 新增公共推送頻道
   restapi_update_20221013: 新增行情接口
   restapi_update_20221012: 新增響應字段<code>leavesQty</code>, <code>cumExecFee</code>, <code>cumExecQty</code>, <code>cumExecValue</code>
@@ -3725,7 +3770,7 @@ zh-my:
   coin_info_frozen_balance: 凍結餘額
   coin_info_name: 幣種名稱
   coin_info_remain_amt: 該幣種當前最大可提現數量
-  coin_info_chain_type: 鏈名
+  coin_info_chain_type: 鏈類型
   coin_info_confirmation: 充值上賬確認數
   coin_info_withdraw_fee: 提現手續費。如果提現費為空，則表示該幣不支持提現
   coin_info_deposit_min: 最小充值數量
@@ -5175,7 +5220,9 @@ zh-my:
   allowDepositPageCursor: |
     游標信息：用來分頁。 默認空
   assetWithdraw_timestamp: 時間戳. 允許範圍是當前時間的前後5分鐘
-  accountAssetV3_chainType: 鏈的類型. 若為空，則返回全部
+  accountAssetV3_chainType: |
+    鏈名. 若為空，則返回全部. <br/>
+    <b>注意</b>，此處應傳鏈名，例如ETH，而不是ERC20
   accountAssetV3_bizType: 帳戶業務子類型
   accountAsseV3_assetInfo_accountType: 帳戶類型. 默認是SPOT類型. 目前僅支持SPOT
   accountCoinBalance_para: |
@@ -5207,3 +5254,10 @@ zh-my:
     <br/>
     <b>Topic</b>:<br/><code>estimated_delivery_price.{baseCoin}_USD.{deliveryDate}</code> <br/>e.g. estimated_delivery_price.BTC_USD.19OCT22
   usdc_estimatedDeliveryPrice: 預估交割價格
+
+  # coin-info v3
+  coin_info_chain: 鏈名
+  coin_info_chainDeposit: 幣鏈是否可充值. <code>0</code>：暫停; <code>1</code>：正常
+  coin_info_chainWithdraw: 幣鏈是否可提幣. <code>0</code>：暫停; <code>1</code>：正常
+  coin_info_minAccuracy: 充提幣的最小精度
+  assetRateLimitNotice: 每個接口擁有獨立的頻率，接口之間不共享

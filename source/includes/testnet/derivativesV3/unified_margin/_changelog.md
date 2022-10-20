@@ -1,10 +1,5 @@
 # t(:changelog)
 
-## 2022-10-19
-### WebSocket API
-- [t(:websocketunderlyingPrice_um)](#t-websocketunderlyingprice_um) [t(:changelog_new)]
-  - t(:restapi_update_20221019)
-
 ## 2022-10-12
 ### REST API
 - [t(:dv_queryOrderRealtime)](#t-dv_queryorderrealtime) [t(:changelog_update)]

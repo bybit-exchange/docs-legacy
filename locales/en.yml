@@ -1507,13 +1507,16 @@ en:
         <th>Path</th>
       </tr>
       <tr>
-        <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
+        <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
         <tr><td>Unified Margin</td><td>/unified</td>
         <tr><td>Contract v3</td><td>/contract</td>
         <tr><td>Inverse Perpetual</td><td>/v2</td>
         <tr><td>Inverse Futures</td><td>/futures</td>
         <tr><td>Linear Perpetual</td><td>/public, /private</td>
-        <tr><td>Account Asset</td><td>/asset</td>
+      </tr>
+      <tr>
+        <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>Asset V1,<br>Asset V3</td><td>/asset/v1, /asset/v3</td>
       </tr>
       <tr>
         <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
@@ -2368,7 +2371,46 @@ en:
   account_asset_err_90051: User withdrawal is blocked
   account_asset_err_90052: Replay request denied
 
-
+  # account asset v3 error code
+  # transfer
+  assetV3_err_0: SUCCESS
+  assetV3_err_131200: Service error
+  assetV3_err_131201: Internal error
+  assetV3_err_131202: Invalid memberId
+  assetV3_err_131203: Request parameter error
+  assetV3_err_131204: Account info error
+  assetV3_err_131205: Query transfer error
+  assetV3_err_131206: Fail to transfer
+  assetV3_err_131207: Account not exist
+  assetV3_err_131208: Forbid transfer
+  assetV3_err_131209: Get subMember relation error
+  assetV3_err_131210: Amount accuracy error
+  assetV3_err_131211: fromAccountType can't be the same as toAccountType
+  assetV3_err_131212: Insufficient balance
+  assetV3_err_131213: TransferLTV check error
+  assetV3_err_131214: TransferId exist
+  assetV3_err_131215: Amount error
+  assetV3_err_131216: Query balance error
+  assetV3_err_131217: Risk check error
+  # withdraw
+  assetV3_err_131001: Service error
+  assetV3_err_131002: Parameter error
+  assetV3_err_131003: Interal error
+  assetV3_err_131004: KYC needed
+  assetV3_err_131085: Withdrawal amount is greater than your availale balance (the deplayed withdrawal is triggered)
+  assetV3_err_131086: Withdrawal amount exceeds risk limit (the risk limit of margin trade is triggered)
+  assetV3_err_131088: Withdrawal amount exceed the KYC limit
+  assetV3_err_131089: User sensitive operation, withdrawal is prohibited within 24 hours
+  assetV3_err_131090: User withdraw has been banned
+  assetV3_err_131091: Blocked login status does not allow withdrawals
+  assetV3_err_131092: User status is abnormal
+  assetV3_err_131093: The withdrawal address is not in the whitelist
+  assetV3_err_131094: UserId is not in the whitelist
+  assetV3_err_131095: Withdrawl amount exceeds the 24 hour platform limit
+  assetV3_err_131096: Withdraw amount does not satify the lower limit or upper limit
+  assetV3_err_131097: Withdrawal of this currency has been closed
+  assetV3_err_131098: Withdrawal currently is not availble from new address
+  assetV3_err_131099: Hot wallet status can cancel the withdraw
 
   #spot error
   err_1001: Request failed to be processed. Please try again.
@@ -3267,6 +3309,8 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221020: Add new account asset endpoints
+  restapi_update_20221020_1: Add new response params
   restapi_update_20221019: Add new public websocket topic
   restapi_update_20221013: Add new market data API
   restapi_update_20221012: Add new response param <code>leavesQty</code>, <code>cumExecFee</code>, <code>cumExecQty</code>, <code>cumExecValue</code>
@@ -5633,7 +5677,9 @@ en:
   DWendtimeMS: |
     end time (In Millisecond). Default value: current time
   assetWithdraw_timestamp: timestamp. Allowed timeframe is 5 mins before and after based on current timestamp
-  accountAssetV3_chainType: Chain type. Return all if not passed.
+  accountAssetV3_chainType: |
+    Chain name. Return all if not passed. <br/>
+    <b>Note</b>, pass chain name, e.g. <code>ETH</code> instead of <Code>ERC20</code>
   accountAssetV3_bizType: Account business subtype
   accountAsseV3_assetInfo_accountType: Account type, <b>SPOT</b> in default. For now, only <code>SPOT</code> is available.
   accountCoinBalance_para: |
@@ -5666,3 +5712,10 @@ en:
     <br/>
     <b>Topic</b>:<br/> <code>estimated_delivery_price.{baseCoin}_USD.{deliveryDate}</code><br/> e.g. estimated_delivery_price.BTC_USD.19OCT22
   usdc_estimatedDeliveryPrice: Estimated delivery price
+
+  # coin-info v3
+  coin_info_chain: chain name
+  coin_info_chainDeposit: The chain status of deposit. <code>0</code>：suspend; <code>1</code>：normal
+  coin_info_chainWithdraw: The chain status of withdraw. <code>0</code>：suspend; <code>1</code>：normal
+  coin_info_minAccuracy: The precision of withdraw or deposit
+  assetRateLimitNotice: Each endpoint has its own rate limit.
