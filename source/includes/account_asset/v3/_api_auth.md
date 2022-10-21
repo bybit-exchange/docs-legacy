@@ -23,15 +23,17 @@ t(:auth_aside_timestamp)
 > t(:auth_codequote_construct_asset_v3)
 
 ```python
-param_str = "1660633147433XXXXXXXXX5000startTime=1659283200000&endTime=1660060800000&coin=USDT"
+param_str = "1660633147433T0d98KyVamQ62YBzN85000startTime=1659283200000&endTime=1660060800000&coin=USDT"
 
 # timestamp: 1660633147433
-# api_key: XXXXXXXXX
+# api_key: T0d98KyVamQ62YBzN8
 # recv_window: 5000
 # startTime=1659283200000
 # endTime=1660060800000
 # coin=USDT
 ```
+
+> t(:auth_codequote_construct1b)
 
 t(:auth_para_dv3_construct1)
 <div></div>

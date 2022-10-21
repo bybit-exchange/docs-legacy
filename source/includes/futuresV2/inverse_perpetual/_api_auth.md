@@ -23,12 +23,12 @@ t(:auth_aside_timestamp)
 > t(:auth_codequote_construct1a)
 
 ```console
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
+param_str = "api_key=XXXXXXXXXX&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
 ```
 ```python
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
+param_str = "api_key=XXXXXXXXXX&leverage=100&symbol=BTCUSD&timestamp=1542434791747"
 
-# api_key=B2Rou0PLPpGqcU0Vu2&
+# api_key=XXXXXXXXXX&
 # leverage=100&
 # symbol=BTCUSD&
 # timestamp=1542434791747
@@ -43,7 +43,7 @@ t(:auth_para_construct2)
 > t(:auth_codequote_construct2)
 
 ```http
-GET /v2/private/order?symbol=BTCUSD&api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
+GET /v2/private/order?symbol=BTCUSD&api_key=XXXXXXXXXX&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
 Host: api-testnet.bybit.com
 ```
 
@@ -55,7 +55,7 @@ Host: api-testnet.bybit.com
 Content-Type: application/json
 
 {
-    "api_key": "B2Rou0PLPpGqcU0Vu2",
+    "api_key": "XXXXXXXXXX",
     "symbol": "BTCUSD",
     "order_id": "3bd1844f-f3c0-4e10-8c25-10fea03763f6",
     "timestamp": 1542434791000,

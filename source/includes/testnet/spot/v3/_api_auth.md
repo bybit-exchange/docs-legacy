@@ -26,13 +26,13 @@ t(:spot_auth_aside_timestamp)
 GET
 rule: timestamp + api_key + recv_window + queryString
 
-param_str = "1659072951686T0d98KyVamQ62YBzN85000symbol=BTCUSDT"
+param_str = "1659072951686XXXXXXXXX5000symbol=BTCUSDT"
 
 POST
 rule: timestamp + api_key + recv_window + raw_request_body
 
 param_str = 
-   "1659073093578T0d98KyVamQ62YBzN85000{
+   "1659073093578XXXXXXXXX5000{
     "symbol": "BTCUSDT",
     "orderQty":"0.05",
     "side": "Sell",

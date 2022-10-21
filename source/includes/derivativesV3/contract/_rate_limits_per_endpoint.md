@@ -22,7 +22,7 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
     <th>t(:row_comment_path)</th>
   </tr>
   <tr>
-    <td rowspan="1">5 requests/second</td>
+    <td rowspan="1">10 requests/second</td>
     <td>All private endpoints</td>
   </tr>
 </table>

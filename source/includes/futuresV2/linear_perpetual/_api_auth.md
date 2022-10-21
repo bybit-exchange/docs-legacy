@@ -23,12 +23,12 @@ t(:auth_aside_timestamp)
 > t(:auth_codequote_construct1a)
 
 ```console
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&buy_leverage=100&sell_leverage=110&symbol=BTCUSDT&timestamp=1542434791747"
+param_str = "api_key=XXXXXXXXXXX&buy_leverage=100&sell_leverage=110&symbol=BTCUSDT&timestamp=1542434791747"
 ```
 ```python
-param_str = "api_key=B2Rou0PLPpGqcU0Vu2&buy_leverage=100&sell_leverage=110&symbol=BTCUSD&timestamp=1542434791747"
+param_str = "api_key=XXXXXXXXXXX&buy_leverage=100&sell_leverage=110&symbol=BTCUSD&timestamp=1542434791747"
 
-# api_key=B2Rou0PLPpGqcU0Vu2&
+# api_key=XXXXXXXXXXX&
 # leverage=100&
 # symbol=BTCUSD&
 # timestamp=1542434791747
@@ -43,7 +43,7 @@ t(:auth_para_construct2)
 > t(:auth_codequote_construct2)
 
 ```http
-GET /user/leverage?api_key=B2Rou0PLPpGqcU0Vu2&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
+GET /user/leverage?api_key=XXXXXXXXXXX&timestamp=1542434791000&sign=670e3e4aa32b243f2dedf1dafcec2fd17a440e71b05681550416507de591d908 HTTP/1.1
 Host: api-testnet.bybit.com
 ```
 
@@ -55,7 +55,7 @@ Host: api-testnet.bybit.com
 Content-Type: application/json
 
 {
-    "api_key": "B2Rou0PLPpGqcU0Vu2",
+    "api_key": "XXXXXXXXXXX",
     "leverage": 100,
     "symbol": "BTCUSD",
     "timestamp": 1542434791000,

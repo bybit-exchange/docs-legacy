@@ -9,7 +9,7 @@ t(:account_para)
 curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/order/create' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: f02a18137c25c40d64b2c474f575c01a62ba076124946d38619238e19c86a2f2' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658884339826' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -410,7 +410,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
 
 > t(:codequote_responseExample)
 
-```javascript
+```json
 {
     "retCode": 0,
     "retMsg": "OK",
@@ -443,7 +443,8 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
                 "cumExecFee": "0",
                 "triggerDirection": 2
             }
-        ]
+        ],
+        "nextPageCursor": ""
     },
     "retExtInfo": {},
     "time": 1658902847238
@@ -467,6 +468,7 @@ GET
 |settleCoin |false |string | t(:contract_comment_realtimeOrderSettleCoin)|
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string | t(:row_comment_orderFilter_v3)|
 |limit |false |number |t(:row_comment_limit) |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -495,6 +497,7 @@ GET
 |list> cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
 |list> leavesQty |string |t(:row_comment_leaves_qty)  |
 |list> leavesValue |string |t(:row_comment_leaves_value)  |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 
 ## t(:position)
@@ -682,7 +685,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-isolated' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: f178bda84f8a3fa971338b7424cce2204824c0114f196650b2516962371e3902' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658908531694' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -736,7 +739,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-mode' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: b07d38c9719187a8a9a0cee739f465edd05a1c7a30618e02a1f1dc9fc3639d97' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658909270602' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -789,7 +792,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-tpsl-mode' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 018fd4ae872bdb5a90e849dc324eeab4157a047de05250bb74efb7c3434d0597' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658909568597' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -968,7 +971,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/set-risk-limit' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 82904cc14df4bb278722d4212bdb76dc7e1ec7a77e0e761d2e09b3361059a25c' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658911327616' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -1023,7 +1026,7 @@ POST
 curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/execution/list?symbol=XRPUSDT' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: a7358fb068bf66570e7ecf063e39a6dbd11f1d5572ba79a63d5996221d864585' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658911518042' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 ```
@@ -1145,7 +1148,7 @@ GET
 curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/closed-pnl?symbol=XRPUSDT&startTime=1658764800000&endTime=1658937600000' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: eb16a696924a92a3a47d769caf44d7373eca9ed6a644384ff6e8cd729ee9f7b1' \
---header 'X-BAPI-API-KEY: PXOXCIFKHCWCAJTPKW' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658914264517' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 ```
@@ -1388,7 +1391,7 @@ t(:contract_tradingFeeRate_para)
 curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/account/fee-rate?symbol=ETHUSDT' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: e65aad8dd5459774ad21aaca77420947332fdbfe433bef959c6507ce2379999f' \
---header 'X-BAPI-API-KEY: T0d98KyVamQ62YBzN8' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658739026859' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 ```

@@ -8,7 +8,7 @@ t(:transfer_para)
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/inter-transfer'
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -69,7 +69,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer' \
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -129,7 +129,7 @@ POST
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/inter-transfer/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -195,7 +195,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -263,7 +263,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -307,7 +307,7 @@ GET
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/transfer-sub-member-save' \
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -356,7 +356,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/universal-transfer' \
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -413,7 +413,7 @@ POST
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/universal-transfer/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -494,7 +494,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/transfer-coin/list/query?fromAccountType=SPOT&toAccountType=CONTRACT' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -539,7 +539,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com//asset/v3/private/transfer/account-coin/balance/query?memberId=123&accountType=CONTRACT&coin=BTC&withBonus=0' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -602,7 +602,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/asset-info/query?accountType=SPOT&coin=BTC' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -971,7 +971,7 @@ GET
 ```console
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/withdraw/create' \
 --header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
---header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1660620568966' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -1034,7 +1034,7 @@ POST
 ```console
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/withdraw/cancel' \
 --header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
---header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1660620568966' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -1083,7 +1083,7 @@ POST
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/deposit/address/query?coin=USDT' \
 --header 'X-BAPI-SIGN: 5a5ce5b26fd6a959c470b637ec0e9672b871d1ace105737b15e525de672c3fdb' \
---header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1660632630317' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 ```

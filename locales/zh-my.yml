@@ -945,12 +945,11 @@ zh-my:
     <p>市價活動委托: 一個傳統的市場價格訂單,會以當前的最優價格為您成交訂單。當且僅當選擇市價單時，<code>price</code>可為空！<b>為了保護市價單遭遇嚴重的滑點，Bybit將市價單轉為限價單進入撮合，買單價格高於最優賣價，賣單價格低於最優買價。限價價格和成交價格均可通過用戶成交記錄接口查詢。</b></p>
     <p>限價活動委托: 您可以為您的訂單設置一個執行價格，當市場價格達到您的設置價格時，系統會為您成交訂單。</p>
     <p><b>止盈止損: 您僅能在開倉時設置止盈止損條件單，一旦持有倉位後提交活動委托時關聯的止盈止損則不會生效。</b></p>
-    <p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。</p>
+    <p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。注意：<b>PostOnly</code>的最大下單數量可以是普通訂單的5倍</b>。</p>
     <p>委托價格: 如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-querysymbol">交易對接口</a>響應中的<b>price_filter</b>字段。</p>
     <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
     <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSD的活動單、280個ETHUSD合約的活動單。</b></p>
     <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduce_only</code> 或 <code>closeOnTrigger</code>的訂單。</b></p>
-    <p><b><code>PostOnly</code>的最大下單量是普通訂單的5倍。</b></p>
   ### Get Active Order
   getactive: 查詢活動委托
   a_getactive: 查詢活動委托
@@ -1125,7 +1124,7 @@ zh-my:
   ### User Trade Records
   usertraderecords: 用戶成交記錄
   userhistorytraderecords: 用戶曆史成交記錄
-  wallet_para_tradeRecords: 獲取用戶成交記錄，按時間升序排列。
+  wallet_para_tradeRecords: 獲取用戶成交記錄，按時間升序排列。若想獲取近2年的交易紀錄，請使用合約v3<a href="https://bybit-exchange.github.io/docs/zh-my/derivativesV3/contract/#t-usertraderecords">接口</a>
   wallet_aside_tradeRecords: 一個訂單可能有多筆成交記錄。
   wallet_row_comment_orderId: 訂單號，如果沒有填寫訂單號，將返回用戶交易記錄
   ## Get Risk Limit
@@ -1337,13 +1336,16 @@ zh-my:
         <th>Path</th>
       </tr>
       <tr>
-        <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
+        <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
         <tr><td>统一保证金</td><td>/unified</td>
         <tr><td>合約v3</td><td>/contract</td>
         <tr><td>反向永續</td><td>/v2</td>
         <tr><td>反向交割</td><td>/futures</td>
         <tr><td>USDT永續</td><td>/public, /private</td>
-        <tr><td>賬戶資產</td><td>/asset</td>
+      </tr>
+      <tr>
+        <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>帳戶資產v1、v3共享</td><td>/asset/v1, /asset/v3</td>
       </tr>
       <tr>
         <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
@@ -2137,6 +2139,46 @@ zh-my:
   account_asset_err_90051: 用戶提現被封禁
   account_asset_err_90052: 重放請求拒絕
 
+  # account asset v3 error code
+  assetV3_err_0: 成功
+  assetV3_err_131200: 服務不可用
+  assetV3_err_131201: 業務異常
+  assetV3_err_131202: 用戶id無效
+  assetV3_err_131203: 請求參數錯誤
+  assetV3_err_131204: 帳戶異常
+  assetV3_err_131205: 查詢劃轉失敗
+  assetV3_err_131206: 劃轉失敗
+  assetV3_err_131207: 帳戶不存在
+  assetV3_err_131208: 劃轉封禁
+  assetV3_err_131209: 查詢子帳戶關係失敗
+  assetV3_err_131210: 金額精度錯誤
+  assetV3_err_131211: 轉入賬戶類型不能作為轉出賬戶類型
+  assetV3_err_131212: 可用餘額不足
+  assetV3_err_131213: TransferLTV check error
+  assetV3_err_131214: 劃轉ID已存在
+  assetV3_err_131215: 金額錯誤
+  assetV3_err_131216: 查詢余額錯誤
+  assetV3_err_131217: 風險檢查失敗
+  # withdraw
+  assetV3_err_131001: 服務錯誤
+  assetV3_err_131002: 參數錯誤
+  assetV3_err_131003: 內部錯誤
+  assetV3_err_131004: 需要KYC認證
+  assetV3_err_131085: 提幣金額大於可用餘額，觸發延遲提幣
+  assetV3_err_131086: 提幣金額超過風控限制，觸發全倉槓桿限制
+  assetV3_err_131088: 提幣金額超過當前KYC限額
+  assetV3_err_131089: 用戶24小時內進行過銘感操作，提現被禁
+  assetV3_err_131090: 用戶提現封禁
+  assetV3_err_131091: 用戶登陸封禁，無法提幣
+  assetV3_err_131092: 用戶狀態異常
+  assetV3_err_131093: 提幣地址不在白名單內
+  assetV3_err_131094: 用戶ID不在白名單內
+  assetV3_err_131095: 提幣金額超過平台24小時限額
+  assetV3_err_131096: 檢查提幣金額是否滿足最小最大可提金額
+  assetV3_err_131097: 系統暫停提幣
+  assetV3_err_131098: 當前時間禁止從新地址提幣
+  assetV3_err_131099: 當前狀態不支持取消提幣請求
+
   err_10000: 處理請求時發生未知錯誤
   err_10001: 請檢查傳遞的值是否符合要求。例如，如果是浮點數，確保它符合<a href="#t-querysymbol"><code>tick_size</code>和<code>qty_step</code></a>
   #spot
@@ -2725,11 +2767,10 @@ zh-my:
     <p>市價活動委托: 一個傳統的市場價格訂單,會以當前的最優價格為您成交訂單。當且僅當選擇市價單時，<code>price</code>可為空！</p>
     <p>限價活動委托: 您可以為您的訂單設置一個執行價格，當市場價格達到您的設置價格時，系統會為您成交訂單。</p>
     <p><b>止盈止損: 您僅能在開倉時設置止盈止損條件單，一旦持有倉位後提交活動委托時關聯的止盈止損則不會生效。如果不設置止盈止損觸發條件<code>trigger_by</code>則默認使用LastPrice</b></p>
-    <p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。增減最小單位請參考交易對接口響應中的<code>lot_size_filter</code>字段。</p>
+    <p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。注意：<b>PostOnly</code>的最大下單數量可以是普通訂單的5倍</b>。</p>
     <p>委托價格: 如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-querysymbol">交易對接口</a>響應中的<b>price_filter</b>字段。</p>
     <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
     <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSDT的活動單、280個ETHUSDT合約的活動單。</b></p>
-    <p><b><code>PostOnly</code>的最大下單量是普通訂單的5倍。</b></p>
     <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduce_only</code> 或 <code>close_on_trigger</code>的訂單。</b></p>
 
   linear_row_comment_basePrice: 當前市價。用於和stop_px值進行比較，確定當前條件委托是看空到<code>stop_px</code>時觸發還是看多到stop_px觸發。主要是用來標識當前條件單預期的方向
@@ -2832,11 +2873,14 @@ zh-my:
   switchmode_aside: 當設置部分止盈止損模式時，止盈或者止損的訂單數量可以小於倉位大小, 請使用<a href="#t-tradingstop">Trading-Stop endpoint</a>。
   addmargin: 增加/減少保證金
   restapi_update_20200414: 更新 <code>BTCUSDT</code> 合約信息
-  linear_private_trade_records: 獲取用戶成交記錄，按時間降序排列。
+  linear_private_trade_records: 獲取用戶成交記錄，按時間降序排列。支持獲取到近2年的交易紀錄
   linear_private_closed_pnl_records: 獲取用戶平倉記錄，按時間降序排列。
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221020: 新增帳戶資產接口
+  restapi_update_20221020_1: 新增響應字段
+  restapi_update_20221019: 新增公共推送頻道
   restapi_update_20221013: 新增行情接口
   restapi_update_20221012: 新增響應字段<code>leavesQty</code>, <code>cumExecFee</code>, <code>cumExecQty</code>, <code>cumExecValue</code>
   restapi_update_20220929: 新增響應字段<code>orderLinkId</code>
@@ -3726,7 +3770,7 @@ zh-my:
   coin_info_frozen_balance: 凍結餘額
   coin_info_name: 幣種名稱
   coin_info_remain_amt: 該幣種當前最大可提現數量
-  coin_info_chain_type: 鏈名
+  coin_info_chain_type: 鏈類型
   coin_info_confirmation: 充值上賬確認數
   coin_info_withdraw_fee: 提現手續費。如果提現費為空，則表示該幣不支持提現
   coin_info_deposit_min: 最小充值數量
@@ -5027,12 +5071,12 @@ zh-my:
     <p>市價活動委托: 一個傳統的市場價格訂單,會以當前的最優價格為您成交訂單。當且僅當選擇市價單時，<code>price</code>可為空！</p>
     <p>限價活動委托: 您可以為您的訂單設置一個執行價格，當市場價格達到您的設置價格時，系統會為您成交訂單。</p>
     <p><b>止盈止損: 您僅能在開倉時設置止盈止損條件單，一旦持有倉位後提交活動委托時關聯的止盈止損則不會生效。如果不設置止盈止損觸發條件<code>triggerBy</code>則默認使用LastPrice</b></p>
-    <p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。增減最小單位請參考交易對接口響應中的<code>lotSizeFilter</code>字段。</p>
+    <p>委托數量: 表示您要購買/賣出的永續合約數，對於委托數量目前Bybit只允許提交正整數。增減最小單位請參考交易對接口響應中的<code>lotSizeFilter</code>字段。注意：<b><code>PostOnly</code>的最大下單數量是普通訂單的5倍</b></p>
     <p>委托價格: 如果是下<b>限價單</b>，該參數為<b>必填</b>. 在沒有倉位時，做多的委托價格需高於市價的10%、低於1百萬。如有倉位時則需優於強平價。價格增減最小單位請參考<a href="#t-dv_instrhead">交易對接口</a>響應中的<b>priceFilter</b>字段。</p>
     <p>自定義條件單ID: 您可以自定義活動委托訂單ID，我們會為您關聯到系統的訂單ID，並把系統的唯一訂單ID在活動委托創建成功後一並返回給您，您可以使用該訂單ID去取消活動委托，同時要求您傳遞的自定義訂單ID<code>最大長度不超過36個字段且唯一</code>。</p>
     <p><b>每個賬戶最多可同時持有500個活動訂單。這是針對合約的，因此可以允許出現例如：賬戶同時持有300個BTCUSDT的活動單、280個ETHUSDT合約的活動單。</b></p>
     <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduceOnly</code> 或 <code>closeOnTrigger</code>的訂單。</b></p>
-    <p><b><code>PostOnly</code>的最大下單量是普通訂單的5倍。</b></p>
+
 
   contract_account: 帳戶
   contract_accountPara: 帳戶相關接口需要認證.
@@ -5176,7 +5220,9 @@ zh-my:
   allowDepositPageCursor: |
     游標信息：用來分頁。 默認空
   assetWithdraw_timestamp: 時間戳. 允許範圍是當前時間的前後5分鐘
-  accountAssetV3_chainType: 鏈的類型. 若為空，則返回全部
+  accountAssetV3_chainType: |
+    鏈名. 若為空，則返回全部. <br/>
+    <b>注意</b>，此處應傳鏈名，例如ETH，而不是ERC20
   accountAssetV3_bizType: 帳戶業務子類型
   accountAsseV3_assetInfo_accountType: 帳戶類型. 默認是SPOT類型. 目前僅支持SPOT
   accountCoinBalance_para: |
@@ -5187,6 +5233,34 @@ zh-my:
   unified_baseCoin_param: 交易幣種. 目前僅<code>category</code>=option時有效，期權下若不傳該字段，則默認返回BTC
   unified_baseCoin_param_2: 交易幣種. 當<code>category</code>=option時，不傳，則默認返回BTC；當<code>category</code>=linear時，傳入BTC，則默認返回BTCPERP和BTCUSDT
   unified_baseCoin_param_3: 交易幣種. 當<code>category</code>=option時，不傳，則默認返回BTC
+  # websocket USDC option underlying price
+  websocketunderlyingPrice: 底層資產價格
+  websocketunderlyingPrice_um: 底層資產價格(僅期權)
+  usdc_wss_underlyingPrice_para: |
+    獲取同一天交割期權的底層資產價格<br/>
+    <br/>
+    推送頻率: <b>1000ms</b><br/>
+    <br/>
+    <b>Topic</b>: <code>underlying.{baseCoin}_USD.{deliveryDate}</code> 例如：underlying.BTC_USD.19OCT22
+  usdc_expireTime: 交割時間
+  usdc_underlyingPrice: 底層資產價格. 該值在交割前30分鐘變為<b>預期交割價</b>, 其餘時間的值都是和<code>underlyingOriginPrice</code>保持一致
+  usdc_timestamp: 計算價格的時間戳
+  usdc_underlyingOriginPrice: 底層資產價格
+  usdc_reqId: 消息的traceId. 僅內部使用
+  websocketEstimatedDeliveryPrice: 預估交割價格
+  websocketEstimatedDeliveryPrice_note: 直到交割前30分鐘，才開始會有消息推送。
+  websocketEstimatedDeliveryPrice_para: |
+    獲取同一天交割期權的預估交割價格<br/>
+    <br/>
+    <b>Topic</b>:<br/><code>estimated_delivery_price.{baseCoin}_USD.{deliveryDate}</code> <br/>e.g. estimated_delivery_price.BTC_USD.19OCT22
+  usdc_estimatedDeliveryPrice: 預估交割價格
+
+  # coin-info v3
+  coin_info_chain: 鏈名
+  coin_info_chainDeposit: 幣鏈是否可充值. <code>0</code>：暫停; <code>1</code>：正常
+  coin_info_chainWithdraw: 幣鏈是否可提幣. <code>0</code>：暫停; <code>1</code>：正常
+  coin_info_minAccuracy: 充提幣的最小精度
+  assetRateLimitNotice: 每個接口擁有獨立的頻率，接口之間不共享
   # account asset - user
   user_apikey_api: 母子帳戶相關接口
   user_apikey_para: 以下接口都需要鑒權

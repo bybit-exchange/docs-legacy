@@ -1103,11 +1103,10 @@ en:
        The converted limit price and executed price are both available in trade history.</b>.</p>
     <p>Limit price: You can set an execution price for your order. The system will fill your order once the last traded price reaches your execution price.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but the TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. All USD markets have a contract size of 1 USD. See more</p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. Note: <b>The allowed max trade quantity of <code>PostOnly</code> is 5 times bigger than normal orders</b>.</p>
     <p>Order price: If it is a conditional order, this parameter is required. When there is no position, the price should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the price_filter field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. This must modulo by 0.5 (20 and 21.5 are accepted, but 16.1 or 16.15 are not).</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSD instrument and 280 active orders on the ETHUSD instrument.</b></p>
-    <p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
 
 
   account_para_placeActive_v3: |
@@ -1451,7 +1450,7 @@ en:
   ### User Trade Records
   usertraderecords: Get User Trade Records
   userhistorytraderecords: Extended User Trade Records
-  wallet_para_tradeRecords: Get user's trading records. The results are ordered in ascending order (the first item is the oldest).
+  wallet_para_tradeRecords: Get user's trading records. The results are ordered in ascending order (the first item is the oldest). If you want to get the records up to 2 years old, please refer to contract v3 <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-usertraderecords">endpoint</a>
   wallet_aside_tradeRecords: One order may have multiple trade records.
   wallet_row_comment_orderId: OrderID. If not provided, will return user's trading records
   ## Get Risk Limit
@@ -1508,13 +1507,16 @@ en:
         <th>Path</th>
       </tr>
       <tr>
-        <td rowspan="7">2mins 50/s;<br>5s 70/s</td>
+        <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
         <tr><td>Unified Margin</td><td>/unified</td>
         <tr><td>Contract v3</td><td>/contract</td>
         <tr><td>Inverse Perpetual</td><td>/v2</td>
         <tr><td>Inverse Futures</td><td>/futures</td>
         <tr><td>Linear Perpetual</td><td>/public, /private</td>
-        <tr><td>Account Asset</td><td>/asset</td>
+      </tr>
+      <tr>
+        <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
+        <tr><td>Asset V1,<br>Asset V3</td><td>/asset/v1, /asset/v3</td>
       </tr>
       <tr>
         <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
@@ -2369,7 +2371,46 @@ en:
   account_asset_err_90051: User withdrawal is blocked
   account_asset_err_90052: Replay request denied
 
-
+  # account asset v3 error code
+  # transfer
+  assetV3_err_0: SUCCESS
+  assetV3_err_131200: Service error
+  assetV3_err_131201: Internal error
+  assetV3_err_131202: Invalid memberId
+  assetV3_err_131203: Request parameter error
+  assetV3_err_131204: Account info error
+  assetV3_err_131205: Query transfer error
+  assetV3_err_131206: Fail to transfer
+  assetV3_err_131207: Account not exist
+  assetV3_err_131208: Forbid transfer
+  assetV3_err_131209: Get subMember relation error
+  assetV3_err_131210: Amount accuracy error
+  assetV3_err_131211: fromAccountType can't be the same as toAccountType
+  assetV3_err_131212: Insufficient balance
+  assetV3_err_131213: TransferLTV check error
+  assetV3_err_131214: TransferId exist
+  assetV3_err_131215: Amount error
+  assetV3_err_131216: Query balance error
+  assetV3_err_131217: Risk check error
+  # withdraw
+  assetV3_err_131001: Service error
+  assetV3_err_131002: Parameter error
+  assetV3_err_131003: Interal error
+  assetV3_err_131004: KYC needed
+  assetV3_err_131085: Withdrawal amount is greater than your availale balance (the deplayed withdrawal is triggered)
+  assetV3_err_131086: Withdrawal amount exceeds risk limit (the risk limit of margin trade is triggered)
+  assetV3_err_131088: Withdrawal amount exceed the KYC limit
+  assetV3_err_131089: User sensitive operation, withdrawal is prohibited within 24 hours
+  assetV3_err_131090: User withdraw has been banned
+  assetV3_err_131091: Blocked login status does not allow withdrawals
+  assetV3_err_131092: User status is abnormal
+  assetV3_err_131093: The withdrawal address is not in the whitelist
+  assetV3_err_131094: UserId is not in the whitelist
+  assetV3_err_131095: Withdrawl amount exceeds the 24 hour platform limit
+  assetV3_err_131096: Withdraw amount does not satify the lower limit or upper limit
+  assetV3_err_131097: Withdrawal of this currency has been closed
+  assetV3_err_131098: Withdrawal currently is not availble from new address
+  assetV3_err_131099: Hot wallet status can cancel the withdraw
 
   #spot error
   err_1001: Request failed to be processed. Please try again.
@@ -3157,11 +3198,10 @@ en:
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
     <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tp_trigger_by</code>/<code>sl_trigger_by</code> default to LastPrice. Passing values to the <code>take_profit</code> or <code>stop_loss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lot_size_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint. Note: <b>The allowed max trade quantity of <code>PostOnly</code> is 5 times bigger than normal orders</b>.</p>
     <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>price_filter</code> field in the <a href="#t-querysymbol">Query Symbol</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
-    <p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
   linear_row_comment_basePrice: It will be used to compare with the value of <code>stop_px</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   linear_row_comment_stopPx: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure stop_px > max(market price, base_price) else, stop_px < min(market price, base_price)
 
@@ -3269,6 +3309,9 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221020: Add new account asset endpoints
+  restapi_update_20221020_1: Add new response params
+  restapi_update_20221019: Add new public websocket topic
   restapi_update_20221013: Add new market data API
   restapi_update_20221012: Add new response param <code>leavesQty</code>, <code>cumExecFee</code>, <code>cumExecQty</code>, <code>cumExecValue</code>
   restapi_update_20220929: Add new response param <code>orderLinkId</code>
@@ -5170,7 +5213,6 @@ en:
   dv_getOrder: Get Orders
   dv_myposition: Get Position (real-time)
   dv_setleverage: Modify Leverage
-  dv_switchmode: Switch TP/SL Mode
   dv_setrisklimit: Set Risk Limit
   dv_tradingstop: Set TP/SL
   dv_userTradeRecords7Day: Get 7-day Trading History
@@ -5461,12 +5503,12 @@ en:
   contract_order_para: |
     <p>Market price active order: A traditional market price order which will be filled at the best available price. <code>price</code> is not required for this type of order.</p>
     <p>Limit price active order: You can set an execution price for your order. Only when the last traded price reaches the order price will the system will fill your order.</p>
-    <p><b>Take profit/Stop loss: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tpTriggerBy</code>/<code>slTriggerBy</code> default to LastPrice. Passing values to the <code>takeProfit</code> or <code>stopLoss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</b></p>
-    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lotSizeFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
+    <p><b>Take profit/Stop loss</b>: You may only set a TP/SL conditional order upon opening the position. Once you hold a position, any new active order requests which contain TP/SL data will be accepted but TP/SL data will be ignored. <code>tpTriggerBy</code>/<code>slTriggerBy</code> default to LastPrice. Passing values to the <code>takeProfit</code> or <code>stopLoss</code> parameters in this endpoint will create conditional orders managed by the system, which will be be automatically cancelled if the position is closed.</p>
+    <p>Order quantity: This parameter indicates the quantity of perpetual contracts you want to buy or sell. For the minimum unit of qty increase or decrease, please refer to the <code>lotSizeFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint. Note: The allowed max trade quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</p>
     <p>Order price: If it is a stop order, this parameter is required. When there is no position, the long should be 10% higher than the market price and less than 1 million. For the minimum unit of price movement, please refer to the <code>priceFilter</code> field in the <a href="#t-dv_instrhead">Query Symbol</a> endpoint.</p>
     <p>Custom order ID: You may customise order IDs for active orders. We will link it to the system order ID, and return the unique system order ID to you after the active order is created successfully. You may use this order ID or your custom order ID to cancel your active order. The customised order ID should be unique, with a maximum length of 36 characters.</p>
     <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
-    <p><b>The allowed max quantity of <code>PostOnly</code> is 5 times bigger than normal orders.</b></p>
+
 
   # Contract Account >> Account
   contract_account: Account
@@ -5635,7 +5677,9 @@ en:
   DWendtimeMS: |
     end time (In Millisecond). Default value: current time
   assetWithdraw_timestamp: timestamp. Allowed timeframe is 5 mins before and after based on current timestamp
-  accountAssetV3_chainType: Chain type. Return all if not passed.
+  accountAssetV3_chainType: |
+    Chain name. Return all if not passed. <br/>
+    <b>Note</b>, pass chain name, e.g. <code>ETH</code> instead of <Code>ERC20</code>
   accountAssetV3_bizType: Account business subtype
   accountAsseV3_assetInfo_accountType: Account type, <b>SPOT</b> in default. For now, only <code>SPOT</code> is available.
   accountCoinBalance_para: |
@@ -5646,6 +5690,35 @@ en:
   unified_baseCoin_param: Base coin. Only valid when <code>category</code>=option. If not passed, BTC by default.
   unified_baseCoin_param_2: Base coin. When <code>category</code>=option. If not passed, BTC by default; when <code>category</code>=linear, if <b>BTC</code> passed, BTCPERP & BTCUSDT returned.
   unified_baseCoin_param_3: Base coin. When <code>category</code>=option. If not passed, BTC by default.
+
+  # websocket USDC option underlying price
+  websocketunderlyingPrice: Underlying Price
+  websocketunderlyingPrice_um: underlying price(option)
+  usdc_wss_underlyingPrice_para: |
+    Get the stream of underlying price for those symbols deliveried at the same day.<br/>
+    <br/>
+    Push frequency: <b>1000ms</b><br/>
+    <br/>
+    <b>Topic</b>: <code>underlying.{baseCoin}_USD.{deliveryDate}</code> e.g. underlying.BTC_USD.19OCT22
+  usdc_expireTime: Delivery time
+  usdc_underlyingPrice: The underlying price. This value will become <b>estimated delivery price</b> when it comes to 30 mins before delivery, otherwise it is the same value as <code>underlyingOriginPrice</code>
+  usdc_timestamp: The timestamp calculate the price
+  usdc_underlyingOriginPrice: The underlying price
+  usdc_reqId: The traceId of the message. Internal used ONLY
+  websocketEstimatedDeliveryPrice: Estimated Delivery Price
+  websocketEstimatedDeliveryPrice_note: There is no stream pushed until 30 minutes before the delivery time.
+  websocketEstimatedDeliveryPrice_para: |
+    Get the stream of estimated delivery price for those symbols deliveried at the same day.<br/>
+    <br/>
+    <b>Topic</b>:<br/> <code>estimated_delivery_price.{baseCoin}_USD.{deliveryDate}</code><br/> e.g. estimated_delivery_price.BTC_USD.19OCT22
+  usdc_estimatedDeliveryPrice: Estimated delivery price
+
+  # coin-info v3
+  coin_info_chain: chain name
+  coin_info_chainDeposit: The chain status of deposit. <code>0</code>：suspend; <code>1</code>：normal
+  coin_info_chainWithdraw: The chain status of withdraw. <code>0</code>：suspend; <code>1</code>：normal
+  coin_info_minAccuracy: The precision of withdraw or deposit
+  assetRateLimitNotice: Each endpoint has its own rate limit.
 
   # account asset - user
   user_apikey_api: Master-Sub User Endpoints
