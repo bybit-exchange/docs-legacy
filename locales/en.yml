@@ -4091,6 +4091,7 @@ en:
   row_comment_transfer_coin_list: The coins are enabled transfer between accounts
   row_comment_bonus: The bonus
   row_comment_withBonus: Whether query bonus or not. <code>0</code>：false; <code>1</code>：true; Not query is in default
+  row_comment_balanceQuery_memberId: User Id. It is <b>required</b> when you use master api key to check sub account coin blance
   row_comment_spot_status: Spot account status. <code>1</code>：normal; <code>0</code>：forbidden
   row_comment_frozen: Freeze amount
   row_comment_free: Free balance
@@ -5734,6 +5735,7 @@ en:
     Give a username of the new sub user id.
     <li>6-16 characters, must include both numbers and letters. </li>
     <li>cannot be the same as the exist or deleted one. </li>
+  user_username_resp_comment: Username
   user_memberType_req_comment: |
     <code>1</code>: normal sub account, <code>6</code>: custodial sub account
   user_switch_req_comment: |
@@ -5745,18 +5747,18 @@ en:
   user_readOnly_comment: <code>0</code>：Read and Write. <code>1</code>：Read only
   user_ips_req_comment: |
     Set the IP bind. example: ["192.168.X.X.1"]<br/>
-    <b>note</b>: <li>don't pass <code>ips</code> or pass with ["*"] means no bind</li><li><b>No ip binded api key will be invalid after 90 days</b></li><li><b>api key will be invalid after 7 days once the account password is changed</b></li>
+    <b>note</b>: <li>don't pass <code>ips</code> or pass with ["*"] means no bind</li><li>No ip bound api key will be invalid after <b>90 days</b></li><li>api key will be invalid after <b>7 days</b> once the account password is changed</li>
   user_sub_permissions_req_comment: |
     Tick the types of permission.<br/>
     <b>note</b>: one of blew types must be passed, otherwise the error is thrown
-  user_permissions_ContractTrade_comment: <code>["Order","Position"]</code>
-  user_permissions_Spot_comment: <code>["SpotTrade"]</code>
-  user_permissions_Wallet_comment: <code>["AccountTransfer","SubMemberTransfer"]</code>
-  user_permissions_Options_comment: <code>["OptionsTrade"]</code>
-  user_permissions_Derivatives_comment: <code>["DerivativesTrade"]</code>
-  user_permissions_Exchange_comment: <code>["ExchangeHistory"]</code>
+  user_permissions_ContractTrade_comment: Contract Trade. <code>["Order","Position"]</code>
+  user_permissions_Spot_comment: Spot Trade. <code>["SpotTrade"]</code>
+  user_permissions_Wallet_comment: Wallet. <code>["AccountTransfer"]</code>
+  user_permissions_Options_comment: USDC Contract. <code>["OptionsTrade"]</code>
+  user_permissions_Derivatives_comment: Derivatives v3. <code>["DerivativesTrade"]</code>
+  user_permissions_Exchange_comment: Exchange. <code>["ExchangeHistory"]</code>
   user_id_resp_comment: Unique id. Internal used
-  user_apiKey_resp_comment: The newly created api key
+  user_apiKey_resp_comment: Api key
   user_secret_resp_comment: |
     The secret paired with api key.<br/>
     <b>note</b>: The secret can't be queried by GET api. Please keep it properly
@@ -5764,22 +5766,46 @@ en:
   user_permissions_ContractTrade_resp_comment: Permisson of contract trade
   user_permissions_Spot_resp_comment: Permisson of spot
   user_permissions_Wallet_resp_comment: Permisson of wallet
-  user_permissions_Options_resp_comment: Permission of option
+  user_permissions_Options_resp_comment: Permission of USDC Contract. It supports trade option and usdc perpetual.
   user_permissions_Derivatives_resp_comment: Permission of derivatives
   user_sub_permissions_CopyTrading_resp_comment: Permission of copytrade. Not applicable to sub account, always <code>[]</code>
   user_sub_permissions_BlockTrade_resp_comment: Permission of blocktrade. Not applicable to sub account, always <code>[]</code>
   user_sub_permissions_NFT_resp_comment: Permission of NFT. Not applicable to sub account, always <code>[]</code>
-  user_permissions_Exchange_resp_comment: Permission of derivatives
-
+  user_permissions_Exchange_resp_comment: Permission of exchange
 
   get_sub_members_list: Get Sub UID List
   get_sub_members_list_parap: Get all sub uid of master account. Use <b>master</b> user's api key ONLY.
+  user_status_resp_comment: |
+    The status of the user account<br/>
+    <li><code>1</code>: normal</li>
+    <li><code>2</code>: login banned</li>
+    <li><code>4</code>: frozen</li>
+
   froze_sub_uid: Froze Sub UID
   froze_sub_uid_para: Froze sub uid. Use <b>master</b> user's api key ONLY.
+  user_froze_req_comment: <code>0</code>：unfroze, <code>1</code>：froze
+
   get_api_key_info: Get API Key Information
   get_api_key_info_para: Get the information of the api key. Use the api key pending to be checked to call the endpoint.</br> Both <b>master</b> and <b>sub</b> user's api key are applicable.
+  user_apiKeyInfo_secret_resp_comment: Always <code>""</code>
+  user_type_resp_comment: The type of api key. <code>1</code>：personal, <code>2</code>：connected to the third-party app
+  user_apiKeyInfo_ips_resp_comment: IP bound
+  user_deadLineDay_resp_comment: The remaining valid days of api key. Only for those api key with no IP bound or the password has been changed
+  user_expiredAt_resp_comment: The expiry day of the api key. Only for those api key with no IP bound or the password has been changed
+  user_createdAt_resp_comment: The create day of the api key
+
   modify_master_api_key: Modify Master API Key
   modify_master_api_key_para: Modify the settings of master api key. Use the api key pending to be modified to call the endpoint. Use <b>master</b> user's api key ONLY.
+  user_master_permissions_Wallet_comment: Wallet. <code>["AccountTransfer","SubMemberTransfer"]</code>
+  user_master_permissions_CopyTrading_req_comment: Copytrade. <code>["CopyTrading"]</code>
+  user_master_permissions_BlockTrade_req_comment: Blocktrade. <code>["BlockTrade"]</code>
+  user_master_permissions_NFT_req_comment: NFT. <code>["NFTQueryProductList"]</code>
+  user_master_permissions_CopyTrading_resp_comment: Permission of copy trade
+  user_master_permissions_BlockTrade_resp_comment: Permission of block trade
+  user_master_permissions_NFT_resp_comment: Permission of NFT
+
+
+
   delete_master_api_key: Delete Master API Key
   delete_master_api_key_para: Delete the api key of master account. Use the api key pending to be delete to call the endpoint. Use <b>master</b> user's api key ONLY.
   modify_sub_api_key: Modify Sub API Key
