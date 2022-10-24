@@ -56,3 +56,29 @@ t(:assetRateLimitNotice)
         <td>/asset/v3/private/coin-info/query </td>
     </tr>
 </table>
+
+### t(:userApikeyEndpoints)
+<table class="custom_table">
+    <tr>
+        <th>t(:row_comment_rate_limit)</th>
+        <th>t(:row_comment_path)</th>
+    </tr>
+    <tr>
+        <td rowspan="8">5/s</td>
+        <tr><td>/user/v3/private/create-sub-member </td>
+        <tr><td>/user/v3/private/create-sub-api </td>
+        <tr><td>/user/v3/private/frozen-sub-member </td>
+        <tr><td>/user/v3/private/update-api </td>
+        <tr><td>/user/v3/private/delete-api </td>
+        <tr><td>/user/v3/private/update-sub-api </td>
+        <tr><td>/user/v3/private/delete-sub-api </td>
+    </tr>
+    <tr>
+        <td rowspan="1">20/s</td>
+        <td>/user/v3/private/query-sub-members </td>
+    </tr>
+    <tr>
+        <td rowspan="1">10/s</td>
+        <td>/user/v3/private/query-api </td>
+    </tr>
+</table>
