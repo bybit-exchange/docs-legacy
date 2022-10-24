@@ -31,7 +31,7 @@ param_str = "1659072951686T0d98KyVamQ62YBzN85000symbol=BTCUSDT"
 POST
 rule: timestamp + api_key + recv_window + raw_request_body
 
-param_str = 
+param_str =
    "1659073093578T0d98KyVamQ62YBzN85000{
     "symbol": "BTCUSDT",
     "orderQty":"0.05",
@@ -45,6 +45,10 @@ param_str =
 ```python
 
 ```
+
+<aside class="notice">
+t(:auth_para_cdn_request_id)
+</aside>
 
 t(:auth_para_dv3_construct1)
 <div></div>
