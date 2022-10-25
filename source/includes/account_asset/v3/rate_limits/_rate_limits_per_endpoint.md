@@ -74,11 +74,8 @@ t(:assetRateLimitNotice)
         <tr><td>/user/v3/private/delete-sub-api </td>
     </tr>
     <tr>
-        <td rowspan="1">20/s</td>
-        <td>/user/v3/private/query-sub-members </td>
-    </tr>
-    <tr>
-        <td rowspan="1">10/s</td>
-        <td>/user/v3/private/query-api </td>
+        <td rowspan="3">10/s</td>
+        <tr><td>/user/v3/private/query-sub-members </td>
+        <tr><td>/user/v3/private/query-api </td>
     </tr>
 </table>
