@@ -577,7 +577,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|memberId |false |string |t(:row_comment_userID) |
+|memberId |false |string |t(:row_comment_balanceQuery_memberId) |
 |<a href="#account-type-from_account_type-to_account_type">accountType</a> |<b>true</b> |string |t(:row_comment_accounttype) |
 |<a href="#currency-currency-coin">coin</a>|<b>true</b> |string |t(:row_comment_currency) |
 |withBonus |false |string |t(:row_comment_withBonus) |

@@ -1424,11 +1424,11 @@ en:
   dv_walletrecords: Get Wallet Fund Records
   wallet_para_walletRecords: |
     <p>Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.</p>
-    <p>This endpoint returns incomplete information for transfers involving the derivatives wallet. Use the <a href="https://bybit-exchange.github.io/docs/account_asset/#t-transfer_api">account asset API</a> for creating and querying internal transfers.
+    <p>This endpoint returns incomplete information for transfers involving the derivatives wallet. Use the <a href="https://bybit-exchange.github.io/docs/account_asset/v3/#t-transfer_api">account asset API</a> for creating and querying internal transfers.
   wallet_aside_walletRecords: |
     Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
   wallet_aside_walletRecords1: USDT records will not be returned unless you pass <code>USDT</code> with the <code>coin</code> parameter.
-  wallet_aside_walletRecords2: Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. To fetch records after this date you should call the <a href="https://bybit-exchange.github.io/docs/account_asset/#t-depositsrecordquery">Query Deposit Records</a> and <a href="https://bybit-exchange.github.io/docs/account_asset/#t-withdrawrecordquery">Query Withdraw Records</a> endpoints. This is due to the introduction of the spot wallet at this time.
+  wallet_aside_walletRecords2: Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. To fetch records after this date you should call the <a href="https://bybit-exchange.github.io/docs/account_asset/v3/#t-depositsrecordquery">Query Deposit Records</a> and <a href="https://bybit-exchange.github.io/docs/account_asset/v3/#t-withdrawrecordquery">Query Withdraw Records</a> endpoints. This is due to the introduction of the spot wallet at this time.
   ### Withdraw Records
   withdrawrecords: Withdraw Records
   wallet_para_withdrawRecords: |
@@ -1752,13 +1752,13 @@ en:
     <b>Note that the following endpoints only apply to <i>Inverse Perpetual/Futures</i></b>. To listen to other websockets, go to:
     <ul>
       <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
-      <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/spot/v3/#t-websocketauthentication">Spot</a></li>
     </ul>
   websocket_endpoints_aside_copytrading: |
     <b>Note that currently Copy Trading only supports USDT perpetual and the following endpoints only apply to <i>USDT (Linear) Perpetual</i></b>. To listen to other websockets, go to:
     <ul>
       <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual</a></li>
-      <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/spot/v3/#t-websocketauthentication">Spot</a></li>
     </ul>
   websocket_para_endpoint: |
     <p>Base endpoints:</p>
@@ -3246,7 +3246,7 @@ en:
     <b>Note that the following endpoints only apply to <i>USDT (Linear) Perpetual</i></b>. To listen to other websockets, go to:
     <ul>
       <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual/Futures</a></li>
-      <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/spot/v3/#t-websocketauthentication">Spot</a></li>
     </ul>
   linear_websocket_para_endpoint: |
     Base endpoints:
@@ -3309,6 +3309,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221025: Add new endpoints
   restapi_update_20221020: Add new account asset endpoints
   restapi_update_20221020_1: Add new response params
   restapi_update_20221019: Add new public websocket topic
@@ -4091,6 +4092,7 @@ en:
   row_comment_transfer_coin_list: The coins are enabled transfer between accounts
   row_comment_bonus: The bonus
   row_comment_withBonus: Whether query bonus or not. <code>0</code>：false; <code>1</code>：true; Not query is in default
+  row_comment_balanceQuery_memberId: User Id. It is <b>required</b> when you use master api key to check sub account coin blance
   row_comment_spot_status: Spot account status. <code>1</code>：normal; <code>0</code>：forbidden
   row_comment_frozen: Freeze amount
   row_comment_free: Free balance
@@ -5719,3 +5721,97 @@ en:
   coin_info_chainWithdraw: The chain status of withdraw. <code>0</code>：suspend; <code>1</code>：normal
   coin_info_minAccuracy: The precision of withdraw or deposit
   assetRateLimitNotice: Each endpoint has its own rate limit.
+
+  # account asset - user
+  user_apikey_api: Master-Sub User Endpoints
+  user_apikey_para: The following API data endpoints require authentication.
+  user_apikey_notice: |
+    The API key of user id must own one of permissions will be allowed to call following API endpoints.
+    <li>SUB UID: "Account Transfer"</li>
+    <li>MASTER UID: "Account Transfer", "Subaccount Transfer", "Withdrawal"</li>
+  create_sub_uid: Create Sub UID
+  createSubUid_para: Create a new sub user id. Use <b>master</b> user's api key ONLY.
+  user_uid_resp_comment: Sub user Id
+  user_username_req_comment: |
+    Give a username of the new sub user id.
+    <li>6-16 characters, must include both numbers and letters. </li>
+    <li>cannot be the same as the exist or deleted one. </li>
+  user_username_resp_comment: Username
+  user_memberType_req_comment: |
+    <code>1</code>: normal sub account, <code>6</code>: custodial sub account
+  user_switch_req_comment: |
+    <code>0</code>: turn off quick login, <code>1</code>: turn on quick login. <b>0</b> by default
+  user_note_req_comment: Set a remark
+  user_remark_resp_comment: The remark
+  create_subuser_apikey: Create Sub UID API key
+  create_subuser_apikey_para: To create new API key for those newly created sub UID. Use <b>master</b> user's api key ONLY.
+  user_readOnly_comment: <code>0</code>：Read and Write. <code>1</code>：Read only
+  user_ips_req_comment: |
+    Set the IP bind. example: ["192.168.X.X.1"]<br/>
+    <b>note</b>: <li>don't pass <code>ips</code> or pass with ["*"] means no bind</li><li>No ip bound api key will be invalid after <b>90 days</b></li><li>api key will be invalid after <b>7 days</b> once the account password is changed</li>
+  user_sub_permissions_req_comment: |
+    Tick the types of permission.<br/>
+    <b>note</b>: one of blew types must be passed, otherwise the error is thrown
+  user_permissions_ContractTrade_comment: Contract Trade. <code>["Order","Position"]</code>
+  user_permissions_Spot_comment: Spot Trade. <code>["SpotTrade"]</code>
+  user_permissions_Wallet_comment: Wallet. <code>["AccountTransfer"]</code>
+  user_permissions_Options_comment: USDC Contract. <code>["OptionsTrade"]</code>
+  user_permissions_Derivatives_comment: Derivatives v3. <code>["DerivativesTrade"]</code>
+  user_permissions_Exchange_comment: Exchange. <code>["ExchangeHistory"]</code>
+  user_id_resp_comment: Unique id. Internal used
+  user_apiKey_resp_comment: Api key
+  user_secret_resp_comment: |
+    The secret paired with api key.<br/>
+    <b>note</b>: The secret can't be queried by GET api. Please keep it properly
+  user_permissions_resp_comment: The types of permission
+  user_permissions_ContractTrade_resp_comment: Permisson of contract trade
+  user_permissions_Spot_resp_comment: Permisson of spot
+  user_permissions_Wallet_resp_comment: Permisson of wallet
+  user_permissions_Options_resp_comment: Permission of USDC Contract. It supports trade option and usdc perpetual.
+  user_permissions_Derivatives_resp_comment: Permission of derivatives
+  user_sub_permissions_CopyTrading_resp_comment: Permission of copytrade. Not applicable to sub account, always <code>[]</code>
+  user_sub_permissions_BlockTrade_resp_comment: Permission of blocktrade. Not applicable to sub account, always <code>[]</code>
+  user_sub_permissions_NFT_resp_comment: Permission of NFT. Not applicable to sub account, always <code>[]</code>
+  user_permissions_Exchange_resp_comment: Permission of exchange
+
+  get_sub_members_list: Get Sub UID List
+  get_sub_members_list_parap: Get all sub uid of master account. Use <b>master</b> user's api key ONLY.
+  user_status_resp_comment: |
+    The status of the user account<br/>
+    <li><code>1</code>: normal</li>
+    <li><code>2</code>: login banned</li>
+    <li><code>4</code>: frozen</li>
+
+  froze_sub_uid: Froze Sub UID
+  froze_sub_uid_para: Froze sub uid. Use <b>master</b> user's api key ONLY.
+  user_froze_req_comment: <code>0</code>：unfroze, <code>1</code>：froze
+
+  get_api_key_info: Get API Key Information
+  get_api_key_info_para: Get the information of the api key. Use the api key pending to be checked to call the endpoint.</br> Both <b>master</b> and <b>sub</b> user's api key are applicable.
+  user_apiKeyInfo_secret_resp_comment: Always <code>""</code>
+  user_type_resp_comment: The type of api key. <code>1</code>：personal, <code>2</code>：connected to the third-party app
+  user_apiKeyInfo_ips_resp_comment: IP bound
+  user_deadLineDay_resp_comment: The remaining valid days of api key. Only for those api key with no IP bound or the password has been changed
+  user_expiredAt_resp_comment: The expiry day of the api key. Only for those api key with no IP bound or the password has been changed
+  user_createdAt_resp_comment: The create day of the api key
+
+  modify_master_api_key: Modify Master API Key
+  modify_master_api_key_para: Modify the settings of master api key. Use the api key pending to be modified to call the endpoint. Use <b>master</b> user's api key ONLY.
+  user_master_permissions_Wallet_comment: Wallet. <code>["AccountTransfer","SubMemberTransfer"]</code>
+  user_master_permissions_CopyTrading_req_comment: Copytrade. <code>["CopyTrading"]</code>
+  user_master_permissions_BlockTrade_req_comment: Blocktrade. <code>["BlockTrade"]</code>
+  user_master_permissions_NFT_req_comment: NFT. <code>["NFTQueryProductList"]</code>
+  user_master_permissions_CopyTrading_resp_comment: Permission of copy trade
+  user_master_permissions_BlockTrade_resp_comment: Permission of block trade
+  user_master_permissions_NFT_resp_comment: Permission of NFT
+
+
+
+  delete_master_api_key: Delete Master API Key
+  delete_master_api_key_para: Delete the api key of master account. Use the api key pending to be delete to call the endpoint. Use <b>master</b> user's api key ONLY.
+  modify_sub_api_key: Modify Sub API Key
+  modify_sub_api_key_para: Modify the settings of sub api key. Use the api key pending to be modified to call the endpoint. Use <b>sub</b> user's api key ONLY.
+  delete_sub_api_key: Delete Sub API Key
+  delete_sub_api_key_para: Delete the api key of sub account. Use the api key pending to be delete to call the endpoint. Use <b>sub</b> user's api key ONLY.
+
+  userApikeyEndpoints: Rate Limits For Master-Sub User Endpoints

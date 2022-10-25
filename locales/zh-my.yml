@@ -1105,10 +1105,10 @@ zh-my:
   dv_walletrecords: 錢包資金紀錄
   wallet_para_walletRecords: |
     <p>查詢資金記錄。這個接口還展示來自網頁上<a href="https://testnet.bybit.com/app/assets/assets-exchange">資產兌換</a>下的兌換紀錄, 其中對應的<code>type</code>兌換類型是<code>ExchangeOrderWithdraw</code>和<code>ExchangeOrderDeposit</code>。</p>
-    <p>這個接口返回的關於衍生品帳戶下的劃轉紀錄的內容是不完整的。推薦使用<a href="https://bybit-exchange.github.io/docs/account_asset/#t-transfer_api">帳戶資產API</a>完成資產劃轉的操作和紀錄檢索。
+    <p>這個接口返回的關於衍生品帳戶下的劃轉紀錄的內容是不完整的。推薦使用<a href="https://bybit-exchange.github.io/docs/zh-my/account_asset/v3/#t-transfer_api">帳戶資產API</a>完成資產劃轉的操作和紀錄檢索。
   wallet_aside_walletRecords: 關於<code>Withdraw</code>和<code>Refund</code>類型數據的說明，請參考<a href="#t-withdrawrecords">提幣記錄</a>接口
   wallet_aside_walletRecords1: 如果用戶不通過<code>coin</code>傳入<code>USDT</code>，USDT記錄將不會被返回給用戶。
-  wallet_aside_walletRecords2: 該接口不顯示2021-07-15之後發生的充值提現記錄。要在此日期之後獲取記錄，您應該調用 <a href="https://bybit-exchange.github.io/docs/account_asset/#t-depositsrecordquery">查詢充值記錄</a> 和 <a href=" https://bybit-exchange.github.io/docs/account_asset/#t-withdrawrecordquery">查詢提現記錄</a>端點。這是由於此時引入了現貨錢包。
+  wallet_aside_walletRecords2: 該接口不顯示2021-07-15之後發生的充值提現記錄。要在此日期之後獲取記錄，您應該調用 <a href="https://bybit-exchange.github.io/docs/zh-my/account_asset/v3/#t-depositsrecordquery">查詢充值記錄</a> 和 <a href="https://bybit-exchange.github.io/docs/zh-my/account_asset/v3/#t-withdrawrecordquery">查詢提現記錄</a>端點。這是由於此時引入了現貨錢包。
   ### Withdraw Records
   withdrawrecords: 提幣記錄
   wallet_para_withdrawRecords: |
@@ -1576,13 +1576,13 @@ zh-my:
     <b>請注意，以下接口僅適用於 <i>反向永續/反向交割</i></b>. 要監聽其他 websocket，請轉到:
     <ul>
       <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (正向) 永續</a></li>
-      <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">現貨</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/zh-my/spot/v3/#t-websocketauthentication">現貨</a></li>
     </ul>
   websocket_endpoints_aside_copytrading: |
     <b>請注意，目前copytrading只支持正向永續，以下接口僅適用於 <i>正向永續</i></b>. 要監聽其他 websocket，請轉到:
     <ul>
       <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual</a></li>
-      <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">Spot</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs/zh-my/spot/v3/#t-websocketauthentication">Spot</a></li>
     </ul>
   websocket_para_endpoint: |
     <p>Websocket服務器地址:</p>
@@ -2813,7 +2813,7 @@ zh-my:
     <b>請注意，以下接口僅適用於 <i>USDT (正向) 永續</i></b>. 要監聽其他 websocket，請轉到:
       <ul>
         <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">反向永續/反向交割</a></li>
-        <li><a href="https://bybit-exchange.github.io/docs/spot/#t-websocketauthentication">現貨</a></li>
+        <li><a href="https://bybit-exchange.github.io/docs/zh-my/spot/v3/#t-websocketauthentication">現貨</a></li>
       </ul>
 
 
@@ -2878,6 +2878,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221025: 新增母子帳戶密鑰相關接口
   restapi_update_20221020: 新增帳戶資產接口
   restapi_update_20221020_1: 新增響應字段
   restapi_update_20221019: 新增公共推送頻道
@@ -3672,6 +3673,7 @@ zh-my:
   row_comment_transfer_coin_list: 賬號內互轉支持的幣種
   row_comment_spot_status: 現貨賬戶狀態 1：正常，0-禁用
   row_comment_withBonus: 是否查詢體驗金. <code>0</code>：不查詢; <code>1</code>：查詢. 默認不查詢
+  row_comment_balanceQuery_memberId: 用戶ID. 當使用母帳號api key查詢子帳戶的幣種餘額時，該字段<b>必傳</b>
   row_comment_frozen: 掛單凍結金額
   row_comment_free: 可用余額
   row_comment_withdraw: 提現中金額
@@ -5261,3 +5263,94 @@ zh-my:
   coin_info_chainWithdraw: 幣鏈是否可提幣. <code>0</code>：暫停; <code>1</code>：正常
   coin_info_minAccuracy: 充提幣的最小精度
   assetRateLimitNotice: 每個接口擁有獨立的頻率，接口之間不共享
+  # account asset - user
+  user_apikey_api: 母子帳戶相關接口
+  user_apikey_para: 以下接口都需要鑒權
+  user_apikey_notice: |
+    在調用母子帳戶相關接口時，使用的API key至少需要擁有以下其中一種權限
+    <li>子帳戶: "Account Transfer（資產帳戶劃轉）"</li>
+    <li>母帳號: "Account Transfer（資產帳戶劃轉）", "Subaccount Transfer（母子帳戶劃轉）", "Withdrawal（提幣）"</li>
+  create_sub_uid: 新建子帳戶
+  createSubUid_para: 創建新的子帳戶。需使用<b>母</b>帳戶的API key。
+  user_uid_resp_comment: 子帳戶userId
+  user_username_req_comment: |
+    給新的子帳戶創建一個用戶名
+    <li>6-16位字符，須同時含有數字和字母</li>
+    <li>不能與已存在或已刪除的帳戶用戶名重複</li>
+  user_username_resp_comment: 用戶名
+  user_memberType_req_comment: |
+    <code>1</code>: 普通子帳戶, <code>6</code>: 託管子帳戶
+  user_switch_req_comment: |
+    <code>0</code>: 關閉快捷登陸, <code>1</code>: 打開快捷登陸. 默認關閉
+  user_note_req_comment: 設置備註
+  user_remark_resp_comment: 備註
+  create_subuser_apikey: 新建子帳戶的API Key
+  create_subuser_apikey_para: 給新建好的子帳戶創建新的API key。需使用<b>母</b>帳戶的API key。
+  user_readOnly_comment: <code>0</code>：可讀可寫. <code>1</code>：只讀
+  user_ips_req_comment: |
+    綁定IP. 比如: ["192.168.X.X.1"]<br/>
+    <b>注意</b>: <li>不傳參數<code>ips</code> 或者入参值為<code>["*"]</code>意味著不綁定</li><li>不綁定IP的api key將有<b>90天</b>的有效期限</li><li>一旦帳戶密碼做了修改，帳戶下的api key將在<b>7天</b>後失效</li>
+  user_sub_permissions_req_comment: |
+    勾選api key權限.<br/>
+    <b>注意</b>: 必須傳入以下權限類型的任意一種, 否則報錯
+  user_permissions_ContractTrade_comment: 合約. <code>["Order","Position"]</code>
+  user_permissions_Spot_comment: 現貨. <code>["SpotTrade"]</code>
+  user_permissions_Wallet_comment: 錢包. <code>["AccountTransfer"]</code>
+  user_permissions_Options_comment: USDC合約. <code>["OptionsTrade"]</code>
+  user_permissions_Derivatives_comment: 衍生品v3. <code>["DerivativesTrade"]</code>
+  user_permissions_Exchange_comment: 兌換. <code>["ExchangeHistory"]</code>
+  user_id_resp_comment: 唯一id. 內部使用
+  user_apiKey_resp_comment: api密鑰
+  user_secret_resp_comment: |
+    Api密鑰密碼.<br/>
+    <b>注意</b>: Api密鑰密碼只會在這裡出現一次，除此之外沒有任何地方還可以獲取到密碼。請妥善保存。
+  user_permissions_resp_comment: 權限類型
+  user_permissions_ContractTrade_resp_comment: 合約交易的權限
+  user_permissions_Spot_resp_comment: 現貨交易的權限
+  user_permissions_Wallet_resp_comment: 錢包的權限
+  user_permissions_Options_resp_comment: USDC合約的權限. 該權限支持USDC合約下的期權和永續交易
+  user_permissions_Derivatives_resp_comment: 衍生品v3交易的權限
+  user_sub_permissions_CopyTrading_resp_comment: 跟單交易的權限. 子帳戶暫不支持, 總是<code>[]</code>
+  user_sub_permissions_BlockTrade_resp_comment: 大宗交易的權限. 子帳戶暫不支持，總是<code>[]</code>
+  user_sub_permissions_NFT_resp_comment: NFT的權限. 子帳戶暫不支持, 總是<code>[]</code>
+  user_permissions_Exchange_resp_comment: 兌換的權限
+
+  get_sub_members_list: 獲取子帳戶UID列表
+  get_sub_members_list_parap: 獲取當前母帳戶下所有的子帳戶列表。需使用<b>母</b>帳戶的API key。
+  user_status_resp_comment: |
+    帳戶狀態. <br/>
+    <li><code>1</code>: 正常</li>
+    <li><code>2</code>: 登陸封禁</li>
+    <li><code>4</code>: 凍結</li>
+
+  froze_sub_uid: 凍結/解凍子帳戶
+  froze_sub_uid_para: 凍結或解凍子帳戶。需使用<b>母</b>帳戶的API key。
+  user_froze_req_comment: <code>0</code>：解凍, <code>1</code>：凍結
+
+  get_api_key_info: 獲取API Key相關信息
+  get_api_key_info_para: 獲取API key的相關信息。使用待查詢的api key調用接口。適用於母、子帳戶的api key。
+  user_apiKeyInfo_secret_resp_comment: 總是<code>""</code>
+  user_type_resp_comment: Api key類型. <code>1</code>：個人使用, <code>2</code>：綁定到第三方應用
+  user_apiKeyInfo_ips_resp_comment: 綁定的IP
+  user_deadLineDay_resp_comment: API key失效的倒數日. 針對那些未綁定IP的api key或者修改過密碼的帳戶
+  user_expiredAt_resp_comment: API key的過期日. 針對那些未綁定IP的api key或者修改過密碼的帳戶
+  user_createdAt_resp_comment: API key的創建日
+
+  modify_master_api_key: 修改母帳戶的API Key設置
+  modify_master_api_key_para: 修改母帳戶API key的設置。使用待修改的api key調用接口。需使用<b>母</b>帳戶的API key。
+  user_master_permissions_Wallet_comment: 錢包. <code>["AccountTransfer","SubMemberTransfer"]</code>
+  user_master_permissions_CopyTrading_req_comment: 跟單交易. <code>["CopyTrading"]</code>
+  user_master_permissions_BlockTrade_req_comment: 大宗商品交易. <code>["BlockTrade"]</code>
+  user_master_permissions_NFT_req_comment: NFT. <code>["NFTQueryProductList"]</code>
+  user_master_permissions_CopyTrading_resp_comment: 跟單交易的權限
+  user_master_permissions_BlockTrade_resp_comment: 大宗交易的權限
+  user_master_permissions_NFT_resp_comment: NFT的權限
+
+  delete_master_api_key: 刪除母帳戶的API Key
+  delete_master_api_key_para: 刪除母帳戶下的api key。使用待刪除的api key調用接口。需使用<b>母</b>帳戶的API key。
+  modify_sub_api_key: 修改子帳戶的API Key設置
+  modify_sub_api_key_para: 修改子帳戶啊API key的設置。使用待修改的api key調用接口。需使用<b>子</b>帳戶的API key。
+  delete_sub_api_key: 刪除子帳戶的API Key
+  delete_sub_api_key_para: 刪除子帳戶下的api key。使用待刪除的api key調用接口。需使用<b>子</b>帳戶的API key。
+
+  userApikeyEndpoints: 母子帳戶相關接口的頻率限制
