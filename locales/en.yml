@@ -3712,8 +3712,8 @@ en:
   spot_orders_end_time: End time, unit in millisecond
   orderhistory: Order History
   tradehistory: Trade History
-  spot_from_id:  Query greater than the trade ID. (fromTicketId <= trade ID)
-  spot_to_id: Query smaller than the trade ID. (trade ID <= toTicketId)
+  spot_from_id:  Query greater than the trade ID. (fromTicketId < trade ID)
+  spot_to_id: Query smaller than the trade ID. (trade ID < toTicketId)
   spot_start_time: Start time, unit in millisecond
   spot_end_time: End time, unit in millisecond
   spot_token: Asset
@@ -5466,30 +5466,43 @@ en:
 
   websocketOrderBook_v3: |
     <b>instruction: </b>
-    Get 25, 500 level data.<br>
+    Get different depth.<br>
     Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which from lowest buy order to highest sell order.
     Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
     <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
     If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
-    25 level data, push frequency: <b>20ms</b> <br>
-    500 level data, push frequency: <b>100ms</b> <br>
+    <b>Linear perpetual:</b><br/>
+    25 level data <b>(depreciate soon)</b>, push frequency: <b>20ms</b> <br>
+    50 level data, push frequency: <b>20ms</b> <br>
+    200 level data, push frequency: <b>100ms</b> <br>
+    500 level data <b>(depreciate soon)</b>, push frequency: <b>100ms</b> <br>
+    <br>
+    <b>Option:</b><br/>
+    25 level data <br/>
+    100 level data<br/>
     <br>
     <b>Topic: (note. option has 25 & 100 level only)</b><br>
     <code>orderbook.25.{symbol}</code><br>
-    <code>orderbook.100.{symbol}</code>(<b>option only)</b><br>
+    <code>orderbook.50.{symbol}</code><br>
+    <code>orderbook.100.{symbol}</code><br>
+    <code>orderbook.200.{symbol}</code><br>
     <code>orderbook.500.{symbol}</code><br>
   websocketOrderBook_contract: |
     <b>instruction: </b>
-    Get 25, 500 level data.<br>
+    Get different depth.<br>
     Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which from lowest buy order to highest sell order.
     Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
     <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
     If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
-    25 level data, push frequency: <b>20ms</b> <br>
-    500 level data, push frequency: <b>100ms</b> <br>
+    25 level data<b>(depreciate soon)</b>, push frequency: <b>20ms</b> <br>
+    50 level data, push frequency: <b>20ms</b> <br>
+    200 level data, push frequency: <b>100ms</b> <br>
+    500 level data<b>(depreciate soon)</b>, push frequency: <b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
     <code>orderbook.25.{symbol}</code><br>
+    <code>orderbook.50.{symbol}</code><br>
+    <code>orderbook.200.{symbol}</code><br>
     <code>orderbook.500.{symbol}</code><br>
 
   predicatedFundingRate_v3: Predicated funding rate. usdt perp, inverse perp and inverse futures is <code>""</code>
