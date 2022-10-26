@@ -45,6 +45,10 @@ param_str = "1658384314791XXXXXXXXXX5000category=option&symbol=BTC-29JUL22-25000
 # symbol=BTC-29JUL22-25000-C
 ```
 
+<aside class="notice">
+t(:auth_para_cdn_request_id)
+</aside>
+
 t(:auth_para_dv3_construct1)
 <div></div>
 

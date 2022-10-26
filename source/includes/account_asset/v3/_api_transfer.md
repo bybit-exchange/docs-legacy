@@ -456,6 +456,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/tr
 }
 ```
 
+t(:queryUniverseTransferList_para)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
