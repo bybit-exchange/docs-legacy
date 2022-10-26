@@ -46,6 +46,10 @@ param_str =
 
 ```
 
+<aside class="notice">
+t(:auth_para_cdn_request_id)
+</aside>
+
 t(:auth_para_dv3_construct1)
 <div></div>
 
