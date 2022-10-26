@@ -43,8 +43,8 @@ POST
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side)    |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)   |
 |t(:row_parameter_copytrading_order_type) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
-|t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty) |
-|t(:row_parameter_price) |<b>true</b> |string |t(:row_comment_resp_price) |
+|t(:row_parameter_quantity) |<b>true</b> |string |t(:linear_row_comment_qty) |
+|t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
 |takeProfit |false |string |t(:row_comment_take_profit) |
 |stopLoss |false |string |t(:row_comment_stop_loss) |
 |<a href="#trigger-price-type-trigger_by">tpTriggerBy</a> |false |string |t(:account_row_comment_tpTriggerBy_v3) |
