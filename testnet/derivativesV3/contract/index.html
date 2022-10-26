@@ -1588,6 +1588,10 @@ param_str = "1658385579423PXOXCIFKHCWCAJTPKW5000{
 # category=option
 # symbol=BTC-29JUL22-25000-C
 </span></code></pre></div>
+<aside class="notice">
+To assist in diagnosing advanced network problems, you may consider adding <code>cdn-request-id</code> to your request headers. Its value should be unique for each request.
+</aside>
+
 <p><p>1. timestamp + api-key + [recv_window] + [queryString(order not needed) | jsonBodyString]</p>
 
 <div></div></p>
@@ -6506,16 +6510,20 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <span class="p">}</span>
 </code></pre></div>
 <p><b>instruction: </b>
-Get 25, 500 level data.<br>
+Get different depth.<br>
 Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which from lowest buy order to highest sell order.
 Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
 <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
 If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
-25 level data, push frequency: <b>20ms</b> <br>
-500 level data, push frequency: <b>100ms</b> <br>
+25 level data<b>(depreciate soon)</b>, push frequency: <b>20ms</b> <br>
+50 level data, push frequency: <b>20ms</b> <br>
+200 level data, push frequency: <b>100ms</b> <br>
+500 level data<b>(depreciate soon)</b>, push frequency: <b>100ms</b> <br>
 <br>
 <b>Topic: </b><br>
 <code>orderbook.25.{symbol}</code><br>
+<code>orderbook.50.{symbol}</code><br>
+<code>orderbook.200.{symbol}</code><br>
 <code>orderbook.500.{symbol}</code><br>
 </p>
 

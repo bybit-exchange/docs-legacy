@@ -7894,17 +7894,26 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <span class="p">}</span>
 </code></pre></div>
 <p><b>instruction: </b>
-Get 25, 500 level data.<br>
+Get different depth.<br>
 Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which from lowest buy order to highest sell order.
 Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
 <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
 If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
-25 level data, push frequency: <b>20ms</b> <br>
-500 level data, push frequency: <b>100ms</b> <br>
+<b>Linear perpetual:</b><br/>
+25 level data <b>(depreciate soon)</b>, push frequency: <b>20ms</b> <br>
+50 level data, push frequency: <b>20ms</b> <br>
+200 level data, push frequency: <b>100ms</b> <br>
+500 level data <b>(depreciate soon)</b>, push frequency: <b>100ms</b> <br>
+<br>
+<b>Option:</b><br/>
+25 level data <br/>
+100 level data<br/>
 <br>
 <b>Topic: (note. option has 25 & 100 level only)</b><br>
 <code>orderbook.25.{symbol}</code><br>
-<code>orderbook.100.{symbol}</code>(<b>option only)</b><br>
+<code>orderbook.50.{symbol}</code><br>
+<code>orderbook.100.{symbol}</code><br>
+<code>orderbook.200.{symbol}</code><br>
 <code>orderbook.500.{symbol}</code><br>
 </p>
 

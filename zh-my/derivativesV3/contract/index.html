@@ -1583,7 +1583,7 @@ param_str = "1658385579423PXOXCIFKHCWCAJTPKW5000{
 # symbol=BTC-29JUL22-25000-C
 </span></code></pre></div>
 <aside class="notice">
-To assist in diagnosing advanced network problems, you may consider adding <code>cdn-request-id</code> to your request headers. Its value should be unique for each request.
+為了幫助診斷高級網絡問題，您可以考慮將 <code>cdn-request-id</code> 添加到您的請求標頭中。對於每個請求，它的值應該是唯一的。
 </aside>
 
 <p><p>1. 時間戳 + api-key + [recv_window]+ [queryString(無需排序) | jsonBodyString]</p>
@@ -6499,16 +6499,20 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <span class="p">}</span>
 </code></pre></div>
 <p><b>說明: </b>
-獲取25,500檔orderbook數據.<br>
+獲取不同檔位的orderbook數據.<br>
 訂閱成功後，會立即得到一個當前快照包的推送消息. orderbook數據按訂單價格升序排序，從最低價格的買單到最高價格的賣單.
 快照包之後，每當orderbook發生變化，websocket將會繼續推送這些增量數據. 收到snapshot的報文，就需要重置本地的orderbook.<br><br>
 <b>type</b>: <code>snapshot</code>=完整的報文，<code>delta</code>=增量報文<br>
 如果因為Bybit服務原因，會重新發送snapshot報文，該報文已保證是最新且準確的.<br><br>
-25檔數據，推送頻率 <b>20ms</b> <br>
-500檔數據，推送頻率 <b>100ms</b> <br>
+25檔數據（<b>即將廢棄</b>），推送頻率：<b>20ms</b> <br>
+50檔數據，推送頻率: <b>20ms</b> <br>
+200檔數據，推送頻率: <b>100ms</b> <br>
+500檔數據（<b>即將廢棄</b>），推送頻率：<b>100ms</b> <br>
 <br>
 <b>Topic: </b><br>
 <code>orderbook.25.{symbol}</code><br>
+<code>orderbook.50.{symbol}</code><br>
+<code>orderbook.200.{symbol}</code><br>
 <code>orderbook.500.{symbol}</code><br>
 </p>
 
