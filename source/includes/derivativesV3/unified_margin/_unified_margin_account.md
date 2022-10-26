@@ -60,7 +60,7 @@ POST
 |<a href="#order-type-ordertype">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
 |t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty_v3) |
 |t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
-|triggerDirection |false |integer |t(:contract_comment_triggerDirection) |
+|basePrice |false |string |t(:row_comment_basePrice_v3) |
 |triggerPrice |false |string |t(:row_comment_triggerPrice) |
 |<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
 |iv |false |string |t(:row_comment_iv_v3) |
