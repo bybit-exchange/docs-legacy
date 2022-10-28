@@ -800,6 +800,88 @@ GET
 |blockHash|string|t(:deposit_block_hash)|
 |nextPageCursor|string|t(:deposit_response_cursor)|
 
+
+### t(:subdepositRecordQueryByMaster)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api.bybit.com/asset/v3/private/deposit/sub-member-record/query?coin=USDT&subMemberId=XXXXXXX' \
+--header 'X-BAPI-SIGN: fc436a4643d3785bdab20748c64c7e9221da39dc5798b15536667732a7b1cf5c' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660611015105' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+```
+
+```python--pybit
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+  "retCode": 0,
+    "retMsg": "success",
+    "result": {
+    "rows": [
+      {
+        "coin": "USDT",
+        "chain": "ETH",
+        "amount": "11133",
+        "txID": "37fcf7893",
+        "status": 3,
+        "toAddress": "fake-address",
+        "tag": "3844562",
+        "depositFee": "",
+        "successAt": "1658902838000",
+        "confirmations": "10000",
+        "txIndex": "",
+        "blockHash": ""
+      }
+    ],
+      "nextPageCursor": "eyJtaW5JRCI6NTM3MCwibWF4SUQiOjUzNzB9"
+  },
+  "retExtInfo": null,
+    "time": 1660547423085
+}
+```
+
+t(:subDepositRecordDesc)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=pdrq>/asset/v3/private/deposit/sub-member-record/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdrq"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|subMemberId |<b>true</b> |int |t(:user_uid_resp_comment)|
+|startTime |false |int |t(:DWstarttimeMS) |
+|endTime |false |int |t(:DWendtimeMS) |
+|<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
+|cursor |false |string |t(:depositcursorinfo) |
+|limit |false |int |t(:depositlimitinfo) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|rows|Array|Object|
+|coin|string|t(:deposit_response_currency_info)|
+|chain|string|t(:deposit_response_chainname)|
+|amount|string|t(:deposit_response_amt)|
+|txID|string|t(:deposit_response_txid)|
+|status|int|t(:deposit_response_status)|
+|toAddress|string|t(:deposit_target_addr)|
+|tag|string|t(:deposit_response_tag)|
+|depositFee|string|t(:deposit_response_depositFee)|
+|successAt|string|t(:deposit_response_updateTime)|
+|confirmations|string|t(:deposit_confirmations)|
+|txIndex|string|t(:deposit_tx_index)|
+|blockHash|string|t(:deposit_block_hash)|
+|nextPageCursor|string|t(:deposit_response_cursor)|
+
+
 ### t(:withdrawrecordquery)
 > t(:codequote_curlExample)
 
@@ -1114,8 +1196,6 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/de
 }
 ```
 
-t(:deposit_addr_info_desc)
-
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=pdaddr>/asset/v3/private/deposit/address/query</span></code>
@@ -1126,6 +1206,64 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:coin_info_coin)|
 |chainType |false |string |t(:accountAssetV3_chainType)|
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|result|Object|result object|
+|coin |string |t(:coin_info_coin)|
+|chains|Array|Object|
+|chainType|string|t(:coin_info_chain_type)|
+|addressDeposit|string|t(:deposit_address)|
+|tagDeposit|string|t(:deposit_tag)|
+|chain|string|t(:deposit_response_chainname)|
+
+
+### t(:sub_deposit_addr_info)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api.bybit.com/asset/v3/private/deposit/sub-member-address/query?coin=ETH&chainType=ARBI&subMemberId=XXXXXXXX' \
+--header 'X-BAPI-SIGN: 5a5ce5b26fd6a959c470b637ec0e9672b871d1ace105737b15e525de672c3fdb' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660632630317' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+```
+
+```python--pybit
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "success",
+    "result": {
+        "coin": "ETH",
+        "chains": {
+            "chainType": "Arbitrum One",
+            "addressDeposit": "0x03b58de42e52ee72062f07XXXXXXXXXXXXXX",
+            "tagDeposit": "",
+            "chain": "ARBI"
+        }
+    },
+    "retExtInfo": {},
+    "time": 1666923595560
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=subdeaddr>/asset/v3/private/deposit/sub-member-address/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#subdeaddr"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:coin_info_coin)|
+|chainType |<b>true</b> |string |t(:accountAssetV3_sub_chainType)|
+|subMemberId |<b>true</b> |string |t(:user_uid_resp_comment)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

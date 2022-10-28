@@ -1196,8 +1196,6 @@ curl --location --request GET 'https://api.bybit.com/asset/v1/private/deposit/ad
 }
 ```
 
-t(:deposit_addr_info_desc)
-
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=pdaddr>/asset/v1/private/deposit/address</span></code>
