@@ -878,7 +878,7 @@
                     <a href="#t-cancel_withdraw" class="toc-h2 toc-link" data-title="撤銷提幣">撤銷提幣</a>
                   </li>
                   <li>
-                    <a href="#t-deposit_addr_info" class="toc-h2 toc-link" data-title="充值地址信息查詢">充值地址信息查詢</a>
+                    <a href="#t-deposit_addr_info" class="toc-h2 toc-link" data-title="主帳戶充值地址信息查詢">主帳戶充值地址信息查詢</a>
                   </li>
               </ul>
           </li>
@@ -1188,6 +1188,10 @@ REST接口根URL:
 # symbol=BTCUSDH21&amp;
 # timestamp=1542434791747
 </span></code></pre></div>
+<aside class="notice">
+為了幫助診斷高級網絡問題，您可以考慮將 <code>cdn-request-id</code> 添加到您的請求標頭中。對於每個請求，它的值應該是唯一的。
+</aside>
+
 <blockquote>
 <p>參數按照 <b>字母順序</b> 排列，然後計算<code>sign</code>。</p>
 </blockquote>
@@ -2456,7 +2460,11 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>規則：只查詢現貨賬戶的充值記錄，按id倒序進行，開始時間和截止時間差最大限制為30天
+<p>規則：
+<ul>
+  <li>只查詢現貨賬戶的充值記錄，按id倒序進行，開始時間和截止時間差最大限制為30天</li>
+  <li>支持使用母、子帳戶的api key查詢各自的入金紀錄</li>
+</ul>
 </p>
 
 <p class="fake_header">HTTP 請求</p>
@@ -3215,7 +3223,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
 </td>
 </tr>
 </tbody></table>
-<h3 id='t-deposit_addr_info'>充值地址信息查詢</h3>
+<h3 id='t-deposit_addr_info'>主帳戶充值地址信息查詢</h3>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
@@ -3243,9 +3251,6 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1663074199341</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>規則：子賬號暫不支持充值
-</p>
-
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET

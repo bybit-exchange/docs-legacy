@@ -3501,6 +3501,10 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 # symbol=BTCUSD&amp;
 # timestamp=1542434791747
 </span></code></pre></div>
+<aside class="notice">
+To assist in diagnosing advanced network problems, you may consider adding <code>cdn-request-id</code> to your request headers. Its value should be unique for each request.
+</aside>
+
 <blockquote>
 <p>Note how the parameters are ordered in <b>alphabetical</b> order, with api_key first followed by leverage, then symbol, then timestamp.</p>
 </blockquote>
@@ -11352,14 +11356,14 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
         <span class="p">{</span>
             <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2999.00</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29990000</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29990000</span><span class="p">,</span> <span class="c1">// depreciated</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">9</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3001.00</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">30010000</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">30010000</span><span class="p">,</span> <span class="c1">// depreciated</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span>
         <span class="p">}</span>
@@ -11379,7 +11383,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
              <span class="p">{</span>
                    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3001.00</span><span class="dl">"</span><span class="p">,</span>
                    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">30010000</span><span class="p">,</span>
+                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">30010000</span><span class="p">,</span> <span class="c1">// depreciated</span>
                    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span>
              <span class="p">}</span>
           <span class="p">],</span>
@@ -11387,7 +11391,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
              <span class="p">{</span>
                    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2999.00</span><span class="dl">"</span><span class="p">,</span>
                    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29990000</span><span class="p">,</span>
+                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29990000</span><span class="p">,</span> <span class="c1">// depreciated</span>
                    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
                    <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">8</span>
              <span class="p">}</span>
@@ -11396,7 +11400,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
              <span class="p">{</span>
                    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2998.00</span><span class="dl">"</span><span class="p">,</span>
                    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29980000</span><span class="p">,</span>
+                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29980000</span><span class="p">,</span> <span class="c1">// depreciated</span>
                    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
                    <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">8</span>
              <span class="p">}</span>
@@ -11481,14 +11485,14 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
         <span class="p">{</span>
             <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2999.00</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29990000</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29990000</span><span class="p">,</span> <span class="c1">// depreciated</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">9</span>
         <span class="p">},</span>
         <span class="p">{</span>
             <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3001.00</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">30010000</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">30010000</span><span class="p">,</span> <span class="c1">// depreciated</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span>
         <span class="p">}</span>
@@ -11508,7 +11512,7 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
              <span class="p">{</span>
                    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3001.00</span><span class="dl">"</span><span class="p">,</span>
                    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">30010000</span><span class="p">,</span>
+                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">30010000</span><span class="p">,</span> <span class="c1">// depreciated</span>
                    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span>
              <span class="p">}</span>
           <span class="p">],</span>
@@ -11516,7 +11520,7 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
              <span class="p">{</span>
                    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2999.00</span><span class="dl">"</span><span class="p">,</span>
                    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29990000</span><span class="p">,</span>
+                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29990000</span><span class="p">,</span> <span class="c1">// depreciated</span>
                    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
                    <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">8</span>
              <span class="p">}</span>
@@ -11525,7 +11529,7 @@ Want a greater depth? Take a look at the <a href="#t-websocketorderbook200">orde
              <span class="p">{</span>
                    <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2998.00</span><span class="dl">"</span><span class="p">,</span>
                    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSD</span><span class="dl">"</span><span class="p">,</span>
-                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29980000</span><span class="p">,</span>
+                   <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">29980000</span><span class="p">,</span> <span class="c1">// depreciated</span>
                    <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
                    <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="mi">8</span>
              <span class="p">}</span>

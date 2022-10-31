@@ -878,7 +878,7 @@
                     <a href="#t-cancel_withdraw" class="toc-h2 toc-link" data-title="Cancel withdrawal">Cancel withdrawal</a>
                   </li>
                   <li>
-                    <a href="#t-deposit_addr_info" class="toc-h2 toc-link" data-title="Query Deposit Address Information">Query Deposit Address Information</a>
+                    <a href="#t-deposit_addr_info" class="toc-h2 toc-link" data-title="Query Master Acct Deposit Address Information">Query Master Acct Deposit Address Information</a>
                   </li>
               </ul>
           </li>
@@ -1190,6 +1190,10 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 # symbol=BTCUSDH21&amp;
 # timestamp=1542434791747
 </span></code></pre></div>
+<aside class="notice">
+To assist in diagnosing advanced network problems, you may consider adding <code>cdn-request-id</code> to your request headers. Its value should be unique for each request.
+</aside>
+
 <blockquote>
 <p>Note how the parameters are ordered in <b>alphabetical</b> order, with api_key first followed by leverage, then symbol, then timestamp.</p>
 </blockquote>
@@ -2462,7 +2466,12 @@ api_key=XXXXXXXXXXX&amp;coin=LTC&amp;timestamp=1641534660578&amp;recv_window=500
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Rules: Only query the deposit records of spot accounts order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
+<p>Rules:
+<ul>
+  <li>Only query the deposit records of spot accounts order by id in reverse order.</li>
+  <li>The maximum difference between the start time and the end time is 30 days.</li>
+  <li>Support to get deposit records by Master or Sub Member Api Key</li>
+</ul>
 </p>
 
 <p class="fake_header">HTTP Request</p>
@@ -3221,7 +3230,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 </td>
 </tr>
 </tbody></table>
-<h3 id='t-deposit_addr_info'>Query Deposit Address Information</h3>
+<h3 id='t-deposit_addr_info'>Query Master Acct Deposit Address Information</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -3249,9 +3258,6 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
     <span class="dl">"</span><span class="s2">time_now</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1663074199341</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Rules: Sub-account can not deposit
-</p>
-
 <p class="fake_header">HTTP Request</p>
 
 <p>GET

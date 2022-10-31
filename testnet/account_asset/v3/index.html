@@ -780,7 +780,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-10-25" class="toc-h2 toc-link" data-title="2022-10-25">2022-10-25</a>
+                    <a href="#2022-10-28" class="toc-h2 toc-link" data-title="2022-10-28">2022-10-28</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
@@ -788,16 +788,24 @@
                       </ul>
                   </li>
                   <li>
-                    <a href="#2022-10-20" class="toc-h2 toc-link" data-title="2022-10-20">2022-10-20</a>
+                    <a href="#2022-10-25" class="toc-h2 toc-link" data-title="2022-10-25">2022-10-25</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-10-20" class="toc-h2 toc-link" data-title="2022-10-20">2022-10-20</a>
+                      <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#rest-api-5" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -805,7 +813,7 @@
                     <a href="#2022-09-14" class="toc-h2 toc-link" data-title="2022-09-14">2022-09-14</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-5" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-6" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -813,7 +821,7 @@
                     <a href="#2022-06-15" class="toc-h2 toc-link" data-title="2022-06-15">2022-06-15</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-6" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-7" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -821,7 +829,7 @@
                     <a href="#2022-05-19" class="toc-h2 toc-link" data-title="2022-05-19">2022-05-19</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-7" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-8" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -829,7 +837,7 @@
                     <a href="#2021-08-26" class="toc-h2 toc-link" data-title="2021-08-26">2021-08-26</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-8" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-9" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                       </ul>
                   </li>
@@ -894,6 +902,9 @@
                     <a href="#t-depositsrecordquery" class="toc-h2 toc-link" data-title="Query Deposit Records">Query Deposit Records</a>
                   </li>
                   <li>
+                    <a href="#t-subdepositrecordquerybymaster" class="toc-h2 toc-link" data-title="Query Sub Deposit Records By Master Key">Query Sub Deposit Records By Master Key</a>
+                  </li>
+                  <li>
                     <a href="#t-withdrawrecordquery" class="toc-h2 toc-link" data-title="Query Withdraw Records">Query Withdraw Records</a>
                   </li>
                   <li>
@@ -906,7 +917,10 @@
                     <a href="#t-cancel_withdraw" class="toc-h2 toc-link" data-title="Cancel withdrawal">Cancel withdrawal</a>
                   </li>
                   <li>
-                    <a href="#t-deposit_addr_info" class="toc-h2 toc-link" data-title="Query Deposit Address Information">Query Deposit Address Information</a>
+                    <a href="#t-deposit_addr_info" class="toc-h2 toc-link" data-title="Query Master Acct Deposit Address Information">Query Master Acct Deposit Address Information</a>
+                  </li>
+                  <li>
+                    <a href="#t-sub_deposit_addr_info" class="toc-h2 toc-link" data-title="Query Sub Acct Deposit Address Information">Query Sub Acct Deposit Address Information</a>
                   </li>
               </ul>
           </li>
@@ -1143,7 +1157,20 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://www.npmjs.com/package/bybit-api"><strong>bybit-api</strong></a> - <strong>Community NodeJS SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-10-25'>2022-10-25</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-10-28'>2022-10-28</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><p><a href="#t-subdepositrecordquerybymaster">Query Sub Deposit Records By Master Key</a> [new]</p>
+
+<ul>
+<li>Add new sub member desposit related endpoints</li>
+</ul></li>
+<li><p><a href="#t-sub_deposit_addr_info">Query Sub Acct Deposit Address Information</a> [new]</p>
+
+<ul>
+<li>Add new sub member desposit related endpoints</li>
+</ul></li>
+</ul>
+<h2 id='2022-10-25'>2022-10-25</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-user_apikey_api">Master-Sub User Endpoints</a> [new]
 
@@ -1151,7 +1178,7 @@ clipboard.on('error', function(e) {
 <li>Add new endpoints</li>
 </ul></li>
 </ul>
-<h2 id='2022-10-20'>2022-10-20</h2><h3 id='rest-api-2'>REST API</h3>
+<h2 id='2022-10-20'>2022-10-20</h2><h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li><a href="#t-querytransfercoinlist">Transferable coin list</a> [new]
 
@@ -1159,7 +1186,7 @@ clipboard.on('error', function(e) {
 <li>Add new account asset endpoints</li>
 </ul></li>
 </ul>
-<h3 id='rest-api-3'>REST API</h3>
+<h3 id='rest-api-4'>REST API</h3>
 <ul>
 <li><a href="#t-queryaccountcoinbalance">Coin balance in account</a> [new]
 
@@ -1167,7 +1194,7 @@ clipboard.on('error', function(e) {
 <li>Add new account asset endpoints</li>
 </ul></li>
 </ul>
-<h3 id='rest-api-4'>REST API</h3>
+<h3 id='rest-api-5'>REST API</h3>
 <ul>
 <li><a href="#t-coin_info_query">Query Coin Information</a> [update]
 
@@ -1175,7 +1202,7 @@ clipboard.on('error', function(e) {
 <li>Add new response params</li>
 </ul></li>
 </ul>
-<h2 id='2022-09-14'>2022-09-14</h2><h3 id='rest-api-5'>REST API</h3>
+<h2 id='2022-09-14'>2022-09-14</h2><h3 id='rest-api-6'>REST API</h3>
 <ul>
 <li><a href="#t-createuniversaltransfer">Create Universal Transfer</a> [update]
 
@@ -1183,7 +1210,7 @@ clipboard.on('error', function(e) {
 <li>Support new account type <code>UNIFIED</code>, <code>OPTION</code></li>
 </ul></li>
 </ul>
-<h2 id='2022-06-15'>2022-06-15</h2><h3 id='rest-api-6'>REST API</h3>
+<h2 id='2022-06-15'>2022-06-15</h2><h3 id='rest-api-7'>REST API</h3>
 <ul>
 <li><a href="#t-querysubaccountlist">Query Subaccount List</a> [update]</li>
 <li><a href="#t-enableuniversaltransfer">Enable Universal Transfer</a> [new]</li>
@@ -1195,7 +1222,7 @@ clipboard.on('error', function(e) {
 <li>Universal Transfer released!</li>
 </ul></li>
 </ul>
-<h2 id='2022-05-19'>2022-05-19</h2><h3 id='rest-api-7'>REST API</h3>
+<h2 id='2022-05-19'>2022-05-19</h2><h3 id='rest-api-8'>REST API</h3>
 <ul>
 <li><a href="#t-withdraw_and_deposit">Withdraw and Deposit Endpoints</a> [new]
 
@@ -1203,7 +1230,7 @@ clipboard.on('error', function(e) {
 <li>Withdraw and Deposit Endpoints released!</li>
 </ul></li>
 </ul>
-<h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api-8'>REST API</h3>
+<h2 id='2021-08-26'>2021-08-26</h2><h3 id='rest-api-9'>REST API</h3>
 <ul>
 <li>Asset Transfer API released!</li>
 </ul>
@@ -1266,6 +1293,10 @@ Please make sure that the timestamp parameter adheres to the following rule: ser
 # endTime=1660060800000
 # coin=USDT
 </span></code></pre></div>
+<aside class="notice">
+To assist in diagnosing advanced network problems, you may consider adding <code>cdn-request-id</code> to your request headers. Its value should be unique for each request.
+</aside>
+
 <p><p>1. timestamp + api-key + [recv_window] + [queryString(order not needed) | jsonBodyString]</p>
 
 <div></div></p>
@@ -2698,13 +2729,200 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660547423085</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Rules: Only query the deposit records of spot accounts order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
+<p>Rules:
+<ul>
+  <li>Only query the deposit records of spot accounts order by id in reverse order.</li>
+  <li>The maximum difference between the start time and the end time is 30 days.</li>
+  <li>Support to get deposit records by Master or Sub Member Api Key</li>
+</ul>
 </p>
 
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
-<code><span id=pdrq>/asset/v3/private/deposit/record/query</span></code>
+<code><span id=subderequ>/asset/v3/private/deposit/record/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#subderequ"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>start time (In Millisecond).  Default value: 30 days before the current time
+</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>end time (In Millisecond). Default value: current time
+</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>coin name: for example, BTC.  Default value: all
+</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>cursor infomation: used for pagination.  Default value: ""
+</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Number of items per page, 0< limit <=50.  Default value: 50
+</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">rows</td>
+<td style="text-align: left">Array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>deposit coin</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>chain name</td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">string</td>
+<td>deposit amount</td>
+</tr>
+<tr>
+<td style="text-align: left">txID</td>
+<td style="text-align: left">string</td>
+<td>transaction ID. It is <code>""</code> when deposit failed or deposit cancelled
+</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">int</td>
+<td><p>0=unknown<br>
+1=ToBeConfirmed <br>
+2=processing <br>
+3=success <br>
+4=deposit failed</p>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">toAddress</td>
+<td style="text-align: left">string</td>
+<td>deposit target address</td>
+</tr>
+<tr>
+<td style="text-align: left">tag</td>
+<td style="text-align: left">string</td>
+<td>tag of deposit target address</td>
+</tr>
+<tr>
+<td style="text-align: left">depositFee</td>
+<td style="text-align: left">string</td>
+<td>deposit fee</td>
+</tr>
+<tr>
+<td style="text-align: left">successAt</td>
+<td style="text-align: left">string</td>
+<td>last updated time</td>
+</tr>
+<tr>
+<td style="text-align: left">confirmations</td>
+<td style="text-align: left">string</td>
+<td>number of confirmation blocks</td>
+</tr>
+<tr>
+<td style="text-align: left">txIndex</td>
+<td style="text-align: left">string</td>
+<td>transaction sequence number</td>
+</tr>
+<tr>
+<td style="text-align: left">blockHash</td>
+<td style="text-align: left">string</td>
+<td>hash number on the chain</td>
+</tr>
+<tr>
+<td style="text-align: left">nextPageCursor</td>
+<td style="text-align: left">string</td>
+<td>cursor information: used for pagination. Default value: ""
+</td>
+</tr>
+</tbody></table>
+<h3 id='t-subdepositrecordquerybymaster'>Query Sub Deposit Records By Master Key</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api.bybit.com/asset/v3/private/deposit/sub-member-record/query?coin=USDT&amp;subMemberId=XXXXXXX' \
+--header 'X-BAPI-SIGN: fc436a4643d3785bdab20748c64c7e9221da39dc5798b15536667732a7b1cf5c' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660611015105' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">rows</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">amount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">11133</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">txID</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">37fcf7893</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">toAddress</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">fake-address</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tag</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3844562</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">depositFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">successAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658902838000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">confirmations</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">txIndex</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">blockHash</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+      <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eyJtaW5JRCI6NTM3MCwibWF4SUQiOjUzNzB9</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660547423085</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Rules: Query sub account deposit records by <b>master</b> account api key. If you want to use sub account api key to query, please use <a href="#t-depositsrecordquery">Query Deposit Records</a> endpoint
+</p>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=pdrq>/asset/v3/private/deposit/sub-member-record/query</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdrq"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">Request Parameters</p>
@@ -2717,6 +2935,12 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <th>Comment</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: left">subMemberId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">int</td>
+<td>Sub user Id</td>
+</tr>
 <tr>
 <td style="text-align: left">startTime</td>
 <td style="text-align: left">false</td>
@@ -3345,7 +3569,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 </td>
 </tr>
 </tbody></table>
-<h3 id='t-deposit_addr_info'>Query Deposit Address Information</h3>
+<h3 id='t-deposit_addr_info'>Query Master Acct Deposit Address Information</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
@@ -3376,9 +3600,6 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1660203622474</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Rules: Sub-account can not deposit
-</p>
-
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
@@ -3408,6 +3629,123 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <td>Chain name. Return all if not passed. <br/>
 <b>Note</b>, pass chain name, e.g. <code>ETH</code> instead of <Code>ERC20</code>
 </td>
+</tr>
+<tr>
+<td style="text-align: left">subMemberId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Sub user Id</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: left">Object</td>
+<td>result object</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>Coin</td>
+</tr>
+<tr>
+<td style="text-align: left">chains</td>
+<td style="text-align: left">Array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">chainType</td>
+<td style="text-align: left">string</td>
+<td>chain type</td>
+</tr>
+<tr>
+<td style="text-align: left">addressDeposit</td>
+<td style="text-align: left">string</td>
+<td>deposit address</td>
+</tr>
+<tr>
+<td style="text-align: left">tagDeposit</td>
+<td style="text-align: left">string</td>
+<td>deposit tag</td>
+</tr>
+<tr>
+<td style="text-align: left">chain</td>
+<td style="text-align: left">string</td>
+<td>chain name</td>
+</tr>
+</tbody></table>
+<h3 id='t-sub_deposit_addr_info'>Query Sub Acct Deposit Address Information</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api.bybit.com/asset/v3/private/deposit/sub-member-address/query?coin=ETH&amp;chainType=ARBI&amp;subMemberId=XXXXXXXX' \
+--header 'X-BAPI-SIGN: 5a5ce5b26fd6a959c470b637ec0e9672b871d1ace105737b15e525de672c3fdb' \
+--header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-TIMESTAMP: 1660632630317' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">chains</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">"</span><span class="s2">chainType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Arbitrum One</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">addressDeposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0x03b58de42e52ee72062f07XXXXXXXXXXXXXX</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">tagDeposit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">chain</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ARBI</span><span class="dl">"</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1666923595560</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=subdeaddr>/asset/v3/private/deposit/sub-member-address/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#subdeaddr"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#currency-currency-coin">coin</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Coin</td>
+</tr>
+<tr>
+<td style="text-align: left">chainType</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Chain. <b>Note</b>, pass chain name, e.g. <code>ETH</code> instead of <Code>ERC20</code>
+</td>
+</tr>
+<tr>
+<td style="text-align: left">subMemberId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Sub user Id</td>
 </tr>
 </tbody></table>
 
