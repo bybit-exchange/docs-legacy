@@ -3311,6 +3311,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221028: Add new sub member desposit related endpoints
   restapi_update_20221025: Add new endpoints
   restapi_update_20221020: Add new account asset endpoints
   restapi_update_20221020_1: Add new response params
@@ -4118,7 +4119,15 @@ en:
     Number of items per page. Default value: 10
   depositsrecordquery: Query Deposit Records
   depositsrecorddesc: |
-    Rules: Only query the deposit records of spot accounts order by id in reverse order. The maximum difference between the start time and the end time is 30 days.
+    Rules:
+    <ul>
+      <li>Only query the deposit records of spot accounts order by id in reverse order.</li>
+      <li>The maximum difference between the start time and the end time is 30 days.</li>
+      <li>Support to get deposit records by Master or Sub Member Api Key</li>
+    </ul>
+  subDepositRecordDesc: |
+    Rules: Query sub account deposit records by <b>master</b> account api key. If you want to use sub account api key to query, please use <a href="#t-depositsrecordquery">Query Deposit Records</a> endpoint
+  subdepositRecordQueryByMaster: Query Sub Deposit Records By Master Key
   depositwithdrawstarttime: |
     start time (In Seconds).  Default value: 30 days before the current time
   depositwithdrawendtime: |
@@ -4222,9 +4231,10 @@ en:
   cancel_withdraw_response: |
     result（cancel application result: <code>1</code> SUCCESS, <code>0</code> FAIL）
 
-  deposit_addr_info: Query Deposit Address Information
+  deposit_addr_info: Query Master Acct Deposit Address Information
+  sub_deposit_addr_info: Query Sub Acct Deposit Address Information
   deposit_addr_info_desc: |
-    Rules: Sub-account can not deposit
+    Rules: Use <b>master</b>'s api key to query sub acct deposit address
   deposit_addr_chain_info: |
     chain type: can be obtained from coin info query api; Default value: all type
   deposit_coin: deposit coin
@@ -5698,6 +5708,8 @@ en:
   accountAssetV3_chainType: |
     Chain name. Return all if not passed. <br/>
     <b>Note</b>, pass chain name, e.g. <code>ETH</code> instead of <Code>ERC20</code>
+  accountAssetV3_sub_chainType: |
+    Chain. <b>Note</b>, pass chain name, e.g. <code>ETH</code> instead of <Code>ERC20</code>
   accountAssetV3_bizType: Account business subtype
   accountAsseV3_assetInfo_accountType: Account type, <b>SPOT</b> in default. For now, only <code>SPOT</code> is available.
   accountCoinBalance_para: |

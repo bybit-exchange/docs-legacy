@@ -240,7 +240,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/ca
         "orderId": "1210810256551063296",
         "orderLinkId": "spotA0010",
         "symbol": "BTCUSDT",
-        "status": "CANCELED",
+        "status": "NEW",
         "accountId": "533287",
         "createTime": "1659075830464",
         "orderPrice": "23500",

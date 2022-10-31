@@ -34,6 +34,10 @@ param_str = "api_key=XXXXXXXXXXX&timestamp=1542434791747"
 # timestamp=1542434791747
 ```
 
+<aside class="notice">
+t(:auth_para_cdn_request_id)
+</aside>
+
 > t(:spot_auth_codequote_construct1b)
 
 t(:auth_para_construct1)

@@ -2880,6 +2880,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221028: 新增子帳戶入金相關接口
   restapi_update_20221025: 新增母子帳戶密鑰相關接口
   restapi_update_20221020: 新增帳戶資產接口
   restapi_update_20221020_1: 新增響應字段
@@ -3699,7 +3700,14 @@ zh-my:
 
   depositsrecordquery: 充值記錄查詢
   depositsrecorddesc: |
-    規則：只查詢現貨賬戶的充值記錄，按id倒序進行，開始時間和截止時間差最大限制為30天
+    規則：
+    <ul>
+      <li>只查詢現貨賬戶的充值記錄，按id倒序進行，開始時間和截止時間差最大限制為30天</li>
+      <li>支持使用母、子帳戶的api key查詢各自的入金紀錄</li>
+    </ul>
+  subdepositRecordQueryByMaster: 子帳戶充值紀錄
+  subDepositRecordDesc: |
+    規則: 獲取子帳戶的入金紀錄。需使用<b>母</b>帳戶的API Key。若要通過子帳戶API Key查詢入金紀錄，請使用<a href="#t-depositsrecordquery">充值紀錄查詢</a>。
   depositwithdrawstarttime: |
     開始時間 (精確到秒)。  默認為當前時間之前30天
   depositwithdrawendtime: |
@@ -3803,9 +3811,10 @@ zh-my:
   cancel_withdraw_response: |
     結果對象（撤單申請結果：<code>1</code>成功，<code>0</code>失敗）
 
-  deposit_addr_info: 充值地址信息查詢
+  deposit_addr_info: 主帳戶充值地址信息查詢
+  sub_deposit_addr_info: 子帳戶充值地址信息查詢
   deposit_addr_info_desc: |
-    規則：子賬號暫不支持充值
+    規則：僅支持通過<b>母帳戶</b>的api key去查詢子帳戶充值地址
   deposit_addr_chain_info: |
     鏈名：從幣種信息中獲取；未填寫時返回全部
   deposit_coin: 充值的幣種
@@ -5239,8 +5248,10 @@ zh-my:
     游標信息：用來分頁。 默認空
   assetWithdraw_timestamp: 時間戳. 允許範圍是當前時間的前後5分鐘
   accountAssetV3_chainType: |
-    鏈名. 若為空，則返回全部. <br/>
+    鏈. 若為空，則返回全部. <br/>
     <b>注意</b>，此處應傳鏈名，例如ETH，而不是ERC20
+  accountAssetV3_sub_chainType: |
+    鏈名. <b>注意</b>，此處應傳鏈名，例如ETH，而不是ERC20
   accountAssetV3_bizType: 帳戶業務子類型
   accountAsseV3_assetInfo_accountType: 帳戶類型. 默認是SPOT類型. 目前僅支持SPOT
   accountCoinBalance_para: |

@@ -34,6 +34,10 @@ param_str = "api_key=XXXXXXXXXXX&buy_leverage=100&sell_leverage=110&symbol=BTCUS
 # timestamp=1542434791747
 ```
 
+<aside class="notice">
+t(:auth_para_cdn_request_id)
+</aside>
+
 > t(:auth_codequote_construct1b)
 
 t(:auth_para_construct1)

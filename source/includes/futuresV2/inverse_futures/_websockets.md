@@ -217,14 +217,14 @@ while True:
         {
             "price": "2999.00",
             "symbol": "BTCUSDH21",
-            "id": 29990000,
+            "id": 29990000, // depreciated
             "side": "Buy",
             "size": 9
         },
         {
             "price": "3001.00",
             "symbol": "BTCUSDH21",
-            "id": 30010000,
+            "id": 30010000, // depreciated
             "side": "Sell",
             "size": 10
         }
@@ -253,7 +253,7 @@ while True:
              {
                    "price": "2999.00",
                    "symbol": "BTCUSDH21",
-                   "id": 29990000,
+                   "id": 29990000, // depreciated
                    "side": "Buy",
                    "size": 8
              }
@@ -262,7 +262,7 @@ while True:
              {
                    "price": "2998.00",
                    "symbol": "BTCUSDH21",
-                   "id": 29980000,
+                   "id": 29980000, // depreciated
                    "side": "Buy",
                    "size": 8
              }
@@ -334,14 +334,14 @@ while True:
         {
             "price": "2999.00",
             "symbol": "BTCUSDH21",
-            "id": 29990000,
+            "id": 29990000, // depreciated
             "side": "Buy",
             "size": 9
         },
         {
             "price": "3001.00",
             "symbol": "BTCUSDH21",
-            "id": 30010000,
+            "id": 30010000, // depreciated
             "side": "Sell",
             "size": 10
         }
@@ -370,7 +370,7 @@ while True:
              {
                    "price": "2999.00",
                    "symbol": "BTCUSDH21",
-                   "id": 29990000,
+                   "id": 29990000, // depreciated
                    "side": "Buy",
                    "size": 8
              }
@@ -379,7 +379,7 @@ while True:
              {
                    "price": "2998.00",
                    "symbol": "BTCUSDH21",
-                   "id": 29980000,
+                   "id": 29980000, // depreciated
                    "side": "Buy",
                    "size": 8
              }
