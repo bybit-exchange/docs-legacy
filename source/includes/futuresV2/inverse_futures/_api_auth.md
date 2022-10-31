@@ -34,6 +34,10 @@ param_str = "api_key=XXXXXXXXXX&leverage=100&symbol=BTCUSDH21&timestamp=15424347
 # timestamp=1542434791747
 ```
 
+<aside class="notice">
+t(:auth_para_cdn_request_id)
+</aside>
+
 > t(:auth_codequote_construct1b)
 
 t(:auth_para_construct1)

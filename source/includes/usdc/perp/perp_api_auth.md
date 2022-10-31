@@ -20,6 +20,10 @@ t(:spot_auth_aside_timestamp)
 
 ## t(:constructingtherequest)
 
+<aside class="notice">
+t(:auth_para_cdn_request_id)
+</aside>
+
 t(:usdc_auth_para_construct1)
 t(:auth_para_construct2)
 

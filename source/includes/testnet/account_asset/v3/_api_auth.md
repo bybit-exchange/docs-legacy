@@ -33,6 +33,10 @@ param_str = "1660633147433XXXXXXXXX5000startTime=1659283200000&endTime=166006080
 # coin=USDT
 ```
 
+<aside class="notice">
+t(:auth_para_cdn_request_id)
+</aside>
+
 t(:auth_para_dv3_construct1)
 <div></div>
 
