@@ -491,53 +491,6 @@ POST
 |ips |array |t(:user_apiKeyInfo_ips_resp_comment) |
 
 
-### t(:delete_master_api_key)
-> t(:codequote_curlExample)
-
-```console
-curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/delete-api' \
---header 'X-BAPI-SIGN: 2a90cf0f52736c829698ba11bb6eeed2edea45a58b109a44f5616e9db02d0715' \
---header 'X-BAPI-API-KEY: XXXXXXXXX' \
---header 'X-BAPI-TIMESTAMP: 1665996421845' \
---header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: 2a90cf0f52736c829698ba11bb6eeed2edea45a58b109a44f5616e9db02d0715' \
---header 'Content-Type: application/json' \
---data-raw '{}'
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "OK",
-    "result": {},
-    "retExtInfo": null,
-    "time": 1665997272757
-}
-```
-
-t(:delete_master_api_key_para)
-
-<aside class="warning">
-t(:delete_api_key_warning)
-</aside>
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=demapikey>/user/v3/private/delete-api</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#demapikey"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-
-
 ### t(:modify_sub_api_key)
 > t(:codequote_curlExample)
 
@@ -654,6 +607,53 @@ POST
 |> BlockTrade |array |t(:user_sub_permissions_BlockTrade_resp_comment) |
 |> Exchange |array |t(:user_permissions_Exchange_resp_comment) |
 |> NFT |array |t(:user_sub_permissions_NFT_resp_comment) |
+
+
+### t(:delete_master_api_key)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/delete-api' \
+--header 'X-BAPI-SIGN: 2a90cf0f52736c829698ba11bb6eeed2edea45a58b109a44f5616e9db02d0715' \
+--header 'X-BAPI-API-KEY: XXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1665996421845' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 2a90cf0f52736c829698ba11bb6eeed2edea45a58b109a44f5616e9db02d0715' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {},
+    "retExtInfo": null,
+    "time": 1665997272757
+}
+```
+
+t(:delete_master_api_key_para)
+
+<aside class="warning">
+t(:delete_api_key_warning)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=demapikey>/user/v3/private/delete-api</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#demapikey"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
 
 
 ### t(:delete_sub_api_key)
