@@ -691,36 +691,40 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
       "resultTotalSize": 1,
       "dataList": [
       {
-        "symbol": "BTC-31DEC21-18000-P",
-        "orderType": "Limit",
-        "orderLinkId": "test2021122417000221",
-        "orderId": "cc27c6ff-a4ec-4739-96bc-6d2b266606d4",
-        "cancelType": "UNKNOWN",
-        "stopOrderType": "UNKNOWN",
-        "orderStatus": "Filled",
-        "takeProfit": "",
-        "createdAt": "1640843817698",
-        "orderPnl": "0.0000",
-        "price": "1.0",
-        "tpTriggerBy": "",
-        "timeInForce": "GoodTillCancel",
-        "updatedAt": "1640843817698",
-        "basePrice": "",
-        "realisedPnl": "0.0000",
-        "side": "Sell",
-        "triggerPrice": "",
-        "cumExecFee": "0.0010",
-        "leavesQty": "0.000",
-        "cashFlow": "0.0100",
-        "slTriggerBy": "",
-        "iv": "5.2820",
-        "closeOnTrigger": "",
-        "cumExecQty": "0.010",
-        "reduceOnly": 0,
-        "qty": "0.010",
-        "stopLoss": "",
-        "triggerBy": "",
-        "orderIM": "0.0000"
+          "symbol": "BTC-28OCT22-50000-C",
+          "orderType": "Limit",
+          "orderLinkId": "",
+          "orderId": "92f4b1a9-5116-4c86-84df-ee1e489727b1",
+          "cancelType": "UNKNOWN",
+          "stopOrderType": "UNKNOWN",
+          "orderStatus": "Filled",
+          "updateTimeStamp": "1665487915181",
+          "takeProfit": "",
+          "cumExecValue": "0.0500",
+          "createdAt": "1665487915157",
+          "blockTradeId": "",
+          "orderPnl": "",
+          "price": "5.0",
+          "tpTriggerBy": "",
+          "timeInForce": "GoodTillCancel",
+          "updatedAt": "1665487915181",
+          "basePrice": "",
+          "realisedPnl": "0.0000",
+          "side": "Sell",
+          "triggerPrice": "",
+          "cumExecFee": "0.0063",
+          "leavesQty": "0.000",
+          "cashFlow": "0.0500",
+          "slTriggerBy": "",
+          "iv": "",
+          "placeType": "price",
+          "closeOnTrigger": "",
+          "cumExecQty": "0.010",
+          "reduceOnly": 0,
+          "qty": "0.010",
+          "stopLoss": "",
+          "triggerBy": "",
+          "orderIM": "19.1095"
       }
     ]
   },
@@ -769,13 +773,14 @@ POST
 |cancelType|string|t(:usdcCancelType)|
 |stopOrderType |string|t(:usdcStopOrderType)|
 |orderStatus |string|t(:usdcOptionOrderStatus)|
+|updateTimeStamp|string|t(:row_resp_comment_updateTime)|
 |takeProfit |string|t(:takeProfit)|
 |createdAt|string|t(:createdAt)|
 |orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy |string|t(:usdcTptriggerby)
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|updatedAt|string|t(:updatedAt)|
+|updatedAt|string|t(:updateAt_usdc_orderHistory)|
 |basePrice |string|t(:basePrice)|
 |realisedPnl|string|t(:realisedPnl)|
 |t(:row_parameter_side) |string|t(:side)|
