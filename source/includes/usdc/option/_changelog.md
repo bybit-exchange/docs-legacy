@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-11-03
+### REST API
+- [t(:usdcQryOrderHistory)](#t-usdcqryorderhistory) [t(:changelog_update)]
+  - t(:restapi_update_20221103_1)
+
 ## 2022-10-19
 ### WebSocket API
 - [t(:websocketEstimatedDeliveryPrice)](#t-websocketestimateddeliveryprice) [t(:changelog_new)]

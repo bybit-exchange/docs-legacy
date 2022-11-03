@@ -127,7 +127,7 @@ POST
 |subuid |<b>true</b> |string |t(:user_uid_resp_comment) |
 |note |false |string |t(:user_note_req_comment) |
 |readOnly |<b>true</b> |int |t(:user_readOnly_comment) |
-|ips |false |array[string] |t(:user_ips_req_comment) |
+|ips |false |array |t(:user_ips_req_comment) |
 |permissions |<b>true</b> |Object |t(:user_sub_permissions_req_comment) |
 |> ContractTrade |false |array |t(:user_permissions_ContractTrade_comment) |
 |> Spot |false |array |t(:user_permissions_Spot_comment) |
@@ -322,7 +322,8 @@ curl --location --request GET 'https://api-testnet.bybit.com/user/v3/private/que
         "type": 1,
         "deadlineDay": 87,
         "expiredAt": "2023-01-13T03:47:43Z",
-        "createdAt": "2022-07-08T06:43:11Z"
+        "createdAt": "2022-07-08T06:43:11Z",
+        "unified": 0
     },
     "retExtInfo": null,
     "time": 1665990908666
@@ -363,6 +364,7 @@ GET
 |deadlineDay |int |t(:user_deadLineDay_resp_comment) |
 |expiredAt |datetime |t(:user_expiredAt_resp_comment) |
 |createdAt |datetime |t(:user_createdAt_resp_comment) |
+|unified |int |t(:user_unified_resp_comment) |
 
 
 ### t(:modify_master_api_key)
@@ -443,6 +445,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/up
 
 t(:modify_master_api_key_para)
 
+<aside class="notice">
+t(:modify_api_key_notice)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=updateapi>/user/v3/private/update-api</span></code>
@@ -452,7 +458,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |readOnly |<b>true</b> |string |t(:user_readOnly_comment) |
-|ips |false |string |t(:user_ips_req_comment) |
+|ips |false |array |t(:user_ips_req_comment) |
 |permissions |<b>true</b> |Object |t(:user_sub_permissions_req_comment) |
 |> ContractTrade |false |array |t(:user_permissions_ContractTrade_comment) |
 |> Spot |false |array |t(:user_permissions_Spot_comment) |
@@ -483,49 +489,6 @@ POST
 |> Exchange |array |t(:user_permissions_Exchange_resp_comment) |
 |> NFT |array |t(:user_master_permissions_NFT_resp_comment) |
 |ips |array |t(:user_apiKeyInfo_ips_resp_comment) |
-
-
-### t(:delete_master_api_key)
-> t(:codequote_curlExample)
-
-```console
-curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/delete-api' \
---header 'X-BAPI-SIGN: 2a90cf0f52736c829698ba11bb6eeed2edea45a58b109a44f5616e9db02d0715' \
---header 'X-BAPI-API-KEY: XXXXXXXXX' \
---header 'X-BAPI-TIMESTAMP: 1665996421845' \
---header 'X-BAPI-RECV-WINDOW: 5000' \
---header 'X-BAPI-SIGN: 2a90cf0f52736c829698ba11bb6eeed2edea45a58b109a44f5616e9db02d0715' \
---header 'Content-Type: application/json' \
---data-raw '{}'
-```
-
-> t(:codequote_responseExample)
-
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "OK",
-    "result": {},
-    "retExtInfo": null,
-    "time": 1665997272757
-}
-```
-
-t(:delete_master_api_key_para)
-
-<p class="fake_header">t(:httprequest)</p>
-POST
-<code><span id=demapikey>/user/v3/private/delete-api</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#demapikey"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-
-
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
 
 
 ### t(:modify_sub_api_key)
@@ -604,6 +567,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/up
 
 t(:modify_sub_api_key_para)
 
+<aside class="notice">
+t(:modify_api_key_notice)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=updatesubapi>/user/v3/private/update-sub-api</span></code>
@@ -613,7 +580,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |readOnly |<b>true</b> |int |t(:user_readOnly_comment) |
-|ips |false |array[string] |t(:user_ips_req_comment) |
+|ips |false |array |t(:user_ips_req_comment) |
 |permissions |<b>true</b> |Object |t(:user_sub_permissions_req_comment) |
 |> ContractTrade |false |array |t(:user_permissions_ContractTrade_comment) |
 |> Spot |false |array |t(:user_permissions_Spot_comment) |
@@ -640,6 +607,53 @@ POST
 |> BlockTrade |array |t(:user_sub_permissions_BlockTrade_resp_comment) |
 |> Exchange |array |t(:user_permissions_Exchange_resp_comment) |
 |> NFT |array |t(:user_sub_permissions_NFT_resp_comment) |
+
+
+### t(:delete_master_api_key)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/delete-api' \
+--header 'X-BAPI-SIGN: 2a90cf0f52736c829698ba11bb6eeed2edea45a58b109a44f5616e9db02d0715' \
+--header 'X-BAPI-API-KEY: XXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1665996421845' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 2a90cf0f52736c829698ba11bb6eeed2edea45a58b109a44f5616e9db02d0715' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {},
+    "retExtInfo": null,
+    "time": 1665997272757
+}
+```
+
+t(:delete_master_api_key_para)
+
+<aside class="warning">
+t(:delete_api_key_warning)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=demapikey>/user/v3/private/delete-api</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#demapikey"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
 
 
 ### t(:delete_sub_api_key)
@@ -669,6 +683,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/de
 ```
 
 t(:delete_sub_api_key_para)
+
+<aside class="warning">
+t(:delete_api_key_warning)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST

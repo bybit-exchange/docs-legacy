@@ -439,7 +439,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 -H "Content-Type: application/json" \
 -D '{
     "category": "PERPETUAL",
-    "limit":2
+    "limit":1
 }'
 
 ```
@@ -458,36 +458,39 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
       "resultTotalSize": 1,
       "dataList": [
       {
-        "symbol": "BTCPERP",
-        "orderType": "Market",
-        "orderLinkId": "",
-        "orderId": "640034d1-97ec-4382-9983-694898c03ba3",
-        "cancelType": "UNKNOWN",
-        "stopOrderType": "UNKNOWN",
-        "orderStatus": "Filled",
-        "takeProfit": "0.0000",
-        "createdAt": "1640854950672",
-        "orderPnl": "-",
-        "price": "49192.5",
-        "tpTriggerBy": "UNKNOWN",
-        "timeInForce": "ImmediateOrCancel",
-        "updatedAt": "1640854950675",
-        "basePrice": "",
-        "realisedPnl": "0.0000",
-        "side": "Buy",
-        "triggerPrice": "0.0",
-        "cumExecFee": "0.3514",
-        "leavesQty": "0.000",
-        "cashFlow": "",
-        "slTriggerBy": "UNKNOWN",
-        "iv": "",
-        "closeOnTrigger": "UNKNOWN",
-        "cumExecQty": "0.010",
-        "reduceOnly": 0,
-        "qty": "0.010",
-        "stopLoss": "0.0000",
-        "triggerBy": "UNKNOWN",
-        "orderIM": ""
+          "symbol": "ETHPERP",
+          "orderType": "Limit",
+          "orderLinkId": "",
+          "orderId": "c04ad17d-ca85-45d1-859e-561e7236f6db",
+          "cancelType": "UNKNOWN",
+          "stopOrderType": "UNKNOWN",
+          "orderStatus": "Filled",
+          "updateTimeStamp": "1666178097006",
+          "takeProfit": "0.0000",
+          "cumExecValue": "12.9825",
+          "createdAt": "1666178096996",
+          "blockTradeId": "",
+          "orderPnl": "",
+          "price": "1300.0",
+          "tpTriggerBy": "UNKNOWN",
+          "timeInForce": "GoodTillCancel",
+          "updatedAt": "1666178097006",
+          "basePrice": "",
+          "realisedPnl": "0.0000",
+          "side": "Buy",
+          "triggerPrice": "0.0",
+          "cumExecFee": "0.0078",
+          "leavesQty": "0.000",
+          "cashFlow": "",
+          "slTriggerBy": "UNKNOWN",
+          "iv": "",
+          "closeOnTrigger": "UNKNOWN",
+          "cumExecQty": "0.010",
+          "reduceOnly": 0,
+          "qty": "0.010",
+          "stopLoss": "0.0000",
+          "triggerBy": "UNKNOWN",
+          "orderIM": ""
       }
     ]
   },
@@ -539,13 +542,14 @@ POST
 |cancelType|string|t(:cancelType)|
 |stopOrderType|string|t(:usdcStopOrderType)|
 |t(:usdcOptionOrderStatus)|string|t(:row_comment_orderStatus)|
+|updateTimeStamp|string|t(:row_resp_comment_updateTime)|
 |takeProfit|string|t(:takeProfit)|
 |createdAt|string|t(:createdAt)|
 |orderPnl|string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy|string|t(:usdcTptriggerby)|
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|updatedAt|string|t(:updatedAt)|
+|updatedAt|string|t(:updateAt_usdc_orderHistory)|
 |basePrice|string|t(:basePrice)|
 |realisedPnl|string|t(:realisedPnl)|
 |t(:row_parameter_side) |string|t(:side)|

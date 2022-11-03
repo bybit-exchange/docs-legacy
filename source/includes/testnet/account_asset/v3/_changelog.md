@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-11-03
+### REST API
+- [t(:get_api_key_info)](#t-get_api_key_info) [t(:changelog_update)]
+  - t(:restapi_update_20221103)
+
 ## 2022-10-28
 ### REST API
 - [t(:subdepositRecordQueryByMaster)](#t-subdepositrecordquerybymaster) [t(:changelog_new)]

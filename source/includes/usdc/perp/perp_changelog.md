@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-11-03
+### REST API
+- [t(:usdcQryOrderHistory)](#t-usdcqryorderhistory) [t(:changelog_update)]
+  - t(:restapi_update_20221103_1)
+
 ## 2022-08-24
 ### REST API
 - [t(:queryLatest500Trades)](#t-querylatest500trades) [t(:changelog_update)]

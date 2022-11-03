@@ -3311,6 +3311,8 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221103_1: Add new response field <code>updateTimestamp</code>. Depreciate field <code>updatedAt</code>
+  restapi_update_20221103: Add new response parameter. <code>unified</code>
   restapi_update_20221028: Add new sub member desposit related endpoints
   restapi_update_20221025: Add new endpoints
   restapi_update_20221020: Add new account asset endpoints
@@ -5482,10 +5484,10 @@ en:
     <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
     If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
     <b>Linear perpetual:</b><br/>
-    25 level data <b>(depreciate soon)</b>, push frequency: <b>20ms</b> <br>
+    25 level data <b>(1st Dec 2022 offline)</b>, push frequency: <b>20ms</b> <br>
     50 level data, push frequency: <b>20ms</b> <br>
     200 level data, push frequency: <b>100ms</b> <br>
-    500 level data <b>(depreciate soon)</b>, push frequency: <b>100ms</b> <br>
+    500 level data <b>(1st Dec 2022 offline)</b>, push frequency: <b>100ms</b> <br>
     <br>
     <b>Option:</b><br/>
     25 level data <br/>
@@ -5504,10 +5506,10 @@ en:
     Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
     <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
     If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
-    25 level data<b>(depreciate soon)</b>, push frequency: <b>20ms</b> <br>
+    25 level data<b>(1st Dec 2022 offline)</b>, push frequency: <b>20ms</b> <br>
     50 level data, push frequency: <b>20ms</b> <br>
     200 level data, push frequency: <b>100ms</b> <br>
-    500 level data<b>(depreciate soon)</b>, push frequency: <b>100ms</b> <br>
+    500 level data<b>(1st Dec 2022 offline)</b>, push frequency: <b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
     <code>orderbook.25.{symbol}</code><br>
@@ -5775,7 +5777,7 @@ en:
   create_subuser_apikey_para: To create new API key for those newly created sub UID. Use <b>master</b> user's api key ONLY.
   user_readOnly_comment: <code>0</code>：Read and Write. <code>1</code>：Read only
   user_ips_req_comment: |
-    Set the IP bind. example: ["192.168.X.X.1"]<br/>
+    Set the IP bind. example: ["192.168.0.1,192.168.0.2"]<br/>
     <b>note</b>: <li>don't pass <code>ips</code> or pass with ["*"] means no bind</li><li>No ip bound api key will be invalid after <b>90 days</b></li><li>api key will be invalid after <b>7 days</b> once the account password is changed</li>
   user_sub_permissions_req_comment: |
     Tick the types of permission.<br/>
@@ -5822,6 +5824,7 @@ en:
   user_deadLineDay_resp_comment: The remaining valid days of api key. Only for those api key with no IP bound or the password has been changed
   user_expiredAt_resp_comment: The expiry day of the api key. Only for those api key with no IP bound or the password has been changed
   user_createdAt_resp_comment: The create day of the api key
+  user_unified_resp_comment: Whether the account to which the api key belongs is a unified account. <code>0</code>：regular account; <code>1</code>：unified account
 
   modify_master_api_key: Modify Master API Key
   modify_master_api_key_para: Modify the settings of master api key. Use the api key pending to be modified to call the endpoint. Use <b>master</b> user's api key ONLY.
@@ -5833,8 +5836,6 @@ en:
   user_master_permissions_BlockTrade_resp_comment: Permission of block trade
   user_master_permissions_NFT_resp_comment: Permission of NFT
 
-
-
   delete_master_api_key: Delete Master API Key
   delete_master_api_key_para: Delete the api key of master account. Use the api key pending to be delete to call the endpoint. Use <b>master</b> user's api key ONLY.
   modify_sub_api_key: Modify Sub API Key
@@ -5843,3 +5844,8 @@ en:
   delete_sub_api_key_para: Delete the api key of sub account. Use the api key pending to be delete to call the endpoint. Use <b>sub</b> user's api key ONLY.
 
   userApikeyEndpoints: Rate Limits For Master-Sub User Endpoints
+  delete_api_key_warning: BE CAREFUL! The API key used to call this interface will be invalid immediately.
+  modify_api_key_notice: Only the api key that calls this interface can be modified
+  subMember_desposit_para: Get the deposit address information of sub account. Use <b>master</b> user's api key ONLY.
+
+  updateAt_usdc_orderHistory: Depreciated. Please ignore

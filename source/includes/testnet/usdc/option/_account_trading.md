@@ -767,13 +767,14 @@ POST
 |cancelType|string|t(:usdcCancelType)|
 |stopOrderType |string|t(:usdcStopOrderType)|
 |orderStatus |string|t(:usdcOptionOrderStatus)|
+|updateTimeStamp|string|t(:row_resp_comment_updateTime)|
 |takeProfit |string|t(:takeProfit)|
 |createdAt|string|t(:createdAt)|
 |orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|
 |tpTriggerBy |string|t(:usdcTptriggerby)
 |t(:row_parameter_timeInForce)|string|t(:row_comment_timeInForce)|
-|updatedAt|string|t(:updatedAt)|
+|updatedAt|string|t(:updateAt_usdc_orderHistory)|
 |basePrice |string|t(:basePrice)|
 |realisedPnl|string|t(:realisedPnl)|
 |t(:row_parameter_side) |string|t(:side)|
