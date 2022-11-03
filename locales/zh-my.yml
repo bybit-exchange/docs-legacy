@@ -5315,7 +5315,7 @@ zh-my:
   create_subuser_apikey_para: 給新建好的子帳戶創建新的API key。需使用<b>母</b>帳戶的API key。
   user_readOnly_comment: <code>0</code>：可讀可寫. <code>1</code>：只讀
   user_ips_req_comment: |
-    綁定IP. 比如: ["192.168.X.X.1"]<br/>
+    綁定IP. 比如: ["192.168.0.0.1,192.168.0.0.2"]<br/>
     <b>注意</b>: <li>不傳參數<code>ips</code> 或者入参值為<code>["*"]</code>意味著不綁定</li><li>不綁定IP的api key將有<b>90天</b>的有效期限</li><li>一旦帳戶密碼做了修改，帳戶下的api key將在<b>7天</b>後失效</li>
   user_sub_permissions_req_comment: |
     勾選api key權限.<br/>
@@ -5362,6 +5362,7 @@ zh-my:
   user_deadLineDay_resp_comment: API key失效的倒數日. 針對那些未綁定IP的api key或者修改過密碼的帳戶
   user_expiredAt_resp_comment: API key的過期日. 針對那些未綁定IP的api key或者修改過密碼的帳戶
   user_createdAt_resp_comment: API key的創建日
+  user_unified_resp_comment: API Key所屬的帳戶是否為統一保證金帳戶. <code>0</code>：非統保帳戶; <code>1</code>：統保帳戶
 
   modify_master_api_key: 修改母帳戶的API Key設置
   modify_master_api_key_para: 修改母帳戶API key的設置。使用待修改的api key調用接口。需使用<b>母</b>帳戶的API key。
@@ -5376,8 +5377,10 @@ zh-my:
   delete_master_api_key: 刪除母帳戶的API Key
   delete_master_api_key_para: 刪除母帳戶下的api key。使用待刪除的api key調用接口。需使用<b>母</b>帳戶的API key。
   modify_sub_api_key: 修改子帳戶的API Key設置
-  modify_sub_api_key_para: 修改子帳戶啊API key的設置。使用待修改的api key調用接口。需使用<b>子</b>帳戶的API key。
+  modify_sub_api_key_para: 修改子帳戶API key的設置。使用待修改的api key調用接口。需使用<b>子</b>帳戶的API key。
   delete_sub_api_key: 刪除子帳戶的API Key
   delete_sub_api_key_para: 刪除子帳戶下的api key。使用待刪除的api key調用接口。需使用<b>子</b>帳戶的API key。
 
   userApikeyEndpoints: 母子帳戶相關接口的頻率限制
+  delete_api_key_warning: 當心! 用於調用本接口的API KEY將會立馬失效。
+  modify_api_key_notice: 只能修改調用該接口的api key

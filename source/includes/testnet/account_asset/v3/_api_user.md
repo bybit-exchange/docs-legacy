@@ -127,7 +127,7 @@ POST
 |subuid |<b>true</b> |string |t(:user_uid_resp_comment) |
 |note |false |string |t(:user_note_req_comment) |
 |readOnly |<b>true</b> |int |t(:user_readOnly_comment) |
-|ips |false |array[string] |t(:user_ips_req_comment) |
+|ips |false |array |t(:user_ips_req_comment) |
 |permissions |<b>true</b> |Object |t(:user_sub_permissions_req_comment) |
 |> ContractTrade |false |array |t(:user_permissions_ContractTrade_comment) |
 |> Spot |false |array |t(:user_permissions_Spot_comment) |
@@ -322,7 +322,8 @@ curl --location --request GET 'https://api-testnet.bybit.com/user/v3/private/que
         "type": 1,
         "deadlineDay": 87,
         "expiredAt": "2023-01-13T03:47:43Z",
-        "createdAt": "2022-07-08T06:43:11Z"
+        "createdAt": "2022-07-08T06:43:11Z",
+        "unified": 0
     },
     "retExtInfo": null,
     "time": 1665990908666
@@ -363,6 +364,7 @@ GET
 |deadlineDay |int |t(:user_deadLineDay_resp_comment) |
 |expiredAt |datetime |t(:user_expiredAt_resp_comment) |
 |createdAt |datetime |t(:user_createdAt_resp_comment) |
+|unified |int |t(:user_unified_resp_comment) |
 
 
 ### t(:modify_master_api_key)
@@ -443,6 +445,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/up
 
 t(:modify_master_api_key_para)
 
+<aside class="notice">
+t(:modify_api_key_notice)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=updateapi>/user/v3/private/update-api</span></code>
@@ -452,7 +458,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |readOnly |<b>true</b> |string |t(:user_readOnly_comment) |
-|ips |false |string |t(:user_ips_req_comment) |
+|ips |false |array |t(:user_ips_req_comment) |
 |permissions |<b>true</b> |Object |t(:user_sub_permissions_req_comment) |
 |> ContractTrade |false |array |t(:user_permissions_ContractTrade_comment) |
 |> Spot |false |array |t(:user_permissions_Spot_comment) |
@@ -512,6 +518,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/de
 ```
 
 t(:delete_master_api_key_para)
+
+<aside class="warning">
+t(:delete_api_key_warning)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -604,6 +614,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/up
 
 t(:modify_sub_api_key_para)
 
+<aside class="notice">
+t(:modify_api_key_notice)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=updatesubapi>/user/v3/private/update-sub-api</span></code>
@@ -613,7 +627,7 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |readOnly |<b>true</b> |int |t(:user_readOnly_comment) |
-|ips |false |array[string] |t(:user_ips_req_comment) |
+|ips |false |array |t(:user_ips_req_comment) |
 |permissions |<b>true</b> |Object |t(:user_sub_permissions_req_comment) |
 |> ContractTrade |false |array |t(:user_permissions_ContractTrade_comment) |
 |> Spot |false |array |t(:user_permissions_Spot_comment) |
@@ -669,6 +683,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/de
 ```
 
 t(:delete_sub_api_key_para)
+
+<aside class="warning">
+t(:delete_api_key_warning)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
