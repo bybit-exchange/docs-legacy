@@ -908,7 +908,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 -H "Content-Type: application/json" \
 -D '{
     "category": "PERPETUAL",
-    "limit":2
+    "limit":1
 }'
 
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>
@@ -922,36 +922,39 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
       <span class="dl">"</span><span class="s2">resultTotalSize</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">dataList</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">640034d1-97ec-4382-9983-694898c03ba3</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640854950672</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">49192.5</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ImmediateOrCancel</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640854950675</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">realisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.3514</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cashFlow</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+          <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHPERP</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">c04ad17d-ca85-45d1-859e-561e7236f6db</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">updateTimeStamp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1666178097006</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">12.9825</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">createdAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1666178096996</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">blockTradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">orderPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1300.0</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">updatedAt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1666178097006</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">realisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0078</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">cashFlow</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.010</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">},</span>
@@ -1111,6 +1114,11 @@ t(:usdcQueryLimit)
 <td>t(:row_comment_orderStatus)</td>
 </tr>
 <tr>
+<td style="text-align: left">updateTimeStamp</td>
+<td style="text-align: left">string</td>
+<td>t(:row_resp_comment_updateTime)</td>
+</tr>
+<tr>
 <td style="text-align: left">takeProfit</td>
 <td style="text-align: left">string</td>
 <td>t(:takeProfit)</td>
@@ -1143,7 +1151,7 @@ t(:usdcQueryLimit)
 <tr>
 <td style="text-align: left">updatedAt</td>
 <td style="text-align: left">string</td>
-<td>t(:updatedAt)</td>
+<td>t(:updateAt_usdc_orderHistory)</td>
 </tr>
 <tr>
 <td style="text-align: left">basePrice</td>
