@@ -1254,6 +1254,8 @@ curl --location --request GET 'https://api.bybit.com/asset/v3/private/deposit/su
 }
 ```
 
+t(:subMember_desposit_para)
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=subdeaddr>/asset/v3/private/deposit/sub-member-address/query</span></code>
