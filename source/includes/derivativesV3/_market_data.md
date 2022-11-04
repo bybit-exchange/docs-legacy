@@ -294,11 +294,11 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?c
         "list": [
             {
                 "symbol": "BTCUSDT",
-                "contractType": "CONTRACT_TYPE_LINEAR_PERPETUAL",
-                "status": "CONTRACT_STATUS_TRADING",
+                "contractType": "LinearPerpetual",
+                "status": "Trading",
                 "baseCoin": "BTC",
                 "quoteCoin": "USDT",
-                "launchTime": "1585526400000",
+                "launchTime": "1584230400000",
                 "deliveryTime": "0",
                 "deliveryFeeRate": "",
                 "priceScale": "2",
@@ -313,7 +313,7 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?c
                     "tickSize": "0.50"
                 },
                 "lotSizeFilter": {
-                    "maxTradingQty": "100000.000",
+                    "maxTradingQty": "420.000",
                     "minTradingQty": "0.001",
                     "qtyStep": "0.001"
                 }
@@ -321,7 +321,8 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?c
         ],
         "nextPageCursor": ""
     },
-    "time": 1657777080564
+    "retExtInfo": {},
+    "time": 1667533491917
 }
 
 // option response
