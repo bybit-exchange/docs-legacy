@@ -1,5 +1,14 @@
 # t(:changelog)
 
+## 2022-11-08
+### WebSocket API
+- [t(:websocketunderlyingPriceByBasecoin)](#t-websocketunderlyingpricebybasecoin) [t(:changelog_new)]
+  - t(:restapi_update_20221108)
+
+### WebSocket API
+- [t(:websocketIntrumentInfoBaseCoin)](#t-websocketintrumentinfobasecoin) [t(:changelog_new)]
+  - t(:restapi_update_20221108)
+
 ## 2022-11-03
 ### REST API
 - [t(:usdcQryOrderHistory)](#t-usdcqryorderhistory) [t(:changelog_update)]

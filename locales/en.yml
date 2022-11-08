@@ -3311,6 +3311,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221108: Add new public websocket topic
   restapi_update_20221103_1: Add new response field <code>updateTimestamp</code>. Depreciate field <code>updatedAt</code>
   restapi_update_20221103: Add new response parameter. <code>unified</code>
   restapi_update_20221028: Add new sub member desposit related endpoints
@@ -5849,3 +5850,22 @@ en:
   subMember_desposit_para: Get the deposit address information of sub account. Use <b>master</b> user's api key ONLY.
 
   updateAt_usdc_orderHistory: Depreciated. Please ignore
+
+  # websocket USDC option underlying price by base coin
+  websocketunderlyingPriceByBasecoin: Underlying Price By Base Coin
+  usdc_wss_underlyingPrice_baseCoin_para: |
+    Get the stream of underlying price for those symbols with the same base coin.<br/>
+    <br/>
+    Push frequency: <b>1000ms</b><br/>
+    <br/>
+    <b>Topic</b>: <code>underlying_price.{baseCoin}</code> e.g. underlying_price.BTC
+  usdc_deliveryDate: The specific date time of delivery date
+  usdc_isEstimated: Whether the price is an estimated delivery price
+  usdc_price: The underlying price. This value will become <b>estimated delivery price</b> when it comes to 30 mins before delivery
+  usdc_seconds: Number of seconds till finalizing the instrument
+  # websocket USDC option instumentinfo by base coin
+  websocketIntrumentInfoBaseCoin: Latest Intrument Info By Base Coin
+  usdcLatestSymbolInfoBaseCoin: |
+    Get latest symbol info by base coin
+    <p>Topic format:</p>
+    <p>instrument_info.all.{baseCoin},such as: instrument_info.all.BTC</p>

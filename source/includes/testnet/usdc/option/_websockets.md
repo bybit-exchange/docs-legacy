@@ -325,8 +325,6 @@ t(:usdc_current_24_total)
 | crossSeq |string | t(:usdcCrossSeq) |
 
 
-
-
 ### t(:latestSymbolInfo)
 > t(:codequote_subscribe)
 
@@ -373,14 +371,7 @@ ws.send('{"op":"subscribe","id":"{1001}","args":["instrument_info.BTC-19NOV21-58
 
 ```
 
-> t(:codequote_delta)
-
-```javascript
-
-```
-
 t(:usdcLastestSymbolInfo)
-
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -410,6 +401,67 @@ t(:usdcLastestSymbolInfo)
 | totalTurnOver |string |t(:totalTurnOver) |
 | openInterest |string |t(:openInterest) |
 | predictedDeliveryPrice |string |t(:usdcPredictedDeliveryPrice) |
+
+
+### t(:websocketIntrumentInfoBaseCoin)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op":"subscribe","id":"{1001}","args":["instrument_info.all.ETH"]}');
+```
+
+> t(:codequote_snapshot)
+
+```javascript
+{
+    "id": "ai92u",
+    "topic": "instrument_info.all.ETH",
+    "creationTime": 1667893322171,
+    "data": {
+        "instrumentInfos": [
+            {
+                "symbol": "ETH-30DEC22-15000-P",
+                "lastPrice": "13718",
+                "openInterest": "0",
+                "indexPrice": "1490.62",
+                "markPrice": "13510.54129157",
+                "markPriceIv": "1.4895",
+                "change24h": "0",
+                "volume24h": "0",
+                "turnover24h": "0",
+                "totalVolume": "16",
+                "totalTurnover": "20285",
+                "underlyingPrice": "1489.54",
+                "delta": "-0.99993509",
+                "gamma": "0.00000032",
+                "vega": "0.00148202",
+                "theta": "-0.00212192"
+            },
+    "type": "MergedSnapshot"
+}
+```
+
+t(:usdcLatestSymbolInfoBaseCoin)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| t(:row_parameter_symbol) |string |t(:usdcSymbol) |
+| lastPrice |string |t(:usdcLastPrice) |
+| openInterest |string |t(:openInterest) |
+| indexPrice |string |t(:usdcIndexPrice) |
+| markPrice |string |t(:usdcMarkPrice) |
+| markPriceIv |string |t(:markPriceIv) |
+| change24h |string |t(:price24Pcnt) |
+| volume24h |string |t(:volume24h) |
+| turnover24h |string |t(:turnover24h) |
+| totalVolume |string |t(:totalVolume) |
+| totalTurnOver |string |t(:totalTurnOver) |
+| underlyingPrice |string |t(:underlying) |
+| delta |string |t(:delta) |
+| gamma |string |t(:gamma) |
+| vega |string |t(:vega) |
+| theta |string |t(:theta) |
 
 
 ### t(:websocketEstimatedDeliveryPrice)
@@ -490,6 +542,53 @@ t(:usdc_wss_underlyingPrice_para)
 | timestamp |string |t(:usdc_timestamp) |
 | underlyingOriginPrice |string |t(:usdc_underlyingOriginPrice) |
 | reqId |string |t(:usdc_reqId) |
+
+
+### t(:websocketunderlyingPriceByBasecoin)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op":"subscribe","id":"Customized id","args":["underlying.ETH"]}');
+```
+> t(:codequote_responseExampleFormatAll)
+
+```json
+{
+    "id": "o9CaP",
+    "topic": "underlying_price.ETH",
+    "creationTime": 1667890949185,
+    "data": {
+        "baseCoin": "ETH",
+        "priceList": [
+            {
+                "deliveryDate": "30DEC22",
+                "isEstimated": false,
+                "price": "1482.93",
+                "seconds": 4496251
+            },
+            {
+                "deliveryDate": "27JAN23",
+                "isEstimated": false,
+                "price": "1482.33",
+                "seconds": 6915451
+            }
+        ]
+    },
+    "type": "MergedSnapshot"
+}
+```
+
+t(:usdc_wss_underlyingPrice_baseCoin_para)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| baseCoin |string |t(:usdcBaseCoin) |
+| priceList |array |Object |
+| > deliveryDate |string |t(:usdc_deliveryDate) |
+| > isEstimated |boolean |t(:usdc_isEstimated) |
+| > price |string |t(:usdc_price) |
+| > seconds |long |t(:usdc_seconds) |
 
 
 ### t(:websocketinsurance)
