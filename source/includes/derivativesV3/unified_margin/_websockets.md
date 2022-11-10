@@ -209,7 +209,8 @@ ws.send('{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCU
         "0.602"
       ]
     ],
-      "u":3566050
+      "u":3566050,
+      "seq":20452405354
   }
 }
 ```
@@ -248,7 +249,8 @@ ws.send('{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCU
         "0.397"
       ]
     ],
-      "u":3566051
+      "u":3566051,
+      "seq":20452405354
   }
 }
 ```
@@ -263,7 +265,7 @@ t(:websocketOrderBook_v3)
 |b|array |t(:row_comment_resp_bid)    |
 |a |array|t(:row_comment_resp_ask)  |
 |u |number |t(:row_comment_updated_id)  |
-
+|seq |number |t(:row_comment_cross_seq) |
 
 
 ### t(:websockettrade)
