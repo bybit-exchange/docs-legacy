@@ -7949,6 +7949,7 @@ Websocket will keep pushing delta message when orderbook is changed. If you rece
 <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
 If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
 <b>Linear perpetual:</b><br/>
+1 level data, push frequency: <b>10ms</b> <br>
 25 level data <b>(1st Dec 2022 offline)</b>, push frequency: <b>20ms</b> <br>
 50 level data, push frequency: <b>20ms</b> <br>
 200 level data, push frequency: <b>100ms</b> <br>
@@ -7959,6 +7960,7 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 100 level data<br/>
 <br>
 <b>Topic: (note. option has 25 & 100 level only)</b><br>
+<code>orderbook.1.{symbol}</code><br>
 <code>orderbook.25.{symbol}</code><br>
 <code>orderbook.50.{symbol}</code><br>
 <code>orderbook.100.{symbol}</code><br>

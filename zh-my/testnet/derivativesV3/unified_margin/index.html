@@ -7945,6 +7945,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <b>type</b>: <code>snapshot</code>=完整的報文，<code>delta</code>=增量報文<br>
 如果因為Bybit服務原因，會重新發送snapshot報文，該報文已保證是最新且準確的.<br><br>
 <b>正向永續:</b><br/>
+1檔數據，推送頻率：<b>10ms</b> <br>
 25檔數據（<b>2022年12月1日廢棄</b>），推送頻率: <b>20ms</b> <br>
 50檔數據，推送頻率：<b>20ms</b> <br>
 200檔數據，推送頻率: <b>100ms</b> <br>
@@ -7955,6 +7956,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 100檔數據<br/>
 <br>
 <b>Topic: (備註：Option只有25和100檔)</b><br>
+<code>orderbook.1.{symbol}</code><br>
 <code>orderbook.25.{symbol}</code><br>
 <code>orderbook.50.{symbol}</code><br>
 <code>orderbook.100.{symbol}</code><br>
