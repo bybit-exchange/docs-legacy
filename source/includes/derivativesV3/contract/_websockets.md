@@ -203,7 +203,8 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.25.BTCUSD
         "0.602"
       ]
     ],
-      "u":3566050
+      "u":3566050,
+      "seq":20452405354
   }
 }
 ```
@@ -242,7 +243,8 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.25.BTCUSD
         "0.397"
       ]
     ],
-      "u":3566051
+      "u":3566051,
+      "seq":20452405355
   }
 }
 ```
@@ -257,6 +259,7 @@ t(:websocketOrderBook_contract)
 |b|array |t(:row_comment_resp_bid)    |
 |a |array|t(:row_comment_resp_ask)  |
 |u |number |t(:row_comment_updated_id)  |
+|seq |number |t(:row_comment_cross_seq) |
 
 
 
