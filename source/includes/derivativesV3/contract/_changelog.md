@@ -1,4 +1,8 @@
 # t(:changelog)
+## 2022-11-10
+### WebSocket API
+- [t(:websocketOrderBookDepth)](#t-websocketorderbookdepth) [t(:changelog_update)]
+  - t(:restapi_update_20221110)
 
 ## 2022-09-13
 ### REST API

@@ -2897,6 +2897,7 @@ zh-my:
   restapi_update_20220919: 新增響應字段<code>affiliate_id</code>
   restapi_update_200220916: 更新<code>limit</code>和<code>startTime</code>以及<code>endTime</code>的入参規則
   restapi_update_20220914: 新增支持帳戶類型<code>UNIFIED</code>、<code>OPTION</code>
+  restapi_update_20221110: 新增字段 <code>seq</code>和 orderbook.1.{symbol} 公共topic
   restapi_update_200220913_1: 更新響應字段<code>BT</code>的數據類型，從<code>string</code>改為<code>boolean</code>
   restapi_update_200220913: 新增接口，用於查詢限倉信息。
   restapi_update_200220907: 新增字段<code>is_block_trade</code>
@@ -5051,6 +5052,7 @@ zh-my:
     <b>type</b>: <code>snapshot</code>=完整的報文，<code>delta</code>=增量報文<br>
     如果因為Bybit服務原因，會重新發送snapshot報文，該報文已保證是最新且準確的.<br><br>
     <b>正向永續:</b><br/>
+    1檔數據，推送頻率：<b>10ms</b> <br>
     25檔數據（<b>2022年12月1日廢棄</b>），推送頻率: <b>20ms</b> <br>
     50檔數據，推送頻率：<b>20ms</b> <br>
     200檔數據，推送頻率: <b>100ms</b> <br>
@@ -5061,6 +5063,7 @@ zh-my:
     100檔數據<br/>
     <br>
     <b>Topic: (備註：Option只有25和100檔)</b><br>
+    <code>orderbook.1.{symbol}</code><br>
     <code>orderbook.25.{symbol}</code><br>
     <code>orderbook.50.{symbol}</code><br>
     <code>orderbook.100.{symbol}</code><br>
@@ -5073,12 +5076,14 @@ zh-my:
     快照包之後，每當orderbook發生變化，websocket將會繼續推送這些增量數據. 收到snapshot的報文，就需要重置本地的orderbook.<br><br>
     <b>type</b>: <code>snapshot</code>=完整的報文，<code>delta</code>=增量報文<br>
     如果因為Bybit服務原因，會重新發送snapshot報文，該報文已保證是最新且準確的.<br><br>
+    1檔數據，推送頻率: <b>10ms</b> <br>
     25檔數據（<b>2022年12月1日廢棄</b>），推送頻率：<b>20ms</b> <br>
     50檔數據，推送頻率: <b>20ms</b> <br>
     200檔數據，推送頻率: <b>100ms</b> <br>
     500檔數據（<b>2022年12月1日廢棄</b>），推送頻率：<b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
+    <code>orderbook.1.{symbol}</code><br>
     <code>orderbook.25.{symbol}</code><br>
     <code>orderbook.50.{symbol}</code><br>
     <code>orderbook.200.{symbol}</code><br>

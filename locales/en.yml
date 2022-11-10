@@ -3328,6 +3328,7 @@ en:
   restapi_update_20220919: Add new response field <code>affiliate_id</code>
   restapi_update_200220916: Update the rule of <code>limit</code> and <code>startTime</code> <code>endTime</code>.
   restapi_update_20220914: Support new account type <code>UNIFIED</code>, <code>OPTION</code>
+  restapi_update_20221110: Add <code>seq</code> field and orderbook.1.{symbol} public topic
   restapi_update_200220913_1: Update the data type of response field <code>BT</code> from <code>string</code> to <code>boolean</code>
   restapi_update_200220913: Add new api to query open interest limit information
   restapi_update_200220907: Add new response field <code>is_block_trade</code>
@@ -5485,6 +5486,7 @@ en:
     <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
     If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
     <b>Linear perpetual:</b><br/>
+    1 level data, push frequency: <b>10ms</b> <br>
     25 level data <b>(1st Dec 2022 offline)</b>, push frequency: <b>20ms</b> <br>
     50 level data, push frequency: <b>20ms</b> <br>
     200 level data, push frequency: <b>100ms</b> <br>
@@ -5495,6 +5497,7 @@ en:
     100 level data<br/>
     <br>
     <b>Topic: (note. option has 25 & 100 level only)</b><br>
+    <code>orderbook.1.{symbol}</code><br>
     <code>orderbook.25.{symbol}</code><br>
     <code>orderbook.50.{symbol}</code><br>
     <code>orderbook.100.{symbol}</code><br>
@@ -5507,12 +5510,14 @@ en:
     Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
     <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
     If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
+    1 level data, push frequency: <b>10ms</b> <br>
     25 level data<b>(1st Dec 2022 offline)</b>, push frequency: <b>20ms</b> <br>
     50 level data, push frequency: <b>20ms</b> <br>
     200 level data, push frequency: <b>100ms</b> <br>
     500 level data<b>(1st Dec 2022 offline)</b>, push frequency: <b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
+    <code>orderbook.1.{symbol}</code><br>
     <code>orderbook.25.{symbol}</code><br>
     <code>orderbook.50.{symbol}</code><br>
     <code>orderbook.200.{symbol}</code><br>
