@@ -7853,7 +7853,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
         <span class="dl">"</span><span class="s2">0.602</span><span class="dl">"</span>
       <span class="p">]</span>
     <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span><span class="mi">3566050</span>
+      <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span><span class="mi">3566050</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">seq</span><span class="dl">"</span><span class="p">:</span><span class="mi">20452405354</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -7890,7 +7891,8 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
         <span class="dl">"</span><span class="s2">0.397</span><span class="dl">"</span>
       <span class="p">]</span>
     <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span><span class="mi">3566051</span>
+      <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span><span class="mi">3566051</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">seq</span><span class="dl">"</span><span class="p">:</span><span class="mi">20452405354</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -7951,6 +7953,11 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 <td style="text-align: left">u</td>
 <td style="text-align: left">number</td>
 <td>Update id, is always in sequence. Occasionally, you'll receive "u"=1, which is a snapshot data due to the restart of the service. So please overwrite the locally saved orderbook</td>
+</tr>
+<tr>
+<td style="text-align: left">seq</td>
+<td style="text-align: left">number</td>
+<td>Cross sequence (internal value)</td>
 </tr>
 </tbody></table>
 <h3 id='t-websockettrade'>trade</h3>
