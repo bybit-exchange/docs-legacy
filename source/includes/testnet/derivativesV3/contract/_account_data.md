@@ -164,7 +164,7 @@ GET
 |<a href="#order-status-orderstatus-stoporderstatus">orderStatus</a> |false |string |t(:linear_account_row_comment_orderStatus) |
 |orderFilter |false |string |t(:row_comment_orderFilter_v3) |
 |limit |false |integer |t(:row_comment_limit) |
-|cursor |false |string |t(:row_comment_cursor) |
+|cursor |false |string |t(:row_comment_resp_cursor) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -468,7 +468,7 @@ GET
 |settleCoin |false |string | t(:contract_comment_realtimeOrderSettleCoin)|
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string | t(:row_comment_orderFilter_v3)|
 |limit |false |number |t(:row_comment_limit) |
-|cursor |false |string |t(:row_comment_cursor_v3)   |
+|cursor |false |string |t(:row_comment_resp_cursor)   |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
