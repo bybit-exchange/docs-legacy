@@ -24,12 +24,11 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|reqExample |<b>true</b> |string | |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|respExample |string | |
+|registerDate |DateTime |t(:taxRegisterDate) |
 
 
 ## t(:requestExportRepot)
@@ -57,7 +56,10 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|reqExample |<b>true</b> |string | |
+|reportType |<b>true</b> |string |<a href="#reporttype-reporttype">Report Type</a> |
+|reportNumber |<b>true</b> |number |<a href="#reportnumber-reportnumber">Report Number</a> |
+|startTime |<b>true</b> |number |t(:taxStartTime) |
+|endTime |<b>true</b> |number |t(:taxEndTime) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -83,19 +85,19 @@ GET
 ```
 
 <p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=vpoL2>/tax/user/register</span></code>
+POST
+<code><span id=vpoL2>/tax/file/status</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|reqExample |<b>true</b> |string | |
+|queryid |<b>true</b> |string |t(:taxQueryId) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|respExample |string | |
+|Result |number |t(:taxExportStatus) |
 
 
 ## t(:retrieveDataExport)
@@ -123,9 +125,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|reqExample |<b>true</b> |string | |
+|queryid |<b>true</b> |string |t(:taxQueryId) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|respExample |string | |
+|report |string |t(:taxReportUrl) |
+
+
+

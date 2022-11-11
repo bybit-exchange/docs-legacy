@@ -5882,10 +5882,27 @@ en:
   requestExportRepot: Request Export Report
   exportReportStatus: Get Export Report Status
   retrieveDataExport: Retrieve Data Export
-  dataExplain: Report Type Explanation
+  dataExplanation: Data Explanation
   tradeHistoryType: Trade History
   PNLHistoryType: P&L History
   earnHistoryType: Earn History
   depositNWithdrawHistoryType: Deposit And Withdraw History
   bonusHistoryType: Bonus History
   airdropHistoryType: Airdrop History
+  taxRegisterDate: Date that the specific user registers on the platform
+  taxStartTime: UNIX Time. This is in milliseconds. TimeStamp for Report Start Time. The StartTime is included in the Time range for the Data Export.
+  taxEndTime: UNIX Time. This is in milliseconds. TimeStamp for Report End Time. The EndTime is not included in the Time range for the Data Export. Do note that for each request, we will only allow up to 2 months time range search from the StartTime.
+  taxQueryId: Report Request ID
+  taxExportStatus: 0 Queued;1 Processing;2 Processed;3 Expired
+  taxReportUrl: requestId:{customisedURL}
+
+  taxOrderId: Order ID of the closing order.
+  taxTradeId: Trade ID of the closing order.
+  taxSymbol: Name of the trading pair in the form of <QuoteCoin><BaseCoin>
+  taxSide: Side. Either Buy or Sell direction
+  taxQuoteCoin: Symbol of the Quote Coin
+  taxBaseCoin: Symbol of the Executed Coin
+  taxExecValue: Transacted volume
+  taxTradingFee: Trading fee for a single fill
+  taxFeeToken: Token of the Trading Fee
+  taxTradeTime: UNIX Time. This is in milliseconds. Time when the trade was executed
