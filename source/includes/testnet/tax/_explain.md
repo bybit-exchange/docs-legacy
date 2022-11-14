@@ -267,18 +267,27 @@
 |tokenId |string |t(:taxTokenId) |
 |transferType |string |t(:taxTransferType) |
 |network |string |t(:taxNetwork) |
-
 |feeToken |string |t(:taxFeeToken) |
 |tradingFee |string |t(:taxTradingNftFee) |
 |orderTime |int |t(:taxOrderTime) |
 |completedTime |int |t(:taxCompletedTime) |
 
 ### t(:bonusHistoryType)
-
+#### t(:couponHistory)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|respExample |string | |
+|coin |string |t(:taxCouponCoin) |
+|finalAmount |string |t(:taxCouponFinalAmount) |
+|completedTime |int |t(:taxCompletedTime) |
+
+#### t(:bonusHistory)
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|coin |string |t(:taxBonusCoin) |
+|finalAmount |string |t(:taxBonusFinalAmount) |
+|completedTime |int |t(:taxCompletedTime) |
 
 
 ### t(:airdropHistoryType)
@@ -286,4 +295,8 @@
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|respExample |string | |
+|coin |string |t(:taxAirdropCoin) |
+|finalAmount |string |t(:taxAirdropFinalAmount) |
+|transferType |string |t(:taxAirdropTransferType) |
+|transferDescription |string |t(:taxTransferDescription) |
+|completedTime |int |t(:taxCompletedTime) |
