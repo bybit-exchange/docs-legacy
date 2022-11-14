@@ -175,12 +175,103 @@
 |tradeTime |int |t(:taxTradeTime) |
 
 ### t(:depositNWithdrawHistoryType)
-
+#### t(:cryptoDepositHistory)
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|respExample |string | |
+|txid |string |t(:taxTxid) |
+|depositType |string |t(:taxDepositType) |
+|chainType |string |t(:taxChainType) |
+|symbol |string |t(:taxSymbol) |
+|finalAmount |string |t(:taxFinalAmount) |
+|orderTime |int |t(:taxOrderTime) |
+|completedTime |int |t(:taxCompletedTime) |
 
+#### t(:p2pDepositHistory)
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderID |string |t(:taxOrderID) |
+|orderType |string |t(:taxOrderType) |
+|p2pSide |string |t(:taxP2PSide) |
+|fiat |string |t(:taxFiat) |
+|fiatAmount |string |t(:taxFiatAmount) |
+|coin |string |t(:taxCoin) |
+|coinPrice |string |t(:taxCoinPrice) |
+|coinAmount |string |t(:taxCoinAmount) |
+|orderTime |int |t(:taxOrderTime) |
+|completedTime |int |t(:taxCompletedTime) |
+
+#### t(:fiatDepositWithdrawHistory)
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderID |string |t(:taxOrderID) |
+|type |string |t(:taxType) |
+|fiat |string |t(:taxFiat) |
+|depositAmount |string |t(:taxDepositAmount) |
+|finalAmount |string |t(:taxFinalAmount) |
+|fee |string |t(:taxFee) |
+|paymentMethods |string |t(:taxPaymentMethods) |
+|orderTime |int |t(:taxOrderTime) |
+|completedTime |int |t(:taxCompletedTime) |
+
+#### t(:expressOrderDepositHistory)
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderID |string |t(:taxOrderID) |
+|side |string |t(:taxExpressOrderDepositSide) |
+|fiat |string |t(:taxFiat) |
+|depositAmount |string |t(:taxExpressOrderDepositAmount) |
+|destinationCoin |string |t(:taxDestinationCoin) |
+|coinPrice |string |t(:taxCoinPrice) |
+|finalAmount |string |t(:taxFinalAmount) |
+|fee |string |t(:taxExpressOrderDepositFee) |
+|orderTime |int |t(:taxOrderTime) |
+|completedTime |int |t(:taxCompletedTime) |
+
+#### t(:thirdPartyDepositHistory)
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderID |string |t(:taxOrderID) |
+|txid |string |t(:taxTxid) |
+|platform |string |t(:taxPlatform) |
+|fiat |string |t(:taxFiat) |
+|depositAmount |string |t(:taxDepositAmount) |
+|destinationCoin |string |t(:taxDestinationCoin) |
+|coinPrice |string |t(:taxCoinPrice) |
+|finalAmount |string |t(:taxFinalAmount) |
+|orderTime |int |t(:taxOrderTime) |
+|completedTime |int |t(:taxCompletedTime) |
+
+#### t(:cryptoWithdrawHistory)
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|txid |string |t(:taxTxid) |
+|chainType |string |t(:taxChainType) |
+|coin |string |t(:taxCoin) |
+|finalAmount |string |t(:taxFinalAmount) |
+|fee |string |t(:taxCryptoWithdrawFee) |
+|orderTime |int |t(:taxOrderTime) |
+|completedTime |int |t(:taxCompletedTime) |
+
+#### t(:nftDepositWithdrawalHistory)
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|orderId |string |t(:taxOrderID) |
+|TxHash |string |t(:taxTxHash) |
+|tokenId |string |t(:taxTokenId) |
+|transferType |string |t(:taxTransferType) |
+|network |string |t(:taxNetwork) |
+
+|feeToken |string |t(:taxFeeToken) |
+|tradingFee |string |t(:taxTradingNftFee) |
+|orderTime |int |t(:taxOrderTime) |
+|completedTime |int |t(:taxCompletedTime) |
 
 ### t(:bonusHistoryType)
 
