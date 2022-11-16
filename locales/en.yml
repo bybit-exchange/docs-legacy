@@ -5281,7 +5281,7 @@ en:
   exchange_history: Asset Exchange History
   transfer: Transfer
   # public param comment used in v3
-  dv_category: Derivatives products category.
+  dv_category: Derivatives products category. If category is not passed, then return <code>""</code>
   dv_categorySuffix_1: For now, <code>linear</code> <code>inverse</code> including inverse futures are available
   dv_categorySuffix_2: For now, <code>linear</code> <code>inverse</code> <code>option</code> are available
   dv_categorySuffix_3: For now, <code>linear</code> <code>inverse</code> are available
@@ -5318,7 +5318,7 @@ en:
   # orderbook
   # reqParam
   dv_orderbookPara: Enable 500 orders for orderbook API
-  dv_orderbookLimit: Optional value 25 or 500. Default 25.
+  dv_orderbookLimit: 25 by default, 500 is max. If <b>option</b>, only 25 is available
   # respParam
 
   dv_orderbookBids: Buyer. Order by price asc
@@ -5352,7 +5352,7 @@ en:
   dv_tickerHead: Get Latest Information For Symbol
   dv_marketTickerPara: Get all latest information for symbol
   # reqParam:
-  dv_tickerSymbol: Name of the trading pair. If category is <code>option</code> REQUIRED
+  dv_tickerSymbol: Symbol name. If category is <code>option</code> REQUIRED, and if symbol belongs to option, category=option is REQUIRED
   # respParam
 
   dv_tickPredictedDeliveryPrice: Predicted delivery price. Applicable to inverse future and option. There will be value 30 mins before delivery
@@ -6002,3 +6002,22 @@ en:
 
   # openAPI v3 - orderStatus
   orderStatus_v3: Query list of orders in designated states. If this parameter is not passed, the orders in all states shall be enquired by default.
+
+  # derivatives v3 - category enum
+  dv3_category_future: Future, including linear perp, USDC perp, inverse perp & inverse futures
+  dv3_category_linear: Linear perpetual, including USDC perp. It is still compatible if passed
+  dv3_category_inverse: Inverse futures, including inverse perpetual, inverse futures. It is still compatible if passed
+  dv3_category_option: USDC Option
+
+  dv3_orderbook_symbol: Symbol name. <code>category</code>=option is <b>required</b> when symbol is option
+  dv3_orderbook_category: Derivatives products category. If symbol belongs to future, category won't validate with symbol
+  dv3_kline_category: Derivatives products category. <code>option</code> is not supported
+  dv3_ticker_category: Derivatives products category. If both <code>category</code> and <code>symbol</code> are not passed，it returns all futures data by default
+  dv3_instrument_category: Derivatives products category. If both <code>category</code> and <code>symbol</code> are not passed，it returns all futures data by default
+  dv3_instrument_symbol: Symbol name. If symbol belongs to option, then category=option is required
+  dv3_instrument_unifiedMarginTrade: Weather support unified margin trade or not. This param is for future data ONLY
+  dv3_riskLimit_category: Derivatives products category. <code>option</code> is not supported.
+  dv3_deliveryPrice_category: Derivatives products category. <code>option</code> ONLY
+  dv3_recentTrade_category: |
+    Derivatives products category. <li>If <code>category</code> not passed, or passed with <code>future</code>, then <code>symbol</code> is <b>required</b></li><li>If <code>category</code>=option, then <code>symbol</code> is optional</li>
+  premium_index_price_kline: Get Premium Index Price Kline

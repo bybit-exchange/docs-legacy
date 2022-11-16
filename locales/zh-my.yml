@@ -4846,7 +4846,7 @@ zh-my:
   exchange_history: 兌換紀錄
   transfer: 劃轉
   # public param comment used in v3
-  dv_category: 衍生品產品類型.
+  dv_category: 衍生品產品類型. 若category不传，则返回<code>""</code>
   dv_categorySuffix_1: 目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)
   dv_categorySuffix_2: 目前支持正向合約：linear; 反向合約：inverse; 期權：option
   dv_categorySuffix_3: 目前支持正向合約：linear; 反向合約：inverse
@@ -4884,7 +4884,7 @@ zh-my:
   # orderbook
   # reqParam
   dv_orderbookPara: 增加500檔位的OrderBook數據
-  dv_orderbookLimit: 默認25. 可選值25和500
+  dv_orderbookLimit: 默認25. 可選值[1,500]. 若是<b>option</b>，則只支持25
   # respParam
 
   dv_orderbookBids: 買方. 排序按照價格從小到大
@@ -4917,7 +4917,7 @@ zh-my:
   dv_tickerHead: 衍生品最新行情信息
   dv_marketTickerPara: 所有衍生品產品最新行情信息
   # reqParam:
-  dv_tickerSymbol: 合約類型. 若category是<code>option</code>則必傳
+  dv_tickerSymbol: 合約類型. 若category是<code>option</code>則必傳. 若symbol是屬於option, 則category必傳
   # respParam
 
   dv_tickPredictedDeliveryPrice: 預期交割價, 適用於反向交割和期權, 交割前30分鐘才有值
@@ -5537,3 +5537,22 @@ zh-my:
 
   # openAPI v3 - orderStatus
   orderStatus_v3: 指定訂單狀態查詢訂單列表。不傳該參數則默認查詢所有狀態訂單。
+  # derivatives v3 - category enum
+  dv3_category_future: 期貨, 包含正向合約、反向合約
+  dv3_category_linear: 正向永續合約, 包含USDC永續. 代碼依舊兼容該值
+  dv3_category_inverse: 反向合約，包含反向永續和反向交割. 代碼依舊兼容該值
+  dv3_category_option: 期權
+  # derivative v3 - merge usdc, some params comment need to be updated
+  dv3_orderbook_symbol: 合約名稱. 若合約屬於option，則<code>category</code>=option<b>必傳</code>
+  dv3_orderbook_category: 衍生品類別. 若symbol為合約，則category不與symbol進行校驗.
+  dv3_kline_category: 衍生品類別. 不支持<code>option</code>
+  dv3_ticker_category: 衍生品類別. 若<code>category</code>和<code>symbol</code>都不傳，則默認返回所有正反向合約數據
+  dv3_instrument_category: 衍生品類別. 若<code>category</code>和<code>symbol</code>都不傳，則默認返回所有正反向合約數據
+  dv3_instrument_symbol: 合約名稱. 若合約屬於option，則<code>category</code>=option<b>必傳</code>
+  dv3_instrument_unifiedMarginTrade: 是否支持統一保證金交易. 該字段僅存在於合約數據中
+  dv3_riskLimit_category: 衍生品類別. 不支持<code>option</code>.
+  dv3_deliveryPrice_category: 衍生品類別. 僅支持<code>option</code>
+  dv3_recentTrade_category: |
+    衍生品類別. <li>若<code>category</code>不傳或者傳future, 則<code>symbol</code>必傳</li><li>若<code>category</code>=option, 則<code>symbol</code>非必傳</li>
+
+  premium_index_price_kline: 查詢溢價指數價格K線數據
