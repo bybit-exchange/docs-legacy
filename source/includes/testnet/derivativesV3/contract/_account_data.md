@@ -308,7 +308,8 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|symbol |<b>true</b> |string | t(:row_comment_symbol) |
+|symbol |false |string | t(:row_comment_symbol) |
+|settleCoin |false |string | t(:contract_cancelAll_settleCoin) |
 
 
 <p class="fake_header">t(:responseparameters)</p>

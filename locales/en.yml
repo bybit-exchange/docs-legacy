@@ -3311,6 +3311,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221116: Add new request param. Support cancel the order by settle coin.
   restapi_update_20221108: Add new public websocket topic
   restapi_update_20221103_1: Add new response field <code>updateTimestamp</code>. Depreciate field <code>updatedAt</code>
   restapi_update_20221103: Add new response parameter. <code>unified</code>
@@ -5874,3 +5875,5 @@ en:
     Get latest symbol info by base coin
     <p>Topic format:</p>
     <p>instrument_info.all.{baseCoin},such as: instrument_info.all.BTC</p>
+  contract_cancelAll_settleCoin: |
+    Cancel orders by settle coin. <li>If <code>settleCoin</code>=USDT, then cancel all USDT perp orders</li><li>if <code>settleCoin</code>=BTC, then cancel BTCUSD/BTCUSDH23</li>

@@ -2880,6 +2880,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221116: 新增入参字段. 支持按結算幣種來取消訂單
   restapi_update_20221108: 新增公共推送頻道
   restapi_update_20221103_1: 新增響應字段<code>updateTimestamp</code>. 廢棄字段<code>updatedAt</code>
   restapi_update_20221103: 新增響應字段 <code>unified</code>
@@ -5411,3 +5412,5 @@ zh-my:
     獲取基於標的資產的最新合約信息
     <p>topic的格式:</p>
     <p>instrument_info.all.{baseCoin},such as: instrument_info.all.BTC</p>
+  contract_cancelAll_settleCoin: |
+    按照結算幣種取消訂單. <li>若<code>settleCoin</code>=USDT, 則取消所有USDT永續訂單</li><li>若<code>settleCoin</code>=BTC, 則取消所有BTCUSD這種反向合約
