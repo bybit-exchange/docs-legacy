@@ -775,6 +775,7 @@ POST
 |orderStatus |string|t(:usdcOptionOrderStatus)|
 |updateTimeStamp|string|t(:row_resp_comment_updateTime)|
 |takeProfit |string|t(:takeProfit)|
+|cumExecValue |string|t(:cumExecValue)|
 |createdAt|string|t(:createdAt)|
 |orderPnl |string|t(:usdcOrderPnl)|
 |t(:row_parameter_price) |string|t(:usdcOrderPrice)|

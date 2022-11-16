@@ -2880,6 +2880,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221116: 新增入参字段. 支持按結算幣種來取消訂單
   restapi_update_20221108: 新增公共推送頻道
   restapi_update_20221103_1: 新增響應字段<code>updateTimestamp</code>. 廢棄字段<code>updatedAt</code>
   restapi_update_20221103: 新增響應字段 <code>unified</code>
@@ -4148,7 +4149,7 @@ zh-my:
   perpBasePrice: |
     下單時市價. <code>orderFilter</code>為StopOrder時必傳. 用於和triggerPrice值進行比較，確定當前條件委托是看空到triggerPrice時觸發還是看多到triggerPrice觸發。主要是用來標識當前條件單預期的方向
   createdAt: 創建時間
-  cashFlow: 現金流
+  cashFlow: 訂單整體實際發生的資金變化，不包含fee
   realisedPnl: 平倉累計損益
   updatedAt: 更新時間
   updatedAt_depreciate: 請忽略
@@ -5411,3 +5412,6 @@ zh-my:
     獲取基於標的資產的最新合約信息
     <p>topic的格式:</p>
     <p>instrument_info.all.{baseCoin},such as: instrument_info.all.BTC</p>
+  contract_cancelAll_settleCoin: |
+    按照結算幣種取消訂單. <li>若<code>settleCoin</code>=USDT, 則取消所有USDT永續訂單</li><li>若<code>settleCoin</code>=BTC, 則取消所有BTCUSD這種反向合約
+  option_wss_lengthLimit_warning: 請注意, 發送的訂閱消息長度應當控制在25k字符以內.
