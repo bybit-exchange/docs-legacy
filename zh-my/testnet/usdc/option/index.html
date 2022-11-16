@@ -4424,6 +4424,11 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <td>止盈價格</td>
 </tr>
 <tr>
+<td style="text-align: left">cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>累計成交價值</td>
+</tr>
+<tr>
 <td style="text-align: left">createdAt</td>
 <td style="text-align: left">string</td>
 <td>創建時間</td>
@@ -4486,7 +4491,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">cashFlow</td>
 <td style="text-align: left">string</td>
-<td>現金流</td>
+<td>訂單整體實際發生的資金變化，不包含fee</td>
 </tr>
 <tr>
 <td style="text-align: left">slTriggerBy</td>
@@ -4982,7 +4987,7 @@ curl https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-order-hi
 <tr>
 <td style="text-align: left">cashFlow</td>
 <td style="text-align: left">string</td>
-<td>現金流</td>
+<td>訂單整體實際發生的資金變化，不包含fee</td>
 </tr>
 <tr>
 <td style="text-align: left">change</td>
@@ -6499,6 +6504,10 @@ DCP的開和關, 僅限機構類型用戶
 <p>如果在<b>10秒鍾</b>內，客戶端重新建連並恢復心跳"ping"，則計時會被重置，在下一次斷連時重新開始計時。</p>
 </p>
 <h2 id='t-subscribe'>訂閱方式</h2><h3 id='t-websocketfilters'>Websocket訂閱方式</h3>
+<aside class="warning">
+請注意, 發送的訂閱消息長度應當控制在25k字符以內.
+</aside>
+
 <blockquote>
 <p>直接訂閱</p>
 </blockquote>
@@ -8067,7 +8076,7 @@ DCP的開和關, 僅限機構類型用戶
 <tr>
 <td style="text-align: left">cashFlow</td>
 <td style="text-align: left">string</td>
-<td>現金流</td>
+<td>訂單整體實際發生的資金變化，不包含fee</td>
 </tr>
 <tr>
 <td style="text-align: left">realisedPnl</td>

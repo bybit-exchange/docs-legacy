@@ -4430,6 +4430,11 @@ The endpoint only supports up to 30 days of queried records
 <td>Take-profit price (Perpetual)</td>
 </tr>
 <tr>
+<td style="text-align: left">cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>Total order value of filled orders</td>
+</tr>
+<tr>
 <td style="text-align: left">createdAt</td>
 <td style="text-align: left">string</td>
 <td>Creation time</td>
@@ -4492,7 +4497,7 @@ The endpoint only supports up to 30 days of queried records
 <tr>
 <td style="text-align: left">cashFlow</td>
 <td style="text-align: left">string</td>
-<td>Cash flow</td>
+<td>The cash flow of the whole order actually occurred, fee is not included</td>
 </tr>
 <tr>
 <td style="text-align: left">slTriggerBy</td>
@@ -4990,7 +4995,7 @@ The endpoint only supports up to 30 days of queried records. An error will be re
 <tr>
 <td style="text-align: left">cashFlow</td>
 <td style="text-align: left">string</td>
-<td>Cash flow</td>
+<td>The cash flow of the whole order actually occurred, fee is not included</td>
 </tr>
 <tr>
 <td style="text-align: left">change</td>
@@ -6522,6 +6527,10 @@ ONLY VIP clients are allowed to turn on/off DCP
 <p>If within <b>10 seconds</b>, the client reconnects and resumes the heartbeat "ping", the timing will be reset and restarted at the next disconnection.</p>
 </p>
 <h2 id='t-subscribe'>How to Subscribe to Topics</h2><h3 id='t-websocketfilters'>Understanding Websocket Filters</h3>
+<aside class="warning">
+Be careful of the length of message should be up to 25k characters.
+</aside>
+
 <blockquote>
 <p>How to subscribe with a filter</p>
 </blockquote>
@@ -8092,7 +8101,7 @@ There is only <b>delta</b> stream available. It is recommended to call <a href="
 <tr>
 <td style="text-align: left">cashFlow</td>
 <td style="text-align: left">string</td>
-<td>Cash flow</td>
+<td>The cash flow of the whole order actually occurred, fee is not included</td>
 </tr>
 <tr>
 <td style="text-align: left">realisedPnl</td>

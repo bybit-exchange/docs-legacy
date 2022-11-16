@@ -1497,7 +1497,7 @@ clipboard.on('error', function(e) {
   <li>For example, you received <code>11.969999</code> but you expected <code>11.97</code>.
   <li>Some values are returned to too many decimal places, or a fraction too high or low, due to a float precision problem.</li>
   <li>For now, we recommend rounding the received value to the correct decimal place. This can be done with reference to the <a href="#t-querysymbol">Query Symbol</a> endpoint.</li>
-  <li>This issue will be fixed in the next major version of the API; unfortunately, it is not fixable in the short-term.</li>
+  <li><b>This issue <strike>will be</strike> has been fixed in the latest major version of the API: v3.</b> You can see the documentation for the v3 websocket <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-websocket">here</a>.</li>
 </ul>
 </p>
 <h2 id='t-faq_data_resilience'>How can I ensure I am using up-to-date data?</h2>
@@ -3876,9 +3876,16 @@ function copyStringToClipboard (endpoint) {
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
+</tr>
+<tr>
+<td style="text-align: left">settleCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>按照結算幣種取消訂單. <li>若<code>settleCoin</code>=USDT, 則取消所有USDT永續訂單</li><li>若<code>settleCoin</code>=BTC, 則取消所有BTCUSD這種反向合約
+</td>
 </tr>
 </tbody></table>
 

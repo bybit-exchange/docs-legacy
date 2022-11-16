@@ -780,6 +780,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2022-11-16" class="toc-h2 toc-link" data-title="2022-11-16">2022-11-16</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-11-10" class="toc-h2 toc-link" data-title="2022-11-10">2022-11-10</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -791,7 +799,7 @@
                     <a href="#2022-09-13" class="toc-h2 toc-link" data-title="2022-09-13">2022-09-13</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
@@ -1433,7 +1441,15 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://www.npmjs.com/package/bybit-api"><strong>bybit-api</strong></a> - <strong>Community NodeJS SDK</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-11-10'>2022-11-10</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-11-16'>2022-11-16</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-contract_cancelallorders">Cancel all orders</a> [update]
+
+<ul>
+<li>Add new request param. Support cancel the order by settle coin.</li>
+</ul></li>
+</ul>
+<h2 id='2022-11-10'>2022-11-10</h2><h3 id='websocket-api'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketorderbookdepth">orderbook</a> [update]
 
@@ -1441,7 +1457,7 @@ clipboard.on('error', function(e) {
 <li>Add <code>seq</code> field and orderbook.1.{symbol} public topic</li>
 </ul></li>
 </ul>
-<h2 id='2022-09-13'>2022-09-13</h2><h3 id='rest-api'>REST API</h3>
+<h2 id='2022-09-13'>2022-09-13</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-oilimitinfo">Get Open Interest Limit Info</a> [new]
 
@@ -1510,7 +1526,7 @@ clipboard.on('error', function(e) {
   <li>For example, you received <code>11.969999</code> but you expected <code>11.97</code>.
   <li>Some values are returned to too many decimal places, or a fraction too high or low, due to a float precision problem.</li>
   <li>For now, we recommend rounding the received value to the correct decimal place. This can be done with reference to the <a href="#t-querysymbol">Query Symbol</a> endpoint.</li>
-  <li>This issue will be fixed in the next major version of the API; unfortunately, it is not fixable in the short-term.</li>
+  <li><b>This issue <strike>will be</strike> has been fixed in the latest major version of the API: v3.</b> You can see the documentation for the v3 websocket <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-websocket">here</a>.</li>
 </ul>
 </p>
 <h2 id='t-faq_data_resilience'>How can I ensure I am using up-to-date data?</h2>
@@ -3903,9 +3919,16 @@ The response is in the snapshot format.
 </thead><tbody>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">settleCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Cancel orders by settle coin. <li>If <code>settleCoin</code>=USDT, then cancel all USDT perp orders</li><li>if <code>settleCoin</code>=BTC, then cancel BTCUSD/BTCUSDH23</li>
+</td>
 </tr>
 </tbody></table>
 
