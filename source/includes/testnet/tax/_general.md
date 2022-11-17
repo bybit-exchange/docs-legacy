@@ -18,7 +18,7 @@
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoL2>/tax/user/register</span></code>
+<code><span id=vpoL2>/fht/compliance/tax/v3/public/registertime</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -28,7 +28,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|registerDate |DateTime |t(:taxRegisterDate) |
+|registerTime |DateTime |t(:taxRegisterDate) |
 
 
 ## t(:requestExportRepot)
@@ -50,7 +50,7 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoL2>/xx/xxx</span></code>
+<code><span id=vpoL2>/fht/compliance/tax/v3/public/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -86,7 +86,7 @@ GET
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoL2>/tax/file/status</span></code>
+<code><span id=vpoL2>/fht/compliance/tax/v3/public/status</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -119,7 +119,7 @@ POST
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=vpoL2>/tax/file/url</span></code>
+<code><span id=vpoL2>/fht/compliance/tax/v3/public/url</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
