@@ -161,7 +161,7 @@ GET
 |orderId |false |string |t(:account_row_comment_orderId) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
-|<a href="#order-status-orderstatus-stoporderstatus">orderStatus</a> |false |string |t(:linear_account_row_comment_orderStatus) |
+|<a href="#order-status-orderstatus-stoporderstatus">orderStatus</a> |false |string |t(:orderStatus_v3) |
 |orderFilter |false |string |t(:row_comment_orderFilter_v3) |
 |limit |false |integer |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_resp_cursor) |

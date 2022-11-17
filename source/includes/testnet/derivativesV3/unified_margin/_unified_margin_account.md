@@ -410,7 +410,7 @@ GET
 |baseCoin |false |string |t(:unified_baseCoin_param_2)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|orderStatus |false |string |t(:row_comment_orderStatus_v3)   |
+|orderStatus |false |string |t(:orderStatus_v3)   |
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
