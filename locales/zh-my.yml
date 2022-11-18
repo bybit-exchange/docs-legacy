@@ -5073,7 +5073,7 @@ zh-my:
   websocketOrderBook_contract: |
     <b>說明: </b>
     獲取不同檔位的orderbook數據.<br>
-    訂閱成功後，會立即得到一個當前快照包的推送消息. orderbook數據按訂單價格升序排序，從最低價格的買單到最高價格的賣單.
+    訂閱成功後，會立即得到一個當前快照包的推送消息. orderbook數據按訂單價格升序排序，買單是最高到最低，賣單是最低到最高.
     快照包之後，每當orderbook發生變化，websocket將會繼續推送這些增量數據. 收到snapshot的報文，就需要重置本地的orderbook.<br><br>
     <b>type</b>: <code>snapshot</code>=完整的報文，<code>delta</code>=增量報文<br>
     如果因為Bybit服務原因，會重新發送snapshot報文，該報文已保證是最新且準確的.<br><br>
