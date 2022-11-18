@@ -3551,7 +3551,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#order-status-orderstatus-stoporderstatus">orderStatus</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>指定訂單狀態查詢訂單列表。不傳該參數則默認查詢所有狀態訂單。該參數支持多狀態查詢，狀態之間用英文逗號分割。</td>
+<td>指定訂單狀態查詢訂單列表。不傳該參數則默認查詢所有狀態訂單。</td>
 </tr>
 <tr>
 <td style="text-align: left">orderFilter</td>
@@ -6409,75 +6409,66 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <p>快照推送示例 - 連接建立成功後首次推送</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658200820646</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22220.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">1.300</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22221.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">1.150</span><span class="dl">"</span>
-      <span class="p">]</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22236.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">18.194</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22236.50</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">0.602</span><span class="dl">"</span>
-      <span class="p">]</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span><span class="mi">3566050</span>
-  <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668748553479</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17053.00</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//price</span>
+                <span class="dl">"</span><span class="s2">0.021</span><span class="dl">"</span> <span class="c1">//size</span>
+            <span class="p">],</span>
+            <span class="p">....</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17016.50</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.020</span><span class="dl">"</span>
+            <span class="p">],</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17054.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">6.288</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">....</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17166.50</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.049</span><span class="dl">"</span>
+            <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3083181</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7545268447</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>增量推送示例 - 快照數據推送後，推送的增量數據</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658200820655</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22224.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span>
-      <span class="p">]</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22247.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">1.406</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22240.50</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">9.046</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22236.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">18.195</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22244.50</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">0.397</span><span class="dl">"</span>
-      <span class="p">]</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span><span class="mi">3566051</span>
-  <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668748553556</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17168.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.300</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17070.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3083182</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7545268448</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><b>說明: </b>
 獲取不同檔位的orderbook數據.<br>
-訂閱成功後，會立即得到一個當前快照包的推送消息. orderbook數據按訂單價格升序排序，從最低價格的買單到最高價格的賣單.
+訂閱成功後，會立即得到一個當前快照包的推送消息. orderbook數據按訂單價格升序排序，買單是最高到最低，賣單是最低到最高.
 快照包之後，每當orderbook發生變化，websocket將會繼續推送這些增量數據. 收到snapshot的報文，就需要重置本地的orderbook.<br><br>
 <b>type</b>: <code>snapshot</code>=完整的報文，<code>delta</code>=增量報文<br>
 如果因為Bybit服務原因，會重新發送snapshot報文，該報文已保證是最新且準確的.<br><br>
@@ -7661,7 +7652,7 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <tr>
 <td style="text-align: left">lastExecQty</td>
 <td style="text-align: left">string</td>
-<td>最近一次成交數量</td>
+<td>當訂單成交或部分成，該值是成交的數量. 當訂單被取消，該值是未成交的數量</td>
 </tr>
 <tr>
 <td style="text-align: left">cumExecQty</td>

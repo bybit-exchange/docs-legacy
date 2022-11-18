@@ -7876,70 +7876,61 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>Snapshot Response Example - format of the first response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658200820646</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22220.00</span><span class="dl">"</span><span class="p">,</span>   <span class="c1">// price</span>
-        <span class="dl">"</span><span class="s2">1.300</span><span class="dl">"</span>       <span class="c1">// size</span>
-      <span class="p">],</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22221.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">1.150</span><span class="dl">"</span>
-      <span class="p">]</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22236.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">18.194</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22236.50</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">0.602</span><span class="dl">"</span>
-      <span class="p">]</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span><span class="mi">3566050</span>
-  <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668748553479</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17053.00</span><span class="dl">"</span><span class="p">,</span> <span class="c1">//price</span>
+                <span class="dl">"</span><span class="s2">0.021</span><span class="dl">"</span> <span class="c1">//size</span>
+            <span class="p">],</span>
+            <span class="p">....</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17016.50</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.020</span><span class="dl">"</span>
+            <span class="p">],</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17054.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">6.288</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">....</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17166.50</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.049</span><span class="dl">"</span>
+            <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3083181</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7545268447</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>Delta Response Example - format of the responses following the snapshot response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658200820655</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22224.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span>
-      <span class="p">]</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22247.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">1.406</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22240.50</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">9.046</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22236.00</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">18.195</span><span class="dl">"</span>
-      <span class="p">],</span>
-      <span class="p">[</span>
-        <span class="dl">"</span><span class="s2">22244.50</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">0.397</span><span class="dl">"</span>
-      <span class="p">]</span>
-    <span class="p">],</span>
-      <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span><span class="mi">3566051</span>
-  <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668748553556</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17168.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.300</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">17070.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">]</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">u</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3083182</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">seq</span><span class="dl">"</span><span class="p">:</span> <span class="mi">7545268448</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><b>instruction: </b>
