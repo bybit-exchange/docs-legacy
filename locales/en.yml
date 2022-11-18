@@ -5506,7 +5506,7 @@ en:
   websocketOrderBook_contract: |
     <b>instruction: </b>
     Get different depth.<br>
-    Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which from lowest buy order to highest sell order.
+    Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which bids is from highest to lowest and asks is from lowest to highest.
     Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
     <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
     If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
