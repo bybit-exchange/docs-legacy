@@ -35,7 +35,14 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-
+curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax/v3/private/create' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: d1208daf6143c0546dfd68e0348769c2726cc0ba67b0b5ce9255664bfd551a90' \
+--header 'X-BAPI-API-KEY: KAMz86BfHkKT5yWKWE' \
+--header 'X-BAPI-TIMESTAMP: 1669009028135' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{"startTime":"1667966793","endTime":"1668672407","type":"TRADE","number":"1"}'
 ```
 
 ```python--pybit
@@ -45,7 +52,15 @@ POST
 > t(:codequote_responseExample)
 
 ```javascript
-
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "queryId": "1594565554910400512"
+    },
+    "retExtInfo": {},
+    "time": 1669009028592
+}
 ```
 
 <p class="fake_header">t(:httprequest)</p>
@@ -71,7 +86,14 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-
+curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax/v3/private/status' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: d7001831e2cc8a19af5b5a22be6a4ffd415f53f25f6fb1b0b7fdb7ade23ad949' \
+--header 'X-BAPI-API-KEY: KAMz86BfHkKT5yWKWE' \
+--header 'X-BAPI-TIMESTAMP: 1669009157386' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{"queryId":"1594565554910400512"}'
 ```
 
 ```python--pybit
@@ -81,7 +103,15 @@ POST
 > t(:codequote_responseExample)
 
 ```javascript
-
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "status": "2"
+    },
+    "retExtInfo": {},
+    "time": 1669009157660
+}
 ```
 
 <p class="fake_header">t(:httprequest)</p>
@@ -104,7 +134,14 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-
+curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax/v3/private/url' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 8bed4ac7cb1b63d042b617f23086a5d3d68f78b195472024daec967cabde63d5' \
+--header 'X-BAPI-API-KEY: KAMz86BfHkKT5yWKWE' \
+--header 'X-BAPI-TIMESTAMP: 1669009463077' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{"queryId":"1594565554910400512"}'
 ```
 
 ```python--pybit
@@ -114,7 +151,15 @@ POST
 > t(:codequote_responseExample)
 
 ```javascript
-
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "url": "{\"Files\":[\"20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/_SUCCESS\",\"20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/part-00000-15c42bbd-30ae-41b4-804e-6deba556374f-c000\"],\"Basepath\":\"https://testnet-bybit-tax-api-170593-ap-southeast-1-xaky06.s3.ap-southeast-1.amazonaws.com\"}"
+    },
+    "retExtInfo": {},
+    "time": 1669009463401
+}
 ```
 
 <p class="fake_header">t(:httprequest)</p>
