@@ -829,10 +829,10 @@
               </ul>
           </li>
           <li>
-            <a href="#t-taxendpoint" class="toc-h1 toc-link" data-title="稅收端點">稅收端點</a>
+            <a href="#t-taxendpoint" class="toc-h1 toc-link" data-title="稅接口">稅接口</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#t-registerdate" class="toc-h2 toc-link" data-title="獲取用戶註冊日期">獲取用戶註冊日期</a>
+                    <a href="#t-registerdate" class="toc-h2 toc-link" data-title="特定用戶在平台上註冊的日期">特定用戶在平台上註冊的日期</a>
                   </li>
                   <li>
                     <a href="#t-requestexportrepot" class="toc-h2 toc-link" data-title="請求導出報告">請求導出報告</a>
@@ -1162,23 +1162,38 @@ REST接口根URL:
 <aside class="notice">
 <a href="https://github.com/bybit-exchange/api-usage-examples">簽名計算示例</a>.
 </aside>
-<h1 id='t-taxendpoint'>稅收端點</h1><h2 id='t-registerdate'>獲取用戶註冊日期</h2>
+<h1 id='t-taxendpoint'>稅接口</h1><h2 id='t-registerdate'>特定用戶在平台上註冊的日期</h2>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax/v3/private/registertime' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: bf0ca3e3b68efacad6f321a71dfd71e1d418e6b57a705d495abe339662d4deee' \
+--header 'X-BAPI-API-KEY: KAMz86BfHkKT5yWKWE' \
+--header 'X-BAPI-TIMESTAMP: 1669015205125' \
+--header 'X-BAPI-RECV-WINDOW: 500000' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span> 
+  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">registerTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-07-10</span><span class="dl">"</span>
+      <span class="p">},</span> 
+  <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> 
+  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669025088771</span>
+<span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/registertime</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxregistertime"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -1211,19 +1226,34 @@ REST接口根URL:
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax/v3/private/create' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: d1208daf6143c0546dfd68e0348769c2726cc0ba67b0b5ce9255664bfd551a90' \
+--header 'X-BAPI-API-KEY: KAMz86BfHkKT5yWKWE' \
+--header 'X-BAPI-TIMESTAMP: 1669009028135' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{"startTime":"1667966793","endTime":"1668672407","type":"TRADE","number":"1"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">queryId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1594565554910400512</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669009028592</span>
+<span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/create</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxcreate"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -1280,19 +1310,34 @@ REST接口根URL:
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax/v3/private/status' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: d7001831e2cc8a19af5b5a22be6a4ffd415f53f25f6fb1b0b7fdb7ade23ad949' \
+--header 'X-BAPI-API-KEY: KAMz86BfHkKT5yWKWE' \
+--header 'X-BAPI-TIMESTAMP: 1669009157386' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{"queryId":"1594565554910400512"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669009157660</span>
+<span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/status</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxstatus"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -1331,19 +1376,34 @@ REST接口根URL:
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax/v3/private/url' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 8bed4ac7cb1b63d042b617f23086a5d3d68f78b195472024daec967cabde63d5' \
+--header 'X-BAPI-API-KEY: KAMz86BfHkKT5yWKWE' \
+--header 'X-BAPI-TIMESTAMP: 1669009463077' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{"queryId":"1594565554910400512"}'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">Files</span><span class="se">\"</span><span class="s2">:[</span><span class="se">\"</span><span class="s2">20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/_SUCCESS</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/part-00000-15c42bbd-30ae-41b4-804e-6deba556374f-c000</span><span class="se">\"</span><span class="s2">],</span><span class="se">\"</span><span class="s2">Basepath</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">https://testnet-bybit-tax-api-170593-ap-southeast-1-xaky06.s3.ap-southeast-1.amazonaws.com</span><span class="se">\"</span><span class="s2">}</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669009463401</span>
+<span class="p">}</span>
 </code></pre></div>
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/url</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxurl"><img src="../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
 
 <p class="fake_header">請求參數</p>
 
@@ -1406,7 +1466,7 @@ REST接口根URL:
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>邊。買入或賣出方向</td>
+<td>買入或賣出方向</td>
 </tr>
 <tr>
 <td style="text-align: left">quoteCoin</td>
@@ -1472,7 +1532,7 @@ REST接口根URL:
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>邊。買入或賣出方向</td>
+<td>買入或賣出方向</td>
 </tr>
 <tr>
 <td style="text-align: left">quoteCoin</td>
@@ -1563,7 +1623,7 @@ REST接口根URL:
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>邊。買入或賣出方向</td>
+<td>買入或賣出方向</td>
 </tr>
 <tr>
 <td style="text-align: left">quoteCoin</td>
@@ -1639,7 +1699,7 @@ REST接口根URL:
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>邊。買入或賣出方向</td>
+<td>買入或賣出方向</td>
 </tr>
 <tr>
 <td style="text-align: left">nftId</td>
@@ -1700,7 +1760,7 @@ REST接口根URL:
 <tr>
 <td style="text-align: left">side</td>
 <td style="text-align: left">string</td>
-<td>邊。買入或賣出方向</td>
+<td>買入或賣出方向</td>
 </tr>
 <tr>
 <td style="text-align: left">closedSize</td>
