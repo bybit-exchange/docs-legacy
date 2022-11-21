@@ -56,15 +56,15 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|reportType |<b>true</b> |string |<a href="#reporttype-reporttype">Report Type</a> |
-|reportNumber |<b>true</b> |number |<a href="#reportnumber-reportnumber">Report Number</a> |
-|startTime |<b>true</b> |number |t(:taxStartTime) |
-|endTime |<b>true</b> |number |t(:taxEndTime) |
+|type |<b>true</b> |string |<a href="#reporttype-reporttype">Report Type</a> |
+|number |<b>true</b> |string |<a href="#reportnumber-reportnumber">Report Number</a> |
+|startTime |<b>true</b> |integer |t(:taxStartTime) |
+|endTime |<b>true</b> |integer |t(:taxEndTime) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|respExample |string | |
+|queryId |string |t(:taxQueryId) |
 
 
 ## t(:exportReportStatus)
@@ -92,12 +92,12 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|queryid |<b>true</b> |string |t(:taxQueryId) |
+|queryId |<b>true</b> |string |t(:taxQueryId) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|Result |number |t(:taxExportStatus) |
+|status |number |t(:taxExportStatus) |
 
 
 ## t(:retrieveDataExport)
@@ -125,12 +125,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|queryid |<b>true</b> |string |t(:taxQueryId) |
+|queryId |<b>true</b> |string |t(:taxQueryId) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|report |string |t(:taxReportUrl) |
+|url |string |t(:taxReportUrl) |
 
 
 
