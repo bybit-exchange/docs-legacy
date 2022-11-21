@@ -17,7 +17,7 @@
 ```
 
 <p class="fake_header">t(:httprequest)</p>
-GET
+POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/registertime</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
@@ -49,7 +49,7 @@ GET
 ```
 
 <p class="fake_header">t(:httprequest)</p>
-GET
+POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
@@ -118,7 +118,7 @@ POST
 ```
 
 <p class="fake_header">t(:httprequest)</p>
-GET
+POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/url</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
