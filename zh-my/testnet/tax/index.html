@@ -1,0 +1,2665 @@
+
+<!doctype html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158616893-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-158616893-1');
+    </script>
+
+    <link href="../../../images/favicon-014c3ae6.ico" rel="icon" type="image/ico" />
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Bybit API Docs</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nn {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nl {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ni {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .bp {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vg {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .vi {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .w {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+      header.top-nav {
+        position:fixed;
+        display:flex;
+        flex:1;
+        width:100%;
+        z-index:100;
+        background: #333;
+        padding: 0 26px;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        align-items: center;
+      }
+      div.top-menu{
+        display:flex;
+        flex: 1;
+      }
+      a.logo-link{
+        line-height: 50px;
+      }
+      img.logo {
+        width: 161px;
+        height: 40px;
+        vertical-align: middle;
+      }
+      .con {
+          display: flex;
+          top: 0;
+          height: 55px;
+          margin: 0 0 0 62px;
+          padding: 0;
+          list-style: none;
+          text-align: center;
+      }
+
+      .con li{
+          text-align: center;
+          line-height: 55px;
+          border:0 solid #000;
+          -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+      }
+
+      .con a {
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 23px;
+        padding: 0 20px;
+        vertical-align: middle;
+        -webkit-transform: translate(0, -3px);
+                transform: translate(0, -3px);
+      }
+
+      .con a.selected {
+        border-bottom: 2px solid transparent;
+        border-color: #FFB11A;
+        color: #fff;
+      }
+
+      a.international {
+        display: block;
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        border: 1px solid #383F66;
+        padding: 0 20px;
+        color: #F0B90B;
+        word-break: keep-all;
+      }
+
+      /* Environment dropdown list */
+      /* The dropdown container */
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+
+      /* Dropdown button */
+      .dropdown .dropbtn {
+        background-color: inherit;
+        display: inline-block;
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 23px;
+        padding: 0 20px;
+        border: none;
+        background: none;
+        vertical-align: middle;
+        -webkit-transform: translate(0, -3px);
+                transform: translate(0, -3px);
+
+      }
+
+      /* Add a red background color to navbar links on hover */
+      a:hover, .dropdown:hover .dropbtn {
+        background-color: inherit;
+      }
+
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        color: #B0B8DB;
+        background: #333;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0;
+        display: none;
+        position: relative;
+        -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 0;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: #B0B8DB;
+        font-size: 15px;
+        text-decoration: none;
+        line-height: 53px;
+        padding: 0 10px;
+        display: block;
+        text-align: left;
+      }
+
+      /* Highlights the currently selected dropdown link */
+      .dropdown-content-selected {
+        display: block;
+        /*color: #696e83;*/
+        background-color: #474747;
+      }
+
+      /* Add a grey background color to dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #5b5b5b;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="../../../stylesheets/screen-995a21da.css" rel="stylesheet" media="screen" />
+    <link href="../../../stylesheets/print-41ffbffc.css" rel="stylesheet" media="print" />
+      <script src="../../../javascripts/all-52d563e0.js"></script>
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+
+
+  <!-- Navigation bar START -->
+  <header class="top-nav">
+    <div class="top-menu">
+        <a href="https://bybit-exchange.github.io/docs/tax" class="logo-link" target="_self">
+          <img src="../../../images/logo-aed6448d.svg" class="logo" alt="" />
+        </a>
+
+      <ul class="con">
+
+        <!-- Derivatives V3 -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">衍生品v3
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-my/testnet/derivativesV3/unified_margin" >統一保證金</a>
+                  <a href="/docs/zh-my/testnet/derivativesV3/contract" >合約</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Futures V2(USDT perp, Inverse Perp, Inverse Futures) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">期货v2
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-my/testnet/futuresV2/inverse" >反向永續</a>
+                  <a href="/docs/zh-my/testnet/futuresV2/linear" >USDT永續</a>
+                  <a href="/docs/zh-my/testnet/futuresV2/inverse_futures" >反向交割</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Spot V3(Spot v1, Spot v3) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">現貨
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-my/testnet/spot/v3" >v3</a>
+                  <a href="/docs/zh-my/testnet/spot/v1" >v1</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Account asset V3(asset v1, asset v3) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">賬戶資產
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-my/testnet/account_asset/v3" >v3</a>
+                  <a href="/docs/zh-my/testnet/account_asset/v1" >v1</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Copy Trading -->
+          	<li><a href="/docs/zh-my/testnet/copy_trading">跟單交易</a></li>
+
+        <!-- USDC dropdown (Options, Perpetual) -->
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn">USDC合約
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                  <a href="/docs/zh-my/testnet/usdc/option" >Option</a>
+                  <a href="/docs/zh-my/testnet/usdc/perpetual">Perpetual</a>
+              </div>
+            </div>
+          </li>
+
+        <!-- Tax -->
+          	<li><a href="/docs/zh-my/testnet/tax" class="selected">稅</a></li>
+
+        <!-- Environment dropdown (Testnet, Mainnet) -->
+        <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn">Environment
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+
+              <!-- it's for spot testnet switch to spot mainnet -->
+
+              <!-- it's for asset mainnet switch to asset testnet -->
+
+                  <!-- <a href=/docs/zh-my/tax>Mainnet</a> -->
+                  <!-- <span class="dropdown-content-selected"><a href=/docs/zh-my/testnet/tax>Testnet</a></span> -->
+            </div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <a class="international" id="international" href="javascript:void(0);">English</a>
+  </header>
+  <!-- Navigation bar END -->
+
+
+
+  <body class="zh-my zh-my_testnet zh-my_testnet_tax zh-my_testnet_tax_index" data-languages="[&quot;console&quot;,&quot;python--pybit&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../../images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        <div class="lang-selector">
+              <a href="#" data-language-name="console">console</a>
+              <a href="#" data-language-name="python--pybit">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="搜索">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#t-introduction" class="toc-h1 toc-link" data-title="中文社區和參考資料">中文社區和參考資料</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-resources" class="toc-h2 toc-link" data-title="中文社區和參考資料">中文社區和參考資料</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
+          </li>
+          <li>
+            <a href="#t-faq" class="toc-h1 toc-link" data-title="FAQ">FAQ</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-faq_reduce_only" class="toc-h2 toc-link" data-title="reduce_only and close_on_trigger - what's the difference?"><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_website_orders" class="toc-h2 toc-link" data-title="Why aren't all my orders showing on the website?">Why aren't all my orders showing on the website?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_calculating_order_size" class="toc-h2 toc-link" data-title="Calculating order size based on available wallet balance">Calculating order size based on available wallet balance</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_exchange_assets" class="toc-h2 toc-link" data-title="Can I exchange assets with the API?">Can I exchange assets with the API?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_server_location" class="toc-h2 toc-link" data-title="Where are Bybit's servers located?">Where are Bybit's servers located?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_testnet_funds" class="toc-h2 toc-link" data-title="How do I get funds for testnet?">How do I get funds for testnet?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_closed_pnl_price" class="toc-h2 toc-link" data-title="Why are my Closed PNL prices inaccurate?">Why are my Closed PNL prices inaccurate?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_float_precision" class="toc-h2 toc-link" data-title="Why are values returned to too many decimal places? (float precision issue)">Why are values returned to too many decimal places? (float precision issue)</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_data_resilience" class="toc-h2 toc-link" data-title="How can I ensure I am using up-to-date data?">How can I ensure I am using up-to-date data?</a>
+                  </li>
+                  <li>
+                    <a href="#t-faq_turnover" class="toc-h2 toc-link" data-title="What is the difference between turnover and volume?">What is the difference between turnover and volume?</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-authentication" class="toc-h1 toc-link" data-title="鑒權/認證">鑒權/認證</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-authenticationparameters" class="toc-h2 toc-link" data-title="公共參數">公共參數</a>
+                  </li>
+                  <li>
+                    <a href="#t-constructingtherequest" class="toc-h2 toc-link" data-title="構建請求">構建請求</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-taxendpoint" class="toc-h1 toc-link" data-title="稅收端點">稅收端點</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-registerdate" class="toc-h2 toc-link" data-title="獲取用戶註冊日期">獲取用戶註冊日期</a>
+                  </li>
+                  <li>
+                    <a href="#t-requestexportrepot" class="toc-h2 toc-link" data-title="請求導出報告">請求導出報告</a>
+                  </li>
+                  <li>
+                    <a href="#t-exportreportstatus" class="toc-h2 toc-link" data-title="獲取導出報告狀態">獲取導出報告狀態</a>
+                  </li>
+                  <li>
+                    <a href="#t-retrievedataexport" class="toc-h2 toc-link" data-title="檢索數據導出">檢索數據導出</a>
+                  </li>
+                  <li>
+                    <a href="#t-dataexplanation" class="toc-h2 toc-link" data-title="數據說明">數據說明</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#t-tradehistorytype" class="toc-h3 toc-link" data-title="交易歷史">交易歷史</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-spottradehistory" class="toc-h4 toc-link" data-title="1.獲取現貨交易歷史">1.獲取現貨交易歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-contracttradehistory" class="toc-h4 toc-link" data-title="2.獲取合約交易歷史">2.獲取合約交易歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-usdcoptiontradehistory" class="toc-h4 toc-link" data-title="3.獲取USDC期權交易歷史">3.獲取USDC期權交易歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-nfttradehistory" class="toc-h4 toc-link" data-title="4.獲取NFT交易歷史">4.獲取NFT交易歷史</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-pnlhistorytype" class="toc-h3 toc-link" data-title="損益歷史">損益歷史</a>
+                          </li>
+                          <li>
+                            <a href="#t-earnhistorytype" class="toc-h3 toc-link" data-title="賺取歷史">賺取歷史</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-savingsyieldhistory" class="toc-h4 toc-link" data-title="1.獲取BybitSavings收益歷史">1.獲取BybitSavings收益歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-liquidityminingliquidityhistory" class="toc-h4 toc-link" data-title="2.獲取LiquidityMining流動性歷史">2.獲取LiquidityMining流動性歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-liquidityminingyieldhistory" class="toc-h4 toc-link" data-title="3. 獲取LiquidityMining Yield History">3. 獲取LiquidityMining Yield History</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-liquidityminingswaphistory" class="toc-h4 toc-link" data-title="4. 獲取LiquidityMiningSwap History">4. 獲取LiquidityMiningSwap History</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-dualassetswaphistory" class="toc-h4 toc-link" data-title="5. 獲取 DualAsset Swap History">5. 獲取 DualAsset Swap History</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-defiminingyieldhistory" class="toc-h4 toc-link" data-title="6.獲取DeFiMining Yield History">6.獲取DeFiMining Yield History</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-lauchpoolyieldhistory" class="toc-h4 toc-link" data-title="7.獲取Launchpool收益歷史">7.獲取Launchpool收益歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-sharkfinyieldhistory" class="toc-h4 toc-link" data-title="8. 獲取 Sharkfin Yield History">8. 獲取 Sharkfin Yield History</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-depositnwithdrawhistorytype" class="toc-h3 toc-link" data-title="充提歷史">充提歷史</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-cryptodeposithistory" class="toc-h4 toc-link" data-title="1.獲取加密存款歷史">1.獲取加密存款歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-p2pdeposithistory" class="toc-h4 toc-link" data-title="2.獲取P2P充值歷史">2.獲取P2P充值歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-fiatdepositwithdrawhistory" class="toc-h4 toc-link" data-title="3.獲取法幣充提歷史">3.獲取法幣充提歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-expressorderdeposithistory" class="toc-h4 toc-link" data-title="4.獲取Express Order Deposit History">4.獲取Express Order Deposit History</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-thirdpartydeposithistory" class="toc-h4 toc-link" data-title="5. 獲取第三方存款歷史">5. 獲取第三方存款歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-cryptowithdrawhistory" class="toc-h4 toc-link" data-title="6. 獲取加密取款歷史">6. 獲取加密取款歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-nftdepositwithdrawalhistory" class="toc-h4 toc-link" data-title="7.獲取NFT充提歷史">7.獲取NFT充提歷史</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-bonushistorytype" class="toc-h3 toc-link" data-title="紅利歷史">紅利歷史</a>
+                              <ul class="toc-list-h4">
+                                  <li>
+                                    <a href="#t-couponhistory" class="toc-h4 toc-link" data-title="1.獲取優惠券歷史">1.獲取優惠券歷史</a>
+                                  </li>
+                                  <li>
+                                    <a href="#t-bonushistory" class="toc-h4 toc-link" data-title="2. 獲取紅利歷史">2. 獲取紅利歷史</a>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li>
+                            <a href="#t-airdrophistorytype" class="toc-h3 toc-link" data-title="空投歷史">空投歷史</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-enums" class="toc-h1 toc-link" data-title="枚舉定義">枚舉定義</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#reporttype-reporttype" class="toc-h2 toc-link" data-title="ReportType (reportType)">ReportType (<code>reportType</code>)</a>
+                  </li>
+                  <li>
+                    <a href="#reportnumber-reportnumber" class="toc-h2 toc-link" data-title="ReportNumber (reportNumber)">ReportNumber (<code>reportNumber</code>)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#t-errors" class="toc-h1 toc-link" data-title="錯誤碼">錯誤碼</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <!---
+Clipboard script
+-->
+
+<script src="../../dist/clipboard.min-f99f064d.js"></script>
+
+<script>
+var clipboard = new ClipboardJS('.clipboard_button');
+
+clipboard.on('success', function(e) {
+    console.log(e);
+});
+
+clipboard.on('error', function(e) {
+    console.log(e);
+});
+</script>
+<h1 id='t-introduction'>中文社區和參考資料</h1>
+<p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
+<h3 id='t-resources'>中文社區和參考資料</h3>
+<p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://www.npmjs.com/package/bybit-api"><strong>bybit-api</strong></a> - <strong>社區NodeJS SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
+<h1 id='t-changelog'>更新日誌</h1><h1 id='t-faq'>FAQ</h1><h2 id='t-faq_reduce_only'><code>reduce_only</code> and <code>close_on_trigger</code> - what's the difference?</h2>
+<p><ul>
+<li>To close your position, submit <a href="#t-placeactive">an order</a> and specify <b><code>reduce_only</code> to <code>true</code></b>. <code>close_on_trigger</code> is not strictly applicable here, but you can also set it to <code>true</code> if it's required.</li>
+<li><code>reduce_only</code> is the one that really matters for closing position, and we will improve the interface in the future.</li>
+<li>Be careful when you specify <code>close_on_trigger</code> to <code>true</code> as it could cause conflict when <code>reduce_only</code> is <code>false</code>.</li>
+</ul>
+</p>
+<h2 id='t-faq_website_orders'>Why aren't all my orders showing on the website?</h2>
+<p><ul>
+  <li>Users who have bots which place large numbers of laddered orders will be restricted by the frontend interface, which only shows a maximum of 50 orders on-screen.</li>
+  <li>Don't worry, your orders are still in the system and can be queried by the API, but the frontend cannot show more than 50.</li>
+</ul>
+</p>
+<h2 id='t-faq_calculating_order_size'>Calculating order size based on available wallet balance</h2>
+<p><ul>
+  <li><code>price * available_balance * leverage * perc * (1 - (0.0006 * 2))</code></li>
+  <li>Unfortunately this is not a perfectly accurate formula; the real calculation is complex and may be published in the docs at a later date.</li>
+  <ul>
+    <li><code>price</code> - last price (or your entry price) - can be found with the <a href="#t-latestsymbolinfo">Latest Symbol Info endpoint</a>.</li>
+    <li><code>available_balance</code> - can be found with the <a href="#t-myposition">My Position endpoint</a>.</li>
+    <li><code>leverage</code> - up to the respective maximum leverage for the market and your risk limit (eg 2, 10, 50).</li>
+    <li><code>perc</code> - 0.1 for 10%, 0.25 for 25%, etc.</li>
+    <li><code>1 - (0.0006 * 2)</code> - used to calculate the maximum order cost (always assumes entry &amp; exit orders use taker fee regardless actual fee).</li>
+  </ul>
+</ul>
+</p>
+<h2 id='t-faq_exchange_assets'>Can I exchange assets with the API?</h2>
+<p><ul>
+  <li>There is no endpoint to exchange assets. This can only be done on the <a href="https://testnet.bybit.com/app/assets/assets-exchange">website</a>.</li>
+  <li>However, it is possible to access your <a href="#t-assetexchangerecords">Asset Exchange Records</a> with the API.</li>
+</ul>
+</p>
+<h2 id='t-faq_server_location'>Where are Bybit's servers located?</h2>
+<p>AWS Singapore, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone ID</a> apse1-az3.
+</p>
+<h2 id='t-faq_testnet_funds'>How do I get funds for testnet?</h2>
+<p>To get testnet funds, please contact the website's customer support using the yellow support button <a href="https://testnet.bybit.com">shown in the bottom-right corner</a>.
+</p>
+<h2 id='t-faq_closed_pnl_price'>Why are my Closed PNL prices inaccurate?</h2>
+<p><ul>
+  <li>The <code>entry_price</code> and <code>exit_price</code> returned by Closed PNL endpoints are not the actual execution prices of the orders.
+  <li>It is based on the total costs of the order
+  <ul>
+    <li>(whether or not the position was only opened/closed by one order executed at one price - it is more complicated if multiple orders opened/closed a position.)</li>
+  </ul>
+  <li>For instance, the <code>entry_price</code> and <code>exit_price</code> reported by this endpoint are influenced by the fee paid/received on the orders.</li>
+</ul>
+</p>
+<h2 id='t-faq_float_precision'>Why are values returned to too many decimal places? (float precision issue)</h2>
+<p><ul>
+  <li>For example, you received <code>11.969999</code> but you expected <code>11.97</code>.
+  <li>Some values are returned to too many decimal places, or a fraction too high or low, due to a float precision problem.</li>
+  <li>For now, we recommend rounding the received value to the correct decimal place. This can be done with reference to the <a href="#t-querysymbol">Query Symbol</a> endpoint.</li>
+  <li><b>This issue <strike>will be</strike> has been fixed in the latest major version of the API: v3.</b> You can see the documentation for the v3 websocket <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-websocket">here</a>.</li>
+</ul>
+</p>
+<h2 id='t-faq_data_resilience'>How can I ensure I am using up-to-date data?</h2>
+<p><ul>
+  <li>It is possible, although unlikely, that the REST API or (even less likely) the websocket could return/push old data.</li>
+  <li>For the greatest level of data resilience, we recommend clients to:
+    <ul>
+      <li>firstly, rely on the websocket, which will not only ensure you get the latest data as fast as possible, but will also ensure you get <i>complete</i> data</li>
+      <li>secondly, query the REST API to fill in any discrepencies in data - or between websocket disconnections.</li>
+    </ul>
+  <li>The best practice is to save all of this data locally in your own database or cache.</li>
+  <li>This frees up your rate limits for other requests and also ensures a level of redundancy against the exchange in case of data delays.</li>
+</ul
+</p>
+<h2 id='t-faq_turnover'>What is the difference between turnover and volume?</h2>
+<p><ul>
+  <li>Turnover: is in the opposite currency to the quantity's currency</li>
+  <li>Volume: is in the same currency as the quantity's currency</li>
+</ul>
+</p>
+<h1 id='t-authentication'>鑒權/認證</h1>
+<aside class="notice">
+請先生成<a href="https://testnet.bybit.com/app/user/api-management"><b>測試網</b></a> 或 <a href="https://www.bybit.com/app/user/api-management"<b>主網</b></a>API KEY。
+</aside>
+
+<aside class="notice">
+REST接口根URL:
+<ul>
+<p>
+  <li>測試網:<br/>
+    <span id="testnet">https://api-testnet.bybit.com</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#testnet"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+  </li>
+</p>
+<p>
+  <li>主網(請根據您的網絡情況選擇以下任意一個地址使用):<br/>
+    <span id="mainnet_1">https://api.bybit.com</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_1"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    <span id="mainnet_2">https://api.bytick.com</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#mainnet_2"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+  </li>
+</p>
+</ul>
+
+</aside>
+
+<p><p>所有<b>private</b>接口都需要認證，<b>public</b> 接口不需要認證。</p></p>
+<h2 id='t-authenticationparameters'>公共參數</h2>
+<p>需要簽名的接口必須包含以下參數:
+<ul>
+  <li><b>api_key</b></li>
+  <li><b>timestamp</b> - UTC<b>毫秒</b>時間戳</li>
+  <li><b>sign</b> - 請求參數簽名</li>
+</ul>
+</p>
+
+<p>另外我們提供可選的<code>recv_window</code>參數（單位是毫秒，默認值為<code>5000</code>），來指定請求在多長時間內有效，同時用來防止重放攻擊。
+</p>
+
+<aside class="warning">
+註意，timestamp參數必須符合如下規則: <b>server_time - recv_window <= timestamp < server_time + 1000</b>，其中server_time是Bybit服務器時間，您可以通過<a href="#t-servertime">服務器時間接口</a>獲取。
+
+</aside>
+<h2 id='t-constructingtherequest'>構建請求</h2>
+<blockquote>
+<p>拼接參數示例（以獲取提現紀錄為例）</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code><span class="n">param_str</span> <span class="o">=</span> <span class="s">"1660633147433XXXXXXXXX5000startTime=1659283200000&amp;endTime=1660060800000&amp;coin=USDT"</span>
+
+<span class="c1"># timestamp: 1660633147433
+# api_key: XXXXXXXXX
+# recv_window: 5000
+# startTime=1659283200000
+# endTime=1660060800000
+# coin=USDT
+</span></code></pre></div>
+<aside class="notice">
+為了幫助診斷高級網絡問題，您可以考慮將 <code>cdn-request-id</code> 添加到您的請求標頭中。對於每個請求，它的值應該是唯一的。
+</aside>
+
+<p><p>1. 時間戳 + api-key + [recv_window]+ [queryString(無需排序) | jsonBodyString]</p>
+
+<div></div></p>
+
+<p><p>2. 使用<code>HMAC_SHA256</code>算法對第1步中拼接的string簽名，並轉換為16進製字符串，得出<code>sign</code>參數。</p></p>
+
+<blockquote>
+<p><b>GET</b>請求格式（查詢提現紀錄）:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">GET</span> <span class="nn">https://api-testnet.bybit.com/asset/v3/private/withdraw/record/query?startTime=1659283200000&amp;endTime=1660060800000&amp;coin=USDT</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
+<span class="s">-H 'X-BAPI-SIGN-TYPE: 2' \</span>
+<span class="s">-H 'X-BAPI-SIGN: eb431d99a1a203a434a82ac3ea8e107b5f94a967e9aaf922c41e84fb3ec9df78' \</span>
+<span class="s">-H 'X-BAPI-API-KEY: {api key}' \</span>
+<span class="s">-H 'X-BAPI-TIMESTAMP: 1658384431891' \</span>
+<span class="s">-H 'X-BAPI-RECV-WINDOW: 5000'</span>
+</code></pre></div>
+<blockquote>
+<p><b>POST</b>請求格式（提現）:
+</p>
+</blockquote>
+<div class="highlight"><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">/asset/v3/private/withdraw/create</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">api-testnet.bybit.com</span>
+<span class="s">-H 'X-BAPI-SIGN-TYPE: 2' \</span>
+<span class="s">-H 'X-BAPI-SIGN: c822337e76e30505e41b87a55af291e074f59f9496ba12ca2a57dc04fe65a178' \</span>
+<span class="s">-H 'X-BAPI-API-KEY: {api key}' \</span>
+<span class="s">-H 'X-BAPI-TIMESTAMP: 1658385589135' \</span>
+<span class="s">-H 'X-BAPI-RECV-WINDOW: 5000' \</span>
+<span class="s">-H 'Content-Type: application/json' \</span>
+
+{
+    "coin": "USDT",
+    "chain": "ETH",
+    "address": "0x9ba58f56E420a00a23D3508Cf77fF268C8510A01",
+    "tag": null,
+    "amount": "20",
+    "timestamp": 1660620515481
+}
+</code></pre></div>
+<p><p>3. 將<code>sign</code>參數加到請求頭中即可；註意<code>GET</code>和<code>POST</code>請求參數格式不同，詳見右邊示例。</p></p>
+
+<aside class="notice">
+<a href="https://github.com/bybit-exchange/api-usage-examples">簽名計算示例</a>.
+</aside>
+<h1 id='t-taxendpoint'>稅收端點</h1><h2 id='t-registerdate'>獲取用戶註冊日期</h2>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=vpoL2>/fht/compliance/tax/v3/private/registertime</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">registerTime</td>
+<td style="text-align: left">DateTime</td>
+<td>特定用戶在平台上註冊的日期</td>
+</tr>
+</tbody></table>
+<h2 id='t-requestexportrepot'>請求導出報告</h2>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=vpoL2>/fht/compliance/tax/v3/private/create</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td><a href="#reporttype-reporttype">Report Type</a></td>
+</tr>
+<tr>
+<td style="text-align: left">number</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td><a href="#reportnumber-reportnumber">Report Number</a></td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">integer</td>
+<td>UNIX 時間。這是以秒為單位。報告開始時間的時間戳。 StartTime 包含在數據導出的時間範圍內。</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">integer</td>
+<td>UNIX 時間。這是以秒為單位。報告結束時間的時間戳。 EndTime 不包含在數據導出的時間範圍內。請注意，對於每個請求，我們最多只允許從 StartTime 開始搜索 2 個月的時間範圍。</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">queryId</td>
+<td style="text-align: left">string</td>
+<td>報告請求 ID</td>
+</tr>
+</tbody></table>
+<h2 id='t-exportreportstatus'>獲取導出報告狀態</h2>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=vpoL2>/fht/compliance/tax/v3/private/status</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">queryId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>報告請求 ID</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">number</td>
+<td>0 排隊；1 處理；2 處理；3 過期</td>
+</tr>
+</tbody></table>
+<h2 id='t-retrievedataexport'>檢索數據導出</h2>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>POST
+<code><span id=vpoL2>/fht/compliance/tax/v3/private/url</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">queryId</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>報告請求 ID</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">url</td>
+<td style="text-align: left">string</td>
+<td>文件的URL網址 (Basepath+Files)</td>
+</tr>
+</tbody></table>
+<h2 id='t-dataexplanation'>數據說明</h2><h3 id='t-tradehistorytype'>交易歷史</h3><h4 id='t-spottradehistory'>1.獲取現貨交易歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderID</td>
+<td style="text-align: left">string</td>
+<td>關閉訂單的訂單 ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeID</td>
+<td style="text-align: left">string</td>
+<td>平倉訂單的交易 ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>交易對名稱，形式為<QuoteCoin><BaseCoin></td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>邊。買入或賣出方向</td>
+</tr>
+<tr>
+<td style="text-align: left">quoteCoin</td>
+<td style="text-align: left">string</td>
+<td>報價幣的符號</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>已執行硬幣的符號</td>
+</tr>
+<tr>
+<td style="text-align: left">execValue</td>
+<td style="text-align: left">string</td>
+<td>交易量</td>
+</tr>
+<tr>
+<td style="text-align: left">tradingFee</td>
+<td style="text-align: left">string</td>
+<td>單次填寫的交易費</td>
+</tr>
+<tr>
+<td style="text-align: left">feeToken</td>
+<td style="text-align: left">string</td>
+<td>交易手續費代幣</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">string</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h4 id='t-contracttradehistory'>2.獲取合約交易歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderID</td>
+<td style="text-align: left">string</td>
+<td>關閉訂單的訂單 ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeID</td>
+<td style="text-align: left">string</td>
+<td>平倉訂單的交易 ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">contractType</td>
+<td style="text-align: left">string</td>
+<td>合同類型。反向合約、線性合約、期貨合約</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>交易對名稱，形式為<QuoteCoin><BaseCoin></td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>邊。買入或賣出方向</td>
+</tr>
+<tr>
+<td style="text-align: left">quoteCoin</td>
+<td style="text-align: left">string</td>
+<td>報價幣的符號</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>已執行硬幣的符號</td>
+</tr>
+<tr>
+<td style="text-align: left">execPrice</td>
+<td style="text-align: left">string</td>
+<td>交易價格</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>交易數量</td>
+</tr>
+<tr>
+<td style="text-align: left">execType</td>
+<td style="text-align: left">string</td>
+<td>執行類型。貿易、ADL、BustTrade</td>
+</tr>
+<tr>
+<td style="text-align: left">execValue</td>
+<td style="text-align: left">string</td>
+<td>交易量</td>
+</tr>
+<tr>
+<td style="text-align: left">feeRate</td>
+<td style="text-align: left">string</td>
+<td>製造商或接受者費用的費率</td>
+</tr>
+<tr>
+<td style="text-align: left">feeToken</td>
+<td style="text-align: left">string</td>
+<td>交易手續費代幣</td>
+</tr>
+<tr>
+<td style="text-align: left">tradingFee</td>
+<td style="text-align: left">string</td>
+<td>單次填寫的交易費</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">string</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h4 id='t-usdcoptiontradehistory'>3.獲取USDC期權交易歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderID</td>
+<td style="text-align: left">string</td>
+<td>關閉訂單的訂單 ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeID</td>
+<td style="text-align: left">string</td>
+<td>平倉訂單的交易 ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">contractType</td>
+<td style="text-align: left">string</td>
+<td>合同類型。反向合約、線性合約、期貨合約</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>交易對名稱，形式為<QuoteCoin><BaseCoin></td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>交易數量</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>邊。買入或賣出方向</td>
+</tr>
+<tr>
+<td style="text-align: left">quoteCoin</td>
+<td style="text-align: left">string</td>
+<td>報價幣的符號</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>已執行硬幣的符號</td>
+</tr>
+<tr>
+<td style="text-align: left">execPrice</td>
+<td style="text-align: left">string</td>
+<td>交易價格</td>
+</tr>
+<tr>
+<td style="text-align: left">execQty</td>
+<td style="text-align: left">string</td>
+<td>交易數量</td>
+</tr>
+<tr>
+<td style="text-align: left">execType</td>
+<td style="text-align: left">string</td>
+<td>執行類型。貿易、ADL、BustTrade</td>
+</tr>
+<tr>
+<td style="text-align: left">execValue</td>
+<td style="text-align: left">string</td>
+<td>交易量</td>
+</tr>
+<tr>
+<td style="text-align: left">feeRate</td>
+<td style="text-align: left">string</td>
+<td>製造商或接受者費用的費率</td>
+</tr>
+<tr>
+<td style="text-align: left">feeToken</td>
+<td style="text-align: left">string</td>
+<td>交易手續費代幣</td>
+</tr>
+<tr>
+<td style="text-align: left">tradingFee</td>
+<td style="text-align: left">string</td>
+<td>單次填寫的交易費</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">string</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h4 id='t-nfttradehistory'>4.獲取NFT交易歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderID</td>
+<td style="text-align: left">string</td>
+<td>關閉訂單的訂單 ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">network</td>
+<td style="text-align: left">string</td>
+<td>網絡名稱。</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>邊。買入或賣出方向</td>
+</tr>
+<tr>
+<td style="text-align: left">nftId</td>
+<td style="text-align: left">string</td>
+<td>NFT 集合的 ID</td>
+</tr>
+<tr>
+<td style="text-align: left">execValue</td>
+<td style="text-align: left">string</td>
+<td>交易量</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">string</td>
+<td>已執行硬幣的符號</td>
+</tr>
+<tr>
+<td style="text-align: left">platformFee</td>
+<td style="text-align: left">string</td>
+<td>平台費用，費用按基礎硬幣計算</td>
+</tr>
+<tr>
+<td style="text-align: left">shareFee</td>
+<td style="text-align: left">string</td>
+<td>共享費用，費用按基礎硬幣計算</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">string</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h3 id='t-pnlhistorytype'>損益歷史</h3>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderID</td>
+<td style="text-align: left">string</td>
+<td>關閉訂單的訂單 ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">contractType</td>
+<td style="text-align: left">string</td>
+<td>合同類型。反向合約、線性合約、期貨合約</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>交易對名稱，形式為<QuoteCoin><BaseCoin></td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>邊。買入或賣出方向</td>
+</tr>
+<tr>
+<td style="text-align: left">closedSize</td>
+<td style="text-align: left">string</td>
+<td>關閉尺寸</td>
+</tr>
+<tr>
+<td style="text-align: left">cumEntryValue</td>
+<td style="text-align: left">string</td>
+<td>平倉值</td>
+</tr>
+<tr>
+<td style="text-align: left">avgEntryPrice</td>
+<td style="text-align: left">string</td>
+<td>平均入場價格</td>
+</tr>
+<tr>
+<td style="text-align: left">cumExitValue</td>
+<td style="text-align: left">string</td>
+<td>平倉訂單的累計成交值</td>
+</tr>
+<tr>
+<td style="text-align: left">avgExitPrice</td>
+<td style="text-align: left">string</td>
+<td>平均退出價格</td>
+</tr>
+<tr>
+<td style="text-align: left">closedPNL</td>
+<td style="text-align: left">string</td>
+<td>平倉損益</td>
+</tr>
+<tr>
+<td style="text-align: left">fillCount</td>
+<td style="text-align: left">string</td>
+<td>單筆訂單的成交次數</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">string</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h3 id='t-earnhistorytype'>賺取歷史</h3><h4 id='t-savingsyieldhistory'>1.獲取BybitSavings收益歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">assetStakedCoin</td>
+<td style="text-align: left">string</td>
+<td>用於抵押在Bybit儲蓄產品中的硬幣</td>
+</tr>
+<tr>
+<td style="text-align: left">stakingType</td>
+<td style="text-align: left">string</td>
+<td>質押類型。靈活和固定期限</td>
+</tr>
+<tr>
+<td style="text-align: left">assetEarnedCoin</td>
+<td style="text-align: left">string</td>
+<td>發放利息的代幣</td>
+</tr>
+<tr>
+<td style="text-align: left">effectiveStakingAmount</td>
+<td style="text-align: left">string</td>
+<td>使用 Asset Staked 幣質押的總金額</td>
+</tr>
+<tr>
+<td style="text-align: left">yield</td>
+<td style="text-align: left">string</td>
+<td>稅收收入</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">string</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h4 id='t-liquidityminingliquidityhistory'>2.獲取LiquidityMining流動性歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderID</td>
+<td style="text-align: left">string</td>
+<td>關閉訂單的訂單 ID。</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>交易對名稱，形式為<QuoteCoin><BaseCoin></td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>包括不同類型的流動性挖掘。添加、刪除、降低杠桿、再投資</td>
+</tr>
+<tr>
+<td style="text-align: left">entryPrice</td>
+<td style="text-align: left">string</td>
+<td>下單時主要硬幣對的入場價格</td>
+</tr>
+<tr>
+<td style="text-align: left">leverage</td>
+<td style="text-align: left">string</td>
+<td>槓桿倍數</td>
+</tr>
+<tr>
+<td style="text-align: left">slippage</td>
+<td style="text-align: left">string</td>
+<td>訂單價格與訂單實際執行時的價格差值</td>
+</tr>
+<tr>
+<td style="text-align: left">liquidity</td>
+<td style="text-align: left">string</td>
+<td>流動性=本金變化乘以槓桿</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">string</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h4 id='t-liquidityminingyieldhistory'>3. 獲取LiquidityMining Yield History</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">assetEarnedCoin</td>
+<td style="text-align: left">string</td>
+<td>發放利息的代幣</td>
+</tr>
+<tr>
+<td style="text-align: left">yield</td>
+<td style="text-align: left">string</td>
+<td>稅收收入</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">string</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h4 id='t-liquidityminingswaphistory'>4. 獲取LiquidityMiningSwap History</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>translation missing: zh-my.taxOrderID</td>
+</tr>
+<tr>
+<td style="text-align: left">initialCoin</td>
+<td style="text-align: left">string</td>
+<td>您嘗試交換的貨幣對中的硬幣。</td>
+</tr>
+<tr>
+<td style="text-align: left">depositAmount</td>
+<td style="text-align: left">string</td>
+<td>您嘗試交換的貨幣對中所選硬幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">swapCoin</td>
+<td style="text-align: left">string</td>
+<td>您嘗試換入的貨幣對中的硬幣。</td>
+</tr>
+<tr>
+<td style="text-align: left">swapAmount</td>
+<td style="text-align: left">string</td>
+<td>您嘗試交換的貨幣對中所選硬幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">swapFeeToken</td>
+<td style="text-align: left">string</td>
+<td>費用將在交換硬幣中。</td>
+</tr>
+<tr>
+<td style="text-align: left">swapFee</td>
+<td style="text-align: left">string</td>
+<td>兌換成功後產生的費用。費用將在交換幣中</td>
+</tr>
+<tr>
+<td style="text-align: left">slippage</td>
+<td style="text-align: left">string</td>
+<td>訂單價格與訂單實際執行時的價格差值</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">string</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h4 id='t-dualassetswaphistory'>5. 獲取 DualAsset Swap History</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>translation missing: zh-my.taxOrderID</td>
+</tr>
+<tr>
+<td style="text-align: left">initialCoin</td>
+<td style="text-align: left">string</td>
+<td>您嘗試交換的貨幣對中的硬幣。</td>
+</tr>
+<tr>
+<td style="text-align: left">depositAmount</td>
+<td style="text-align: left">string</td>
+<td>您嘗試交換的貨幣對中所選硬幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">swapCoin</td>
+<td style="text-align: left">string</td>
+<td>您嘗試換入的貨幣對中的硬幣。</td>
+</tr>
+<tr>
+<td style="text-align: left">swapAmount</td>
+<td style="text-align: left">string</td>
+<td>您嘗試交換的貨幣對中所選硬幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。下訂單的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h4 id='t-defiminingyieldhistory'>6.獲取DeFiMining Yield History</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>translation missing: zh-my.taxOrderID</td>
+</tr>
+<tr>
+<td style="text-align: left">assetStakedCoin</td>
+<td style="text-align: left">string</td>
+<td>用於抵押在Bybit儲蓄產品中的硬幣</td>
+</tr>
+<tr>
+<td style="text-align: left">yield</td>
+<td style="text-align: left">string</td>
+<td>稅收收入</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。下訂單的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h4 id='t-lauchpoolyieldhistory'>7.獲取Launchpool收益歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">assetEarnedCoin</td>
+<td style="text-align: left">string</td>
+<td>發放利息的代幣</td>
+</tr>
+<tr>
+<td style="text-align: left">effectiveStakingAmount</td>
+<td style="text-align: left">string</td>
+<td>使用 Asset Staked 幣質押的總金額</td>
+</tr>
+<tr>
+<td style="text-align: left">yield</td>
+<td style="text-align: left">string</td>
+<td>稅收收入</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h4 id='t-sharkfinyieldhistory'>8. 獲取 Sharkfin Yield History</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">assetEarnedCoin</td>
+<td style="text-align: left">string</td>
+<td>發放利息的代幣</td>
+</tr>
+<tr>
+<td style="text-align: left">yield</td>
+<td style="text-align: left">string</td>
+<td>稅收收入</td>
+</tr>
+<tr>
+<td style="text-align: left">tradeTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。交易執行時間</td>
+</tr>
+</tbody></table>
+<h3 id='t-depositnwithdrawhistorytype'>充提歷史</h3><h4 id='t-cryptodeposithistory'>1.獲取加密存款歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">txid</td>
+<td style="text-align: left">string</td>
+<td>交易ID</td>
+</tr>
+<tr>
+<td style="text-align: left">depositType</td>
+<td style="text-align: left">string</td>
+<td>存款類型。鏈上存款</td>
+</tr>
+<tr>
+<td style="text-align: left">chainType</td>
+<td style="text-align: left">string</td>
+<td>鏈名</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>交易對名稱，形式為<QuoteCoin><BaseCoin></td>
+</tr>
+<tr>
+<td style="text-align: left">finalAmount</td>
+<td style="text-align: left">string</td>
+<td>加密貨幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。下訂單的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">completedTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。</td>
+</tr>
+</tbody></table>
+<h4 id='t-p2pdeposithistory'>2.獲取P2P充值歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderID</td>
+<td style="text-align: left">string</td>
+<td>translation missing: zh-my.taxOrderID</td>
+</tr>
+<tr>
+<td style="text-align: left">orderType</td>
+<td style="text-align: left">string</td>
+<td>包括不同類型的流動性挖掘。添加、刪除、降低杠桿、再投資</td>
+</tr>
+<tr>
+<td style="text-align: left">p2pSide</td>
+<td style="text-align: left">string</td>
+<td>對於 P2P 買家，這代表買家購買了相應的硬幣並使用法定貨幣。對於 P2P 賣家，這代表買家出售相應的硬幣並獲得法定貨幣作為回報。</td>
+</tr>
+<tr>
+<td style="text-align: left">fiat</td>
+<td style="text-align: left">string</td>
+<td>法定貨幣類型</td>
+</tr>
+<tr>
+<td style="text-align: left">fiatAmount</td>
+<td style="text-align: left">string</td>
+<td>法幣存入</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>購買的硬幣符號</td>
+</tr>
+<tr>
+<td style="text-align: left">coinPrice</td>
+<td style="text-align: left">string</td>
+<td>購買的硬幣價格</td>
+</tr>
+<tr>
+<td style="text-align: left">coinAmount</td>
+<td style="text-align: left">string</td>
+<td>購買的硬幣數量</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。下訂單的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">completedTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。</td>
+</tr>
+</tbody></table>
+<h4 id='t-fiatdepositwithdrawhistory'>3.獲取法幣充提歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderID</td>
+<td style="text-align: left">string</td>
+<td>translation missing: zh-my.taxOrderID</td>
+</tr>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left">string</td>
+<td>類型。存款、取款</td>
+</tr>
+<tr>
+<td style="text-align: left">fiat</td>
+<td style="text-align: left">string</td>
+<td>法定貨幣類型</td>
+</tr>
+<tr>
+<td style="text-align: left">depositAmount</td>
+<td style="text-align: left">string</td>
+<td>您嘗試交換的貨幣對中所選硬幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">finalAmount</td>
+<td style="text-align: left">string</td>
+<td>加密貨幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">string</td>
+<td>法幣存款手續費</td>
+</tr>
+<tr>
+<td style="text-align: left">paymentMethods</td>
+<td style="text-align: left">string</td>
+<td>不同的支付方式</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。下訂單的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">completedTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。</td>
+</tr>
+</tbody></table>
+<h4 id='t-expressorderdeposithistory'>4.獲取Express Order Deposit History</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderID</td>
+<td style="text-align: left">string</td>
+<td>translation missing: zh-my.taxOrderID</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>訂單類型。買</td>
+</tr>
+<tr>
+<td style="text-align: left">fiat</td>
+<td style="text-align: left">string</td>
+<td>法定貨幣類型</td>
+</tr>
+<tr>
+<td style="text-align: left">depositAmount</td>
+<td style="text-align: left">string</td>
+<td>通過信用卡存入的法幣。</td>
+</tr>
+<tr>
+<td style="text-align: left">destinationCoin</td>
+<td style="text-align: left">string</td>
+<td>購買的硬幣符號</td>
+</tr>
+<tr>
+<td style="text-align: left">coinPrice</td>
+<td style="text-align: left">string</td>
+<td>購買的硬幣價格</td>
+</tr>
+<tr>
+<td style="text-align: left">finalAmount</td>
+<td style="text-align: left">string</td>
+<td>加密貨幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">string</td>
+<td>通過信用卡存款時涉及的任何法定費用</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。下訂單的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">completedTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。</td>
+</tr>
+</tbody></table>
+<h4 id='t-thirdpartydeposithistory'>5. 獲取第三方存款歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderID</td>
+<td style="text-align: left">string</td>
+<td>translation missing: zh-my.taxOrderID</td>
+</tr>
+<tr>
+<td style="text-align: left">txid</td>
+<td style="text-align: left">string</td>
+<td>交易ID</td>
+</tr>
+<tr>
+<td style="text-align: left">platform</td>
+<td style="text-align: left">string</td>
+<td>支付平台方法</td>
+</tr>
+<tr>
+<td style="text-align: left">fiat</td>
+<td style="text-align: left">string</td>
+<td>法定貨幣類型</td>
+</tr>
+<tr>
+<td style="text-align: left">depositAmount</td>
+<td style="text-align: left">string</td>
+<td>您嘗試交換的貨幣對中所選硬幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">destinationCoin</td>
+<td style="text-align: left">string</td>
+<td>購買的硬幣符號</td>
+</tr>
+<tr>
+<td style="text-align: left">coinPrice</td>
+<td style="text-align: left">string</td>
+<td>購買的硬幣價格</td>
+</tr>
+<tr>
+<td style="text-align: left">finalAmount</td>
+<td style="text-align: left">string</td>
+<td>加密貨幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。下訂單的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">completedTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。</td>
+</tr>
+</tbody></table>
+<h4 id='t-cryptowithdrawhistory'>6. 獲取加密取款歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">txid</td>
+<td style="text-align: left">string</td>
+<td>交易ID</td>
+</tr>
+<tr>
+<td style="text-align: left">chainType</td>
+<td style="text-align: left">string</td>
+<td>鏈名</td>
+</tr>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>購買的硬幣符號</td>
+</tr>
+<tr>
+<td style="text-align: left">finalAmount</td>
+<td style="text-align: left">string</td>
+<td>加密貨幣的數量</td>
+</tr>
+<tr>
+<td style="text-align: left">fee</td>
+<td style="text-align: left">string</td>
+<td>根據提款幣收取的提款費</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。下訂單的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">completedTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。</td>
+</tr>
+</tbody></table>
+<h4 id='t-nftdepositwithdrawalhistory'>7.獲取NFT充提歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">string</td>
+<td>translation missing: zh-my.taxOrderID</td>
+</tr>
+<tr>
+<td style="text-align: left">TxHash</td>
+<td style="text-align: left">string</td>
+<td>記錄每筆 NFT 交易的唯一 ID</td>
+</tr>
+<tr>
+<td style="text-align: left">tokenId</td>
+<td style="text-align: left">string</td>
+<td>所有的NFT都有一個uint256變量來標識不同的NFT</td>
+</tr>
+<tr>
+<td style="text-align: left">transferType</td>
+<td style="text-align: left">string</td>
+<td>類型。存取款</td>
+</tr>
+<tr>
+<td style="text-align: left">network</td>
+<td style="text-align: left">string</td>
+<td>網絡名稱。</td>
+</tr>
+<tr>
+<td style="text-align: left">feeToken</td>
+<td style="text-align: left">string</td>
+<td>交易手續費代幣</td>
+</tr>
+<tr>
+<td style="text-align: left">tradingFee</td>
+<td style="text-align: left">string</td>
+<td>使用NFT交易產生的任何費用</td>
+</tr>
+<tr>
+<td style="text-align: left">orderTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。下訂單的時間</td>
+</tr>
+<tr>
+<td style="text-align: left">completedTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。</td>
+</tr>
+</tbody></table>
+<h3 id='t-bonushistorytype'>紅利歷史</h3><h4 id='t-couponhistory'>1.獲取優惠券歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>作為優惠券提供給用戶的代幣</td>
+</tr>
+<tr>
+<td style="text-align: left">finalAmount</td>
+<td style="text-align: left">string</td>
+<td>給用戶的代幣數量</td>
+</tr>
+<tr>
+<td style="text-align: left">completedTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。</td>
+</tr>
+</tbody></table>
+<h4 id='t-bonushistory'>2. 獲取紅利歷史</h4>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>作為獎勵提供給用戶的代幣</td>
+</tr>
+<tr>
+<td style="text-align: left">finalAmount</td>
+<td style="text-align: left">string</td>
+<td>給用戶的代幣數量</td>
+</tr>
+<tr>
+<td style="text-align: left">completedTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。</td>
+</tr>
+</tbody></table>
+<h3 id='t-airdrophistorytype'>空投歷史</h3>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">string</td>
+<td>空投給用戶的幣</td>
+</tr>
+<tr>
+<td style="text-align: left">finalAmount</td>
+<td style="text-align: left">string</td>
+<td>給用戶的空投數量</td>
+</tr>
+<tr>
+<td style="text-align: left">transferType</td>
+<td style="text-align: left">string</td>
+<td>空投的類型。空投充值、空投提現</td>
+</tr>
+<tr>
+<td style="text-align: left">transferDescription</td>
+<td style="text-align: left">string</td>
+<td>轉賬說明</td>
+</tr>
+<tr>
+<td style="text-align: left">completedTime</td>
+<td style="text-align: left">int</td>
+<td>UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。</td>
+</tr>
+</tbody></table>
+<h1 id='t-enums'>枚舉定義</h1>
+<p>以下是各個接口請求參數或返回結果中定義的枚舉。</p>
+<h2 id='reporttype-reporttype'>ReportType (<code>reportType</code>)</h2>
+<ul>
+<li><code>TRADE</code> - TradeHistory</li>
+<li><code>P&amp;L</code> - P&amp;L History</li>
+<li><code>EARN</code> - Earn History</li>
+<li><code>DEPOSIT&amp;WITHDRAWAL</code> - Deposit and Withdrawal History</li>
+<li><code>BONUS</code> - Bonus History</li>
+<li><code>AIRDROP</code> - Airdrop History</li>
+</ul>
+<h2 id='reportnumber-reportnumber'>ReportNumber (<code>reportNumber</code>)</h2>
+<p>ReportType = &quot;TRADE&quot;</p>
+
+<ul>
+<li><code>1</code> - Get Spot Trade History</li>
+<li><code>2</code> - Get Contract Trade History</li>
+<li><code>3</code> - Get USDC Options Trade History</li>
+<li><code>4</code> - Get NFT Trade History</li>
+</ul>
+
+<p>ReportType = &quot;P&amp;L&quot;</p>
+
+<ul>
+<li><code>1</code> - Get Contract Closed P&amp;L History</li>
+</ul>
+
+<p>ReportType = &quot;EARN&quot;</p>
+
+<ul>
+<li><code>1</code> - Get BybitSavings Yield History</li>
+<li><code>2</code> - Get LiquidityMining Liquidity History</li>
+<li><code>3</code> - Get LiquidityMining Yield History</li>
+<li><code>4</code> - Get LiquidityMining Swap History</li>
+<li><code>5</code> -Get DualAsset Swap History</li>
+<li><code>6</code> - Get DeFiMining Yield History</li>
+<li><code>7</code> - Get Launchpool Yield History</li>
+<li><code>8</code> - Get Sharkfin Yield History</li>
+</ul>
+
+<p>ReportType = &quot;DEPOSIT&amp;WITHDRAWAL&quot;</p>
+
+<ul>
+<li><code>1</code> - Get Crypto Deposit History</li>
+<li><code>2</code> - Get P2P Deposit History</li>
+<li><code>3</code> - Get Fiat Deposit and Withdraw History</li>
+<li><code>4</code> - Get Express Order Deposit History</li>
+<li><code>5</code> -Get Third Party Deposit History</li>
+<li><code>6</code> - Get Crypto Withdraw History</li>
+<li><code>7</code> - Get NFT Deposit and Withdrawal History</li>
+</ul>
+
+<p>ReportType = &quot;BONUS&quot;</p>
+
+<ul>
+<li><code>1</code> - Get Coupon History</li>
+<li><code>2</code> - Get Bonus History</li>
+</ul>
+
+<p>ReportType = &quot;AIRDROP&quot;</p>
+
+<ul>
+<li><code>1</code> - Get Airdrop History</li>
+</ul>
+<h1 id='t-errors'>錯誤碼</h1>
+<p>Bybit使用以下HTTP Code和錯誤碼：</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>含義</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>請求有效</td>
+</tr>
+<tr>
+<td>403</td>
+<td>拒絕訪問</td>
+</tr>
+<tr>
+<td>404</td>
+<td>訪問路徑不存在</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="console">console</a>
+                <a href="#" data-language-name="python--pybit">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+
+<script>
+    $(".con a").click(function(){
+      $(".con a").removeClass("selected");
+      $(this).addClass("selected")
+    });
+    $("#international").click(function(){
+      $this = $(this);
+      var currentUrl = window.location.href;
+      if ($this.text() == 'English') {
+        window.location=currentUrl.replace(/\/zh-my/,"");
+      } else {
+        if (currentUrl.indexOf("futuresV2") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?futuresV2)/,"/zh-my/$1");
+        } else if (currentUrl.indexOf("inverse") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?inverse)/,"/zh-my/$1");
+        } else if(currentUrl.indexOf("spot") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?spot)/,"/zh-my/$1");
+        } else if(currentUrl.indexOf("account_asset") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?account_asset)/,"/zh-my/$1");
+        } else if(currentUrl.indexOf("linear") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?linear)/,"/zh-my/$1");
+        } else if(currentUrl.indexOf("copy_trading") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?copy_trading)/,"/zh-my/$1");
+        } else if(currentUrl.indexOf("usdc") > -1) {
+          window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-my/$1");
+	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-my/$1");
+	      } else if(currentUrl.indexOf("tax") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?tax)/,"/zh-my/$1");
+	      }
+      }
+    });
+</script>
+
+</html>

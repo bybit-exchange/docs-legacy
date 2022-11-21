@@ -724,6 +724,9 @@
             </div>
           </li>
 
+        <!-- Tax -->
+          	<li><a href="/docs/zh-my/testnet/tax">稅</a></li>
+
         <!-- Environment dropdown (Testnet, Mainnet) -->
         <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
         <li>
@@ -4304,8 +4307,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">orderStatus</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>指定訂單狀態查詢訂單列表。不傳該參數則默認查詢所有狀態訂單。該參數支持多狀態查詢，狀態之間用英文逗號分割。
-</td>
+<td>指定訂單狀態查詢訂單列表。不傳該參數則默認查詢所有狀態訂單。</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-filter-orderfilter">orderFilter</a></td>
@@ -9871,6 +9873,8 @@ ELSE
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-my/$1");
 	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
 	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-my/$1");
+	      } else if(currentUrl.indexOf("tax") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?tax)/,"/zh-my/$1");
 	      }
       }
     });

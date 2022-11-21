@@ -724,6 +724,9 @@
             </div>
           </li>
 
+        <!-- Tax -->
+          	<li><a href="/docs/testnet/tax">Tax</a></li>
+
         <!-- Environment dropdown (Testnet, Mainnet) -->
         <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
         <li>
@@ -3776,6 +3779,8 @@ The rate limits for the Withdraw and Deposit Endpoints and Rate Limits For Trans
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-my/$1");
 	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
 	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-my/$1");
+	      } else if(currentUrl.indexOf("tax") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?tax)/,"/zh-my/$1");
 	      }
       }
     });

@@ -724,6 +724,9 @@
             </div>
           </li>
 
+        <!-- Tax -->
+          	<!-- <li><a href="/docs/zh-my/tax">稅</a></li> -->
+
         <!-- Environment dropdown (Testnet, Mainnet) -->
         <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
         <li>
@@ -3766,6 +3769,8 @@ ACCOUNT_STATUS_UNSPECIFIED -- 不正常 </p>
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-my/$1");
 	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
 	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-my/$1");
+	      } else if(currentUrl.indexOf("tax") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?tax)/,"/zh-my/$1");
 	      }
       }
     });
