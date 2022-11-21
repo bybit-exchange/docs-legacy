@@ -5412,8 +5412,128 @@ zh-my:
     獲取基於標的資產的最新合約信息
     <p>topic的格式:</p>
     <p>instrument_info.all.{baseCoin},such as: instrument_info.all.BTC</p>
+
+  # Tax API
+  tax: 稅
+  taxEndpoint: 稅收端點
+  registerDate: 獲取用戶註冊日期
+  requestExportRepot: 請求導出報告
+  exportReportStatus: 獲取導出報告狀態
+  retrieveDataExport: 檢索數據導出
+  dataExplanation: 數據說明
+  tradeHistoryType: 交易歷史
+  spotTradeHistory: 1.獲取現貨交易歷史
+  contractTradeHistory: 2.獲取合約交易歷史
+  usdcOptionTradeHistory: 3.獲取USDC期權交易歷史
+  nftTradeHistory: 4.獲取NFT交易歷史
+  savingsYieldHistory: 1.獲取BybitSavings收益歷史
+  liquidityMiningLiquidityHistory: 2.獲取LiquidityMining流動性歷史
+  liquidityMiningYieldHistory: 3. 獲取LiquidityMining Yield History
+  liquidityMiningSwapHistory: 4. 獲取LiquidityMiningSwap History
+  dualAssetSwapHistory: 5. 獲取 DualAsset Swap History
+  defiMiningYieldHistory: 6.獲取DeFiMining Yield History
+  lauchpoolYieldHistory: 7.獲取Launchpool收益歷史
+  sharkfinYieldHistory: 8. 獲取 Sharkfin Yield History
+  cryptoDepositHistory: 1.獲取加密存款歷史
+  p2pDepositHistory: 2.獲取P2P充值歷史
+  fiatDepositWithdrawHistory: 3.獲取法幣充提歷史
+  expressOrderDepositHistory: 4.獲取Express Order Deposit History
+  thirdPartyDepositHistory: 5. 獲取第三方存款歷史
+  cryptoWithdrawHistory: 6. 獲取加密取款歷史
+  nftDepositWithdrawalHistory: 7.獲取NFT充提歷史
+  couponHistory: 1.獲取優惠券歷史
+  bonusHistory: 2. 獲取紅利歷史
+  PNLHistoryType: 損益歷史
+  earnHistoryType: 賺取歷史
+  depositNWithdrawHistoryType: 充提歷史
+  bonusHistoryType: 紅利歷史
+  airdropHistoryType: 空投歷史
+  taxRegisterDate: 特定用戶在平台上註冊的日期
+  taxStartTime: UNIX 時間。這是以秒為單位。報告開始時間的時間戳。 StartTime 包含在數據導出的時間範圍內。
+  taxEndTime: UNIX 時間。這是以秒為單位。報告結束時間的時間戳。 EndTime 不包含在數據導出的時間範圍內。請注意，對於每個請求，我們最多只允許從 StartTime 開始搜索 2 個月的時間範圍。
+  taxQueryId: 報告請求 ID
+  taxExportStatus: 0 排隊；1 處理；2 處理；3 過期
+  taxReportUrl: 文件的URL網址 (Basepath+Files)
+
+  taxOrderId: 關閉訂單的訂單 ID。
+  taxTradeId: 平倉訂單的交易 ID。
+  taxSymbol: 交易對名稱，形式為<QuoteCoin><BaseCoin>
+  taxSide: 邊。買入或賣出方向
+  taxQuoteCoin: 報價幣的符號
+  taxBaseCoin: 已執行硬幣的符號
+  taxExecValue: 交易量
+  taxTradingFee: 單次填寫的交易費
+  taxFeeToken: 交易手續費代幣
+  taxTradeTime: UNIX 時間。這是以毫秒為單位。交易執行時間
+  taxContractType: 合同類型。反向合約、線性合約、期貨合約
+  taxClosedSize: 關閉尺寸
+  taxCumEntryValue: 平倉值
+  taxAvgEntryPrice: 平均入場價格
+  taxCumExitValue: 平倉訂單的累計成交值
+  taxAvgExitPrice: 平均退出價格
+  taxClosedPNL: 平倉損益
+  taxFillCount: 單筆訂單的成交次數
+  taxAssetStakedCoin: 用於抵押在Bybit儲蓄產品中的硬幣
+  taxStakingType: 質押類型。靈活和固定期限
+  taxAssetEarnedCoin: 發放利息的代幣
+  taxEffectiveStakingAmount: 使用 Asset Staked 幣質押的總金額
+  taxYield: 稅收收入
+  taxExecPrice: 交易價格
+  taxExecQty: 交易數量
+  taxExecType: 執行類型。貿易、ADL、BustTrade
+  taxFeeRate: 製造商或接受者費用的費率
+  taxNetwork: 網絡名稱。
+  taxNftId: NFT 集合的 ID
+  taxPlatformFee: 平台費用，費用按基礎硬幣計算
+  taxShareFee: 共享費用，費用按基礎硬幣計算
+  taxOrderType: 包括不同類型的流動性挖掘。添加、刪除、降低杠桿、再投資
+  taxEntryPrice: 下單時主要硬幣對的入場價格
+  taxLeverage: 槓桿倍數
+  taxSlippage: 訂單價格與訂單實際執行時的價格差值
+  taxLiquidity: 流動性=本金變化乘以槓桿
+  taxInitialCoin: 您嘗試交換的貨幣對中的硬幣。
+  taxDepositAmount: 您嘗試交換的貨幣對中所選硬幣的數量
+  taxSwapCoin: 您嘗試換入的貨幣對中的硬幣。
+  taxSwapAmount: 您嘗試交換的貨幣對中所選硬幣的數量
+  taxSwapFeeToken: 費用將在交換硬幣中。
+  taxSwapFee: 兌換成功後產生的費用。費用將在交換幣中
+  taxOrderTime: UNIX 時間。這是以毫秒為單位。下訂單的時間
+  taxTxid: 交易ID
+  taxDepositType: 存款類型。鏈上存款
+  taxChainType: 鏈名
+  taxFinalAmount: 加密貨幣的數量
+  taxCompletedTime: UNIX 時間。這是以毫秒為單位。 Bybit 平台收到加密貨幣的時間。
+  taxP2PSide: 對於 P2P 買家，這代表買家購買了相應的硬幣並使用法定貨幣。對於 P2P 賣家，這代表買家出售相應的硬幣並獲得法定貨幣作為回報。
+  taxFiat: 法定貨幣類型
+  taxFiatAmount: 法幣存入
+  taxCoin: 購買的硬幣符號
+  taxCoinPrice: 購買的硬幣價格
+  taxCoinAmount: 購買的硬幣數量
+  taxType: 類型。存款、取款
+  taxFee: 法幣存款手續費
+  taxPaymentMethods: 不同的支付方式
+  taxExpressOrderDepositSide: 訂單類型。買
+  taxExpressOrderDepositAmount: 通過信用卡存入的法幣。
+  taxDestinationCoin: 購買的硬幣符號
+  taxExpressOrderDepositFee: 通過信用卡存款時涉及的任何法定費用
+  taxPlatform: 支付平台方法
+  taxCryptoWithdrawFee: 根據提款幣收取的提款費
+  taxTxHash: 記錄每筆 NFT 交易的唯一 ID
+  taxTokenId: 所有的NFT都有一個uint256變量來標識不同的NFT
+  taxTransferType: 類型。存取款
+  taxTradingNftFee: 使用NFT交易產生的任何費用
+  taxCouponCoin: 作為優惠券提供給用戶的代幣
+  taxCouponFinalAmount: 給用戶的代幣數量
+  taxBonusCoin: 作為獎勵提供給用戶的代幣
+  taxBonusFinalAmount: 給用戶的代幣數量
+  taxAirdropCoin: 空投給用戶的幣
+  taxAirdropFinalAmount: 給用戶的空投數量
+  taxAirdropTransferType: 空投的類型。空投充值、空投提現
+  taxTransferDescription: 轉賬說明
+
   contract_cancelAll_settleCoin: |
     按照結算幣種取消訂單. <li>若<code>settleCoin</code>=USDT, 則取消所有USDT永續訂單</li><li>若<code>settleCoin</code>=BTC, 則取消所有BTCUSD這種反向合約
   option_wss_lengthLimit_warning: 請注意, 發送的訂閱消息長度應當控制在25k字符以內.
+
   # openAPI v3 - orderStatus
   orderStatus_v3: 指定訂單狀態查詢訂單列表。不傳該參數則默認查詢所有狀態訂單。

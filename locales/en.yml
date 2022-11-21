@@ -5875,9 +5875,130 @@ en:
     Get latest symbol info by base coin
     <p>Topic format:</p>
     <p>instrument_info.all.{baseCoin},such as: instrument_info.all.BTC</p>
+
+
+  # Tax API
+  tax: Tax
+  taxEndpoint: Tax Endpoints
+  registerDate: Get User Register Date
+  requestExportRepot: Request Export Report
+  exportReportStatus: Get Export Report Status
+  retrieveDataExport: Retrieve Data Export
+  dataExplanation: Data Explanation
+  tradeHistoryType: Trade History
+  spotTradeHistory: 1. Get Spot Trade History
+  contractTradeHistory: 2. Get Contract Trade History
+  usdcOptionTradeHistory: 3. Get USDC Options Trade History
+  nftTradeHistory: 4. Get NFT Trade History
+  savingsYieldHistory: 1. Get BybitSavings Yield History
+  liquidityMiningLiquidityHistory: 2. Get LiquidityMining Liquidity History
+  liquidityMiningYieldHistory: 3. Get LiquidityMining Yield History
+  liquidityMiningSwapHistory: 4. Get LiquidityMining Swap History
+  dualAssetSwapHistory: 5. Get DualAsset Swap History
+  defiMiningYieldHistory: 6. Get DeFiMining Yield History
+  lauchpoolYieldHistory: 7. Get Launchpool Yield History
+  sharkfinYieldHistory: 8. Get Sharkfin Yield History
+  cryptoDepositHistory: 1. Get Crypto Deposit History
+  p2pDepositHistory: 2. Get P2P Deposit History
+  fiatDepositWithdrawHistory: 3. Get Fiat Deposit and Withdraw History
+  expressOrderDepositHistory: 4. Get Express Order Deposit History
+  thirdPartyDepositHistory: 5. Get Third Party Deposit History
+  cryptoWithdrawHistory: 6. Get Crypto Withdraw History
+  nftDepositWithdrawalHistory: 7. Get NFT Deposit and Withdrawal History
+  couponHistory: 1. Get Coupon History
+  bonusHistory: 2. Get Bonus History
+  PNLHistoryType: P&L History
+  earnHistoryType: Earn History
+  depositNWithdrawHistoryType: Deposit And Withdraw History
+  bonusHistoryType: Bonus History
+  airdropHistoryType: Airdrop History
+  taxRegisterDate: Date that the specific user registers on the platform
+  taxStartTime: UNIX Time. This is in seconds. TimeStamp for Report Start Time. The StartTime is included in the Time range for the Data Export.
+  taxEndTime: UNIX Time. This is in seconds. TimeStamp for Report End Time. The EndTime is not included in the Time range for the Data Export. Do note that for each request, we will only allow up to 2 months time range search from the StartTime.
+  taxQueryId: Report Request ID
+  taxExportStatus: 0 Queued;1 Processing;2 Processed;3 Expired
+  taxReportUrl: URL of files (Basepath+Files)
+
+  taxOrderId: Order ID of the closing order.
+  taxTradeId: Trade ID of the closing order.
+  taxSymbol: Name of the trading pair in the form of <QuoteCoin><BaseCoin>
+  taxSide: Side. Either Buy or Sell direction
+  taxQuoteCoin: Symbol of the Quote Coin
+  taxBaseCoin: Symbol of the Executed Coin
+  taxExecValue: Transacted volume
+  taxTradingFee: Trading fee for a single fill
+  taxFeeToken: Token of the Trading Fee
+  taxTradeTime: UNIX Time. This is in milliseconds. Time when the trade was executed
+  taxContractType: Types of Contract. Inverse Contracts, Linear Contracts, Future Contracts
+  taxClosedSize: Closed Size
+  taxCumEntryValue: Closed position value
+  taxAvgEntryPrice: Average entry price
+  taxCumExitValue: Cumulative trading value of position closing orders
+  taxAvgExitPrice: Average exit price
+  taxClosedPNL: Closed Profit and Loss
+  taxFillCount: The number of fills in a single order
+  taxAssetStakedCoin: Coin that was used to staked in the Bybit Savings Product
+  taxStakingType: Type of Staking. Flexible and Fixed Term
+  taxAssetEarnedCoin: Coin that the Interest is given out in
+  taxEffectiveStakingAmount: Total amount staked with the Asset Staked coin
+  taxYield: Amount of the Interest coin that was given out based on
+  taxExecPrice: Transaction Price
+  taxExecQty: Transaction Quantity
+  taxExecType: Execution Types. Trade, ADL, BustTrade
+  taxFeeRate: Rates for Maker or taker fee
+  taxNetwork: Name of Network.
+  taxNftId: ID of the NFT collection
+  taxPlatformFee: Fees for Platform, Fee is as per Base coin
+  taxShareFee: Fees for Sharing, Fee is as per Base coin
+  taxOrderType: Includes the different types of liquidity mining. Add, Remove, Reduce Leverage, Reinvest
+  taxEntryPrice: Entry price of principal coin pair at time of order
+  taxLeverage: Leverage Multiples
+  taxSlippage: Difference between price of an order and the price when the order actually executes
+  taxLiquidity: Liquidity = Principal Change multiplied by Leverage
+  taxInitialCoin: The coin in the pair that you are trying to swap from.
+  taxDepositAmount: Quantity of the selected coin in the pair that you are trying to swap from
+  taxSwapCoin: The coin in the pair that you are trying to swap into.
+  taxSwapAmount: Quantity of the selected coin in the pair that you are trying to swap to
+  taxSwapFeeToken: Fee will be in the swap coin.
+  taxSwapFee: Fee incurred after the swap was successfully performed. Fee will be in the swap coin
+  taxOrderTime: UNIX Time. This is in milliseconds. Time which the order was ordered
+  taxTxid: TransactionID
+  taxDepositType: Type of Deposit. On-chain Deposit
+  taxChainType: Chain name
+  taxFinalAmount: Quantity of Crypto
+  taxCompletedTime: UNIX Time. This is in milliseconds. Time that the Crypto is received in Bybit platform.
+  taxP2PSide: For P2P Buyer, this represents the buyer bought the respective Coin and using Fiat currency. For P2P Seller, this represents the buyer sold the respective Coin and receive Fiat currency in return.
+  taxFiat: Fiat type
+  taxFiatAmount: Fiat deposited
+  taxCoin: Symbol of coin purchased
+  taxCoinPrice: Price of coin purchased
+  taxCoinAmount: Quantity of coin that is purchased
+  taxType: Type. DEPOSIT, WITHDRAW
+  taxFee: Fee for Fiat Deposit
+  taxPaymentMethods: Different payment methods
+  taxExpressOrderDepositSide: Type of Order. Buy
+  taxExpressOrderDepositAmount: Fiat deposited via Credit card.
+  taxDestinationCoin: Symbol of coin purchased
+  taxExpressOrderDepositFee: Any fees in fiat involved when depositing via Credit card
+  taxPlatform: Payment Platform methods
+  taxCryptoWithdrawFee: Withdrawal fee as per the withdrawal coin
+  taxTxHash: Unique IDs recording each NFT transaction
+  taxTokenId: All NFTs have a uint256 variable that identifies different NFT
+  taxTransferType: Type. Deposit, Withdrawal
+  taxTradingNftFee: Any fee incurred using the transaction of the NFT
+  taxCouponCoin: Coin that is given to user as coupon
+  taxCouponFinalAmount: Amount of the coin given to user
+  taxBonusCoin: Coin that is given to user as bonus
+  taxBonusFinalAmount: Amount of the coin given to user
+  taxAirdropCoin: Coin that is airdropped to user
+  taxAirdropFinalAmount: Amount of the airdrop given to user
+  taxAirdropTransferType: Type of Airdrop. Airdrop Deposit, Airdrop Withdrawal
+  taxTransferDescription: Description of the Transfer
+
   contract_cancelAll_settleCoin: |
     Cancel orders by settle coin. <li>If <code>settleCoin</code>=USDT, then cancel all USDT perp orders</li><li>if <code>settleCoin</code>=BTC, then cancel BTCUSD/BTCUSDH23</li>
 
   option_wss_lengthLimit_warning: Be careful of the length of message should be up to 25k characters.
+  
   # openAPI v3 - orderStatus
   orderStatus_v3: Query list of orders in designated states. If this parameter is not passed, the orders in all states shall be enquired by default.

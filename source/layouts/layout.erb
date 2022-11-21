@@ -533,6 +533,21 @@ under the License.
           </li>
         <% end %>
 
+        <!-- Tax -->
+        <% if page_classes.end_with?("tax_index") %>
+        	<% if page_classes.include?("testnet") %>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax" class="selected"><%=t(:tax)%></a></li>
+        	<% else %>
+          	<!-- <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/tax" class="selected"><%=t(:tax)%></a></li> -->
+        	<% end %>
+        <% else %>
+        	<% if page_classes.include?("testnet") %>
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax"><%=t(:tax)%></a></li>
+        	<% else %>
+          	<!-- <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/tax"><%=t(:tax)%></a></li> -->
+        	<% end %>
+        <% end %>
+
         <!-- Environment dropdown (Testnet, Mainnet) -->
         <!-- It's very long because each button needs its own logic to link to testnet or mainnet depending on if the website is on testnet or mainnet. -->
         <li>
@@ -662,6 +677,15 @@ under the License.
                   <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/usdc/option>Testnet</a>
                 <% end %>
               <% end %>
+              <% if page_classes.end_with?("tax_index") %>
+                <% if page_classes.include?("testnet") %>
+                  <!-- <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/tax>Mainnet</a> -->
+                  <!-- <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax>Testnet</a></span> -->
+                <% else %>
+                  <!-- <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/tax>Mainnet</a></span> -->
+                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax>Testnet</a>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </li>
@@ -789,6 +813,8 @@ under the License.
           window.location=currentUrl.replace(/\/((?:testnet\/)?usdc)/,"/zh-my/$1");
 	      } else if(currentUrl.indexOf("derivativesV3") > -1) {
 	        window.location=currentUrl.replace(/\/((?:testnet\/)?derivativesV3)/,"/zh-my/$1");
+	      } else if(currentUrl.indexOf("tax") > -1) {
+	        window.location=currentUrl.replace(/\/((?:testnet\/)?tax)/,"/zh-my/$1");
 	      }
       }
     });
