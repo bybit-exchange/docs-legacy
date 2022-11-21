@@ -3,7 +3,14 @@
 > t(:codequote_curlExample)
 
 ```console
-
+curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax/v3/private/registertime' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: bf0ca3e3b68efacad6f321a71dfd71e1d418e6b57a705d495abe339662d4deee' \
+--header 'X-BAPI-API-KEY: KAMz86BfHkKT5yWKWE' \
+--header 'X-BAPI-TIMESTAMP: 1669015205125' \
+--header 'X-BAPI-RECV-WINDOW: 500000' \
+--header 'Content-Type: application/json' \
+--data-raw '{}'
 ```
 
 ```python--pybit
@@ -13,13 +20,21 @@
 > t(:codequote_responseExample)
 
 ```javascript
-
+{
+  "retCode": 0, 
+  "retMsg": "OK", 
+  "result": {
+      "registerTime": "2019-07-10"
+      }, 
+  "retExtInfo": {}, 
+  "time": 1669025088771
+}
 ```
 
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/registertime</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxregistertime"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -66,7 +81,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/create</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxcreate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -117,7 +132,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/status</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxstatus"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -165,7 +180,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoL2>/fht/compliance/tax/v3/private/url</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#vpoL2"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxurl"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
