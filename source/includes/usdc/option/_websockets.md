@@ -116,6 +116,11 @@ t(:websocket_aside_dcp_usdc)
 
 ## t(:subscribe)
 ### t(:websocketfilters)
+
+<aside class="warning">
+t(:option_wss_lengthLimit_warning)
+</aside>
+
 > t(:websocket_codequote_filters1)
 
 t(:usdc_websocket_subscribe_desc)

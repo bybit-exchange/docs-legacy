@@ -396,7 +396,7 @@ en:
   row_comment_query_symbol_v3: Name of Contract
   row_comment_query_tradePrice_v3: Trading price
   row_comment_query_funding_v3: Funding
-  row_comment_query_cashFlow_v3: Cash flow
+  row_comment_query_cashFlow_v3: Cash Flow
   row_comment_query_change_v3: Change
   row_comment_query_cashBalance_v3: Balance (current coin)
   row_comment_query_tradeId_v3: Trade ID
@@ -880,7 +880,7 @@ en:
       <li>For example, you received <code>11.969999</code> but you expected <code>11.97</code>.
       <li>Some values are returned to too many decimal places, or a fraction too high or low, due to a float precision problem.</li>
       <li>For now, we recommend rounding the received value to the correct decimal place. This can be done with reference to the <a href="#t-querysymbol">Query Symbol</a> endpoint.</li>
-      <li>This issue will be fixed in the next major version of the API; unfortunately, it is not fixable in the short-term.</li>
+      <li><b>This issue <strike>will be</strike> has been fixed in the latest major version of the API: v3.</b> You can see the documentation for the v3 websocket <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-websocket">here</a>.</li>
     </ul>
 
   faq_data_resilience: How can I ensure I am using up-to-date data?
@@ -3311,6 +3311,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221116: Add new request param. Support cancel the order by settle coin.
   restapi_update_20221108: Add new public websocket topic
   restapi_update_20221103_1: Add new response field <code>updateTimestamp</code>. Depreciate field <code>updatedAt</code>
   restapi_update_20221103: Add new response parameter. <code>unified</code>
@@ -4566,13 +4567,13 @@ en:
   orderStatus: <a href="#order-status-status">Order status</a>
   usdcOptionOrderStatus: <a href="#order-status-orderstatus">orderStatus</a>
   lastExecPrice: Filled price
-  lastExecQty: Last filled qty
+  lastExecQty: When the order is filled or partially filled, it is filled qty. When the order is canceled, it is unfilled qty.
   basePrice: Market price during order placement
   row_comment_basePrice_v3: It will be used to compare with the value of <code>triggerPrice</code>, to decide whether your conditional order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current conditional order.
   perpBasePrice: |
     When <code>OrderFilter</code> is StopOrder REQUIRED. It will be used to compare with the value of <code>triggerPrice</code>, to decide whether your stop order will be triggered by crossing trigger price from upper side or lower side. Mainly used to identify the expected direction of the current stop order.
   createdAt: Creation time
-  cashFlow: Cash flow
+  cashFlow: The cash flow of the whole order actually occurred, fee is not included
   realisedPnl: Closed P&L
   updatedAt: Update time
   updatedAt_depreciate: Please ignore
@@ -5875,6 +5876,7 @@ en:
     <p>Topic format:</p>
     <p>instrument_info.all.{baseCoin},such as: instrument_info.all.BTC</p>
 
+
   # Tax API
   tax: Tax
   taxEndpoint: Tax Endpoints
@@ -5993,5 +5995,10 @@ en:
   taxAirdropTransferType: Type of Airdrop. Airdrop Deposit, Airdrop Withdrawal
   taxTransferDescription: Description of the Transfer
 
+  contract_cancelAll_settleCoin: |
+    Cancel orders by settle coin. <li>If <code>settleCoin</code>=USDT, then cancel all USDT perp orders</li><li>if <code>settleCoin</code>=BTC, then cancel BTCUSD/BTCUSDH23</li>
+
+  option_wss_lengthLimit_warning: Be careful of the length of message should be up to 25k characters.
+  
   # openAPI v3 - orderStatus
   orderStatus_v3: Query list of orders in designated states. If this parameter is not passed, the orders in all states shall be enquired by default.

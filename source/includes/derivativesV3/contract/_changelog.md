@@ -1,4 +1,10 @@
 # t(:changelog)
+
+## 2022-11-16
+### REST API
+- [t(:contract_cancelAllOrders)](#t-contract_cancelallorders) [t(:changelog_update)]
+  - t(:restapi_update_20221116)
+
 ## 2022-11-10
 ### WebSocket API
 - [t(:websocketOrderBookDepth)](#t-websocketorderbookdepth) [t(:changelog_update)]
