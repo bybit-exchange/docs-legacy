@@ -24,8 +24,8 @@ curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax
   "retCode": 0, 
   "retMsg": "OK", 
   "result": {
-      "registerTime": "2019-07-10"
-      }, 
+      "registerTime": "1562760001000"
+  }, 
   "retExtInfo": {}, 
   "time": 1669025088771
 }
@@ -43,7 +43,7 @@ POST
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|registerTime |DateTime |t(:taxRegisterDate) |
+|registerTime |string |t(:taxRegisterDate) |
 
 
 ## t(:requestExportRepot)
@@ -88,8 +88,8 @@ POST
 |:----- |:-------|:-----|----- |
 |type |<b>true</b> |string |<a href="#reporttype-reporttype">Report Type</a> |
 |number |<b>true</b> |string |<a href="#reportnumber-reportnumber">Report Number</a> |
-|startTime |<b>true</b> |integer |t(:taxStartTime) |
-|endTime |<b>true</b> |integer |t(:taxEndTime) |
+|startTime |<b>true</b> |string |t(:taxStartTime) |
+|endTime |<b>true</b> |string |t(:taxEndTime) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -170,7 +170,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "url": "{\"Files\":[\"20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/_SUCCESS\",\"20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/part-00000-15c42bbd-30ae-41b4-804e-6deba556374f-c000\"],\"Basepath\":\"https://testnet-bybit-tax-api-170593-ap-southeast-1-xaky06.s3.ap-southeast-1.amazonaws.com\"}"
+        "url": "{\"Files\":[\"20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/_SUCCESS\",\"20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/part-00000-15c42bbd-30ae-41b4-804e-6deba556374f-c000\"],\"Basepath\":\"https://testnet-bybit-tax-api-170593-ap-southeast-1-xaky06.s3.ap-southeast-1.amazonaws.com\/"}"
     },
     "retExtInfo": {},
     "time": 1669009463401
