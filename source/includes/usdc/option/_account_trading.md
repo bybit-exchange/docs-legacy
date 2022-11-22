@@ -867,7 +867,7 @@ POST
 |t(:row_parameter_symbol) |false|string|t(:usdcSymbol)|
 |baseCoin |false|string|t(:usdcBaseCoin_new)|
 |orderId|false|string|t(:usdcOrderId)|
-|orderLinkId|false|string|t(:usdcOrderLinkId)|
+|orderLinkId|false|string|t(:orderLinkId)|
 |startTime|false|string|t(:usdcStartTime_ms)|
 |direction|false|string|t(:direction)|
 |limit|false|string|t(:row_comment_limit)|

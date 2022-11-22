@@ -5912,11 +5912,11 @@ en:
   depositNWithdrawHistoryType: Deposit And Withdraw History
   bonusHistoryType: Bonus History
   airdropHistoryType: Airdrop History
-  taxRegisterDate: Date that the specific user registers on the platform
+  taxRegisterDate: UNIX Time. This is in milleseconds. Date that the specific user registers on the platform
   taxStartTime: UNIX Time. This is in seconds. TimeStamp for Report Start Time. The StartTime is included in the Time range for the Data Export.
   taxEndTime: UNIX Time. This is in seconds. TimeStamp for Report End Time. The EndTime is not included in the Time range for the Data Export. Do note that for each request, we will only allow up to 2 months time range search from the StartTime.
   taxQueryId: Report Request ID
-  taxExportStatus: 0 Queued;1 Processing;2 Processed;3 Expired
+  taxExportStatus: -1 Failed;0 Queued;1 Processing;2 Processed;3 Expired
   taxReportUrl: URL of files (Basepath+Files)
 
   taxOrderId: Order ID of the closing order.
@@ -5999,6 +5999,6 @@ en:
     Cancel orders by settle coin. <li>If <code>settleCoin</code>=USDT, then cancel all USDT perp orders</li><li>if <code>settleCoin</code>=BTC, then cancel BTCUSD/BTCUSDH23</li>
 
   option_wss_lengthLimit_warning: Be careful of the length of message should be up to 25k characters.
-  
+
   # openAPI v3 - orderStatus
   orderStatus_v3: Query list of orders in designated states. If this parameter is not passed, the orders in all states shall be enquired by default.
