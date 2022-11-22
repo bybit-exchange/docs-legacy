@@ -1230,74 +1230,122 @@ GET
 |nextPageCursor |string |t(:contract_comment_nextPageCursor)  |
 
 
-### t(:OILimitInfo)
-> t(:codequote_curlExample)
+[comment]: <> (### t&#40;:OILimitInfo&#41;)
 
-```console
-curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/limit-info?symbol=ETHUSDT' \
---header 'X-BAPI-SIGN-TYPE: 2' \
---header 'X-BAPI-SIGN: eb16a696924a92a3a47d769caf44d7373eca9ed6a644384ff6e8cd729ee9f7b1' \
---header 'X-BAPI-API-KEY: XXXXXX' \
---header 'X-BAPI-TIMESTAMP: 1658914264517' \
---header 'X-BAPI-RECV-WINDOW: 5000'
-```
+[comment]: <> (> t&#40;:codequote_curlExample&#41;)
 
-```python--pybit
+[comment]: <> (```console)
 
-```
+[comment]: <> (curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/limit-info?symbol=ETHUSDT' \)
 
-> t(:codequote_responseExample)
+[comment]: <> (--header 'X-BAPI-SIGN-TYPE: 2' \)
 
-```javascript
-{
-    "retCode": 0,
-    "retMsg": "OK",
-    "result": {
-        "currentLimitPcnt": "0.1000",
-        "totalBuyPositionSize": "0.1000",
-        "totalSellPositionSize": "0.0000",
-        "estMaxPositionSize": "28581.1950",
-        "openInterest": "285811.95",
-        "list": [
-            {
-                "userId": "533285",
-                "positionSize": "0.1000",
-                "side": "Buy"
-            }
-        ],
-        "updateTime": "1663050089990"
-    },
-    "retExtInfo": null,
-    "time": 1663050089990
-}
-```
+[comment]: <> (--header 'X-BAPI-SIGN: eb16a696924a92a3a47d769caf44d7373eca9ed6a644384ff6e8cd729ee9f7b1' \)
 
-t(:OILimitInfo_para)
+[comment]: <> (--header 'X-BAPI-API-KEY: XXXXXX' \)
 
-<p class="fake_header">t(:httprequest)</p>
-GET
-<code><span id=posiliin>/contract/v3/private/position/limit-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#posiliin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+[comment]: <> (--header 'X-BAPI-TIMESTAMP: 1658914264517' \)
 
-<p class="fake_header">t(:requestparameters)</p>
-|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
-|:----- |:-------|:-----|----- |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol)|
+[comment]: <> (--header 'X-BAPI-RECV-WINDOW: 5000')
+
+[comment]: <> (```)
+
+[comment]: <> (```python--pybit)
+
+[comment]: <> (```)
+
+[comment]: <> (> t&#40;:codequote_responseExample&#41;)
+
+[comment]: <> (```javascript)
+
+[comment]: <> ({)
+
+[comment]: <> (    "retCode": 0,)
+
+[comment]: <> (    "retMsg": "OK",)
+
+[comment]: <> (    "result": {)
+
+[comment]: <> (        "currentLimitPcnt": "0.1000",)
+
+[comment]: <> (        "totalBuyPositionSize": "0.1000",)
+
+[comment]: <> (        "totalSellPositionSize": "0.0000",)
+
+[comment]: <> (        "estMaxPositionSize": "28581.1950",)
+
+[comment]: <> (        "openInterest": "285811.95",)
+
+[comment]: <> (        "list": [)
+
+[comment]: <> (            {)
+
+[comment]: <> (                "userId": "533285",)
+
+[comment]: <> (                "positionSize": "0.1000",)
+
+[comment]: <> (                "side": "Buy")
+
+[comment]: <> (            })
+
+[comment]: <> (        ],)
+
+[comment]: <> (        "updateTime": "1663050089990")
+
+[comment]: <> (    },)
+
+[comment]: <> (    "retExtInfo": null,)
+
+[comment]: <> (    "time": 1663050089990)
+
+[comment]: <> (})
+
+[comment]: <> (```)
+
+[comment]: <> (t&#40;:OILimitInfo_para&#41;)
+
+[comment]: <> (<p class="fake_header">t&#40;:httprequest&#41;</p>)
+
+[comment]: <> (GET)
+
+[comment]: <> (<code><span id=posiliin>/contract/v3/private/position/limit-info</span></code>)
+
+[comment]: <> (<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#posiliin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>)
+
+[comment]: <> (<p class="fake_header">t&#40;:requestparameters&#41;</p>)
+
+[comment]: <> (|t&#40;:column_parameter&#41;|t&#40;:column_required&#41;|t&#40;:column_type&#41;|t&#40;:column_comments&#41;|)
+
+[comment]: <> (|:----- |:-------|:-----|----- |)
+
+[comment]: <> (|t&#40;:row_parameter_symbol&#41; |<b>true</b> |string |t&#40;:row_comment_symbol&#41;|)
 
 
-<p class="fake_header">t(:responseparameters)</p>
-|t(:column_parameter)|t(:column_type)|t(:column_comments)|
-|:----- |:-----|----- |
-|currentLimitPcnt |string |t(:row_resp_comment_currentLimitPcnt)  |
-|totalBuyPositionSize |string |t(:row_resp_comment_totalBuyPositionSize)  |
-|totalSellPositionSize |string |t(:row_resp_comment_totalSellPositionSize)  |
-|estMaxPositionSize |string |t(:row_resp_comment_estMaxPositionSize)  |
-|openInterest |string |t(:row_resp_comment_openInterest)  |
-|list |array |Object  |
-|> userId |string |t(:row_resp_comment_userId)  |
-|> positionSize |string |t(:row_resp_comment_positionSize)  |
-|> side |string |t(:row_resp_comment_side)  |
-|updateTime |string |t(:row_resp_comment_updateTime)  |
+[comment]: <> (<p class="fake_header">t&#40;:responseparameters&#41;</p>)
+
+[comment]: <> (|t&#40;:column_parameter&#41;|t&#40;:column_type&#41;|t&#40;:column_comments&#41;|)
+
+[comment]: <> (|:----- |:-----|----- |)
+
+[comment]: <> (|currentLimitPcnt |string |t&#40;:row_resp_comment_currentLimitPcnt&#41;  |)
+
+[comment]: <> (|totalBuyPositionSize |string |t&#40;:row_resp_comment_totalBuyPositionSize&#41;  |)
+
+[comment]: <> (|totalSellPositionSize |string |t&#40;:row_resp_comment_totalSellPositionSize&#41;  |)
+
+[comment]: <> (|estMaxPositionSize |string |t&#40;:row_resp_comment_estMaxPositionSize&#41;  |)
+
+[comment]: <> (|openInterest |string |t&#40;:row_resp_comment_openInterest&#41;  |)
+
+[comment]: <> (|list |array |Object  |)
+
+[comment]: <> (|> userId |string |t&#40;:row_resp_comment_userId&#41;  |)
+
+[comment]: <> (|> positionSize |string |t&#40;:row_resp_comment_positionSize&#41;  |)
+
+[comment]: <> (|> side |string |t&#40;:row_resp_comment_side&#41;  |)
+
+[comment]: <> (|updateTime |string |t&#40;:row_resp_comment_updateTime&#41;  |)
 
 
 ## t(:contract_account)
