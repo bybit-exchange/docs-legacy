@@ -935,9 +935,6 @@
                           <li>
                             <a href="#t-dv_closedprofitandloss" class="toc-h3 toc-link" data-title="Get Closed Profit and Loss">Get Closed Profit and Loss</a>
                           </li>
-                          <li>
-                            <a href="#t-oilimitinfo" class="toc-h3 toc-link" data-title="Get Open Interest Limit Info">Get Open Interest Limit Info</a>
-                          </li>
                       </ul>
                   </li>
                   <li>
@@ -5621,139 +5618,122 @@ One order may have multiple trade records.
 <td>Next page cursor</td>
 </tr>
 </tbody></table>
-<h3 id='t-oilimitinfo'>Get Open Interest Limit Info</h3>
-<blockquote>
-<p>Request Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/limit-info?symbol=ETHUSDT' \
---header 'X-BAPI-SIGN-TYPE: 2' \
---header 'X-BAPI-SIGN: eb16a696924a92a3a47d769caf44d7373eca9ed6a644384ff6e8cd729ee9f7b1' \
---header 'X-BAPI-API-KEY: XXXXXX' \
---header 'X-BAPI-TIMESTAMP: 1658914264517' \
---header 'X-BAPI-RECV-WINDOW: 5000'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
-</code></pre></div>
-<blockquote>
-<p>Response Example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">currentLimitPcnt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalBuyPositionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalSellPositionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">estMaxPositionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">28581.1950</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">285811.95</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">userId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533285</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span>
-            <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1663050089990</span><span class="dl">"</span>
-    <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1663050089990</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Get the information of open interest limit.
-<p>
-<b>Note:</b></br>
-<ul>
-  <li>Only the api key of master account is applicable.</li>
-  <li>Unified Margin Account is applicable to this endpoint as well.</li>
-  <li>Only USDT PERPETUAL is supported currently.</li>
-  <li>Future v2 authentication way is applicable.</li>
-</ul>
-</p>
-</p>
 
-<p class="fake_header">HTTP Request</p>
+<p>[comment]: &lt;&gt; (### t&#40;:OILimitInfo&#41;)</p>
 
-<p>GET
-<code><span id=posiliin>/contract/v3/private/position/limit-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#posiliin"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<p>[comment]: &lt;&gt; (&gt; t&#40;:codequote_curlExample&#41;)</p>
 
-<p class="fake_header">Request Parameters</p>
+<p>[comment]: &lt;&gt; (```console)</p>
 
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Required</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>Symbol</td>
-</tr>
-</tbody></table>
+<p>[comment]: &lt;&gt; (curl --location --request GET &#39;https://api-testnet.bybit.com/contract/v3/private/position/limit-info?symbol=ETHUSDT&#39; )</p>
 
-<p class="fake_header">Response Parameters</p>
+<p>[comment]: &lt;&gt; (--header &#39;X-BAPI-SIGN-TYPE: 2&#39; )</p>
 
-<table><thead>
-<tr>
-<th style="text-align: left">Parameter</th>
-<th style="text-align: left">Type</th>
-<th>Comment</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">currentLimitPcnt</td>
-<td style="text-align: left">string</td>
-<td>The current limit percentage of the position under user group. The value is like <code>0.0000</code></td>
-</tr>
-<tr>
-<td style="text-align: left">totalBuyPositionSize</td>
-<td style="text-align: left">string</td>
-<td>The total position size of <code>Buy</code> side under user group</td>
-</tr>
-<tr>
-<td style="text-align: left">totalSellPositionSize</td>
-<td style="text-align: left">string</td>
-<td>The total position size of <code>Sell</code> side under user group</td>
-</tr>
-<tr>
-<td style="text-align: left">estMaxPositionSize</td>
-<td style="text-align: left">string</td>
-<td>The estimated maximum position size. Calculation：<code>The latest Open Interest * currentLimitPcnt</code>. Single side max(long position size, short position size)</td>
-</tr>
-<tr>
-<td style="text-align: left">openInterest</td>
-<td style="text-align: left">string</td>
-<td>The open interest of the recent 5 mins</td>
-</tr>
-<tr>
-<td style="text-align: left">list</td>
-<td style="text-align: left">array</td>
-<td>Object</td>
-</tr>
-<tr>
-<td style="text-align: left">&gt; userId</td>
-<td style="text-align: left">string</td>
-<td>User ID</td>
-</tr>
-<tr>
-<td style="text-align: left">&gt; positionSize</td>
-<td style="text-align: left">string</td>
-<td>The position size of this user id. <b>Note</b>：the data might be latency</td>
-</tr>
-<tr>
-<td style="text-align: left">&gt; side</td>
-<td style="text-align: left">string</td>
-<td>The position side. <code>Buy</code>, <code>Sell</code></td>
-</tr>
-<tr>
-<td style="text-align: left">updateTime</td>
-<td style="text-align: left">string</td>
-<td>Update timestamp</td>
-</tr>
-</tbody></table>
+<p>[comment]: &lt;&gt; (--header &#39;X-BAPI-SIGN: eb16a696924a92a3a47d769caf44d7373eca9ed6a644384ff6e8cd729ee9f7b1&#39; )</p>
+
+<p>[comment]: &lt;&gt; (--header &#39;X-BAPI-API-KEY: XXXXXX&#39; )</p>
+
+<p>[comment]: &lt;&gt; (--header &#39;X-BAPI-TIMESTAMP: 1658914264517&#39; )</p>
+
+<p>[comment]: &lt;&gt; (--header &#39;X-BAPI-RECV-WINDOW: 5000&#39;)</p>
+
+<p>[comment]: &lt;&gt; (```)</p>
+
+<p>[comment]: &lt;&gt; (```python--pybit)</p>
+
+<p>[comment]: &lt;&gt; (```)</p>
+
+<p>[comment]: &lt;&gt; (&gt; t&#40;:codequote_responseExample&#41;)</p>
+
+<p>[comment]: &lt;&gt; (```javascript)</p>
+
+<p>[comment]: &lt;&gt; ({)</p>
+
+<p>[comment]: &lt;&gt; (    &quot;retCode&quot;: 0,)</p>
+
+<p>[comment]: &lt;&gt; (    &quot;retMsg&quot;: &quot;OK&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (    &quot;result&quot;: {)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;currentLimitPcnt&quot;: &quot;0.1000&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;totalBuyPositionSize&quot;: &quot;0.1000&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;totalSellPositionSize&quot;: &quot;0.0000&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;estMaxPositionSize&quot;: &quot;28581.1950&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;openInterest&quot;: &quot;285811.95&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;list&quot;: [)</p>
+
+<p>[comment]: &lt;&gt; (            {)</p>
+
+<p>[comment]: &lt;&gt; (                &quot;userId&quot;: &quot;533285&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (                &quot;positionSize&quot;: &quot;0.1000&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (                &quot;side&quot;: &quot;Buy&quot;)</p>
+
+<p>[comment]: &lt;&gt; (            })</p>
+
+<p>[comment]: &lt;&gt; (        ],)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;updateTime&quot;: &quot;1663050089990&quot;)</p>
+
+<p>[comment]: &lt;&gt; (    },)</p>
+
+<p>[comment]: &lt;&gt; (    &quot;retExtInfo&quot;: null,)</p>
+
+<p>[comment]: &lt;&gt; (    &quot;time&quot;: 1663050089990)</p>
+
+<p>[comment]: &lt;&gt; (})</p>
+
+<p>[comment]: &lt;&gt; (```)</p>
+
+<p>[comment]: &lt;&gt; (t&#40;:OILimitInfo_para&#41;)</p>
+
+<p>[comment]: &lt;&gt; (<p class="fake_header">t&#40;:httprequest&#41;</p>)</p>
+
+<p>[comment]: &lt;&gt; (GET)</p>
+
+<p>[comment]: &lt;&gt; (<code><span id=posiliin>/contract/v3/private/position/limit-info</span></code>)</p>
+
+<p>[comment]: &lt;&gt; (<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#posiliin"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>)</p>
+
+<p>[comment]: &lt;&gt; (<p class="fake_header">t&#40;:requestparameters&#41;</p>)</p>
+
+<p>[comment]: &lt;&gt; (|t&#40;:column_parameter&#41;|t&#40;:column_required&#41;|t&#40;:column_type&#41;|t&#40;:column_comments&#41;|)</p>
+
+<p>[comment]: &lt;&gt; (|:----- |:-------|:-----|----- |)</p>
+
+<p>[comment]: &lt;&gt; (|t&#40;:row_parameter_symbol&#41; |<b>true</b> |string |t&#40;:row_comment_symbol&#41;|)</p>
+
+<p>[comment]: &lt;&gt; (<p class="fake_header">t&#40;:responseparameters&#41;</p>)</p>
+
+<p>[comment]: &lt;&gt; (|t&#40;:column_parameter&#41;|t&#40;:column_type&#41;|t&#40;:column_comments&#41;|)</p>
+
+<p>[comment]: &lt;&gt; (|:----- |:-----|----- |)</p>
+
+<p>[comment]: &lt;&gt; (|currentLimitPcnt |string |t&#40;:row_resp_comment_currentLimitPcnt&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|totalBuyPositionSize |string |t&#40;:row_resp_comment_totalBuyPositionSize&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|totalSellPositionSize |string |t&#40;:row_resp_comment_totalSellPositionSize&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|estMaxPositionSize |string |t&#40;:row_resp_comment_estMaxPositionSize&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|openInterest |string |t&#40;:row_resp_comment_openInterest&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|list |array |Object  |)</p>
+
+<p>[comment]: &lt;&gt; (|&gt; userId |string |t&#40;:row_resp_comment_userId&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|&gt; positionSize |string |t&#40;:row_resp_comment_positionSize&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|&gt; side |string |t&#40;:row_resp_comment_side&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|updateTime |string |t&#40;:row_resp_comment_updateTime&#41;  |)</p>
 <h2 id='t-contract_account'>Account</h2>
 <p>The following account data endpoints require authentication.</p>
 <h3 id='t-balance'>Get Wallet Balance</h3>

@@ -1185,8 +1185,8 @@ Example signature algorithms can be found <a href="https://github.com/bybit-exch
   <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
   <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span> 
   <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">registerTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2019-07-10</span><span class="dl">"</span>
-      <span class="p">},</span> 
+      <span class="dl">"</span><span class="s2">registerTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1562760001000</span><span class="dl">"</span>
+  <span class="p">},</span> 
   <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span> 
   <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669025088771</span>
 <span class="p">}</span>
@@ -1220,8 +1220,8 @@ Example signature algorithms can be found <a href="https://github.com/bybit-exch
 </thead><tbody>
 <tr>
 <td style="text-align: left">registerTime</td>
-<td style="text-align: left">DateTime</td>
-<td>Date that the specific user registers on the platform</td>
+<td style="text-align: left">string</td>
+<td>UNIX Time. This is in milleseconds. Date that the specific user registers on the platform</td>
 </tr>
 </tbody></table>
 <h2 id='t-requestexportrepot'>Request Export Report</h2>
@@ -1282,13 +1282,13 @@ Example signature algorithms can be found <a href="https://github.com/bybit-exch
 <tr>
 <td style="text-align: left">startTime</td>
 <td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>UNIX Time. This is in seconds. TimeStamp for Report Start Time. The StartTime is included in the Time range for the Data Export.</td>
 </tr>
 <tr>
 <td style="text-align: left">endTime</td>
 <td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td>UNIX Time. This is in seconds. TimeStamp for Report End Time. The EndTime is not included in the Time range for the Data Export. Do note that for each request, we will only allow up to 2 months time range search from the StartTime.</td>
 </tr>
 </tbody></table>
@@ -1371,7 +1371,7 @@ Example signature algorithms can be found <a href="https://github.com/bybit-exch
 <tr>
 <td style="text-align: left">status</td>
 <td style="text-align: left">number</td>
-<td>0 Queued;1 Processing;2 Processed;3 Expired</td>
+<td>-1 Failed;0 Queued;1 Processing;2 Processed;3 Expired</td>
 </tr>
 </tbody></table>
 <h2 id='t-retrievedataexport'>Retrieve Data Export</h2>
@@ -1395,12 +1395,12 @@ Example signature algorithms can be found <a href="https://github.com/bybit-exch
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">Files</span><span class="se">\"</span><span class="s2">:[</span><span class="se">\"</span><span class="s2">20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/_SUCCESS</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/part-00000-15c42bbd-30ae-41b4-804e-6deba556374f-c000</span><span class="se">\"</span><span class="s2">],</span><span class="se">\"</span><span class="s2">Basepath</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">https://testnet-bybit-tax-api-170593-ap-southeast-1-xaky06.s3.ap-southeast-1.amazonaws.com</span><span class="se">\"</span><span class="s2">}</span><span class="dl">"</span>
-    <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669009463401</span>
-<span class="p">}</span>
-</code></pre></div>
+        <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">Files</span><span class="se">\"</span><span class="s2">:[</span><span class="se">\"</span><span class="s2">20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/_SUCCESS</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/part-00000-15c42bbd-30ae-41b4-804e-6deba556374f-c000</span><span class="se">\"</span><span class="s2">],</span><span class="se">\"</span><span class="s2">Basepath</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">https://testnet-bybit-tax-api-170593-ap-southeast-1-xaky06.s3.ap-southeast-1.amazonaws.com</span><span class="se">\</span><span class="s2">/</span><span class="dl">"</span><span class="p">}</span><span class="dl">"</span><span class="s2">
+    },
+    </span><span class="dl">"</span><span class="nx">retExtInfo</span><span class="dl">"</span><span class="s2">: {},
+    </span><span class="dl">"</span><span class="nx">time</span><span class="dl">"</span><span class="s2">: 1669009463401
+}
+</span></code></pre></div>
 <p class="fake_header">HTTP Request</p>
 
 <p>POST

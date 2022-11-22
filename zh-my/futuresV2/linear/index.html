@@ -1371,9 +1371,6 @@
                           <li>
                             <a href="#t-closedprofitandloss" class="toc-h3 toc-link" data-title="平倉盈虧">平倉盈虧</a>
                           </li>
-                          <li>
-                            <a href="#t-oilimitinfo" class="toc-h3 toc-link" data-title="查詢限倉信息">查詢限倉信息</a>
-                          </li>
                       </ul>
                   </li>
                   <li>
@@ -8392,134 +8389,112 @@ GET
 <td>創建時間</td>
 </tr>
 </tbody></table>
-<h3 id='t-oilimitinfo'>查詢限倉信息</h3>
-<blockquote>
-<p>請求示例</p>
-</blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/limit-info?symbol=ETHUSDT&amp;api_key=XXXXXXX&amp;timestamp=1663056036628&amp;sign=9123f7542b201b369d34e87f2f1d4103e3d842ffaa41f06310df5ccff06ecd81'
-</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
-</code></pre></div>
-<blockquote>
-<p>響應示例</p>
-</blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">currentLimitPcnt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalBuyPositionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalSellPositionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">estMaxPositionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">28581.1950</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">285811.95</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">userId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">533285</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span>
-            <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1663050089990</span><span class="dl">"</span>
-    <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1663050089990</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>該接口可查詢到用戶的限倉信息。
-<p>
-<b>注意:</b></br>
-<ul>
-  <li>僅支持母帳戶的api key查詢.</li>
-  <li>該接口適用於統一保證金帳戶.</li>
-  <li>當前僅支持USDT正向合約.</li>
-  <li>支持期貨v2的鑒權方式.</li>
-</ul>
-</p>
-</p>
 
-<p class="fake_header">HTTP 請求</p>
+<p>[comment]: &lt;&gt; (### t&#40;:OILimitInfo&#41;)</p>
 
-<p>GET
-<code><span id=pltcLpnl>/contract/v3/private/position/limit-info</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcLpnl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+<p>[comment]: &lt;&gt; (&gt; t&#40;:codequote_curlExample&#41;)</p>
 
-<p class="fake_header">請求參數</p>
+<p>[comment]: &lt;&gt; (```console)</p>
 
-<table><thead>
-<tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">是否必須</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
-<td style="text-align: left">string</td>
-<td>合約類型</td>
-</tr>
-</tbody></table>
+<p>[comment]: &lt;&gt; (curl --location --request GET &#39;https://api-testnet.bybit.com/contract/v3/private/position/limit-info?symbol=ETHUSDT&amp;api_key=XXXXXXX&amp;timestamp=1663056036628&amp;sign=9123f7542b201b369d34e87f2f1d4103e3d842ffaa41f06310df5ccff06ecd81&#39;)</p>
 
-<p class="fake_header">返回參數</p>
+<p>[comment]: &lt;&gt; (```)</p>
 
-<table><thead>
-<tr>
-<th style="text-align: left">參數</th>
-<th style="text-align: left">類型</th>
-<th>說明</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">currentLimitPcnt</td>
-<td style="text-align: left">string</td>
-<td>當前倉位對該user group的限倉比例，返回示例<code>0.0000</code></td>
-</tr>
-<tr>
-<td style="text-align: left">totalBuyPositionSize</td>
-<td style="text-align: left">string</td>
-<td>當前所有user group的倉位總和，做多方向的倉位總size</td>
-</tr>
-<tr>
-<td style="text-align: left">totalSellPositionSize</td>
-<td style="text-align: left">string</td>
-<td>當前所有user group的倉位總和，做空方向的倉位總size</td>
-</tr>
-<tr>
-<td style="text-align: left">estMaxPositionSize</td>
-<td style="text-align: left">string</td>
-<td>預估按照當前最大可開的限倉額度。計算方式：最新的Open Interest * 當前限倉比例。單邊 max(多倉size, 空倉size)</td>
-</tr>
-<tr>
-<td style="text-align: left">openInterest</td>
-<td style="text-align: left">string</td>
-<td>當前合約的最近5分鐘的未平倉合約數量</td>
-</tr>
-<tr>
-<td style="text-align: left">list</td>
-<td style="text-align: left">array</td>
-<td>Object</td>
-</tr>
-<tr>
-<td style="text-align: left">&gt; userId</td>
-<td style="text-align: left">string</td>
-<td>限倉的userId</td>
-</tr>
-<tr>
-<td style="text-align: left">&gt; positionSize</td>
-<td style="text-align: left">string</td>
-<td>當前每個userId下的持倉數量，數據會有延遲</td>
-</tr>
-<tr>
-<td style="text-align: left">&gt; side</td>
-<td style="text-align: left">string</td>
-<td>持倉方向，<code>Buy</code>, <code>Sell</code></td>
-</tr>
-<tr>
-<td style="text-align: left">updateTime</td>
-<td style="text-align: left">string</td>
-<td>最新數據的更新時間</td>
-</tr>
-</tbody></table>
+<p>[comment]: &lt;&gt; (```python--pybit)</p>
+
+<p>[comment]: &lt;&gt; (```)</p>
+
+<p>[comment]: &lt;&gt; (&gt; t&#40;:codequote_responseExample&#41;)</p>
+
+<p>[comment]: &lt;&gt; (```javascript)</p>
+
+<p>[comment]: &lt;&gt; ({)</p>
+
+<p>[comment]: &lt;&gt; (    &quot;retCode&quot;: 0,)</p>
+
+<p>[comment]: &lt;&gt; (    &quot;retMsg&quot;: &quot;OK&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (    &quot;result&quot;: {)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;currentLimitPcnt&quot;: &quot;0.1000&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;totalBuyPositionSize&quot;: &quot;0.1000&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;totalSellPositionSize&quot;: &quot;0.0000&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;estMaxPositionSize&quot;: &quot;28581.1950&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;openInterest&quot;: &quot;285811.95&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;list&quot;: [)</p>
+
+<p>[comment]: &lt;&gt; (            {)</p>
+
+<p>[comment]: &lt;&gt; (                &quot;userId&quot;: &quot;533285&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (                &quot;positionSize&quot;: &quot;0.1000&quot;,)</p>
+
+<p>[comment]: &lt;&gt; (                &quot;side&quot;: &quot;Buy&quot;)</p>
+
+<p>[comment]: &lt;&gt; (            })</p>
+
+<p>[comment]: &lt;&gt; (        ],)</p>
+
+<p>[comment]: &lt;&gt; (        &quot;updateTime&quot;: &quot;1663050089990&quot;)</p>
+
+<p>[comment]: &lt;&gt; (    },)</p>
+
+<p>[comment]: &lt;&gt; (    &quot;retExtInfo&quot;: null,)</p>
+
+<p>[comment]: &lt;&gt; (    &quot;time&quot;: 1663050089990)</p>
+
+<p>[comment]: &lt;&gt; (})</p>
+
+<p>[comment]: &lt;&gt; (```)</p>
+
+<p>[comment]: &lt;&gt; (t&#40;:OILimitInfo_para&#41;)</p>
+
+<p>[comment]: &lt;&gt; (<p class="fake_header">t&#40;:httprequest&#41;</p>)</p>
+
+<p>[comment]: &lt;&gt; (GET)</p>
+
+<p>[comment]: &lt;&gt; (<code><span id=pltcLpnl>/contract/v3/private/position/limit-info</span></code>)</p>
+
+<p>[comment]: &lt;&gt; (<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pltcLpnl"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>)</p>
+
+<p>[comment]: &lt;&gt; (<p class="fake_header">t&#40;:requestparameters&#41;</p>)</p>
+
+<p>[comment]: &lt;&gt; (|t&#40;:column_parameter&#41;|t&#40;:column_required&#41;|t&#40;:column_type&#41;|t&#40;:column_comments&#41;|)</p>
+
+<p>[comment]: &lt;&gt; (|:----- |:-------|:-----|----- |)</p>
+
+<p>[comment]: &lt;&gt; (|t&#40;:row_parameter_symbol&#41; |<b>true</b> |string |t&#40;:row_comment_symbol&#41;|)</p>
+
+<p>[comment]: &lt;&gt; (<p class="fake_header">t&#40;:responseparameters&#41;</p>)</p>
+
+<p>[comment]: &lt;&gt; (|t&#40;:column_parameter&#41;|t&#40;:column_type&#41;|t&#40;:column_comments&#41;|)</p>
+
+<p>[comment]: &lt;&gt; (|:----- |:-----|----- |)</p>
+
+<p>[comment]: &lt;&gt; (|currentLimitPcnt |string |t&#40;:row_resp_comment_currentLimitPcnt&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|totalBuyPositionSize |string |t&#40;:row_resp_comment_totalBuyPositionSize&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|totalSellPositionSize |string |t&#40;:row_resp_comment_totalSellPositionSize&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|estMaxPositionSize |string |t&#40;:row_resp_comment_estMaxPositionSize&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|openInterest |string |t&#40;:row_resp_comment_openInterest&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|list |array |Object  |)</p>
+
+<p>[comment]: &lt;&gt; (|&gt; userId |string |t&#40;:row_resp_comment_userId&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|&gt; positionSize |string |t&#40;:row_resp_comment_positionSize&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|&gt; side |string |t&#40;:row_resp_comment_side&#41;  |)</p>
+
+<p>[comment]: &lt;&gt; (|updateTime |string |t&#40;:row_resp_comment_updateTime&#41;  |)</p>
 <h2 id='t-risklimit'>風險限額</h2><h3 id='t-getrisklimit'>查詢風險限額表</h3>
 <blockquote>
 <p>請求示例</p>
