@@ -9,7 +9,7 @@ t(:account_para)
 curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/order/create' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: f02a18137c25c40d64b2c474f575c01a62ba076124946d38619238e19c86a2f2' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658884339826' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -61,6 +61,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol)   |
 |side |<b>true</b> |string |t(:row_comment_side)    |
 |positionIdx |false |integer |t(:row_comment_position_idx_create_order)  |
@@ -70,6 +71,7 @@ POST
 |triggerDirection |false |integer |t(:contract_comment_triggerDirection) |
 |triggerPrice |false |string |t(:contract_comment_triggerPrice) |
 |<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_linear_triggerBy) |
+|iv |false |string |t(:row_comment_iv_v3) |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
 |t(:row_parameter_timeInForce) |<b>true</b> |string |t(:row_comment_timeInForce) |
@@ -77,7 +79,8 @@ POST
 |takeProfit |false |string |t(:row_comment_takeProfit) |
 |stopLoss |false |string |t(:row_comment_stopLoss) |
 |reduceOnly |false |bool |t(:linear_row_comment_reduceOnly) |
-|closeOnTrigger |false |bool |t(:linear_row_comment_closeOnTrigger)
+|closeOnTrigger |false |bool |t(:linear_row_comment_closeOnTrigger) |
+|mmp |false |bool |t(:row_comment_mmp_v3) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -158,11 +161,13 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |orderId |false |string |t(:account_row_comment_orderId) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId) |
-|symbol |<b>true</b> |string |t(:row_comment_symbol) |
+|symbol |false |string |t(:row_comment_symbol) |
+|baseCoin |false |string |t(:dv3_queryOrder_baseCoin) |
 |<a href="#order-status-orderstatus-stoporderstatus">orderStatus</a> |false |string |t(:orderStatus_v3) |
-|orderFilter |false |string |t(:row_comment_orderFilter_v3) |
+|<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3) |
 |limit |false |integer |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_resp_cursor) |
 
@@ -308,9 +313,10 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |symbol |false |string | t(:row_comment_symbol) |
 |settleCoin |false |string | t(:contract_cancelAll_settleCoin) |
-
+|baseCoin |false |string |t(:dv3_queryOrder_baseCoin) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -374,6 +380,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |orderId |false |string |t(:row_comment_orderId_replace) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_replace) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
@@ -384,6 +391,7 @@ POST
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
 |triggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
+|iv |false |string |t(:row_comment_iv_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -463,10 +471,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |symbol |false |string |t(:contract_comment_realtimeOrderSymbol) |
 |orderId |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|settleCoin |false |string | t(:contract_comment_realtimeOrderSettleCoin)|
+|settleCoin |false |string | t(:contract_comment_realtimeSettleCoin)|
+|baseCoin |false |string | t(:dv3_realtimeOrder_baseCoin)|
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string | t(:row_comment_orderFilter_v3)|
 |limit |false |number |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_resp_cursor)   |
@@ -593,9 +603,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |t(:row_parameter_symbol) |false |string |t(:contract_comment_realtimeOrderSymbol)    |
-|settleCoin |false |string |t(:contract_comment_realtimeOrderSettleCoin)    |
-|dataFilter |false |string |t(:contract_comment_dataFilter)    |
+|settleCoin |false |string |t(:contract_comment_positionSettleCoin)    |
+|baseCoin |false |string |t(:dv3_queryOrder_baseCoin)    |
+|limit |false |number |t(:row_comment_limit) |
+|cursor |false |string |t(:row_comment_resp_cursor)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -686,7 +699,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-isolated' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: f178bda84f8a3fa971338b7424cce2204824c0114f196650b2516962371e3902' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658908531694' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -740,7 +753,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-mode' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: b07d38c9719187a8a9a0cee739f465edd05a1c7a30618e02a1f1dc9fc3639d97' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658909270602' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -793,7 +806,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-tpsl-mode' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 018fd4ae872bdb5a90e849dc324eeab4157a047de05250bb74efb7c3434d0597' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658909568597' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -972,7 +985,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/set-risk-limit' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 82904cc14df4bb278722d4212bdb76dc7e1ec7a77e0e761d2e09b3361059a25c' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658911327616' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -1108,8 +1121,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |orderId |false |string |t(:contract_comment_orderId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|baseCoin |false |string |t(:dv3_queryOrder_baseCoin) |
+|orderLinkId |false |string | |
+|orderFilter |false |string | |
 |startTime |false |number |t(:contract_comment_startTime) |
 |endTime |false |number |t(:contract_comment_endTime) |
 |<a href="#exec-type-exectype">execType</a> |false |string |t(:linear_exec_type) |
@@ -1203,10 +1220,11 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|startTime |false |number |t(:row_comment_startTime) |
-|endTime |false |number |t(:row_comment_endTime) |
+|startTime |false |number |t(:contract_comment_startTime) |
+|endTime |false |number |t(:contract_comment_endTime) |
 |limit |false |integer |t(:linear_row_comment_limit_50_200) |
 |cursor |false |string |t(:row_comment_resp_cursor)    |
+
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1439,7 +1457,7 @@ t(:contract_tradingFeeRate_para)
 curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/account/fee-rate?symbol=ETHUSDT' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: e65aad8dd5459774ad21aaca77420947332fdbfe433bef959c6507ce2379999f' \
---header 'X-BAPI-API-KEY: T0d98KyVamQ62YBzN8' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658739026859' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 ```
@@ -1564,10 +1582,3 @@ GET
 |list> wallet_balance |string |t(:row_comment_wallet_balance)  |
 |list> exec_time |string |t(:row_comment_exec_timestamp)  |
 |nextPageCursor |string |t(:contract_accountNextPageCursor)  |
-
-
-## t(:key)
-<a href="/docs/inverse#t-key">t(:shared_endpoint_desc)</a>
-
-## t(:lcp)
-<a href="/docs/inverse#t-lcp">t(:shared_endpoint_desc)</a>

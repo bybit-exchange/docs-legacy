@@ -5187,7 +5187,7 @@ zh-my:
     <p>實時查詢活動委托。當傳遞參數<code>orderId</code>或<code>orderLinkId</code>其中任意一個時，將返回單條訂單數據，如果參數<code>orderId</code>和<code>orderLinkId</code>都不傳遞時，將返回所有<b>未成交</b>的訂單，最多500條。</p>
     <p>按照createdTime從近到遠排序.</p>
   contract_comment_realtimeOrderSymbol: 合約類型.
-  contract_comment_realtimeOrderSettleCoin: 結算幣種. <code>symbol</code>和<code>settleCoin</code>字段必須傳一個. 都傳的話，以<code>symbol</code>為準.
+  contract_comment_positionSettleCoin: 結算幣種. <code>symbol</code>和<code>settleCoin</code>字段必須傳一個. 都傳的話，以<code>symbol</code>為準.
   contract_para_position: |
     <p><b>接口說明：</b></p>
     <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息。</p>
@@ -5544,7 +5544,7 @@ zh-my:
   dv3_category_option: 期權
   # derivative v3 - merge usdc, some params comment need to be updated
   dv3_orderbook_symbol: 合約名稱. 若合約屬於option，則<code>category</code>=option<b>必傳</code>
-  dv3_orderbook_category: 衍生品類別. 若symbol為合約，則category不與symbol進行校驗.
+  dv3_orderbook_category: 衍生品類別
   dv3_kline_category: 衍生品類別. 不支持<code>option</code>
   dv3_ticker_category: 衍生品類別. 若<code>category</code>和<code>symbol</code>都不傳，則默認返回所有正反向合約數據
   dv3_instrument_category: 衍生品類別. 若<code>category</code>和<code>symbol</code>都不傳，則默認返回所有正反向合約數據
@@ -5556,3 +5556,7 @@ zh-my:
     衍生品類別. <li>若<code>category</code>不傳或者傳future, 則<code>symbol</code>必傳</li><li>若<code>category</code>=option, 則<code>symbol</code>非必傳</li>
 
   premium_index_price_kline: 查詢溢價指數價格K線數據
+  dv3_trade_category: 衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code>
+  dv3_queryOrder_baseCoin: 標的幣種. 僅<code>option</code>有效
+  dv3_realtimeOrder_baseCoin: 標的幣種
+  contract_comment_realtimeSettleCoin: 結算幣種. <code>symbol</code>，<code>settleCoin</code>和<code>baseCoin</code>字段必須傳一個. 查詢優先級：symbol > baseCoin > settleCoin

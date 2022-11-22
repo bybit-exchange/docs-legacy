@@ -61,6 +61,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol)   |
 |side |<b>true</b> |string |t(:row_comment_side)    |
 |positionIdx |false |integer |t(:row_comment_position_idx_create_order)  |
@@ -70,6 +71,7 @@ POST
 |triggerDirection |false |integer |t(:contract_comment_triggerDirection) |
 |triggerPrice |false |string |t(:contract_comment_triggerPrice) |
 |<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_linear_triggerBy) |
+|iv |false |string |t(:row_comment_iv_v3) |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
 |t(:row_parameter_timeInForce) |<b>true</b> |string |t(:row_comment_timeInForce) |
@@ -77,7 +79,8 @@ POST
 |takeProfit |false |string |t(:row_comment_takeProfit) |
 |stopLoss |false |string |t(:row_comment_stopLoss) |
 |reduceOnly |false |bool |t(:linear_row_comment_reduceOnly) |
-|closeOnTrigger |false |bool |t(:linear_row_comment_closeOnTrigger)
+|closeOnTrigger |false |bool |t(:linear_row_comment_closeOnTrigger) |
+|mmp |false |bool |t(:row_comment_mmp_v3) |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -158,11 +161,13 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |orderId |false |string |t(:account_row_comment_orderId) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId) |
-|symbol |<b>true</b> |string |t(:row_comment_symbol) |
+|symbol |false |string |t(:row_comment_symbol) |
+|baseCoin |false |string |t(:dv3_queryOrder_baseCoin) |
 |<a href="#order-status-orderstatus-stoporderstatus">orderStatus</a> |false |string |t(:orderStatus_v3) |
-|orderFilter |false |string |t(:row_comment_orderFilter_v3) |
+|<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3) |
 |limit |false |integer |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_resp_cursor) |
 
@@ -247,6 +252,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
 |orderId |false |string |t(:row_comment_orderId_v3_post) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_v3_post) |
@@ -308,8 +314,10 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |symbol |false |string | t(:row_comment_symbol) |
 |settleCoin |false |string | t(:contract_cancelAll_settleCoin) |
+|baseCoin |false |string |t(:dv3_queryOrder_baseCoin) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -373,6 +381,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |orderId |false |string |t(:row_comment_orderId_replace) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_replace) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
@@ -383,6 +392,7 @@ POST
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
 |triggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
+|iv |false |string |t(:row_comment_iv_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -462,10 +472,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |symbol |false |string |t(:contract_comment_realtimeOrderSymbol) |
 |orderId |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|settleCoin |false |string | t(:contract_comment_realtimeOrderSettleCoin)|
+|settleCoin |false |string | t(:contract_comment_realtimeSettleCoin)|
+|baseCoin |false |string | t(:dv3_realtimeOrder_baseCoin)|
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string | t(:row_comment_orderFilter_v3)|
 |limit |false |number |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_resp_cursor)   |
@@ -592,9 +604,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |t(:row_parameter_symbol) |false |string |t(:contract_comment_realtimeOrderSymbol)    |
-|settleCoin |false |string |t(:contract_comment_realtimeOrderSettleCoin)    |
-|dataFilter |false |string |t(:contract_comment_dataFilter)    |
+|settleCoin |false |string |t(:contract_comment_positionSettleCoin)    |
+|baseCoin |false |string |t(:dv3_queryOrder_baseCoin)    |
+|limit |false |number |t(:row_comment_limit) |
+|cursor |false |string |t(:row_comment_resp_cursor)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1107,8 +1122,12 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |orderId |false |string |t(:contract_comment_orderId) |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|baseCoin |false |string |t(:dv3_queryOrder_baseCoin) |
+|orderLinkId |false |string | |
+|orderFilter |false |string | |
 |startTime |false |number |t(:contract_comment_startTime) |
 |endTime |false |number |t(:contract_comment_endTime) |
 |<a href="#exec-type-exectype">execType</a> |false |string |t(:linear_exec_type) |
@@ -1202,8 +1221,8 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
-|startTime |false |number |t(:row_comment_startTime) |
-|endTime |false |number |t(:row_comment_endTime) |
+|startTime |false |number |t(:contract_comment_startTime) |
+|endTime |false |number |t(:contract_comment_endTime) |
 |limit |false |integer |t(:linear_row_comment_limit_50_200) |
 |cursor |false |string |t(:row_comment_resp_cursor)    |
 

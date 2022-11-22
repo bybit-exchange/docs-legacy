@@ -199,7 +199,7 @@ en:
   row_comment_triggerPrice: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure triggerPrice > max(market price, basePrice) else, triggerPrice < min(market price, basePrice)
   row_comment_triggerBy_v3: |
     Trigger price type: Market price/Mark price
-  row_comment_iv_v3: Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed
+  row_comment_iv_v3: Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed
   row_comment_timeInForce_v3: Time in force
   row_comment_orderLinkId_v3: |
     User customized order ID. A max of 36 characters. A user cannot reuse an orderLinkId. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported. Not required for futures, but required for options.
@@ -5634,7 +5634,7 @@ en:
     <p>Query real-time order information. If only <code>orderId</code> or <code>orderLinkId</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b></p>.
     <p>Ordered by <code>createdTime</code> in descending order.</p>
   contract_comment_realtimeOrderSymbol: Symbol name.
-  contract_comment_realtimeOrderSettleCoin: Settle coin. Either <code>symbol</code> or <code>settleCoin</code> is required. If both are passed, <code>symbol</code> is used first.
+  contract_comment_positionSettleCoin: Settle coin. Either <code>symbol</code> or <code>settleCoin</code> is required. If both are passed, <code>symbol</code> is used first.
   contract_para_position: |
     <p><b>Interface:</b></p>
     <p>Accessing personal list of positions. Users can access information about their open positions through this interface, such as the quantity and wallet balance.</p>
@@ -6021,3 +6021,7 @@ en:
   dv3_recentTrade_category: |
     Derivatives products category. <li>If <code>category</code> not passed, or passed with <code>future</code>, then <code>symbol</code> is <b>required</b></li><li>If <code>category</code>=option, then <code>symbol</code> is optional</li>
   premium_index_price_kline: Get Premium Index Price Kline
+  dv3_trade_category: Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code>
+  dv3_queryOrder_baseCoin: Base coin. <code>option</code> ONLY
+  dv3_realtimeOrder_baseCoin: Base coin
+  contract_comment_realtimeSettleCoin: Settle coin. Either <code>symbol</code>, <code>settleCoin</code> or <code>baseCoin</code> is required. Query priority：symbol > baseCoin > settleCoin.
