@@ -131,6 +131,8 @@ Only for conditional orders:
 * `CancelByAdmin` t(:cancelByAdmin)
 * `CancelByTpSlTsClear` t(:cancelByTpSlTsClear)
 * `CancelByPzSideCh` t(:cancelByPzSideCh)
+* `CancelByCrossSelfMuch` t(:cancelByCrossSelfMuch)
+* `CancelByCrossReachMaxTradeNum` t(:cancelByCrossReachMaxTradeNum)
 
 ## Create type (`createType`)
 * `CreateByUser`

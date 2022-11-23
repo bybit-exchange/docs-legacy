@@ -70,7 +70,7 @@ POST
 |price |false |string |t(:contract_comment_price) |
 |triggerDirection |false |integer |t(:contract_comment_triggerDirection) |
 |triggerPrice |false |string |t(:contract_comment_triggerPrice) |
-|<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_linear_triggerBy) |
+|<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:contract_comment_triggerBy) |
 |iv |false |string |t(:row_comment_iv_v3) |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
@@ -94,7 +94,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/order/list?symbol=DOGEUSDT&orderStatus=Filled' \
+curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/order/list?limit=1&category=future' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 61df2c2de39cfce40fe334e503de4a61e26a95aebec690b9b482e4feb31cb088' \
 --header 'X-BAPI-API-KEY: {api key}' \
@@ -109,45 +109,99 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
 > t(:codequote_responseExample)
 
 ```javascript
+// linear response sample
 {
     "retCode": 0,
     "retMsg": "OK",
     "result": {
         "list": [
             {
-                "symbol": "XRPUSDT",
+                "symbol": "ETHPERP",
                 "side": "Buy",
-                "orderType": "Market",
-                "price": "0.3431",
-                "qty": "65",
-                "reduceOnly": true,
-                "timeInForce": "ImmediateOrCancel",
-                "orderStatus": "Filled",
-                "leavesQty": "0",
+                "orderType": "Limit",
+                "price": "1000.00",
+                "qty": "0.50",
+                "reduceOnly": false,
+                "timeInForce": "FillOrKill",
+                "orderStatus": "Deactivated",
+                "leavesQty": "0.00",
                 "leavesValue": "0",
-                "cumExecQty": "65",
-                "cumExecValue": "21.3265",
-                "cumExecFee": "0.0127959",
-                "lastPriceOnCreated": "0.0000",
+                "cumExecQty": "0.00",
+                "cumExecValue": "0",
+                "cumExecFee": "0",
+                "lastPriceOnCreated": "0.00",
                 "rejectReason": "EC_NoError",
-                "orderLinkId": "",
-                "createdTime": "1657526321499",
-                "updatedTime": "1657526321504",
-                "orderId": "ac0a8134-acb3-4ee1-a2d4-41891c9c46d7",
-                "stopOrderType": "UNKNOWN",
-                "takeProfit": "0.0000",
-                "stopLoss": "0.0000",
-                "tpTriggerBy": "UNKNOWN",
-                "slTriggerBy": "UNKNOWN",
-                "triggerPrice": "0.0000",
-                "closeOnTrigger": true,
-                "triggerDirection": 0,
-                "positionIdx": 2
+                "orderLinkId": "usdc-00005",
+                "createdTime": "1669169261521",
+                "updatedTime": "1669169268018",
+                "orderId": "4d951f96-9ef8-4ada-aba7-d07d93d97fe5",
+                "stopOrderType": "Stop",
+                "takeProfit": "1300.00",
+                "stopLoss": "700.00",
+                "tpTriggerBy": "LastPrice",
+                "slTriggerBy": "LastPrice",
+                "triggerPrice": "1050.00",
+                "closeOnTrigger": false,
+                "triggerDirection": 2,
+                "positionIdx": 0,
+                "cancelType": "CancelByUser",
+                "iv": "",
+                "triggerBy": "MarkPrice"
+            }
         ],
-        "nextPageCursor": "K0crQkZRL0MyQVpiN0tVSDFTS0RlMk9DemNCWHZaRHp3aFZ4Y1Yza2MyWT0="
+        "nextPageCursor": "",
+        "category": "future"
     },
     "retExtInfo": {},
-    "time": 1658899014975
+    "time": 1669191588649
+}
+
+// option response sample
+
+{
+    "result": {
+        "nextPageCursor": "",
+        "category": "option",
+        "list": [
+            {
+                "symbol": "SOL-23NOV22-13-C",
+                "orderType": "Limit",
+                "orderLinkId": "option-0010",
+                "orderId": "add4ce06-7d6e-4d18-baf3-8099e308402d",
+                "cancelType": "CancelByUser",
+                "stopOrderType": "UNKNOWN",
+                "lastPriceOnCreated": "",
+                "orderStatus": "Cancelled",
+                "takeProfit": "",
+                "cumExecValue": "0",
+                "triggerDirection": "",
+                "blockTradeId": "",
+                "rejectReason": "",
+                "price": "0.4",
+                "createdTime": "1669174910041",
+                "tpTriggerBy": "",
+                "positionIdx": 0,
+                "timeInForce": "GoodTillCancel",
+                "leavesValue": "0",
+                "updatedTime": "1669176681160",
+                "side": "Buy",
+                "triggerPrice": "",
+                "cumExecFee": "0",
+                "leavesQty": "20",
+                "slTriggerBy": "",
+                "iv": "",
+                "placeType": "price",
+                "closeOnTrigger": "",
+                "cumExecQty": "0",
+                "reduceOnly": false,
+                "qty": "20",
+                "stopLoss": "",
+                "triggerBy": ""
+            }
+        ]
+    },
+    "retCode": 0,
+    "retMsg": "Success."
 }
 ```
 
@@ -174,35 +228,42 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> symbol |string |t(:row_comment_symbol) |
-|list> side |string |t(:row_comment_side) |
-|list> orderType |string |t(:row_comment_order_type) |
-|list> price |string |t(:row_comment_resp_price) |
-|list> qty |string |t(:contract_comment_qty) |
-|list> reduceOnly |bool |t(:linear_resp_field_reduce_only)  |
-|list> timeInForce |string |t(:row_comment_timeInForce)  |
-|list> orderStatus |string |t(:row_comment_orderStatus)  |
-|list> leavesQty |string |t(:row_comment_leaves_qty)  |
-|list> leavesValue |string |t(:row_comment_leaves_value)  |
-|list> cumExecQty |string |t(:linear_resp_field_cum_exec_qty)  |
-|list> cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
-|list> cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
-|list> lastPriceOnCreated |string |t(:row_comment_last_exec_price)  |
-|list> rejectReason |string |t(:row_comment_query_rejectReason_v3) |
-|list> createdTime |string |t(:row_comment_created_at)  |
-|list> updatedTime |string |t(:row_comment_updated_at)  |
-|list> orderLinkId |string |t(:row_comment_orderLinkId)  |
-|list> orderId |string |t(:account_row_comment_orderId) |
-|list> stopOrderType |string |t(:row_comment_stopOrderType) |
-|list> triggerDirection |integer |t(:contract_comment_triggerDirection) |
-|list> closeOnTrigger |bool |t(:row_response_close_on_trigger)  |
-|list> takeProfit |string |t(:row_comment_take_profit)  |
-|list> stopLoss |string |t(:row_comment_stop_loss)  |
-|list> tpTriggerBy |string |t(:contract_comment_tpTriggerBy) |
-|list> slTriggerBy |string |t(:contract_comment_slTriggerBy) |
-|list> triggerPrice |string |t(:contract_comment_getOrderTriggerPrice) |
-|list> positionIdx |integer |t(:row_comment_position_idx) |
+|list |array |Object |
+|> symbol |string |t(:row_comment_symbol) |
+|> side |string |t(:row_comment_side) |
+|> orderType |string |t(:row_comment_order_type) |
+|> price |string |t(:row_comment_resp_price) |
+|> qty |string |t(:contract_comment_qty) |
+|> reduceOnly |boolean |t(:linear_resp_field_reduce_only) |
+|> timeInForce |string |t(:row_comment_timeInForce) |
+|> orderStatus |string |t(:row_comment_orderStatus) |
+|> leavesQty |string |t(:row_comment_leaves_qty) |
+|> leavesValue |string |t(:row_comment_leaves_value) |
+|> cumExecQty |string |t(:linear_resp_field_cum_exec_qty) |
+|> cumExecValue |string |t(:linear_resp_field_cum_exec_value) |
+|> cumExecFee |string |t(:linear_resp_field_cum_exec_fee) |
+|> lastPriceOnCreated |string |t(:row_comment_last_exec_price) |
+|> rejectReason |string |t(:row_comment_query_rejectReason_v3) |
+|> orderLinkId |string |t(:row_comment_orderLinkId) |
+|> createdTime |string |t(:row_comment_created_at) |
+|> updatedTime |string |t(:row_comment_updated_at) |
+|> orderId |string |t(:account_row_comment_orderId) |
+|> stopOrderType |string |t(:row_comment_stopOrderType) |
+|> takeProfit |string |t(:row_comment_take_profit) |
+|> stopLoss |string |t(:row_comment_stop_loss) |
+|> <a href="#trigger-price-type-triggerby">tpTriggerBy</a> |string |t(:contract_comment_tpTriggerBy) |
+|> <a href="#trigger-price-type-triggerby">slTriggerBy</a> |string |t(:contract_comment_slTriggerBy) |
+|> triggerPrice |string |t(:contract_comment_getOrderTriggerPrice) |
+|> closeOnTrigger |boolean |t(:row_response_close_on_trigger) |
+|> triggerDirection |string |t(:contract_comment_triggerDirection) |
+|> positionIdx |string |t(:row_comment_position_idx) |
+|> cancelType |string |t(:contract_comment_cancelType) |
+|> iv |string |t(:row_comment_iv_v3) |
+|> <a href="#trigger-price-type-triggerby">triggerBy</a> |string |t(:contract_comment_triggerBy) |
+|> blockTradeId |string |t(:blockTradeId) |
+|> placeType |string |t(:optionPlaceType_comment) |
 |nextPageCursor |string |t(:contract_comment_nextPageCursor) |
+|category |string |dv3_orderbook_category |
 
 
 ### t(:contract_cancelOrder)
@@ -252,6 +313,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |symbol |<b>true</b> |string |t(:row_comment_symbol) |
 |orderId |false |string |t(:row_comment_orderId_v3_post) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_v3_post) |
@@ -404,7 +466,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/order/unfilled-orders?symbol=XRPUSDT' \
+curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/order/unfilled-orders?category=future&baseCoin=ETH' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: e3a1e4b88dfc2730c987fb3253dd3e09bc05cf68ae4d9d9d71a8235c44cb1f02' \
 --header 'X-BAPI-API-KEY: {api key}' \
@@ -419,47 +481,98 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
 
 > t(:codequote_responseExample)
 
-```json
+```javascript
+// linear response sample
 {
     "retCode": 0,
     "retMsg": "OK",
     "result": {
         "list": [
             {
-                "symbol": "XRPUSDT",
-                "orderId": "db8b74b3-72d3-4264-bf3f-52d39b41956e",
-                "side": "Sell",
+                "symbol": "ETHPERP",
+                "orderId": "72f02cc3-8d88-40d0-907f-87e758f62f28",
+                "side": "Buy",
                 "orderType": "Limit",
                 "stopOrderType": "Stop",
-                "price": "0.4000",
-                "qty": "15",
+                "price": "1000.00",
+                "qty": "0.50",
                 "timeInForce": "GoodTillCancel",
-                "orderStatus": "UnTriggered",
-                "triggerPrice": "0.1000",
-                "orderLinkId": "x002",
-                "createdTime": "1658901865082",
-                "updatedTime": "1658902610748",
-                "takeProfit": "0.2000",
-                "stopLoss": "1.6000",
-                "tpTriggerBy": "UNKNOWN",
-                "slTriggerBy": "UNKNOWN",
+                "orderStatus": "Untriggered",
+                "triggerPrice": "1050.00",
+                "orderLinkId": "usdc-00006",
+                "createdTime": "1669195732377",
+                "updatedTime": "1669195732377",
+                "takeProfit": "1300.00",
+                "stopLoss": "700.00",
+                "tpTriggerBy": "LastPrice",
+                "slTriggerBy": "LastPrice",
                 "triggerBy": "MarkPrice",
                 "reduceOnly": false,
-                "leavesQty": "15",
-                "leavesValue": "6",
-                "cumExecQty": "0",
+                "leavesQty": "0.50",
+                "leavesValue": "500",
+                "cumExecQty": "0.00",
                 "cumExecValue": "0",
                 "cumExecFee": "0",
-                "triggerDirection": 2
+                "triggerDirection": 2,
+                "cancelType": "UNKNOWN",
+                "lastPriceOnCreated": "",
+                "iv": "",
+                "closeOnTrigger": false
             }
         ],
-        "nextPageCursor": ""
+        "nextPageCursor": "",
+        "category": "future"
     },
     "retExtInfo": {},
-    "time": 1658902847238
+    "time": 1669195809545
 }
 ```
 
+```javascript
+// option response sample
+{
+    "result": {
+        "nextPageCursor": "",
+        "category": "option",
+        "list": [
+            {
+                "symbol": "SOL-24NOV22-12-C",
+                "orderType": "Limit",
+                "orderLinkId": "option-0013",
+                "orderId": "a1f5efd7-eb42-4d12-9fa8-d8a799d321ea",
+                "lastPriceOnCreated": "",
+                "stopOrderType": "UNKNOWN",
+                "orderStatus": "New",
+                "takeProfit": "",
+                "cumExecValue": "0",
+                "triggerDirection": "",
+                "blockTradeId": "",
+                "price": "0.4",
+                "createdTime": "1669195736585",
+                "tpTriggerBy": "",
+                "timeInForce": "GoodTillCancel",
+                "leavesValue": "",
+                "updatedTime": "1669195736597",
+                "side": "Buy",
+                "triggerPrice": "",
+                "cumExecFee": "0",
+                "leavesQty": "20",
+                "slTriggerBy": "",
+                "iv": "0.000",
+                "placeType": "price",
+                "closeOnTrigger": "",
+                "cumExecQty": "0",
+                "reduceOnly": false,
+                "qty": "20",
+                "stopLoss": "",
+                "triggerBy": ""
+            }
+        ]
+    },
+    "retCode": 0,
+    "retMsg": "Success."
+}
+```
 
 t(:contract_para_getRealtimeOrder)
 
@@ -484,31 +597,40 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|list> symbol |string |t(:row_comment_symbol)    |
-|list> orderId |string |t(:row_comment_order_id) |
-|list> side |string |t(:row_comment_side)  |
-|list> orderType |string |t(:row_comment_order_type)  |
-|list> triggerDirection |integer |t(:contract_comment_triggerDirection)  |
-|list> price |string |t(:row_comment_resp_price)  |
-|list> qty |string |t(:contract_comment_qty)  |
-|list> timeInForce |string |t(:row_comment_timeInForce)  |
-|list> orderStatus |string |t(:row_comment_orderStatus)  |
-|list> triggerPrice |string |t(:contract_comment_triggerPrice)  |
-|list> triggerBy |string |t(:row_comment_linear_triggerBy) |
-|list> tpTriggerBy |string |t(:account_row_comment_tp_trigger_by) |
-|list> slTriggerBy |string |t(:account_row_comment_sl_trigger_by) |
-|list> orderLinkId |string |t(:row_comment_orderLinkId)  |
-|list> createdTime |string |t(:row_comment_created_at)  |
-|list> updatedTime |string |t(:row_comment_updated_at)  |
-|list> takeProfit |string |t(:row_comment_take_profit)  |
-|list> stopLoss |string |t(:row_comment_stop_loss)  |
-|list> reduce_only |bool |t(:linear_resp_field_reduce_only)  |
-|list> cumExecQty |string |t(:linear_resp_field_cum_exec_qty)  |
-|list> cumExecValue |string |t(:linear_resp_field_cum_exec_value)  |
-|list> cumExecFee |string |t(:linear_resp_field_cum_exec_fee)  |
-|list> leavesQty |string |t(:row_comment_leaves_qty)  |
-|list> leavesValue |string |t(:row_comment_leaves_value)  |
+|list |array |Object |
+|> symbol |string |t(:row_comment_symbol) |
+|> orderId |string |t(:account_row_comment_orderId) |
+|> side |string |t(:row_comment_side) |
+|> orderType |string |t(:row_comment_order_type) |
+|> stopOrderType |string |t(:row_comment_stopOrderType) |
+|> price |string |t(:row_comment_resp_price) |
+|> qty |string |t(:contract_comment_qty) |
+|> timeInForce |string |t(:row_comment_timeInForce) |
+|> orderStatus |string |t(:row_comment_orderStatus) |
+|> triggerPrice |string |t(:contract_comment_getOrderTriggerPrice) |
+|> orderLinkId |string |t(:row_comment_orderLinkId) |
+|> createdTime |string |t(:row_comment_created_at) |
+|> updatedTime |string |t(:row_comment_updated_at) |
+|> takeProfit |string |t(:row_comment_take_profit) |
+|> stopLoss |string |t(:row_comment_stop_loss) |
+|> <a href="#trigger-price-type-triggerby">tpTriggerBy</a> |string |t(:contract_comment_tpTriggerBy) |
+|> <a href="#trigger-price-type-triggerby">slTriggerBy</a> |string |t(:contract_comment_slTriggerBy) |
+|> <a href="#trigger-price-type-triggerby">triggerBy</a> |string |t(:contract_comment_triggerBy) |
+|> reduceOnly |boolean |t(:linear_resp_field_reduce_only) |
+|> leavesQty |string |t(:row_comment_leaves_qty) |
+|> leavesValue |string |t(:row_comment_leaves_value) |
+|> cumExecQty |string |t(:linear_resp_field_cum_exec_qty) |
+|> cumExecValue |string |t(:linear_resp_field_cum_exec_value) |
+|> cumExecFee |string |t(:linear_resp_field_cum_exec_fee) |
+|> triggerDirection |string |t(:contract_comment_triggerDirection) |
+|> cancelType |string |t(:contract_comment_cancelType) |
+|> lastPriceOnCreated |string |t(:row_comment_last_exec_price) |
+|> iv |string |t(:row_comment_iv_v3) |
+|> closeOnTrigger |boolean |t(:row_response_close_on_trigger) |
+|> placeType |string |t(:optionPlaceType_comment) |
+|> blockTradeId |string |t(:blockTradeId) |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
+|category |string |dv3_orderbook_category |
 
 
 ## t(:position)
@@ -614,29 +736,36 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|positionIdx |integer |t(:row_comment_position_idx)  |
-|riskId  |integer |t(:contract_comment_riskId) |
-|t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
-|t(:row_parameter_side) |string |t(:row_comment_side)  |
-|size |string |t(:row_comment_position_size)  |
-|positionValue |string |t(:row_comment_position_value)  |
-|entryPrice |string |t(:linear_resp_field_entry_price)  |
-|tradeMode |integer |t(:contract_comment_tradeMode) |
-|autoAddMargin |integer |t(:row_comment_auto_add_margin)  |
-|leverage |number |t(:resp_field_leverage)  |
-|positionBalance |string |t(:contract_comment_positionBalance)  |
-|liqPrice |string |t(:linear_resp_field_liq_price)  |
-|bustPrice |string |t(:linear_resp_field_bust_price)  |
-|takeProfit |string |t(:row_comment_take_profit)  |
-|stopLoss |string |t(:row_comment_stop_loss)  |
-|trailingStop |string |t(:row_comment_trailing_stop)  |
-|unrealisedPnl |string |t(:row_comment_unrealised_pnl)  |
-|<a href="#tp-sl-mode-tpslmode">tpSLMode</a> |string |t(:row_comment_tp_sl_mode)  |
-|activePrice | string | t(:account_row_comment_activePrice_v3) |
-|riskLimitValue | string | t(:contract_position_riskLimitValue) |
-|createdTime |string |t(:row_comment_created_at)  |
-|updatedTime |string |t(:row_comment_updated_at)  |
-|nextPageCursor | string | t(:contract_comment_nextPageCursor) |
+|list |array |Object |
+|> positionIdx |integer |t(:row_comment_position_idx)  |
+|> riskId  |integer |t(:contract_comment_riskId) |
+|> t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
+|> t(:row_parameter_side) |string |t(:row_comment_side)  |
+|> size |string |t(:row_comment_position_size)  |
+|> positionValue |string |t(:row_comment_position_value)  |
+|> entryPrice |string |t(:linear_resp_field_entry_price)  |
+|> tradeMode |integer |t(:contract_comment_tradeMode) |
+|> autoAddMargin |integer |t(:row_comment_auto_add_margin)  |
+|> leverage |string |t(:resp_field_leverage)  |
+|> positionBalance |string |t(:contract_comment_positionBalance)  |
+|> liqPrice |string |t(:linear_resp_field_liq_price)  |
+|> bustPrice |string |t(:linear_resp_field_bust_price)  |
+|> takeProfit |string |t(:row_comment_take_profit)  |
+|> stopLoss |string |t(:row_comment_stop_loss)  |
+|> trailingStop |string |t(:row_comment_trailing_stop)  |
+|> unrealisedPnl |string |t(:row_comment_unrealised_pnl)  |
+|> createdTime |string |t(:row_comment_created_at)  |
+|> updatedTime |string |t(:row_comment_updated_at)  |
+|> <a href="#tp-sl-mode-tpslmode">tpSlMode</a> |string |t(:row_comment_tp_sl_mode)  |
+|> riskLimitValue | string | t(:contract_position_riskLimitValue) |
+|> activePrice | string | t(:account_row_comment_activePrice_v3) |
+|> markPrice |string |t(:row_comment_query_markPrice_v3)  |
+|> cumRealisedPnl |string |t(:row_comment_query_cumRealisedPnl_v3)  |
+|> positionMM |string |t(:row_comment_query_positionMM_v3)  |
+|> positionIM |string |t(:row_comment_query_positionIM_v3)  |
+|> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
+|category |string |dv3_orderbook_category |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 ### t(:setautoaddmargin)
 > t(:codequote_curlExample)
@@ -1123,10 +1252,10 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |orderId |false |string |t(:contract_comment_orderId) |
-|t(:row_parameter_symbol) |<b>true</b> |string |t(:row_comment_symbol) |
+|t(:row_parameter_symbol) |false |string |t(:contract_executionList_symbol) |
 |baseCoin |false |string |t(:dv3_queryOrder_baseCoin) |
-|orderLinkId |false |string | |
-|orderFilter |false |string | |
+|orderLinkId |false |string |t(:contract_executionList_orderLinkId) |
+|<a href="#order-filter-orderfilter">orderFilter</a>|false |string |t(:contract_executionList_orderFilter) |
 |startTime |false |number |t(:contract_comment_startTime) |
 |endTime |false |number |t(:contract_comment_endTime) |
 |<a href="#exec-type-exectype">execType</a> |false |string |t(:linear_exec_type) |

@@ -292,7 +292,7 @@ en:
   row_comment_query_riskId_v3: Risk limit ID
   row_comment_query_size_v3: Position size
   row_comment_query_entryPrice_v3: Average entry value
-  row_comment_query_sessionAvgPrice_v3: Settlement price, for USDC perps only
+  row_comment_query_sessionAvgPrice_v3: Settlement price, for USDC only
   row_comment_query_leverage_v3: |
     Under the  isolated margin mode, the value should be the leverage set by the user. Under the cross margin mode, the value should be the maximum leverage under the current risk limit. For contracts only, and not for options.
   row_comment_query_markPrice_v3: Mark price
@@ -2210,6 +2210,8 @@ en:
   cancelByAdmin:        ""
   cancelByTpSlTsClear:  "- TP/SL order canceled successfully"
   cancelByPzSideCh:     "- order has been canceled after TP/SL is triggered"
+  cancelByCrossSelfMuch:     "- option order does not allow self fill"
+  cancelByCrossReachMaxTradeNum:     "- If your order consumes the sum of the qty of 10,000 orders, the leaves qty will be cancelled"
   ## Create type (`create_type`)
   createByUser:                 ""
   createByClosing:              ""
@@ -6025,3 +6027,8 @@ en:
   dv3_queryOrder_baseCoin: Base coin. <code>option</code> ONLY
   dv3_realtimeOrder_baseCoin: Base coin
   contract_comment_realtimeSettleCoin: Settle coin. Either <code>symbol</code>, <code>settleCoin</code> or <code>baseCoin</code> is required. Query priority：symbol > baseCoin > settleCoin.
+  contract_comment_triggerBy: Trigger price type. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.
+  contract_comment_cancelType: The cancel type of the order
+  contract_executionList_orderLinkId: User customised order id. <code>option</code> ONLY
+  contract_executionList_orderFilter: Order filter. <code>future</code> ONLY
+  contract_executionList_symbol: Symbol name. <li>if category=future, then symbol is required</li><li>If category=option, then symbol is optional</li>
