@@ -900,6 +900,9 @@
                     <a href="#t-dv_indexpricekline" class="toc-h2 toc-link" data-title="查詢指數價格K線數據">查詢指數價格K線數據</a>
                   </li>
                   <li>
+                    <a href="#t-premium_index_price_kline" class="toc-h2 toc-link" data-title="查詢溢價指數價格K線數據">查詢溢價指數價格K線數據</a>
+                  </li>
+                  <li>
                     <a href="#t-dv_historyfundingratehead" class="toc-h2 toc-link" data-title="查詢歷史資金費率">查詢歷史資金費率</a>
                   </li>
                   <li>
@@ -1808,7 +1811,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -1868,22 +1871,22 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse; 期權：option</td>
+<td>衍生品類別</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>合約類型</td>
+<td>合約名稱. 若合約屬於option，則<code>category</code>=option<b>必傳</code></td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">int</td>
-<td>默認25. 可選值25和500</td>
+<td>默認25. 可選值[1,500]. 若是<b>option</b>，則只支持25</td>
 </tr>
 </tbody></table>
 
@@ -1926,29 +1929,41 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/kline?category=linear&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET https://api-testnet.bybit.com/derivatives/v3/public/kline?category=future&amp;symbol=BTCUSDT&amp;interval=1&amp;start=1668441600000&amp;end=1668528000000&amp;limit=2
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">interval</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">1451.59</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">2.4343353100000003</span><span class="dl">"</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1668441660000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16700</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16700.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">3.307</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">55233.6405</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1668441600000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16736.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16736.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.255</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">4265.2915</span><span class="dl">"</span>
+            <span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668577690514</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>查詢K線數據</p>
@@ -1970,10 +1985,10 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
+<td>衍生品類別. 不支持<code>option</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2017,14 +2032,14 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">list</td>
@@ -2036,7 +2051,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2046,7 +2061,7 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -2131,16 +2146,16 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse; 期權：option</td>
+<td>衍生品類別. 若<code>category</code>和<code>symbol</code>都不傳，則默認返回所有正反向合約數據</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>合約類型. 若category是<code>option</code>則必傳</td>
+<td>合約類型. 若category是<code>option</code>則必傳. 若symbol是屬於option, 則category必傳</td>
 </tr>
 </tbody></table>
 
@@ -2156,7 +2171,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">askIv</td>
@@ -2328,7 +2343,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2338,7 +2353,7 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -2364,7 +2379,8 @@ function copyStringToClipboard (endpoint) {
                     <span class="dl">"</span><span class="s2">maxTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">420.000</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">minTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">qtyStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span>
-                <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="dl">"</span><span class="s2">unifiedMarginTrade</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
             <span class="p">}</span>
         <span class="p">],</span>
         <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
@@ -2427,16 +2443,16 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse; 期權：option</td>
+<td>衍生品類別. 若<code>category</code>和<code>symbol</code>都不傳，則默認返回所有正反向合約數據</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>合約類型</td>
+<td>合約名稱. 若合約屬於option，則<code>category</code>=option<b>必傳</code></td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -2470,7 +2486,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse; 期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2582,7 +2598,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/mark-price-kline?category=linear&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/mark-price-kline?category=future&amp;symbol=BTCPERP&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2592,15 +2608,14 @@ function copyStringToClipboard (endpoint) {
   <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-     <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">interval</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+     <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -2624,10 +2639,10 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
+<td>衍生品類別. 不支持<code>option</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2671,14 +2686,14 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">list</td>
@@ -2690,7 +2705,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/index-price-kline?category=linear&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/index-price-kline?category=future&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2700,17 +2715,14 @@ function copyStringToClipboard (endpoint) {
   <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">interval</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">1451.59</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">2.4343353100000003</span><span class="dl">"</span>
+          <span class="dl">"</span><span class="s2">1668528000000</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">16968.92</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">17051.23</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">16901.28</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">16990.57</span><span class="dl">"</span>
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -2734,10 +2746,10 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
+<td>衍生品類別. 不支持<code>option</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2781,26 +2793,26 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
 </tr>
 <tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
+</tr>
+<tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>元素為單個蠟燭的數組，以<code>start</code>倒序排列, 數組內默認排序規則為<code>start</code>，<code>open</code>，<code>high</code>，<code>low</code>，<code>close</code>，<code>volume</code>，<code>turnover</code></td>
+<td>元素為單個蠟燭的數組，以<code>start</code>倒序排列, 數組內默認排序規則為<code>start</code>，<code>open</code>，<code>high</code>，<code>low</code>，<code>close</code></td>
 </tr>
 </tbody></table>
-<h3 id='t-dv_historyfundingratehead'>查詢歷史資金費率</h3>
+<h3 id='t-premium_index_price_kline'>查詢溢價指數價格K線數據</h3>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=linear&amp;symbol=BTCUSDT&amp;startTime=1652112000000&amp;endTime=1652198400000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/premium-index-price-kline?symbol=BTCPERP&amp;interval=D&amp;start=1668441600000&amp;end=1668528000000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2810,7 +2822,116 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1668470400000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.001955</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.002014</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.001650</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.002014</span><span class="dl">"</span>
+            <span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668582411036</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=dvpreinprk>/derivatives/v3/public/premium-index-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvpreinprk"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>衍生品類別. 不支持<code>option</code></td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>合約類型</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#kline-interval-interval">interval</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>K線時間粒度. 枚舉值： 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"</td>
+</tr>
+<tr>
+<td style="text-align: left">start</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">integer</td>
+<td>開始時間戳（毫秒)</td>
+</tr>
+<tr>
+<td style="text-align: left">end</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">integer</td>
+<td>結束時間戳（毫秒</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>每頁數量, 最大200. 默認每頁200條</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>合約類型</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
+</tr>
+<tr>
+<td style="text-align: left">list</td>
+<td style="text-align: left">string[]</td>
+<td>元素為單個蠟燭的數組，以<code>start</code>倒序排列, 數組內默認排序規則為<code>start</code>，<code>open</code>，<code>high</code>，<code>low</code>，<code>close</code></td>
+</tr>
+</tbody></table>
+<h3 id='t-dv_historyfundingratehead'>查詢歷史資金費率</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=future&amp;symbol=BTCUSDT&amp;startTime=1652112000000&amp;endTime=1652198400000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -2846,10 +2967,10 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse</td>
+<td>衍生品類別. 不支持<code>option</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2889,20 +3010,25 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
 </tr>
 <tr>
-<td style="text-align: left">fundingRate</td>
+<td style="text-align: left">&gt; fundingRate</td>
 <td style="text-align: left">string</td>
 <td>資金費率</td>
 </tr>
 <tr>
-<td style="text-align: left">fundingRateTimestamp</td>
+<td style="text-align: left">&gt; fundingRateTimestamp</td>
 <td style="text-align: left">string</td>
 <td>資金費率時間戳</td>
 </tr>
@@ -2911,7 +3037,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2921,7 +3047,7 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -2965,14 +3091,14 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
+<td>衍生品類別. 不支持<code>option</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
 </tr>
@@ -2990,45 +3116,50 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
 </tr>
 <tr>
-<td style="text-align: left">id</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; id</td>
 <td style="text-align: left">number</td>
 <td><a href="#t-getrisklimit">風險限額ID</a></td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
 </tr>
 <tr>
-<td style="text-align: left">limit</td>
+<td style="text-align: left">&gt; limit</td>
 <td style="text-align: left">string</td>
 <td>風險限額</td>
 </tr>
 <tr>
-<td style="text-align: left">maintainMargin</td>
+<td style="text-align: left">&gt; maintainMargin</td>
 <td style="text-align: left">string</td>
 <td>維持保證金</td>
 </tr>
 <tr>
-<td style="text-align: left">initialMargin</td>
+<td style="text-align: left">&gt; initialMargin</td>
 <td style="text-align: left">string</td>
 <td>起始保證金</td>
 </tr>
 <tr>
-<td style="text-align: left">section</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">&gt; section</td>
+<td style="text-align: left">array</td>
 <td>區間點</td>
 </tr>
 <tr>
-<td style="text-align: left">isLowestRisk</td>
+<td style="text-align: left">&gt; isLowestRisk</td>
 <td style="text-align: left">number</td>
 <td>是否最低風險限額0:不是 1:是</td>
 </tr>
 <tr>
-<td style="text-align: left">maxLeverage</td>
+<td style="text-align: left">&gt; maxLeverage</td>
 <td style="text-align: left">string</td>
 <td>最大杠桿</td>
 </tr>
@@ -3080,10 +3211,10 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持期權：option</td>
+<td>衍生品類別. 僅支持<code>option</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3130,7 +3261,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3157,7 +3288,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=linear&amp;symbol=BTCUSDT&amp;limit=1'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=future&amp;symbol=BTCUSDT&amp;limit=1'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -3167,7 +3298,7 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">execId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">da66abbc-f358-5864-8d34-84ef7274d853</span><span class="dl">"</span><span class="p">,</span>
@@ -3175,7 +3306,8 @@ function copyStringToClipboard (endpoint) {
                 <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20802.50</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.200</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1657870316630</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1657870316630</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isBlockTrade</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
@@ -3201,10 +3333,11 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse; 期權：option</td>
+<td>衍生品類別. <li>若<code>category</code>不傳或者傳future, 則<code>symbol</code>必傳</li><li>若<code>category</code>=option, 則<code>symbol</code>非必傳</li>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3244,49 +3377,54 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse; 期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
 </tr>
 <tr>
-<td style="text-align: left">execId</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; execId</td>
 <td style="text-align: left">string</td>
 <td>最新數據ID</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
 </tr>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left">&gt; price</td>
 <td style="text-align: left">number</td>
 <td>交易價格</td>
 </tr>
 <tr>
-<td style="text-align: left">size</td>
+<td style="text-align: left">&gt; size</td>
 <td style="text-align: left">number</td>
 <td>交易數量</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">&gt; <a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
 <td>方向. buy：買; sell：賣</td>
 </tr>
 <tr>
-<td style="text-align: left">time</td>
+<td style="text-align: left">&gt; time</td>
 <td style="text-align: left">string</td>
 <td>成交時間戳(單位毫秒)</td>
 </tr>
 <tr>
-<td style="text-align: left">blocktradeId</td>
-<td style="text-align: left">string</td>
-<td>取Paradigm請求的批次ID; 普通交易則為空</td>
+<td style="text-align: left">&gt; isBlockTrade</td>
+<td style="text-align: left">boolean</td>
+<td>是否為大宗交易</td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_marketopeninterest'>未平合約持倉數量</h3>
 <blockquote>
 <p>請求示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/open-interest?category=linear&amp;symbol=BTCUSDT&amp;interval=1h&amp;startTime=1657555200000&amp;endTime=1657641600000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/open-interest?category=future&amp;symbol=BTCUSDT&amp;interval=1h&amp;startTime=1657555200000&amp;endTime=1657641600000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -3297,7 +3435,7 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15350.60700000</span><span class="dl">"</span><span class="p">,</span>
@@ -3331,10 +3469,10 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
+<td>衍生品類別. 不支持<code>option</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3378,22 +3516,27 @@ function copyStringToClipboard (endpoint) {
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>合約類型</td>
 </tr>
 <tr>
-<td style="text-align: left">openInterest</td>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code></td>
+</tr>
+<tr>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; openInterest</td>
 <td style="text-align: left">string</td>
 <td>未平倉合約數量</td>
 </tr>
 <tr>
-<td style="text-align: left">timestamp</td>
+<td style="text-align: left">&gt; timestamp</td>
 <td style="text-align: left">string</td>
 <td>數據產生時間, 精確到毫秒</td>
 </tr>
@@ -4595,7 +4738,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持正向合約：linear; 期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -4695,7 +4838,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持正向合約：linear; 期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -4826,7 +4969,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持正向合約：linear; 期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -4886,7 +5029,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持正向合約：linear; 期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -5004,7 +5147,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持正向合約：linear; 期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -5046,7 +5189,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持正向合約：linear; 期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -5163,7 +5306,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持正向合約：linear; 期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -5209,7 +5352,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear; 期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持正向合約：linear; 期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -5413,7 +5556,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list&gt; sessionAvgPrice</td>
 <td style="text-align: left">string</td>
-<td>Settlement price，僅USDC perps</td>
+<td>Settlement price，僅USDC</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; leverage</td>
@@ -5635,7 +5778,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持正向合約：linear</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -5812,7 +5955,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持正向合約：linear</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持正向合約：linear</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -6212,7 +6355,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前支持期權：option</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前支持期權：option</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -6373,7 +6516,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>衍生品產品類型.目前僅支持正向合約：linear，且僅支持USDC perp</td>
+<td>衍生品產品類型. 若category不传，则返回<code>""</code>目前僅支持正向合約：linear，且僅支持USDC perp</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -6442,7 +6585,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list&gt; sessionAvgPrice</td>
 <td style="text-align: left">string</td>
-<td>Settlement price，僅USDC perps</td>
+<td>Settlement price，僅USDC</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; markPrice</td>
@@ -8693,7 +8836,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">sessionAvgPrice</td>
 <td style="text-align: left">string</td>
-<td>Settlement price，僅USDC perps</td>
+<td>Settlement price，僅USDC</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -9552,6 +9695,8 @@ ELSE
 <li><code>CancelByAdmin</code> </li>
 <li><code>CancelByTpSlTsClear</code> - 止盈止損單被取消</li>
 <li><code>CancelByPzSideCh</code> - 該訂單在觸發止盈止損後被取消</li>
+<li><code>CancelByCrossSelfMuch</code> - 期權訂單不允許自成交</li>
+<li><code>CancelByCrossReachMaxTradeNum</code> - 若您的某個訂單吃掉了某個價位的10000筆訂單數量和，則剩餘部分將會被自動取消</li>
 </ul>
 <h2 id='create-type-createtype'>Create type (<code>createType</code>)</h2>
 <ul>

@@ -1884,7 +1884,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -1896,7 +1896,7 @@ The response is in the snapshot format.
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">int</td>
-<td>Optional value 25 or 500. Default 25.</td>
+<td>25 by default, 500 is max. If <b>option</b>, only 25 is available</td>
 </tr>
 </tbody></table>
 
@@ -1953,7 +1953,7 @@ The response is in the snapshot format.
       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">interval</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">1621162800000</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
@@ -1986,7 +1986,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2033,7 +2033,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2148,13 +2148,13 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Name of the trading pair. If category is <code>option</code> REQUIRED</td>
+<td>Symbol name. If category is <code>option</code> REQUIRED, and if symbol belongs to option, category=option is REQUIRED</td>
 </tr>
 </tbody></table>
 
@@ -2170,7 +2170,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">askIv</td>
@@ -2444,7 +2444,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2484,7 +2484,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2587,6 +2587,11 @@ The response is in the snapshot format.
 <td>Min. order quantity increment</td>
 </tr>
 <tr>
+<td style="text-align: left">unifiedMarginTrade</td>
+<td style="text-align: left">boolean</td>
+<td>Min. order quantity increment</td>
+</tr>
+<tr>
 <td style="text-align: left">nextPageCursor</td>
 <td style="text-align: left">string</td>
 <td>API pass-through</td>
@@ -2641,7 +2646,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2688,7 +2693,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2752,7 +2757,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2799,7 +2804,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2865,7 +2870,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2905,7 +2910,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2984,7 +2989,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3006,7 +3011,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">id</td>
@@ -3100,7 +3105,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>option</code> is available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3147,7 +3152,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>option</code> is available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3221,7 +3226,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3261,7 +3266,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">execId</td>
@@ -3351,7 +3356,7 @@ The response is in the snapshot format.
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3397,7 +3402,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3547,7 +3552,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -3717,7 +3722,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
 </tr>
 <tr>
 <td style="text-align: left">triggerPrice</td>
@@ -4609,7 +4614,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -4657,7 +4662,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">list&gt; iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; <a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -4709,7 +4714,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -4840,7 +4845,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -4870,7 +4875,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">list&gt; iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; <a href="#quantity-qty">qty</a></td>
@@ -4900,7 +4905,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -5018,7 +5023,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -5060,7 +5065,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -5177,7 +5182,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -5222,7 +5227,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -5425,7 +5430,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <tr>
 <td style="text-align: left">list&gt; sessionAvgPrice</td>
 <td style="text-align: left">string</td>
-<td>Settlement price, for USDC perps only</td>
+<td>Settlement price, for USDC only</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; leverage</td>
@@ -5647,7 +5652,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> is available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> is available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -5824,7 +5829,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> is available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> is available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -6225,7 +6230,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>option</code> is available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -6386,7 +6391,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> is available and ONLY for USDC perp</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> is available and ONLY for USDC perp</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -6455,7 +6460,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <tr>
 <td style="text-align: left">list&gt; sessionAvgPrice</td>
 <td style="text-align: left">string</td>
-<td>Settlement price, for USDC perps only</td>
+<td>Settlement price, for USDC only</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; markPrice</td>
@@ -8673,7 +8678,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td style="text-align: left">sessionAvgPrice</td>
 <td style="text-align: left">string</td>
-<td>Settlement price, for USDC perps only</td>
+<td>Settlement price, for USDC only</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -9381,9 +9386,10 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </ul>
 <h2 id='category-category'>Category(<code>category</code>)</h2>
 <ul>
-<li><code>linear</code></li>
-<li><code>inverse</code></li>
-<li><code>option</code></li>
+<li><code>future</code> Future, including linear perp, USDC perp, inverse perp & inverse futures</li>
+<li><strike><code>linear</code></strike> Linear perpetual, including USDC perp. It is still compatible if passed</li>
+<li><strike><code>inverse</code></strike> Inverse futures, including inverse perpetual, inverse futures. It is still compatible if passed</li>
+<li><code>option</code> USDC Option</li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
 <ul>
@@ -9410,7 +9416,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </ul>
 <h2 id='contract-type-contracttype'>Contract Type(<code>contractType</code>)</h2>
 <ul>
-<li><code>InversePerpetual</code></li>
+<li><code>InversePerpetual</code> </li>
 <li><code>LinearPerpetual</code></li>
 <li><code>InverseFutures</code></li>
 </ul>
@@ -9558,6 +9564,8 @@ ELSE
 <li><code>CancelByAdmin</code> </li>
 <li><code>CancelByTpSlTsClear</code> - TP/SL order canceled successfully</li>
 <li><code>CancelByPzSideCh</code> - order has been canceled after TP/SL is triggered</li>
+<li><code>CancelByCrossSelfMuch</code> - option order does not allow self fill</li>
+<li><code>CancelByCrossReachMaxTradeNum</code> - If your order consumes the sum of the qty of 10,000 orders, the leaves qty will be cancelled</li>
 </ul>
 <h2 id='create-type-createtype'>Create type (<code>createType</code>)</h2>
 <ul>

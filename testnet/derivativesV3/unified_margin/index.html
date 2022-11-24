@@ -900,6 +900,9 @@
                     <a href="#t-dv_indexpricekline" class="toc-h2 toc-link" data-title="Get Index Price Kline">Get Index Price Kline</a>
                   </li>
                   <li>
+                    <a href="#t-premium_index_price_kline" class="toc-h2 toc-link" data-title="Get Premium Index Price Kline">Get Premium Index Price Kline</a>
+                  </li>
+                  <li>
                     <a href="#t-dv_historyfundingratehead" class="toc-h2 toc-link" data-title="Get Funding Rate History">Get Funding Rate History</a>
                   </li>
                   <li>
@@ -1811,7 +1814,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -1871,22 +1874,22 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Symbol</td>
+<td>Symbol name. <code>category</code>=option is <b>required</b> when symbol is option</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">int</td>
-<td>Optional value 25 or 500. Default 25.</td>
+<td>25 by default, 500 is max. If <b>option</b>, only 25 is available</td>
 </tr>
 </tbody></table>
 
@@ -1929,29 +1932,41 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/kline?category=linear&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET https://api-testnet.bybit.com/derivatives/v3/public/kline?category=future&amp;symbol=BTCUSDT&amp;interval=1&amp;start=1668441600000&amp;end=1668528000000&amp;limit=2
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">interval</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">1451.59</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">2.4343353100000003</span><span class="dl">"</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1668441660000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16700</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16700.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">3.307</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">55233.6405</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1668441600000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16736.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16736.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.255</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">4265.2915</span><span class="dl">"</span>
+            <span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668577690514</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Get kline.</p>
@@ -1973,10 +1988,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2021,14 +2036,14 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">list</td>
@@ -2040,7 +2055,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2050,7 +2065,7 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -2135,16 +2150,16 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If both <code>category</code> and <code>symbol</code> are not passed，it returns all futures data by default</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Name of the trading pair. If category is <code>option</code> REQUIRED</td>
+<td>Symbol name. If category is <code>option</code> REQUIRED, and if symbol belongs to option, category=option is REQUIRED</td>
 </tr>
 </tbody></table>
 
@@ -2160,7 +2175,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">askIv</td>
@@ -2332,7 +2347,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2342,7 +2357,7 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -2368,7 +2383,8 @@ The response is in the snapshot format.
                     <span class="dl">"</span><span class="s2">maxTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">420.000</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">minTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">qtyStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span>
-                <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="dl">"</span><span class="s2">unifiedMarginTrade</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
             <span class="p">}</span>
         <span class="p">],</span>
         <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
@@ -2431,16 +2447,16 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If both <code>category</code> and <code>symbol</code> are not passed，it returns all futures data by default</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Symbol</td>
+<td>Symbol name. If symbol belongs to option, then category=option is required</td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -2474,7 +2490,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2586,7 +2602,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/mark-price-kline?category=linear&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/mark-price-kline?category=future&amp;symbol=BTCPERP&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2596,15 +2612,14 @@ The response is in the snapshot format.
   <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-     <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">interval</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+     <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -2628,10 +2643,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2676,14 +2691,14 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">list</td>
@@ -2695,7 +2710,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/index-price-kline?category=linear&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/index-price-kline?category=future&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2705,17 +2720,14 @@ The response is in the snapshot format.
   <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">interval</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">1451.59</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">2.4343353100000003</span><span class="dl">"</span>
+          <span class="dl">"</span><span class="s2">1668528000000</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">16968.92</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">17051.23</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">16901.28</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">16990.57</span><span class="dl">"</span>
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -2739,10 +2751,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2787,26 +2799,26 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
+</tr>
+<tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>, <code>turnover</code></td>
+<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code></td>
 </tr>
 </tbody></table>
-<h3 id='t-dv_historyfundingratehead'>Get Funding Rate History</h3>
+<h3 id='t-premium_index_price_kline'>Get Premium Index Price Kline</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=linear&amp;symbol=BTCUSDT&amp;startTime=1652112000000&amp;endTime=1652198400000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/premium-index-price-kline?symbol=BTCPERP&amp;interval=D&amp;start=1668441600000&amp;end=1668528000000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2816,7 +2828,117 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1668470400000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.001955</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.002014</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.001650</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.002014</span><span class="dl">"</span>
+            <span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668582411036</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=dvpreinprk>/derivatives/v3/public/premium-index-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvpreinprk"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#kline-interval-interval">interval</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Kline interval. enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
+</td>
+</tr>
+<tr>
+<td style="text-align: left">start</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">end</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
+</tr>
+<tr>
+<td style="text-align: left">list</td>
+<td style="text-align: left">string[]</td>
+<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code></td>
+</tr>
+</tbody></table>
+<h3 id='t-dv_historyfundingratehead'>Get Funding Rate History</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=future&amp;symbol=BTCUSDT&amp;startTime=1652112000000&amp;endTime=1652198400000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -2852,10 +2974,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> are available</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2895,20 +3017,25 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">fundingRate</td>
+<td style="text-align: left">&gt; fundingRate</td>
 <td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a></td>
 </tr>
 <tr>
-<td style="text-align: left">fundingRateTimestamp</td>
+<td style="text-align: left">&gt; fundingRateTimestamp</td>
 <td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a> timestamp</td>
 </tr>
@@ -2917,7 +3044,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2927,7 +3054,7 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -2971,14 +3098,14 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. <code>option</code> is not supported.</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -2996,46 +3123,51 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
-<td style="text-align: left">id</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; id</td>
 <td style="text-align: left">number</td>
 <td><a href="#t-getrisklimit">Risk ID</a></td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">limit</td>
+<td style="text-align: left">&gt; limit</td>
 <td style="text-align: left">string</td>
 <td>Risk Limit</td>
 </tr>
 <tr>
-<td style="text-align: left">maintainMargin</td>
+<td style="text-align: left">&gt; maintainMargin</td>
 <td style="text-align: left">string</td>
 <td>Maintain margin</td>
 </tr>
 <tr>
-<td style="text-align: left">initialMargin</td>
+<td style="text-align: left">&gt; initialMargin</td>
 <td style="text-align: left">string</td>
 <td>Initial margin</td>
 </tr>
 <tr>
-<td style="text-align: left">section</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">&gt; section</td>
+<td style="text-align: left">array</td>
 <td>Section</td>
 </tr>
 <tr>
-<td style="text-align: left">isLowestRisk</td>
+<td style="text-align: left">&gt; isLowestRisk</td>
 <td style="text-align: left">number</td>
 <td>Is lowest risk. <code>0</code>: No; <code>1</code>: Yes
 </td>
 </tr>
 <tr>
-<td style="text-align: left">maxLeverage</td>
+<td style="text-align: left">&gt; maxLeverage</td>
 <td style="text-align: left">string</td>
 <td>Max leverage</td>
 </tr>
@@ -3087,10 +3219,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category. <code>option</code> ONLY</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3137,7 +3269,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3164,7 +3296,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=linear&amp;symbol=BTCUSDT&amp;limit=1'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=future&amp;symbol=BTCUSDT&amp;limit=1'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -3174,7 +3306,7 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">execId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">da66abbc-f358-5864-8d34-84ef7274d853</span><span class="dl">"</span><span class="p">,</span>
@@ -3182,7 +3314,8 @@ The response is in the snapshot format.
                 <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20802.50</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.200</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1657870316630</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1657870316630</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isBlockTrade</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
@@ -3208,10 +3341,11 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. <li>If <code>category</code> not passed, or passed with <code>future</code>, then <code>symbol</code> is <b>required</b></li><li>If <code>category</code>=option, then <code>symbol</code> is optional</li>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3251,49 +3385,54 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
-<td style="text-align: left">execId</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; execId</td>
 <td style="text-align: left">string</td>
 <td>Latest data id</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left">&gt; price</td>
 <td style="text-align: left">number</td>
 <td>Trade price</td>
 </tr>
 <tr>
-<td style="text-align: left">size</td>
+<td style="text-align: left">&gt; size</td>
 <td style="text-align: left">number</td>
 <td>Order quantity in USD</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">&gt; <a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
 <td>Side. <code>Buy</code> <code>Sell</code></td>
 </tr>
 <tr>
-<td style="text-align: left">time</td>
+<td style="text-align: left">&gt; time</td>
 <td style="text-align: left">string</td>
 <td>Executed timestamp(ms)</td>
 </tr>
 <tr>
-<td style="text-align: left">blocktradeId</td>
-<td style="text-align: left">string</td>
-<td>The batch id from paradigm. It is null if normal trade.</td>
+<td style="text-align: left">&gt; isBlockTrade</td>
+<td style="text-align: left">boolean</td>
+<td>Is block trade</td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_marketopeninterest'>Get Open Interest</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/open-interest?category=linear&amp;symbol=BTCUSDT&amp;interval=1h&amp;startTime=1657555200000&amp;endTime=1657641600000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/open-interest?category=future&amp;symbol=BTCUSDT&amp;interval=1h&amp;startTime=1657555200000&amp;endTime=1657641600000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -3304,7 +3443,7 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15350.60700000</span><span class="dl">"</span><span class="p">,</span>
@@ -3338,10 +3477,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3385,22 +3524,27 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">openInterest</td>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
+</tr>
+<tr>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; openInterest</td>
 <td style="text-align: left">string</td>
 <td>Open interest</td>
 </tr>
 <tr>
-<td style="text-align: left">timestamp</td>
+<td style="text-align: left">&gt; timestamp</td>
 <td style="text-align: left">string</td>
 <td>Timestamp(ms) of data generation.</td>
 </tr>
@@ -3537,7 +3681,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -3707,7 +3851,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
 </tr>
 <tr>
 <td style="text-align: left">triggerPrice</td>
@@ -4599,7 +4743,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -4647,7 +4791,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">list&gt; iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; <a href="#time-in-force-timeinforce">timeInForce</a></td>
@@ -4699,7 +4843,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -4830,7 +4974,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -4860,7 +5004,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">list&gt; iv</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; <a href="#quantity-qty">qty</a></td>
@@ -4890,7 +5034,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -5008,7 +5152,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">request</td>
@@ -5050,7 +5194,7 @@ can the price be null! To protect the market order from serious slippage, Bybit 
 <tr>
 <td style="text-align: left">list&gt; category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -5167,7 +5311,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -5212,7 +5356,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> <code>option</code> are available</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; symbol</td>
@@ -5415,7 +5559,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <tr>
 <td style="text-align: left">list&gt; sessionAvgPrice</td>
 <td style="text-align: left">string</td>
-<td>Settlement price, for USDC perps only</td>
+<td>Settlement price, for USDC only</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; leverage</td>
@@ -5637,7 +5781,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> is available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> is available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -5814,7 +5958,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> is available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> is available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -6215,7 +6359,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>option</code> is available</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -6376,7 +6520,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <td style="text-align: left">category</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> is available and ONLY for USDC perp</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code>For now, <code>linear</code> is available and ONLY for USDC perp</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -6445,7 +6589,7 @@ When category=<code>linear</code>，one of <code>baseCoin</code>, <code>settleCo
 <tr>
 <td style="text-align: left">list&gt; sessionAvgPrice</td>
 <td style="text-align: left">string</td>
-<td>Settlement price, for USDC perps only</td>
+<td>Settlement price, for USDC only</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; markPrice</td>
@@ -8698,7 +8842,7 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <tr>
 <td style="text-align: left">sessionAvgPrice</td>
 <td style="text-align: left">string</td>
-<td>Settlement price, for USDC perps only</td>
+<td>Settlement price, for USDC only</td>
 </tr>
 <tr>
 <td style="text-align: left">leverage</td>
@@ -9573,6 +9717,8 @@ ELSE
 <li><code>CancelByAdmin</code> </li>
 <li><code>CancelByTpSlTsClear</code> - TP/SL order canceled successfully</li>
 <li><code>CancelByPzSideCh</code> - order has been canceled after TP/SL is triggered</li>
+<li><code>CancelByCrossSelfMuch</code> - option order does not allow self fill</li>
+<li><code>CancelByCrossReachMaxTradeNum</code> - If your order consumes the sum of the qty of 10,000 orders, the leaves qty will be cancelled</li>
 </ul>
 <h2 id='create-type-createtype'>Create type (<code>createType</code>)</h2>
 <ul>

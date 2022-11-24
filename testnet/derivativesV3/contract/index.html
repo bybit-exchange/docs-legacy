@@ -780,10 +780,27 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-09-13" class="toc-h2 toc-link" data-title="2022-09-13">2022-09-13</a>
+                    <a href="#2022-11-23" class="toc-h2 toc-link" data-title="2022-11-23">2022-11-23</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#rest-api-3" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                          <li>
+                            <a href="#rest-api-4" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-09-13" class="toc-h2 toc-link" data-title="2022-09-13">2022-09-13</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#rest-api-5" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
@@ -858,6 +875,9 @@
                   </li>
                   <li>
                     <a href="#t-dv_indexpricekline" class="toc-h2 toc-link" data-title="Get Index Price Kline">Get Index Price Kline</a>
+                  </li>
+                  <li>
+                    <a href="#t-premium_index_price_kline" class="toc-h2 toc-link" data-title="Get Premium Index Price Kline">Get Premium Index Price Kline</a>
                   </li>
                   <li>
                     <a href="#t-dv_historyfundingratehead" class="toc-h2 toc-link" data-title="Get Funding Rate History">Get Funding Rate History</a>
@@ -950,12 +970,6 @@
                             <a href="#t-dv_walletrecords" class="toc-h3 toc-link" data-title="Get Wallet Fund Records">Get Wallet Fund Records</a>
                           </li>
                       </ul>
-                  </li>
-                  <li>
-                    <a href="#t-key" class="toc-h2 toc-link" data-title="API Key Info">API Key Info</a>
-                  </li>
-                  <li>
-                    <a href="#t-lcp" class="toc-h2 toc-link" data-title="LCP Info">LCP Info</a>
                   </li>
               </ul>
           </li>
@@ -1428,7 +1442,49 @@ clipboard.on('error', function(e) {
 <p><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></p>
 <h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://www.npmjs.com/package/bybit-api"><strong>bybit-api</strong></a> - <strong>Community NodeJS SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-13'>2022-09-13</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2022-11-23'>2022-11-23</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><a href="#t-marketdata">Market Data Endpoints</a> [update]
+
+<ul>
+<li>Market data endpoints support querying USDC perp and option. <b>Note:</b> <code>category</code> param uses "future" to cover USDT perp/USDC perp/Inverse perp/Inverse futures, but it still supports passing <code>linear</code>, <code>inverse</code></li>
+</ul></li>
+</ul>
+<h3 id='rest-api-2'>REST API</h3>
+<ul>
+<li><a href="#t-order">Order</a> [update]
+
+<ul>
+<li>Order endpoints support placing/modifying/cancel USDC perp and option. <b>Note:</b> <code>category</code> param uses "future" to cover USDT perp/USDC perp/Inverse perp/Inverse futures, but it still supports passing <code>linear</code>, <code>inverse</code></li>
+</ul></li>
+</ul>
+<h3 id='rest-api-3'>REST API</h3>
+<ul>
+<li><a href="#t-dv_myposition">Get Position (real-time)</a> [update]
+
+<ul>
+<li>Position endpoint supports querying USDC perp and option.</li>
+</ul></li>
+</ul>
+<h3 id='rest-api-4'>REST API</h3>
+<ul>
+<li><a href="#t-setleverage">Set Leverage</a> [update]
+
+<ul>
+<li>Supports querying USDC perp</li>
+</ul></li>
+<li><a href="#t-setrisklimit">Set Risk Limit</a> [update]
+
+<ul>
+<li>Supports querying USDC perp</li>
+</ul></li>
+<li><a href="#t-usertraderecords">Get User Trade Records</a> [update]
+
+<ul>
+<li>Supports querying USDC perp</li>
+</ul></li>
+</ul>
+<h2 id='2022-09-13'>2022-09-13</h2><h3 id='rest-api-5'>REST API</h3>
 <ul>
 <li><a href="#t-oilimitinfo">Get Open Interest Limit Info</a> [new]
 
@@ -1669,7 +1725,7 @@ function copyStringToClipboard (endpoint) {
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -1729,22 +1785,22 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
-<td>Symbol</td>
+<td>Symbol name. <code>category</code>=option is <b>required</b> when symbol is option</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">int</td>
-<td>Optional value 25 or 500. Default 25.</td>
+<td>25 by default, 500 is max. If <b>option</b>, only 25 is available</td>
 </tr>
 </tbody></table>
 
@@ -1787,29 +1843,41 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/kline?category=linear&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET https://api-testnet.bybit.com/derivatives/v3/public/kline?category=future&amp;symbol=BTCUSDT&amp;interval=1&amp;start=1668441600000&amp;end=1668528000000&amp;limit=2
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>Response Example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">interval</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">1451.59</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">2.4343353100000003</span><span class="dl">"</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1668441660000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16700</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16700.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">3.307</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">55233.6405</span><span class="dl">"</span>
+            <span class="p">],</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1668441600000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16736.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16736.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">16722.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.255</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">4265.2915</span><span class="dl">"</span>
+            <span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668577690514</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Get kline.</p>
@@ -1831,10 +1899,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -1879,14 +1947,14 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">list</td>
@@ -1898,7 +1966,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -1908,7 +1976,7 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -1993,16 +2061,16 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If both <code>category</code> and <code>symbol</code> are not passed，it returns all futures data by default</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Name of the trading pair. If category is <code>option</code> REQUIRED</td>
+<td>Symbol name. If category is <code>option</code> REQUIRED, and if symbol belongs to option, category=option is REQUIRED</td>
 </tr>
 </tbody></table>
 
@@ -2018,7 +2086,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">askIv</td>
@@ -2190,7 +2258,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2200,7 +2268,7 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -2226,7 +2294,8 @@ The response is in the snapshot format.
                     <span class="dl">"</span><span class="s2">maxTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">420.000</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">minTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">qtyStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span>
-                <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="dl">"</span><span class="s2">unifiedMarginTrade</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
             <span class="p">}</span>
         <span class="p">],</span>
         <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
@@ -2289,16 +2358,16 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If both <code>category</code> and <code>symbol</code> are not passed，it returns all futures data by default</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Symbol</td>
+<td>Symbol name. If symbol belongs to option, then category=option is required</td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -2332,7 +2401,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2444,7 +2513,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/mark-price-kline?category=linear&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/mark-price-kline?category=future&amp;symbol=BTCPERP&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2454,15 +2523,14 @@ The response is in the snapshot format.
   <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-     <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">interval</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+     <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -2486,10 +2554,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2534,14 +2602,14 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">list</td>
@@ -2553,7 +2621,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/index-price-kline?category=linear&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/derivatives/v3/public/index-price-kline?category=future&amp;symbol=BTCUSDT&amp;interval=D&amp;start=1652112000000&amp;end=1652544000000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2563,17 +2631,14 @@ The response is in the snapshot format.
   <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:{</span>
-      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">interval</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
       <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:[</span>
-      <span class="dl">"</span><span class="s2">1621162800</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49592.43</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49644.91</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49342.37</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">49349.42</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">1451.59</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">2.4343353100000003</span><span class="dl">"</span>
+          <span class="dl">"</span><span class="s2">1668528000000</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">16968.92</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">17051.23</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">16901.28</span><span class="dl">"</span><span class="p">,</span>
+          <span class="dl">"</span><span class="s2">16990.57</span><span class="dl">"</span>
     <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -2597,10 +2662,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2645,26 +2710,26 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
+</tr>
+<tr>
 <td style="text-align: left">list</td>
 <td style="text-align: left">string[]</td>
-<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>, <code>turnover</code></td>
+<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code></td>
 </tr>
 </tbody></table>
-<h3 id='t-dv_historyfundingratehead'>Get Funding Rate History</h3>
+<h3 id='t-premium_index_price_kline'>Get Premium Index Price Kline</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=linear&amp;symbol=BTCUSDT&amp;startTime=1652112000000&amp;endTime=1652198400000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/premium-index-price-kline?symbol=BTCPERP&amp;interval=D&amp;start=1668441600000&amp;end=1668528000000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2674,7 +2739,117 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCPERP</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span>
+                <span class="dl">"</span><span class="s2">1668470400000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.001955</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.002014</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.001650</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">0.002014</span><span class="dl">"</span>
+            <span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668582411036</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=dvpreinprk>/derivatives/v3/public/premium-index-price-kline</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvpreinprk"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#kline-interval-interval">interval</a></td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">string</td>
+<td>Kline interval. enum: 1 3 5 15 30 60 120 240 360 720 "D" "M" "W"
+</td>
+</tr>
+<tr>
+<td style="text-align: left">start</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">integer</td>
+<td>Start timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">end</td>
+<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">integer</td>
+<td>End timestamp point for result, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">integer</td>
+<td>Limit for data size per page, max size is 200. Default as showing 200 pieces of data per page</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
+</tr>
+<tr>
+<td style="text-align: left">list</td>
+<td style="text-align: left">string[]</td>
+<td>an array of individual candles, Sort in reverse order by <code>start</code>, The default collation within the array is <code>start</code>, <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code></td>
+</tr>
+</tbody></table>
+<h3 id='t-dv_historyfundingratehead'>Get Funding Rate History</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=future&amp;symbol=BTCUSDT&amp;startTime=1652112000000&amp;endTime=1652198400000'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -2710,10 +2885,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> are available</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2753,20 +2928,25 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">fundingRate</td>
+<td style="text-align: left">&gt; fundingRate</td>
 <td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a></td>
 </tr>
 <tr>
-<td style="text-align: left">fundingRateTimestamp</td>
+<td style="text-align: left">&gt; fundingRateTimestamp</td>
 <td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a> timestamp</td>
 </tr>
@@ -2775,7 +2955,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=linear&amp;symbol=BTCUSDT'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=future&amp;symbol=BTCUSDT'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -2785,7 +2965,7 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -2829,14 +3009,14 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. <code>option</code> is not supported.</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
@@ -2854,46 +3034,51 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
-<td style="text-align: left">id</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; id</td>
 <td style="text-align: left">number</td>
 <td><a href="#t-getrisklimit">Risk ID</a></td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">limit</td>
+<td style="text-align: left">&gt; limit</td>
 <td style="text-align: left">string</td>
 <td>Risk Limit</td>
 </tr>
 <tr>
-<td style="text-align: left">maintainMargin</td>
+<td style="text-align: left">&gt; maintainMargin</td>
 <td style="text-align: left">string</td>
 <td>Maintain margin</td>
 </tr>
 <tr>
-<td style="text-align: left">initialMargin</td>
+<td style="text-align: left">&gt; initialMargin</td>
 <td style="text-align: left">string</td>
 <td>Initial margin</td>
 </tr>
 <tr>
-<td style="text-align: left">section</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">&gt; section</td>
+<td style="text-align: left">array</td>
 <td>Section</td>
 </tr>
 <tr>
-<td style="text-align: left">isLowestRisk</td>
+<td style="text-align: left">&gt; isLowestRisk</td>
 <td style="text-align: left">number</td>
 <td>Is lowest risk. <code>0</code>: No; <code>1</code>: Yes
 </td>
 </tr>
 <tr>
-<td style="text-align: left">maxLeverage</td>
+<td style="text-align: left">&gt; maxLeverage</td>
 <td style="text-align: left">string</td>
 <td>Max leverage</td>
 </tr>
@@ -2945,10 +3130,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category. <code>option</code> ONLY</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -2995,7 +3180,7 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>option</code> is available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3022,7 +3207,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=linear&amp;symbol=BTCUSDT&amp;limit=1'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=future&amp;symbol=BTCUSDT&amp;limit=1'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -3032,7 +3217,7 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">execId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">da66abbc-f358-5864-8d34-84ef7274d853</span><span class="dl">"</span><span class="p">,</span>
@@ -3040,7 +3225,8 @@ The response is in the snapshot format.
                 <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20802.50</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.200</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Sell</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1657870316630</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1657870316630</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">isBlockTrade</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
@@ -3066,10 +3252,11 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. <li>If <code>category</code> not passed, or passed with <code>future</code>, then <code>symbol</code> is <b>required</b></li><li>If <code>category</code>=option, then <code>symbol</code> is optional</li>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3109,49 +3296,54 @@ The response is in the snapshot format.
 <tr>
 <td style="text-align: left">category</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> <code>option</code> are available</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
 </tr>
 <tr>
-<td style="text-align: left">execId</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; execId</td>
 <td style="text-align: left">string</td>
 <td>Latest data id</td>
 </tr>
 <tr>
-<td style="text-align: left">symbol</td>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">price</td>
+<td style="text-align: left">&gt; price</td>
 <td style="text-align: left">number</td>
 <td>Trade price</td>
 </tr>
 <tr>
-<td style="text-align: left">size</td>
+<td style="text-align: left">&gt; size</td>
 <td style="text-align: left">number</td>
 <td>Order quantity in USD</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">&gt; <a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
 <td>Side. <code>Buy</code> <code>Sell</code></td>
 </tr>
 <tr>
-<td style="text-align: left">time</td>
+<td style="text-align: left">&gt; time</td>
 <td style="text-align: left">string</td>
 <td>Executed timestamp(ms)</td>
 </tr>
 <tr>
-<td style="text-align: left">blocktradeId</td>
-<td style="text-align: left">string</td>
-<td>The batch id from paradigm. It is null if normal trade.</td>
+<td style="text-align: left">&gt; isBlockTrade</td>
+<td style="text-align: left">boolean</td>
+<td>Is block trade</td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_marketopeninterest'>Get Open Interest</h3>
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/open-interest?category=linear&amp;symbol=BTCUSDT&amp;interval=1h&amp;startTime=1657555200000&amp;endTime=1657641600000'
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/open-interest?category=future&amp;symbol=BTCUSDT&amp;interval=1h&amp;startTime=1657555200000&amp;endTime=1657641600000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
@@ -3162,7 +3354,7 @@ The response is in the snapshot format.
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15350.60700000</span><span class="dl">"</span><span class="p">,</span>
@@ -3196,10 +3388,10 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
+<td>Derivatives products category. <code>option</code> is not supported</td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3243,22 +3435,27 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">category</td>
-<td style="text-align: left">string</td>
-<td>Derivatives products category.For now, <code>linear</code> <code>inverse</code> including inverse futures are available</td>
-</tr>
-<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">openInterest</td>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. If category is not passed, then return <code>""</code></td>
+</tr>
+<tr>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; openInterest</td>
 <td style="text-align: left">string</td>
 <td>Open interest</td>
 </tr>
 <tr>
-<td style="text-align: left">timestamp</td>
+<td style="text-align: left">&gt; timestamp</td>
 <td style="text-align: left">string</td>
 <td>Timestamp(ms) of data generation.</td>
 </tr>
@@ -3272,7 +3469,7 @@ The response is in the snapshot format.
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/order/create' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: f02a18137c25c40d64b2c474f575c01a62ba076124946d38619238e19c86a2f2' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658884339826' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -3335,6 +3532,12 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+</tr>
+<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left"><b>true</b></td>
 <td style="text-align: left">string</td>
@@ -3388,7 +3591,13 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#trigger-price-type-triggerby">triggerBy</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Trigger price type</td>
+<td>Trigger price type. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.</td>
+</tr>
+<tr>
+<td style="text-align: left">iv</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
 </tr>
 <tr>
 <td style="text-align: left">tpTriggerBy</td>
@@ -3414,7 +3623,10 @@ The response is in the snapshot format.
 <td style="text-align: left">orderLinkId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Unique user-set order ID. Maximum length of 36 characters</td>
+<td><p>User customized order ID. A max of 36 characters. A user cannot reuse an orderLinkId, with some exceptions. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported. Not required for futures, but <b>required for options</b>.</p>
+<p>1. The same orderLinkId can be used for both USDC PERP and USDT PERP.</p>
+<p>2. An orderLinkId can be reused once the original order is either <code>Filled</code> or <code>Cancelled</code.</p>
+</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -3439,6 +3651,12 @@ The response is in the snapshot format.
 <td style="text-align: left">false</td>
 <td style="text-align: left">bool</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039260534-What-is-a-close-on-trigger-Order-">  What is a close on trigger order?</a> For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.</td>
+</tr>
+<tr>
+<td style="text-align: left">mmp</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">bool</td>
+<td>Market maker protection, "true" means this order is a market maker protection order.</td>
 </tr>
 </tbody></table>
 
@@ -3466,7 +3684,7 @@ The response is in the snapshot format.
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/order/list?symbol=DOGEUSDT&amp;orderStatus=Filled' \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/order/list?limit=1&amp;category=future' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 61df2c2de39cfce40fe334e503de4a61e26a95aebec690b9b482e4feb31cb088' \
 --header 'X-BAPI-API-KEY: {api key}' \
@@ -3477,45 +3695,99 @@ The response is in the snapshot format.
 <blockquote>
 <p>Response Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// linear response sample</span>
+<span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XRPUSDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHPERP</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Market</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.3431</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">65</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ImmediateOrCancel</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Filled</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.50</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">FillOrKill</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Deactivated</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">leavesValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">65</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21.3265</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0127959</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">lastPriceOnCreated</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">lastPriceOnCreated</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">rejectReason</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">EC_NoError</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1657526321499</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1657526321504</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ac0a8134-acb3-4ee1-a2d4-41891c9c46d7</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">positionIdx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">usdc-00005</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1669169261521</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1669169268018</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4d951f96-9ef8-4ada-aba7-d07d93d97fe5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Stop</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1300.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">700.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LastPrice</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LastPrice</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1050.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionIdx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CancelByUser</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MarkPrice</span><span class="dl">"</span>
+            <span class="p">}</span>
         <span class="p">],</span>
-        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">K0crQkZRL0MyQVpiN0tVSDFTS0RlMk9DemNCWHZaRHp3aFZ4Y1Yza2MyWT0=</span><span class="dl">"</span>
+        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1658899014975</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669191588649</span>
+<span class="p">}</span>
+
+<span class="c1">// option response sample</span>
+
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">option</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SOL-23NOV22-13-C</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">option-0010</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">add4ce06-7d6e-4d18-baf3-8099e308402d</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CancelByUser</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">lastPriceOnCreated</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Cancelled</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">blockTradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">rejectReason</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.4</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1669174910041</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">positionIdx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1669176681160</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p><p><b>Interface:</b></p>
@@ -3540,6 +3812,12 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -3553,9 +3831,15 @@ The response is in the snapshot format.
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. <code>option</code> ONLY</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-status-orderstatus-stoporderstatus">orderStatus</a></td>
@@ -3564,7 +3848,7 @@ The response is in the snapshot format.
 <td>Query list of orders in designated states. If this parameter is not passed, the orders in all states shall be enquired by default.</td>
 </tr>
 <tr>
-<td style="text-align: left">orderFilter</td>
+<td style="text-align: left"><a href="#order-filter-orderfilter">orderFilter</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Conditional order or active order
@@ -3594,151 +3878,186 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">list&gt; symbol</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; side</td>
+<td style="text-align: left">&gt; side</td>
 <td style="text-align: left">string</td>
 <td>Side</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; orderType</td>
+<td style="text-align: left">&gt; orderType</td>
 <td style="text-align: left">string</td>
 <td>Order type</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; price</td>
+<td style="text-align: left">&gt; price</td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; qty</td>
+<td style="text-align: left">&gt; qty</td>
 <td style="text-align: left">string</td>
 <td>Quantity. If <b>USDT perp</b>, qty is in cryptocurrency, else like <b>Inverse perp/futures</b>, qty is in USD.</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; reduceOnly</td>
-<td style="text-align: left">bool</td>
+<td style="text-align: left">&gt; reduceOnly</td>
+<td style="text-align: left">boolean</td>
 <td>true means close order, false means open position</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; timeInForce</td>
+<td style="text-align: left">&gt; timeInForce</td>
 <td style="text-align: left">string</td>
 <td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; orderStatus</td>
+<td style="text-align: left">&gt; orderStatus</td>
 <td style="text-align: left">string</td>
 <td>Order status</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; leavesQty</td>
+<td style="text-align: left">&gt; leavesQty</td>
 <td style="text-align: left">string</td>
 <td>Number of unfilled contracts from the order's size</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; leavesValue</td>
+<td style="text-align: left">&gt; leavesValue</td>
 <td style="text-align: left">string</td>
 <td>The estimated value corresponding to the number of remaining orders</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; cumExecQty</td>
+<td style="text-align: left">&gt; cumExecQty</td>
 <td style="text-align: left">string</td>
 <td>Cumulative qty of trading</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; cumExecValue</td>
+<td style="text-align: left">&gt; cumExecValue</td>
 <td style="text-align: left">string</td>
 <td>Cumulative value of trading</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; cumExecFee</td>
+<td style="text-align: left">&gt; cumExecFee</td>
 <td style="text-align: left">string</td>
 <td>Cumulative trading fees</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; lastPriceOnCreated</td>
+<td style="text-align: left">&gt; lastPriceOnCreated</td>
 <td style="text-align: left">string</td>
 <td>Last execution price</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; rejectReason</td>
+<td style="text-align: left">&gt; rejectReason</td>
 <td style="text-align: left">string</td>
 <td>Reason order is rejected</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; createdTime</td>
-<td style="text-align: left">string</td>
-<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; updatedTime</td>
-<td style="text-align: left">string</td>
-<td>Update time</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; orderLinkId</td>
+<td style="text-align: left">&gt; orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; orderId</td>
+<td style="text-align: left">&gt; createdTime</td>
+<td style="text-align: left">string</td>
+<td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; updatedTime</td>
+<td style="text-align: left">string</td>
+<td>Update time</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; orderId</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; stopOrderType</td>
+<td style="text-align: left">&gt; stopOrderType</td>
 <td style="text-align: left">string</td>
 <td>Conditional order type</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; triggerDirection</td>
-<td style="text-align: left">integer</td>
-<td>Trigger direction. Mainly used in conditional order. Trigger the order when market price rises to <b>triggerPrice</b> or falls to <b>triggerPrice</b>. <code>1</code>: rise; <code>2</code>: fall
-</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; closeOnTrigger</td>
-<td style="text-align: left">bool</td>
-<td>Is close on trigger order</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; takeProfit</td>
+<td style="text-align: left">&gt; takeProfit</td>
 <td style="text-align: left">string</td>
 <td>Take profit price</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; stopLoss</td>
+<td style="text-align: left">&gt; stopLoss</td>
 <td style="text-align: left">string</td>
 <td>Stop loss price</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; tpTriggerBy</td>
+<td style="text-align: left">&gt; <a href="#trigger-price-type-triggerby">tpTriggerBy</a></td>
 <td style="text-align: left">string</td>
 <td>Trigger type of take profit. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; slTriggerBy</td>
+<td style="text-align: left">&gt; <a href="#trigger-price-type-triggerby">slTriggerBy</a></td>
 <td style="text-align: left">string</td>
 <td>Trigger type of stop loss. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; triggerPrice</td>
+<td style="text-align: left">&gt; triggerPrice</td>
 <td style="text-align: left">string</td>
 <td>If <code>stopOrderType</code> is <b>TrailingProfit</b>, triggerPrice means activate price. Otherwise, it is trigger price.</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; positionIdx</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">&gt; closeOnTrigger</td>
+<td style="text-align: left">boolean</td>
+<td>Is close on trigger order</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; triggerDirection</td>
+<td style="text-align: left">string</td>
+<td>Trigger direction. Mainly used in conditional order. Trigger the order when market price rises to <b>triggerPrice</b> or falls to <b>triggerPrice</b>. <code>1</code>: rise; <code>2</code>: fall
+</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; positionIdx</td>
+<td style="text-align: left">string</td>
 <td>Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
 </td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; cancelType</td>
+<td style="text-align: left">string</td>
+<td>The cancel type of the order</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; iv</td>
+<td style="text-align: left">string</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; <a href="#trigger-price-type-triggerby">triggerBy</a></td>
+<td style="text-align: left">string</td>
+<td>Trigger price type. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; blockTradeId</td>
+<td style="text-align: left">string</td>
+<td>Block trade id</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; placeType</td>
+<td style="text-align: left">string</td>
+<td>Place Order type of option</td>
 </tr>
 <tr>
 <td style="text-align: left">nextPageCursor</td>
 <td style="text-align: left">string</td>
 <td>Next page cursor</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>dv3_orderbook_category</td>
 </tr>
 </tbody></table>
 <h3 id='t-contract_cancelorder'>Cancel order</h3>
@@ -3795,6 +4114,12 @@ The response is in the snapshot format.
 <th>Comment</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+</tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left"><b>true</b></td>
@@ -3889,6 +4214,12 @@ The response is in the snapshot format.
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+</tr>
+<tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -3900,6 +4231,12 @@ The response is in the snapshot format.
 <td style="text-align: left">string</td>
 <td>Cancel orders by settle coin. <li>If <code>settleCoin</code>=USDT, then cancel all USDT perp orders</li><li>if <code>settleCoin</code>=BTC, then cancel BTCUSD/BTCUSDH23</li>
 </td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. <code>option</code> ONLY</td>
 </tr>
 </tbody></table>
 
@@ -3983,6 +4320,12 @@ Please note that only orders that are unfilled or partially filled can be modifi
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -4045,6 +4388,12 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
 </td>
 </tr>
+<tr>
+<td style="text-align: left">iv</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+</tr>
 </tbody></table>
 
 <p class="fake_header">Response Parameters</p>
@@ -4071,7 +4420,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <blockquote>
 <p>Request Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/order/unfilled-orders?symbol=XRPUSDT' \
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/order/unfilled-orders?category=future&amp;baseCoin=ETH' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: e3a1e4b88dfc2730c987fb3253dd3e09bc05cf68ae4d9d9d71a8235c44cb1f02' \
 --header 'X-BAPI-API-KEY: {api key}' \
@@ -4083,45 +4432,94 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <blockquote>
 <p>Response Example</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"retCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"retMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XRPUSDT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"orderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db8b74b3-72d3-4264-bf3f-52d39b41956e"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"side"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sell"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"orderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Limit"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"stopOrderType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stop"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.4000"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"qty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"timeInForce"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GoodTillCancel"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"orderStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UnTriggered"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"triggerPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1000"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"orderLinkId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"x002"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"createdTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1658901865082"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"updatedTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1658902610748"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"takeProfit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2000"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"stopLoss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.6000"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"tpTriggerBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"slTriggerBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNKNOWN"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"triggerBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MarkPrice"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"reduceOnly"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"leavesQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"leavesValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cumExecQty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cumExecValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"cumExecFee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"triggerDirection"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"nextPageCursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"retExtInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-    </span><span class="nl">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1658902847238</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// linear response sample</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETHPERP</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">72f02cc3-8d88-40d0-907f-87e758f62f28</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Stop</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.50</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Untriggered</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1050.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">usdc-00006</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1669195732377</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1669195732377</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1300.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">700.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LastPrice</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">LastPrice</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MarkPrice</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.50</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cancelType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">lastPriceOnCreated</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669195809545</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// option response sample</span>
+<span class="p">{</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">option</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">SOL-24NOV22-12-C</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderLinkId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">option-0013</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">a1f5efd7-eb42-4d12-9fa8-d8a799d321ea</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">lastPriceOnCreated</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">New</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerDirection</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">blockTradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.4</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1669195736585</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">timeInForce</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GoodTillCancel</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1669195736597</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">iv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">placeType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success.</span><span class="dl">"</span>
+<span class="p">}</span>
+</code></pre></div>
 <p><p>Query real-time order information. If only <code>orderId</code> or <code>orderLinkId</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b></p>.
 <p>Ordered by <code>createdTime</code> in descending order.</p>
 </p>
@@ -4142,6 +4540,12 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <th>Comment</th>
 </tr>
 </thead><tbody>
+<tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+</tr>
 <tr>
 <td style="text-align: left">symbol</td>
 <td style="text-align: left">false</td>
@@ -4164,7 +4568,13 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">settleCoin</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Settle coin. Either <code>symbol</code> or <code>settleCoin</code> is required. If both are passed, <code>symbol</code> is used first.</td>
+<td>Settle coin. Either <code>symbol</code>, <code>settleCoin</code> or <code>baseCoin</code> is required. Query priority：symbol > baseCoin > settleCoin.</td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin</td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#order-filter-orderfilter">orderFilter</a></td>
@@ -4197,132 +4607,175 @@ Please note that only orders that are unfilled or partially filled can be modifi
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">list&gt; symbol</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; symbol</td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; orderId</td>
+<td style="text-align: left">&gt; orderId</td>
 <td style="text-align: left">string</td>
 <td>Order ID</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; side</td>
+<td style="text-align: left">&gt; side</td>
 <td style="text-align: left">string</td>
 <td>Side</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; orderType</td>
+<td style="text-align: left">&gt; orderType</td>
 <td style="text-align: left">string</td>
 <td>Order type</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; triggerDirection</td>
-<td style="text-align: left">integer</td>
-<td>Trigger direction. Mainly used in conditional order. Trigger the order when market price rises to <b>triggerPrice</b> or falls to <b>triggerPrice</b>. <code>1</code>: rise; <code>2</code>: fall
-</td>
+<td style="text-align: left">&gt; stopOrderType</td>
+<td style="text-align: left">string</td>
+<td>Conditional order type</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; price</td>
+<td style="text-align: left">&gt; price</td>
 <td style="text-align: left">string</td>
 <td>Order price</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; qty</td>
+<td style="text-align: left">&gt; qty</td>
 <td style="text-align: left">string</td>
 <td>Quantity. If <b>USDT perp</b>, qty is in cryptocurrency, else like <b>Inverse perp/futures</b>, qty is in USD.</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; timeInForce</td>
+<td style="text-align: left">&gt; timeInForce</td>
 <td style="text-align: left">string</td>
 <td><a href="https://www.bybit.com/en-US/help-center/bybitHC_Article?language=en_US&id=000001044">Time in force</a></td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; orderStatus</td>
+<td style="text-align: left">&gt; orderStatus</td>
 <td style="text-align: left">string</td>
 <td>Order status</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; triggerPrice</td>
+<td style="text-align: left">&gt; triggerPrice</td>
 <td style="text-align: left">string</td>
-<td>Trigger price</td>
+<td>If <code>stopOrderType</code> is <b>TrailingProfit</b>, triggerPrice means activate price. Otherwise, it is trigger price.</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; triggerBy</td>
-<td style="text-align: left">string</td>
-<td>Trigger price type</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; tpTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Take profit trigger price type, default<span>:</span> <code>LastPrice</code>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; slTriggerBy</td>
-<td style="text-align: left">string</td>
-<td>Stop loss trigger price type, default<span>:</span> <code>LastPrice</code>
-</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; orderLinkId</td>
+<td style="text-align: left">&gt; orderLinkId</td>
 <td style="text-align: left">string</td>
 <td>Unique user-set order ID. Maximum length of 36 characters</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; createdTime</td>
+<td style="text-align: left">&gt; createdTime</td>
 <td style="text-align: left">string</td>
 <td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; updatedTime</td>
+<td style="text-align: left">&gt; updatedTime</td>
 <td style="text-align: left">string</td>
 <td>Update time</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; takeProfit</td>
+<td style="text-align: left">&gt; takeProfit</td>
 <td style="text-align: left">string</td>
 <td>Take profit price</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; stopLoss</td>
+<td style="text-align: left">&gt; stopLoss</td>
 <td style="text-align: left">string</td>
 <td>Stop loss price</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; reduce_only</td>
-<td style="text-align: left">bool</td>
+<td style="text-align: left">&gt; <a href="#trigger-price-type-triggerby">tpTriggerBy</a></td>
+<td style="text-align: left">string</td>
+<td>Trigger type of take profit. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; <a href="#trigger-price-type-triggerby">slTriggerBy</a></td>
+<td style="text-align: left">string</td>
+<td>Trigger type of stop loss. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; <a href="#trigger-price-type-triggerby">triggerBy</a></td>
+<td style="text-align: left">string</td>
+<td>Trigger price type. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; reduceOnly</td>
+<td style="text-align: left">boolean</td>
 <td>true means close order, false means open position</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; cumExecQty</td>
-<td style="text-align: left">string</td>
-<td>Cumulative qty of trading</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; cumExecValue</td>
-<td style="text-align: left">string</td>
-<td>Cumulative value of trading</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; cumExecFee</td>
-<td style="text-align: left">string</td>
-<td>Cumulative trading fees</td>
-</tr>
-<tr>
-<td style="text-align: left">list&gt; leavesQty</td>
+<td style="text-align: left">&gt; leavesQty</td>
 <td style="text-align: left">string</td>
 <td>Number of unfilled contracts from the order's size</td>
 </tr>
 <tr>
-<td style="text-align: left">list&gt; leavesValue</td>
+<td style="text-align: left">&gt; leavesValue</td>
 <td style="text-align: left">string</td>
 <td>The estimated value corresponding to the number of remaining orders</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; cumExecQty</td>
+<td style="text-align: left">string</td>
+<td>Cumulative qty of trading</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; cumExecValue</td>
+<td style="text-align: left">string</td>
+<td>Cumulative value of trading</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; cumExecFee</td>
+<td style="text-align: left">string</td>
+<td>Cumulative trading fees</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; triggerDirection</td>
+<td style="text-align: left">string</td>
+<td>Trigger direction. Mainly used in conditional order. Trigger the order when market price rises to <b>triggerPrice</b> or falls to <b>triggerPrice</b>. <code>1</code>: rise; <code>2</code>: fall
+</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; cancelType</td>
+<td style="text-align: left">string</td>
+<td>The cancel type of the order</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; lastPriceOnCreated</td>
+<td style="text-align: left">string</td>
+<td>Last execution price</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; iv</td>
+<td style="text-align: left">string</td>
+<td>Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; closeOnTrigger</td>
+<td style="text-align: left">boolean</td>
+<td>Is close on trigger order</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; placeType</td>
+<td style="text-align: left">string</td>
+<td>Place Order type of option</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; blockTradeId</td>
+<td style="text-align: left">string</td>
+<td>Block trade id</td>
 </tr>
 <tr>
 <td style="text-align: left">nextPageCursor</td>
 <td style="text-align: left">string</td>
 <td>API pass-through</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>dv3_orderbook_category</td>
 </tr>
 </tbody></table>
 <h2 id='t-position'>Position</h2><h3 id='t-dv_myposition'>Get Position (real-time)</h3>
@@ -4422,6 +4875,12 @@ Please note that only orders that are unfilled or partially filled can be modifi
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+</tr>
+<tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -4434,11 +4893,22 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td>Settle coin. Either <code>symbol</code> or <code>settleCoin</code> is required. If both are passed, <code>symbol</code> is used first.</td>
 </tr>
 <tr>
-<td style="text-align: left">dataFilter</td>
+<td style="text-align: left">baseCoin</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Only work when <code>settleCoin</code> is passed. <code>full</code>: get all positions regardless zero or not based on settle coin. <code>valid</code>: get valid positions based on settle coin
-</td>
+<td>Base coin. <code>option</code> ONLY</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">number</td>
+<td>Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page</td>
+</tr>
+<tr>
+<td style="text-align: left">cursor</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Page turning mark</td>
 </tr>
 </tbody></table>
 
@@ -4452,121 +4922,156 @@ Please note that only orders that are unfilled or partially filled can be modifi
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left">positionIdx</td>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; positionIdx</td>
 <td style="text-align: left">integer</td>
 <td>Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
 </td>
 </tr>
 <tr>
-<td style="text-align: left">riskId</td>
+<td style="text-align: left">&gt; riskId</td>
 <td style="text-align: left">integer</td>
 <td><a href="#t-dv_risklimithead">Risk limit ID</a></td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
+<td style="text-align: left">&gt; <a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">string</td>
 <td>Symbol</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#side-side">side</a></td>
+<td style="text-align: left">&gt; <a href="#side-side">side</a></td>
 <td style="text-align: left">string</td>
 <td>Side</td>
 </tr>
 <tr>
-<td style="text-align: left">size</td>
+<td style="text-align: left">&gt; size</td>
 <td style="text-align: left">string</td>
 <td>Position qty</td>
 </tr>
 <tr>
-<td style="text-align: left">positionValue</td>
+<td style="text-align: left">&gt; positionValue</td>
 <td style="text-align: left">string</td>
 <td>Position value</td>
 </tr>
 <tr>
-<td style="text-align: left">entryPrice</td>
+<td style="text-align: left">&gt; entryPrice</td>
 <td style="text-align: left">string</td>
 <td>Average opening price</td>
 </tr>
 <tr>
-<td style="text-align: left">tradeMode</td>
+<td style="text-align: left">&gt; tradeMode</td>
 <td style="text-align: left">integer</td>
 <td>Cross/isolated mode. <code>0</code>: cross margin mode; <code>1</code>: isolated margin mode
 </td>
 </tr>
 <tr>
-<td style="text-align: left">autoAddMargin</td>
+<td style="text-align: left">&gt; autoAddMargin</td>
 <td style="text-align: left">integer</td>
 <td>Whether or not <a href="https://help.bybit.com/hc/en-us/articles/900000394403-Introduction-to-Auto-Margin-Replenishment-USDT-Contract-),">auto-margin replenishment</a> is enabled</td>
 </tr>
 <tr>
-<td style="text-align: left">leverage</td>
-<td style="text-align: left">number</td>
+<td style="text-align: left">&gt; leverage</td>
+<td style="text-align: left">string</td>
 <td>In Isolated Margin mode, the value is set by the user. In Cross Margin mode, the value is the max leverage at current risk level</td>
 </tr>
 <tr>
-<td style="text-align: left">positionBalance</td>
+<td style="text-align: left">&gt; positionBalance</td>
 <td style="text-align: left">string</td>
 <td>Position balance</td>
 </tr>
 <tr>
-<td style="text-align: left">liqPrice</td>
+<td style="text-align: left">&gt; liqPrice</td>
 <td style="text-align: left">string</td>
 <td>Liquidation price</td>
 </tr>
 <tr>
-<td style="text-align: left">bustPrice</td>
+<td style="text-align: left">&gt; bustPrice</td>
 <td style="text-align: left">string</td>
 <td>Bust price</td>
 </tr>
 <tr>
-<td style="text-align: left">takeProfit</td>
+<td style="text-align: left">&gt; takeProfit</td>
 <td style="text-align: left">string</td>
 <td>Take profit price</td>
 </tr>
 <tr>
-<td style="text-align: left">stopLoss</td>
+<td style="text-align: left">&gt; stopLoss</td>
 <td style="text-align: left">string</td>
 <td>Stop loss price</td>
 </tr>
 <tr>
-<td style="text-align: left">trailingStop</td>
+<td style="text-align: left">&gt; trailingStop</td>
 <td style="text-align: left">string</td>
 <td>Trailing stop (the distance from the current price)</td>
 </tr>
 <tr>
-<td style="text-align: left">unrealisedPnl</td>
+<td style="text-align: left">&gt; unrealisedPnl</td>
 <td style="text-align: left">string</td>
 <td>unrealised pnl</td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="#tp-sl-mode-tpslmode">tpSLMode</a></td>
-<td style="text-align: left">string</td>
-<td>TrailingProfit or StopLoss mode <code>Full</code> or <code>Partial</code></td>
-</tr>
-<tr>
-<td style="text-align: left">activePrice</td>
-<td style="text-align: left">string</td>
-<td>Trailing stop trigger price. Trailing stop will only be triggered when this price is touched (trailing stop will be immediately triggered by default).</td>
-</tr>
-<tr>
-<td style="text-align: left">riskLimitValue</td>
-<td style="text-align: left">string</td>
-<td>Position upper limit corresponding to the current risk limit ID</td>
-</tr>
-<tr>
-<td style="text-align: left">createdTime</td>
+<td style="text-align: left">&gt; createdTime</td>
 <td style="text-align: left">string</td>
 <td>Creation time (when the <a href="#order-status-order_status-stop_order_status"><code>order_status</code></a> was <code>Created</code>)</td>
 </tr>
 <tr>
-<td style="text-align: left">updatedTime</td>
+<td style="text-align: left">&gt; updatedTime</td>
 <td style="text-align: left">string</td>
 <td>Update time</td>
 </tr>
 <tr>
+<td style="text-align: left">&gt; <a href="#tp-sl-mode-tpslmode">tpSlMode</a></td>
+<td style="text-align: left">string</td>
+<td>TrailingProfit or StopLoss mode <code>Full</code> or <code>Partial</code></td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; riskLimitValue</td>
+<td style="text-align: left">string</td>
+<td>Position upper limit corresponding to the current risk limit ID</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; activePrice</td>
+<td style="text-align: left">string</td>
+<td>Trailing stop trigger price. Trailing stop will only be triggered when this price is touched (trailing stop will be immediately triggered by default).</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; markPrice</td>
+<td style="text-align: left">string</td>
+<td>Mark price</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; cumRealisedPnl</td>
+<td style="text-align: left">string</td>
+<td>Accumulatively realized P&L</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; positionMM</td>
+<td style="text-align: left">string</td>
+<td>Maintenance margin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; positionIM</td>
+<td style="text-align: left">string</td>
+<td>Initial margin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; sessionAvgPrice</td>
+<td style="text-align: left">string</td>
+<td>Settlement price, for USDC only</td>
+</tr>
+<tr>
+<td style="text-align: left">category</td>
+<td style="text-align: left">string</td>
+<td>dv3_orderbook_category</td>
+</tr>
+<tr>
 <td style="text-align: left">nextPageCursor</td>
 <td style="text-align: left">string</td>
-<td>Next page cursor</td>
+<td>API pass-through</td>
 </tr>
 </tbody></table>
 <h3 id='t-setautoaddmargin'>Set Auto Add Margin</h3>
@@ -4661,7 +5166,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-isolated' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: f178bda84f8a3fa971338b7424cce2204824c0114f196650b2516962371e3902' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658908531694' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -4746,7 +5251,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-mode' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: b07d38c9719187a8a9a0cee739f465edd05a1c7a30618e02a1f1dc9fc3639d97' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658909270602' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -4826,7 +5331,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/switch-tpsl-mode' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 018fd4ae872bdb5a90e849dc324eeab4157a047de05250bb74efb7c3434d0597' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658909568597' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -5111,7 +5616,7 @@ Passing these parameters will create conditional orders controlled by the system
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/position/set-risk-limit' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: 82904cc14df4bb278722d4212bdb76dc7e1ec7a77e0e761d2e09b3361059a25c' \
---header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658911327616' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -5274,6 +5779,12 @@ One order may have multiple trade records.
 </tr>
 </thead><tbody>
 <tr>
+<td style="text-align: left"><a href="#category-category">category</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Derivatives products category. <code>option</code> is not supported.</td>
+</tr>
+<tr>
 <td style="text-align: left">orderId</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
@@ -5281,9 +5792,27 @@ One order may have multiple trade records.
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
-<td style="text-align: left"><b>true</b></td>
+<td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Symbol</td>
+<td>Symbol name. <li>if category=future, then symbol is required</li><li>If category=option, then symbol is optional</li></td>
+</tr>
+<tr>
+<td style="text-align: left">baseCoin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Base coin. <code>option</code> ONLY</td>
+</tr>
+<tr>
+<td style="text-align: left">orderLinkId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>User customised order id. <code>option</code> ONLY</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="#order-filter-orderfilter">orderFilter</a></td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Order filter. <code>future</code> ONLY</td>
 </tr>
 <tr>
 <td style="text-align: left">startTime</td>
@@ -5501,13 +6030,13 @@ One order may have multiple trade records.
 <td style="text-align: left">startTime</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>Start timestamp point for result, in seconds</td>
+<td>Start timestamp in millisecond</td>
 </tr>
 <tr>
 <td style="text-align: left">endTime</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>End timestamp point for result, in seconds</td>
+<td>End timestamp in millisecond</td>
 </tr>
 <tr>
 <td style="text-align: left">limit</td>
@@ -5902,7 +6431,7 @@ One order may have multiple trade records.
 <div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/account/fee-rate?symbol=ETHUSDT' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: e65aad8dd5459774ad21aaca77420947332fdbfe433bef959c6507ce2379999f' \
---header 'X-BAPI-API-KEY: T0d98KyVamQ62YBzN8' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1658739026859' \
 --header 'X-BAPI-RECV-WINDOW: 5000'
 </span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
@@ -6120,10 +6649,6 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 <td>Next page cursor</td>
 </tr>
 </tbody></table>
-<h2 id='t-key'>API Key Info</h2>
-<p><a href="/docs/inverse#t-key">Please see the shared endpoint.</a></p>
-<h2 id='t-lcp'>LCP Info</h2>
-<p><a href="/docs/inverse#t-lcp">Please see the shared endpoint.</a></p>
 <h1 id='t-api'>API Data Endpoints</h1>
 <p>The following API data endpoints do not require authentication.</p>
 <h3 id='t-servertime'>Server Time</h3>
@@ -6312,6 +6837,12 @@ Please email <a href="mailto:api@bybit.com">api@bybit.com</a> with the following
     <br/>
     Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    USDC contract: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
+    <br/>
+    USDC Options: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
+    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
 </p>
 </ul>
@@ -6492,20 +7023,26 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 </code></pre></div>
 <p><b>instruction: </b>
 Get different depth.<br>
-Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which bids is from highest to lowest and asks is from lowest to highest.
+Once subscribe successfully, you will receive a snapshot. The data is ordered by order price, which from lowest buy order to highest sell order.
 Websocket will keep pushing delta message when orderbook is changed. If you receive a new snapshot data, it's necessary to reset your local orderbook.<br><br>
 <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
 If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
+<b>Linear perpetual:</b><br/>
 1 level data, push frequency: <b>10ms</b> <br>
-25 level data<b>(1st Dec 2022 offline)</b>, push frequency: <b>20ms</b> <br>
+25 level data <b>(1st Dec 2022 offline)</b>, push frequency: <b>20ms</b> <br>
 50 level data, push frequency: <b>20ms</b> <br>
 200 level data, push frequency: <b>100ms</b> <br>
-500 level data<b>(1st Dec 2022 offline)</b>, push frequency: <b>100ms</b> <br>
+500 level data <b>(1st Dec 2022 offline)</b>, push frequency: <b>100ms</b> <br>
 <br>
-<b>Topic: </b><br>
+<b>Option:</b><br/>
+25 level data <br/>
+100 level data<br/>
+<br>
+<b>Topic: (note. option has 25 & 100 level only)</b><br>
 <code>orderbook.1.{symbol}</code><br>
 <code>orderbook.25.{symbol}</code><br>
 <code>orderbook.50.{symbol}</code><br>
+<code>orderbook.100.{symbol}</code><br>
 <code>orderbook.200.{symbol}</code><br>
 <code>orderbook.500.{symbol}</code><br>
 </p>
@@ -6740,13 +7277,14 @@ Push frequency: <b>real-time</b><br><br>
 
 </code></pre></div>
 <p><p>Get latest information for symbol.</p>
-<p>Push frequency: <b>100ms</b></p>
+<p>Push frequency: <b>100ms</b>(Futures), <b>200ms</b>(Option)</p>
 <p><b>Topic:</b></p>
 <p><code>tickers.{symbol}</code></p>
 </p>
 
 <aside class="warning">
-This topic will utilises the <code>snapshot</code> field and  <code>delta</code> fields. If a key is not found in the field, its value has not changed.
+<p><b>Futures</b>: topic will utilises the <code>snapshot</code> field and  <code>delta</code> fields. If a key is not found in the field, its value has not changed.</p>
+<p><b>Option</b>: topic only has the <code>snapshot</code> type of data.</p>
 
 </aside>
 
@@ -7785,9 +8323,10 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </ul>
 <h2 id='category-category'>Category(<code>category</code>)</h2>
 <ul>
-<li><code>linear</code></li>
-<li><code>inverse</code></li>
-<li><code>option</code></li>
+<li><code>future</code> Future, including linear perp, USDC perp, inverse perp & inverse futures</li>
+<li><strike><code>linear</code></strike> Linear perpetual, including USDC perp. It is still compatible if passed</li>
+<li><strike><code>inverse</code></strike> Inverse futures, including inverse perpetual, inverse futures. It is still compatible if passed</li>
+<li><code>option</code> USDC Option</li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
 <ul>
@@ -7962,6 +8501,8 @@ ELSE
 <li><code>CancelByAdmin</code> </li>
 <li><code>CancelByTpSlTsClear</code> - TP/SL order canceled successfully</li>
 <li><code>CancelByPzSideCh</code> - order has been canceled after TP/SL is triggered</li>
+<li><code>CancelByCrossSelfMuch</code> - option order does not allow self fill</li>
+<li><code>CancelByCrossReachMaxTradeNum</code> - If your order consumes the sum of the qty of 10,000 orders, the leaves qty will be cancelled</li>
 </ul>
 <h2 id='create-type-createtype'>Create type (<code>createType</code>)</h2>
 <ul>
@@ -7982,7 +8523,7 @@ ELSE
 <li><code>AdlTrade</code> </li>
 <li><code>Funding</code> </li>
 <li><code>BustTrade</code> </li>
-<li><code>Settle</code> </li>
+<li><code>Settle</code></li>
 </ul>
 <h2 id='liquidity-type-lastliquidityind'>Liquidity type (<code>lastLiquidityInd</code>)</h2>
 <ul>
