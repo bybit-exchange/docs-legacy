@@ -75,6 +75,8 @@ t(:usdcPriceRule)
 * `CancelByAccountBlocking`
 * `CancelByDelivery`
 * `CancelByMmpTriggered`
+* `CancelByCrossSelfMuch`
+* `CancelByCrossReachMaxTradeNum`
 
 ## LastLiquidityInd (`LastLiquidityInd`)
 * `TAKER`

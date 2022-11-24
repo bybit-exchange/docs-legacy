@@ -97,7 +97,7 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/kline?category=lin
       "symbol":"BTCUSDT",
       "interval":"1",
       "list":[
-      "1621162800",
+      "1621162800000",
       "49592.43",
       "49644.91",
       "49342.37",
@@ -401,6 +401,7 @@ GET
 |lotSizeFilter> maxOrderQty |string |t(:dv_instrMaxOrderQty) |
 |lotSizeFilter> minOrderQty |string |t(:dv_instrMinOrderQty) |
 |lotSizeFilter> qtyStep |string |t(:qtyStep) |
+|unifiedMarginTrade |boolean |t(:qtyStep) |
 |nextPageCursor |string |t(:dv_cursor) |
 
 

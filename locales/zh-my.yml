@@ -524,7 +524,7 @@ zh-my:
   row_comment_query_riskId_v3: 風險限額ID
   row_comment_query_size_v3: 倉位數量
   row_comment_query_entryPrice_v3: 平均入場價
-  row_comment_query_sessionAvgPrice_v3: Settlement price，僅USDC perps
+  row_comment_query_sessionAvgPrice_v3: Settlement price，僅USDC
   row_comment_query_leverage_v3: |
       逐倉模式下, 值為用戶設置的杠桿；全倉模式下，值為當前風險限額下最大杠桿；僅適用於合約，不適用於期權
   row_comment_query_markPrice_v3: 標記價格
@@ -2004,6 +2004,8 @@ zh-my:
   cancelByAdmin:        ""
   cancelByTpSlTsClear:  "- 止盈止損單被取消"
   cancelByPzSideCh:     "- 該訂單在觸發止盈止損後被取消"
+  cancelByCrossSelfMuch: "- 期權訂單不允許自成交"
+  cancelByCrossReachMaxTradeNum: "- 若您的某個訂單吃掉了某個價位的10000筆訂單數量和，則剩餘部分將會被自動取消"
   ## Create type (`create_type`)
   createByUser:                 ""
   createByClosing:              ""
@@ -2880,6 +2882,11 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221123_4: 支持查詢USDC永續
+  restapi_update_20221123_3: 倉位信息接口支持查詢USDC永續和期權
+  restapi_update_20221123_2: 交易接口支持USDC永續和期權的下單/撤單/改單操作。<b>注意:</b> <code>category</code> 字段通過傳入"future"來覆蓋USDT永續、USDC永續、反向永續和反向交割，但是依舊支持傳入<code>linear</code>, <code>inverse</code>
+  restapi_update_20221123_1: 公共行情接口支持獲取USDC永續和期權。<b>注意:</b> <code>category</code> 字段通過傳入"future"來覆蓋USDT永續、USDC永續、反向永續和反向交割，但是依舊支持傳入<code>linear</code>, <code>inverse</code>
+  restapi_update_20221123: 合約v3部分接口，支持usdc永續和期權。通過<code>category</code>字段區分是期貨還是期權。先前的<code>linear</code>、<code>inverse</code>依舊可用
   restapi_update_20221116: 新增入参字段. 支持按結算幣種來取消訂單
   restapi_update_20221108: 新增公共推送頻道
   restapi_update_20221103_1: 新增響應字段<code>updateTimestamp</code>. 廢棄字段<code>updatedAt</code>
@@ -4846,7 +4853,7 @@ zh-my:
   exchange_history: 兌換紀錄
   transfer: 劃轉
   # public param comment used in v3
-  dv_category: 衍生品產品類型.
+  dv_category: 衍生品產品類型. 若category不传，则返回<code>""</code>
   dv_categorySuffix_1: 目前支持正向合約：linear; 反向合約：inverse(包含inverse futures)
   dv_categorySuffix_2: 目前支持正向合約：linear; 反向合約：inverse; 期權：option
   dv_categorySuffix_3: 目前支持正向合約：linear; 反向合約：inverse
@@ -4884,7 +4891,7 @@ zh-my:
   # orderbook
   # reqParam
   dv_orderbookPara: 增加500檔位的OrderBook數據
-  dv_orderbookLimit: 默認25. 可選值25和500
+  dv_orderbookLimit: 默認25. 可選值[1,500]. 若是<b>option</b>，則只支持25
   # respParam
 
   dv_orderbookBids: 買方. 排序按照價格從小到大
@@ -4917,7 +4924,7 @@ zh-my:
   dv_tickerHead: 衍生品最新行情信息
   dv_marketTickerPara: 所有衍生品產品最新行情信息
   # reqParam:
-  dv_tickerSymbol: 合約類型. 若category是<code>option</code>則必傳
+  dv_tickerSymbol: 合約類型. 若category是<code>option</code>則必傳. 若symbol是屬於option, 則category必傳
   # respParam
 
   dv_tickPredictedDeliveryPrice: 預期交割價, 適用於反向交割和期權, 交割前30分鐘才有值
@@ -5028,6 +5035,12 @@ zh-my:
         <br/>
         反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC合約: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC期權: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
      </p>
     </ul>
@@ -5187,7 +5200,7 @@ zh-my:
     <p>實時查詢活動委托。當傳遞參數<code>orderId</code>或<code>orderLinkId</code>其中任意一個時，將返回單條訂單數據，如果參數<code>orderId</code>和<code>orderLinkId</code>都不傳遞時，將返回所有<b>未成交</b>的訂單，最多500條。</p>
     <p>按照createdTime從近到遠排序.</p>
   contract_comment_realtimeOrderSymbol: 合約類型.
-  contract_comment_realtimeOrderSettleCoin: 結算幣種. <code>symbol</code>和<code>settleCoin</code>字段必須傳一個. 都傳的話，以<code>symbol</code>為準.
+  contract_comment_positionSettleCoin: 結算幣種. <code>symbol</code>和<code>settleCoin</code>字段必須傳一個. 都傳的話，以<code>symbol</code>為準.
   contract_para_position: |
     <p><b>接口說明：</b></p>
     <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息。</p>
@@ -5537,3 +5550,30 @@ zh-my:
 
   # openAPI v3 - orderStatus
   orderStatus_v3: 指定訂單狀態查詢訂單列表。不傳該參數則默認查詢所有狀態訂單。
+  # derivatives v3 - category enum
+  dv3_category_future: 期貨, 包含正向合約、反向合約
+  dv3_category_linear: 正向永續合約, 包含USDC永續. 代碼依舊兼容該值
+  dv3_category_inverse: 反向合約，包含反向永續和反向交割. 代碼依舊兼容該值
+  dv3_category_option: 期權
+  # derivative v3 - merge usdc, some params comment need to be updated
+  dv3_orderbook_symbol: 合約名稱. 若合約屬於option，則<code>category</code>=option<b>必傳</code>
+  dv3_orderbook_category: 衍生品類別
+  dv3_kline_category: 衍生品類別. 不支持<code>option</code>
+  dv3_ticker_category: 衍生品類別. 若<code>category</code>和<code>symbol</code>都不傳，則默認返回所有正反向合約數據
+  dv3_instrument_category: 衍生品類別. 若<code>category</code>和<code>symbol</code>都不傳，則默認返回所有正反向合約數據
+  dv3_instrument_symbol: 合約名稱. 若合約屬於option，則<code>category</code>=option<b>必傳</code>
+  dv3_instrument_unifiedMarginTrade: 是否支持統一保證金交易. 該字段僅存在於合約數據中
+  dv3_riskLimit_category: 衍生品類別. 不支持<code>option</code>.
+  dv3_deliveryPrice_category: 衍生品類別. 僅支持<code>option</code>
+  dv3_recentTrade_category: |
+    衍生品類別. <li>若<code>category</code>不傳或者傳future, 則<code>symbol</code>必傳</li><li>若<code>category</code>=option, 則<code>symbol</code>非必傳</li>
+  premium_index_price_kline: 查詢溢價指數價格K線數據
+  dv3_trade_category: 衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code>
+  dv3_queryOrder_baseCoin: 標的幣種. 僅<code>option</code>有效
+  dv3_realtimeOrder_baseCoin: 標的幣種
+  contract_comment_realtimeSettleCoin: 結算幣種. <code>symbol</code>，<code>settleCoin</code>和<code>baseCoin</code>字段必須傳一個. 查詢優先級：symbol > baseCoin > settleCoin
+  contract_comment_triggerBy: 觸發價格類型. 默認為<code>LastPrice</code>. 若為USDC單, 則是<code>MarkPrice</code>
+  contract_comment_cancelType: 訂單被取消的類型
+  contract_executionList_orderLinkId: 用戶自定義orderId. 僅<code>option</code>
+  contract_executionList_orderFilter: Order filter. 僅<code>future</code>
+  contract_executionList_symbol: 合約名稱. <li>若category是future, 則symbol必傳</li><li>若category是option, 則symbol選填</li>

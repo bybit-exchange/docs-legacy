@@ -6,9 +6,10 @@ t(:ENUMs_para)
 * `Sell`
 
 ## Category(`category`)
-* `linear`
-* `inverse`
-* `option`
+* `future` t(:dv3_category_future)
+* <strike>`linear`</strike> t(:dv3_category_linear)
+* <strike>`inverse`</strike> t(:dv3_category_inverse)
+* `option` t(:dv3_category_option)
 
 ## Symbol (`symbol`)
 * `BTCUSDT`
@@ -148,6 +149,7 @@ Only for conditional orders:
 * `AdlTrade` t(:exec_adlTrade)
 * `Funding` t(:exec_funding)
 * `BustTrade` t(:exec_bustTrade)
+* `Settle`
 
 ## Liquidity type (`lastLiquidityInd`)
 * `AddedLiquidity` t(:addedLiquidity)

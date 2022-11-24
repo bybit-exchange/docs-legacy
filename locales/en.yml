@@ -199,7 +199,7 @@ en:
   row_comment_triggerPrice: Trigger price. If you're expecting the price to rise to trigger your conditional order, make sure triggerPrice > max(market price, basePrice) else, triggerPrice < min(market price, basePrice)
   row_comment_triggerBy_v3: |
     Trigger price type: Market price/Mark price
-  row_comment_iv_v3: Implied volatility, for options only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed
+  row_comment_iv_v3: Implied volatility, for <b>options</b> only; parameters are passed according to the real value; for example, for 10%, 0.1 is passed
   row_comment_timeInForce_v3: Time in force
   row_comment_orderLinkId_v3: |
     User customized order ID. A max of 36 characters. A user cannot reuse an orderLinkId. Combinations of numbers, letters (upper and lower cases), dashes, and underscores are supported. Not required for futures, but required for options.
@@ -292,7 +292,7 @@ en:
   row_comment_query_riskId_v3: Risk limit ID
   row_comment_query_size_v3: Position size
   row_comment_query_entryPrice_v3: Average entry value
-  row_comment_query_sessionAvgPrice_v3: Settlement price, for USDC perps only
+  row_comment_query_sessionAvgPrice_v3: Settlement price, for USDC only
   row_comment_query_leverage_v3: |
     Under the  isolated margin mode, the value should be the leverage set by the user. Under the cross margin mode, the value should be the maximum leverage under the current risk limit. For contracts only, and not for options.
   row_comment_query_markPrice_v3: Mark price
@@ -2210,6 +2210,8 @@ en:
   cancelByAdmin:        ""
   cancelByTpSlTsClear:  "- TP/SL order canceled successfully"
   cancelByPzSideCh:     "- order has been canceled after TP/SL is triggered"
+  cancelByCrossSelfMuch:     "- option order does not allow self fill"
+  cancelByCrossReachMaxTradeNum:     "- If your order consumes the sum of the qty of 10,000 orders, the leaves qty will be cancelled"
   ## Create type (`create_type`)
   createByUser:                 ""
   createByClosing:              ""
@@ -3311,6 +3313,10 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221123_4: Supports querying USDC perp
+  restapi_update_20221123_3: Position endpoint supports querying USDC perp and option.
+  restapi_update_20221123_2: Order endpoints support placing/modifying/cancel USDC perp and option. <b>Note:</b> <code>category</code> param uses "future" to cover USDT perp/USDC perp/Inverse perp/Inverse futures, but it still supports passing <code>linear</code>, <code>inverse</code>
+  restapi_update_20221123_1: Market data endpoints support querying USDC perp and option. <b>Note:</b> <code>category</code> param uses "future" to cover USDT perp/USDC perp/Inverse perp/Inverse futures, but it still supports passing <code>linear</code>, <code>inverse</code>
   restapi_update_20221116: Add new request param. Support cancel the order by settle coin.
   restapi_update_20221108: Add new public websocket topic
   restapi_update_20221103_1: Add new response field <code>updateTimestamp</code>. Depreciate field <code>updatedAt</code>
@@ -5281,7 +5287,7 @@ en:
   exchange_history: Asset Exchange History
   transfer: Transfer
   # public param comment used in v3
-  dv_category: Derivatives products category.
+  dv_category: Derivatives products category. If category is not passed, then return <code>""</code>
   dv_categorySuffix_1: For now, <code>linear</code> <code>inverse</code> including inverse futures are available
   dv_categorySuffix_2: For now, <code>linear</code> <code>inverse</code> <code>option</code> are available
   dv_categorySuffix_3: For now, <code>linear</code> <code>inverse</code> are available
@@ -5318,7 +5324,7 @@ en:
   # orderbook
   # reqParam
   dv_orderbookPara: Enable 500 orders for orderbook API
-  dv_orderbookLimit: Optional value 25 or 500. Default 25.
+  dv_orderbookLimit: 25 by default, 500 is max. If <b>option</b>, only 25 is available
   # respParam
 
   dv_orderbookBids: Buyer. Order by price asc
@@ -5352,7 +5358,7 @@ en:
   dv_tickerHead: Get Latest Information For Symbol
   dv_marketTickerPara: Get all latest information for symbol
   # reqParam:
-  dv_tickerSymbol: Name of the trading pair. If category is <code>option</code> REQUIRED
+  dv_tickerSymbol: Symbol name. If category is <code>option</code> REQUIRED, and if symbol belongs to option, category=option is REQUIRED
   # respParam
 
   dv_tickPredictedDeliveryPrice: Predicted delivery price. Applicable to inverse future and option. There will be value 30 mins before delivery
@@ -5462,6 +5468,12 @@ en:
         <br/>
         Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC contract: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+        <br/>
+        USDC Options: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
+        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
     </p>
     </ul>
@@ -5634,7 +5646,7 @@ en:
     <p>Query real-time order information. If only <code>orderId</code> or <code>orderLinkId</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b></p>.
     <p>Ordered by <code>createdTime</code> in descending order.</p>
   contract_comment_realtimeOrderSymbol: Symbol name.
-  contract_comment_realtimeOrderSettleCoin: Settle coin. Either <code>symbol</code> or <code>settleCoin</code> is required. If both are passed, <code>symbol</code> is used first.
+  contract_comment_positionSettleCoin: Settle coin. Either <code>symbol</code> or <code>settleCoin</code> is required. If both are passed, <code>symbol</code> is used first.
   contract_para_position: |
     <p><b>Interface:</b></p>
     <p>Accessing personal list of positions. Users can access information about their open positions through this interface, such as the quantity and wallet balance.</p>
@@ -6002,3 +6014,31 @@ en:
 
   # openAPI v3 - orderStatus
   orderStatus_v3: Query list of orders in designated states. If this parameter is not passed, the orders in all states shall be enquired by default.
+
+  # derivatives v3 - category enum
+  dv3_category_future: Future, including linear perp, USDC perp, inverse perp & inverse futures
+  dv3_category_linear: Linear perpetual, including USDC perp. It is still compatible if passed
+  dv3_category_inverse: Inverse futures, including inverse perpetual, inverse futures. It is still compatible if passed
+  dv3_category_option: USDC Option
+
+  dv3_orderbook_symbol: Symbol name. <code>category</code>=option is <b>required</b> when symbol is option
+  dv3_orderbook_category: Derivatives products category
+  dv3_kline_category: Derivatives products category. <code>option</code> is not supported
+  dv3_ticker_category: Derivatives products category. If both <code>category</code> and <code>symbol</code> are not passed，it returns all futures data by default
+  dv3_instrument_category: Derivatives products category. If both <code>category</code> and <code>symbol</code> are not passed，it returns all futures data by default
+  dv3_instrument_symbol: Symbol name. If symbol belongs to option, then category=option is required
+  dv3_instrument_unifiedMarginTrade: Weather support unified margin trade or not. This param is for future data ONLY
+  dv3_riskLimit_category: Derivatives products category. <code>option</code> is not supported.
+  dv3_deliveryPrice_category: Derivatives products category. <code>option</code> ONLY
+  dv3_recentTrade_category: |
+    Derivatives products category. <li>If <code>category</code> not passed, or passed with <code>future</code>, then <code>symbol</code> is <b>required</b></li><li>If <code>category</code>=option, then <code>symbol</code> is optional</li>
+  premium_index_price_kline: Get Premium Index Price Kline
+  dv3_trade_category: Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code>
+  dv3_queryOrder_baseCoin: Base coin. <code>option</code> ONLY
+  dv3_realtimeOrder_baseCoin: Base coin
+  contract_comment_realtimeSettleCoin: Settle coin. Either <code>symbol</code>, <code>settleCoin</code> or <code>baseCoin</code> is required. Query priority：symbol > baseCoin > settleCoin.
+  contract_comment_triggerBy: Trigger price type. <code>LastPrice</code> in default. If it is USDC order, type is <code>MarkPrice</code> in default.
+  contract_comment_cancelType: The cancel type of the order
+  contract_executionList_orderLinkId: User customised order id. <code>option</code> ONLY
+  contract_executionList_orderFilter: Order filter. <code>future</code> ONLY
+  contract_executionList_symbol: Symbol name. <li>if category=future, then symbol is required</li><li>If category=option, then symbol is optional</li>
