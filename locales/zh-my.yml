@@ -5453,7 +5453,7 @@ zh-my:
   taxEndTime: UNIX 時間。這是以秒為單位。報告結束時間的時間戳。 EndTime 不包含在數據導出的時間範圍內。請注意，對於每個請求，我們最多只允許從 StartTime 開始搜索 2 個月的時間範圍。
   taxQueryId: 報告請求 ID
   taxExportStatus: -1 Failed;0 Queued;1 Processing;2 Processed;3 Expired
-  taxReportUrl: 文件的URL網址 (Basepath+Files)
+  taxReportUrl: 文件的URL網址 (Basepath+Files)。為了縮短生成報告所需的時間，它可以生成多個文件。請注意這一點，並在請求數據導出時使用相同的基本路徑組合多個文件
 
   taxOrderId: 關閉訂單的訂單 ID。
   taxTradeId: 平倉訂單的交易 ID。
@@ -5530,6 +5530,9 @@ zh-my:
   taxAirdropFinalAmount: 給用戶的空投數量
   taxAirdropTransferType: 空投的類型。空投充值、空投提現
   taxTransferDescription: 轉賬說明
+
+  convertFileToCsv: 將S3文件轉換為 CSV
+  convertFileToCsvDesc: 根據接口提供的url下載的文件是S3文件，需要轉成csv文件。可以參考右邊的python代碼進行轉換
 
   contract_cancelAll_settleCoin: |
     按照結算幣種取消訂單. <li>若<code>settleCoin</code>=USDT, 則取消所有USDT永續訂單</li><li>若<code>settleCoin</code>=BTC, 則取消所有BTCUSD這種反向合約

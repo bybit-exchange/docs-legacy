@@ -16,6 +16,7 @@ en:
   codequote_responseExample: Response Example
   codequote_responseExampleFormatAll: Response Example - format of all responses
   codequote_curlExample: Request Example
+  codequote_Example: Code Example
   codequote_subscribe: How to Subscribe
   codequote_snapshot: Snapshot Response Example - format of the first response
   codequote_delta: Delta Response Example - format of the responses following the snapshot response
@@ -5917,7 +5918,7 @@ en:
   taxEndTime: UNIX Time. This is in seconds. TimeStamp for Report End Time. The EndTime is not included in the Time range for the Data Export. Do note that for each request, we will only allow up to 2 months time range search from the StartTime.
   taxQueryId: Report Request ID
   taxExportStatus: -1 Failed;0 Queued;1 Processing;2 Processed;3 Expired
-  taxReportUrl: URL of files (Basepath+Files)
+  taxReportUrl: URL of files (Basepath+Files). To shorten the time it takes to generate the report, it could generate multiple files. Do take note of this and combine the several files using the same basepath when requesting the data export
 
   taxOrderId: Order ID of the closing order.
   taxTradeId: Trade ID of the closing order.
@@ -5994,6 +5995,9 @@ en:
   taxAirdropFinalAmount: Amount of the airdrop given to user
   taxAirdropTransferType: Type of Airdrop. Airdrop Deposit, Airdrop Withdrawal
   taxTransferDescription: Description of the Transfer
+
+  convertFileToCsv: Convert S3 Files To CSV
+  convertFileToCsvDesc: The file downloaded according to the url provided by the endpoint is a S3 file and needs to be converted into a csv file. You can refer to the python code on the right for conversion
 
   contract_cancelAll_settleCoin: |
     Cancel orders by settle coin. <li>If <code>settleCoin</code>=USDT, then cancel all USDT perp orders</li><li>if <code>settleCoin</code>=BTC, then cancel BTCUSD/BTCUSDH23</li>
