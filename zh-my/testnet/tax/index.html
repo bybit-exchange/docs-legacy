@@ -1333,6 +1333,10 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669009157660</span>
 <span class="p">}</span>
 </code></pre></div>
+<aside class="notice">
+文件生成的時間取決於你查詢時間段長短和數據的多少，生成文件的時間可能很長，不需要一直來調這個接口來查詢狀態
+</aside>
+
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
@@ -1393,12 +1397,12 @@ REST接口根URL:
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">Files</span><span class="se">\"</span><span class="s2">:[</span><span class="se">\"</span><span class="s2">20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/_SUCCESS</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/part-00000-15c42bbd-30ae-41b4-804e-6deba556374f-c000</span><span class="se">\"</span><span class="s2">],</span><span class="se">\"</span><span class="s2">Basepath</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">https://testnet-bybit-tax-api-170593-ap-southeast-1-xaky06.s3.ap-southeast-1.amazonaws.com</span><span class="se">\</span><span class="s2">/</span><span class="dl">"</span><span class="p">}</span><span class="dl">"</span><span class="s2">
-    },
-    </span><span class="dl">"</span><span class="nx">retExtInfo</span><span class="dl">"</span><span class="s2">: {},
-    </span><span class="dl">"</span><span class="nx">time</span><span class="dl">"</span><span class="s2">: 1669009463401
-}
-</span></code></pre></div>
+        <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">{</span><span class="se">\"</span><span class="s2">Files</span><span class="se">\"</span><span class="s2">:[</span><span class="se">\"</span><span class="s2">20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/_SUCCESS</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">20221121/8ba8b974-fdcd-4064-8f2b-7e6c4acb2e69/part-00000-15c42bbd-30ae-41b4-804e-6deba556374f-c000</span><span class="se">\"</span><span class="s2">],</span><span class="se">\"</span><span class="s2">Basepath</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">https://testnet-bybit-tax-api-170593-ap-southeast-1-xaky06.s3.ap-southeast-1.amazonaws.com/</span><span class="se">\"</span><span class="s2">}</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669009463401</span>
+<span class="p">}</span>
+</code></pre></div>
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
@@ -1435,10 +1439,65 @@ REST接口根URL:
 <tr>
 <td style="text-align: left">url</td>
 <td style="text-align: left">string</td>
-<td>文件的URL網址 (Basepath+Files)</td>
+<td>文件的URL網址 (Basepath+Files)。為了縮短生成報告所需的時間，它可以生成多個文件。請注意這一點，並在請求數據導出時使用相同的基本路徑組合多個文件</td>
 </tr>
 </tbody></table>
-<h2 id='t-dataexplanation'>數據說明</h2><h3 id='t-tradehistorytype'>交易歷史</h3><h4 id='t-spottradehistory'>1.獲取現貨交易歷史</h4>
+
+<aside class="notice">
+將S3文件轉換為 CSV
+</aside>
+
+<p>根據接口提供的url下載的文件是S3文件，需要轉成csv文件。可以參考右邊的python代碼進行轉換</p>
+
+<blockquote>
+<p>Code Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">class</span> <span class="nc">Bases</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">@</span><span class="nb">staticmethod</span>
+    <span class="k">def</span> <span class="nf">path_list</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="s">"""
+        :param path:
+        :return: list of file paths
+        """</span>
+        <span class="n">file_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"it's a directory"</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="p">.</span><span class="n">walk</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                    <span class="nb">file</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+                    <span class="n">file_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">file_list</span>
+        <span class="k">elif</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">"it's a normal file"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">path</span><span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">pd_service</span><span class="p">(</span><span class="n">Bases</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+        <span class="s">"""
+        Read s3 files, merge forms
+        :param file_path:
+        :return:
+        """</span>
+        <span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">paths</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">path_list</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">file_path</span><span class="p">):</span>
+            <span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_all</span><span class="p">,</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_orc</span><span class="p">(</span><span class="n">paths</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Row number of tables：'</span><span class="p">,</span> <span class="n">df_all</span><span class="p">[</span><span class="n">df_all</span><span class="p">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]].</span><span class="n">count</span><span class="p">())</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">df_all</span><span class="p">.</span><span class="n">columns</span><span class="p">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="n">df_all</span><span class="p">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s">"TradeTime"</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">df_all</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">"test_data_s3.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">df_all</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df_all</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+    <span class="c1"># file path
+</span>    <span class="n">path</span> <span class="o">=</span> <span class="s">'XXXX'</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="n">pd_service</span><span class="p">()</span>
+    <span class="n">test</span><span class="p">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+</code></pre></div><h2 id='t-dataexplanation'>數據說明</h2><h3 id='t-tradehistorytype'>交易歷史</h3><h4 id='t-spottradehistory'>1.獲取現貨交易歷史</h4>
 <p class="fake_header">返回參數</p>
 
 <table><thead>
