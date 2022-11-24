@@ -5,7 +5,7 @@ t(:market_para_auth)
 > t(:codequote_curlExample)
 
 ```console
-curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=linear&symbol=BTCUSDT'
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/order-book/L2?category=future&symbol=BTCUSDT'
 ```
 
 ```python--pybit
@@ -150,7 +150,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=linear&symbol=BTCUSDT'
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=future&symbol=BTCUSDT'
 ```
 
 ```python--pybit
@@ -164,7 +164,7 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=l
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "category": "linear",
+        "category": "future",
         "list": [
             {
                 "symbol": "BTCUSDT",
@@ -288,7 +288,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=linear&symbol=BTCUSDT'
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?category=future&symbol=BTCUSDT'
 ```
 
 ```python--pybit
@@ -302,7 +302,7 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?c
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "category": "linear",
+        "category": "future",
         "list": [
             {
                 "symbol": "BTCUSDT",
@@ -589,7 +589,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=linear&symbol=BTCUSDT&startTime=1652112000000&endTime=1652198400000'
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-funding-rate?category=future&symbol=BTCUSDT&startTime=1652112000000&endTime=1652198400000'
 ```
 
 ```python--pybit
@@ -603,7 +603,7 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/funding/history-fu
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "category": "linear",
+        "category": "future",
         "list": [
             {
                 "symbol": "BTCUSDT",
@@ -651,7 +651,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=linear&symbol=BTCUSDT'
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/risk-limit/list?category=future&symbol=BTCUSDT'
 ```
 
 ```python--pybit
@@ -783,7 +783,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=linear&symbol=BTCUSDT&limit=1'
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?category=future&symbol=BTCUSDT&limit=1'
 ```
 
 ```python--pybit
@@ -798,7 +798,7 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?categ
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "category": "linear",
+        "category": "future",
         "list": [
             {
                 "execId": "da66abbc-f358-5864-8d34-84ef7274d853",
@@ -849,7 +849,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/open-interest?category=linear&symbol=BTCUSDT&interval=1h&startTime=1657555200000&endTime=1657641600000'
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/open-interest?category=future&symbol=BTCUSDT&interval=1h&startTime=1657555200000&endTime=1657641600000'
 ```
 
 ```python--pybit
@@ -864,7 +864,7 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/open-interest?cate
     "retMsg": "OK",
     "result": {
         "symbol": "BTCUSDT",
-        "category": "linear",
+        "category": "future",
         "list": [
             {
                 "openInterest": "15350.60700000",

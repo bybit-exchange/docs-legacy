@@ -238,7 +238,7 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.25.BTCUSD
 }
 ```
 
-t(:websocketOrderBook_contract)
+t(:websocketOrderBook_v3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -411,10 +411,10 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["tickers.BTCUSDT"]}'
 
 ```
 
-t(:websocket_para_ticker_contract)
+t(:websocket_para_ticker_UM)
 
 <aside class="warning">
-t(:websocket_aside_instrumentInfo_contract)
+t(:websocket_aside_instrumentInfo_um)
 </aside>
 
 

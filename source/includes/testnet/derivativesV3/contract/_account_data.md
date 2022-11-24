@@ -1250,7 +1250,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
+|<a href="#category-category">category</a> |false |string |t(:dv3_riskLimit_category) |
 |orderId |false |string |t(:contract_comment_orderId) |
 |t(:row_parameter_symbol) |false |string |t(:contract_executionList_symbol) |
 |baseCoin |false |string |t(:dv3_queryOrder_baseCoin) |
