@@ -128,6 +128,9 @@ curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax
     "time": 1669009157660
 }
 ```
+<aside class="notice">
+t(:exportReportStatusDesc)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
