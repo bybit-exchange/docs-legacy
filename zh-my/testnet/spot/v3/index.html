@@ -940,6 +940,26 @@
               </ul>
           </li>
           <li>
+            <a href="#t-otcloan" class="toc-h1 toc-link" data-title="機構借貸接口">機構借貸接口</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-marginproductinfo" class="toc-h2 toc-link" data-title="獲取保證金產品信息">獲取保證金產品信息</a>
+                  </li>
+                  <li>
+                    <a href="#t-margincoininfo" class="toc-h2 toc-link" data-title="獲取保證金幣種信息">獲取保證金幣種信息</a>
+                  </li>
+                  <li>
+                    <a href="#t-loaninfo" class="toc-h2 toc-link" data-title="獲取借貸訂單信息">獲取借貸訂單信息</a>
+                  </li>
+                  <li>
+                    <a href="#t-repayinfo" class="toc-h2 toc-link" data-title="獲取還款信息">獲取還款信息</a>
+                  </li>
+                  <li>
+                    <a href="#t-ltv" class="toc-h2 toc-link" data-title="獲取風險率">獲取風險率</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="頻率限製">頻率限製</a>
               <ul class="toc-list-h2">
                   <li>
@@ -5488,6 +5508,840 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">&gt; transactId</td>
 <td style="text-align: left">string</td>
 <td>原始借幣交易ID</td>
+</tr>
+</tbody></table>
+<h1 id='t-otcloan'>機構借貸接口</h1>
+<aside class="notice">
+以下接口僅提供給機構借貸客戶
+</aside>
+<h3 id='t-marginproductinfo'>獲取保證金產品信息</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/margin-product-infos?productId=70'
+</span></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">marginProductInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">productId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">70</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">supportSpot</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">supportContract</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">withdrawLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transferLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.6</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotBuyLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.7</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotSellLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.8</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">contractOpenLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.9</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">liquidationLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.95</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLiquidationLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.40000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">contractLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transferRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotSymbols</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">"</span><span class="s2">DYDXQQTEST001</span><span class="dl">"</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">contractSymbols</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">"</span><span class="s2">RAYUSDT</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">API3USDT</span><span class="dl">"</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669362961705</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=maproinf>/spot/v3/public/margin-product-infos</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#maproinf"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">productId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>產品ID. 若不傳，則返回所有產品數據</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">marginProductInfo</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; productId</td>
+<td style="text-align: left">string</td>
+<td>產品ID</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; leverage</td>
+<td style="text-align: left">string</td>
+<td>槓桿</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; supportSpot</td>
+<td style="text-align: left">integer</td>
+<td>是否支持現貨. <code>0</code>:false; <code>1</code>:true</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; supportContract</td>
+<td style="text-align: left">integer</td>
+<td>是否支持合約. <code>0</code>:false; <code>1</code>:true</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; withdrawLine</td>
+<td style="text-align: left">string</td>
+<td>限制提幣線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; transferLine</td>
+<td style="text-align: left">string</td>
+<td>限制劃轉線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotBuyLine</td>
+<td style="text-align: left">string</td>
+<td>限制現貨買入線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotSellLine</td>
+<td style="text-align: left">string</td>
+<td>限制現貨賣出線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractOpenLine</td>
+<td style="text-align: left">string</td>
+<td>限制合約開倉線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; liquidationLine</td>
+<td style="text-align: left">string</td>
+<td>強平線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; stopLiquidationLine</td>
+<td style="text-align: left">string</td>
+<td>停止強平線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractLeverage</td>
+<td style="text-align: left">string</td>
+<td>允許合約開倉倍數</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; transferRatio</td>
+<td style="text-align: left">string</td>
+<td>借貸資金劃轉比例</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotSymbols</td>
+<td style="text-align: left">array</td>
+<td>現貨交易對白名單</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractSymbols</td>
+<td style="text-align: left">array</td>
+<td>合約交易對白名單</td>
+</tr>
+</tbody></table>
+<h3 id='t-margincoininfo'>獲取保證金幣種信息</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/public/margin-ensure-tokens?productId=70'
+</span></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">marginToken</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">productId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">70</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotToken</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">convertRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">convertRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">convertRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">contractToken</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">convertRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669363954802</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=marginToken>/spot/v3/public/margin-ensure-tokens</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#marginToken"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">productId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>產品ID. 若不傳，則返回所有產品的保證金幣種信息. 現貨返回折算率大於0的幣種.</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">marginToken</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; productId</td>
+<td style="text-align: left">string</td>
+<td>產品ID</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotToken</td>
+<td style="text-align: left">array</td>
+<td>現貨保證金幣種信息</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; token</td>
+<td style="text-align: left">string</td>
+<td>保證金幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; convertRatio</td>
+<td style="text-align: left">string</td>
+<td>保證金幣種折算率</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractToken</td>
+<td style="text-align: left">array</td>
+<td>合約保證金幣種信息</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; token</td>
+<td style="text-align: left">string</td>
+<td>保證金幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; convertRatio</td>
+<td style="text-align: left">string</td>
+<td>保證金幣種折算率</td>
+</tr>
+</tbody></table>
+<h3 id='t-loaninfo'>獲取借貸訂單信息</h3>
+<p>獲取所有借貸訂單相關信息. 需要鑒權</p>
+
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/margin-loan-infos' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1669364798602' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 41b41006bdc50d0ad6d83c712804a490ef3dae079b9cd3202103022cd813bb00'
+</span></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">loanInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1244781478207029504</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderProductId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">34</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">parentUid</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">999805</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">loanTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1663126149000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">loanCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">loanAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">unpaidAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6351.49614274</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">unpaidInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">264.0137162</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">repaidAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">493648.50385726</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">repaidInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">interestRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00027397</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">supportSpot</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">supportContract</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">withdrawLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transferLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.6</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotBuyLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.7</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotSellLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.8</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">contractOpenLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.9</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">liquidationLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.95</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLiquidationLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.20000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">contractLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transferRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotSymbols</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">"</span><span class="s2">DYDXQQTEST001</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">DYDXNEO</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">PMTEST16USDT</span><span class="dl">"</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">contractSymbols</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">"</span><span class="s2">RAYUSDT</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">API3USDT</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">SUSHIUSDT</span><span class="dl">"</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669364798924</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=marloainf>/spot/v3/private/margin-loan-infos</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#marloainf"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>借貸訂單號. 若不傳，則返回所有訂單，按<code>loanTime</code>倒序排列</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>第一條返回的時間戳(毫秒)</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>最後一條返回的時間戳(毫秒)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>每頁數據量. 默認10條, 最大100</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">loanInfo</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; orderId</td>
+<td style="text-align: left">string</td>
+<td>借貸訂單號</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; orderProductId</td>
+<td style="text-align: left">string</td>
+<td>產品ID</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; parentUid</td>
+<td style="text-align: left">string</td>
+<td>用戶母帳號id</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; loanTime</td>
+<td style="text-align: left">string</td>
+<td>放款時間（毫秒）</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; loanCoin</td>
+<td style="text-align: left">string</td>
+<td>借款幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; loanAmount</td>
+<td style="text-align: left">string</td>
+<td>借款金額</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; unpaidAmount</td>
+<td style="text-align: left">string</td>
+<td>未還本金</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; unpaidInterest</td>
+<td style="text-align: left">string</td>
+<td>未還利息</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; repaidAmount</td>
+<td style="text-align: left">string</td>
+<td>已還本金</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; repaidInterest</td>
+<td style="text-align: left">string</td>
+<td>已還利息</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; interestRate</td>
+<td style="text-align: left">string</td>
+<td>日利率</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; status</td>
+<td style="text-align: left">string</td>
+<td><code>1</code>：未還清; <code>2</code>：已還清</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; leverage</td>
+<td style="text-align: left">string</td>
+<td>槓桿</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; supportSpot</td>
+<td style="text-align: left">intger</td>
+<td>是否支持現貨. <code>0</code>:false; <code>1</code>:true</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; supportContract</td>
+<td style="text-align: left">integer</td>
+<td>是否支持合約. <code>0</code>:false; <code>1</code>:true</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; withdrawLine</td>
+<td style="text-align: left">string</td>
+<td>限制提幣線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; transferLine</td>
+<td style="text-align: left">string</td>
+<td>限制劃轉線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotBuyLine</td>
+<td style="text-align: left">string</td>
+<td>限制現貨買入線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotSellLine</td>
+<td style="text-align: left">string</td>
+<td>限制現貨賣出線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractOpenLine</td>
+<td style="text-align: left">string</td>
+<td>限制合約開倉線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; liquidationLine</td>
+<td style="text-align: left">string</td>
+<td>強平線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; stopLiquidationLine</td>
+<td style="text-align: left">string</td>
+<td>停止強平線</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractLeverage</td>
+<td style="text-align: left">string</td>
+<td>允許合約開倉倍數</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; transferRatio</td>
+<td style="text-align: left">string</td>
+<td>借貸資金劃轉比例</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotSymbols</td>
+<td style="text-align: left">array</td>
+<td>現貨交易對白名單</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractSymbols</td>
+<td style="text-align: left">array</td>
+<td>合約交易對白名單</td>
+</tr>
+</tbody></table>
+<h3 id='t-repayinfo'>獲取還款信息</h3>
+<p>查詢還款訂單信息. 需要鑒權.</p>
+
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/margin-repaid-infos?startTime=1663126392000&amp;endTime=1663126394000' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1669366647851' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 4a2d54488d29cde341e51ce9eae0dcb685ac485953b659ba8852bd28077529c4'
+</span></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">repayInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">repayOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8189</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">repaidTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1663126393000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">30000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">interest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">businessType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669366648366</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=marrepinf>/spot/v3/private/margin-repaid-infos</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#marrepinf"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>第一條返回的時間戳(毫秒)</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>最後一條返回的時間戳(毫秒)</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>每頁數據量. 默認10條, 最大100</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">repayInfo</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; repayOrderId</td>
+<td style="text-align: left">string</td>
+<td>還款訂單號</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; repaidTime</td>
+<td style="text-align: left">string</td>
+<td>還款時間（毫秒）</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; token</td>
+<td style="text-align: left">string</td>
+<td>還款幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; quantity</td>
+<td style="text-align: left">string</td>
+<td>還款本金</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; interest</td>
+<td style="text-align: left">string</td>
+<td>還款利息</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; businessType</td>
+<td style="text-align: left">string</td>
+<td>還款類型. <code>1</code>：正常還款; <code>2</code>：系統強平還款</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; status</td>
+<td style="text-align: left">string</td>
+<td><code>1</code>：未還清; <code>2</code>：已還清</td>
+</tr>
+</tbody></table>
+<h3 id='t-ltv'>獲取風險率</h3>
+<p>獲取風險率. 需要鑒權</p>
+
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/margin-ltv' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1669367335035' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 75d8c29b293635f3501c6dc8770892681a05a2788aa3c467dd136e7dabf173a9'
+</span></code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">ltvInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">ltv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1147</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">parentUid</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">999805</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">subAccountUids</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">"</span><span class="s2">999805</span><span class="dl">"</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">unpaidAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">unpaidInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">unpaidQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6351.49614274</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">unpaidInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">264.0137162</span><span class="dl">"</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">balance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">57626.875915433333333332400000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotBalanceInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16375.621333333333333332</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span>
+                    <span class="p">},</span>
+                    <span class="p">....</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XRP</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.409517</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10000</span><span class="dl">"</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">contractInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669367335608</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+若用戶僅綁定了現貨, 則<code>contractBalanceInfo</code>是[]
+</aside>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=ltv>/spot/v3/private/margin-ltv</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltv"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ltvInfo</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; ltv</td>
+<td style="text-align: left">string</td>
+<td>風險率</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; parentUid</td>
+<td style="text-align: left">string</td>
+<td>用戶id</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; subAccountUids</td>
+<td style="text-align: left">array</td>
+<td>綁定的子UID</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; unpaidAmount</td>
+<td style="text-align: left">string</td>
+<td>總負債（USDT）</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; unpaidInfo</td>
+<td style="text-align: left">array</td>
+<td>負債明細</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; token</td>
+<td style="text-align: left">string</td>
+<td>幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; unpaidQty</td>
+<td style="text-align: left">string</td>
+<td>未還本金</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; unpaidInterest</td>
+<td style="text-align: left">string</td>
+<td>未還利息</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; balance</td>
+<td style="text-align: left">string</td>
+<td>總資產(保證金幣種資產折算為USDT資產)</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotBalanceInfo</td>
+<td style="text-align: left">array</td>
+<td>現貨資產明細</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; token</td>
+<td style="text-align: left">string</td>
+<td>現貨保證金幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; price</td>
+<td style="text-align: left">string</td>
+<td>現貨保證金幣種價格</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; qty</td>
+<td style="text-align: left">string</td>
+<td>現貨保證金數量</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractInfo</td>
+<td style="text-align: left">array</td>
+<td>合約資產明細</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; token</td>
+<td style="text-align: left">string</td>
+<td>合約保證金幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; price</td>
+<td style="text-align: left">string</td>
+<td>合約保證金幣種指數價格</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; qty</td>
+<td style="text-align: left">string</td>
+<td>合約保證金幣種數量</td>
 </tr>
 </tbody></table>
 <h1 id='t-ratelimits'>頻率限製</h1><h3 id='t-ipratelimits'>IP頻率限製</h3>

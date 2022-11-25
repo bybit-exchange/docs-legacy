@@ -940,6 +940,26 @@
               </ul>
           </li>
           <li>
+            <a href="#t-otcloan" class="toc-h1 toc-link" data-title="Institutional Loan Endpoints">Institutional Loan Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#t-marginproductinfo" class="toc-h2 toc-link" data-title="Get Margin Product Info">Get Margin Product Info</a>
+                  </li>
+                  <li>
+                    <a href="#t-margincoininfo" class="toc-h2 toc-link" data-title="Margin Coin Info">Margin Coin Info</a>
+                  </li>
+                  <li>
+                    <a href="#t-loaninfo" class="toc-h2 toc-link" data-title="Get Loan Info">Get Loan Info</a>
+                  </li>
+                  <li>
+                    <a href="#t-repayinfo" class="toc-h2 toc-link" data-title="Get Repay Info">Get Repay Info</a>
+                  </li>
+                  <li>
+                    <a href="#t-ltv" class="toc-h2 toc-link" data-title="Get LTV">Get LTV</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#t-ratelimits" class="toc-h1 toc-link" data-title="Rate Limits">Rate Limits</a>
               <ul class="toc-list-h2">
                   <li>
@@ -5575,6 +5595,840 @@ All Cross Margin Trading endpoints require authentication.
 <td style="text-align: left">&gt; transactId</td>
 <td style="text-align: left">string</td>
 <td>Transaction ID (Borrowing)</td>
+</tr>
+</tbody></table>
+<h1 id='t-otcloan'>Institutional Loan Endpoints</h1>
+<aside class="notice">
+Below endpoints are provided to institutional clients.
+</aside>
+<h3 id='t-marginproductinfo'>Get Margin Product Info</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/public/margin-product-infos?productId=70'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">marginProductInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">productId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">70</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5.00000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">supportSpot</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">supportContract</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">withdrawLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transferLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.6</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotBuyLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.7</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotSellLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.8</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">contractOpenLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.9</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">liquidationLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.95</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLiquidationLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.40000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">contractLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transferRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotSymbols</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">"</span><span class="s2">DYDXQQTEST001</span><span class="dl">"</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">contractSymbols</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">"</span><span class="s2">RAYUSDT</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">API3USDT</span><span class="dl">"</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669362961705</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=maproinf>/spot/v3/public/margin-product-infos</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#maproinf"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">productId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Product Id. If not passed, then return all products info</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">marginProductInfo</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; productId</td>
+<td style="text-align: left">string</td>
+<td>Product Id</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; leverage</td>
+<td style="text-align: left">string</td>
+<td>leverage</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; supportSpot</td>
+<td style="text-align: left">integer</td>
+<td>Whether to support spot. <code>0</code>:false; <code>1</code>:true</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; supportContract</td>
+<td style="text-align: left">integer</td>
+<td>Whether to support contract . <code>0</code>:false; <code>1</code>:true</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; withdrawLine</td>
+<td style="text-align: left">string</td>
+<td>Restrict line for withdrawal</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; transferLine</td>
+<td style="text-align: left">string</td>
+<td>Restrict line for transfer</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotBuyLine</td>
+<td style="text-align: left">string</td>
+<td>Restrict line for SPOT <b>buy</b></td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotSellLine</td>
+<td style="text-align: left">string</td>
+<td>Restrict line for SPOT <b>sell</b></td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractOpenLine</td>
+<td style="text-align: left">string</td>
+<td>Restrict line for CONTRACT open position</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; liquidationLine</td>
+<td style="text-align: left">string</td>
+<td>Line for liquidation</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; stopLiquidationLine</td>
+<td style="text-align: left">string</td>
+<td>Line for stop liquidation</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractLeverage</td>
+<td style="text-align: left">string</td>
+<td>Allowed max leverage of opening contract position</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; transferRatio</td>
+<td style="text-align: left">string</td>
+<td>Available transfer ratio of loan funds</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotSymbols</td>
+<td style="text-align: left">array</td>
+<td>The whitelist of spot trading pairs</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractSymbols</td>
+<td style="text-align: left">array</td>
+<td>The whitelist of contract trading pairs</td>
+</tr>
+</tbody></table>
+<h3 id='t-margincoininfo'>Margin Coin Info</h3>
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/public/margin-ensure-tokens?productId=70'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">marginToken</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">productId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">70</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotToken</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">convertRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">convertRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.00000000</span><span class="dl">"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">convertRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">contractToken</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">convertRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669363954802</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=marginToken>/spot/v3/public/margin-ensure-tokens</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#marginToken"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">productId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>ProductId. If not passed, then return all product margin coin. For spot, it returns coin that convertRation greater than 0.</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">marginToken</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; productId</td>
+<td style="text-align: left">string</td>
+<td>Product Id</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotToken</td>
+<td style="text-align: left">array</td>
+<td>Spot margin coin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; token</td>
+<td style="text-align: left">string</td>
+<td>Margin coin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; convertRatio</td>
+<td style="text-align: left">string</td>
+<td>Margin coin convert ratio</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractToken</td>
+<td style="text-align: left">array</td>
+<td>Contract margin coin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; token</td>
+<td style="text-align: left">string</td>
+<td>Margin coin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; convertRatio</td>
+<td style="text-align: left">string</td>
+<td>Margin coin convert ratio</td>
+</tr>
+</tbody></table>
+<h3 id='t-loaninfo'>Get Loan Info</h3>
+<p>Get those loan orders information. Authentication needed.</p>
+
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/margin-loan-infos' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1669364798602' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 41b41006bdc50d0ad6d83c712804a490ef3dae079b9cd3202103022cd813bb00'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">loanInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">orderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1244781478207029504</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">orderProductId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">34</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">parentUid</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">999805</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">loanTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1663126149000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">loanCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">loanAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">unpaidAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6351.49614274</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">unpaidInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">264.0137162</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">repaidAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">493648.50385726</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">repaidInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">interestRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00027397</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">supportSpot</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">supportContract</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">withdrawLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.5</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transferLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.6</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotBuyLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.7</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotSellLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.8</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">contractOpenLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.9</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">liquidationLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.95</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopLiquidationLine</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.20000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">contractLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">transferRatio</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotSymbols</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">"</span><span class="s2">DYDXQQTEST001</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">DYDXNEO</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">PMTEST16USDT</span><span class="dl">"</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">contractSymbols</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">"</span><span class="s2">RAYUSDT</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">API3USDT</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">SUSHIUSDT</span><span class="dl">"</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669364798924</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=marloainf>/spot/v3/private/margin-loan-infos</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#marloainf"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">orderId</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>Loan order id. If not passed, then return all orders, sort by <code>loanTime</code> in descend</td>
+</tr>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>Start time, unit in millisecond</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>End time, unit in millisecond</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Limit for data size per page. 10 by default, the max is 100</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">loanInfo</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; orderId</td>
+<td style="text-align: left">string</td>
+<td>Loan order id</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; orderProductId</td>
+<td style="text-align: left">string</td>
+<td>Product Id</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; parentUid</td>
+<td style="text-align: left">string</td>
+<td>User parent UID</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; loanTime</td>
+<td style="text-align: left">string</td>
+<td>Loan timestamp, in milliseconds</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; loanCoin</td>
+<td style="text-align: left">string</td>
+<td>Loan coin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; loanAmount</td>
+<td style="text-align: left">string</td>
+<td>Loan amount</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; unpaidAmount</td>
+<td style="text-align: left">string</td>
+<td>Unpaid principal</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; unpaidInterest</td>
+<td style="text-align: left">string</td>
+<td>Unpaid interest</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; repaidAmount</td>
+<td style="text-align: left">string</td>
+<td>Repaid principal</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; repaidInterest</td>
+<td style="text-align: left">string</td>
+<td>Repaid interest</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; interestRate</td>
+<td style="text-align: left">string</td>
+<td>Daily interest rate</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; status</td>
+<td style="text-align: left">string</td>
+<td><code>1</code>：outstanding; <code>2</code>：paid off</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; leverage</td>
+<td style="text-align: left">string</td>
+<td>leverage</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; supportSpot</td>
+<td style="text-align: left">intger</td>
+<td>Whether to support spot. <code>0</code>:false; <code>1</code>:true</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; supportContract</td>
+<td style="text-align: left">integer</td>
+<td>Whether to support contract . <code>0</code>:false; <code>1</code>:true</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; withdrawLine</td>
+<td style="text-align: left">string</td>
+<td>Restrict line for withdrawal</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; transferLine</td>
+<td style="text-align: left">string</td>
+<td>Restrict line for transfer</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotBuyLine</td>
+<td style="text-align: left">string</td>
+<td>Restrict line for SPOT <b>buy</b></td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotSellLine</td>
+<td style="text-align: left">string</td>
+<td>Restrict line for SPOT <b>sell</b></td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractOpenLine</td>
+<td style="text-align: left">string</td>
+<td>Restrict line for CONTRACT open position</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; liquidationLine</td>
+<td style="text-align: left">string</td>
+<td>Line for liquidation</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; stopLiquidationLine</td>
+<td style="text-align: left">string</td>
+<td>Line for stop liquidation</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractLeverage</td>
+<td style="text-align: left">string</td>
+<td>Allowed max leverage of opening contract position</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; transferRatio</td>
+<td style="text-align: left">string</td>
+<td>Available transfer ratio of loan funds</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotSymbols</td>
+<td style="text-align: left">array</td>
+<td>The whitelist of spot trading pairs</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractSymbols</td>
+<td style="text-align: left">array</td>
+<td>The whitelist of contract trading pairs</td>
+</tr>
+</tbody></table>
+<h3 id='t-repayinfo'>Get Repay Info</h3>
+<p>Get repaid order information. Authentication needed.</p>
+
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/margin-repaid-infos?startTime=1663126392000&amp;endTime=1663126394000' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1669366647851' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 4a2d54488d29cde341e51ce9eae0dcb685ac485953b659ba8852bd28077529c4'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">repayInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">repayOrderId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">8189</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">repaidTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1663126393000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">30000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">interest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">businessType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">status</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669366648366</span>
+<span class="p">}</span>
+</code></pre></div>
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=marrepinf>/spot/v3/private/margin-repaid-infos</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#marrepinf"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">startTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>Start time, unit in millisecond</td>
+</tr>
+<tr>
+<td style="text-align: left">endTime</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">long</td>
+<td>End time, unit in millisecond</td>
+</tr>
+<tr>
+<td style="text-align: left">limit</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">int</td>
+<td>Limit for data size per page. 10 by default, the max is 100</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">repayInfo</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; repayOrderId</td>
+<td style="text-align: left">string</td>
+<td>Repaid order Id</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; repaidTime</td>
+<td style="text-align: left">string</td>
+<td>Repaid timetstamp, in milliesconds</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; token</td>
+<td style="text-align: left">string</td>
+<td>Repaid coin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; quantity</td>
+<td style="text-align: left">string</td>
+<td>Repaid principle</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; interest</td>
+<td style="text-align: left">string</td>
+<td>Repaid interest</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; businessType</td>
+<td style="text-align: left">string</td>
+<td>Repaid type. <code>1</code>：normal repayment; <code>2</code>：repaid by liquidation</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; status</td>
+<td style="text-align: left">string</td>
+<td><code>1</code>：outstanding; <code>2</code>：paid off</td>
+</tr>
+</tbody></table>
+<h3 id='t-ltv'>Get LTV</h3>
+<p>Get LTV. Authentication needed.</p>
+
+<blockquote>
+<p>Request Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/margin-ltv' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1669367335035' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'X-BAPI-SIGN: 75d8c29b293635f3501c6dc8770892681a05a2788aa3c467dd136e7dabf173a9'
+</span></code></pre></div>
+<blockquote>
+<p>Response Example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">ltvInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">ltv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1147</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">parentUid</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">999805</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">subAccountUids</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="dl">"</span><span class="s2">999805</span><span class="dl">"</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">unpaidAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">unpaidInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">unpaidQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6351.49614274</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">unpaidInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">264.0137162</span><span class="dl">"</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">balance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">57626.875915433333333332400000000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">spotBalanceInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16375.621333333333333332</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.2</span><span class="dl">"</span>
+                    <span class="p">},</span>
+                    <span class="p">....</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">XRP</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.409517</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10000</span><span class="dl">"</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="dl">"</span><span class="s2">contractInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="dl">"</span><span class="s2">token</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
+                        <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1669367335608</span>
+<span class="p">}</span>
+</code></pre></div>
+<aside class="notice">
+If user only binds spot, <code>contractBalanceInfo</code> is []
+</aside>
+
+<p class="fake_header">HTTP Request</p>
+
+<p>GET
+<code><span id=ltv>/spot/v3/private/margin-ltv</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#ltv"><img src="../../images/copy_to_clipboard-ff25494f.png" height=zh5 width=15></img></button></p>
+
+<p class="fake_header">Request Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Required</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p class="fake_header">Response Parameters</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th>Comment</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ltvInfo</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; ltv</td>
+<td style="text-align: left">string</td>
+<td>Risk rate</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; parentUid</td>
+<td style="text-align: left">string</td>
+<td>User id</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; subAccountUids</td>
+<td style="text-align: left">array</td>
+<td>Bound user id</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; unpaidAmount</td>
+<td style="text-align: left">string</td>
+<td>Total debt(USDT)</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; unpaidInfo</td>
+<td style="text-align: left">array</td>
+<td>Debt details</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; token</td>
+<td style="text-align: left">string</td>
+<td>coin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; unpaidQty</td>
+<td style="text-align: left">string</td>
+<td>Unpaid principle</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; unpaidInterest</td>
+<td style="text-align: left">string</td>
+<td>Unpaid interest</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; balance</td>
+<td style="text-align: left">string</td>
+<td>Total asset. (margin coins converted to USDT)</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; spotBalanceInfo</td>
+<td style="text-align: left">array</td>
+<td>Spot asset details</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; token</td>
+<td style="text-align: left">string</td>
+<td>Spot margin coin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; price</td>
+<td style="text-align: left">string</td>
+<td>Spot margin coin price</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; qty</td>
+<td style="text-align: left">string</td>
+<td>Spot margin coin quantity</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; contractInfo</td>
+<td style="text-align: left">array</td>
+<td>Contract asset details</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; token</td>
+<td style="text-align: left">string</td>
+<td>Contract margin coin</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; price</td>
+<td style="text-align: left">string</td>
+<td>Contract margin coin index price</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt;&gt; qty</td>
+<td style="text-align: left">string</td>
+<td>Contract margin coin quantity</td>
 </tr>
 </tbody></table>
 <h1 id='t-ratelimits'>Rate Limits</h1><h2 id='t-ipratelimits'>IP Rate Limit</h2>
