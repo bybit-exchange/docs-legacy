@@ -8,7 +8,7 @@ t(:transfer_para)
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/inter-transfer'
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -69,7 +69,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer' \
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -129,7 +129,7 @@ POST
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/inter-transfer/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -195,7 +195,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member-transfer/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -263,7 +263,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/sub-member/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -307,7 +307,7 @@ GET
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/transfer-sub-member-save' \
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -356,7 +356,7 @@ POST
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/transfer/universal-transfer' \
 --header 'Content-Type: application/json' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 --data-raw '{
@@ -413,7 +413,7 @@ POST
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/universal-transfer/list/query' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -495,7 +495,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/transfer-coin/list/query?fromAccountType=SPOT&toAccountType=CONTRACT' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -540,7 +540,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com//asset/v3/private/transfer/account-coin/balance/query?memberId=123&accountType=CONTRACT&coin=BTC&withBonus=0' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -603,7 +603,7 @@ GET
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/transfer/asset-info/query?accountType=SPOT&coin=BTC' \
 --header 'X-BAPI-TIMESTAMP: 1660794864052' \
---header 'X-BAPI-API-KEY: tmp8i2paQ2rSQYzoOq' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
 --header 'X-BAPI-RECV-WINDOW: 999999999' \
 --header 'X-BAPI-SIGN: c4f6cbc0581a8afa81cade431c9389a62ff7817e3e6c4aee456fd3f86796f619' \
 ```
@@ -769,8 +769,8 @@ t(:depositsrecorddesc)
 
 <p class="fake_header">t(:httprequest)</p>
 GET
-<code><span id=pdrq>/asset/v3/private/deposit/record/query</span></code>
-<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#pdrq"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+<code><span id=subderequ>/asset/v3/private/deposit/record/query</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#subderequ"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
@@ -1064,7 +1064,8 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/w
     "address": "0x9ba58f56E420a00a23D3508Cf77fF268C8510A01",
     "tag": null,
     "amount": "20",
-    "timestamp": 1660620515481
+    "timestamp": 1660620515481,
+    "forceChain": 0
 }'
 ```
 
@@ -1102,6 +1103,7 @@ POST
 |tag|false|string|t(:withdraw_tag)
 |amount|<b>true</b>|string|t(:withdraw_amount)
 |timestamp|<b>true</b>|int|t(:assetWithdraw_timestamp)
+|forceChain|false|int|t(:account_withdraw_forceChain)
 
 
 <p class="fake_header">t(:responseparameters)</p>

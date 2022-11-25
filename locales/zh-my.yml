@@ -524,14 +524,14 @@ zh-my:
   row_comment_query_riskId_v3: 風險限額ID
   row_comment_query_size_v3: 倉位數量
   row_comment_query_entryPrice_v3: 平均入場價
-  row_comment_query_sessionAvgPrice_v3: Settlement price，僅USDC
+  row_comment_query_sessionAvgPrice_v3: 結算價格，僅USDC
   row_comment_query_leverage_v3: |
       逐倉模式下, 值為用戶設置的杠桿；全倉模式下，值為當前風險限額下最大杠桿；僅適用於合約，不適用於期權
   row_comment_query_markPrice_v3: 標記價格
   row_comment_query_sessionUPL_v3: Session UPL, for USDC only
   row_comment_query_sessionRPL_v3: Session RPL, for USDC only
-  row_comment_query_positionIM_v3: Initial margin
-  row_comment_query_positionMM_v3: Maintenance margin
+  row_comment_query_positionIM_v3: 倉位初始保證金
+  row_comment_query_positionMM_v3: 倉位維持保證金
   row_comment_query_trailingStop_v3: 追蹤止損
   row_comment_query_positionStatus_v3: 倉位狀態，正常，強平，減倉
   row_comment_query_positionValue_v3: 倉位價值
@@ -2882,6 +2882,9 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221124_2: 支持內部轉帳
+  restapi_update_20221124_1: 支持USDC帳戶的查詢與設置
+  restapi_update_20221124: 新增溢價指數k線接口
   restapi_update_20221123_4: 支持查詢USDC永續
   restapi_update_20221123_3: 倉位信息接口支持查詢USDC永續和期權
   restapi_update_20221123_2: 交易接口支持USDC永續和期權的下單/撤單/改單操作。<b>注意:</b> <code>category</code> 字段通過傳入"future"來覆蓋USDT永續、USDC永續、反向永續和反向交割，但是依舊支持傳入<code>linear</code>, <code>inverse</code>
@@ -5580,3 +5583,87 @@ zh-my:
   contract_executionList_orderLinkId: 用戶自定義orderId. 僅<code>option</code>
   contract_executionList_orderFilter: Order filter. 僅<code>future</code>
   contract_executionList_symbol: 合約名稱. <li>若category是future, 則symbol必傳</li><li>若category是option, 則symbol選填</li>
+  contract_translog_category: 衍生品類別. <code>future</code>：USDC永續; <code>option</code>. 默認：future
+  contract_translog_para: 查詢帳戶的交易日誌，目前僅支持<b>USDC</b>業務
+  contract_accountInfo_updateTime: 帳戶數據更新時間(毫秒)
+  accountConfig: 獲取帳戶配置
+  accountConfig_para: 當前支持獲取USDC帳戶的保證金模式
+  contract_setMarginMode_reasons: 若請求成功，則返回空數組
+  contract_setMarginMode_reasonCode: 失敗碼值
+  contract_setMarginMode_reasonMsg: 失敗信息
+  setMarginMode_para: 若不進行設置，則USDC帳戶默認為常規保證金
+  contract_wallet_accountIM: USDC帳戶初始保證金
+  contract_wallet_accountMM: USDC帳戶維持保證金
+  account_withdraw_forceChain: 是否強制走鏈提幣. <code>0</code>：解析到若為內部地址 (默認)，則內部轉帳；<code>1</code>：強制走鏈
+  otcLoan: 機構借貸接口
+  otcLoanNotice: 以下接口僅提供給機構借貸客戶
+  marginProductInfo: 獲取保證金產品信息
+  otcLoan_req_productId: 產品ID. 若不傳，則返回所有產品數據
+  otcLoan_productId: 產品ID
+  otcLoan_leverage: 槓桿
+  otcLoan_supportSpot: 是否支持現貨. <code>0</code>:false; <code>1</code>:true
+  otcLoan_supportContract: 是否支持合約. <code>0</code>:false; <code>1</code>:true
+  otcLoan_withdrawLine: 限制提幣線
+  otcLoan_transferLine: 限制劃轉線
+  otcLoan_spotBuyLine: 限制現貨買入線
+  otcLoan_spotSellLine: 限制現貨賣出線
+  otcLoan_contractOpenLine: 限制合約開倉線
+  otcLoan_liquidationLine: 強平線
+  otcLoan_stopLiquidationLine: 停止強平線
+  otcLoan_contractLeverage: 允許合約開倉倍數
+  otcLoan_transferRatio: 借貸資金劃轉比例
+  otcLoan_spotSymbols: 現貨交易對白名單
+  otcLoan_contractSymbols: 合約交易對白名單
+  marginCoinInfo: 獲取保證金幣種信息
+  marginCoinInfo_req_productId: 產品ID. 若不傳，則返回所有產品的保證金幣種信息. 現貨返回折算率大於0的幣種.
+  otcLoan_spotToken: 現貨保證金幣種信息
+  token: 保證金幣種
+  convertRatio: 保證金幣種折算率
+  otcLoan_contractToken: 合約保證金幣種信息
+
+  loanInfo: 獲取借貸訂單信息
+  loanInfo_para: 獲取所有借貸訂單相關信息. 需要鑒權
+  loanInfo_req_orderId: 借貸訂單號. 若不傳，則返回所有訂單，按<code>loanTime</code>倒序排列
+  loanInfo_limit: 每頁數據量. 默認10條, 最大100
+  otcLoan_orderId: 借貸訂單號
+  otcLoan_parentUid: 用戶母帳號id
+  otcLoan_loanTime: 放款時間（毫秒）
+  otcLoan_loanCoin: 借款幣種
+  otcLoan_loanAmount: 借款金額
+  otcLoan_unpaidAmount: 未還本金
+  otcLoan_unpaidInterest: 未還利息
+  otcLoan_repaidAmount: 已還本金
+  otcLoan_repaidInterest: 已還利息
+  otcLoan_interestRate: 日利率
+  otcLoan_status: <code>1</code>：未還清; <code>2</code>：已還清
+  repayInfo: 獲取還款信息
+  repayInfo_para: 查詢還款訂單信息. 需要鑒權.
+  otcLoan_repayOrderId: 還款訂單號
+  otcLoan_repaidTime: 還款時間（毫秒）
+  otcLoan_token: 還款幣種
+  otcLoan_quantity: 還款本金
+  otcLoan_interest: 還款利息
+  otcLoan_businessType: 還款類型. <code>1</code>：正常還款; <code>2</code>：系統強平還款
+  otcLoan_repay_status: 還款狀態. <code>1</code>：成功; <code>2</code>：失敗
+
+  ltv: 獲取風險率
+  ltv_para: 獲取風險率. 需要鑒權
+  ltv_notice: 若用戶僅綁定了現貨, 則<code>contractBalanceInfo</code>是[]
+
+  otcLoan_ltv: 風險率
+  otcLoan_ltv_parentUid: 用戶id
+  otcLoan_subAccountUids: 綁定的子UID
+  otcLoan_ltv_unpaidAmount: 總負債（USDT）
+  otcLoan_unpaidInfo: 負債明細
+  otcLoan_ltv_token: 幣種
+  otcLoan_unpaidQty: 未還本金
+  otcLoan_Interest: 未還利息
+  otcLoan_balance: 總資產(保證金幣種資產折算為USDT資產)
+  otcLoan_spotBalanceInfo: 現貨資產明細
+  otcLoan_ltv_spot_token: 現貨保證金幣種
+  otcLoan_ltv_spot_price: 現貨保證金幣種價格
+  otcLoan_ltv_spot_qty: 現貨保證金數量
+  otcLoan_contractInfo: 合約資產明細
+  otcLoan_ltv_contract_token: 合約保證金幣種
+  otcLoan_ltv_contract_price: 合約保證金幣種指數價格
+  otcLoan_ltv_contract_qty: 合約保證金幣種數量

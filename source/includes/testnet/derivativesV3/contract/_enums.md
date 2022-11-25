@@ -219,3 +219,7 @@ t(:date)
 * `Successfully upgraded`
 * `Upgrade failed`
 * `Rejected`
+
+## Margin Mode (`marginMode`)
+* `REGULAR_MARGIN`
+* `PORTFOLIO_MARGIN`

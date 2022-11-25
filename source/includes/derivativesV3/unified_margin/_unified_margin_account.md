@@ -1463,11 +1463,6 @@ GET
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 
-[comment]: <> (### t&#40;:OILimitInfo&#41;)
-
-[comment]: <> (<a href="/docs/testnet/derivativesV3/contract#t-oilimitinfo">t&#40;:shared_endpoint_desc&#41;</a>)
-
-
 ## t(:account)
 t(:wallet_para)
 
