@@ -6057,3 +6057,75 @@ en:
   contract_setMarginMode_reasonMsg: Fail reason message. Only valid when fail to request
   setMarginMode_para: If not set, the USDC account is regular margin mode by default.
   account_withdraw_forceChain: Force to withdraw on chain or not. <code>0</code>：If parsed as internal address, then internal transfer (by default)；<code>1</code>：Force withdraw on chain
+  otcLoan: Institutional Loan Endpoints
+  otcLoanNotice: Below endpoints are provided to institutional clients.
+  marginProductInfo: Get Margin Product Info
+  otcLoan_req_productId: Product Id. If not passed, then return all products info
+  otcLoan_productId: Product Id
+  otcLoan_leverage: leverage
+  otcLoan_supportSpot: Whether to support spot. <code>0</code>:false; <code>1</code>:true
+  otcLoan_supportContract: Whether to support contract . <code>0</code>:false; <code>1</code>:true
+  otcLoan_withdrawLine: Restrict line for withdrawal
+  otcLoan_transferLine: Restrict line for transfer
+  otcLoan_spotBuyLine: Restrict line for SPOT <b>buy</b>
+  otcLoan_spotSellLine: Restrict line for SPOT <b>sell</b>
+  otcLoan_contractOpenLine: Restrict line for CONTRACT open position
+  otcLoan_liquidationLine: Line for liquidation
+  otcLoan_stopLiquidationLine: Line for stop liquidation
+  otcLoan_contractLeverage: Allowed max leverage of opening contract position
+  otcLoan_transferRatio: Available transfer ratio of loan funds
+  otcLoan_spotSymbols: The whitelist of spot trading pairs
+  otcLoan_contractSymbols: The whitelist of contract trading pairs
+  marginCoinInfo: Margin Coin Info
+  marginCoinInfo_req_productId: ProductId. If not passed, then return all product margin coin. For spot, it returns coin that convertRation greater than 0.
+  otcLoan_spotToken: Spot margin coin
+  token: Margin coin
+  convertRatio: Margin coin convert ratio
+  otcLoan_contractToken: Contract margin coin
+
+  loanInfo: Get Loan Info
+  loanInfo_para: Get those loan orders information. Authentication needed.
+  loanInfo_req_orderId: Loan order id. If not passed, then return all orders, sort by <code>loanTime</code> in descend
+  loanInfo_limit: Limit for data size per page. 10 by default, the max is 100
+  otcLoan_orderId: Loan order id
+  otcLoan_parentUid: User parent UID
+  otcLoan_loanTime: Loan timestamp, in milliseconds
+  otcLoan_loanCoin: Loan coin
+  otcLoan_loanAmount: Loan amount
+  otcLoan_unpaidAmount: Unpaid principal
+  otcLoan_unpaidInterest: Unpaid interest
+  otcLoan_repaidAmount: Repaid principal
+  otcLoan_repaidInterest: Repaid interest
+  otcLoan_interestRate: Daily interest rate
+  otcLoan_status: <code>1</code>：outstanding; <code>2</code>：paid off
+  repayInfo: Get Repay Info
+  repayInfo_para: Get repaid order information. Authentication needed.
+  otcLoan_repayOrderId: Repaid order Id
+  otcLoan_repaidTime: Repaid timetstamp, in milliesconds
+  otcLoan_token: Repaid coin
+  otcLoan_quantity: Repaid principle
+  otcLoan_interest: Repaid interest
+  otcLoan_businessType: Repaid type. <code>1</code>：normal repayment; <code>2</code>：repaid by liquidation
+  otcLoan_repay_status: Repaid status. <code>1</code>：success; <code>2</code>：fail
+
+  ltv: Get LTV
+  ltv_para: Get LTV. Authentication needed.
+  ltv_notice: If user only binds spot, <code>contractBalanceInfo</code> is []
+
+  otcLoan_ltv: Risk rate
+  otcLoan_ltv_parentUid: User id
+  otcLoan_subAccountUids: Bound user id
+  otcLoan_ltv_unpaidAmount: Total debt(USDT)
+  otcLoan_unpaidInfo: Debt details
+  otcLoan_ltv_token: coin
+  otcLoan_unpaidQty: Unpaid principle
+  otcLoan_Interest: Unpaid interest
+  otcLoan_balance: Total asset. (margin coins converted to USDT)
+  otcLoan_spotBalanceInfo: Spot asset details
+  otcLoan_ltv_spot_token: Spot margin coin
+  otcLoan_ltv_spot_price: Spot margin coin price
+  otcLoan_ltv_spot_qty: Spot margin coin quantity
+  otcLoan_contractInfo: Contract asset details
+  otcLoan_ltv_contract_token: Contract margin coin
+  otcLoan_ltv_contract_price: Contract margin coin index price
+  otcLoan_ltv_contract_qty: Contract margin coin quantity
