@@ -1054,7 +1054,7 @@ GET
 ```console
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/withdraw/create' \
 --header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
---header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1660620568966' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -1064,7 +1064,8 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/w
     "address": "0x9ba58f56E420a00a23D3508Cf77fF268C8510A01",
     "tag": null,
     "amount": "20",
-    "timestamp": 1660620515481
+    "timestamp": 1660620515481,
+    "forceChain": 0
 }'
 ```
 
@@ -1102,6 +1103,7 @@ POST
 |tag|false|string|t(:withdraw_tag)
 |amount|<b>true</b>|string|t(:withdraw_amount)
 |timestamp|<b>true</b>|int|t(:assetWithdraw_timestamp)
+|forceChain|false|int|t(:account_withdraw_forceChain)
 
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1117,7 +1119,7 @@ POST
 ```console
 curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/withdraw/cancel' \
 --header 'X-BAPI-SIGN: fdb267bf07558a7a34f8949f6284305af1bb9a1bf2363d6b2605825a88490291' \
---header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1660620568966' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 --header 'Content-Type: application/json' \
@@ -1166,7 +1168,7 @@ POST
 ```console
 curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/deposit/address/query?coin=USDT' \
 --header 'X-BAPI-SIGN: 5a5ce5b26fd6a959c470b637ec0e9672b871d1ace105737b15e525de672c3fdb' \
---header 'X-BAPI-API-KEY: {api key}' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
 --header 'X-BAPI-TIMESTAMP: 1660632630317' \
 --header 'X-BAPI-RECV-WINDOW: 5000' \
 ```
@@ -1206,7 +1208,6 @@ GET
 |:----- |:-------|:-----|----- |
 |<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:coin_info_coin)|
 |chainType |false |string |t(:accountAssetV3_chainType)|
-|subMemberId |<b>true</b> |string |t(:user_uid_resp_comment)|
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
