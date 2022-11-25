@@ -298,8 +298,8 @@ en:
   row_comment_query_markPrice_v3: Mark price
   row_comment_query_sessionUPL_v3: Session UPL, for USDC only
   row_comment_query_sessionRPL_v3: Session RPL, for USDC only
-  row_comment_query_positionIM_v3: Initial margin
-  row_comment_query_positionMM_v3: Maintenance margin
+  row_comment_query_positionIM_v3: Position Initial margin
+  row_comment_query_positionMM_v3: Position Maintenance margin
   row_comment_query_trailingStop_v3: Trailing stop
   row_comment_query_positionStatus_v3: Position status<span>:</span> Normal, Liquidation, and Deleveraging.
   row_comment_query_positionValue_v3: Position value
@@ -3313,6 +3313,8 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221124_1: Support USDC account query and config
+  restapi_update_20221124: Add new market endpoint
   restapi_update_20221123_4: Supports querying USDC perp
   restapi_update_20221123_3: Position endpoint supports querying USDC perp and option.
   restapi_update_20221123_2: Order endpoints support placing/modifying/cancel USDC perp and option. <b>Note:</b> <code>category</code> param uses "future" to cover USDT perp/USDC perp/Inverse perp/Inverse futures, but it still supports passing <code>linear</code>, <code>inverse</code>
@@ -6042,3 +6044,14 @@ en:
   contract_executionList_orderLinkId: User customised order id. <code>option</code> ONLY
   contract_executionList_orderFilter: Order filter. <code>future</code> ONLY
   contract_executionList_symbol: Symbol name. <li>if category=future, then symbol is required</li><li>If category=option, then symbol is optional</li>
+  contract_wallet_accountIM: USDC account initial margin
+  contract_wallet_accountMM: USDC account maintainence margin
+  contract_translog_category: Product category. <code>future</code>：USDC PERP; <code>option</code>
+  contract_translog_para: Query transaction logs of <b>USDC</b> account
+  contract_accountInfo_updateTime: Account info update time (ms)
+  accountConfig: Get Account Config
+  accountConfig_para: Get USDC account margin mode
+  contract_setMarginMode_reasons: If requested successfully, no object returns.
+  contract_setMarginMode_reasonCode: Fail reason code. Only valid when fail to request
+  contract_setMarginMode_reasonMsg: Fail reason message. Only valid when fail to request
+  setMarginMode_para: If not set, the USDC account is regular margin mode by default.

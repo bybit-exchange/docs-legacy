@@ -109,7 +109,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
 > t(:codequote_responseExample)
 
 ```javascript
-// linear response sample
+// future response sample
 {
     "retCode": 0,
     "retMsg": "OK",
@@ -638,7 +638,7 @@ GET
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/list?symbol=XRPUSDT' \
+curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/list?settleCoin=USDC&category=future' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: b0818cb2f91264ffd712db0c8f8648041b2c5eed643200aa63e4141c7aa12500' \
 --header 'X-BAPI-API-KEY: {api key}' \
@@ -655,63 +655,48 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
 > t(:codequote_responseExample)
 
 ```javascript
+// future response sample
 {
     "retCode": 0,
     "retMsg": "OK",
     "result": {
         "list": [
             {
-                "positionIdx": 1,
-                "riskId": "41",
-                "symbol": "XRPUSDT",
+                "positionIdx": 0,
+                "riskId": "3",
+                "symbol": "ETHPERP",
                 "side": "Buy",
-                "size": "0",
-                "positionValue": "0",
-                "entryPrice": "0",
+                "size": "0.2",
+                "positionValue": "233.02",
+                "entryPrice": "1165.1",
                 "tradeMode": 0,
                 "autoAddMargin": 0,
-                "leverage": "10",
-                "positionBalance": "0",
-                "liqPrice": "0.0000",
-                "bustPrice": "0.0000",
-                "takeProfit": "0.0000",
-                "stopLoss": "0.0000",
-                "trailingStop": "0.0000",
-                "unrealisedPnl": "0",
-                "createdTime": "1658827444328",
-                "updatedTime": "1658904863412",
-                "tpSlMode": "Full",
-                "riskLimitValue": "200000",
-                "activePrice": "0.0000"
-            },
-            {
-                "positionIdx": 2,
-                "riskId": "41",
-                "symbol": "XRPUSDT",
-                "side": "Sell",
-                "size": "50",
-                "positionValue": "16.68",
-                "entryPrice": "0.3336",
-                "tradeMode": 0,
-                "autoAddMargin": 0,
-                "leverage": "10",
-                "positionBalance": "1.6790088",
-                "liqPrice": "12.4835",
-                "bustPrice": "12.4869",
-                "takeProfit": "0.0000",
-                "stopLoss": "0.0000",
-                "trailingStop": "0.0000",
-                "unrealisedPnl": "0",
-                "createdTime": "1658827444328",
-                "updatedTime": "1658904863412",
-                "tpSlMode": "Full",
-                "riskLimitValue": "200000",
-                "activePrice": "0.0000"
+                "leverage": "12.00",
+                "positionBalance": "",
+                "liqPrice": "0.05",
+                "bustPrice": "",
+                "takeProfit": "1500",
+                "stopLoss": "800",
+                "trailingStop": "",
+                "unrealisedPnl": "-3.05",
+                "createdTime": "1669027272474",
+                "updatedTime": "1669334400433",
+                "tpSlMode": "UNKNOWN",
+                "riskLimitValue": "800000",
+                "activePrice": "",
+                "markPrice": "1185.55",
+                "cumRealisedPnl": "6.8814698",
+                "positionMM": "4.935288",
+                "positionIM": "20.14542294",
+                "positionStatus": "Normal",
+                "sessionAvgPrice": "1200.8"
             }
-        ]
+        ],
+        "category": "future",
+        "nextPageCursor": ""
     },
-    "retExtInfo": null,
-    "time": 1658904877942
+    "retExtInfo": {},
+    "time": 1669347306741
 }
 ```
 
@@ -764,7 +749,7 @@ GET
 |> positionMM |string |t(:row_comment_query_positionMM_v3)  |
 |> positionIM |string |t(:row_comment_query_positionIM_v3)  |
 |> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
-|category |string |dv3_orderbook_category |
+|category |string |t(:dv3_orderbook_category) |
 |nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
 
 ### t(:setautoaddmargin)
@@ -1166,7 +1151,7 @@ POST
 > t(:codequote_curlExample)
 
 ```console
-curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/execution/list?symbol=XRPUSDT' \
+curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/execution/list?symbol=ETHPERP&execType=Trade&limit=1&cursor=118%3A1%2C118%3A1&category=future' \
 --header 'X-BAPI-SIGN-TYPE: 2' \
 --header 'X-BAPI-SIGN: a7358fb068bf66570e7ecf063e39a6dbd11f1d5572ba79a63d5996221d864585' \
 --header 'X-BAPI-API-KEY: XXXXXXXXXXXX' \
@@ -1181,58 +1166,45 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
 > t(:codequote_responseExample)
 
 ```javascript
+// future response sample
 {
     "retCode": 0,
     "retMsg": "OK",
     "result": {
         "list": [
             {
-                "symbol": "BITUSDT",
-                "execFee": "0.001356",
-                "execId": "499e1a2a-c664-55db-bbf0-78ad31b7b033",
-                "execPrice": "0.452",
-                "execQty": "5.0",
+                "symbol": "ETHPERP",
+                "execFee": "0.065289",
+                "execId": "c613e2c3-b7fb-53b2-9421-f97f1a400a33",
+                "execPrice": "1088.15",
+                "execQty": "0.1",
                 "execType": "Trade",
-                "execValue": "2.26",
+                "execValue": "108.815",
                 "feeRate": "0.0006",
                 "lastLiquidityInd": "RemovedLiquidity",
-                "leavesQty": "0.0",
-                "orderId": "1d40db82-b1f6-4340-9190-650eeddd440b",
+                "leavesQty": "",
+                "orderId": "6a70d7b4-a49a-4016-9dc9-e0ac6286a263",
                 "orderLinkId": "",
-                "orderPrice": "0.430",
-                "orderQty": "5.0",
+                "orderPrice": "1036.5",
+                "orderQty": "0.1",
                 "orderType": "Market",
                 "stopOrderType": "UNKNOWN",
                 "side": "Sell",
-                "execTime": "1657269236943",
-                "closedSize": "5.0"
-            },
-            {
-                "symbol": "BITUSDT",
-                "execFee": "0.004068",
-                "execId": "ed090e6a-afc0-5cb5-b51d-039592a44ec5",
-                "execPrice": "0.452",
-                "execQty": "15.0",
-                "execType": "Trade",
-                "execValue": "6.78",
-                "feeRate": "0.0006",
-                "lastLiquidityInd": "RemovedLiquidity",
-                "leavesQty": "0.0",
-                "orderId": "d34d40a1-2475-4552-9e54-347a27282ec0",
-                "orderLinkId": "",
-                "orderPrice": "0.429",
-                "orderQty": "15.0",
-                "orderType": "Market",
-                "stopOrderType": "UNKNOWN",
-                "side": "Sell",
-                "execTime": "1657268340170",
-                "closedSize": "15.0"
+                "execTime": "1669107912593",
+                "closedSize": "0",
+                "iv": "",
+                "blockTradeId": "",
+                "markPrice": "",
+                "markIv": "",
+                "underlyingPrice": "",
+                "indexPrice": ""
             }
         ],
-        "nextPageCursor": ""
+        "nextPageCursor": "94%3A1%2C94%3A1",
+        "category": "future"
     },
-    "retExtInfo": null,
-    "time": 1658911518442
+    "retExtInfo": {},
+    "time": 1669342862947
 }
 ```
 
@@ -1250,11 +1222,11 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|<a href="#category-category">category</a> |false |string |t(:dv3_riskLimit_category) |
+|<a href="#category-category">category</a> |false |string |t(:dv3_trade_category) |
 |orderId |false |string |t(:contract_comment_orderId) |
 |t(:row_parameter_symbol) |false |string |t(:contract_executionList_symbol) |
 |baseCoin |false |string |t(:dv3_queryOrder_baseCoin) |
-|orderLinkId |false |string |t(:contract_executionList_orderLinkId) |
+|orderLinkId |false |string |t(:orderLinkId) |
 |<a href="#order-filter-orderfilter">orderFilter</a>|false |string |t(:contract_executionList_orderFilter) |
 |startTime |false |number |t(:contract_comment_startTime) |
 |endTime |false |number |t(:contract_comment_endTime) |
@@ -1285,7 +1257,14 @@ GET
 |list> t(:row_parameter_side) |string |t(:row_comment_side)  |
 |list> execTime |string |t(:row_comment_query_execTime_v3)  |
 |list> closedSize |string |t(:row_comment_closedSize_v3)  |
+|list> iv |string |t(:usdcIv)  |
+|list> blockTradeId |string |t(:blockTradeId)  |
+|list> markPrice |string |t(:usdcMarkPrice)  |
+|list> markIv |string |t(:usdcMarkPriceIv)  |
+|list> underlyingPrice |string |t(:usdcUnderlyingPrice)  |
+|list> indexPrice |string |t(:usdcIndexPrice)  |
 |nextPageCursor |string |t(:contract_comment_nextPageCursor)  |
+|category |string |t(:dv3_orderbook_category)  |
 
 
 ### t(:dv_closedprofitandloss)
@@ -1377,124 +1356,6 @@ GET
 |nextPageCursor |string |t(:contract_comment_nextPageCursor)  |
 
 
-[comment]: <> (### t&#40;:OILimitInfo&#41;)
-
-[comment]: <> (> t&#40;:codequote_curlExample&#41;)
-
-[comment]: <> (```console)
-
-[comment]: <> (curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/position/limit-info?symbol=ETHUSDT' \)
-
-[comment]: <> (--header 'X-BAPI-SIGN-TYPE: 2' \)
-
-[comment]: <> (--header 'X-BAPI-SIGN: eb16a696924a92a3a47d769caf44d7373eca9ed6a644384ff6e8cd729ee9f7b1' \)
-
-[comment]: <> (--header 'X-BAPI-API-KEY: XXXXXX' \)
-
-[comment]: <> (--header 'X-BAPI-TIMESTAMP: 1658914264517' \)
-
-[comment]: <> (--header 'X-BAPI-RECV-WINDOW: 5000')
-
-[comment]: <> (```)
-
-[comment]: <> (```python--pybit)
-
-[comment]: <> (```)
-
-[comment]: <> (> t&#40;:codequote_responseExample&#41;)
-
-[comment]: <> (```javascript)
-
-[comment]: <> ({)
-
-[comment]: <> (    "retCode": 0,)
-
-[comment]: <> (    "retMsg": "OK",)
-
-[comment]: <> (    "result": {)
-
-[comment]: <> (        "currentLimitPcnt": "0.1000",)
-
-[comment]: <> (        "totalBuyPositionSize": "0.1000",)
-
-[comment]: <> (        "totalSellPositionSize": "0.0000",)
-
-[comment]: <> (        "estMaxPositionSize": "28581.1950",)
-
-[comment]: <> (        "openInterest": "285811.95",)
-
-[comment]: <> (        "list": [)
-
-[comment]: <> (            {)
-
-[comment]: <> (                "userId": "533285",)
-
-[comment]: <> (                "positionSize": "0.1000",)
-
-[comment]: <> (                "side": "Buy")
-
-[comment]: <> (            })
-
-[comment]: <> (        ],)
-
-[comment]: <> (        "updateTime": "1663050089990")
-
-[comment]: <> (    },)
-
-[comment]: <> (    "retExtInfo": null,)
-
-[comment]: <> (    "time": 1663050089990)
-
-[comment]: <> (})
-
-[comment]: <> (```)
-
-[comment]: <> (t&#40;:OILimitInfo_para&#41;)
-
-[comment]: <> (<p class="fake_header">t&#40;:httprequest&#41;</p>)
-
-[comment]: <> (GET)
-
-[comment]: <> (<code><span id=posiliin>/contract/v3/private/position/limit-info</span></code>)
-
-[comment]: <> (<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#posiliin"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>)
-
-[comment]: <> (<p class="fake_header">t&#40;:requestparameters&#41;</p>)
-
-[comment]: <> (|t&#40;:column_parameter&#41;|t&#40;:column_required&#41;|t&#40;:column_type&#41;|t&#40;:column_comments&#41;|)
-
-[comment]: <> (|:----- |:-------|:-----|----- |)
-
-[comment]: <> (|t&#40;:row_parameter_symbol&#41; |<b>true</b> |string |t&#40;:row_comment_symbol&#41;|)
-
-
-[comment]: <> (<p class="fake_header">t&#40;:responseparameters&#41;</p>)
-
-[comment]: <> (|t&#40;:column_parameter&#41;|t&#40;:column_type&#41;|t&#40;:column_comments&#41;|)
-
-[comment]: <> (|:----- |:-----|----- |)
-
-[comment]: <> (|currentLimitPcnt |string |t&#40;:row_resp_comment_currentLimitPcnt&#41;  |)
-
-[comment]: <> (|totalBuyPositionSize |string |t&#40;:row_resp_comment_totalBuyPositionSize&#41;  |)
-
-[comment]: <> (|totalSellPositionSize |string |t&#40;:row_resp_comment_totalSellPositionSize&#41;  |)
-
-[comment]: <> (|estMaxPositionSize |string |t&#40;:row_resp_comment_estMaxPositionSize&#41;  |)
-
-[comment]: <> (|openInterest |string |t&#40;:row_resp_comment_openInterest&#41;  |)
-
-[comment]: <> (|list |array |Object  |)
-
-[comment]: <> (|> userId |string |t&#40;:row_resp_comment_userId&#41;  |)
-
-[comment]: <> (|> positionSize |string |t&#40;:row_resp_comment_positionSize&#41;  |)
-
-[comment]: <> (|> side |string |t&#40;:row_resp_comment_side&#41;  |)
-
-[comment]: <> (|updateTime |string |t&#40;:row_resp_comment_updateTime&#41;  |)
-
-
 ## t(:contract_account)
 t(:contract_accountPara)
 
@@ -1535,7 +1396,9 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
                 "unrealisedPnl": "0",
                 "cumRealisedPnl": "0.00120039",
                 "givenCash": "0",
-                "serviceCash": "0"
+                "serviceCash": "0",
+                "accountIM": "",
+                "accountMM": ""
             }
         ]
     },
@@ -1576,6 +1439,8 @@ GET
 |list> cumRealisedPnl|string |t(:row_comment_cum_realised_pnl)  |
 |list> givenCash |string |t(:row_response_comment_given_cash)  |
 |list> serviceCash |string |t(:row_response_comment_service_cash)  |
+|list> accountIM |string |t(:contract_wallet_accountIM)  |
+|list> accountMM |string |t(:contract_wallet_accountMM)  |
 
 
 ### t(:tradingFeeRate)
@@ -1631,6 +1496,52 @@ GET
 |list> symbol |string |t(:row_comment_symbol)  |
 |list> takerFeeRate |string |t(:contract_accountTakerFeeRate)  |
 |list> makerFeeRate |string |t(:contract_accountMakerFeeRate)  |
+
+
+### t(:accountConfig)
+t(:accountConfig_para)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/account/info' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: a197c0d9d19d2465b13062812bbed934938483edb4154eec946f28dd0b989692' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1669357817143' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "Success.",
+    "result": {
+        "marginMode": "REGULAR_MARGIN",
+        "updateTime": "1663298679000"
+    }
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=accountInfo>/contract/v3/private/account/info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#accountInfo"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|marginMode|string|t(:usdcMarginMode)|
+|updateTime |string |t(:contract_accountTakerFeeRate)  |
 
 
 ### t(:dv_walletrecords)
@@ -1697,7 +1608,7 @@ GET
 |startTime |false |string |t(:contract_accountStatTime) |
 |endTime |false |string |t(:contract_accountEndTime) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:contract_accountCoin_resp) |
-|<a href="#wallet-fund-type-wallet_fund_type-type">walletFundType</a> |false |string |t(:row_comment_walletFundType) |
+|<a href="#wallet-fund-type-walletfundtype-type">walletFundType</a> |false |string |t(:row_comment_walletFundType) |
 |limit |false |string |t(:row_comment_limit) |
 |cursor |false |string |t(:contract_accountCursor) |
 
@@ -1711,3 +1622,201 @@ GET
 |list> wallet_balance |string |t(:row_comment_wallet_balance)  |
 |list> exec_time |string |t(:row_comment_exec_timestamp)  |
 |nextPageCursor |string |t(:contract_accountNextPageCursor)  |
+
+
+### t(:dv_queryTransactionLogs)
+t(:contract_translog_para)
+
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private/account/transaction-log?category=option&baseCoin=SOL&limit=1' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 9b7bbe921c3b5c0d98696b7123d4f6fb5ca0456689bf6ef018565d5914a62221' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1669348789744' \
+--header 'X-BAPI-RECV-WINDOW: 5000'
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+// future response sample
+{
+    "result": {
+        "nextPageCursor": "143%3A0%2C143%3A0",
+        "list": [
+            {
+                "symbol": "ETHPERP",
+                "side": "Buy",
+                "funding": "-0.024016",
+                "orderLinkId": "",
+                "orderId": "",
+                "fee": "",
+                "change": "1.465984",
+                "cashFlow": "1.49",
+                "transactionTime": "1669334400000",
+                "type": "SETTLEMENT",
+                "feeRate": "0.0001",
+                "size": "0.2",
+                "qty": "",
+                "cashBalance": "1161.9742137",
+                "category": "future",
+                "tradePrice": "",
+                "tradeId": "",
+                "info": ""
+            }
+        ]
+    },
+    "retCode": 0,
+    "retMsg": "Success."
+}
+
+// option response sample
+{
+    "result": {
+        "nextPageCursor": "131%3A2%2C131%3A2",
+        "list": [
+            {
+                "symbol": "SOL-25NOV22-6-C",
+                "side": "Buy",
+                "funding": "",
+                "orderLinkId": "",
+                "orderId": "60995a22-9adf-441b-bbcf-4b64ed98b6d6",
+                "fee": "0.04278",
+                "change": "-87.04278",
+                "cashFlow": "-87",
+                "transactionTime": "1669266991057",
+                "type": "TRADE",
+                "feeRate": "0.0003",
+                "size": "0",
+                "qty": "10",
+                "cashBalance": "1158.1461957",
+                "category": "option",
+                "tradePrice": "8.7",
+                "tradeId": "859e4742-42ac-5a27-b643-6d14c9746b45",
+                "info": ""
+            }
+        ]
+    },
+    "retCode": 0,
+    "retMsg": "Success."
+}
+```
+
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=cnTranLog>/contract/v3/private/account/transaction-log</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#cnTranLog"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|category |false |string |t(:contract_translog_category)    |
+|baseCoin |false |string |t(:usdcBaseCoinUM_transLog)   |
+|t(:row_comment_query_transType_v3) |false |string |t(:row_comment_type_v3)   |
+|startTime |false |number |t(:row_comment_startTime_v3)   |
+|endTime |false |number |t(:row_comment_endTime_v3)   |
+|direction |false |string |t(:row_comment_direction_v3)   |
+|limit |false |number |t(:row_comment_limit_v3)   |
+|cursor |false |string |t(:row_comment_cursor_v3)   |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|nextPageCursor |string |t(:row_comment_query_nextPageCursor_v3)  |
+|list> symbol |string |t(:usdcSymbol) |
+|list> t(:row_parameter_side) |string |t(:side) |
+|list> funding |string |t(:usdcFunding) |
+|list> orderLinkId |string |t(:orderLinkId) |
+|list> orderId |string |t(:usdcOrderId) |
+|list> fee |string |t(:fee) |
+|list> change |string |t(:usdcChange) |
+|list> cashFlow |string |t(:cashFlow) |
+|list> transactionTime |string |t(:transactionTime) |
+|list> type |string |t(:usdcType) |
+|list> feeRate |string |t(:feeRate) |
+|list> size |string |t(:uscdSize) |
+|list> qty |string |t(:usdcOrderQty) |
+|list> cashBalance |string |t(:cashBalance) |
+|list> category |string |t(:dv3_orderbook_category) |
+|list> tradePrice |string |t(:tradePrice) |
+|list> tradeId |string |t(:tradeId) |
+|list> info |string |t(:usdcInfo) |
+
+
+### t(:setMarginMode)
+t(:setMarginMode_para)
+
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/account/setMarginMode' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 267202913640ad9be58193d9668aea78ffda937092608cc8f92d3d07604f790f' \
+--header 'X-BAPI-API-KEY: XXXXXXXXXXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1669358755020' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "setMarginMode": "PORTFOLIO_MARGIN"
+}'
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+// success sample
+{
+    "retCode": 0,
+    "retMsg": "Request accepted",
+    "result": {
+        "reasons": []
+    }
+}
+
+// fail sample
+{
+    "retCode": 3400045,
+    "retMsg": "Set margin mode failed",
+    "result": {
+        "reasons": [
+            {
+                "reasonCode": "3400002",
+                "reasonMsg": "Please ensure that there are no active orders in your USDC account, including Limit, Market and Conditional orders"
+            },
+            {
+                "reasonCode": "3400001",
+                "reasonMsg": "Please ensure that there are no positions in your USDC account, including USDC perpetual and options"
+            }
+        ]
+    }
+}
+```
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=setmarginmode>/contract/v3/private/account/setMarginMode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#setmarginmode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|setMarginMode |<b>true</b> |string |t(:usdcMarginMode) |
+
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|reasons |array |t(:contract_setMarginMode_reasons)  |
+|> reasonCode |string |t(:contract_setMarginMode_reasonCode)  |
+|> reasonMsg |string |t(:contract_setMarginMode_reasonMsg)  |

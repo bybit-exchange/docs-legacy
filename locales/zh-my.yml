@@ -524,14 +524,14 @@ zh-my:
   row_comment_query_riskId_v3: 風險限額ID
   row_comment_query_size_v3: 倉位數量
   row_comment_query_entryPrice_v3: 平均入場價
-  row_comment_query_sessionAvgPrice_v3: Settlement price，僅USDC
+  row_comment_query_sessionAvgPrice_v3: 結算價格，僅USDC
   row_comment_query_leverage_v3: |
       逐倉模式下, 值為用戶設置的杠桿；全倉模式下，值為當前風險限額下最大杠桿；僅適用於合約，不適用於期權
   row_comment_query_markPrice_v3: 標記價格
   row_comment_query_sessionUPL_v3: Session UPL, for USDC only
   row_comment_query_sessionRPL_v3: Session RPL, for USDC only
-  row_comment_query_positionIM_v3: Initial margin
-  row_comment_query_positionMM_v3: Maintenance margin
+  row_comment_query_positionIM_v3: 倉位初始保證金
+  row_comment_query_positionMM_v3: 倉位維持保證金
   row_comment_query_trailingStop_v3: 追蹤止損
   row_comment_query_positionStatus_v3: 倉位狀態，正常，強平，減倉
   row_comment_query_positionValue_v3: 倉位價值
@@ -2882,6 +2882,8 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221124_1: 支持USDC帳戶的查詢與設置
+  restapi_update_20221124: 新增溢價指數k線接口
   restapi_update_20221123_4: 支持查詢USDC永續
   restapi_update_20221123_3: 倉位信息接口支持查詢USDC永續和期權
   restapi_update_20221123_2: 交易接口支持USDC永續和期權的下單/撤單/改單操作。<b>注意:</b> <code>category</code> 字段通過傳入"future"來覆蓋USDT永續、USDC永續、反向永續和反向交割，但是依舊支持傳入<code>linear</code>, <code>inverse</code>
@@ -5577,3 +5579,14 @@ zh-my:
   contract_executionList_orderLinkId: 用戶自定義orderId. 僅<code>option</code>
   contract_executionList_orderFilter: Order filter. 僅<code>future</code>
   contract_executionList_symbol: 合約名稱. <li>若category是future, 則symbol必傳</li><li>若category是option, 則symbol選填</li>
+  contract_translog_category: 衍生品類別. <code>future</code>：USDC永續; <code>option</code>. 默認：future
+  contract_translog_para: 查詢帳戶的交易日誌，目前僅支持<b>USDC</b>業務
+  contract_accountInfo_updateTime: 帳戶數據更新時間(毫秒)
+  accountConfig: 獲取帳戶配置
+  accountConfig_para: 當前支持獲取USDC帳戶的保證金模式
+  contract_setMarginMode_reasons: 若請求成功，則返回空數組
+  contract_setMarginMode_reasonCode: 失敗碼值
+  contract_setMarginMode_reasonMsg: 失敗信息
+  setMarginMode_para: 若不進行設置，則USDC帳戶默認為常規保證金
+  contract_wallet_accountIM: USDC帳戶初始保證金
+  contract_wallet_accountMM: USDC帳戶維持保證金
