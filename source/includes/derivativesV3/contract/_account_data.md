@@ -465,7 +465,7 @@ GET
 |symbol |false |string |t(:contract_comment_realtimeOrderSymbol) |
 |orderId |false |string | t(:misc_row_comment_orderIdNotOrderLinkId)|
 |orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|settleCoin |false |string | t(:contract_comment_realtimeOrderSettleCoin)|
+|settleCoin |false |string | t(:contract_comment_positionSettleCoin)|
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string | t(:row_comment_orderFilter_v3)|
 |limit |false |number |t(:row_comment_limit) |
 |cursor |false |string |t(:row_comment_resp_cursor)   |
@@ -593,7 +593,7 @@ GET
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |false |string |t(:contract_comment_realtimeOrderSymbol)    |
-|settleCoin |false |string |t(:contract_comment_realtimeOrderSettleCoin)    |
+|settleCoin |false |string |t(:contract_comment_positionSettleCoin)    |
 |dataFilter |false |string |t(:contract_comment_dataFilter)    |
 
 
