@@ -3240,7 +3240,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <tr>
 <td style="text-align: left">txID</td>
 <td style="text-align: left">string</td>
-<td>transaction ID. It returns <code>""</code> when withdrawal failed or withdrawal cancelled
+<td>transaction ID. It returns <code>""</code> when withdrawal failed, withdrawal cancelled or internal transfer
 </td>
 </tr>
 <tr>
@@ -3251,7 +3251,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <tr>
 <td style="text-align: left">toAddress</td>
 <td style="text-align: left">string</td>
-<td>withdrawal target address</td>
+<td>withdrawal target address. It shows email or mobile number for internal transfer</td>
 </tr>
 <tr>
 <td style="text-align: left">tag</td>
@@ -3277,6 +3277,11 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
 <td style="text-align: left">withdrawId</td>
 <td style="text-align: left">string</td>
 <td>withdrawal id. (withdraw request ID in Response Parameters of Withdrawal endpoint)</td>
+</tr>
+<tr>
+<td style="text-align: left">withdrawType</td>
+<td style="text-align: left">int</td>
+<td>Withdraw type. <code>0</code>：on chain; <code>1</code>：internal address transfer</td>
 </tr>
 <tr>
 <td style="text-align: left">nextPageCursor</td>
@@ -5384,14 +5389,9 @@ Each endpoint has its own rate limit.
 <ul>
 <li><code>BTC</code></li>
 <li><code>ETH</code></li>
-<li><code>EOS</code></li>
-<li><code>XRP</code></li>
 <li><code>USDT</code></li>
-<li><code>DOT</code></li>
-<li><code>DOGE</code></li>
-<li><code>LTC</code></li>
-<li><code>XLM</code></li>
-<li><code>USD</code></li>
+<li><code>XRP</code></li>
+<li><code>...</code></li>
 </ul>
 <h2 id='operator-type'>Operator type</h2>
 <ul>
