@@ -20,14 +20,9 @@ t(:ENUMs_para)
 ## Currency (`currency`/`coin`)
 * `BTC`
 * `ETH`
-* `EOS`
-* `XRP`
 * `USDT`
-* `DOT`
-* `DOGE`
-* `LTC`
-* `XLM`
-* `USD`
+* `XRP`
+* `...`
 
 ## Operator type
 * `SYSTEM`
