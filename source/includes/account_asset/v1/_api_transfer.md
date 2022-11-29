@@ -906,6 +906,7 @@ GET
 |update_time|int64|t(:withdraw_response_updateTime)|
 |cursor|string|t(:withdraw_response_cursor)|
 |withdraw_id|string|t(:withdraw_id)|
+|withdraw_type|int|t(:withdrawType)|
 
 ### t(:coin_info_query)
 > t(:codequote_curlExample)
@@ -1099,10 +1100,11 @@ POST
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
 |<a href="#currency-currency-coin">coin</a> |<b>true</b> |string |t(:coin_info_coin)|
-|chain|<b>true</b>|string|t(:deposit_response_chainname)
-|address|<b>true</b>|string|t(:withdraw_addr)
-|tag|false|string|t(:withdraw_tag)
-|amount|<b>true</b>|string|t(:withdraw_amount)
+|chain|<b>true</b>|string|t(:deposit_response_chainname)|
+|address|<b>true</b>|string|t(:withdraw_addr)|
+|tag|false|string|t(:withdraw_tag)|
+|amount|<b>true</b>|string|t(:withdraw_amount)|
+|force_chain|false|int|t(:account_withdraw_forceChain)|
 
 
 <p class="fake_header">t(:responseparameters)</p>

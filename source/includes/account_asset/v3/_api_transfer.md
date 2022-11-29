@@ -970,6 +970,7 @@ GET
 |createTime|string|t(:withdraw_response_createTime)|
 |updateTime|string|t(:withdraw_response_updateTime)|
 |withdrawId|string|t(:withdraw_id)|
+|withdrawType|int|t(:withdrawType)|
 |nextPageCursor|string|t(:withdraw_response_cursor)|
 
 
@@ -1103,7 +1104,7 @@ POST
 |tag|false|string|t(:withdraw_tag)
 |amount|<b>true</b>|string|t(:withdraw_amount)
 |timestamp|<b>true</b>|int|t(:assetWithdraw_timestamp)
-|forceChain|false|int|t(:account_withdraw_forceChain)
+|forceChain|false|int|t(:account_withdraw_forceChain)|
 
 
 <p class="fake_header">t(:responseparameters)</p>

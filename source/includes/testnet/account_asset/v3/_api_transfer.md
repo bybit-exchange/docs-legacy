@@ -970,6 +970,7 @@ GET
 |createTime|string|t(:withdraw_response_createTime)|
 |updateTime|string|t(:withdraw_response_updateTime)|
 |withdrawId|string|t(:withdraw_id)|
+|withdrawType|int|t(:withdrawType)|
 |nextPageCursor|string|t(:withdraw_response_cursor)|
 
 

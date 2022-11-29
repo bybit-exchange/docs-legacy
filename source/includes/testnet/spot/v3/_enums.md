@@ -63,6 +63,7 @@ t(:spotCrossMarginCoins)
 * `PENDING_CANCEL`
 * `PENDING_NEW`
 * `REJECTED`
+* `PARTIALLY_FILLED_CANCELLED`
 
 ## Quantity (`qty`)
 t(:quantity_v3)
