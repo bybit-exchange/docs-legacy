@@ -1572,6 +1572,45 @@ print(session_auth.position_mode_switch(
 
 t(:account_para_switchpositionmode_withcoin)
 
+<table class="custom_table">
+  <tr>
+    <th></th><th>t(:example_h1)</th><th>coin</th><th>symbol</th>
+  </tr>
+  <tr>
+    <td>t(:example_r1_d1)</td><td>t(:example_r1_d2)</td><td>t(:example_r1_d3)</td><td>t(:example_r1_d3)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r2_d1)</td><td colspan="3">t(:example_r2_d2)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r3_d1)</td><td>-</td><td>-</td><td>t(:example_r3_d4)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r2_d1)</td><td colspan="3">t(:example_r4_d2)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r5_d1)</td><td colspan="3">t(:example_r5_d2)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r6_d1)</td><td>-</td><td>t(:example_r6_d3)</td><td>-</td>
+  </tr>
+  <tr>
+    <td>t(:example_r2_d1)</td><td colspan="3">t(:example_r7_d2)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r8_d1)</td><td colspan="3">t(:example_r8_d2)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r9_d1)</td><td>-</td><td>-</td><td>t(:example_r9_d3)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r2_d1)</td><td colspan="3">t(:example_r10_d1)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r11_d1)</td><td colspan="3">t(:example_r12_d1)</td>
+  </tr>
+</table>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=ulSwitchMode>/private/linear/position/switch-mode</span></code>

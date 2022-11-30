@@ -2807,7 +2807,37 @@ zh-my:
   switchpositionmode: 切換倉位模式
   dv_switchpositionmode: 切換倉位模式
   account_para_switchpositionmode: 單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉。
-  account_para_switchpositionmode_withcoin: 單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉，支持<code>coin</code>级别切换單倉模式和雙倉模式。
+  account_para_switchpositionmode_withcoin: |
+    該接口可以切換<b>USDT永續</b>和<b>反向交割</b>的倉位模式。單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉。
+    <br/>
+    <b>切換規則:</b>
+    <ul>
+    <li>配置生效的優先級：symbol 配置 > coin 配置 > 系统默认配置</li>
+    <li>目前系統默認配置：單向持倉模式</li>
+    <li>如果請求參數中是按照coin的配置參數（此coin=settleCoin），則僅對該settleCoin下無持倉無委託單的symbol進行批量設置，並且未來新上線基於該settleCoin的結算的symol也是該模式。</li>
+    </ul>
+    舉例說明:
+  example_h1: 系統默認
+  example_r1_d1: 初始配置
+  example_r1_d2: 單向持倉
+  example_r1_d3: 未設置過
+  example_r2_d1: 生效結果
+  example_r2_d2: 所有USDT正向交易對都是單向持倉
+  example_r3_d1: <b>變更 1</b>
+  example_r3_d4: BTCUSDT 設置為雙向持倉模式
+  example_r4_d2: 當前交易對BTCUSDT為雙向持倉，其他交易對都是單向持倉（繼承系統默認規則）
+  example_r5_d1: 新上線交易對 ETHUSDT
+  example_r5_d2: 新上線的ETHUSDT為單向持倉 （繼承系統默認規則）
+  example_r6_d1: <b>變更 2</b>
+  example_r6_d3: USDT 設置為雙向持倉
+  example_r7_d2: 當前所有未持倉未有訂單的交易對都是雙向持倉，有持倉和有委託單的交易對不做調整
+  example_r8_d1: 新上線交易對 SOLUSDT
+  example_r8_d2: 新上線的SOLUSDT為雙向持倉 (繼承coin規則)
+  example_r9_d1: <b>變更 3</b>
+  example_r9_d3: ASXUSDT 設置為單向持倉模式
+  example_r10_d1: AXSUSDT為單向持倉模式，其餘交易對不做任何變更（繼承coin規則）
+  example_r11_d1: 新上線交易對 BITUSDT
+  example_r12_d1: 新上線的BITUSDT為雙向持倉 (繼承coin規則)
   row_comment_positionmode: 倉位模式<span>:</span> 0 - 單倉模式  3 - 雙倉模式
   futures_row_comment_leverage: <code>杠桿大於0，小於風險限額對應的杠桿</code>
   inverse_row_comment_leverage: 全倉/逐倉切換，需要傳杠桿並且<code>buy_leverage</code>和<code>sell_leverage</code>必須傳入相同參數；
