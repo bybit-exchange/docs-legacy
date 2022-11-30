@@ -734,16 +734,18 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/recent-trade?categ
         "category": "linear",
         "list": [
             {
-                "execId": "da66abbc-f358-5864-8d34-84ef7274d853",
+                "execId": "0efadcdc-f1dd-5847-9185-2f0b40e81cc7",
                 "symbol": "BTCUSDT",
-                "price": "20802.50",
-                "size": "0.200",
-                "side": "Sell",
-                "time": "1657870316630"
+                "price": "16871.00",
+                "size": "0.006",
+                "side": "Buy",
+                "time": "1669802293550",
+                "isBlockTrade": false
             }
         ]
     },
-    "time": 1657870326247
+    "retExtInfo": {},
+    "time": 1669802294719
 }
 ```
 
@@ -773,7 +775,7 @@ GET
 |size |number |t(:row_response_comment_execqty) |
 |t(:row_parameter_side) |string |t(:dv_recentSide) |
 |time |string |t(:dv_recentTime) |
-|blocktradeId |string |t(:dv_recentBlockTradeId) |
+|isBlockTrade |boolean |t(:dv_recentBlockTradeId) |
 
 
 ### t(:dv_marketopeninterest)
