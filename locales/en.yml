@@ -3236,8 +3236,36 @@ en:
     If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
 
   account_para_switchpositionmode_withcoin: |
-    If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
-    <p>Supports switching between One-Way Mode and Hedge Mode at the <code>coin</code> level.</p>
+    It supports to switch the position mode for <b>USDT perpetual</b> and <b>Inverse futures</b>. If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+    <br/>
+    <b>Rule:</b>
+    <ul>
+    <li>Priority for configuration to take effect: symbol > coin > system default</li>
+    <li>System default: one-way mode</li>
+    <li>If the request is by <code>coin</code> (settleCoin), then all symbols based on this setteCoin that do not have position and open order will be batch switched, and new listed symbol based on this settleCoin will be the same mode you set.</li>
+    </ul>
+    Example:
+  example_h1: System default
+  example_r1_d1: Inital setting
+  example_r1_d2: one-way
+  example_r1_d3: never configured
+  example_r2_d1: Take effect result
+  example_r2_d2: All USDT perpetual trading pairs are one-way molde
+  example_r3_d1: <b>Change 1</b>
+  example_r3_d4: Set BTCUSDT to hedge-mode
+  example_r4_d2: BTCUSDT becomes hedge-mode, and all other symbols keep one-way mode
+  example_r5_d1: list new symbol ETHUSDT
+  example_r5_d2: ETHUSDT is one-way mode （inherit default rules）
+  example_r6_d1: <b>Change 2</b>
+  example_r6_d3: Set USDT to hedge-mode
+  example_r7_d2: All current trading pairs with no positions or orders are hedge-mode, and no adjustments will be made for trading pairs with positions and orders
+  example_r8_d1: list new symbol SOLUSDT
+  example_r8_d2: SOLUSDT is hedge-mode (Inherit coin rule)
+  example_r9_d1: <b>Change 3</b>
+  example_r9_d3: Set ASXUSDT to one-mode
+  example_r10_d1: AXSUSDT is one-way mode, other trading pairs have no change
+  example_r11_d1: list new symbol BITUSDT
+  example_r12_d1: BITUSDT is hedge-mode (Inherit coin rule)
 
   row_comment_positionmode: |
     Position Mode. <code>0</code><span>:</span> One-Way Mode; <code>3</code><span>:</span> Hedge Mode
