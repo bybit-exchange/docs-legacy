@@ -4777,7 +4777,55 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1658909271272</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉，支持<code>coin</code>级别切换單倉模式和雙倉模式。</p>
+<p>該接口可以切換<b>USDT永續</b>和<b>反向交割</b>的倉位模式。單倉模式下，只能在單方向下持倉<br/>雙倉模式下，可以同時在兩個方向持倉。
+<br/>
+<b>切換規則:</b>
+<ul>
+<li>配置生效的優先級：symbol 配置 > coin 配置 > 系统默认配置</li>
+<li>目前系統默認配置：單向持倉模式</li>
+<li>如果請求參數中是按照coin的配置參數（此coin=settleCoin），則僅對該settleCoin下無持倉無委託單的symbol進行批量設置，並且未來新上線基於該settleCoin的結算的symol也是該模式。</li>
+</ul>
+舉例說明:
+</p>
+
+<table class="custom_table">
+  <tr>
+    <th></th><th>系統默認</th><th>coin</th><th>symbol</th>
+  </tr>
+  <tr>
+    <td>初始配置</td><td>單向持倉</td><td>未設置過</td><td>未設置過</td>
+  </tr>
+  <tr>
+    <td>生效結果</td><td colspan="3">所有USDT正向交易對都是單向持倉</td>
+  </tr>
+  <tr>
+    <td><b>變更 1</b></td><td>-</td><td>-</td><td>BTCUSDT 設置為雙向持倉模式</td>
+  </tr>
+  <tr>
+    <td>生效結果</td><td colspan="3">當前交易對BTCUSDT為雙向持倉，其他交易對都是單向持倉（繼承系統默認規則）</td>
+  </tr>
+  <tr>
+    <td>新上線交易對 ETHUSDT</td><td colspan="3">新上線的ETHUSDT為單向持倉 （繼承系統默認規則）</td>
+  </tr>
+  <tr>
+    <td><b>變更 2</b></td><td>-</td><td>USDT 設置為雙向持倉</td><td>-</td>
+  </tr>
+  <tr>
+    <td>生效結果</td><td colspan="3">當前所有未持倉未有訂單的交易對都是雙向持倉，有持倉和有委託單的交易對不做調整</td>
+  </tr>
+  <tr>
+    <td>新上線交易對 SOLUSDT</td><td colspan="3">新上線的SOLUSDT為雙向持倉 (繼承coin規則)</td>
+  </tr>
+  <tr>
+    <td><b>變更 3</b></td><td>-</td><td>-</td><td>ASXUSDT 設置為單向持倉模式</td>
+  </tr>
+  <tr>
+    <td>生效結果</td><td colspan="3">AXSUSDT為單向持倉模式，其餘交易對不做任何變更（繼承coin規則）</td>
+  </tr>
+  <tr>
+    <td>新上線交易對 BITUSDT</td><td colspan="3">新上線的BITUSDT為雙向持倉 (繼承coin規則)</td>
+  </tr>
+</table>
 
 <p class="fake_header">HTTP 請求</p>
 

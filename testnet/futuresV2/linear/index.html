@@ -7200,9 +7200,55 @@ Please note that you can only modify untriggered conditional orders.
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">75</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
-<p>Supports switching between One-Way Mode and Hedge Mode at the <code>coin</code> level.</p>
+<p>It supports to switch the position mode for <b>USDT perpetual</b> and <b>Inverse futures</b>. If you are in One-Way Mode, you can only open one position on <code>Buy</code> or <code>Sell</code> side. If you are in Hedge Mode, you can open both <code>Buy</code> and <code>Sell</code> side positions simultaneously.
+<br/>
+<b>Rule:</b>
+<ul>
+<li>Priority for configuration to take effect: symbol > coin > system default</li>
+<li>System default: one-way mode</li>
+<li>If the request is by <code>coin</code> (settleCoin), then all symbols based on this setteCoin that do not have position and open order will be batch switched, and new listed symbol based on this settleCoin will be the same mode you set.</li>
+</ul>
+Example:
 </p>
+
+<table class="custom_table">
+  <tr>
+    <th></th><th>System default</th><th>coin</th><th>symbol</th>
+  </tr>
+  <tr>
+    <td>Inital setting</td><td>one-way</td><td>never configured</td><td>never configured</td>
+  </tr>
+  <tr>
+    <td>Take effect result</td><td colspan="3">All USDT perpetual trading pairs are one-way molde</td>
+  </tr>
+  <tr>
+    <td><b>Change 1</b></td><td>-</td><td>-</td><td>Set BTCUSDT to hedge-mode</td>
+  </tr>
+  <tr>
+    <td>Take effect result</td><td colspan="3">BTCUSDT becomes hedge-mode, and all other symbols keep one-way mode</td>
+  </tr>
+  <tr>
+    <td>list new symbol ETHUSDT</td><td colspan="3">ETHUSDT is one-way mode （inherit default rules）</td>
+  </tr>
+  <tr>
+    <td><b>Change 2</b></td><td>-</td><td>Set USDT to hedge-mode</td><td>-</td>
+  </tr>
+  <tr>
+    <td>Take effect result</td><td colspan="3">All current trading pairs with no positions or orders are hedge-mode, and no adjustments will be made for trading pairs with positions and orders</td>
+  </tr>
+  <tr>
+    <td>list new symbol SOLUSDT</td><td colspan="3">SOLUSDT is hedge-mode (Inherit coin rule)</td>
+  </tr>
+  <tr>
+    <td><b>Change 3</b></td><td>-</td><td>-</td><td>Set ASXUSDT to one-mode</td>
+  </tr>
+  <tr>
+    <td>Take effect result</td><td colspan="3">AXSUSDT is one-way mode, other trading pairs have no change</td>
+  </tr>
+  <tr>
+    <td>list new symbol BITUSDT</td><td colspan="3">BITUSDT is hedge-mode (Inherit coin rule)</td>
+  </tr>
+</table>
 
 <p class="fake_header">HTTP Request</p>
 
