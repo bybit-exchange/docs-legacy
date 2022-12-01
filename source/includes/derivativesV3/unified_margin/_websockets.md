@@ -178,13 +178,13 @@ t(:websocket_para_response)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}')
+ws.send('{"op": "subscribe", "args": ["orderbook.1.BTCUSDT","orderbook.50.BTCUSDT"]}')
 ```
 > t(:codequote_snapshot)
 
 ```javascript
 {
-    "topic": "orderbook.25.BTCUSDT",
+    "topic": "orderbook.50.BTCUSDT",
     "type": "snapshot",
     "ts": 1668748553479,
     "data": {
@@ -222,7 +222,7 @@ ws.send('{"op": "subscribe", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCU
 
 ```javascript
 {
-    "topic": "orderbook.25.BTCUSDT",
+    "topic": "orderbook.50.BTCUSDT",
     "type": "delta",
     "ts": 1668748553556,
     "data": {

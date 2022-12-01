@@ -1860,6 +1860,25 @@ t(:account_para_switchpositionmode_withcoin)
   </tr>
 </table>
 
+t(:position_ability_para)
+<table class="custom_table">
+  <tr>
+    <th></th><th>t(:mode_1)</th><th>t(:mode_2)</th>
+  </tr>
+  <tr>
+    <td>t(:product_1)</td><td>t(:ability_1)</td><td>t(:ability_2)</td>
+  </tr>
+  <tr>
+    <td>t(:product_2)</td><td>t(:ability_2)</td><td>t(:ability_2)</td>
+  </tr>
+  <tr>
+    <td>t(:product_3)</td><td>t(:ability_2)</td><td>t(:ability_3)</td>
+  </tr>
+  <tr>
+    <td>t(:product_4)</td><td>t(:ability_1)</td><td>t(:ability_3)</td>
+  </tr>
+</table>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=ulSwitchMode>/futures/private/position/switch-mode</span></code>

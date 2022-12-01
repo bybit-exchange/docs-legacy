@@ -1029,6 +1029,7 @@ en:
   # Market Data Endpoints
   marketdata: Market Data Endpoints
   market_para_auth: The following market data endpoints do not require authentication.
+  market_para_auth_v3: <ul><li>The following market data endpoints do not distinguish between <b>regular accounts</b> and <b>unified margin accounts</b>.</li><li>The following market data endpoints do not require authentication.</li></ul>
 
 
   ### Orderbook
@@ -5242,7 +5243,7 @@ en:
   spotInterest: Interest Left
   QueryInterestQuota: Query Interest & Quota
   spotInterestRate: Daily Interest Rate
-  spotMaxLoanAmount: Max. Amount to Borrow
+  spotMaxLoanAmount: Please ignore
   spotLoanableAmount: Available Amount to Borrow
   QueryRepaymentHistory: Query Repayment History
   spotRepayMarginOrderId: Repay Margin Order Id
@@ -5263,7 +5264,7 @@ en:
   dv_contract: Contract
   unified_margin_account_data: Unified Margin Account
   order: Order
-  unified_margin_account_para: The following account data endpoints require authentication.
+  unified_margin_account_para: <ul><li>Unified margin account supports to trade USDT perpetual, USDC perpetual and option.</li><li>The following account data endpoints require authentication.</li></ul>
   dv_placeOrder: Place Order
   dv_replaceOrder: Replace Order
   dv_cancelOrder: Cancel Order
@@ -5533,10 +5534,8 @@ en:
     If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
     <b>Linear perpetual:</b><br/>
     1 level data, push frequency: <b>10ms</b> <br>
-    25 level data <b>(1st Dec 2022 offline)</b>, push frequency: <b>20ms</b> <br>
     50 level data, push frequency: <b>20ms</b> <br>
     200 level data, push frequency: <b>100ms</b> <br>
-    500 level data <b>(1st Dec 2022 offline)</b>, push frequency: <b>100ms</b> <br>
     <br>
     <b>Option:</b><br/>
     25 level data <br/>
@@ -5548,7 +5547,6 @@ en:
     <code>orderbook.50.{symbol}</code><br>
     <code>orderbook.100.{symbol}</code><br>
     <code>orderbook.200.{symbol}</code><br>
-    <code>orderbook.500.{symbol}</code><br>
   websocketOrderBook_contract: |
     <b>instruction: </b>
     Get different depth.<br>
@@ -5557,17 +5555,13 @@ en:
     <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
     If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
     1 level data, push frequency: <b>10ms</b> <br>
-    25 level data<b>(1st Dec 2022 offline)</b>, push frequency: <b>20ms</b> <br>
     50 level data, push frequency: <b>20ms</b> <br>
     200 level data, push frequency: <b>100ms</b> <br>
-    500 level data<b>(1st Dec 2022 offline)</b>, push frequency: <b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
     <code>orderbook.1.{symbol}</code><br>
-    <code>orderbook.25.{symbol}</code><br>
     <code>orderbook.50.{symbol}</code><br>
     <code>orderbook.200.{symbol}</code><br>
-    <code>orderbook.500.{symbol}</code><br>
 
   predicatedFundingRate_v3: Predicated funding rate. usdt perp, inverse perp and inverse futures is <code>""</code>
   row_comment_resp_next_funding_time_v3: Next settlement time of capital cost. Inverse futures is <code>""</code>
@@ -6165,3 +6159,13 @@ en:
   otcLoan_ltv_contract_price: Contract margin coin index price
   otcLoan_ltv_contract_qty: Contract margin coin quantity
   withdrawType: Withdraw type. <code>0</code>：on chain; <code>1</code>：internal address transfer
+  position_ability_para: <b>The position-switch ability for current contract：</b>
+  mode_1: Regular account
+  mode_2: Unified margin account
+  product_1: USDT perpetual
+  product_2: USDC perpetual
+  product_3: Inverse perpetual
+  product_4: Inverse future
+  ability_1: <b>Support one-way & hedge-mode</b>
+  ability_2: Support one-way ONLY
+  ability_3: N/A

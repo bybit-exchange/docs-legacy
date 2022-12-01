@@ -1,5 +1,5 @@
 # t(:marketdata)
-t(:market_para_auth)
+t(:market_para_auth_v3)
 
 ### t(:dv_orderbook)
 > t(:codequote_curlExample)
