@@ -85,10 +85,10 @@
 |AvgEntryPrice |string |t(:taxAvgEntryPrice) |
 |CumExitValue |string |t(:taxCumExitValue) |
 |AvgExitPrice |string |t(:taxAvgExitPrice) |
+|SettleCoin |string |t(:taxSettleCoin) |
 |ClosedPNL |string |t(:taxClosedPNL) |
 |FillCount |string |t(:taxFillCount) |
 |TradeTime |string |t(:taxTradeTime) |
-|SettleCoin |string |t(:taxSettleCoin) |
 
 ### t(:earnHistoryType)
 #### t(:savingsYieldHistory)
