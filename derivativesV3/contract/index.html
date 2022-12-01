@@ -1693,7 +1693,7 @@ function copyStringToClipboard (endpoint) {
 }
 </script>
 <h1 id='t-marketdata'>Market Data Endpoints</h1>
-<p>The following market data endpoints do not require authentication.</p>
+<p><ul><li>The following market data endpoints do not distinguish between <b>regular accounts</b> and <b>unified margin accounts</b>.</li><li>The following market data endpoints do not require authentication.</li></ul></p>
 <h3 id='t-dv_orderbook'>Get Order Book</h3>
 <blockquote>
 <p>Request Example</p>
@@ -4854,6 +4854,25 @@ Example:
   </tr>
 </table>
 
+<p><b>The position-switch ability for current contract：</b>
+<table class="custom_table">
+  <tr>
+    <th></th><th>Regular account</th><th>Unified margin account</th>
+  </tr>
+  <tr>
+    <td>USDT perpetual</td><td><b>Support one-way & hedge-mode</b></td><td>Support one-way ONLY</td>
+  </tr>
+  <tr>
+    <td>USDC perpetual</td><td>Support one-way ONLY</td><td>Support one-way ONLY</td>
+  </tr>
+  <tr>
+    <td>Inverse perpetual</td><td>Support one-way ONLY</td><td>N/A</td>
+  </tr>
+  <tr>
+    <td>Inverse future</td><td><b>Support one-way & hedge-mode</b></td><td>N/A</td>
+  </tr>
+</table></p>
+
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
@@ -6432,13 +6451,13 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.25.BTCUSDT","orderbook.500.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.1.BTCUSDT","orderbook.50.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>Snapshot Response Example - format of the first response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.50.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668748553479</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -6474,7 +6493,7 @@ To avoid networks or program issues, we recommend that you send the <code>ping</
 <p>Delta Response Example - format of the responses following the snapshot response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.25.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.50.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1668748553556</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -6502,17 +6521,13 @@ Websocket will keep pushing delta message when orderbook is changed. If you rece
 <b>type</b>: <code>snapshot</code>=Full orderbook, <code>delta</code>=delta orderbook<br>
 If there is a problem in bybit end, it will re-send a snapshot, which is promised the latest and accurate.<br><br>
 1 level data, push frequency: <b>10ms</b> <br>
-25 level data<b>(1st Dec 2022 offline)</b>, push frequency: <b>20ms</b> <br>
 50 level data, push frequency: <b>20ms</b> <br>
 200 level data, push frequency: <b>100ms</b> <br>
-500 level data<b>(1st Dec 2022 offline)</b>, push frequency: <b>100ms</b> <br>
 <br>
 <b>Topic: </b><br>
 <code>orderbook.1.{symbol}</code><br>
-<code>orderbook.25.{symbol}</code><br>
 <code>orderbook.50.{symbol}</code><br>
 <code>orderbook.200.{symbol}</code><br>
-<code>orderbook.500.{symbol}</code><br>
 </p>
 
 <p class="fake_header">Response Parameters</p>
