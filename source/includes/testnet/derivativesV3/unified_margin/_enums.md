@@ -6,9 +6,17 @@ t(:ENUMs_para)
 * `Sell`
 
 ## Category(`category`)
-* `linear`
-* `inverse`
-* `option`
+t(:category_para_1)
+
+* `future` t(:dv3_category_future)
+* <strike>`linear`</strike> t(:dv3_category_linear)
+* <strike>`inverse`</strike> t(:dv3_category_inverse)
+* `option` t(:dv3_category_option)
+
+t(:category_para_2)
+
+* `linear` t(:unified_category_linear)
+* `option` t(:dv3_category_option)
 
 ## Symbol (`symbol`)
 * `BTCUSDT`
@@ -32,7 +40,7 @@ t(:dv_enum_comment_getSymbol)
 * `USDT`
 
 ## Contract Type(`contractType`)
-* `InversePerpetual`
+* `InversePerpetual` 
 * `LinearPerpetual`
 * `InverseFutures`
 
@@ -153,8 +161,8 @@ Only for conditional orders:
 * `Settle` t(:exec_settle)
 
 ## Liquidity type (`lastLiquidityInd`)
-* `TAKER` t(:addedLiquidity)
-* `MAKER` t(:removedLiquidity)
+* `AddedLiquidity` t(:addedLiquidity)
+* `RemovedLiquidity` t(:removedLiquidity)
 
 
 ## Tick direction type (`tickDirection`)
@@ -218,3 +226,7 @@ t(:date)
 * `Successfully upgraded`
 * `Upgrade failed`
 * `Rejected`
+
+## Margin Mode (`marginMode`)
+* `REGULAR_MARGIN`
+* `PORTFOLIO_MARGIN`

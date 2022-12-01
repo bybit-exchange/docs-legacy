@@ -238,7 +238,7 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.1.BTCUSDT
 }
 ```
 
-t(:websocketOrderBook_v3)
+t(:websocketOrderBook_contract)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -248,6 +248,7 @@ t(:websocketOrderBook_v3)
 |b|array |t(:row_comment_resp_bid)    |
 |a |array|t(:row_comment_resp_ask)  |
 |u |number |t(:row_comment_updated_id)  |
+|seq |number |t(:row_comment_cross_seq) |
 
 
 
@@ -411,10 +412,10 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["tickers.BTCUSDT"]}'
 
 ```
 
-t(:websocket_para_ticker_UM)
+t(:websocket_para_ticker_contract)
 
 <aside class="warning">
-t(:websocket_aside_instrumentInfo_um)
+t(:websocket_aside_instrumentInfo_contract)
 </aside>
 
 

@@ -81,6 +81,7 @@ POST
 |orderId |string |t(:row_comment_order_id) |
 |orderLinkId |string |t(:row_comment_orderLinkId_response_v3) |
 
+
 ### t(:dv_replaceOrder)
 > t(:codequote_curlExample)
 
@@ -1071,7 +1072,7 @@ POST
 |:----- |:-------|:-----|----- |
 |category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
-|tpSlMode |<b>true</b> |string |t(:row_comment_tpSlMode_v3)    |
+|<a href="#tp-sl-mode-tpslmode">tpSlMode</a> |<b>true</b> |string |t(:row_comment_tpSlMode_v3)    |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1127,7 +1128,7 @@ POST
 |category |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |riskId |<b>true</b> |number |t(:row_comment_riskId_v3)  |
-|positionIdx |<b>true</b> |string |t(:row_comment_positionIdx_um)  |
+|positionIdx |false |string |t(:row_comment_positionIdx_um)  |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -1281,7 +1282,7 @@ GET
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_100_50)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
-|execType |false |string |t(:row_comment_execType_v3)   |
+|<a href="#exec-type-exectype">execType</a> |false |string |t(:row_comment_query_execType_v3)   |
 
 
 <p class="fake_header">t(:responseparameters)</p>

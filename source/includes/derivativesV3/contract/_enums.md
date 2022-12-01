@@ -131,6 +131,8 @@ Only for conditional orders:
 * `CancelByAdmin` t(:cancelByAdmin)
 * `CancelByTpSlTsClear` t(:cancelByTpSlTsClear)
 * `CancelByPzSideCh` t(:cancelByPzSideCh)
+* `CancelByCrossSelfMuch` t(:cancelByCrossSelfMuch)
+* `CancelByCrossReachMaxTradeNum` t(:cancelByCrossReachMaxTradeNum)
 
 ## Create type (`createType`)
 * `CreateByUser`
@@ -149,7 +151,7 @@ Only for conditional orders:
 * `AdlTrade` t(:exec_adlTrade)
 * `Funding` t(:exec_funding)
 * `BustTrade` t(:exec_bustTrade)
-* `Settle`
+* `Settle` t(:exec_settle)
 
 ## Liquidity type (`lastLiquidityInd`)
 * `AddedLiquidity` t(:addedLiquidity)
@@ -217,3 +219,7 @@ t(:date)
 * `Successfully upgraded`
 * `Upgrade failed`
 * `Rejected`
+
+## Margin Mode (`marginMode`)
+* `REGULAR_MARGIN`
+* `PORTFOLIO_MARGIN`
