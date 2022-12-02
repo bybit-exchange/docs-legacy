@@ -2916,8 +2916,8 @@ zh-my:
   restapi_update_20221124: 新增溢價指數k線接口
   restapi_update_20221123_4: 支持查詢USDC永續
   restapi_update_20221123_3: 倉位信息接口支持查詢USDC永續和期權
-  restapi_update_20221123_2: 交易接口支持USDC永續和期權的下單/撤單/改單操作。<b>注意:</b> <code>category</code> 字段通過傳入"future"來覆蓋USDT永續、USDC永續、反向永續和反向交割，但是依舊支持傳入<code>linear</code>, <code>inverse</code>
-  restapi_update_20221123_1: 公共行情接口支持獲取USDC永續和期權。<b>注意:</b> <code>category</code> 字段通過傳入"future"來覆蓋USDT永續、USDC永續、反向永續和反向交割，但是依舊支持傳入<code>linear</code>, <code>inverse</code>
+  restapi_update_20221123_2: 交易接口支持USDC永續和期權的下單/撤單/改單操作
+  restapi_update_20221123_1: 公共行情接口支持獲取USDC永續和期權
   restapi_update_20221123: 合約v3部分接口，支持usdc永續和期權。通過<code>category</code>字段區分是期貨還是期權。先前的<code>linear</code>、<code>inverse</code>依舊可用
   restapi_update_20221116: 新增入参字段. 支持按結算幣種來取消訂單
   restapi_update_20221108: 新增公共推送頻道
@@ -5589,8 +5589,8 @@ zh-my:
   orderStatus_v3: 指定訂單狀態查詢訂單列表。不傳該參數則默認查詢所有狀態訂單。
   # derivatives v3 - category enum
   dv3_category_future: 期貨, 包含正向合約、反向合約
-  dv3_category_linear: 正向永續合約, 包含USDC永續. 代碼依舊兼容該值
-  dv3_category_inverse: 反向合約，包含反向永續和反向交割. 代碼依舊兼容該值
+  dv3_category_linear: 正向永續合約, 包含USDC永續
+  dv3_category_inverse: 反向合約，包含反向永續和反向交割
   dv3_category_option: 期權
   # derivative v3 - merge usdc, some params comment need to be updated
   dv3_orderbook_symbol: 合約名稱. 若合約屬於option，則<code>category</code>=option<b>必傳</code>
@@ -5603,9 +5603,9 @@ zh-my:
   dv3_riskLimit_category: 衍生品類別. 不支持<code>option</code>.
   dv3_deliveryPrice_category: 衍生品類別. 僅支持<code>option</code>
   dv3_recentTrade_category: |
-    衍生品類別. <li>若<code>category</code>不傳或者傳future, 則<code>symbol</code>必傳</li><li>若<code>category</code>=option, 則<code>symbol</code>非必傳</li>
+    衍生品類別. <li>若<code>category</code>不傳或者傳linear/inverse, 則<code>symbol</code>必傳</li><li>若<code>category</code>=option, 則<code>symbol</code>非必傳</li>
   premium_index_price_kline: 查詢溢價指數價格K線數據
-  dv3_trade_category: 衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code>
+  dv3_trade_category: 衍生品類別. <code>linear</code>：正向合約, <code>inverse</code>：反向合約, <code>option</code>：期權. 默認為<code>linear</code>
   dv3_queryOrder_baseCoin: 標的幣種. 僅<code>option</code>有效
   dv3_realtimeOrder_baseCoin: 標的幣種
   contract_comment_realtimeSettleCoin: 結算幣種. <code>symbol</code>，<code>settleCoin</code>和<code>baseCoin</code>字段必須傳一個. 查詢優先級：symbol > baseCoin > settleCoin
@@ -5613,8 +5613,8 @@ zh-my:
   contract_comment_cancelType: 訂單被取消的類型
   contract_executionList_orderLinkId: 用戶自定義orderId. 僅<code>option</code>
   contract_executionList_orderFilter: Order filter. 僅<code>future</code>
-  contract_executionList_symbol: 合約名稱. <li>若category是future, 則symbol必傳</li><li>若category是option, 則symbol選填</li>
-  contract_translog_category: 衍生品類別. <code>future</code>：USDC永續; <code>option</code>. 默認：future
+  contract_executionList_symbol: 合約名稱. <li>若category是linear/inverse, 則symbol必傳</li><li>若category是option, 則symbol選填</li>
+  contract_translog_category: 衍生品類別. <code>linear</code>：USDC永續; <code>option</code>. 默認：linear
   contract_translog_para: 查詢帳戶的交易日誌，目前僅支持<b>USDC</b>業務
   contract_accountInfo_updateTime: 帳戶數據更新時間(毫秒)
   accountConfig: 獲取帳戶配置

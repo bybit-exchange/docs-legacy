@@ -6,9 +6,15 @@ t(:ENUMs_para)
 * `Sell`
 
 ## Category(`category`)
-* `future` t(:dv3_category_future)
-* <strike>`linear`</strike> t(:dv3_category_linear)
-* <strike>`inverse`</strike> t(:dv3_category_inverse)
+**market endpoints** support below:
+
+* `linear` t(:dv3_category_linear)
+* `inverse` t(:dv3_category_inverse)
+* `option` t(:dv3_category_option)
+
+`unified/v3` **private endpoints** support below:
+
+* `linear` t(:dv3_category_linear)
 * `option` t(:dv3_category_option)
 
 ## Symbol (`symbol`)
