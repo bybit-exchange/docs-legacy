@@ -536,15 +536,15 @@ under the License.
         <!-- Tax -->
         <% if page_classes.end_with?("tax_index") %>
         	<% if page_classes.include?("testnet") %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax" class="selected"><%=t(:tax)%></a></li>
+          	<!-- <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax" class="selected"><%=t(:tax)%></a></li> -->
         	<% else %>
-          	<!-- <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/tax" class="selected"><%=t(:tax)%></a></li> -->
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/tax" class="selected"><%=t(:tax)%></a></li>
         	<% end %>
         <% else %>
         	<% if page_classes.include?("testnet") %>
-          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax"><%=t(:tax)%></a></li>
+          	<!-- <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax"><%=t(:tax)%></a></li> -->
         	<% else %>
-          	<!-- <li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/tax"><%=t(:tax)%></a></li> -->
+          	<li><a href="<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/tax"><%=t(:tax)%></a></li>
         	<% end %>
         <% end %>
 
@@ -683,7 +683,7 @@ under the License.
                   <!-- <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax>Testnet</a></span> -->
                 <% else %>
                   <!-- <span class="dropdown-content-selected"><a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/tax>Mainnet</a></span> -->
-                  <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax>Testnet</a>
+                  <!-- <a href=<%= (I18n.locale.to_s == 'en') ? "/docs" : "/docs/"+I18n.locale.to_s%>/testnet/tax>Testnet</a> -->
                 <% end %>
               <% end %>
             </div>
