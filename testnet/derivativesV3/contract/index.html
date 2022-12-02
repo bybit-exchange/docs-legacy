@@ -1462,7 +1462,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-marketdata">Market Data Endpoints</a> [update]
 
 <ul>
-<li>Market data endpoints support querying USDC perp and option. <b>Note:</b> <code>category</code> param uses "future" to cover USDT perp/USDC perp/Inverse perp/Inverse futures, but it still supports passing <code>linear</code>, <code>inverse</code></li>
+<li>Market data endpoints support querying USDC perp and option.</li>
 </ul></li>
 <li><a href="#t-premium_index_price_kline">Get Premium Index Price Kline</a> [new]
 
@@ -1475,7 +1475,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-order">Order</a> [update]
 
 <ul>
-<li>Order endpoints support placing/modifying/cancel USDC perp and option. <b>Note:</b> <code>category</code> param uses "future" to cover USDT perp/USDC perp/Inverse perp/Inverse futures, but it still supports passing <code>linear</code>, <code>inverse</code></li>
+<li>Order endpoints support placing/modifying/cancel USDC perp and option.</li>
 </ul></li>
 </ul>
 <h3 id='rest-api-3'>REST API</h3>
@@ -3293,7 +3293,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category. <li>If <code>category</code> not passed, or passed with <code>future</code>, then <code>symbol</code> is <b>required</b></li><li>If <code>category</code>=option, then <code>symbol</code> is optional</li>
+<td>Derivatives products category. <li>If <code>category</code> not passed, or passed with <code>linear</code>,<code>inverse</code>, then <code>symbol</code> is <b>required</b></li><li>If <code>category</code>=option, then <code>symbol</code> is optional</li>
 </td>
 </tr>
 <tr>
@@ -3573,7 +3573,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+<td>Products category. <code>linear</code>,<code>inverse</code>, <code>option</code>：USDC option. default：<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3853,7 +3853,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+<td>Products category. <code>linear</code>,<code>inverse</code>, <code>option</code>：USDC option. default：<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -4156,7 +4156,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+<td>Products category. <code>linear</code>,<code>inverse</code>, <code>option</code>：USDC option. default：<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -4255,7 +4255,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+<td>Products category. <code>linear</code>,<code>inverse</code>, <code>option</code>：USDC option. default：<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -4361,7 +4361,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+<td>Products category. <code>linear</code>,<code>inverse</code>, <code>option</code>：USDC option. default：<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -4582,7 +4582,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+<td>Products category. <code>linear</code>,<code>inverse</code>, <code>option</code>：USDC option. default：<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -4901,7 +4901,7 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+<td>Products category. <code>linear</code>,<code>inverse</code>, <code>option</code>：USDC option. default：<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -5857,7 +5857,7 @@ One order may have multiple trade records.
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Products category. <code>future</code>：linear/inverse futures, <code>option</code>：USDC option. default：<code>future</code></td>
+<td>Products category. <code>linear</code>,<code>inverse</code>, <code>option</code>：USDC option. default：<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -5869,7 +5869,7 @@ One order may have multiple trade records.
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Symbol name. <li>if category=future, then symbol is required</li><li>If category=option, then symbol is optional</li></td>
+<td>Symbol name. <li>if category=linear or inverse, then symbol is required</li><li>If category=option, then symbol is optional</li></td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -6818,7 +6818,7 @@ Deposit or withdrawal records which occurred after 2021-07-15 will not be shown 
 <td style="text-align: left">category</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Product category. <code>future</code>：USDC PERP; <code>option</code></td>
+<td>Product category. <code>linear</code>：USDC PERP; <code>option</code></td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -8746,9 +8746,8 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 </ul>
 <h2 id='category-category'>Category(<code>category</code>)</h2>
 <ul>
-<li><code>future</code> Future, including linear perp, USDC perp, inverse perp & inverse futures</li>
-<li><strike><code>linear</code></strike> Linear perpetual, including USDC perp. It is still compatible if passed</li>
-<li><strike><code>inverse</code></strike> Inverse futures, including inverse perpetual, inverse futures. It is still compatible if passed</li>
+<li><code>linear</code> Linear perpetual, including USDC perp.</li>
+<li><code>inverse</code> Inverse futures, including inverse perpetual, inverse futures.</li>
 <li><code>option</code> USDC Option</li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>

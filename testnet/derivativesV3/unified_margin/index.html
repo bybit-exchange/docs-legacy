@@ -3344,7 +3344,7 @@ The response is in the snapshot format.
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>Derivatives products category. <li>If <code>category</code> not passed, or passed with <code>future</code>, then <code>symbol</code> is <b>required</b></li><li>If <code>category</code>=option, then <code>symbol</code> is optional</li>
+<td>Derivatives products category. <li>If <code>category</code> not passed, or passed with <code>linear</code>,<code>inverse</code>, then <code>symbol</code> is <b>required</b></li><li>If <code>category</code>=option, then <code>symbol</code> is optional</li>
 </td>
 </tr>
 <tr>
@@ -9532,10 +9532,19 @@ If <code>confirm</code> is <code>True</code>, the data is the final tick for the
 <li><code>Sell</code></li>
 </ul>
 <h2 id='category-category'>Category(<code>category</code>)</h2>
+<p><strong>market endpoints</strong> support below:</p>
+
 <ul>
-<li><code>linear</code></li>
-<li><code>inverse</code></li>
-<li><code>option</code></li>
+<li><code>linear</code> Linear perpetual, including USDC perp.</li>
+<li><code>inverse</code> Inverse futures, including inverse perpetual, inverse futures.</li>
+<li><code>option</code> USDC Option</li>
+</ul>
+
+<p><code>unified/v3</code> <strong>private endpoints</strong> support below:</p>
+
+<ul>
+<li><code>linear</code> Linear perpetual, including USDC perp.</li>
+<li><code>option</code> USDC Option</li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
 <ul>

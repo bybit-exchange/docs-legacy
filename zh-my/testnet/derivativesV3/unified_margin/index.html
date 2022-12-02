@@ -3336,7 +3336,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <li>若<code>category</code>不傳或者傳future, 則<code>symbol</code>必傳</li><li>若<code>category</code>=option, 則<code>symbol</code>非必傳</li>
+<td>衍生品類別. <li>若<code>category</code>不傳或者傳linear/inverse, 則<code>symbol</code>必傳</li><li>若<code>category</code>=option, 則<code>symbol</code>非必傳</li>
 </td>
 </tr>
 <tr>
@@ -9525,10 +9525,19 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <li><code>Sell</code></li>
 </ul>
 <h2 id='category-category'>Category(<code>category</code>)</h2>
+<p><strong>market endpoints</strong> support below:</p>
+
 <ul>
-<li><code>linear</code></li>
-<li><code>inverse</code></li>
-<li><code>option</code></li>
+<li><code>linear</code> 正向永續合約, 包含USDC永續</li>
+<li><code>inverse</code> 反向合約，包含反向永續和反向交割</li>
+<li><code>option</code> 期權</li>
+</ul>
+
+<p><code>unified/v3</code> <strong>private endpoints</strong> support below:</p>
+
+<ul>
+<li><code>linear</code> 正向永續合約, 包含USDC永續</li>
+<li><code>option</code> 期權</li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
 <ul>

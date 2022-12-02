@@ -1462,7 +1462,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-marketdata">行情接口</a> [更新]
 
 <ul>
-<li>公共行情接口支持獲取USDC永續和期權。<b>注意:</b> <code>category</code> 字段通過傳入"future"來覆蓋USDT永續、USDC永續、反向永續和反向交割，但是依舊支持傳入<code>linear</code>, <code>inverse</code></li>
+<li>公共行情接口支持獲取USDC永續和期權</li>
 </ul></li>
 <li><a href="#t-premium_index_price_kline">查詢溢價指數價格K線數據</a> [新增]
 
@@ -1475,7 +1475,7 @@ clipboard.on('error', function(e) {
 <li><a href="#t-order">委託單</a> [更新]
 
 <ul>
-<li>交易接口支持USDC永續和期權的下單/撤單/改單操作。<b>注意:</b> <code>category</code> 字段通過傳入"future"來覆蓋USDT永續、USDC永續、反向永續和反向交割，但是依舊支持傳入<code>linear</code>, <code>inverse</code></li>
+<li>交易接口支持USDC永續和期權的下單/撤單/改單操作</li>
 </ul></li>
 </ul>
 <h3 id='rest-api-3'>REST API</h3>
@@ -3285,7 +3285,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <li>若<code>category</code>不傳或者傳future, 則<code>symbol</code>必傳</li><li>若<code>category</code>=option, 則<code>symbol</code>非必傳</li>
+<td>衍生品類別. <li>若<code>category</code>不傳或者傳linear/inverse, 則<code>symbol</code>必傳</li><li>若<code>category</code>=option, 則<code>symbol</code>非必傳</li>
 </td>
 </tr>
 <tr>
@@ -3566,7 +3566,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code></td>
+<td>衍生品類別. <code>linear</code>：正向合約, <code>inverse</code>：反向合約, <code>option</code>：期權. 默認為<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -3842,7 +3842,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code></td>
+<td>衍生品類別. <code>linear</code>：正向合約, <code>inverse</code>：反向合約, <code>option</code>：期權. 默認為<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -4141,7 +4141,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code></td>
+<td>衍生品類別. <code>linear</code>：正向合約, <code>inverse</code>：反向合約, <code>option</code>：期權. 默認為<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -4240,7 +4240,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code></td>
+<td>衍生品類別. <code>linear</code>：正向合約, <code>inverse</code>：反向合約, <code>option</code>：期權. 默認為<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -4346,7 +4346,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code></td>
+<td>衍生品類別. <code>linear</code>：正向合約, <code>inverse</code>：反向合約, <code>option</code>：期權. 默認為<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -4564,7 +4564,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code></td>
+<td>衍生品類別. <code>linear</code>：正向合約, <code>inverse</code>：反向合約, <code>option</code>：期權. 默認為<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">symbol</td>
@@ -4882,7 +4882,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code></td>
+<td>衍生品類別. <code>linear</code>：正向合約, <code>inverse</code>：反向合約, <code>option</code>：期權. 默認為<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -5828,7 +5828,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#category-category">category</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <code>future</code>：正反向合約, <code>option</code>：期權. 默認為<code>future</code></td>
+<td>衍生品類別. <code>linear</code>：正向合約, <code>inverse</code>：反向合約, <code>option</code>：期權. 默認為<code>linear</code></td>
 </tr>
 <tr>
 <td style="text-align: left">orderId</td>
@@ -5840,7 +5840,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>合約名稱. <li>若category是future, 則symbol必傳</li><li>若category是option, 則symbol選填</li></td>
+<td>合約名稱. <li>若category是linear/inverse, 則symbol必傳</li><li>若category是option, 則symbol選填</li></td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -6785,7 +6785,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">category</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>衍生品類別. <code>future</code>：USDC永續; <code>option</code>. 默認：future</td>
+<td>衍生品類別. <code>linear</code>：USDC永續; <code>option</code>. 默認：linear</td>
 </tr>
 <tr>
 <td style="text-align: left">baseCoin</td>
@@ -8705,9 +8705,8 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 </ul>
 <h2 id='category-category'>Category(<code>category</code>)</h2>
 <ul>
-<li><code>future</code> 期貨, 包含正向合約、反向合約</li>
-<li><strike><code>linear</code></strike> 正向永續合約, 包含USDC永續. 代碼依舊兼容該值</li>
-<li><strike><code>inverse</code></strike> 反向合約，包含反向永續和反向交割. 代碼依舊兼容該值</li>
+<li><code>linear</code> 正向永續合約, 包含USDC永續</li>
+<li><code>inverse</code> 反向合約，包含反向永續和反向交割</li>
 <li><code>option</code> 期權</li>
 </ul>
 <h2 id='symbol-symbol'>Symbol (<code>symbol</code>)</h2>
