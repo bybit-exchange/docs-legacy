@@ -539,6 +539,11 @@ t(:websocket_aside_klineV2)
 
 
 ## t(:contract_privateTopic)
+
+<aside class="warning">
+t(:websocket_private_option_temp_warning)
+</aside>
+
 ### t(:websocketposition)
 > t(:codequote_subscribe)
 

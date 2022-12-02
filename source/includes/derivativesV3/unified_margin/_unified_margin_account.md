@@ -53,7 +53,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
 |positionIdx |false |string |t(:row_comment_positionIdx_um)   |
@@ -128,7 +128,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |orderId |false |string |t(:row_comment_orderId_replace) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_replace) |
@@ -196,7 +196,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |orderId |false |string |t(:row_comment_orderId_v3_post) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_v3_post) |
@@ -283,7 +283,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |baseCoin |false |string |t(:unified_baseCoin_param)   |
 |orderId |false |string |t(:row_comment_query_orderId_v3) |
@@ -297,7 +297,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |string |t(:row_comment_category_v3)    |
 |list> symbol |string |t(:row_comment_symbol_v3)   |
 |list> orderType |string |t(:row_comment_query_orderType_v3)  |
 |list> orderLinkId |string |t(:row_comment_query_orderLinkId_v3)  |
@@ -406,7 +406,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |baseCoin |false |string |t(:unified_baseCoin_param_2)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
@@ -421,7 +421,7 @@ GET
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
-|category |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |string |t(:row_comment_category_v3)    |
 |list> symbol |string |t(:row_comment_symbol_v3)   |
 |list> side |string |t(:row_comment_query_side_v3)  |
 |list> orderType |string |t(:row_comment_query_orderType_v3)  |
@@ -539,7 +539,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
 |request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> t(:row_parameter_side) |<b>true</b> |string |t(:row_comment_side_v3)    |
@@ -652,7 +652,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
 |request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
@@ -751,7 +751,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
 |request |<b>true</b> |array |    |
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> orderId |false |string |t(:row_comment_orderId_v3_post) |
@@ -842,7 +842,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_4)    |
 |baseCoin |false |string |t(:row_comment_cancelAll_baseCoin_v3)   |
 |settleCoin |false |string |t(:row_comment_settleCoin_v3) |
 |symbol |false |string |t(:row_comment_symbol_v3) |
@@ -933,7 +933,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |baseCoin |false |string |t(:unified_baseCoin_param_3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
@@ -1014,7 +1014,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |buyLeverage |<b>true</b> |string |t(:row_comment_buyLeverage_v3)    |
 |sellLeverage |<b>true</b> |string |t(:row_comment_sellLeverage_v3)   |
@@ -1070,7 +1070,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |<a href="#tp-sl-mode-tpslmode">tpSlMode</a> |<b>true</b> |string |t(:row_comment_tpSlMode_v3)    |
 
@@ -1125,7 +1125,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |riskId |<b>true</b> |number |t(:row_comment_riskId_v3)  |
 |positionIdx |false |string |t(:row_comment_positionIdx_um)  |
@@ -1188,7 +1188,7 @@ POST
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_7)    |
 |symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |takeProfit |false |string |t(:account_row_comment_takeProfit_v3) |
 |stopLoss |false |string |t(:account_row_comment_stopLoss_v3) |
@@ -1271,7 +1271,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:row_comment_category_v3)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |baseCoin |false |string |t(:unified_baseCoin_param_3)   |
 |orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
@@ -1365,7 +1365,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_8)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |expDate |false |string |t(:row_comment_expDate_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
@@ -1442,7 +1442,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_9)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:dv_category)t(:dv_categorySuffix_9)    |
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
 |limit |false |number |t(:row_comment_limit_v3)   |
@@ -1699,7 +1699,7 @@ GET
 <p class="fake_header">t(:requestparameters)</p>
 |t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
 |:----- |:-------|:-----|----- |
-|category |<b>true</b> |string |t(:row_comment_category_v3)    |
+|<a href="#category-category">category</a> |<b>true</b> |string |t(:row_comment_category_v3)    |
 |currency |<b>true</b> |string |t(:row_comment_query_currency_v3)   |
 |baseCoin |false |string |t(:usdcBaseCoinUM_transLog)   |
 |t(:row_comment_query_transType_v3) |false |string |t(:row_comment_type_v3)   |

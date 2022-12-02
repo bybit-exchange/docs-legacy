@@ -7,12 +7,14 @@ t(:ENUMs_para)
 
 ## Category(`category`)
 t(:category_para_1)
+
 * `future` t(:dv3_category_future)
 * <strike>`linear`</strike> t(:dv3_category_linear)
 * <strike>`inverse`</strike> t(:dv3_category_inverse)
 * `option` t(:dv3_category_option)
 
 t(:category_para_2)
+
 * `linear` t(:unified_category_linear)
 * `option` t(:dv3_category_option)
 

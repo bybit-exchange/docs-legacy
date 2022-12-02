@@ -53,6 +53,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
 
 t(:contract_order_para)
 
+<aside class="warning">
+t(:contract_option_temp_warning)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCreate>/contract/v3/private/order/create</span></code>
@@ -305,6 +309,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
 
 t(:contract_para_cancelOrder)
 
+<aside class="warning">
+t(:contract_option_temp_warning)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCancel>/contract/v3/private/order/cancel</span></code>
@@ -366,6 +374,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
 ```
 
 t(:contract_para_cancelAllOrders)
+
+<aside class="warning">
+t(:contract_option_temp_warning)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
@@ -432,6 +444,10 @@ t(:contract_para_replaceOrder)
 
 <aside class="notice">
 t(:account_aside_replaceActive)
+</aside>
+
+<aside class="warning">
+t(:contract_option_temp_warning)
 </aside>
 
 <p class="fake_header">t(:httprequest)</p>
@@ -895,6 +911,64 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
 ```
 
 t(:account_para_switchpositionmode_withcoin)
+
+<table class="custom_table">
+  <tr>
+    <th></th><th>t(:example_h1)</th><th>coin</th><th>symbol</th>
+  </tr>
+  <tr>
+    <td>t(:example_r1_d1)</td><td>t(:example_r1_d2)</td><td>t(:example_r1_d3)</td><td>t(:example_r1_d3)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r2_d1)</td><td colspan="3">t(:example_r2_d2)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r3_d1)</td><td>-</td><td>-</td><td>t(:example_r3_d4)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r2_d1)</td><td colspan="3">t(:example_r4_d2)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r5_d1)</td><td colspan="3">t(:example_r5_d2)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r6_d1)</td><td>-</td><td>t(:example_r6_d3)</td><td>-</td>
+  </tr>
+  <tr>
+    <td>t(:example_r2_d1)</td><td colspan="3">t(:example_r7_d2)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r8_d1)</td><td colspan="3">t(:example_r8_d2)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r9_d1)</td><td>-</td><td>-</td><td>t(:example_r9_d3)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r2_d1)</td><td colspan="3">t(:example_r10_d1)</td>
+  </tr>
+  <tr>
+    <td>t(:example_r11_d1)</td><td colspan="3">t(:example_r12_d1)</td>
+  </tr>
+</table>
+
+t(:position_ability_para)
+<table class="custom_table">
+  <tr>
+    <th></th><th>t(:mode_1)</th><th>t(:mode_2)</th>
+  </tr>
+  <tr>
+    <td>t(:product_1)</td><td>t(:ability_1)</td><td>t(:ability_2)</td>
+  </tr>
+  <tr>
+    <td>t(:product_2)</td><td>t(:ability_2)</td><td>t(:ability_2)</td>
+  </tr>
+  <tr>
+    <td>t(:product_3)</td><td>t(:ability_2)</td><td>t(:ability_3)</td>
+  </tr>
+  <tr>
+    <td>t(:product_4)</td><td>t(:ability_1)</td><td>t(:ability_3)</td>
+  </tr>
+</table>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
