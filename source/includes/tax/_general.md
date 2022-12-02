@@ -33,7 +33,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoL2>/fht/compliance/tax/v3/private/registertime</span></code>
+<code><span id=taxregistertime>/fht/compliance/tax/v3/private/registertime</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxregistertime"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -80,7 +80,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoL2>/fht/compliance/tax/v3/private/create</span></code>
+<code><span id=taxcreate>/fht/compliance/tax/v3/private/create</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxcreate"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -134,7 +134,7 @@ t(:exportReportStatusDesc)
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoL2>/fht/compliance/tax/v3/private/status</span></code>
+<code><span id=taxstatus>/fht/compliance/tax/v3/private/status</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxstatus"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
@@ -182,7 +182,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/fht/compliance/tax
 
 <p class="fake_header">t(:httprequest)</p>
 POST
-<code><span id=vpoL2>/fht/compliance/tax/v3/private/url</span></code>
+<code><span id=taxurl>/fht/compliance/tax/v3/private/url</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#taxurl"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
 
 <p class="fake_header">t(:requestparameters)</p>
