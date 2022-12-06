@@ -544,6 +544,37 @@ t(:websocket_aside_klineV2)
 |ts|long |t(:row_comment_dv3_ts)    |
 
 
+### t(:websocketliquidation)
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op":"subscribe","req_id": "10110001", "args":["liquidation.BTCUSDT"]}')
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExampleFormatAll)
+
+```javascript
+
+```
+
+t(:websocketliquidation_para)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|updatedTime|integer |t(:insurance_resp_updatedTime) |
+|symbol|string |t(:row_comment_symbol) |
+|side|string|t(:liquidation_side) |
+|positionSide|string |t(:liquidation_positionSide) |
+|size|string |t(:execQty)  |
+|price|string |t(:excPrice)  |
+|execID|string |t(:row_comment_exec_id) |
+
+
 ## t(:privatetopics_unified)
 ### t(:websocketposition)
 > t(:codequote_subscribe)

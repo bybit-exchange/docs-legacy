@@ -5709,3 +5709,19 @@ zh-my:
   ability_1: <b>支持單雙向持倉</b>
   ability_2: 僅支持單向持倉
   ability_3: 不支持該模式下交易該合約
+  # rest insurance
+  dv_insurance: 查詢保險池基金
+  insurance_para: 獲取Bybit平台的保險基金數據，包含所有的保險池幣種。數據更新策略：UTC 00:00更新昨天的保險池餘額
+  insurance_resp_updatedTime: 數據更新毫秒時間戳
+  insurance_resp_coin: 保險池的幣種
+  insurance_resp_balance: 保險池的幣種數量
+  insurance_resp_value: 保險池的幣種價值（折成USD）,計算方式：取推送時，該幣種USD指數價格*幣種數量
+  websocketliquidation_para: |
+    獲取Bybit平台最近的強平訂單數據，推送增量數據。業務範圍：USDT永續、反向永續、反向交割、USDC永續<br/>
+    <br/>
+    推送頻率：<b>實時</b><br/>
+    <br/>
+    <b>Topic:</b><br/>
+    <code>liquidation.{symbol}</code>
+  liquidation_side: 訂單方向. <code>Buy</code> <code>Sell</code>
+  liquidation_positionSide: 持倉方向. <code>long</code>：做多, <code>short</code>：做空. 結合訂單方向，例如：若<code>positionSide</code>=long, <code>side</code>=Sell, 則表示多倉被強平

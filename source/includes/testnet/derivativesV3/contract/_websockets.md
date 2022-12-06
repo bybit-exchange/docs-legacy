@@ -537,6 +537,60 @@ t(:websocket_aside_klineV2)
 |ts|long |t(:row_comment_dv3_ts)    |
 
 
+### t(:dv_insurance)
+> t(:codequote_curlExample)
+
+```console
+curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/insurance?coin=BTC'
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "updateTime": "1670284800000",
+        "list": [
+            {
+                "coin": "BTC",
+                "balance": "5044.45074186",
+                "value": "85819120.39999999"
+            }
+        ]
+    },
+    "retExtInfo": {},
+    "time": 1670311057711
+}
+```
+
+t(:insurance_para)
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=dvinsurance>/derivatives/v3/public/insurance</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvinsurance"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|parameter|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|coin |false |string |t(:coin_info_coin) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|updatedTime |string |t(:insurance_resp_updatedTime) |
+|list |array |Object |
+|> coin |string |t(:insurance_resp_coin) |
+|> balance |string |t(:insurance_resp_balance) |
+|> value |string |t(:insurance_resp_value) |
+
+
 ## t(:contract_privateTopic)
 ### t(:websocketposition)
 > t(:codequote_subscribe)
