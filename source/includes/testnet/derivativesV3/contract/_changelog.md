@@ -5,6 +5,9 @@
 - [t(:dv_insurance)](#t-dv_insurance) [t(:changelog_new)]
   - t(:restapi_update_20221208)
 
+- [t(:dv_setMarginMode)](#t-dv_setmarginmode) [t(:changelog_new)]
+  - t(:restapi_update_20221208_2)
+  
 ## 2022-11-23
 ### REST API
 - [t(:marketdata)](#t-marketdata) [t(:changelog_update)]
