@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-12-08
+### REST API
+- [t(:dv_insurance)](#t-dv_insurance) [t(:changelog_new)]
+  - t(:restapi_update_20221208)
+
 ## 2022-10-12
 ### REST API
 - [t(:dv_queryOrderRealtime)](#t-dv_queryorderrealtime) [t(:changelog_update)]
