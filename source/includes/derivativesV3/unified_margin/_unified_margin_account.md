@@ -2023,3 +2023,93 @@ GET
 |list> freeBorrowingAmount |string |t(:row_comment_query_freeBorrowingAmount_v3)  |
 
 
+### t(:dv_setMarginMode)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private/account/setMarginMode' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: a1487d336f003c389651fc89aa88cc9b19be6e2b12eb75b70180b61b0a03fd96' \
+--header 'X-BAPI-API-KEY: CYZHHQAUQVHCGTHJPX' \
+--header 'X-BAPI-TIMESTAMP: 1670481748474' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "setMarginMode":"PORTFOLIO_MARGIN"
+}'
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "Request accepted",
+    "result": {
+        "reasons": []
+    }
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=setMarginMode>/unified/v3/private/account/setMarginMode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#setMarginMode"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|setMarginMode |<b>true</b> |string |t(:row_comment_set_margin_mode)   |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+
+
+### t(:dv_queryAccountInfo)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/account/info' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: 2640e6dc39a87bda2440ed6cbf55b2c852053ae24d956f663be3aca98bbffa37' \
+--header 'X-BAPI-API-KEY: CYZHHQAUQVHCGTHJPX' \
+--header 'X-BAPI-TIMESTAMP: 1670482882077' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw ''
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "Success",
+    "marginMode": "PORTFOLIO_MARGIN",
+    "updateTime": "1670481749000"
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+GET
+<code><span id=getAccountInfo>/unified/v3/private/account/info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#getAccountInfo"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|marginMode |string |t(:row_comment_set_margin_mode)   |
+|updateTime |string |t(:row_resp_comment_updateTime)   |
