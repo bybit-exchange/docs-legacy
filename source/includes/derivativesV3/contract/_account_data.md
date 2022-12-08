@@ -382,7 +382,8 @@ POST
 |stopLoss |false |string |t(:row_comemnt_replace_stop_loss)  |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
-|triggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
+|triggerPrice |false |string |t(:row_comment_triggerPrice_replace_v3) |
+|triggerBy |false |string |t(:row_comment_triggerBy_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
