@@ -452,7 +452,8 @@ POST
 |stopLoss |false |string |t(:row_comemnt_replace_stop_loss)  |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
-|triggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
+|triggerBy |false |string |t(:row_comment_triggerBy_v3) |
+|triggerPrice |false |string |t(:row_comment_triggerPrice_replace_v3) |
 |iv |false |string |t(:row_comment_iv_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -723,7 +724,7 @@ GET
 |:----- |:-----|----- |
 |list |array |Object |
 |> positionIdx |integer |t(:row_comment_position_idx)  |
-|> riskId  |integer |t(:contract_comment_riskId) |
+|> riskId  |string |t(:contract_comment_riskId) |
 |> t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |> t(:row_parameter_side) |string |t(:row_comment_side)  |
 |> size |string |t(:row_comment_position_size)  |

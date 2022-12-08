@@ -382,7 +382,8 @@ POST
 |stopLoss |false |string |t(:row_comemnt_replace_stop_loss)  |
 |tpTriggerBy |false |string |t(:account_row_comment_tp_trigger_by) |
 |slTriggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
-|triggerBy |false |string |t(:account_row_comment_sl_trigger_by) |
+|triggerPrice |false |string |t(:row_comment_triggerPrice_replace_v3) |
+|triggerBy |false |string |t(:row_comment_triggerBy_v3) |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
@@ -601,7 +602,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |positionIdx |integer |t(:row_comment_position_idx)  |
-|riskId  |integer |t(:contract_comment_riskId) |
+|riskId  |string |t(:contract_comment_riskId) |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |string |t(:row_comment_position_size)  |
@@ -1504,3 +1505,50 @@ GET
 |list> wallet_balance |string |t(:row_comment_wallet_balance)  |
 |list> exec_time |string |t(:row_comment_exec_timestamp)  |
 |nextPageCursor |string |t(:contract_accountNextPageCursor)  |
+
+
+### t(:dv_setMarginMode)
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/private/account/setMarginMode' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-SIGN: a1487d336f003c389651fc89aa88cc9b19be6e2b12eb75b70180b61b0a03fd96' \
+--header 'X-BAPI-API-KEY: CYZHHQAUQVHCGTHJPX' \
+--header 'X-BAPI-TIMESTAMP: 1670481748474' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "setMarginMode":"PORTFOLIO_MARGIN"
+}'
+```
+
+```python--pybit
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "Request accepted",
+    "result": {
+        "reasons": []
+    }
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+POST
+<code><span id=setMarginModeContractV3>/contract/v3/private/account/setMarginMode</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#setMarginModeContractV3"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|setMarginMode |<b>true</b> |string |t(:row_comment_set_margin_mode)   |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |

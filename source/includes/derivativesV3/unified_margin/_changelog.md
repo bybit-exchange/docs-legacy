@@ -1,4 +1,23 @@
 # t(:changelog)
+
+## 2022-12-08
+### REST API
+- [t(:dv_insurance)](#t-dv_insurance) [t(:changelog_new)]
+  - t(:restapi_update_20221208)
+  
+- [t(:dv_setMarginMode)](#t-dv_setmarginmode) [t(:changelog_new)]
+  - t(:restapi_update_20221208_2)
+  
+- [t(:dv_queryAccountInfo)](#t-dv_queryaccountinfo) [t(:changelog_new)]
+  - t(:restapi_update_20221208_3)
+  
+- [t(:dv_myposition)](#t-dv_myposition) [t(:changelog_update)]
+  - t(:restapi_update_20221208_5)
+
+### WebSocket API
+- [t(:user_info_um)](#t-user_info_um) [t(:changelog_new)]
+  - t(:restapi_update_20221208_4)
+
 ## 2022-11-10
 ### WebSocket API
 - [t(:websocketOrderBookDepth)](#t-websocketorderbookdepth) [t(:changelog_update)]

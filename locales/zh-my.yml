@@ -530,8 +530,8 @@ zh-my:
   row_comment_query_markPrice_v3: 標記價格
   row_comment_query_sessionUPL_v3: Session UPL, for USDC only
   row_comment_query_sessionRPL_v3: Session RPL, for USDC only
-  row_comment_query_positionIM_v3: 倉位初始保證金
-  row_comment_query_positionMM_v3: 倉位維持保證金
+  row_comment_query_positionIM_v3: 倉位初始保證金。Portfolio Margin 模式下，顯示為空串。
+  row_comment_query_positionMM_v3: 倉位維持保證金。Portfolio Margin 模式下，顯示為空串。
   row_comment_query_trailingStop_v3: 追蹤止損
   row_comment_query_positionStatus_v3: 倉位狀態，正常，強平，減倉
   row_comment_query_positionValue_v3: 倉位價值
@@ -2911,6 +2911,11 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221208_5: 將響應字段<code>riskId</code>的數據類型從<code>integer</code>更新為<code>string</code>
+  restapi_update_20221208_4: 新增 websocket topic info以獲取帳戶信息更新
+  restapi_update_20221208_3: 新增查詢賬戶信息接口
+  restapi_update_20221208_2: 新增設置保證金模式接口
+  restapi_update_20221208: 新增查詢保險基金接口
   restapi_update_20221124_2: 支持內部轉帳
   restapi_update_20221124_1: 支持USDC帳戶的查詢與設置
   restapi_update_20221124: 新增溢價指數k線接口
@@ -4859,6 +4864,8 @@ zh-my:
   dv_queryExchangeRecords: 獲取幣幣兌換紀錄查詢
   dv_interestBillStatement: 利息帳單
   dv_queryLoanInterest: 借貸利率查詢
+  dv_setMarginMode: 設置保證金模式
+  dv_queryAccountInfo: 查詢賬戶配置
 
   dv_batchPlaceOrder: 批量創建訂單
   dv_batchReplaceOrders: 批量修改訂單信息
@@ -4928,7 +4935,7 @@ zh-my:
 
   dv_orderbookBids: 買方. 排序按照價格從小到大
   dv_orderbookAsks: 賣方. 排序按照價格從小到大
-  dv_orderbookUpdateId: 表示數據連續性的id
+  dv_orderbookUpdateId: 表示數據連續性的id. 與wss中200檔的orderbook中的"u"對應
   dv_orderbookTimeStamp: 時間戳, 精度毫秒
 
   # instrumentsInfo
@@ -5709,3 +5716,11 @@ zh-my:
   ability_1: <b>支持單雙向持倉</b>
   ability_2: 僅支持單向持倉
   ability_3: 不支持該模式下交易該合約
+  # rest insurance
+  dv_insurance: 查詢保險池基金
+  insurance_para: 獲取Bybit平台的保險基金數據，包含所有的保險池幣種。數據更新策略：UTC 00:00更新昨天的保險池餘額
+  insurance_resp_updatedTime: 數據更新毫秒時間戳
+  insurance_resp_coin: 保險池的幣種
+  insurance_resp_balance: 保險池的幣種數量
+  insurance_resp_value: 保險池的幣種價值（折成USD）,計算方式：取推送時，該幣種USD指數價格*幣種數量
+  row_comment_triggerPrice_replace_v3: 修改條件單的觸發價格。如果不修改這個字段，請不要傳這個參數。

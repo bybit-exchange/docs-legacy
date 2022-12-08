@@ -174,7 +174,7 @@ en:
     <p>- If both symbol & baseCoin passed, baseCoin is ignored. Only active orders with that symbol will be cancelled</p>
   row_comment_cancelAll_orderFilter_v3: Conditional order or active order
 
-  row_comment_triggerPrice_replace_v3: Modify trigger price
+  row_comment_triggerPrice_replace_v3: Modify trigger price. Do not pass this field if you don't want modify it
   row_comment_qty_replace_v3: Order quantity after modification. For orders that are not completely filled, only the remaining orders not filled can be modified. If this field is not modified, please do not pass this parameter.
   row_comment_price_replace_v3: Order price after modification. If this field is not modified, please do not pass this parameter.
   row_comment_takeProfit_replace_v3: Take-profit price after modification. If this field is not modified, please do not pass this parameter.
@@ -299,8 +299,8 @@ en:
   row_comment_query_markPrice_v3: Mark price
   row_comment_query_sessionUPL_v3: Session UPL, for USDC only
   row_comment_query_sessionRPL_v3: Session RPL, for USDC only
-  row_comment_query_positionIM_v3: Position Initial margin
-  row_comment_query_positionMM_v3: Position Maintenance margin
+  row_comment_query_positionIM_v3: Position Initial margin. Empty String under Portfolio Margin mode
+  row_comment_query_positionMM_v3: Position Maintenance margin. Empty String under Portfolio Margin mode
   row_comment_query_trailingStop_v3: Trailing stop
   row_comment_query_positionStatus_v3: Position status<span>:</span> Normal, Liquidation, and Deleveraging.
   row_comment_query_positionValue_v3: Position value
@@ -1257,6 +1257,10 @@ en:
   udscGeeksDescV3: |
     <p><b>Topic: </b></p>
     <p>user.greeks.unifiedAccount</p></p>
+
+  udscInfoDescV3: |
+    <p><b>Topic: </b></p>
+    <p>user.info.unifiedAccount</p></p>
 
   ### Get Active Order
   getactive: Get Active Order
@@ -3343,6 +3347,11 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221208_5: Update the data type of response field <code>riskId</code> from <code>integer</code> to <code>string</code>
+  restapi_update_20221208_4: Add new websocket to get account info update
+  restapi_update_20221208_3: Add new rest api to query account info
+  restapi_update_20221208_2: Add new rest api to set margin mode
+  restapi_update_20221208: Add new rest api to query insuarnce pool information
   restapi_update_20221124_2: Support internal transfer
   restapi_update_20221124_1: Support USDC account query and config
   restapi_update_20221124: Add new market endpoint
@@ -5288,6 +5297,8 @@ en:
   dv_batchReplaceOrders: Batch Replace Orders
   dv_batchCancelOrders: Batch Cancel Orders
   dv_cancelAllOrders: Cancel All Orders
+  dv_setMarginMode: Set Margin Mode
+  dv_queryAccountInfo: Query Account Info
 
   queryOrderRealtime: Get Order(real-time)
   getOrder: Get Order
@@ -5311,6 +5322,7 @@ en:
   privatetopics_unified: Private Topics
   websocketOrder: order
   greeksOption: greeks
+  user_info_um: info
   user_data: User Data Endpoints
   api_key_info: Api Key Info
   create_sub_members: Create Sub Member Account
@@ -5362,7 +5374,7 @@ en:
 
   dv_orderbookBids: Buyer. Order by price asc
   dv_orderbookAsks: Seller. Order by price asc
-  dv_orderbookUpdateId: Id for continuity of data
+  dv_orderbookUpdateId: Id for continuity of data. Corresponding to "u" in the wss 200 level orderbook
   dv_orderbookTimeStamp: Timestamp(ms)
 
   # instrumentsInfo
@@ -6175,3 +6187,10 @@ en:
   ability_1: <b>Support one-way & hedge-mode</b>
   ability_2: Support one-way ONLY
   ability_3: N/A
+  dv_insurance: Get Insurance Data
+  insurance_para: Query Bybit insurance data, including all insurance coins. Data is updated at UTC 00:00
+  insurance_resp_updatedTime: Data updated time (ms)
+  insurance_resp_coin: coin
+  insurance_resp_balance: Quantity of coin in the insurance pool
+  insurance_resp_value: USD value of coin, formula：the snapshot index price(USD) of the coin * qty of coin
+  row_comment_set_margin_mode: REGULAR_MARGIN, PORTFOLIO_MARGIN
