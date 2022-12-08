@@ -780,11 +780,16 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-11-23" class="toc-h2 toc-link" data-title="2022-11-23">2022-11-23</a>
+                    <a href="#2022-12-08" class="toc-h2 toc-link" data-title="2022-12-08">2022-12-08</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2022-11-23" class="toc-h2 toc-link" data-title="2022-11-23">2022-11-23</a>
+                      <ul class="toc-list-h3">
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
@@ -797,13 +802,16 @@
                           <li>
                             <a href="#rest-api-5" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
+                          <li>
+                            <a href="#rest-api-6" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
                     <a href="#2022-09-13" class="toc-h2 toc-link" data-title="2022-09-13">2022-09-13</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#rest-api-6" class="toc-h3 toc-link" data-title="REST API">REST API</a>
+                            <a href="#rest-api-7" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
@@ -896,6 +904,9 @@
                   </li>
                   <li>
                     <a href="#t-dv_marketopeninterest" class="toc-h2 toc-link" data-title="未平合約持倉數量">未平合約持倉數量</a>
+                  </li>
+                  <li>
+                    <a href="#t-dv_insurance" class="toc-h2 toc-link" data-title="查詢保險池基金">查詢保險池基金</a>
                   </li>
               </ul>
           </li>
@@ -1457,7 +1468,20 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://www.npmjs.com/package/bybit-api"><strong>bybit-api</strong></a> - <strong>社區NodeJS SDK</strong> <li><img src="../../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-11-23'>2022-11-23</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-12-08'>2022-12-08</h2><h3 id='rest-api'>REST API</h3>
+<ul>
+<li><p><a href="#t-dv_insurance">查詢保險池基金</a> [新增]</p>
+
+<ul>
+<li>新增查詢保險基金接口</li>
+</ul></li>
+<li><p><a href="#t-dv_setmarginmode">設置保證金模式</a> [新增]</p>
+
+<ul>
+<li>新增設置保證金模式接口</li>
+</ul></li>
+</ul>
+<h2 id='2022-11-23'>2022-11-23</h2><h3 id='rest-api-2'>REST API</h3>
 <ul>
 <li><a href="#t-marketdata">行情接口</a> [更新]
 
@@ -1470,7 +1494,7 @@ clipboard.on('error', function(e) {
 <li>新增溢價指數k線接口</li>
 </ul></li>
 </ul>
-<h3 id='rest-api-2'>REST API</h3>
+<h3 id='rest-api-3'>REST API</h3>
 <ul>
 <li><a href="#t-order">委託單</a> [更新]
 
@@ -1478,7 +1502,7 @@ clipboard.on('error', function(e) {
 <li>交易接口支持USDC永續和期權的下單/撤單/改單操作</li>
 </ul></li>
 </ul>
-<h3 id='rest-api-3'>REST API</h3>
+<h3 id='rest-api-4'>REST API</h3>
 <ul>
 <li><a href="#t-contract_account">帳戶</a> [更新]
 
@@ -1486,7 +1510,7 @@ clipboard.on('error', function(e) {
 <li>支持USDC帳戶的查詢與設置</li>
 </ul></li>
 </ul>
-<h3 id='rest-api-4'>REST API</h3>
+<h3 id='rest-api-5'>REST API</h3>
 <ul>
 <li><a href="#t-dv_myposition">獲取持倉（實時）</a> [更新]
 
@@ -1499,7 +1523,7 @@ clipboard.on('error', function(e) {
 <li>倉位信息接口支持查詢USDC永續和期權</li>
 </ul></li>
 </ul>
-<h3 id='rest-api-5'>REST API</h3>
+<h3 id='rest-api-6'>REST API</h3>
 <ul>
 <li><a href="#t-setleverage">修改杠桿</a> [更新]
 
@@ -1522,7 +1546,7 @@ clipboard.on('error', function(e) {
 <li>支持查詢USDC永續</li>
 </ul></li>
 </ul>
-<h2 id='2022-09-13'>2022-09-13</h2><h3 id='rest-api-6'>REST API</h3>
+<h2 id='2022-09-13'>2022-09-13</h2><h3 id='rest-api-7'>REST API</h3>
 <ul>
 <li><a href="#t-oilimitinfo">查詢限倉信息</a> [新增]
 
@@ -1871,7 +1895,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">u</td>
 <td style="text-align: left">string</td>
-<td>表示數據連續性的id</td>
+<td>表示數據連續性的id. 與wss中200檔的orderbook中的"u"對應</td>
 </tr>
 </tbody></table>
 <h3 id='t-dv_querykline'>查詢K線數據</h3>
@@ -3490,6 +3514,94 @@ function copyStringToClipboard (endpoint) {
 <td>數據產生時間, 精確到毫秒</td>
 </tr>
 </tbody></table>
+<h3 id='t-dv_insurance'>查詢保險池基金</h3>
+<blockquote>
+<p>請求示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight console tab-console"><code><span class="go">curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/insurance?coin=BTC'
+</span></code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">updateTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1670284800000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">balance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5044.45074186</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">value</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">85819120.39999999</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1670311057711</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>獲取Bybit平台的保險基金數據，包含所有的保險池幣種。數據更新策略：UTC 00:00更新昨天的保險池餘額</p>
+
+<p class="fake_header">HTTP 請求</p>
+
+<p>GET
+<code><span id=dvinsurance>/derivatives/v3/public/insurance</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#dvinsurance"><img src="../../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button></p>
+
+<p class="fake_header">請求參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">parameter</th>
+<th style="text-align: left">是否必須</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coin</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>幣種</td>
+</tr>
+</tbody></table>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">updatedTime</td>
+<td style="text-align: left">string</td>
+<td>數據更新毫秒時間戳</td>
+</tr>
+<tr>
+<td style="text-align: left">list</td>
+<td style="text-align: left">array</td>
+<td>Object</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; coin</td>
+<td style="text-align: left">string</td>
+<td>保險池的幣種</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; balance</td>
+<td style="text-align: left">string</td>
+<td>保險池的幣種數量</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; value</td>
+<td style="text-align: left">string</td>
+<td>保險池的幣種價值（折成USD）,計算方式：取推送時，該幣種USD指數價格*幣種數量</td>
+</tr>
+</tbody></table>
 <h1 id='t-accountdata'>賬戶/交易接口</h1>
 <p>以下賬戶/交易接口都需要鑒權.</p>
 <h2 id='t-order'>委託單</h2><h3 id='t-dv_placeorder'>創建委托訂單</h3>
@@ -4406,7 +4518,14 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">triggerBy</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
-<td>止損激活價格類型，默認為<code>LastPrice</code></td>
+<td>觸發價格類型：市價/標記價格
+</td>
+</tr>
+<tr>
+<td style="text-align: left">triggerPrice</td>
+<td style="text-align: left">false</td>
+<td style="text-align: left">string</td>
+<td>修改條件單的觸發價格。如果不修改這個字段，請不要傳這個參數。</td>
 </tr>
 <tr>
 <td style="text-align: left">iv</td>
@@ -4937,7 +5056,7 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">&gt; riskId</td>
-<td style="text-align: left">integer</td>
+<td style="text-align: left">string</td>
 <td><a href="#t-dv_risklimithead">風險限額ID</a></td>
 </tr>
 <tr>
@@ -5053,12 +5172,12 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">&gt; positionMM</td>
 <td style="text-align: left">string</td>
-<td>倉位維持保證金</td>
+<td>倉位維持保證金。Portfolio Margin 模式下，顯示為空串。</td>
 </tr>
 <tr>
 <td style="text-align: left">&gt; positionIM</td>
 <td style="text-align: left">string</td>
-<td>倉位初始保證金</td>
+<td>倉位初始保證金。Portfolio Margin 模式下，顯示為空串。</td>
 </tr>
 <tr>
 <td style="text-align: left">&gt; sessionAvgPrice</td>
