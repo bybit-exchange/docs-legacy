@@ -902,7 +902,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
                 "positionValue": "536.92500000",
                 "takeProfit": "",
                 "tpslMode": "Full",
-                "riskId": "11",
+                "riskId": 11,
                 "trailingStop": "",
                 "entryPrice": "1073.85000000",
                 "unrealisedPnl": "",
@@ -945,7 +945,7 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
 |list> positionIdx |string |t(:row_comment_query_positionIdx_v3)   |
-|list> riskId |string |t(:row_comment_query_riskId_v3)   |
+|list> riskId |integer |t(:row_comment_query_riskId_v3)   |
 |list> symbol |string |t(:row_comment_symbol_v3)   |
 |list> side |string |t(:row_comment_query_side_v3)  |
 |list> size |string |t(:row_comment_query_size_v3)  |

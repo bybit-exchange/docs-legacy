@@ -10,13 +10,13 @@
   
 - [t(:dv_queryAccountInfo)](#t-dv_queryaccountinfo) [t(:changelog_new)]
   - t(:restapi_update_20221208_3)
-  
-- [t(:dv_myposition)](#t-dv_myposition) [t(:changelog_update)]
-  - t(:restapi_update_20221208_5)
 
 ### WebSocket API
 - [t(:user_info_um)](#t-user_info_um) [t(:changelog_new)]
   - t(:restapi_update_20221208_4)
+
+- [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
+  - t(:restapi_update_20221208_5)
 
 ## 2022-11-10
 ### WebSocket API

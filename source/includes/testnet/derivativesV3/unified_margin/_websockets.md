@@ -563,7 +563,7 @@ ws.send('{"op":"subscribe","args":["user.position.unifiedAccount"]}');
 		"result": [{
 			"positionIdx": 0,
 			"isIsolated": false,
-			"riskId": "1",
+			"riskId": 1,
 			"symbol": "BTCUSDT",
 			"side": "None",
 			"size": "0.0000",
@@ -600,7 +600,7 @@ t(:websocketpositionV3)
 |:----- |:-----|----- |
 |positionIdx |number |t(:row_comment_query_positionIdx_v3)  |
 |isIsolated|bool |t(:row_comment_query_isIsolated_v3)    |
-|riskId |string |t(:row_comment_riskId)  |
+|riskId |integer |t(:row_comment_riskId)  |
 |symbol |string |t(:row_comment_symbol_v3)  |
 |side |string |t(:row_comment_query_side_v3)  |
 |size |string |t(:row_comment_query_size_v3)  |
@@ -932,7 +932,7 @@ ws.send('{"op":"subscribe","args":["user.info.unifiedAccount"]}');
 
 ```
 
-t(:udscGeeksDescV3)
+t(:udscInfoDescV3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|

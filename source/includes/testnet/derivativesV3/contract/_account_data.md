@@ -664,7 +664,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
         "list": [
             {
                 "positionIdx": 0,
-                "riskId": "3",
+                "riskId": 3,
                 "symbol": "ETHPERP",
                 "side": "Buy",
                 "size": "0.2",
@@ -724,7 +724,7 @@ GET
 |:----- |:-----|----- |
 |list |array |Object |
 |> positionIdx |integer |t(:row_comment_position_idx)  |
-|> riskId  |string |t(:contract_comment_riskId) |
+|> riskId  |integer |t(:contract_comment_riskId) |
 |> t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |> t(:row_parameter_side) |string |t(:row_comment_side)  |
 |> size |string |t(:row_comment_position_size)  |
