@@ -906,3 +906,36 @@ t(:udscGeeksDescV3)
 | totalGamma |string |t(:gamma) |
 | totalVega|string |t(:vega) |
 | totalTheta |string |t(:theta) |
+
+### t(:user_info_um)
+
+> t(:codequote_subscribe)
+
+```javascript
+ws.send('{"op":"subscribe","args":["user.info.unifiedAccount"]}');
+
+```
+
+> t(:codequote_snapshot)
+
+```javascript
+
+{
+    "id":"18058945348333034",
+    "topic":"user.info.unifiedAccount",
+    "creationTime":1670483442646,
+    "data":{
+        "marginMode":"PORTFOLIO_MARGIN",
+        "updateTime":1670483442646
+    }
+}
+
+```
+
+t(:udscGeeksDescV3)
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+| marginMode |string |t(:row_comment_set_margin_mode) |
+| updateTime |string |t(:row_resp_comment_updateTime) |
