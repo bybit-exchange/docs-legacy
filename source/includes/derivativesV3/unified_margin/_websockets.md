@@ -939,7 +939,7 @@ ws.send('{"op":"subscribe","args":["user.info.unifiedAccount"]}');
 
 ```
 
-t(:udscGeeksDescV3)
+t(:udscInfoDescV3)
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
