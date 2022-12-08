@@ -601,7 +601,7 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |positionIdx |integer |t(:row_comment_position_idx)  |
-|riskId  |integer |t(:contract_comment_riskId) |
+|riskId  |string |t(:contract_comment_riskId) |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |string |t(:row_comment_position_size)  |
