@@ -554,7 +554,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
             },
             {
                 "positionIdx": 2,
-                "riskId": "41",
+                "riskId": 41,
                 "symbol": "XRPUSDT",
                 "side": "Sell",
                 "size": "50",
