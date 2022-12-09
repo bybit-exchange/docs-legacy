@@ -15,9 +15,6 @@
 - [t(:user_info_um)](#t-user_info_um) [t(:changelog_new)]
   - t(:restapi_update_20221208_4)
 
-- [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
-  - t(:restapi_update_20221208_5)
-
 ## 2022-10-12
 ### REST API
 - [t(:dv_queryOrderRealtime)](#t-dv_queryorderrealtime) [t(:changelog_update)]
