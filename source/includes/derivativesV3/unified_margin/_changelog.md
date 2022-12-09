@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-12-09
+### REST API
+- [t(:dv_myposition)](#t-dv_myposition) [t(:changelog_rollback)]
+  - t(:restapi_update_20221209_1)
+
 ## 2022-12-08
 ### REST API
 - [t(:dv_insurance)](#t-dv_insurance) [t(:changelog_new)]
@@ -10,6 +15,9 @@
   
 - [t(:dv_queryAccountInfo)](#t-dv_queryaccountinfo) [t(:changelog_new)]
   - t(:restapi_update_20221208_3)
+
+- [t(:dv_myposition)](#t-dv_myposition) [t(:changelog_update)]
+  - t(:restapi_update_20221208_5)
 
 ### WebSocket API
 - [t(:user_info_um)](#t-user_info_um) [t(:changelog_new)]
