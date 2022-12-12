@@ -529,57 +529,42 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
     "result": {
         "list": [
             {
-                "positionIdx": 1,
-                "riskId": "41",
-                "symbol": "XRPUSDT",
-                "side": "Buy",
-                "size": "0",
+                "positionIdx": 0,
+                "riskId": 11,
+                "symbol": "ETHUSDT",
+                "side": "None",
+                "size": "0.00",
                 "positionValue": "0",
                 "entryPrice": "0",
-                "tradeMode": 0,
+                "tradeMode": 1,
                 "autoAddMargin": 0,
                 "leverage": "10",
                 "positionBalance": "0",
-                "liqPrice": "0.0000",
-                "bustPrice": "0.0000",
-                "takeProfit": "0.0000",
-                "stopLoss": "0.0000",
-                "trailingStop": "0.0000",
+                "liqPrice": "0.00",
+                "bustPrice": "0.00",
+                "takeProfit": "0.00",
+                "stopLoss": "0.00",
+                "trailingStop": "0.00",
                 "unrealisedPnl": "0",
-                "createdTime": "1658827444328",
-                "updatedTime": "1658904863412",
+                "createdTime": "1659943372099",
+                "updatedTime": "1669470547908",
                 "tpSlMode": "Full",
-                "riskLimitValue": "200000",
-                "activePrice": "0.0000"
-            },
-            {
-                "positionIdx": 2,
-                "riskId": 41,
-                "symbol": "XRPUSDT",
-                "side": "Sell",
-                "size": "50",
-                "positionValue": "16.68",
-                "entryPrice": "0.3336",
-                "tradeMode": 0,
-                "autoAddMargin": 0,
-                "leverage": "10",
-                "positionBalance": "1.6790088",
-                "liqPrice": "12.4835",
-                "bustPrice": "12.4869",
-                "takeProfit": "0.0000",
-                "stopLoss": "0.0000",
-                "trailingStop": "0.0000",
-                "unrealisedPnl": "0",
-                "createdTime": "1658827444328",
-                "updatedTime": "1658904863412",
-                "tpSlMode": "Full",
-                "riskLimitValue": "200000",
-                "activePrice": "0.0000"
+                "riskLimitValue": "900000",
+                "activePrice": "0.00",
+                "markPrice": "1205.02",
+                "cumRealisedPnl": "0.00",
+                "positionMM": "",
+                "positionIM": "",
+                "positionStatus": "Normal",
+                "sessionAvgPrice": "0.00",
+                "occClosingFee": "0"
             }
-        ]
+        ],
+        "category": "linear",
+        "nextPageCursor": ""
     },
-    "retExtInfo": null,
-    "time": 1658904877942
+    "retExtInfo": {},
+    "time": 1670836410404
 }
 ```
 
@@ -602,25 +587,32 @@ GET
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 |positionIdx |integer |t(:row_comment_position_idx)  |
-|riskId  |string |t(:contract_comment_riskId) |
+|riskId  |integer |t(:contract_comment_riskId) |
+|riskLimitValue | string | t(:contract_position_riskLimitValue) |
 |t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |t(:row_parameter_side) |string |t(:row_comment_side)  |
 |size |string |t(:row_comment_position_size)  |
 |positionValue |string |t(:row_comment_position_value)  |
 |entryPrice |string |t(:linear_resp_field_entry_price)  |
+|markPrice |string |t(:row_comment_updated_at)  |
 |tradeMode |integer |t(:contract_comment_tradeMode) |
 |autoAddMargin |integer |t(:row_comment_auto_add_margin)  |
-|leverage |number |t(:resp_field_leverage)  |
+|leverage |string |t(:resp_field_leverage)  |
 |positionBalance |string |t(:contract_comment_positionBalance)  |
 |liqPrice |string |t(:linear_resp_field_liq_price)  |
 |bustPrice |string |t(:linear_resp_field_bust_price)  |
+|positionStatus |string |t(:row_comment_updated_at)  |
+|sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
+|occClosingFee |string |t(:row_comment_occ_closing_fee)  |
 |takeProfit |string |t(:row_comment_take_profit)  |
 |stopLoss |string |t(:row_comment_stop_loss)  |
 |trailingStop |string |t(:row_comment_trailing_stop)  |
 |unrealisedPnl |string |t(:row_comment_unrealised_pnl)  |
 |<a href="#tp-sl-mode-tpslmode">tpSLMode</a> |string |t(:row_comment_tp_sl_mode)  |
 |activePrice | string | t(:account_row_comment_activePrice_v3) |
-|riskLimitValue | string | t(:contract_position_riskLimitValue) |
+|positionIM |string |t(:row_comment_query_positionIM_v3)  |
+|positionMM |string |t(:row_comment_query_positionMM_v3)  |
+|cumRealisedPnl |string |t(:row_comment_query_cumRealisedPnl_v3)  |
 |createdTime |string |t(:row_comment_created_at)  |
 |updatedTime |string |t(:row_comment_updated_at)  |
 |nextPageCursor | string | t(:contract_comment_nextPageCursor) |

@@ -690,10 +690,11 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
                 "positionMM": "4.935288",
                 "positionIM": "20.14542294",
                 "positionStatus": "Normal",
-                "sessionAvgPrice": "1200.8"
+                "sessionAvgPrice": "1200.8",
+                "occClosingFee": "0"
             }
         ],
-        "category": "future",
+        "category": "linear",
         "nextPageCursor": ""
     },
     "retExtInfo": {},
@@ -724,18 +725,23 @@ GET
 |:----- |:-----|----- |
 |list |array |Object |
 |> positionIdx |integer |t(:row_comment_position_idx)  |
-|> riskId  |string |t(:contract_comment_riskId) |
+|> riskId  |integer |t(:contract_comment_riskId) |
+|> riskLimitValue | string | t(:contract_position_riskLimitValue) |
 |> t(:row_parameter_symbol)|string |t(:row_comment_symbol)    |
 |> t(:row_parameter_side) |string |t(:row_comment_side)  |
 |> size |string |t(:row_comment_position_size)  |
 |> positionValue |string |t(:row_comment_position_value)  |
 |> entryPrice |string |t(:linear_resp_field_entry_price)  |
+|> markPrice |string |t(:row_comment_updated_at)  |
 |> tradeMode |integer |t(:contract_comment_tradeMode) |
 |> autoAddMargin |integer |t(:row_comment_auto_add_margin)  |
 |> leverage |string |t(:resp_field_leverage)  |
 |> positionBalance |string |t(:contract_comment_positionBalance)  |
 |> liqPrice |string |t(:linear_resp_field_liq_price)  |
 |> bustPrice |string |t(:linear_resp_field_bust_price)  |
+|> positionStatus |string |t(:row_comment_updated_at)  |
+|> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
+|> occClosingFee |string |t(:row_comment_occ_closing_fee)  |
 |> takeProfit |string |t(:row_comment_take_profit)  |
 |> stopLoss |string |t(:row_comment_stop_loss)  |
 |> trailingStop |string |t(:row_comment_trailing_stop)  |
