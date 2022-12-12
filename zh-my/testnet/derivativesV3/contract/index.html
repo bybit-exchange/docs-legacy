@@ -1067,6 +1067,9 @@
                           <li>
                             <a href="#t-websocketkline" class="toc-h3 toc-link" data-title="K線">K線</a>
                           </li>
+                          <li>
+                            <a href="#t-websocketliquidation" class="toc-h3 toc-link" data-title="平臺強平推送">平臺強平推送</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -2326,7 +2329,7 @@ function copyStringToClipboard (endpoint) {
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
@@ -2340,7 +2343,7 @@ function copyStringToClipboard (endpoint) {
                 <span class="dl">"</span><span class="s2">priceScale</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">leverageFilter</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
                     <span class="dl">"</span><span class="s2">minLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1</span><span class="dl">"</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">maxLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">maxLeverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100.00</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">leverageStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01</span><span class="dl">"</span>
                 <span class="p">},</span>
                 <span class="dl">"</span><span class="s2">priceFilter</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
@@ -2349,17 +2352,20 @@ function copyStringToClipboard (endpoint) {
                     <span class="dl">"</span><span class="s2">tickSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.50</span><span class="dl">"</span>
                 <span class="p">},</span>
                 <span class="dl">"</span><span class="s2">lotSizeFilter</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="dl">"</span><span class="s2">maxTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">420.000</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">maxTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">100.000</span><span class="dl">"</span><span class="p">,</span>
                     <span class="dl">"</span><span class="s2">minTradingQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
-                    <span class="dl">"</span><span class="s2">qtyStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span>
+                    <span class="dl">"</span><span class="s2">qtyStep</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
+                    <span class="dl">"</span><span class="s2">postOnlyMaxOrderQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1000.000</span><span class="dl">"</span>
                 <span class="p">},</span>
-                <span class="dl">"</span><span class="s2">unifiedMarginTrade</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
+                <span class="dl">"</span><span class="s2">unifiedMarginTrade</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">fundingInterval</span><span class="dl">"</span><span class="p">:</span> <span class="mi">480</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">settleCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">],</span>
         <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1667533491917</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1670838442302</span>
 <span class="p">}</span>
 
 <span class="c1">// option response</span>
@@ -2560,6 +2566,21 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">lotSizeFilter&gt; qtyStep</td>
 <td style="text-align: left">string</td>
 <td>合約數量最小單位</td>
+</tr>
+<tr>
+<td style="text-align: left">lotSizeFilter&gt; postOnlyMaxOrderQty</td>
+<td style="text-align: left">string</td>
+<td>timeInforce=PostOnly時允許的最大訂單數量</td>
+</tr>
+<tr>
+<td style="text-align: left">unifiedMarginTrade</td>
+<td style="text-align: left">boolean</td>
+<td>是否支持統一保證金交易. 該字段僅存在於合約數據中</td>
+</tr>
+<tr>
+<td style="text-align: left">fundingInterval</td>
+<td style="text-align: left">integer</td>
+<td>收取資金費用的間隔</td>
 </tr>
 <tr>
 <td style="text-align: left">nextPageCursor</td>
@@ -4967,10 +4988,11 @@ function copyStringToClipboard (endpoint) {
                 <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4.935288</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20.14542294</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Normal</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1200.8</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1200.8</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">occClosingFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
             <span class="p">}</span>
         <span class="p">],</span>
-        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">future</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">linear</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
     <span class="p">},</span>
     <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
@@ -5056,8 +5078,13 @@ function copyStringToClipboard (endpoint) {
 </tr>
 <tr>
 <td style="text-align: left">&gt; riskId</td>
-<td style="text-align: left">string</td>
+<td style="text-align: left">integer</td>
 <td><a href="#t-dv_risklimithead">風險限額ID</a></td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; riskLimitValue</td>
+<td style="text-align: left">string</td>
+<td>當前風險限額ID對應的持倉上限</td>
 </tr>
 <tr>
 <td style="text-align: left">&gt; <a href="#symbol-symbol">symbol</a></td>
@@ -5083,6 +5110,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">&gt; entryPrice</td>
 <td style="text-align: left">string</td>
 <td>平均開倉價</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; markPrice</td>
+<td style="text-align: left">string</td>
+<td>更新時間</td>
 </tr>
 <tr>
 <td style="text-align: left">&gt; tradeMode</td>
@@ -5113,6 +5145,21 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">&gt; bustPrice</td>
 <td style="text-align: left">string</td>
 <td>破產價格</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; positionStatus</td>
+<td style="text-align: left">string</td>
+<td>更新時間</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; sessionAvgPrice</td>
+<td style="text-align: left">string</td>
+<td>結算價格，僅USDC</td>
+</tr>
+<tr>
+<td style="text-align: left">&gt; occClosingFee</td>
+<td style="text-align: left">string</td>
+<td>倉位占用的平倉手續費</td>
 </tr>
 <tr>
 <td style="text-align: left">&gt; takeProfit</td>
@@ -8186,6 +8233,71 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <td style="text-align: left">ts</td>
 <td style="text-align: left">long</td>
 <td>時間戳(毫秒). 為系統生成該數據的時間</td>
+</tr>
+</tbody></table>
+<h3 id='t-websocketliquidation'>平臺強平推送</h3>
+<blockquote>
+<p>請求訂閱</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","req_id": "10110001", "args":["liquidation.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
+</code></pre></div>
+<blockquote>
+<p>響應示例</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+</code></pre></div>
+<p>獲取Bybit平台最近的強平訂單數據，推送增量數據。業務範圍：USDT永續、反向永續、反向交割、USDC永續<br/>
+<br/>
+推送頻率：<b>實時</b><br/>
+<br/>
+<b>Topic:</b><br/>
+<code>liquidation.{symbol}</code>
+</p>
+
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">updatedTime</td>
+<td style="text-align: left">integer</td>
+<td>數據更新毫秒時間戳</td>
+</tr>
+<tr>
+<td style="text-align: left">symbol</td>
+<td style="text-align: left">string</td>
+<td>合約類型</td>
+</tr>
+<tr>
+<td style="text-align: left">side</td>
+<td style="text-align: left">string</td>
+<td>訂單方向. <code>Buy</code> <code>Sell</code></td>
+</tr>
+<tr>
+<td style="text-align: left">positionSide</td>
+<td style="text-align: left">string</td>
+<td>持倉方向. <code>long</code>：做多, <code>short</code>：做空. 結合訂單方向，例如：若<code>positionSide</code>=long, <code>side</code>=Sell, 則表示多倉被強平</td>
+</tr>
+<tr>
+<td style="text-align: left">size</td>
+<td style="text-align: left">string</td>
+<td>成交數量</td>
+</tr>
+<tr>
+<td style="text-align: left">price</td>
+<td style="text-align: left">string</td>
+<td>成交價格</td>
+</tr>
+<tr>
+<td style="text-align: left">execID</td>
+<td style="text-align: left">string</td>
+<td>成交ID</td>
 </tr>
 </tbody></table>
 <h2 id='t-contract_privatetopic'>私有 Topics</h2><h3 id='t-websocketposition'>持倉</h3>
