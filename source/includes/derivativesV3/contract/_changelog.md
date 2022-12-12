@@ -5,6 +5,10 @@
 - [t(:dv_myposition)](#t-dv_myposition) [t(:changelog_update)]
   - t(:restapi_update_20221212_2)
 
+### REST API
+- [t(:dv_instrHead)](#t-dv_instrhead) [t(:changelog_update)]
+  - t(:restapi_update_20221212_3)
+
 ## 2022-12-12
 ### WebSocket API
 - [t(:websocketliquidation)](#t-websocketliquidation) [t(:changelog_new)]

@@ -302,7 +302,7 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?c
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "category": "future",
+        "category": "linear",
         "list": [
             {
                 "symbol": "BTCUSDT",
@@ -316,7 +316,7 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?c
                 "priceScale": "2",
                 "leverageFilter": {
                     "minLeverage": "1",
-                    "maxLeverage": "100",
+                    "maxLeverage": "100.00",
                     "leverageStep": "0.01"
                 },
                 "priceFilter": {
@@ -325,17 +325,20 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/instruments-info?c
                     "tickSize": "0.50"
                 },
                 "lotSizeFilter": {
-                    "maxTradingQty": "420.000",
+                    "maxTradingQty": "100.000",
                     "minTradingQty": "0.001",
-                    "qtyStep": "0.001"
+                    "qtyStep": "0.001",
+                    "postOnlyMaxOrderQty": "1000.000"
                 },
-                "unifiedMarginTrade": true
+                "unifiedMarginTrade": true,
+                "fundingInterval": 480,
+                "settleCoin": "USDT"
             }
         ],
         "nextPageCursor": ""
     },
     "retExtInfo": {},
-    "time": 1667533491917
+    "time": 1670838442302
 }
 
 // option response
@@ -414,6 +417,9 @@ GET
 |lotSizeFilter> maxOrderQty |string |t(:dv_instrMaxOrderQty) |
 |lotSizeFilter> minOrderQty |string |t(:dv_instrMinOrderQty) |
 |lotSizeFilter> qtyStep |string |t(:qtyStep) |
+|lotSizeFilter> postOnlyMaxOrderQty |string |t(:dv_instrument_postOnlyMaxOrderQty) |
+|unifiedMarginTrade |boolean |t(:dv3_instrument_unifiedMarginTrade) |
+|fundingInterval |integer |t(:dv_instrument_fundingInterval) |
 |nextPageCursor |string |t(:dv_cursor) |
 
 
