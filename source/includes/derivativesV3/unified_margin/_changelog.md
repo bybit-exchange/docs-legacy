@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-12-12
+### WebSocket API
+- [t(:websocketliquidation)](#t-websocketliquidation) [t(:changelog_new)]
+  - t(:restapi_update_20221212_1)
+
 ## 2022-12-09
 ### REST API
 - [t(:dv_myposition)](#t-dv_myposition) [t(:changelog_rollback)]

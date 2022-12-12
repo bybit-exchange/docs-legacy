@@ -2912,6 +2912,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221212_1: 新增公有推送：平台強平數據
   restapi_update_20221209_1: 將響應字段<code>riskId</code>的數據類型從<code>string</code>更新為<code>integer</code>.
   restapi_update_20221208_5: 將響應字段<code>riskId</code>的數據類型從<code>integer</code>更新為<code>string</code>
   restapi_update_20221208_4: 新增 websocket topic info以獲取帳戶信息更新
@@ -5726,3 +5727,12 @@ zh-my:
   insurance_resp_balance: 保險池的幣種數量
   insurance_resp_value: 保險池的幣種價值（折成USD）,計算方式：取推送時，該幣種USD指數價格*幣種數量
   row_comment_triggerPrice_replace_v3: 修改條件單的觸發價格。如果不修改這個字段，請不要傳這個參數。
+  websocketliquidation_para: |
+    獲取Bybit平台最近的強平訂單數據，推送增量數據。業務範圍：USDT永續、反向永續、反向交割、USDC永續<br/>
+    <br/>
+    推送頻率：<b>實時</b><br/>
+    <br/>
+    <b>Topic:</b><br/>
+    <code>liquidation.{symbol}</code>
+  liquidation_side: 訂單方向. <code>Buy</code> <code>Sell</code>
+  liquidation_positionSide: 持倉方向. <code>long</code>：做多, <code>short</code>：做空. 結合訂單方向，例如：若<code>positionSide</code>=long, <code>side</code>=Sell, 則表示多倉被強平

@@ -3348,6 +3348,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221212_1: Add new websocket to get public liquidation records
   restapi_update_20221209_1: Update the data type of response field <code>riskId</code> from <code>string</code> to <code>integer</code>
   restapi_update_20221208_5: Update the data type of response field <code>riskId</code> from <code>integer</code> to <code>string</code>
   restapi_update_20221208_4: Add new websocket to get account info update
@@ -6196,3 +6197,12 @@ en:
   insurance_resp_balance: Quantity of coin in the insurance pool
   insurance_resp_value: USD value of coin, formula：the snapshot index price(USD) of the coin * qty of coin
   row_comment_set_margin_mode: REGULAR_MARGIN, PORTFOLIO_MARGIN
+  websocketliquidation_para: |
+    Query recent liquidation orders in Bybit. Support：USDT Perpetual, Inverse Perpetual, Inverse Future, USDC Perpetual<br/>
+    <br/>
+    Push frequency：<b>real-time</b><br/>
+    <br/>
+    <b>Topic:</b><br/>
+    <code>liquidation.{symbol}</code>
+  liquidation_side: Order side. <code>Buy</code> <code>Sell</code>
+  liquidation_positionSide: Position side. <code>long</code>, <code>short</code>. Combined with <code>side</code>, e.g If <code>positionSide</code>=long, <code>side</code>=Sell, then it means long order is liquidated.
