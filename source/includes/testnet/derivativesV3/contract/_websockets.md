@@ -584,73 +584,35 @@ ws.send('{"op":"subscribe","req_id": "10110001","args":["user.position.contractA
     "topic": "user.position.contractAccount",
     "data": [
         {
-            "positionIdx": 1,
-            "riskId": 716,
-            "riskLimitValue": "200000",
-            "symbol": "BITUSDT",
+            "positionIdx": 0,
+            "riskId": 1,
+            "symbol": "BTCUSDT",
             "side": "Buy",
-            "size": "50",
-            "positionValue": "33.7",
-            "entryPrice": "0.674",
+            "size": "0.024",
+            "positionValue": "394.55123078",
+            "entryPrice": "16439.63461538",
             "tradeMode": 0,
             "autoAddMargin": 0,
-            "leverage": "10",
-            "positionBalance": "3.438198",
-            "liqPrice": "0.001",
-            "bustPrice": "0.001",
-            "takeProfit": "0.000",
-            "stopLoss": "0.000",
-            "trailingStop": "0.000",
-            "unrealisedPnl": "-0.05",
-            "createdTime": "1658905548601",
-            "updatedTime": "1659057535085",
-            "tpSlMode": "Full"
-        },
-        {
-            "positionIdx": 2,
-            "riskId": 716,
-            "riskLimitValue": "200000",
-            "symbol": "BITUSDT",
-            "side": "None",
-            "size": "0",
-            "positionValue": "0",
-            "entryPrice": "0",
-            "tradeMode": 0,
-            "autoAddMargin": 0,
-            "leverage": "10",
-            "positionBalance": "0",
-            "liqPrice": "0.000",
-            "bustPrice": "0.000",
-            "takeProfit": "0.000",
-            "stopLoss": "0.000",
-            "trailingStop": "0.000",
-            "unrealisedPnl": "0",
-            "createdTime": "1658905548601",
-            "updatedTime": "1659057535085",
-            "tpSlMode": "Full"
-        },
-        {
-            "positionIdx": 1,
-            "riskId": 206,
-            "riskLimitValue": "200000",
-            "symbol": "DOGEUSDT",
-            "side": "Buy",
-            "size": "200",
-            "positionValue": "13.13",
-            "entryPrice": "0.06565",
-            "tradeMode": 0,
-            "autoAddMargin": 0,
-            "leverage": "10",
-            "positionBalance": "1.3200902",
-            "liqPrice": "0.0001",
-            "bustPrice": "0.0001",
-            "takeProfit": "0.0000",
-            "stopLoss": "0.0000",
-            "trailingStop": "0.0000",
-            "unrealisedPnl": "0.71",
-            "createdTime": "1658307181708",
-            "updatedTime": "1659057535085",
-            "tpSlMode": "Partial"
+            "leverage": "3",
+            "positionBalance": "131.67490005",
+            "liqPrice": "0.50",
+            "bustPrice": "0.50",
+            "takeProfit": "0.00",
+            "stopLoss": "0.00",
+            "trailingStop": "0.00",
+            "unrealisedPnl": "32.57676922",
+            "createdTime": "1640056352777",
+            "updatedTime": "1671002545179",
+            "tpSlMode": "Partial",
+            "sessionAvgPrice": "0.00",
+            "positionStatus": "Normal",
+            "occClosingFee": "0.0000072",
+            "markPrice": "17797.00",
+            "cumRealisedPnl": "44834.01605397",
+            "activePrice": "0.00",
+            "riskLimitValue": "2000000",
+            "positionMM": "0.00006",
+            "positionIM": "3.9455123078"
         }
     ]
 }
@@ -669,16 +631,24 @@ t(:contract_websocketPosition)
 |size |string |t(:row_comment_query_size_v3)  |
 |positionValue |string |t(:row_comment_query_positionValue_v3)  |
 |entryPrice |string |t(:row_comment_query_entryPrice_v3)  |
+|markPrice |string |t(:row_comment_updated_at)  |
 |tradeMode |integer |t(:contract_position_tradeMode)  |
 |autoAddMargin |integer |t(:contract_position_autoAddMargin)  |
 |leverage |string |t(:row_comment_query_leverage_v3)  |
 |positionBalance |string |t(:contract_position_positionBalance)  |
+|positionStatus |string |t(:row_comment_updated_at)  |
+|sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
+|occClosingFee |string |t(:row_comment_occ_closing_fee)  |
 |liqPrice |string |t(:contract_position_liqPrice)  |
 |bustPrice |string |t(:contract_position_bustPrice)  |
 |takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
 |stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
 |trailingStop |string |t(:row_comment_query_trailingStop_v3)  |
 |unrealisedPnl |string |t(:row_comment_query_unrealisedPnl_v3)  |
+|activePrice | string | t(:account_row_comment_activePrice_v3) |
+|positionIM |string |t(:row_comment_query_positionIM_v3)  |
+|positionMM |string |t(:row_comment_query_positionMM_v3)  |
+|cumRealisedPnl |string |t(:row_comment_query_cumRealisedPnl_v3)  |
 |createdTime |number |t(:row_comment_query_createdTime_v3)  |
 |updatedTime |number |t(:row_comment_query_updatedTime_v3)  |
 |tpslMode |string |t(:row_comment_query_tpslMode_v3)  |
