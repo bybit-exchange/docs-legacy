@@ -3348,6 +3348,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221214_1: Add new request param <code>withdrawType</code>
   restapi_update_20221212_3: Add new response fields <code>fundingInterval</code>, USDT期貨新增<code>settleCoin</code>
   restapi_update_20221212_2: Update position rest api. <ul><li>Convert <code>riskId</code> from <b>string</b> to <b>integer</b></li><li>Add new response fields <code>markPrice</code>,<code>cumRealisedPnl</code>,<code>positionMM</code>,<br/><code>positionIM</code>,<code>positionStatus</code>,<code>sessionAvgPrice</code>,<code>occClosingFee</code></li></ul>
   restapi_update_20221212_1: Add new websocket to get public liquidation records
@@ -6216,3 +6217,5 @@ en:
     The rule of <code>fromTradeId</code> and <code>toTradeId</code>:<br/>
     <li><code>orderId</code> is not passed: <br/>1. Only <code>fromTradeId</code> is passed, fromTradeId will not be included in the response. <br/>2. Only <code>toTradeId</code> is passed, toTradeId will not be included in the response. <br/>3. Both <code>fromTradeId</code> and <code>toTradeId</code> are passed, fromTradeId is not included but toTradeId is if toTradeId is an existing tradeId.</li>
     <li><code>orderId</code> is passed: Both <code>fromTradeId</code> and <code>toTradeId</code> are included in the repsonse, if they are existing trade id.</li>
+  asset_withdrawType: <code>0</code>(default)：on chain. <code>1</code>：off chain. <code>2</code>：on and off chain
+

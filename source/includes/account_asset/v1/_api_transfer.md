@@ -886,6 +886,7 @@ GET
 |start_time |false |long |t(:depositwithdrawstarttime) |
 |end_time |false |long |t(:depositwithdrawendtime) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
+|withdraw_type |false |string |t(:asset_withdrawType) |
 |cursor |false |string |t(:depositcursorinfo) |
 |<a href="#page-direction-direction">direction</a> |false |string |t(:depositdirectioninfo) |
 |limit |false |long |t(:depositlimitinfo) |

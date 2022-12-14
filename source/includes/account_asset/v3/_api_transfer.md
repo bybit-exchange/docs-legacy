@@ -952,6 +952,7 @@ GET
 |startTime |false |int |t(:DWstarttimeMS) |
 |endTime |false |int |t(:DWendtimeMS) |
 |<a href="#currency-currency-coin">coin</a> |false |string |t(:depositcurrencyinfo) |
+|withdrawType |false |string |t(:asset_withdrawType) |
 |cursor |false |string |t(:depositcursorinfo) |
 |limit |false |int |t(:depositlimitinfo) |
 
