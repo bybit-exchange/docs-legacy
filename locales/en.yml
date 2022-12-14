@@ -6212,3 +6212,7 @@ en:
   contract_position_positionStatus: Position status
   dv_instrument_postOnlyMaxOrderQty: The max order qty allowed when timeInforce=PostOnly
   dv_instrument_fundingInterval: Funding fee interval
+  spotTradesHisotryTips_tradeId: |
+    The rule of <code>fromTradeId</code> and <code>toTradeId</code>:<br/>
+    <li><code>orderId</code> is not passed: <br/>1. Only <code>fromTradeId</code> is passed, fromTradeId will not be included in the response. <br/>2. Only <code>toTradeId</code> is passed, toTradeId will not be included in the response. <br/>3. Both <code>fromTradeId</code> and <code>toTradeId</code> are passed, fromTradeId is not included but toTradeId is if toTradeId is an existing tradeId.</li>
+    <li><code>orderId</code> is passed: Both <code>fromTradeId</code> and <code>toTradeId</code> are included in the repsonse, if they are existing trade id.</li>
