@@ -75,6 +75,49 @@ t(:auth_para_construct3)
 t(:spot_auth_aside_signature)
 </aside>
 
+## t(:spotV1DataStructureExplain)
+
+```json
+{
+  "ret_code": 0,
+  "ret_msg": "",
+  "result": {
+  },
+  "ext_info": null,
+  "ext_code": null
+}
+
+{
+  "ret_code": -2013,
+  "ret_msg": "Order does not exist",
+  "result": {},
+  "ext_info": null,
+  "ext_code": "",
+  "time_now": "1671023220.302404"
+}
+
+{
+  "ret_code": 0,
+  "ret_msg": "success",
+  "result": [
+  ],
+  "ext_info": null,
+  "ext_code": "",
+  "time_now": "1671023511.680118"
+}
+
+```
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|ret_code|integer|t(:ret_code)|
+|ret_msg|string|t(:ret_msg)|
+|result|array/Object|t(:result)|
+|ext_info|Object|t(:ext_info)|
+|ext_code|string|t(:ext_code)|
+|time_now|string|t(:time_now)|
+
 <!--
 ### Examples of the Signature Algorithm
 
