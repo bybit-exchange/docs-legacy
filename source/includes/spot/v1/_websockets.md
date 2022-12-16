@@ -968,19 +968,20 @@ while True:
 
 ```javascript
 {
-  "topic": "trade",
-  "params": {
-    "symbol": "BTCUSDT",
-    "binary": "false",
-    "symbolName": "BTCUSDT"
-  },
-  "data": {
-    "v": "564265886622695424",
-    "t": 1582001735462,
-    "p": "9787.5",
-    "q": "0.195009",
-    "m": true
-  }
+    "params": {
+        "binary": "false",
+        "symbol": "BTCUSDT",
+        "symbolName": "BTCUSDT"
+    },
+    "topic": "trade",
+    "data": {
+        "v": "2290000000033122060",
+        "t": 1671154635003,
+        "p": "17387.19",
+        "q": "0.025",
+        "m": false,
+        "type": "0"
+    }
 }
 ```
 
@@ -989,7 +990,6 @@ t(:spot_websocket_trade_desc_v2)
 t(:spot_public_websocket_frequency_near_realtime)
 
 <p class="fake_header">t(:responseparameters)</p>
-
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
 | topic | string | t(:spot_topic) |
@@ -1001,6 +1001,7 @@ t(:spot_public_websocket_frequency_near_realtime)
 | p | string | t(:spot_price) |
 | q | string | t(:spot_quantity)|
 | m | boolean | t(:spot_side) |
+| type | string | t(:spot_wssv2_trade_type) |
 
 ### t(:websocketv2bookticker)
 > t(:codequote_subscribe)

@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-12-16
+### WebSocket API
+- [t(:websocketv2trade)](#t-websocketv2trade) [t(:changelog_update)]
+  - t(:restapi_update_20221215)
+
 ## 2022-09-16
 ### REST API
 - [t(:orderhistory)](#t-orderhistory) [t(:changelog_update)]
