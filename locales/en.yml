@@ -3348,6 +3348,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20221216: Add the explanation to common response parameters
   restapi_update_20221215: websocket v2 public stream has new response field <code>type</code>
   restapi_update_20221214_2: Update position websocket api. <ul><li>Add new response fields <code>activePrice</code>,<code>markPrice</code>,<code>cumRealisedPnl</code>,<code>positionMM</code>,<br/><code>positionIM</code>,<code>positionStatus</code>,<code>sessionAvgPrice</code>,<code>occClosingFee</code></li></ul>
   restapi_update_20221214_1: Add new request param <code>withdrawType</code>
@@ -6221,3 +6222,10 @@ en:
     <li><code>orderId</code> is passed: Both <code>fromTradeId</code> and <code>toTradeId</code> are included in the repsonse, if they are existing trade id.</li>
   asset_withdrawType: <code>0</code>(default)：on chain. <code>1</code>：off chain. <code>2</code>：on and off chain
   spot_wssv2_trade_type: Trade type. <code>0</code>：Spot trade. <code>1</code>：Paradigm block trade
+  spotV1DataStructureExplain: Common Response Parameters
+  ret_code: Success/Error code
+  ret_msg: Success/Error msg. Can be <code>success</code>,<code>""</code>,<code>OK</code> for success msg
+  result: It might be array<code>[]</code>,object<code>{}</code> depend on business data
+  ext_info: Value is <code>null</code>
+  ext_code: For market data, it returns <code>null</code>. Others return <code>""</code>
+  time_now: Current timestamp

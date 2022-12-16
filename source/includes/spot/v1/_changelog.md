@@ -1,6 +1,11 @@
 # t(:changelog)
 
 ## 2022-12-16
+### Rest API
+- [t(:spotV1DataStructureExplain)](#t-spotv1datastructureexplain) [t(:changelog_new)]
+  - t(:restapi_update_20221216)
+
+## 2022-12-16
 ### WebSocket API
 - [t(:websocketv2trade)](#t-websocketv2trade) [t(:changelog_update)]
   - t(:restapi_update_20221215)

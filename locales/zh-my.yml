@@ -2912,6 +2912,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221216: 新增對於通用數據機構的說明
   restapi_update_20221215: v2公共推送新增響應字段<code>type</code>
   restapi_update_20221214_2: 更新倉位推送. <ul><li>新增響應字段 <code>activePrice</code>,<code>markPrice</code>,<code>cumRealisedPnl</code>,<code>positionMM</code>,<br/><code>positionIM</code>,<code>positionStatus</code>,<code>sessionAvgPrice</code>,<code>occClosingFee</code></li></ul>
   restapi_update_20221214_1: 新增可選請求字段<code>withdrawType</code>
@@ -5751,3 +5752,10 @@ zh-my:
     <li><code>orderId</code>傳入: <code>fromTradeId</code>和<code>toTradeid</code>的值會總是被包含在響應中，如果它們的值是存在的tradeId。</li>
   asset_withdrawType: <code>0</code>(默認)：鏈上提現. <code>1</code>：平台內部轉帳. <code>2</code>：鏈上提現和內部轉帳
   spot_wssv2_trade_type: 交易類型標識. <code>0</code>：幣幣成交. <code>1</code>：Paradigm 大宗交易
+  spotV1DataStructureExplain: 外層通用數據結構解釋
+  ret_code: 成功/錯誤碼
+  ret_msg: 成功/錯誤消息。對於成功消息，可能會有<code>success</code>,<code>""</code>,<code>OK</code>
+  result: 根據業務數據情況，可能會是數組<code>[]</code>,對象<code>{}</code>
+  ext_info: 值是<code>null</code>
+  ext_code: 對於市場行情數據，返回<code>null</code>. 其他則返回<code>""</code>
+  time_now: 當前時間戳
