@@ -951,6 +951,9 @@
                   <li>
                     <a href="#t-constructingtherequest" class="toc-h2 toc-link" data-title="構建請求">構建請求</a>
                   </li>
+                  <li>
+                    <a href="#t-spotv1datastructureexplain" class="toc-h2 toc-link" data-title="外層通用數據結構解釋">外層通用數據結構解釋</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1888,6 +1891,75 @@ sign:b452640c21a2c9eaec30d24a9bce1a9660d1fb9d07ccc0d623a2a4fca0940095
 <aside class="notice">
 <a href="https://github.com/bybit-exchange/api-usage-examples">簽名計算示例</a>.
 </aside>
+<h2 id='t-spotv1datastructureexplain'>外層通用數據結構解釋</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ret_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ret_msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"ext_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ext_code"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"ret_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-2013</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ret_msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order does not exist"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nl">"ext_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ext_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"time_now"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1671023220.302404"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"ret_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ret_msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"ext_info"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ext_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"time_now"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1671023511.680118"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p class="fake_header">返回參數</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">參數</th>
+<th style="text-align: left">類型</th>
+<th>說明</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ret_code</td>
+<td style="text-align: left">integer</td>
+<td>成功/錯誤碼</td>
+</tr>
+<tr>
+<td style="text-align: left">ret_msg</td>
+<td style="text-align: left">string</td>
+<td>成功/錯誤消息。對於成功消息，可能會有<code>success</code>,<code>""</code>,<code>OK</code></td>
+</tr>
+<tr>
+<td style="text-align: left">result</td>
+<td style="text-align: left">array/Object</td>
+<td>根據業務數據情況，可能會是數組<code>[]</code>,對象<code>{}</code></td>
+</tr>
+<tr>
+<td style="text-align: left">ext_info</td>
+<td style="text-align: left">Object</td>
+<td>值是<code>null</code></td>
+</tr>
+<tr>
+<td style="text-align: left">ext_code</td>
+<td style="text-align: left">string</td>
+<td>對於市場行情數據，返回<code>null</code>. 其他則返回<code>""</code></td>
+</tr>
+<tr>
+<td style="text-align: left">time_now</td>
+<td style="text-align: left">string</td>
+<td>當前時間戳</td>
+</tr>
+</tbody></table>
 
 <!--
 ### Examples of the Signature Algorithm
