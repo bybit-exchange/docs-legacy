@@ -730,6 +730,10 @@ t(:spotTradesHistoryTips)
 t(:spotTradesHisotryTips_order)
 </aside>
 
+<aside class="notice">
+t(:spotTradesHisotryTips_tradeId)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=svMyTrades>/spot/v3/private/my-trades</span></code>

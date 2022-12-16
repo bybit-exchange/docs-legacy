@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2022-12-14
+### REST API
+- [t(:withdrawrecordquery)](#t-withdrawrecordquery) [t(:changelog_update)]
+  - t(:restapi_update_20221214_1)
+
 ## 2022-11-24
 ### REST API
 - [t(:withdraw_info)](#t-withdraw_info) [t(:changelog_update)]

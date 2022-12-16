@@ -2912,6 +2912,9 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20221215: v2公共推送新增響應字段<code>type</code>
+  restapi_update_20221214_2: 更新倉位推送. <ul><li>新增響應字段 <code>activePrice</code>,<code>markPrice</code>,<code>cumRealisedPnl</code>,<code>positionMM</code>,<br/><code>positionIM</code>,<code>positionStatus</code>,<code>sessionAvgPrice</code>,<code>occClosingFee</code></li></ul>
+  restapi_update_20221214_1: 新增可選請求字段<code>withdrawType</code>
   restapi_update_20221212_3: 更新交易對規格接口. 新增響應字段<code>fundingInterval</code>, USDT期貨新增<code>settleCoin</code>
   restapi_update_20221212_2: 更新倉位接口. <ul><li>修改<code>riskId</code>字段類型從<b>string</b>變為<b>integer</b></li><li>新增響應字段 <code>markPrice</code>,<code>cumRealisedPnl</code>,<code>positionMM</code>,<br/><code>positionIM</code>,<code>positionStatus</code>,<code>sessionAvgPrice</code>,<code>occClosingFee</code></li></ul>
   restapi_update_20221212_1: 新增公有推送：平台強平數據
@@ -5742,3 +5745,9 @@ zh-my:
   contract_position_positionStatus: 倉位狀態
   dv_instrument_postOnlyMaxOrderQty: timeInforce=PostOnly時允許的最大訂單數量
   dv_instrument_fundingInterval: 收取資金費用的間隔
+  spotTradesHisotryTips_tradeId: |
+    <code>fromTradeId</code>和<code>toTrandeId</code>的規則:<br/>
+    <li><code>orderId</code>不傳: <br/>1. 僅<code>fromTradeId</code>傳入, fromTradeId不會被包含在響應中. <br/>2. 僅<code>toTradeId</code>傳入, toTradeId不會被包含在響應中. <br/>3. 當<code>fromTradeId</code>和<code>toTradeId</code>都傳入, fromTradeId不包含，但是toTradeId會在響應中，如果它的值是存在的tradeId.。</li>
+    <li><code>orderId</code>傳入: <code>fromTradeId</code>和<code>toTradeid</code>的值會總是被包含在響應中，如果它們的值是存在的tradeId。</li>
+  asset_withdrawType: <code>0</code>(默認)：鏈上提現. <code>1</code>：平台內部轉帳. <code>2</code>：鏈上提現和內部轉帳
+  spot_wssv2_trade_type: 交易類型標識. <code>0</code>：幣幣成交. <code>1</code>：Paradigm 大宗交易
