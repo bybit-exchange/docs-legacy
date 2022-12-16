@@ -783,6 +783,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2022-12-14" class="toc-h2 toc-link" data-title="2022-12-14">2022-12-14</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-12-12" class="toc-h2 toc-link" data-title="2022-12-12">2022-12-12</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -791,13 +799,8 @@
                           <li>
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#2022-12-12-2" class="toc-h2 toc-link" data-title="2022-12-12">2022-12-12</a>
-                      <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -821,7 +824,7 @@
                     <a href="#2022-11-10" class="toc-h2 toc-link" data-title="2022-11-10">2022-11-10</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -832,7 +835,7 @@
                             <a href="#rest-api-5" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1477,7 +1480,15 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://www.npmjs.com/package/bybit-api"><strong>bybit-api</strong></a> - <strong>社區NodeJS SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-12-12'>2022-12-12</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-12-14'>2022-12-14</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websocketposition">持倉</a> [更新]
+
+<ul>
+<li>更新倉位推送. <ul><li>新增響應字段 <code>activePrice</code>,<code>markPrice</code>,<code>cumRealisedPnl</code>,<code>positionMM</code>,<br/><code>positionIM</code>,<code>positionStatus</code>,<code>sessionAvgPrice</code>,<code>occClosingFee</code></li></ul></li>
+</ul></li>
+</ul>
+<h2 id='2022-12-12'>2022-12-12</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-dv_myposition">獲取持倉（實時）</a> [更新]
 
@@ -1493,7 +1504,7 @@ clipboard.on('error', function(e) {
 <li>更新交易對規格接口. 新增響應字段<code>fundingInterval</code>, USDT期貨新增<code>settleCoin</code></li>
 </ul></li>
 </ul>
-<h2 id='2022-12-12-2'>2022-12-12</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h3 id='websocket-api-2'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketliquidation">平臺強平推送</a> [新增]
 
@@ -1522,7 +1533,7 @@ clipboard.on('error', function(e) {
 <li>新增入参字段. 支持按結算幣種來取消訂單</li>
 </ul></li>
 </ul>
-<h2 id='2022-11-10'>2022-11-10</h2><h3 id='websocket-api-2'>WebSocket API</h3>
+<h2 id='2022-11-10'>2022-11-10</h2><h3 id='websocket-api-3'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketorderbookdepth">orderbook</a> [更新]
 
@@ -1538,7 +1549,7 @@ clipboard.on('error', function(e) {
 <li>新增接口，用於查詢限倉信息。</li>
 </ul></li>
 </ul>
-<h3 id='websocket-api-3'>WebSocket API</h3>
+<h3 id='websocket-api-4'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websockettrade">平臺成交</a> [更新]
 
@@ -7478,76 +7489,36 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">user.position.contractAccount</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">positionIdx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">716</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">riskLimitValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BITUSDT</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">positionIdx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">50</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">positionValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">33.7</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.674</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.024</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">positionValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">394.55123078</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16439.63461538</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">tradeMode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">autoAddMargin</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">positionBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3.438198</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">liqPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">bustPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.001</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">trailingStop</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.05</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658905548601</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659057535085</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">tpSlMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Full</span><span class="dl">"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">positionIdx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">716</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">riskLimitValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BITUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">None</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">positionValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">tradeMode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">autoAddMargin</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">positionBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">liqPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">bustPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">trailingStop</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658905548601</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659057535085</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">tpSlMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Full</span><span class="dl">"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="dl">"</span><span class="s2">positionIdx</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">riskId</span><span class="dl">"</span><span class="p">:</span> <span class="mi">206</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">riskLimitValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">DOGEUSDT</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">200</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">positionValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">13.13</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">entryPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.06565</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">tradeMode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">autoAddMargin</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">positionBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.3200902</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">liqPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">bustPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">trailingStop</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.71</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1658307181708</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1659057535085</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">tpSlMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Partial</span><span class="dl">"</span>
+            <span class="dl">"</span><span class="s2">leverage</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">positionBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">131.67490005</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">liqPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.50</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">bustPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.50</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">trailingStop</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">32.57676922</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">createdTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1640056352777</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1671002545179</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">tpSlMode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Partial</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">sessionAvgPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">positionStatus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Normal</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">occClosingFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000072</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17797.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">cumRealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">44834.01605397</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">activePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">riskLimitValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2000000</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">positionMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00006</span><span class="dl">"</span><span class="p">,</span>
+            <span class="dl">"</span><span class="s2">positionIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3.9455123078</span><span class="dl">"</span>
         <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
 </code></pre></div>
 <p><p><p><b>說明：</b></p>
 <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息。<b>仅推增量</b></p>
@@ -7606,6 +7577,11 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <td>平均入場價</td>
 </tr>
 <tr>
+<td style="text-align: left">markPrice</td>
+<td style="text-align: left">string</td>
+<td>更新時間</td>
+</tr>
+<tr>
 <td style="text-align: left">tradeMode</td>
 <td style="text-align: left">integer</td>
 <td>交易模式：<code>0</code>：全倉; <code>1</code>：逐倉</td>
@@ -7625,6 +7601,21 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <td style="text-align: left">positionBalance</td>
 <td style="text-align: left">string</td>
 <td>倉位餘額</td>
+</tr>
+<tr>
+<td style="text-align: left">positionStatus</td>
+<td style="text-align: left">string</td>
+<td>更新時間</td>
+</tr>
+<tr>
+<td style="text-align: left">sessionAvgPrice</td>
+<td style="text-align: left">string</td>
+<td>結算價格，僅USDC</td>
+</tr>
+<tr>
+<td style="text-align: left">occClosingFee</td>
+<td style="text-align: left">string</td>
+<td>倉位占用的平倉手續費</td>
 </tr>
 <tr>
 <td style="text-align: left">liqPrice</td>
@@ -7655,6 +7646,26 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <td style="text-align: left">unrealisedPnl</td>
 <td style="text-align: left">string</td>
 <td>未結盈虧</td>
+</tr>
+<tr>
+<td style="text-align: left">activePrice</td>
+<td style="text-align: left">string</td>
+<td>追蹤止損觸發價格。追蹤止損會在到達該價格後才會觸發（追蹤止損默認立即觸發）。</td>
+</tr>
+<tr>
+<td style="text-align: left">positionIM</td>
+<td style="text-align: left">string</td>
+<td>倉位初始保證金。Portfolio Margin 模式下，顯示為空串。</td>
+</tr>
+<tr>
+<td style="text-align: left">positionMM</td>
+<td style="text-align: left">string</td>
+<td>倉位維持保證金。Portfolio Margin 模式下，顯示為空串。</td>
+</tr>
+<tr>
+<td style="text-align: left">cumRealisedPnl</td>
+<td style="text-align: left">string</td>
+<td>累計已結盈虧</td>
 </tr>
 <tr>
 <td style="text-align: left">createdTime</td>

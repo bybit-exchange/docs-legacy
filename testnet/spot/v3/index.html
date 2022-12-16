@@ -3847,6 +3847,13 @@ If <code>startTime</code> is not specified, you can only query for records in th
 If the <code>orderId</code> is null, <code>fromTicketId</code> is passed, and <code>toTicketId</code> is null, then the result is sorted by <code>ticketId</code> in ascend. Otherwise, the result is sorted by <code>ticketId</code> in descend.
 </aside>
 
+<aside class="notice">
+The rule of <code>fromTradeId</code> and <code>toTradeId</code>:<br/>
+<li><code>orderId</code> is not passed: <br/>1. Only <code>fromTradeId</code> is passed, fromTradeId will not be included in the response. <br/>2. Only <code>toTradeId</code> is passed, toTradeId will not be included in the response. <br/>3. Both <code>fromTradeId</code> and <code>toTradeId</code> are passed, fromTradeId is not included but toTradeId is if toTradeId is an existing tradeId.</li>
+<li><code>orderId</code> is passed: Both <code>fromTradeId</code> and <code>toTradeId</code> are included in the repsonse, if they are existing trade id.</li>
+
+</aside>
+
 <p class="fake_header">HTTP Request</p>
 
 <p>GET

@@ -3928,6 +3928,13 @@ function copyStringToClipboard (endpoint) {
 僅當不傳入<code>orderId</code>, 不傳入<code>toTicketId</code>，但傳入<code>fromTicketId</code>時，返回的結果是以<code>ticketId</code>從小到大排序；否則，返回的結果以<code>ticketId</code>從大到小排序
 </aside>
 
+<aside class="notice">
+<code>fromTradeId</code>和<code>toTrandeId</code>的規則:<br/>
+<li><code>orderId</code>不傳: <br/>1. 僅<code>fromTradeId</code>傳入, fromTradeId不會被包含在響應中. <br/>2. 僅<code>toTradeId</code>傳入, toTradeId不會被包含在響應中. <br/>3. 當<code>fromTradeId</code>和<code>toTradeId</code>都傳入, fromTradeId不包含，但是toTradeId會在響應中，如果它的值是存在的tradeId.。</li>
+<li><code>orderId</code>傳入: <code>fromTradeId</code>和<code>toTradeid</code>的值會總是被包含在響應中，如果它們的值是存在的tradeId。</li>
+
+</aside>
+
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
