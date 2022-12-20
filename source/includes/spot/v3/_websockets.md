@@ -178,6 +178,10 @@ t(:spot_websocket_unsubscribe_desc_v3)
 t(:spot_websocket_para_response)
 
 ## t(:publictopics)
+<aside class="notice">
+t(:websocket_spot_public_topic_v3)
+</aside>
+
 ### t(:websocketdepth)
 > t(:codequote_subscribe)
 
@@ -233,7 +237,7 @@ t(:spot_websocket_para_response)
             ...
         ]
     },
-    "type": "delta",
+    "type": "snapshot",
     "topic": "orderbook.40.BTCUSDT",
     "ts": 1661743689735
 }
@@ -279,7 +283,7 @@ t(:spot_websocket_orderbook_desc_v3)
         "q": "0.000158",
         "m": true
     },
-    "type": "delta",
+    "type": "snapshot",
     "topic": "trade.BTCUSDT",
     "ts": 1661742109863
 }
@@ -328,7 +332,7 @@ t(:spot_websocket_trade_desc_v3)
         "o": "19705.38",
         "v": "0.232154"
     },
-    "type": "delta",
+    "type": "snapshot",
     "topic": "kline.1h.BTCUSDT",
     "ts": 1661745259605
 }
@@ -380,7 +384,7 @@ t(:spot_websocket_kline_desc_v3)
         "qv": "197357775.97621786",
         "m": "-0.0063"
     },
-    "type": "delta",
+    "type": "snapshot",
     "topic": "tickers.BTCUSDT",
     "ts": 1661742216011
 }
@@ -432,7 +436,7 @@ t(:spot_websocket_symbol_ticker_desc_v3)
         "aq": "0.705447",
         "t": 1661742216108
     },
-    "type": "delta",
+    "type": "snapshot",
     "topic": "bookticker.BTCUSDT",
     "ts": 1661742216109
 }
