@@ -6687,7 +6687,11 @@ function copyStringToClipboard (endpoint) {
 <span class="p">}</span>
 </code></pre></div>
 <p>訂閱成功後會立即返回訂閱的消息結果，您可以根據返回結果判斷是否訂閱成功</p>
-<h2 id='t-publictopics'>公共 Topics</h2><h3 id='t-websocketdepth'>深度</h3>
+<h2 id='t-publictopics'>公共 Topics</h2>
+<aside class="notice">
+現貨V3公共topic只推送snapshot的數據
+</aside>
+<h3 id='t-websocketdepth'>深度</h3>
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -6738,7 +6742,7 @@ function copyStringToClipboard (endpoint) {
             <span class="p">...</span>
         <span class="p">]</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.40.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661743689735</span>
 <span class="p">}</span>
@@ -6820,7 +6824,7 @@ function copyStringToClipboard (endpoint) {
         <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000158</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742109863</span>
 <span class="p">}</span>
@@ -6897,7 +6901,7 @@ function copyStringToClipboard (endpoint) {
         <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19705.38</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.232154</span><span class="dl">"</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline.1h.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661745259605</span>
 <span class="p">}</span>
@@ -7001,7 +7005,7 @@ function copyStringToClipboard (endpoint) {
         <span class="dl">"</span><span class="s2">qv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">197357775.97621786</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.0063</span><span class="dl">"</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216011</span>
 <span class="p">}</span>
@@ -7096,7 +7100,7 @@ function copyStringToClipboard (endpoint) {
         <span class="dl">"</span><span class="s2">aq</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.705447</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216108</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bookticker.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216109</span>
 <span class="p">}</span>

@@ -6687,7 +6687,11 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
 <span class="p">}</span>
 </code></pre></div>
 <p>Once you subscribe successfully, you'd receive result information. You can determine whether the subscription is successful based on the response.</p>
-<h2 id='t-publictopics'>Public Topics</h2><h3 id='t-websocketdepth'>depth</h3>
+<h2 id='t-publictopics'>Public Topics</h2>
+<aside class="notice">
+All type values will be pushed as "snapshot" only for SPOT V3 public topics.
+</aside>
+<h3 id='t-websocketdepth'>depth</h3>
 <blockquote>
 <p>How to Subscribe</p>
 </blockquote>
@@ -6738,7 +6742,7 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
             <span class="p">...</span>
         <span class="p">]</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">orderbook.40.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661743689735</span>
 <span class="p">}</span>
@@ -6819,7 +6823,7 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
         <span class="dl">"</span><span class="s2">q</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000158</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">trade.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742109863</span>
 <span class="p">}</span>
@@ -6896,7 +6900,7 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
         <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19705.38</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.232154</span><span class="dl">"</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">kline.1h.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661745259605</span>
 <span class="p">}</span>
@@ -6984,7 +6988,7 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
         <span class="dl">"</span><span class="s2">qv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">197357775.97621786</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.0063</span><span class="dl">"</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216011</span>
 <span class="p">}</span>
@@ -7079,7 +7083,7 @@ You can pass a maximum of <b>10</b> args in <code>args</code>
         <span class="dl">"</span><span class="s2">aq</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.705447</span><span class="dl">"</span><span class="p">,</span>
         <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216108</span>
     <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bookticker.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216109</span>
 <span class="p">}</span>
