@@ -37,6 +37,8 @@ en:
     Position idx, used to identify positions in different position modes<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
   row_comment_position_idx_create_order: |
     Position idx, used to identify positions in different position modes. <b>Required</b> if you are under One-Way Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+  row_comment_position_idx_create_order_v3: |
+    Position idx, used to identify positions in different position modes. <b>Required</b> if you are under Hedge Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
   row_comment_position_idx_create_order_inverse_futures: |
     Position idx, used to identify positions in different position modes. <b>Required</b>if you are under Hedge Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
   row_comment_position_idx_leverage: Deprecated!! Position idx
@@ -1292,6 +1294,11 @@ en:
 
   account_aside_replaceActive:
     Please note that only orders that are unfilled or partially filled can be modified by the replace-order API.
+  account_aside_queryPosition:
+    Please note that zero position will be displayed only if the symbol is passed in the input parameter; other conditional queries will only return data with positions.
+  account_aside_placeOrder_positionIdx:
+    Please note that <b>positionIdx</b> must be required in the hedge mode in contractV3, and must be required in the one-way mode in v2
+
   ### Query Active Order (real-time)
   queryactive: Query Active Order (real-time)
   account_para_queryActive: Query real-time active order information. If only <code>order_id</code> or <code>order_link_id</code> are passed, a single order will be returned; otherwise, <b>returns up to <a href="#t-orderlimits">500</a> unfilled orders</b>.

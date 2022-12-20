@@ -53,6 +53,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
 
 t(:contract_order_para)
 
+<aside class="notice">
+t(:account_aside_placeOrder_positionIdx)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=vpoCreate>/contract/v3/private/order/create</span></code>
@@ -63,7 +67,7 @@ POST
 |:----- |:-------|:-----|----- |
 |symbol |<b>true</b> |string |t(:row_comment_symbol)   |
 |side |<b>true</b> |string |t(:row_comment_side)    |
-|positionIdx |false |integer |t(:row_comment_position_idx_create_order)  |
+|positionIdx |false |integer |t(:row_comment_position_idx_create_order_v3)  |
 |t(:contract_param_orderType) |<b>true</b> |string |t(:row_comment_activeOrderType)   |
 |qty |<b>true</b> |string |t(:contract_comment_qty) |
 |price |false |string |t(:contract_comment_price) |
@@ -570,6 +574,10 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
 
 t(:contract_para_position)
 
+<aside class="notice">
+t(:account_aside_queryPosition)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=pList>/contract/v3/private/position/list</span></code>
@@ -580,8 +588,6 @@ GET
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |false |string |t(:contract_comment_realtimeOrderSymbol)    |
 |settleCoin |false |string |t(:contract_comment_positionSettleCoin)    |
-|dataFilter |false |string |t(:contract_comment_dataFilter)    |
-
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
