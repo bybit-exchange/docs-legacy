@@ -3534,6 +3534,10 @@ function copyStringToClipboard (endpoint) {
 <p><b>當您達到訂單上限的時候的時候，仍然可以下單設置了參數<code>reduceOnly</code> 或 <code>closeOnTrigger</code>的訂單。</b></p>
 </p>
 
+<aside class="notice">
+請註意，<b>positionIdx</b> 在contractV3中雙倉模式是必傳的，在v2中單倉模式是必傳的
+</aside>
+
 <p class="fake_header">HTTP 請求</p>
 
 <p>POST
@@ -3566,7 +3570,7 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">positionIdx</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>Position idx, 用於在不同倉位模式下標識倉位。 如果是<b>單向持倉</b>模式， 該參數為<b>必填</b><span>:</span> <br/>0-單向持倉 <br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell
+<td>Position idx, 用於在不同倉位模式下標識倉位。 如果是<b>雙向持倉</b>模式， 該參數為<b>必填</b><span>:</span> <br/>0-單向持倉 <br/>1-雙向持倉Buy<br/> 2-雙向持倉Sell
 </td>
 </tr>
 <tr>
@@ -4599,6 +4603,10 @@ function copyStringToClipboard (endpoint) {
 <p>獲取我的倉位列表。通過該接口可以獲取當前用戶的持倉信息，如持倉數量、賬戶余額等信息。</p>
 </p>
 
+<aside class="notice">
+請註意，入參裡只傳symbol 才會顯示0倉位； 其他條件查詢都只返回有持倉的數據。
+</aside>
+
 <p class="fake_header">HTTP 請求</p>
 
 <p>GET
@@ -4626,12 +4634,6 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>結算幣種. <code>symbol</code>和<code>settleCoin</code>字段必須傳一個. 都傳的話，以<code>symbol</code>為準.</td>
-</tr>
-<tr>
-<td style="text-align: left">dataFilter</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>僅在<code>settleCoin</code>有值時生效. <code>full</code>：獲取settle coin對應的所有symbol的持倉數據, 不管倉位是否為0. <code>valid</code>：僅獲取settle coin對應持倉不為0的倉位數據</td>
 </tr>
 </tbody></table>
 

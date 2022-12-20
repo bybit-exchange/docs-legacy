@@ -3540,6 +3540,10 @@ The response is in the snapshot format.
 <p><b>Each account can hold up to 500 active orders yet to be filled entirely simultaneously. This is per instrument, so it's possible to have, for example, 300 active orders on the BTCUSDT instrument and 280 active orders on the ETHUSDT instrument.</b></p>
 </p>
 
+<aside class="notice">
+Please note that <b>positionIdx</b> must be required in the hedge mode in contractV3, and must be required in the one-way mode in v2
+</aside>
+
 <p class="fake_header">HTTP Request</p>
 
 <p>POST
@@ -3572,7 +3576,7 @@ The response is in the snapshot format.
 <td style="text-align: left">positionIdx</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">integer</td>
-<td>Position idx, used to identify positions in different position modes. <b>Required</b> if you are under One-Way Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
+<td>Position idx, used to identify positions in different position modes. <b>Required</b> if you are under Hedge Mode<span>:</span> <br/>0-One-Way Mode <br/>1-Buy side of both side mode <br/> 2-Sell side of both side mode
 </td>
 </tr>
 <tr>
@@ -4618,6 +4622,10 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <p>Accessing personal list of positions. Users can access information about their open positions through this interface, such as the quantity and wallet balance.</p>
 </p>
 
+<aside class="notice">
+Please note that zero position will be displayed only if the symbol is passed in the input parameter; other conditional queries will only return data with positions.
+</aside>
+
 <p class="fake_header">HTTP Request</p>
 
 <p>GET
@@ -4645,13 +4653,6 @@ Please note that only orders that are unfilled or partially filled can be modifi
 <td style="text-align: left">false</td>
 <td style="text-align: left">string</td>
 <td>Settle coin. Either <code>symbol</code> or <code>settleCoin</code> is required. If both are passed, <code>symbol</code> is used first.</td>
-</tr>
-<tr>
-<td style="text-align: left">dataFilter</td>
-<td style="text-align: left">false</td>
-<td style="text-align: left">string</td>
-<td>Only work when <code>settleCoin</code> is passed. <code>full</code>: get all positions regardless zero or not based on settle coin. <code>valid</code>: get valid positions based on settle coin
-</td>
 </tr>
 </tbody></table>
 
