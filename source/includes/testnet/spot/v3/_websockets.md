@@ -233,7 +233,7 @@ t(:spot_websocket_para_response)
             ...
         ]
     },
-    "type": "delta",
+    "type": "snapshot",
     "topic": "orderbook.40.BTCUSDT",
     "ts": 1661743689735
 }
