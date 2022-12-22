@@ -277,7 +277,8 @@ t(:spot_websocket_orderbook_desc_v3)
         "t": 1661742109857,
         "p": "19706.87",
         "q": "0.000158",
-        "m": true
+        "m": true,
+        "type":"0"
     },
     "type": "delta",
     "topic": "trade.BTCUSDT",
@@ -295,6 +296,7 @@ t(:spot_websocket_trade_desc_v3)
 |p | string | t(:spot_price) |
 |q | string | t(:spot_quantity) |
 |m | boolean | t(:spot_side) |
+| type | string | t(:spot_wssv2_trade_type) |
 | ts | long | t(:spot_wss_ts) |
 
 
