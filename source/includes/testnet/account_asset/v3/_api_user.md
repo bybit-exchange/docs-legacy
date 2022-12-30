@@ -286,7 +286,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/user/v3/private/que
     "result": {
         "id": "224128",
         "note": "allwrite",
-        "apiKey": "JNLEWNAQHLQKIEBBYT",
+        "apiKey": "XXXXXX",
         "readOnly": 0,
         "secret": "",
         "permissions": {
