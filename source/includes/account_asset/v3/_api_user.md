@@ -284,9 +284,9 @@ curl --location --request GET 'https://api-testnet.bybit.com/user/v3/private/que
     "retCode": 0,
     "retMsg": "OK",
     "result": {
-        "id": "220315",
-        "note": "testApiKey",
-        "apiKey": "XXXXXXXXXX",
+        "id": "224128",
+        "note": "allwrite",
+        "apiKey": "JNLEWNAQHLQKIEBBYT",
         "readOnly": 0,
         "secret": "",
         "permissions": {
@@ -298,8 +298,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/user/v3/private/que
                 "SpotTrade"
             ],
             "Wallet": [
-                "AccountTransfer",
-                "SubMemberTransfer"
+                "AccountTransfer"
             ],
             "Options": [
                 "OptionsTrade"
@@ -307,26 +306,28 @@ curl --location --request GET 'https://api-testnet.bybit.com/user/v3/private/que
             "Derivatives": [
                 "DerivativesTrade"
             ],
-            "CopyTrading": [
-                "CopyTrading"
-            ],
+            "CopyTrading": [],
             "BlockTrade": [],
-            "Exchange": [
-                "ExchangeHistory"
-            ],
+            "Exchange": [],
             "NFT": []
         },
         "ips": [
             "*"
         ],
         "type": 1,
-        "deadlineDay": 87,
-        "expiredAt": "2023-01-13T03:47:43Z",
-        "createdAt": "2022-07-08T06:43:11Z",
-        "unified": 0
+        "deadlineDay": 21,
+        "expiredAt": "2023-01-21T03:54:48Z",
+        "createdAt": "2022-07-20T08:26:51Z",
+        "unified": 1,
+        "uta": 1,
+        "userID": 592324,
+        "inviterID": 0,
+        "vipLevel": "No VIP",
+        "mktMakerLevel": "0",
+        "affiliateID": 0
     },
     "retExtInfo": null,
-    "time": 1665990908666
+    "time": 1672383034616
 }
 ```
 
@@ -365,6 +366,12 @@ GET
 |expiredAt |datetime |t(:user_expiredAt_resp_comment) |
 |createdAt |datetime |t(:user_createdAt_resp_comment) |
 |unified |int |t(:user_unified_resp_comment) |
+|uta |int |t(:user_unified_trade_resp_comment) |
+|userID |int |t(:row_comment_position_user_id) |
+|inviterID |int |t(:row_comment_position_inviter_id) |
+|vipLevel |string |t(:row_comment_vip_level) |
+|mktMakerLevel |string |t(:row_comment_mkt_maker_level) |
+|affiliateID |int |t(:row_comment_affiliate_id) |
 
 
 ### t(:modify_master_api_key)

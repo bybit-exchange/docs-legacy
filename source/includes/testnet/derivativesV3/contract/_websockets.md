@@ -631,7 +631,7 @@ t(:contract_websocketPosition)
 |size |string |t(:row_comment_query_size_v3)  |
 |positionValue |string |t(:row_comment_query_positionValue_v3)  |
 |entryPrice |string |t(:row_comment_query_entryPrice_v3)  |
-|markPrice |string |t(:row_comment_updated_at)  |
+|markPrice |string |t(:contract_position_markPrice)  |
 |tradeMode |integer |t(:contract_position_tradeMode)  |
 |autoAddMargin |integer |t(:contract_position_autoAddMargin)  |
 |leverage |string |t(:row_comment_query_leverage_v3)  |
