@@ -169,6 +169,10 @@ t(:websocket_para_response)
 ## t(:publictopics)
 ### t(:websocketOrderBookDepth)
 
+<aside class="notice">
+t(:websocket_aside_orderbook_L1)
+</aside>
+
 > t(:codequote_subscribe)
 
 ```javascript
@@ -239,10 +243,6 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.1.BTCUSDT
 ```
 
 t(:websocketOrderBook_contract)
-
-<aside class="notice">
-t(:websocket_aside_orderbook_L1)
-</aside>
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
