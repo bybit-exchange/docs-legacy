@@ -245,6 +245,10 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["orderbook.1.BTCUSDT
 
 t(:websocketOrderBook_v3)
 
+<aside class="notice">
+t(:websocket_aside_orderbook_L1)
+</aside>
+
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
 |:----- |:-----|----- |
@@ -321,33 +325,32 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["tickers.BTCUSDT"]}'
 
 ```javascript
 {
-  "topic":"tickers.BTCUSDT",
-    "type":"snapshot",
-    "data":{
-    "symbol":"BTCUSDT",
-      "tickDirection":"ZeroMinusTick",
-      "price24hPcnt":"0.032786",
-      "lastPrice":"22019.00",
-      "prevPrice24h":"21320.00",
-      "highPrice24h":"22522.00",
-      "lowPrice24h":"20745.00",
-      "prevPrice1h":"22186.50",
-      "markPrice":"22010.11",
-      "indexPrice":"22009.01",
-      "openInterest":"44334.438",
-      "turnover24h":"4609010554.786498",
-      "volume24h":"213532.606",
-      "fundingRate":"0.0001",
-      "nextFundingTime":"2022-07-18T16:00:00Z",
-      "bid1Price":"22019.00",
-      "bid1Size":"41.530",
-      "ask1Price":"22019.50",
-      "ask1Size":"7.041",
-      "basisRate":"0",
-      "deliveryFeeRate":"0"
-  },
-  "cs":14236992078,
-    "ts":1663203915102
+    "topic": "tickers.BTCUSDT",
+    "type": "snapshot",
+    "data": {
+        "symbol": "BTCUSDT",
+        "tickDirection": "ZeroMinusTick",
+        "price24hPcnt": "0.018608",
+        "lastPrice": "17243.00",
+        "prevPrice24h": "16928.00",
+        "highPrice24h": "17271.00",
+        "lowPrice24h": "16915.00",
+        "prevPrice1h": "17246.00",
+        "markPrice": "17247.73",
+        "indexPrice": "17261.71",
+        "openInterest": "68257.758",
+        "openInterestValue": "1177291380.39",
+        "turnover24h": "1468361827.0869985",
+        "volume24h": "85837.138",
+        "nextFundingTime": "1673280000000",
+        "fundingRate": "-0.000231",
+        "bid1Price": "17243.00",
+        "bid1Size": "84.727",
+        "ask1Price": "17243.50",
+        "ask1Size": "34.425"
+    },
+    "cs": 24966636010,
+    "ts": 1673265043686
 }
 ```
 
@@ -355,26 +358,18 @@ ws.send('{"op": "subscribe", "req_id": "10110001", "args": ["tickers.BTCUSDT"]}'
 
 ```javascript
 {
-  "topic":"tickers.BTCUSDT",
-    "type":"delta",
-    "data":{
-    "symbol":"BTCUSDT",
-      "tickDirection":"PlusTick",
-      "price24hPcnt":"0.032621",
-      "lastPrice":"22015.50",
-      "turnover24h":"4609049418.106998",
-      "volume24h":"213534.371",
-      "fundingRate":"0.0001",
-      "nextFundingTime":"2022-07-18T16:00:00Z",
-      "bid1Price":"22019.00",
-      "bid1Size":"41.530",
-      "ask1Price":"22019.50",
-      "ask1Size":"7.041"
-  },
-  "cs":14236992274, 
-    "ts":1658145103883091
+    "topic": "tickers.BTCUSDT",
+    "type": "delta",
+    "data": {
+        "symbol": "BTCUSDT",
+        "bid1Price": "17243.00",
+        "bid1Size": "84.727",
+        "ask1Price": "17243.50",
+        "ask1Size": "33.175"
+    },
+    "cs": 24966636396,
+    "ts": 1673265043786
 }
-
 ```
 
 > t(:codequote_option)
@@ -436,11 +431,11 @@ t(:websocket_aside_instrumentInfo_um)
 |markPrice |string |t(:row_comment_resp_mark_price)  |
 |indexPrice |string |t(:row_comment_resp_index_price)  |
 |openInterest |string |t(:row_comment_resp_open_interest). t(:row_comment_slow_update)  |
+|openInterestValue |string |t(:ticker_wss_openInterestValue) |
 |turnover24h |string |t(:row_comment_resp_turnover_24h)  |
 |volume24h |string |t(:row_comment_resp_volume_24h)  |
 |nextFundingTime |string |t(:row_comment_resp_next_funding_time_v3)  |
 |fundingRate |string |t(:row_comment_resp_funding_rate_v3) |
-|predicatedFundingRate |string |t(:predicatedFundingRate_v3) |
 |bid1Price|string|t(:row_comment_resp_bid_price) |
 |bid1Size|string|t(:row_comment_resp_bid_size) |
 |ask1Price|string|t(:row_comment_resp_ask_price) |
