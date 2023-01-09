@@ -936,7 +936,7 @@ GET
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |baseCoin |false |string |t(:unified_baseCoin_param_3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
-|limit |false |number |t(:row_comment_limit_v3)   |
+|limit |false |number |t(:unified_position_limit)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
