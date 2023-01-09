@@ -698,7 +698,7 @@ ws.send('{"op":"subscribe","args":["user.execution.unifiedAccount"]}');
 			"lastLiquidityInd": "MAKER",
 			"orderPrice": "43100.00000000",
 			"orderType": "Limit",
-			"stopOrderType": "UNKNOWN"
+			"stopOrderType": ""
 		}],
 		"version": 10
 	},
@@ -764,8 +764,8 @@ ws.send('{"op":"subscribe","args":["user.order.unifiedAccount"]}');
                 "cumExecQty": "0.0000",
                 "cumExecValue": "0.00000000",
                 "cumExecFee": "0.00000000",
-                "stopOrderType": "UNKNOWN",
-                "triggerBy": "UNKNOWN",
+                "stopOrderType": "",
+                "triggerBy": "",
                 "triggerPrice": "",
                 "reduceOnly": true,
                 "closeOnTrigger": true,
@@ -775,8 +775,8 @@ ws.send('{"op":"subscribe","args":["user.order.unifiedAccount"]}');
                 "orderIM": "",
                 "takeProfit": "",
                 "stopLoss": "",
-                "tpTriggerBy": "UNKNOWN",
-                "slTriggerBy": "UNKNOWN",
+                "tpTriggerBy": "",
+                "slTriggerBy": "",
                 "basePrice": "",
                 "blockTradeId": "",
                 "leavesQty": "0.0100"
