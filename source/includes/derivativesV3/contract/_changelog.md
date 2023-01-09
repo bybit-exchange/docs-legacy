@@ -1,9 +1,9 @@
 # t(:changelog)
 
-## 2022-12-14
+## 2023-01-09
 ### WebSocket API
 - [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
-  - t(:restapi_update_20221214_2)
+  - t(:restapi_update_20230109)
 
 ## 2022-12-12
 ### REST API
