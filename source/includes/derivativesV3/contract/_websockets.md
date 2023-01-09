@@ -542,7 +542,7 @@ t(:websocket_aside_klineV2)
 > t(:codequote_subscribe)
 
 ```javascript
-ws.send('{"op":"subscribe","req_id": "10110001", "args":["liquidation.BTCUSDT"]}')
+ws.send('{"op":"subscribe","req_id": "10110001", "args":["liquidation.GALAUSDT"]}')
 ```
 
 ```python--pybit
@@ -552,7 +552,18 @@ ws.send('{"op":"subscribe","req_id": "10110001", "args":["liquidation.BTCUSDT"]}
 > t(:codequote_responseExampleFormatAll)
 
 ```javascript
-
+{
+    "data": {
+        "price": "0.03803",
+        "side": "Buy",
+        "size": "1637",
+        "symbol": "GALAUSDT",
+        "updatedTime": 1673251091822
+    },
+    "topic": "liquidation.GALAUSDT",
+    "ts": 1673251091822,
+    "type": "snapshot"
+}
 ```
 
 t(:websocketliquidation_para)
@@ -563,10 +574,8 @@ t(:websocketliquidation_para)
 |updatedTime|integer |t(:insurance_resp_updatedTime) |
 |symbol|string |t(:row_comment_symbol) |
 |side|string|t(:liquidation_side) |
-|positionSide|string |t(:liquidation_positionSide) |
 |size|string |t(:execQty)  |
 |price|string |t(:excPrice)  |
-|execID|string |t(:row_comment_exec_id) |
 
 
 ## t(:contract_privateTopic)
