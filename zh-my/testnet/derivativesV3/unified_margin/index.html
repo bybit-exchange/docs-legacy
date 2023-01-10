@@ -4233,7 +4233,7 @@ order_link_id。 </p>
                 <span class="dl">"</span><span class="s2">qty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1000</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span>
+                <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
             <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
@@ -5653,8 +5653,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td style="text-align: left">limit</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">number</td>
-<td>每頁數量, 最大50. 默認每頁20條
-</td>
+<td>每頁數量限制. 最大為200, 默認返回200</td>
 </tr>
 <tr>
 <td style="text-align: left">cursor</td>
@@ -6782,40 +6781,60 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
     <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">totalEquity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">112.21267421</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">accountIMRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.6895</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">totalMarginBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">80.37711012</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">totalInitialMargin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">55.42180254</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">totalAvailableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">24.95530758</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">accountMMRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0459</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">totalPerpUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-16.69586570</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">totalWalletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">97.07311619</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">totalMaintenanceMargin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3.68580537</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">currencyCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ETH</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">availableToBorrow</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">borrowSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">bonus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">accruedInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">availableBalanceWithoutConvert</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalOrderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">equity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalPositionMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">usdValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">availableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.02441165</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">totalPositionIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">marginBalanceWithoutConvert</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">walletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">cumRealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">marginBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.07862610</span><span class="dl">"</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1657716037033</span>
+        <span class="dl">"</span><span class="s2">totalEquity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">445.20695266</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountIMRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.1195</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalMarginBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">445.20695266</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalInitialMargin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">53.20940585</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalAvailableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">391.99754682</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">accountMMRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0129</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalPerpUPL</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-13.12779308</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalWalletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">458.33474574</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">totalMaintenanceMargin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">5.74823205</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">coin</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">currencyCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">availableToBorrow</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1500000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">borrowSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">bonus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">accruedInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">availableBalanceWithoutConvert</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">totalOrderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">equity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">totalPositionMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">usdValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">availableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">391.99754682</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">totalPositionIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">marginBalanceWithoutConvert</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">walletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumRealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">marginBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">445.20695266</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">currencyCoin</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">availableToBorrow</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2499945.20850984</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">borrowSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">54.79149016</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">bonus</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">accruedInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0003021</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">availableBalanceWithoutConvert</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-107.99938383</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">totalOrderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">equity</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-54.79149016</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">totalPositionMM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">4.10432398</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">usdValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-54.79304733</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">availableBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">391.98640657</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">unrealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-13.12741999</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">totalPositionIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">42.24959564</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">marginBalanceWithoutConvert</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-54.79149016</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">walletBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-41.66407016</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">cumRealisedPnl</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-41.66407016</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">marginBalance</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">445.19430024</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673266182240</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p><p><b>接口說明：</b></p>
@@ -7575,35 +7594,26 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">540%3A0%2C539%3A0</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">currency</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1657713900286</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">costExemption</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">InterestBearingBorrowSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3073.3902403</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">currency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">hourlyBorrowRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000003630137</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">borrowCost</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01115682</span><span class="dl">"</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">nextPageCursor</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3347422%3A2%2C3347422%3A2</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">currency</span><span class="dl">"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673255100075</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">costExemption</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0003064720575562080220552</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">InterestBearingBorrowSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">currency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">hourlyBorrowRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000055138</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">borrowCost</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
     <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">createTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1657710300225</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">costExemption</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">InterestBearingBorrowSize</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">3088.3130293</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">currency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">hourlyBorrowRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000003630137</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">borrowCost</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.01121099</span><span class="dl">"</span>
-    <span class="p">}</span>
-   <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1657714596804</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673266124062</span>
 <span class="p">}</span>
-
 </code></pre></div>
 <p><p><p><b>接口說明：</b></p>
 <p>獲取利息記錄，按照創建時間倒敘排列。</p></p>
@@ -7723,29 +7733,28 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
-<span class="p">{</span>
-  <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Success</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">freeBorrowingAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2000.0</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">currency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">maxBorrowingAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10000.0</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">hourlyBorrowRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000003630137</span><span class="dl">"</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">retCode</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">retMsg</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OK</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">result</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">list</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">freeBorrowingAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">15000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">currency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDC</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">maxBorrowingAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1500000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">hourlyBorrowRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000342460000000000</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">freeBorrowingAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">30000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">currency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDT</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">maxBorrowingAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2500000</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">hourlyBorrowRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000551380000000000</span><span class="dl">"</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
     <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">freeBorrowingAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2000.0</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">currency</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">USDC</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">maxBorrowingAmount</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">10000.0</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">hourlyBorrowRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.000003630137</span><span class="dl">"</span>
-    <span class="p">}</span>
-   <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1657714557086</span>
+    <span class="dl">"</span><span class="s2">retExtInfo</span><span class="dl">"</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="dl">"</span><span class="s2">time</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673264677870</span>
 <span class="p">}</span>
-
 </code></pre></div>
 <p><p><p><b>接口說明：</b></p>
 <p>獲取當前統一保證金賬戶的借貸利率。</p></p>
@@ -8373,6 +8382,10 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <code>orderbook.200.{symbol}</code><br>
 </p>
 
+<aside class="notice">
+正向合約 & 反向合約 1檔數據：若3秒內無變化，將會再次推送snapshot數據.
+</aside>
+
 <p class="fake_header">返回參數</p>
 
 <table><thead>
@@ -8510,59 +8523,50 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <p>快照推送示例 - 連接建立成功後首次推送</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tickDirection</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ZeroMinusTick</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">price24hPcnt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.032786</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">prevPrice24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">21320.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">highPrice24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22522.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">lowPrice24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">20745.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">prevPrice1h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22186.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22010.11</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22009.01</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44334.438</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4609010554.786498</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">213532.606</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">nextFundingTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2022-07-18T16:00:00Z</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">41.530</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7.041</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">basisRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">deliveryFeeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992078</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1663203915102</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tickDirection</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ZeroMinusTick</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price24hPcnt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.018608</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prevPrice24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16928.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">highPrice24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17271.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lowPrice24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16915.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prevPrice1h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17246.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17247.73</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17261.71</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">68257.758</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">openInterestValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1177291380.39</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1468361827.0869985</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">85837.138</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">nextFundingTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1673280000000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.000231</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">84.727</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.50</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">34.425</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span> <span class="mi">24966636010</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673265043686</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>增量推送示例 - 快照數據推送後，推送的增量數據</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tickDirection</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">PlusTick</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">price24hPcnt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.032621</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22015.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4609049418.106998</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">213534.371</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">nextFundingTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2022-07-18T16:00:00Z</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">41.530</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7.041</span><span class="dl">"</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992274</span><span class="p">,</span> 
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658145103883091</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">84.727</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.50</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">33.175</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span> <span class="mi">24966636396</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673265043786</span>
 <span class="p">}</span>
-
 </code></pre></div>
 <blockquote>
 <p>以下為期權的快照數據推送</p>
@@ -8674,6 +8678,11 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <td>未平倉合約數量. 不是實時更新，最慢更新時間是一分鐘</td>
 </tr>
 <tr>
+<td style="text-align: left">openInterestValue</td>
+<td style="text-align: left">string</td>
+<td>未平倉合約價值</td>
+</tr>
+<tr>
 <td style="text-align: left">turnover24h</td>
 <td style="text-align: left">string</td>
 <td>24小時<a href="#t-faq_turnover">成交金額</a></td>
@@ -8686,17 +8695,12 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">nextFundingTime</td>
 <td style="text-align: left">string</td>
-<td>下次結算資金費用時間. 反向交割為<code>""</code></td>
+<td>下次結算資金費用時間 (毫秒). 反向交割為<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">fundingRate</td>
 <td style="text-align: left">string</td>
 <td>資金費率. 反向交割為<code>""</code></td>
-</tr>
-<tr>
-<td style="text-align: left">predicatedFundingRate</td>
-<td style="text-align: left">string</td>
-<td>預測資金費率. usdt永續、反向永續、反向交割為<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">bid1Price</td>
@@ -9282,7 +9286,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
             <span class="dl">"</span><span class="s2">lastLiquidityInd</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">MAKER</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">orderPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">43100.00000000</span><span class="dl">"</span><span class="p">,</span>
             <span class="dl">"</span><span class="s2">orderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Limit</span><span class="dl">"</span><span class="p">,</span>
-            <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span>
+            <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span>
         <span class="p">}],</span>
         <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="mi">10</span>
     <span class="p">},</span>
@@ -9424,8 +9428,8 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
                 <span class="dl">"</span><span class="s2">cumExecQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0000</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">cumExecValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">cumExecFee</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.00000000</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">stopOrderType</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">triggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">triggerPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">reduceOnly</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">closeOnTrigger</span><span class="dl">"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -9435,8 +9439,8 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
                 <span class="dl">"</span><span class="s2">orderIM</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">takeProfit</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">stopLoss</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UNKNOWN</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">tpTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">slTriggerBy</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">basePrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">blockTradeId</span><span class="dl">"</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">leavesQty</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0100</span><span class="dl">"</span>

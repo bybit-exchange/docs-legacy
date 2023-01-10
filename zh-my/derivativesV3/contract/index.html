@@ -783,7 +783,7 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2022-12-14" class="toc-h2 toc-link" data-title="2022-12-14">2022-12-14</a>
+                    <a href="#2023-01-09" class="toc-h2 toc-link" data-title="2023-01-09">2023-01-09</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
@@ -1480,12 +1480,12 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://www.npmjs.com/package/bybit-api"><strong>bybit-api</strong></a> - <strong>社區NodeJS SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-12-14'>2022-12-14</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2023-01-09'>2023-01-09</h2><h3 id='websocket-api'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketposition">持倉</a> [更新]
 
 <ul>
-<li>更新倉位推送. <ul><li>新增響應字段 <code>activePrice</code>,<code>markPrice</code>,<code>cumRealisedPnl</code>,<code>positionMM</code>,<br/><code>positionIM</code>,<code>positionStatus</code>,<code>sessionAvgPrice</code>,<code>occClosingFee</code></li></ul></li>
+<li>移除字段<code>predictedFundingRate</code>. 對於字段<code>nextFundingTime</code>, 使用UTC時間戳(毫秒)代替原本的日期. 新增字段<code>openInterestValue</code></li>
 </ul></li>
 </ul>
 <h2 id='2022-12-12'>2022-12-12</h2><h3 id='rest-api'>REST API</h3>
@@ -6691,6 +6691,10 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 </code></pre></div>
 <p>每個topic訂閱請求都會有對應的響應，您可以根據返回結果判斷是否訂閱成功。</p>
 <h2 id='t-publictopics'>公共 Topics</h2><h3 id='t-websocketorderbookdepth'>orderbook</h3>
+<aside class="notice">
+正向合約 & 反向合約 1檔數據：若3秒內無變化，將會再次推送snapshot數據.
+</aside>
+
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
@@ -6915,59 +6919,50 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <p>快照推送示例 - 連接建立成功後首次推送</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tickDirection</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ZeroMinusTick</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">price24hPcnt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.032786</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">prevPrice24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">21320.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">highPrice24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22522.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">lowPrice24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">20745.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">prevPrice1h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22186.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22010.11</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22009.01</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44334.438</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4609010554.786498</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">213532.606</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">nextFundingTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2022-07-18T16:00:00Z</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">41.530</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7.041</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">basisRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">deliveryFeeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992078</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1663203915102</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tickDirection</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ZeroMinusTick</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price24hPcnt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.018608</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prevPrice24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16928.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">highPrice24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17271.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lowPrice24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16915.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prevPrice1h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17246.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17247.73</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17261.71</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">68257.758</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">openInterestValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1177291380.39</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1468361827.0869985</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">85837.138</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">nextFundingTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1673280000000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.000231</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">84.727</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.50</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">34.425</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span> <span class="mi">24966636010</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673265043686</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>增量推送示例 - 快照數據推送後，推送的增量數據</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tickDirection</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">PlusTick</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">price24hPcnt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.032621</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22015.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4609049418.106998</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">213534.371</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">nextFundingTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2022-07-18T16:00:00Z</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">41.530</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7.041</span><span class="dl">"</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992274</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658145103883091</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">84.727</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.50</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">33.175</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span> <span class="mi">24966636396</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673265043786</span>
 <span class="p">}</span>
-
 </code></pre></div>
 <blockquote>
 <p>以下為期權的快照數據推送</p>
@@ -7078,6 +7073,11 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <td>未平倉合約數量. 不是實時更新，最慢更新時間是一分鐘</td>
 </tr>
 <tr>
+<td style="text-align: left">openInterestValue</td>
+<td style="text-align: left">string</td>
+<td>未平倉合約價值</td>
+</tr>
+<tr>
 <td style="text-align: left">turnover24h</td>
 <td style="text-align: left">string</td>
 <td>24小時<a href="#t-faq_turnover">成交金額</a></td>
@@ -7090,17 +7090,12 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <tr>
 <td style="text-align: left">nextFundingTime</td>
 <td style="text-align: left">string</td>
-<td>下次結算資金費用時間. 反向交割為<code>""</code></td>
+<td>下次結算資金費用時間 (毫秒). 反向交割為<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">fundingRate</td>
 <td style="text-align: left">string</td>
 <td>資金費率. 反向交割為<code>""</code></td>
-</tr>
-<tr>
-<td style="text-align: left">predicatedFundingRate</td>
-<td style="text-align: left">string</td>
-<td>預測資金費率. usdt永續、反向永續、反向交割為<code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">bid1Price</td>
@@ -7417,13 +7412,24 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <blockquote>
 <p>請求訂閱</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","req_id": "10110001", "args":["liquidation.BTCUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">{"op":"subscribe","req_id": "10110001", "args":["liquidation.GALAUSDT"]}</span><span class="dl">'</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python--pybit"><code>
 </code></pre></div>
 <blockquote>
 <p>響應示例</p>
 </blockquote>
-<div class="highlight"><pre class="highlight javascript tab-javascript"><code>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.03803</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">side</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Buy</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1637</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GALAUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">updatedTime</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673251091822</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">liquidation.GALAUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673251091822</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>獲取Bybit平台最近的強平訂單數據，推送增量數據。業務範圍：USDT永續、反向永續、反向交割、USDC永續<br/>
 <br/>
@@ -7458,11 +7464,6 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <td>訂單方向. <code>Buy</code> <code>Sell</code></td>
 </tr>
 <tr>
-<td style="text-align: left">positionSide</td>
-<td style="text-align: left">string</td>
-<td>持倉方向. <code>long</code>：做多, <code>short</code>：做空. 結合訂單方向，例如：若<code>positionSide</code>=long, <code>side</code>=Sell, 則表示多倉被強平</td>
-</tr>
-<tr>
 <td style="text-align: left">size</td>
 <td style="text-align: left">string</td>
 <td>成交數量</td>
@@ -7471,11 +7472,6 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 <td style="text-align: left">price</td>
 <td style="text-align: left">string</td>
 <td>成交價格</td>
-</tr>
-<tr>
-<td style="text-align: left">execID</td>
-<td style="text-align: left">string</td>
-<td>成交ID</td>
 </tr>
 </tbody></table>
 <h2 id='t-contract_privatetopic'>私有 Topics</h2><h3 id='t-websocketposition'>持倉</h3>

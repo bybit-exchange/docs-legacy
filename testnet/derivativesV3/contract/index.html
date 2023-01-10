@@ -7635,6 +7635,10 @@ If there is a problem in bybit end, it will re-send a snapshot, which is promise
 <code>orderbook.200.{symbol}</code><br>
 </p>
 
+<aside class="notice">
+Linear & inverse level 1 data：if 3 seconds have elapsed without a change in the orderbook, a snapshot message will be pushed again.
+</aside>
+
 <p class="fake_header">Response Parameters</p>
 
 <table><thead>
@@ -7772,59 +7776,50 @@ Push frequency: <b>real-time</b><br><br>
 <p>Snapshot Response Example - format of the first response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tickDirection</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">ZeroMinusTick</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">price24hPcnt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.032786</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">prevPrice24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">21320.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">highPrice24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22522.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">lowPrice24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">20745.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">prevPrice1h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22186.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22010.11</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22009.01</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">44334.438</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4609010554.786498</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">213532.606</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">nextFundingTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2022-07-18T16:00:00Z</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">41.530</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7.041</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">basisRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">deliveryFeeRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0</span><span class="dl">"</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992078</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1663203915102</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">tickDirection</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ZeroMinusTick</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">price24hPcnt</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.018608</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prevPrice24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16928.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">highPrice24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17271.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">lowPrice24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">16915.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">prevPrice1h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17246.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">markPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17247.73</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">indexPrice</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17261.71</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">openInterest</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">68257.758</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">openInterestValue</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1177291380.39</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1468361827.0869985</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">85837.138</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">nextFundingTime</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1673280000000</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.000231</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">84.727</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.50</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">34.425</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span> <span class="mi">24966636010</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673265043686</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
 <p>Delta Response Example - format of the responses following the snapshot response</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-  <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:{</span>
-    <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">tickDirection</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">PlusTick</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">price24hPcnt</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.032621</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">lastPrice</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22015.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">turnover24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">4609049418.106998</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">volume24h</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">213534.371</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">fundingRate</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">0.0001</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">nextFundingTime</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">2022-07-18T16:00:00Z</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.00</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">41.530</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">22019.50</span><span class="dl">"</span><span class="p">,</span>
-      <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span><span class="dl">"</span><span class="s2">7.041</span><span class="dl">"</span>
-  <span class="p">},</span>
-  <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span><span class="mi">14236992274</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span><span class="mi">1658145103883091</span>
+    <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">delta</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">symbol</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.00</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">bid1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">84.727</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Price</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">17243.50</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">ask1Size</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">33.175</span><span class="dl">"</span>
+    <span class="p">},</span>
+    <span class="dl">"</span><span class="s2">cs</span><span class="dl">"</span><span class="p">:</span> <span class="mi">24966636396</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673265043786</span>
 <span class="p">}</span>
-
 </code></pre></div>
 <blockquote>
 <p>Option snapshot data</p>
@@ -7936,6 +7931,11 @@ Push frequency: <b>real-time</b><br><br>
 <td>Open interest. The update is not immediate - slowest update is 1 minute</td>
 </tr>
 <tr>
+<td style="text-align: left">openInterestValue</td>
+<td style="text-align: left">string</td>
+<td>Open interest value</td>
+</tr>
+<tr>
 <td style="text-align: left">turnover24h</td>
 <td style="text-align: left">string</td>
 <td><a href="#t-faq_turnover">Turnover</a> for 24h</td>
@@ -7948,17 +7948,12 @@ Push frequency: <b>real-time</b><br><br>
 <tr>
 <td style="text-align: left">nextFundingTime</td>
 <td style="text-align: left">string</td>
-<td>Next settlement time of capital cost. Inverse futures is <code>""</code></td>
+<td>Next settlement time of capital cost (ms). Inverse futures is <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">fundingRate</td>
 <td style="text-align: left">string</td>
 <td><a href="https://help.bybit.com/hc/en-us/articles/360039261114-What-is-funding-rate-and-predicted-rate-">Funding rate</a>. Inverse futures is <code>""</code></td>
-</tr>
-<tr>
-<td style="text-align: left">predicatedFundingRate</td>
-<td style="text-align: left">string</td>
-<td>Predicated funding rate. usdt perp, inverse perp and inverse futures is <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">bid1Price</td>
