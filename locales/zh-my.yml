@@ -2922,6 +2922,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20230109: 移除字段<code>predictedFundingRate</code>. 對於字段<code>nextFundingTime</code>, 使用UTC時間戳(毫秒)代替原本的日期. 新增字段<code>openInterestValue</code>
   restapi_update_20221215: v2公共推送新增響應字段<code>type</code>
   restapi_update_20221214_2: 更新倉位推送. <ul><li>新增響應字段 <code>activePrice</code>,<code>markPrice</code>,<code>cumRealisedPnl</code>,<code>positionMM</code>,<br/><code>positionIM</code>,<code>positionStatus</code>,<code>sessionAvgPrice</code>,<code>occClosingFee</code></li></ul>
   restapi_update_20221214_1: 新增可選請求字段<code>withdrawType</code>
@@ -5161,7 +5162,7 @@ zh-my:
     <code>orderbook.200.{symbol}</code><br>
 
   predicatedFundingRate_v3: 預測資金費率. usdt永續、反向永續、反向交割為<code>""</code>
-  row_comment_resp_next_funding_time_v3: 下次結算資金費用時間. 反向交割為<code>""</code>
+  row_comment_resp_next_funding_time_v3: 下次結算資金費用時間 (毫秒). 反向交割為<code>""</code>
   row_comment_resp_funding_rate_v3: 資金費率. 反向交割為<code>""</code>
   futuresResponseParameters: 期貨返回參數
   optionResponseParameters: 期權返回參數
@@ -5769,3 +5770,6 @@ zh-my:
   ext_info: 值是<code>null</code>
   ext_code: 對於市場行情數據，返回<code>null</code>. 其他則返回<code>""</code>
   time_now: 當前時間戳
+  unified_position_limit: 每頁數量限制. 最大為200, 默認返回200
+  ticker_wss_openInterestValue: 未平倉合約價值
+  websocket_aside_orderbook_L1: 正向合約 & 反向合約 1檔數據：若3秒內無變化，將會再次推送snapshot數據.

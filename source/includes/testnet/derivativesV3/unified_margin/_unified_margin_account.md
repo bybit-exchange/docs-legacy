@@ -264,7 +264,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
                 "qty": "0.1000",
                 "stopLoss": "",
                 "triggerBy": "UNKNOWN",
-                "orderIM": "0.00000000"
+                "orderIM": ""
             }
         ]
     },
@@ -936,7 +936,7 @@ GET
 |symbol |false |string |t(:row_comment_symbol_v3)   |
 |baseCoin |false |string |t(:unified_baseCoin_param_3)   |
 |direction |false |string |t(:row_comment_direction_v3)   |
-|limit |false |number |t(:row_comment_limit_v3)   |
+|limit |false |number |t(:unified_position_limit)   |
 |cursor |false |string |t(:row_comment_cursor_v3)   |
 
 <p class="fake_header">t(:responseparameters)</p>
@@ -1490,40 +1490,60 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 ```javascript
 {
     "retCode": 0,
-    "retMsg": "Success",
+    "retMsg": "OK",
     "result": {
-      "totalEquity": "112.21267421",
-      "accountIMRate": "0.6895",
-      "totalMarginBalance": "80.37711012",
-      "totalInitialMargin": "55.42180254",
-      "totalAvailableBalance": "24.95530758",
-      "accountMMRate": "0.0459",
-      "totalPerpUPL": "-16.69586570",
-      "totalWalletBalance": "97.07311619",
-      "totalMaintenanceMargin": "3.68580537",
-      "coin": [
-      {
-        "currencyCoin": "ETH",
-        "availableToBorrow": "0.00000000",
-        "borrowSize": "0.00000000",
-        "bonus": "0.00000000",
-        "accruedInterest": "0.00000000",
-        "availableBalanceWithoutConvert": "0.00000000",
-        "totalOrderIM": "",
-        "equity": "0.00000000",
-        "totalPositionMM": "",
-        "usdValue": "0.00000000",
-        "availableBalance": "0.02441165",
-        "unrealisedPnl": "",
-        "totalPositionIM": "",
-        "marginBalanceWithoutConvert": "0.00000000",
-        "walletBalance": "0.00000000",
-        "cumRealisedPnl": "",
-        "marginBalance": "0.07862610"
-      }
-    ]
-  },
-    "time": 1657716037033
+        "totalEquity": "445.20695266",
+        "accountIMRate": "0.1195",
+        "totalMarginBalance": "445.20695266",
+        "totalInitialMargin": "53.20940585",
+        "totalAvailableBalance": "391.99754682",
+        "accountMMRate": "0.0129",
+        "totalPerpUPL": "-13.12779308",
+        "totalWalletBalance": "458.33474574",
+        "totalMaintenanceMargin": "5.74823205",
+        "coin": [
+            {
+                "currencyCoin": "USDC",
+                "availableToBorrow": "1500000",
+                "borrowSize": "0",
+                "bonus": "",
+                "accruedInterest": "0",
+                "availableBalanceWithoutConvert": "500",
+                "totalOrderIM": "0",
+                "equity": "500",
+                "totalPositionMM": "0",
+                "usdValue": "500",
+                "availableBalance": "391.99754682",
+                "unrealisedPnl": "",
+                "totalPositionIM": "0",
+                "marginBalanceWithoutConvert": "500",
+                "walletBalance": "500",
+                "cumRealisedPnl": "",
+                "marginBalance": "445.20695266"
+            },
+            {
+                "currencyCoin": "USDT",
+                "availableToBorrow": "2499945.20850984",
+                "borrowSize": "54.79149016",
+                "bonus": "",
+                "accruedInterest": "0.0003021",
+                "availableBalanceWithoutConvert": "-107.99938383",
+                "totalOrderIM": "0",
+                "equity": "-54.79149016",
+                "totalPositionMM": "4.10432398",
+                "usdValue": "-54.79304733",
+                "availableBalance": "391.98640657",
+                "unrealisedPnl": "-13.12741999",
+                "totalPositionIM": "42.24959564",
+                "marginBalanceWithoutConvert": "-54.79149016",
+                "walletBalance": "-41.66407016",
+                "cumRealisedPnl": "-41.66407016",
+                "marginBalance": "445.19430024"
+            }
+        ]
+    },
+    "retExtInfo": {},
+    "time": 1673266182240
 }
 ```
 
@@ -1895,35 +1915,26 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 > t(:codequote_responseExample)
 
 ```javascript
-
 {
-  "retCode": 0,
-  "retMsg": "Success",
-  "result": {
-  "nextPageCursor": "540%3A0%2C539%3A0",
-    "currency": null,
-    "list": [
-    {
-      "createTime": 1657713900286,
-      "costExemption": "0.00000000",
-      "InterestBearingBorrowSize": "3073.3902403",
-      "currency": "USDT",
-      "hourlyBorrowRate": "0.000003630137",
-      "borrowCost": "0.01115682"
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "nextPageCursor": "3347422%3A2%2C3347422%3A2",
+        "currency": null,
+        "list": [
+            {
+                "createTime": 1673255100075,
+                "costExemption": "0.0003064720575562080220552",
+                "InterestBearingBorrowSize": "0",
+                "currency": "USDT",
+                "hourlyBorrowRate": "0.0000055138",
+                "borrowCost": "0"
+            }
+        ]
     },
-    {
-      "createTime": 1657710300225,
-      "costExemption": "0.00000000",
-      "InterestBearingBorrowSize": "3088.3130293",
-      "currency": "USDT",
-      "hourlyBorrowRate": "0.000003630137",
-      "borrowCost": "0.01121099"
-    }
-   ]
-  },
-  "time": 1657714596804
+    "retExtInfo": {},
+    "time": 1673266124062
 }
-
 ```
 
 t(:wallet_para_interestBillStatement_v3)
@@ -1975,29 +1986,28 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
 > t(:codequote_responseExample)
 
 ```javascript
-
 {
-  "retCode": 0,
-  "retMsg": "Success",
-  "result": {
-  "list": [
-    {
-      "freeBorrowingAmount": "2000.0",
-      "currency": "USDT",
-      "maxBorrowingAmount": "10000.0",
-      "hourlyBorrowRate": "0.000003630137"
+    "retCode": 0,
+    "retMsg": "OK",
+    "result": {
+        "list": [
+            {
+                "freeBorrowingAmount": "15000",
+                "currency": "USDC",
+                "maxBorrowingAmount": "1500000",
+                "hourlyBorrowRate": "0.00000342460000000000"
+            },
+            {
+                "freeBorrowingAmount": "30000",
+                "currency": "USDT",
+                "maxBorrowingAmount": "2500000",
+                "hourlyBorrowRate": "0.00000551380000000000"
+            }
+        ]
     },
-    {
-      "freeBorrowingAmount": "2000.0",
-      "currency": "USDC",
-      "maxBorrowingAmount": "10000.0",
-      "hourlyBorrowRate": "0.000003630137"
-    }
-   ]
-  },
-  "time": 1657714557086
+    "retExtInfo": {},
+    "time": 1673264677870
 }
-
 ```
 
 
