@@ -63,7 +63,7 @@ POST
 |basePrice |false |string |t(:row_comment_basePrice_v3) |
 |triggerPrice |false |string |t(:row_comment_triggerPrice) |
 |<a href="#trigger-price-type-triggerby">triggerBy</a> |false |string |t(:row_comment_triggerBy_v3) |
-|iv |false |string |t(:row_comment_iv_v3) |
+|orderIv |false |string |t(:row_comment_iv_v3) |
 |<a href="#time-in-force-timeinforce">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce_v3) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_um) |
 |takeProfit |false |string |t(:row_comment_takeProfit_v3) |
@@ -133,7 +133,7 @@ POST
 |orderId |false |string |t(:row_comment_orderId_replace) |
 |orderLinkId |false |string |t(:row_comment_orderLinkId_replace) |
 |<a href="#order-filter-orderfilter">orderFilter</a> |false |string |t(:row_comment_orderFilter_v3)   |
-|iv |false |string |t(:row_comment_iv_v3) |
+|orderIv |false |string |t(:row_comment_iv_v3) |
 |triggerPrice |false |string |t(:row_comment_triggerPrice_replace_v3) |
 |t(:row_parameter_quantity) |false |string |t(:row_comment_qty_replace_v3) |
 |t(:row_parameter_price) |false |string |t(:row_comment_price_replace_v3) |
@@ -547,7 +547,7 @@ POST
 |list> <a href="#order-type-ordertype">orderType</a> |<b>true</b> |string |t(:row_comment_orderType_v3)   |
 |list> t(:row_parameter_quantity) |<b>true</b> |string |t(:row_comment_qty_v3) |
 |list> t(:row_parameter_price) |false |string |t(:row_comment_resp_price) |
-|list> iv |false |string |t(:row_comment_iv_v3) |
+|list> orderIv |false |string |t(:row_comment_iv_v3) |
 |list> <a href="#time-in-force-timeinforce">timeInForce</a> |<b>true</b> |string |t(:row_comment_timeInForce_v3) |
 |list> orderLinkId |false |string |t(:row_comment_orderLinkId_um) |
 |list> reduceOnly |false |bool |t(:row_comment_reduceOnly_v3) |
@@ -591,14 +591,14 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
         {
             "symbol": "BTC-24JUN22-45000-P",
             "orderId": "bd5f3b34-d64d-4b60-8188-438fbea4c552",
-            "iv": "0.2",
+            "orderIv": "0.2",
             "qty": 5,
             "price": "25000"
         },
         {
             "symbol": "BTC-26AUG22-44000-C",
             "orderId": "4ddd727a-2af8-430e-a293-42895e594d18",
-            "iv": "0.3",
+            "orderIv": "0.3",
             "qty": 4,
             "price": "24000"
         }
@@ -657,7 +657,7 @@ POST
 |list> symbol |<b>true</b> |string |t(:row_comment_symbol_v3)   |
 |list> orderId |false |string |t(:misc_row_comment_orderIdNotOrderLinkId) |
 |list> orderLinkId |false |string |t(:misc_row_comment_orderLinkIdNotOrderId) |
-|list> iv |false |string |t(:row_comment_iv_v3) |
+|list> orderIv |false |string |t(:row_comment_iv_v3) |
 |list> t(:row_parameter_quantity) |false |string |t(:row_comment_qty_replace_v3) |
 |list> t(:row_parameter_price) |false |string |t(:row_comment_price_replace_v3) |
 

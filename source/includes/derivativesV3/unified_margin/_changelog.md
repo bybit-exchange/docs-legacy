@@ -10,6 +10,20 @@
 - [t(:websocketTicker_v3)](#t-websocketticker_v3) [t(:changelog_update)]
   - t(:restapi_update_20230109)
 
+## 2023-01-04
+### REST API
+- [t(:dv_placeOrder)](#t-dv_placeorder) [t(:changelog_update)]
+  - t(:restapi_update_20230104)
+
+- [t(:dv_replaceOrder)](#t-dv_replaceorder) [t(:changelog_update)]
+  - t(:restapi_update_20230104)
+
+- [t(:dv_batchPlaceOrder)](#t-dv_batchplaceorder) [t(:changelog_update)]
+  - t(:restapi_update_20230104)
+
+- [t(:dv_batchReplaceOrders)](#t-dv_batchreplaceorders) [t(:changelog_update)]
+  - t(:restapi_update_20230104)
+
 ## 2022-12-12
 ### WebSocket API
 - [t(:websocketliquidation)](#t-websocketliquidation) [t(:changelog_new)]
