@@ -2531,6 +2531,9 @@ en:
   err_4015: Redemption of the LT has been temporarily suspended.
   err_4016: Invalid format. Please check the length and numeric precision.
   err_4110: Failed to place order<b>:</b> Exceed the maximum position limit of leveraged tokens, the current available limit is XXXX USDT.
+  err_10008: uta banned. UTA account cannot request this endpoint, you need to check your account.
+  err_10024: Compliance rules triggered. Please complete KYC.
+  err_10029: The requested symbol is invalid, which are not in the symbol whitelist.
 
   # spot v3
   spotV3_err_5019: User-service error
@@ -3359,6 +3362,9 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20230104: Use new request param for option order. original one is <code>iv</code>, current one is <code>orderIv</code>
+  restapi_update_20230116_2: Add 500 level depth for linear contract & inverse contract, the push frequency is 100ms
+  restapi_update_20230116_1: Add new response field <code>xp</code>, it means USD index price, which can be an empty string.
   restapi_update_20230109: Removed <code>predictedFundingRate</code>. Use UTC timestamp for field <code>nextFundingTime</code>, which original is dateTime. Add <code>openInterestValue</code> field
   restapi_update_20221215: websocket v2 public stream has new response field <code>type</code>
   restapi_update_20221214_2: Update position websocket api. <ul><li>Add new response fields <code>activePrice</code>,<code>markPrice</code>,<code>cumRealisedPnl</code>,<code>positionMM</code>,<br/><code>positionIM</code>,<code>positionStatus</code>,<code>sessionAvgPrice</code>,<code>occClosingFee</code></li></ul>
@@ -5409,7 +5415,7 @@ en:
   dv_instrContractType: Contract type. Future or Perpetual only
   dv_instrBaseCoin: Base coin. Like 'BTC' in BTC-USDT.
   dv_instrQuoteCoin: Quote coin. Like 'USDT' in BTC-USDT.
-  dv_instrSettleCoin: Settle coin. Like BTC. Option only
+  dv_instrSettleCoin: Settle coin. Like 'BTC' in BTCUSD
   dv_OptionType: Call/Put Trading type of option. <code>Call</code>/<code>Put</code>
   dv_instrLaunchTime: Launch time
   dv_instrDeliveryTime: Expired date/Delivery time/Exercise time. For perpetual, returns <code>"0"</code>
@@ -5527,12 +5533,6 @@ en:
         <br/>
         Inverse contract: <span id="inverse_mainnet_address">wss://stream.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC contract: <span id="usdc_mainnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC Options: <span id="option_mainnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
     <li><b>Testnet</b>:<br/>
         USDT contract: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
@@ -5540,12 +5540,6 @@ en:
         <br/>
         Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC contract: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC Options: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
     </p>
     </ul>
@@ -5574,6 +5568,7 @@ en:
     1 level data, push frequency: <b>10ms</b> <br>
     50 level data, push frequency: <b>20ms</b> <br>
     200 level data, push frequency: <b>100ms</b> <br>
+    500 level data, push frequency: <b>100ms</b> <br>
     <br>
     <b>Option:</b><br/>
     25 level data <br/>
@@ -5595,11 +5590,13 @@ en:
     1 level data, push frequency: <b>10ms</b> <br>
     50 level data, push frequency: <b>20ms</b> <br>
     200 level data, push frequency: <b>100ms</b> <br>
+    500 level data, push frequency: <b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
     <code>orderbook.1.{symbol}</code><br>
     <code>orderbook.50.{symbol}</code><br>
     <code>orderbook.200.{symbol}</code><br>
+    <code>orderbook.500.{symbol}</code><br>
 
   predicatedFundingRate_v3: Predicated funding rate. usdt perp, inverse perp and inverse futures is <code>""</code>
   row_comment_resp_next_funding_time_v3: Next settlement time of capital cost (ms). Inverse futures is <code>""</code>
@@ -6244,3 +6241,4 @@ en:
   unified_position_limit: Limit size per page. Max limit is 200, and default value is 200
   ticker_wss_openInterestValue: Open interest value
   websocket_aside_orderbook_L1: Linear & inverse level 1 data：if 3 seconds have elapsed without a change in the orderbook, a snapshot message will be pushed again.
+  spot_usdIndexPrice: USD index price. It can be <code>""</code>

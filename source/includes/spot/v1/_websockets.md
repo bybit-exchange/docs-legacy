@@ -244,24 +244,31 @@ while True:
 
 ```javascript
 {
-  "symbol": "BTCUSDT",
-  "symbolName": "BTCUSDT",
-  "topic": "realtimes",
-  "data": [{
-    "t": "1565592599015",
-    "s": "BTCUSDT",
-    "sn": "BTCUSDT",
-    "c": "12750.63",
-    "h": "12800.96",
-    "l": "12740.78",
-    "o": "12780.23",
-    "v": "73013.575",
-    "qv": "15726612.498168",
-    "m": "-0.0401",
-    "e": 301
-    }],
-  "f": false,
-  "sendTime": 1626252046034
+    "symbol": "BTCUSDT",
+    "symbolName": "BTCUSDT",
+    "topic": "realtimes",
+    "params": {
+        "realtimeInterval": "24h",
+        "binary": "false"
+    },
+    "data": [
+        {
+            "c": "21082.22",
+            "e": 301,
+            "h": "21426.99",
+            "l": "20575",
+            "m": "0.0190",
+            "o": "20689.11",
+            "qv": "141768159.45007801",
+            "s": "BTCUSDT",
+            "sn": "BTCUSDT",
+            "t": 1673852936684,
+            "v": "6772.990042",
+            "xp": "21092.15001144"
+        }
+    ],
+    "f": true,
+    "sendTime": 1673852937236
 }
 ```
 
@@ -287,6 +294,7 @@ t(:spot_public_websocket_frequency_300_delay_400)
 | m | string | t(:spot_gains)|
 | e | number | t(:spotExchangeId)|
 | f | boolean | t(:spot_first) |
+| xp | string | t(:spot_usdIndexPrice) |
 | sendTime | string | t(:spot_sendTime) |
 
 
@@ -1112,23 +1120,24 @@ while True:
 
 ```javascript
 {
-  "topic": "realtimes",
-  "params": {
-    "symbol": "BTCUSDT",
-    "binary": "false",
-    "symbolName": "BTCUSDT"
-  },
-  "data": {
-    "t": 1582001616500,
-    "s": "BTCUSDT",
-    "o": "9736.5",
-    "h": "9830.19",
-    "l": "9455.71",
-    "c": "9796.75",
-    "v": "77211.561764",
-    "qv": "740412516.91255711",
-    "m": "0.0062"
-  }
+    "params": {
+        "binary": "false",
+        "symbol": "BTCUSDT",
+        "symbolName": "BTCUSDT"
+    },
+    "topic": "realtimes",
+    "data": {
+        "t": 1673853086475,
+        "s": "BTCUSDT",
+        "c": "21095.97",
+        "h": "21426.99",
+        "l": "20575",
+        "o": "20694.57",
+        "v": "6779.79813",
+        "qv": "141913713.70049255",
+        "m": "0.0194",
+        "xp": "21103.14018642"
+    }
 }
 ```
 t(:spot_websocket_symbol_ticker_desc_v2)
@@ -1152,6 +1161,7 @@ t(:spot_public_websocket_frequency_near_realtime)
 | v | string | t(:spot_volume)|
 | qv | string | t(:spot_quote_volume)|
 | m | string | t(:spot_gains)|
+| xp | string | t(:spot_usdIndexPrice) |
 
 
 ## t(:privatetopics)

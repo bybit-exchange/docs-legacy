@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2023-01-16
+### WebSocket API
+- [t(:websocketTickers)](#t-websockettickers) [t(:changelog_update)]
+  - t(:restapi_update_20230116_1)
+
 ## 2022-09-20
 ### REST API
 - [t(:getactive)](#t-getactive) [t(:changelog_update)]

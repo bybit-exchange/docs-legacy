@@ -374,20 +374,21 @@ t(:spot_websocket_kline_desc_v3)
 
 ```javascript
 {
-    "data": {
-        "t": 1661742216005,
-        "s": "BTCUSDT",
-        "o": "19820",
-        "h": "20071.93",
-        "l": "19365.85",
-        "c": "19694.27",
-        "v": "9997.246174",
-        "qv": "197357775.97621786",
-        "m": "-0.0063"
-    },
-    "type": "snapshot",
     "topic": "tickers.BTCUSDT",
-    "ts": 1661742216011
+    "ts": 1673853250058,
+    "type": "snapshot",
+    "data": {
+        "t": 1673853250055,
+        "s": "BTCUSDT",
+        "c": "21086.05",
+        "h": "21426.99",
+        "l": "20575",
+        "o": "20680.49",
+        "v": "6781.52117",
+        "qv": "141952839.94140046",
+        "m": "0.0196",
+        "xp": "21098.05015057"
+    }
 }
 ```
 
@@ -405,6 +406,7 @@ t(:spot_websocket_symbol_ticker_desc_v3)
 |v | string | t(:spot_volume) |
 |qv | string | t(:spot_quote_volume) |
 |m | string | t(:spot_gains) |
+| xp | string | t(:spot_usdIndexPrice) |
 | ts | long | t(:spot_wss_ts) |
 
 
