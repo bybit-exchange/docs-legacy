@@ -2922,6 +2922,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20230116_2: 新增500檔的orderbook推送，支持正向合約和反向合約, 推送頻率是100ms
   restapi_update_20230116_1: 新增響應字段<code>xp</code>, 表示為USD指數價格，可以為空串
   restapi_update_20230109: 移除字段<code>predictedFundingRate</code>. 對於字段<code>nextFundingTime</code>, 使用UTC時間戳(毫秒)代替原本的日期. 新增字段<code>openInterestValue</code>
   restapi_update_20221215: v2公共推送新增響應字段<code>type</code>
@@ -5088,12 +5089,6 @@ zh-my:
         <br/>
         反向合約: <span id="inverse_mainnet_address">wss://stream.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC合約: <span id="usdc_testnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC期權: <span id="option_testnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
     <li><b>測試網</b>:<br/>
         USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
@@ -5101,12 +5096,6 @@ zh-my:
         <br/>
         反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC合約: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC期權: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
      </p>
     </ul>
@@ -5135,6 +5124,7 @@ zh-my:
     1檔數據，推送頻率：<b>10ms</b> <br>
     50檔數據，推送頻率：<b>20ms</b> <br>
     200檔數據，推送頻率: <b>100ms</b> <br>
+    500檔數據，推送頻率: <b>100ms</b> <br>
     <br>
     <b>期權:</b><br/>
     25檔數據<br/>
@@ -5146,6 +5136,7 @@ zh-my:
     <code>orderbook.50.{symbol}</code><br>
     <code>orderbook.100.{symbol}</code><br>
     <code>orderbook.200.{symbol}</code><br>
+    <code>orderbook.500.{symbol}</code><br>
   websocketOrderBook_contract: |
     <b>說明: </b>
     獲取不同檔位的orderbook數據.<br>
@@ -5156,11 +5147,13 @@ zh-my:
     1檔數據，推送頻率: <b>10ms</b> <br>
     50檔數據，推送頻率: <b>20ms</b> <br>
     200檔數據，推送頻率: <b>100ms</b> <br>
+    500檔數據，推送頻率: <b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
     <code>orderbook.1.{symbol}</code><br>
     <code>orderbook.50.{symbol}</code><br>
     <code>orderbook.200.{symbol}</code><br>
+    <code>orderbook.500.{symbol}</code><br>
 
   predicatedFundingRate_v3: 預測資金費率. usdt永續、反向永續、反向交割為<code>""</code>
   row_comment_resp_next_funding_time_v3: 下次結算資金費用時間 (毫秒). 反向交割為<code>""</code>

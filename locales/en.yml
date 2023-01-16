@@ -3359,6 +3359,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20230116_2: Add 500 level depth for linear contract & inverse contract, the push frequency is 100ms
   restapi_update_20230116_1: Add new response field <code>xp</code>, it means USD index price, which can be an empty string.
   restapi_update_20230109: Removed <code>predictedFundingRate</code>. Use UTC timestamp for field <code>nextFundingTime</code>, which original is dateTime. Add <code>openInterestValue</code> field
   restapi_update_20221215: websocket v2 public stream has new response field <code>type</code>
@@ -5528,12 +5529,6 @@ en:
         <br/>
         Inverse contract: <span id="inverse_mainnet_address">wss://stream.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC contract: <span id="usdc_mainnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC Options: <span id="option_mainnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_mainnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
     <li><b>Testnet</b>:<br/>
         USDT contract: <span id="usdt_2_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
@@ -5541,12 +5536,6 @@ en:
         <br/>
         Inverse contract: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
         <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC contract: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
-        <br/>
-        USDC Options: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
-        <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="/images/copy_to_clipboard.png" height=15 width=15></img></button>
     </li>
     </p>
     </ul>
@@ -5575,6 +5564,7 @@ en:
     1 level data, push frequency: <b>10ms</b> <br>
     50 level data, push frequency: <b>20ms</b> <br>
     200 level data, push frequency: <b>100ms</b> <br>
+    500 level data, push frequency: <b>100ms</b> <br>
     <br>
     <b>Option:</b><br/>
     25 level data <br/>
@@ -5596,11 +5586,13 @@ en:
     1 level data, push frequency: <b>10ms</b> <br>
     50 level data, push frequency: <b>20ms</b> <br>
     200 level data, push frequency: <b>100ms</b> <br>
+    500 level data, push frequency: <b>100ms</b> <br>
     <br>
     <b>Topic: </b><br>
     <code>orderbook.1.{symbol}</code><br>
     <code>orderbook.50.{symbol}</code><br>
     <code>orderbook.200.{symbol}</code><br>
+    <code>orderbook.500.{symbol}</code><br>
 
   predicatedFundingRate_v3: Predicated funding rate. usdt perp, inverse perp and inverse futures is <code>""</code>
   row_comment_resp_next_funding_time_v3: Next settlement time of capital cost (ms). Inverse futures is <code>""</code>

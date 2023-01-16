@@ -1,5 +1,10 @@
 # t(:changelog)
 
+## 2023-01-16
+### WebSocket API
+- [t(:websocketOrderBookDepth)](#t-websocketorderbookdepth) [t(:changelog_update)]
+  - t(:restapi_update_20230116_2)
+
 ## 2023-01-09
 ### WebSocket API
 - [t(:websocketposition)](#t-websocketposition) [t(:changelog_update)]
