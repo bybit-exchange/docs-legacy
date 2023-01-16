@@ -783,10 +783,18 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2023-01-09" class="toc-h2 toc-link" data-title="2023-01-09">2023-01-09</a>
+                    <a href="#2023-01-16" class="toc-h2 toc-link" data-title="2023-01-16">2023-01-16</a>
                       <ul class="toc-list-h3">
                           <li>
                             <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
+                    <a href="#2023-01-09" class="toc-h2 toc-link" data-title="2023-01-09">2023-01-09</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -800,7 +808,7 @@
                             <a href="#rest-api-2" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api-2" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -824,7 +832,7 @@
                     <a href="#2022-11-10" class="toc-h2 toc-link" data-title="2022-11-10">2022-11-10</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#websocket-api-3" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -835,7 +843,7 @@
                             <a href="#rest-api-5" class="toc-h3 toc-link" data-title="REST API">REST API</a>
                           </li>
                           <li>
-                            <a href="#websocket-api-4" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                            <a href="#websocket-api-5" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
                           </li>
                       </ul>
                   </li>
@@ -1480,7 +1488,15 @@ clipboard.on('error', function(e) {
 <p><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></p>
 <h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://www.npmjs.com/package/bybit-api"><strong>bybit-api</strong></a> - <strong>社區NodeJS SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2023-01-09'>2023-01-09</h2><h3 id='websocket-api'>WebSocket API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2023-01-16'>2023-01-16</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websocketorderbookdepth">orderbook</a> [更新]
+
+<ul>
+<li>新增500檔的orderbook推送，支持正向合約和反向合約, 推送頻率是100ms</li>
+</ul></li>
+</ul>
+<h2 id='2023-01-09'>2023-01-09</h2><h3 id='websocket-api-2'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketposition">持倉</a> [更新]
 
@@ -1504,7 +1520,7 @@ clipboard.on('error', function(e) {
 <li>更新交易對規格接口. 新增響應字段<code>fundingInterval</code>, USDT期貨新增<code>settleCoin</code></li>
 </ul></li>
 </ul>
-<h3 id='websocket-api-2'>WebSocket API</h3>
+<h3 id='websocket-api-3'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketliquidation">平臺強平推送</a> [新增]
 
@@ -1533,7 +1549,7 @@ clipboard.on('error', function(e) {
 <li>新增入参字段. 支持按結算幣種來取消訂單</li>
 </ul></li>
 </ul>
-<h2 id='2022-11-10'>2022-11-10</h2><h3 id='websocket-api-3'>WebSocket API</h3>
+<h2 id='2022-11-10'>2022-11-10</h2><h3 id='websocket-api-4'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websocketorderbookdepth">orderbook</a> [更新]
 
@@ -1549,7 +1565,7 @@ clipboard.on('error', function(e) {
 <li>新增接口，用於查詢限倉信息。</li>
 </ul></li>
 </ul>
-<h3 id='websocket-api-4'>WebSocket API</h3>
+<h3 id='websocket-api-5'>WebSocket API</h3>
 <ul>
 <li><a href="#t-websockettrade">平臺成交</a> [更新]
 
@@ -2475,7 +2491,7 @@ function copyStringToClipboard (endpoint) {
 <tr>
 <td style="text-align: left">settleCoin</td>
 <td style="text-align: left">string</td>
-<td>盈虧結算和保證金幣種, 如BTC. 僅適用期權</td>
+<td>盈虧結算和保證金幣種, 如BTCUSD的結算幣種為BTC</td>
 </tr>
 <tr>
 <td style="text-align: left">optionsType</td>
@@ -6561,12 +6577,6 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
     <br/>
     反向合約: <span id="inverse_mainnet_address">wss://stream.bybit.com/contract/inverse/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_mainnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    USDC合約: <span id="usdc_testnet_address">wss://stream.bybit.com/contract/usdc/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    USDC期權: <span id="option_testnet_address">wss://stream.bybit.com/option/usdc/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
 <li><b>測試網</b>:<br/>
     USDT合約: <span id="usdt_testnet_address">wss://stream-testnet.bybit.com/contract/usdt/public/v3</span>
@@ -6574,12 +6584,6 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
     <br/>
     反向合約: <span id="inverse_testnet_address">wss://stream-testnet.bybit.com/contract/inverse/public/v3</span>
     <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#inverse_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    USDC合約: <span id="usdc_testnet_address">wss://stream-testnet.bybit.com/contract/usdc/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#usdc_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
-    <br/>
-    USDC期權: <span id="option_testnet_address">wss://stream-testnet.bybit.com/option/usdc/public/v3</span>
-    <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#option_testnet_address"><img src="../../../images/copy_to_clipboard-ff25494f.png" height=15 width=15></img></button>
 </li>
  </p>
 </ul>
@@ -6770,11 +6774,13 @@ X-Bapi-Limit-Reset-Timestamp: 1665397625986
 1檔數據，推送頻率: <b>10ms</b> <br>
 50檔數據，推送頻率: <b>20ms</b> <br>
 200檔數據，推送頻率: <b>100ms</b> <br>
+500檔數據，推送頻率: <b>100ms</b> <br>
 <br>
 <b>Topic: </b><br>
 <code>orderbook.1.{symbol}</code><br>
 <code>orderbook.50.{symbol}</code><br>
 <code>orderbook.200.{symbol}</code><br>
+<code>orderbook.500.{symbol}</code><br>
 </p>
 
 <p class="fake_header">返回參數</p>

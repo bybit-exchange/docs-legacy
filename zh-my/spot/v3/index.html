@@ -786,6 +786,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="更新日誌">更新日誌</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2023-01-16" class="toc-h2 toc-link" data-title="2023-01-16">2023-01-16</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-09-20" class="toc-h2 toc-link" data-title="2022-09-20">2022-09-20</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -1121,6 +1129,15 @@
                   </li>
                   <li>
                     <a href="#10005" class="toc-h2 toc-link" data-title="10005">10005</a>
+                  </li>
+                  <li>
+                    <a href="#10008" class="toc-h2 toc-link" data-title="10008">10008</a>
+                  </li>
+                  <li>
+                    <a href="#10024" class="toc-h2 toc-link" data-title="10024">10024</a>
+                  </li>
+                  <li>
+                    <a href="#10029" class="toc-h2 toc-link" data-title="10029">10029</a>
                   </li>
                   <li>
                     <a href="#33004" class="toc-h2 toc-link" data-title="33004">33004</a>
@@ -1634,7 +1651,15 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>中文社區和參考資料</h1><h5 id='t-intro_para'><p>歡迎使用 <a href="https://www.bybit.com/">Bybit</a> APIs 和 Websocket官方文檔！</p> <p>如果您在使用API的過程中遇到問題需要幫助，請加入我們的 <a href="https://t.me/Bybitapi">官方Telegram API討論群</a>！</p></h5><h3 id='t-resources'>中文社區和參考資料</h3>
 <p><ul class="bybit-community"> <li><img src="../../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/zh-TW/help-center/?language=zh_TW"><strong>幫助中心</strong></a> - <strong>在這裏了解合約交易</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>官方Python SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://www.npmjs.com/package/bybit-api"><strong>bybit-api</strong></a> - <strong>社區NodeJS SDK</strong> <li><img src="../../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman接口集合</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>API英文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>Chinese API Discussion Group</strong></a> - <strong>API中文討論群</strong> <li><img src="../../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>API Announcements Channel</strong></a> - <strong>API公告群</strong> <li><img src="../../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API 的調研問卷</strong></a> - <strong>希望您能用 5 分鐘的時間填寫 Bybit Open API 的調研問卷</strong> </ul></p>
-<h1 id='t-changelog'>更新日誌</h1><h2 id='2022-09-20'>2022-09-20</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>更新日誌</h1><h2 id='2023-01-16'>2023-01-16</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websockettickers">實時價格</a> [更新]
+
+<ul>
+<li>新增響應字段<code>xp</code>, 表示為USD指數價格，可以為空串</li>
+</ul></li>
+</ul>
+<h2 id='2022-09-20'>2022-09-20</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-getactive">查詢活動委托</a> [更新]
 
@@ -7000,20 +7025,21 @@ function copyStringToClipboard (endpoint) {
 <p>響應示例</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216005</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19820</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20071.93</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19365.85</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19694.27</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9997.246174</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">qv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">197357775.97621786</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.0063</span><span class="dl">"</span>
-    <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216011</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673853250058</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673853250055</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21086.05</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21426.99</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20575</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20680.49</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6781.52117</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">qv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">141952839.94140046</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0196</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">xp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21098.05015057</span><span class="dl">"</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>交易對的 24 小時統計數據。</p>
@@ -7074,6 +7100,11 @@ function copyStringToClipboard (endpoint) {
 <td style="text-align: left">m</td>
 <td style="text-align: left">string</td>
 <td>漲幅</td>
+</tr>
+<tr>
+<td style="text-align: left">xp</td>
+<td style="text-align: left">string</td>
+<td>USD指數價格. 可以為空</td>
 </tr>
 <tr>
 <td style="text-align: left">ts</td>
@@ -7918,6 +7949,12 @@ function copyStringToClipboard (endpoint) {
 <p>簽名錯誤</p>
 <h2 id='10005'>10005</h2>
 <p>權限受限</p>
+<h2 id='10008'>10008</h2>
+<p>uta banned. UTA帳戶無法訪問當前接口，請確認您的帳戶模式</p>
+<h2 id='10024'>10024</h2>
+<p>Compliance rules triggered. 合規牆攔截</p>
+<h2 id='10029'>10029</h2>
+<p>The requested symbol is invalid. 請檢查請求的symbol是否在交易對白名單中</p>
 <h2 id='33004'>33004</h2>
 <p>api_key已過期</p>
 <h2 id='12940'>12940</h2>

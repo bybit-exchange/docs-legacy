@@ -786,6 +786,14 @@
             <a href="#t-changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#2023-01-16" class="toc-h2 toc-link" data-title="2023-01-16">2023-01-16</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#websocket-api" class="toc-h3 toc-link" data-title="WebSocket API">WebSocket API</a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li>
                     <a href="#2022-09-20" class="toc-h2 toc-link" data-title="2022-09-20">2022-09-20</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -1121,6 +1129,15 @@
                   </li>
                   <li>
                     <a href="#10005" class="toc-h2 toc-link" data-title="10005">10005</a>
+                  </li>
+                  <li>
+                    <a href="#10008" class="toc-h2 toc-link" data-title="10008">10008</a>
+                  </li>
+                  <li>
+                    <a href="#10024" class="toc-h2 toc-link" data-title="10024">10024</a>
+                  </li>
+                  <li>
+                    <a href="#10029" class="toc-h2 toc-link" data-title="10029">10029</a>
                   </li>
                   <li>
                     <a href="#33004" class="toc-h2 toc-link" data-title="33004">33004</a>
@@ -1634,7 +1651,15 @@ clipboard.on('error', function(e) {
 </script>
 <h1 id='t-introduction'>Group And Resources</h1><h5 id='t-intro_para'><p><a href="https://www.bybit.com/">Bybit</a> API and WebSocket documentation provides guidance to help you access Bybit's endpoints, their expected outputs, and common errors.</p> <p>For further assistance or feedback, please join the <a href="https://t.me/BybitAPI">API Telegram chat</a>! API discussion group on Telegram.</p></h5><h3 id='t-resources'>API Resources and Support Channels</h3>
 <p><ul class="bybit-community"> <li><img src="../../images/favicon-014c3ae6.ico" height="14", width="14"> <a href="https://www.bybit.com/en-US/help-center/?language=en_US"><strong>Help Center</strong></a> - <strong>Learn more about exchange mechanisms here!</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://pypi.org/project/pybit/"><strong>pybit</strong></a> - <strong>Official Python SDK</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://www.npmjs.com/package/bybit-api"><strong>bybit-api</strong></a> - <strong>Community NodeJS SDK</strong> <li><img src="../../images/github_logo_icon-768757c0.png" height="14", width="14"> <a href="https://github.com/bybit-exchange/QuickStartWithPostman"><strong>QuickStartWithPostman</strong></a> - <strong>Postman API Collection</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"></a> <a href="https://t.me/BybitAPI"><strong>API Discussion Group</strong></a> - <strong>get English help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/BybitChineseAPI"><strong>API Discussion Group (Chinese)</strong></a> - <strong>get Chinese help here!</strong> <li><img src="../../images/telegram_logo_icon-251353d9.png" height="14", width="14"> <a href="https://t.me/Bybit_API_Announcements"><strong>Bybit API Announcement </strong></a> - <strong>subscribe for changes to the API!</strong> <li><img src="../../images/survey_ico-bd03a90c.png" height="14", width="14"> <a href="https://forms.gle/ZfCKRTVen1VExj478"><strong>Bybit Open API Survey </strong></a> - <strong>The survey should take no more than 5 minutes to complete.</strong> </ul></p>
-<h1 id='t-changelog'>Changelog</h1><h2 id='2022-09-20'>2022-09-20</h2><h3 id='rest-api'>REST API</h3>
+<h1 id='t-changelog'>Changelog</h1><h2 id='2023-01-16'>2023-01-16</h2><h3 id='websocket-api'>WebSocket API</h3>
+<ul>
+<li><a href="#t-websockettickers">tickers</a> [update]
+
+<ul>
+<li>Add new response field <code>xp</code>, it means USD index price, which can be an empty string.</li>
+</ul></li>
+</ul>
+<h2 id='2022-09-20'>2022-09-20</h2><h3 id='rest-api'>REST API</h3>
 <ul>
 <li><a href="#t-getactive">Get Active Order</a> [update]
 
@@ -6983,20 +7008,21 @@ All type values will be pushed as "snapshot" only for SPOT V3 public topics.
 <p>Response Example - format of all responses</p>
 </blockquote>
 <div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216005</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19820</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20071.93</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19365.85</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">19694.27</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9997.246174</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">qv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">197357775.97621786</span><span class="dl">"</span><span class="p">,</span>
-        <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">-0.0063</span><span class="dl">"</span>
-    <span class="p">},</span>
-    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">topic</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">tickers.BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1661742216011</span>
+    <span class="dl">"</span><span class="s2">ts</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673853250058</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">snapshot</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">t</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1673853250055</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">s</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">BTCUSDT</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">c</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21086.05</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">h</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21426.99</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">l</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20575</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">o</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">20680.49</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">v</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">6781.52117</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">qv</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">141952839.94140046</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">m</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">0.0196</span><span class="dl">"</span><span class="p">,</span>
+        <span class="dl">"</span><span class="s2">xp</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">21098.05015057</span><span class="dl">"</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p><p>The 24-hr statistics of a trading pair.</p>
@@ -7057,6 +7083,11 @@ All type values will be pushed as "snapshot" only for SPOT V3 public topics.
 <td style="text-align: left">m</td>
 <td style="text-align: left">string</td>
 <td>Change</td>
+</tr>
+<tr>
+<td style="text-align: left">xp</td>
+<td style="text-align: left">string</td>
+<td>USD index price. It can be <code>""</code></td>
 </tr>
 <tr>
 <td style="text-align: left">ts</td>
@@ -7902,6 +7933,12 @@ You could find all supported coins of margin trade <a href="https://www.bybit.co
 <p>Error sign</p>
 <h2 id='10005'>10005</h2>
 <p>Permission denied</p>
+<h2 id='10008'>10008</h2>
+<p>uta banned. UTA account cannot request this endpoint, you need to check your account.</p>
+<h2 id='10024'>10024</h2>
+<p>Compliance rules triggered. Please complete KYC.</p>
+<h2 id='10029'>10029</h2>
+<p>The requested symbol is invalid, which are not in the symbol whitelist.</p>
 <h2 id='33004'>33004</h2>
 <p>api_key expire</p>
 <h2 id='12940'>12940</h2>
