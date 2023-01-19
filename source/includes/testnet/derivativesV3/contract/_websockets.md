@@ -2,7 +2,7 @@
 ## t(:websocketauthentication)
 > t(:websocket_codequote_auth)
 
-> t(:websocket_codequote_auth1)
+> t(:websocket_codequote_auth2)
 
 ```python--pybit
 # based on: https://github.com/bybit-exchange/pybit/blob/master/pybit/_http_manager.py
@@ -12,7 +12,7 @@ import json
 import time
 import websocket
 
-ws_url = "wss://stream-testnet.bybit.com/contract/private/v3"
+ws_url = "wss://stream.bybit.com/realtime"
 
 api_key = ""
 api_secret = ""
@@ -26,34 +26,17 @@ signature = str(hmac.new(
     bytes(f"GET/realtime{expires}", "utf-8"), digestmod="sha256"
 ).hexdigest())
 
-param = "api_key={api_key}&expires={expires}&signature={signature}".format(
-    api_key=api_key,
-    expires=expires,
-    signature=signature
-)
-
-url = ws_url + "?" + param
-
-ws = websocket.WebSocketApp(
-    url=url,
-    ...
-)
-```
-
-> t(:websocket_codequote_auth2)
-
-```python--pybit
-ws = websocket.WebSocketApp(
-    url=url,
-    ...
-)
-
 # Authenticate with API.
 ws.send(
     json.dumps({
         "op": "auth",
         "args": [api_key, expires, signature]
     })
+)
+
+ws = websocket.WebSocketApp(
+    url=url,
+    ...
 )
 ```
 
