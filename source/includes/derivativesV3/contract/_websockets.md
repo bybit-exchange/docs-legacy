@@ -689,7 +689,7 @@ t(:contract_websocketExecution)
 |execId |string |t(:row_comment_query_execId_v3)  |
 |execPrice |string |t(:row_comment_query_execPrice_v3)  |
 |execQty |string |t(:row_comment_query_execQty_v3)  |
-|execType |string |t(:row_comment_query_execType_v3)  |
+|execType |string |t(:row_comment_query_execType_wss_contract_v3)  |
 |execValue |string |t(:row_comment_query_execValue_v3)  |
 |feeRate |string |t(:row_comment_query_feeRate_v3)  |
 |lastLiquidityInd |string |t(:row_comment_query_lastLiquidityInd_v3)  |

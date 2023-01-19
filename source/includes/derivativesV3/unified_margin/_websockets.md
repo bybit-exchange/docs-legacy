@@ -671,7 +671,7 @@ ws.send('{"op":"subscribe","args":["user.execution.unifiedAccount"]}');
 			"orderLinkId": "lin-sit-perp-1040",
 			"execPrice": "43100.00000000",
 			"orderQty": "0.0500",
-			"execType": "Trade",
+			"execType": "TRADE",
 			"execQty": "0.0500",
 			"leavesQty": "0.0000",
 			"execFee": "-0.53875000",
@@ -701,7 +701,7 @@ t(:websocketexecutionV3)
 |execId |string |t(:row_comment_query_execId_v3)  |
 |execPrice |string |t(:row_comment_query_execPrice_v3)  |
 |execQty |string |t(:row_comment_query_execQty_v3)  |
-|execType |string |t(:row_comment_query_execType_v3)  |
+|execType |string |t(:row_comment_query_execType_wss_unified_v3)  |
 |execValue |string |t(:row_comment_query_execValue_v3)  |
 |feeRate |string |t(:row_comment_query_feeRate_v3)  |
 |lastLiquidityInd |string |t(:row_comment_query_lastLiquidityInd_v3)  |
