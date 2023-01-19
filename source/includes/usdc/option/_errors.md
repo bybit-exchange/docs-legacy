@@ -166,7 +166,7 @@ Set margin mode failed
 ## 3400015
 System error. Please try again later.
 
-## 3400045
+## ~~3400045~~ 110073
 Set margin mode failed. The error will be triggerd when your account is in the upgrade of unified margin account, then you request set margin mode endpoint in the mean time.
 
 ## 3400065
