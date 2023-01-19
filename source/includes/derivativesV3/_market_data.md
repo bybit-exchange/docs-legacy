@@ -179,7 +179,7 @@ curl GET 'https://api-testnet.bybit.com/derivatives/v3/public/tickers?category=l
             }
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1663670053454
 }
 // option response

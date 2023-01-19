@@ -37,7 +37,7 @@ https://api-testnet.bybit.com/spot/v3/public/infos?ltCode=BTC3S
             }
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662545667108
 }
 ```
@@ -107,7 +107,7 @@ curl --location --request GET 'https://api.bybit.com/spot/v3/private/reference?l
         "nav": "27.833235232732847932",
         "navTime": 1662546552568
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662546552602
 }
 ``` 
@@ -166,7 +166,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/pu
         "timestamp": 1662549845373,
         "valueCoin": "USDT"
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662549845453
 }
 ``` 
@@ -232,7 +232,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/re
         "timestamp": 1662605726326,
         "valueCoin": "DOT3L"
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662605727987
 }
 ``` 
@@ -313,7 +313,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/rec
             }
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662608374640
 }
 ``` 

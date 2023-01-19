@@ -36,7 +36,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/cr
         "status": 1,
         "remark": "test 9th sub uid"
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665714504296
 }
 ```
@@ -109,7 +109,7 @@ POST
             "NFT": []
         }
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665715090979
 }
 ```
@@ -191,7 +191,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/user/v3/private/que
             }
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665990044209
 }
 ```
@@ -241,7 +241,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/fr
     "retCode": 0,
     "retMsg": "OK",
     "result": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665990662595
 }
 ```
@@ -326,7 +326,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/user/v3/private/que
         "mktMakerLevel": "0",
         "affiliateID": 0
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1672383034616
 }
 ```
@@ -445,7 +445,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/up
             "*"
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665996422184
 }
 ```
@@ -567,7 +567,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/up
             "*"
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665996422184
 }
 ```
@@ -637,7 +637,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/de
     "retCode": 0,
     "retMsg": "OK",
     "result": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665997272757
 }
 ```
@@ -684,7 +684,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/user/v3/private/de
     "retCode": 0,
     "retMsg": "OK",
     "result": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665997272757
 }
 ```

@@ -28,7 +28,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/cr
     "result": {
         "transactId": "14143"
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662617848970
 }
 ```
@@ -77,7 +77,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/cr
     "result": {
         "repayId": "12128"
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662618298452
 }
 ```
@@ -132,7 +132,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/cro
             }
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662618592344
 }
 ```
@@ -217,7 +217,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/cro
         "riskRate": "0.0411",
         "status": 1
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662619341782
 }
 ```
@@ -270,7 +270,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/cro
         "loanAbleAmount": "4610.7712066900784",
         "maxLoanAmount": "100000"
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662619711090
 }
 ```
@@ -333,7 +333,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/cro
             }
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1662622151872
 }
 ```

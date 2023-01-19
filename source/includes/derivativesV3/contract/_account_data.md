@@ -653,7 +653,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
     "retCode": 0,
     "retMsg": "OK",
     "result": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1658908221642
 }
 ```
@@ -706,7 +706,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
     "retCode": 0,
     "retMsg": "OK",
     "result": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1658908532580
 }
 ```
@@ -760,7 +760,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
     "retCode": 0,
     "retMsg": "OK",
     "result": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1658909271272
 }
 ```
@@ -870,7 +870,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
     "retCode": 0,
     "retMsg": "OK",
     "result": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1658909569340
 }
 ```
@@ -926,7 +926,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
     "retCode": 0,
     "retMsg": "OK",
     "result": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1658910157755
 }
 ```
@@ -985,7 +985,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
     "retCode": 0,
     "retMsg": "OK",
     "result": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1658910815936
 }
 ```
@@ -1048,7 +1048,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/contract/v3/privat
     "retCode": 0,
     "retMsg": "OK",
     "result": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1658911328063
 }
 ```
@@ -1145,7 +1145,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
         ],
         "nextPageCursor": ""
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1658911518442
 }
 ```
@@ -1243,7 +1243,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/contract/v3/private
         ],
         "nextPageCursor": "R21aYkRjQ0haRmcxeFJBanZNYm1Db01RWWdyV3YzZmdkUVNXUmtXdGpMMD0="
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1658914264892
 }
 ```

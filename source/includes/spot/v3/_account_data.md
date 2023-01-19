@@ -51,7 +51,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/spot/v3/private/or
         "triggerPrice": "21700"
     },
     "retExtMap": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1661478987364
 }
 ```
@@ -170,7 +170,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/ord
         "orderCategory": 1
     },
     "retExtMap": {},
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665131916562
 }
 ```
@@ -494,7 +494,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/ope
             }
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665131839884
 }
 ```
@@ -613,7 +613,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/spot/v3/private/his
             }
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665131956061
 }
 ```

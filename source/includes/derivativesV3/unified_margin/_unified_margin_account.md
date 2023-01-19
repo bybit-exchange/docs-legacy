@@ -38,7 +38,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/unified/v3/private
         "orderId": "e10b0716-7c91-4091-b98a-1fa0f401c7d5",
         "orderLinkId": "test0000003"
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1664441344238
 }
 ```
@@ -269,7 +269,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
             }
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1665565614320
 }
 ```
@@ -1427,7 +1427,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/unified/v3/private/
             }
         ]
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1661326904055
 }
 ```
