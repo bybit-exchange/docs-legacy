@@ -622,19 +622,19 @@ t(:websocketpositionV3)
 |:----- |:-----|----- |
 |positionIdx |number |t(:row_comment_query_positionIdx_v3)  |
 |isIsolated|bool |t(:row_comment_query_isIsolated_v3)    |
-|riskId |integer |t(:row_comment_riskId)  |
+|riskId |integer |t(:unified_position_riskId)  |
 |symbol |string |t(:row_comment_symbol_v3)  |
 |side |string |t(:row_comment_query_side_v3)  |
 |size |string |t(:row_comment_query_size_v3)  |
 |entryPrice |string |t(:row_comment_query_entryPrice_v3)  |
 |sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
-|leverage |string |t(:row_comment_query_leverage_v3)  |
+|leverage |string |t(:unified_position_leverage)  |
 |positionMargin |string |t(:row_comment_query_positionMargin_v3)  |
 |markPrice |string |t(:row_comment_query_markPrice_v3)  |
 |sessionUPL |string |t(:row_comment_query_sessionUPL_v3)  |
 |sessionRPL |string |t(:row_comment_query_sessionRPL_v3)  |
-|positionIM |string |t(:row_comment_query_positionIM_v3)  |
-|positionMM |string |t(:row_comment_query_positionMM_v3)  |
+|positionIM |string |t(:unified_position_positionIM)  |
+|positionMM |string |t(:unified_position_positionMM)  |
 |takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
 |stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
 |trailingStop |string |t(:row_comment_query_trailingStop_v3)  |

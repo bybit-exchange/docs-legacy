@@ -494,7 +494,7 @@ zh-my:
   row_comment_query_price_v3: 訂單價格
   row_comment_query_qty_v3: 訂單數量
   row_comment_query_iv_v3: 隱含波動率
-  row_comment_query_orderIM_v3: 訂單初始保證金
+  row_comment_query_orderIM_v3: 訂單初始保證金. 組合保證金模式下，該字段返回空字符串
   row_comment_query_timeInForce_v3: 執行策略
   row_comment_query_orderStatus_v3: 訂單狀態
   row_comment_query_triggerPrice_v3: |
@@ -587,9 +587,9 @@ zh-my:
   row_comment_query_coin_availableToBorrow_v3: 可用借貸額度。只有 USDC，USDT 有。BTC 和 ETH 則返回為 0；
 
   row_comment_query_coin_accruedInterest_v3: 某資產應計利息
-  row_comment_query_coin_totalOrderIM_v3: 訂單委托預占用保證金
-  row_comment_query_coin_totalPositionIM_v3: 所有倉位起始保證金求和 + 預占用平倉手續費
-  row_comment_query_coin_totalPositionMM_v3: 所有倉位維持保證金求和
+  row_comment_query_coin_totalOrderIM_v3: 訂單委托預占用保證金. 組合保證金模式下，該字段返回空字符串
+  row_comment_query_coin_totalPositionIM_v3: 所有倉位起始保證金求和 + 預占用平倉手續費. 組合保證金模式下，該字段返回空字符串
+  row_comment_query_coin_totalPositionMM_v3: 所有倉位維持保證金求和. 組合保證金模式下，該字段返回空字符串
   row_comment_query_coin_unrealisedPnl_v3: 未結盈虧
   row_comment_query_coin_cumRealisedPnl_v3: 累計已結盈虧
 
@@ -2924,6 +2924,10 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20230119_4: 組合保證金模式下, totalOrderIM、totalPositionIM、totoalPositionMM返回""
+  restapi_update_20230119_3: 組合保證金模式下, positionIM, positionMM, leverage返回"", riskId返回0
+  restapi_update_20230119_2: 組合保證金模式下, orderIM返回""
+  restapi_update_20230119_1: USDT合約納入組合保證金模式
   restapi_update_20230104: 期權下改接口的入参名修改為<code>orderIv</code>，之前為<code>iv</code>
   restapi_update_20230116_2: 新增500檔的orderbook推送，支持正向合約和反向合約, 推送頻率是100ms
   restapi_update_20230116_1: 新增響應字段<code>xp</code>, 表示為USD指數價格，可以為空串
@@ -5774,3 +5778,7 @@ zh-my:
   err_10008: uta banned. UTA帳戶無法訪問當前接口，請確認您的帳戶模式
   err_10024: Compliance rules triggered. 合規牆攔截
   err_10029: The requested symbol is invalid. 請檢查請求的symbol是否在交易對白名單中
+  unified_position_riskId: 風險限額ID. 在組合保證金模式下, 該字段返回0, 表示風險限額規則失效
+  unified_position_leverage: 槓桿倍數. 在組合保證金模式下, 該字段返回"", 表示槓桿規則失效
+  unified_position_positionIM: 倉位初始保證金. 在組合保證金模式下, 該字段返回""
+  unified_position_positionMM: 倉位維持保證金. 在組合保證金模式下, 該字段返回""

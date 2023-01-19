@@ -263,7 +263,7 @@ en:
   row_comment_query_price_v3: Order price
   row_comment_query_qty_v3: Order quantity
   row_comment_query_iv_v3: Implied volatility
-  row_comment_query_orderIM_v3: Initial margin of an order.
+  row_comment_query_orderIM_v3: Initial margin of an order. For portfolio margin mode, it returns ""
   row_comment_query_timeInForce_v3: Time in force
   row_comment_query_orderStatus_v3: Order status
   row_comment_query_triggerPrice_v3: |
@@ -357,9 +357,9 @@ en:
   row_comment_query_coin_availableToBorrow_v3: Lending amount available. For USDC and USDT only. For BTC and ETH, return 0.
 
   row_comment_query_coin_accruedInterest_v3: Accrued interest of an asset
-  row_comment_query_coin_totalOrderIM_v3: Order margin pre-occupied
-  row_comment_query_coin_totalPositionIM_v3: ∑ Initial margin of all positions + pre-occupied trading fee for closing positions
-  row_comment_query_coin_totalPositionMM_v3: ∑ Maintenance margin of all positions
+  row_comment_query_coin_totalOrderIM_v3: Order margin pre-occupied. For portfolio margin mode, it returns ""
+  row_comment_query_coin_totalPositionIM_v3: ∑ Initial margin of all positions + pre-occupied trading fee for closing positions. For portfolio margin mode, it returns ""
+  row_comment_query_coin_totalPositionMM_v3: ∑ Maintenance margin of all positions. For portfolio margin mode, it returns ""
   row_comment_query_coin_unrealisedPnl_v3: Unrealized P&L
   row_comment_query_coin_cumRealisedPnl_v3: Accumulatively realized P&L
 
@@ -3362,6 +3362,10 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20230119_4: For portfolio margin mode, totalOrderIM、totalPositionIM、totoalPositionMM returns ""
+  restapi_update_20230119_3: For portfolio margin mode, positionIM, positionMM, leverage returns "", riskId returns 0
+  restapi_update_20230119_2: For portfolio margin mode, orderIM returns ""
+  restapi_update_20230119_1: USDT Perpetual is supported to use portfolio margin mode
   restapi_update_20230104: Use new request param for option order. original one is <code>iv</code>, current one is <code>orderIv</code>
   restapi_update_20230116_2: Add 500 level depth for linear contract & inverse contract, the push frequency is 100ms
   restapi_update_20230116_1: Add new response field <code>xp</code>, it means USD index price, which can be an empty string.
@@ -6242,3 +6246,7 @@ en:
   ticker_wss_openInterestValue: Open interest value
   websocket_aside_orderbook_L1: Linear & inverse level 1 data：if 3 seconds have elapsed without a change in the orderbook, a snapshot message will be pushed again.
   spot_usdIndexPrice: USD index price. It can be <code>""</code>
+  unified_position_riskId: Risk ID. For portfolio margin mode, it returns 0, which means risk limit rules are invalid
+  unified_position_leverage: Leverage. For portfolio margin mode, it returns "", which means leverage rules are invalid
+  unified_position_positionIM: Position initial margin. For portfolio margin mode, it returns ""
+  unified_position_positionMM: Position maintenance margin. For portfolio margin mode, it returns ""

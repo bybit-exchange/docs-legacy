@@ -945,16 +945,16 @@ GET
 |:----- |:-----|----- |
 |category |string |t(:row_comment_category_v3)    |
 |list> positionIdx |string |t(:row_comment_query_positionIdx_v3)   |
-|list> riskId |integer |t(:row_comment_query_riskId_v3)   |
+|list> riskId |integer |t(:unified_position_riskId)   |
 |list> symbol |string |t(:row_comment_symbol_v3)   |
 |list> side |string |t(:row_comment_query_side_v3)  |
 |list> size |string |t(:row_comment_query_size_v3)  |
 |list> entryPrice |string |t(:row_comment_query_entryPrice_v3)  |
 |list> sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
-|list> leverage |string |t(:row_comment_query_leverage_v3)  |
+|list> leverage |string |t(:unified_position_leverage)  |
 |list> markPrice |string |t(:row_comment_query_markPrice_v3)  |
-|list> positionIM |string |t(:row_comment_query_positionIM_v3)  |
-|list> positionMM |string |t(:row_comment_query_positionMM_v3)  |
+|list> positionIM |string |t(:unified_position_positionIM)  |
+|list> positionMM |string |t(:unified_position_positionMM)  |
 |list > takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
 |list > stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
 |list > trailingStop |string |t(:row_comment_query_trailingStop_v3)  |
