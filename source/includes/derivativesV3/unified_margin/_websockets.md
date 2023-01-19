@@ -2,7 +2,7 @@
 ## t(:websocketauthentication)
 > t(:websocket_codequote_auth)
 
-> t(:websocket_codequote_auth1)
+> t(:websocket_codequote_auth2)
 
 ```python--pybit
 # based on: https://github.com/bybit-exchange/pybit/blob/master/pybit/_http_manager.py
@@ -26,34 +26,17 @@ signature = str(hmac.new(
     bytes(f"GET/realtime{expires}", "utf-8"), digestmod="sha256"
 ).hexdigest())
 
-param = "api_key={api_key}&expires={expires}&signature={signature}".format(
-    api_key=api_key,
-    expires=expires,
-    signature=signature
-)
-
-url = ws_url + "?" + param
-
-ws = websocket.WebSocketApp(
-    url=url,
-    ...
-)
-```
-
-> t(:websocket_codequote_auth2)
-
-```python--pybit
-ws = websocket.WebSocketApp(
-    url=url,
-    ...
-)
-
 # Authenticate with API.
 ws.send(
     json.dumps({
         "op": "auth",
         "args": [api_key, expires, signature]
     })
+)
+
+ws = websocket.WebSocketApp(
+    url=url,
+    ...
 )
 ```
 
@@ -639,19 +622,19 @@ t(:websocketpositionV3)
 |:----- |:-----|----- |
 |positionIdx |number |t(:row_comment_query_positionIdx_v3)  |
 |isIsolated|bool |t(:row_comment_query_isIsolated_v3)    |
-|riskId |integer |t(:row_comment_riskId)  |
+|riskId |integer |t(:unified_position_riskId)  |
 |symbol |string |t(:row_comment_symbol_v3)  |
 |side |string |t(:row_comment_query_side_v3)  |
 |size |string |t(:row_comment_query_size_v3)  |
 |entryPrice |string |t(:row_comment_query_entryPrice_v3)  |
 |sessionAvgPrice |string |t(:row_comment_query_sessionAvgPrice_v3)  |
-|leverage |string |t(:row_comment_query_leverage_v3)  |
+|leverage |string |t(:unified_position_leverage)  |
 |positionMargin |string |t(:row_comment_query_positionMargin_v3)  |
 |markPrice |string |t(:row_comment_query_markPrice_v3)  |
 |sessionUPL |string |t(:row_comment_query_sessionUPL_v3)  |
 |sessionRPL |string |t(:row_comment_query_sessionRPL_v3)  |
-|positionIM |string |t(:row_comment_query_positionIM_v3)  |
-|positionMM |string |t(:row_comment_query_positionMM_v3)  |
+|positionIM |string |t(:unified_position_positionIM)  |
+|positionMM |string |t(:unified_position_positionMM)  |
 |takeProfit |string |t(:row_comment_query_takeProfit_v3)  |
 |stopLoss |string |t(:row_comment_query_stopLoss_v3)  |
 |trailingStop |string |t(:row_comment_query_trailingStop_v3)  |
@@ -688,7 +671,7 @@ ws.send('{"op":"subscribe","args":["user.execution.unifiedAccount"]}');
 			"orderLinkId": "lin-sit-perp-1040",
 			"execPrice": "43100.00000000",
 			"orderQty": "0.0500",
-			"execType": "Trade",
+			"execType": "TRADE",
 			"execQty": "0.0500",
 			"leavesQty": "0.0000",
 			"execFee": "-0.53875000",
@@ -718,7 +701,7 @@ t(:websocketexecutionV3)
 |execId |string |t(:row_comment_query_execId_v3)  |
 |execPrice |string |t(:row_comment_query_execPrice_v3)  |
 |execQty |string |t(:row_comment_query_execQty_v3)  |
-|execType |string |t(:row_comment_query_execType_v3)  |
+|execType |string |t(:row_comment_query_execType_wss_unified_v3)  |
 |execValue |string |t(:row_comment_query_execValue_v3)  |
 |feeRate |string |t(:row_comment_query_feeRate_v3)  |
 |lastLiquidityInd |string |t(:row_comment_query_lastLiquidityInd_v3)  |

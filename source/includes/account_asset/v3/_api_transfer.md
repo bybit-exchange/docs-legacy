@@ -154,7 +154,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/tr
         ],
         "nextPageCursor": "eyJtaW5JRCI6NTY2NDc3LCJtYXhJRCI6NTY2NDc3fQ=="
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1660807573275
 }
 ```
@@ -221,7 +221,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/tr
         ],
         "nextPageCursor": "eyJtaW5JRCI6MjQ1NTc3MjUsIm1heElEIjoyNDU1Nzc5Mn0="
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1661136830717
 }
 ```
@@ -451,7 +451,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/tr
         ],
         "nextPageCursor": "eyJtaW5JRCI6NTkxOTQzLCJtYXhJRCI6NjEyOTcxfQ=="
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1661137690810
 }
 ```
@@ -563,7 +563,7 @@ curl --location --request GET 'https://api-testnet.bybit.com//asset/v3/private/t
             "bonus": "0"
         }
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1661139455294
 }
 ```
@@ -627,7 +627,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/tr
             ]
         }
     },
-    "retExtInfo": null,
+    "retExtInfo": {},
     "time": 1661139883530
 }
 ```
@@ -687,7 +687,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/public/dep
     ],
       "nextPageCursor": "eyJwYWdlIjoyLCJsaW1pdCI6MX0="
   },
-  "retExtInfo": null,
+  "retExtInfo": {},
     "time": 1660546221207
 }
 ```
@@ -760,7 +760,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/de
     ],
       "nextPageCursor": "eyJtaW5JRCI6NTM3MCwibWF4SUQiOjUzNzB9"
   },
-  "retExtInfo": null,
+  "retExtInfo": {},
     "time": 1660547423085
 }
 ```
@@ -840,7 +840,7 @@ curl --location --request GET 'https://api.bybit.com/asset/v3/private/deposit/su
     ],
       "nextPageCursor": "eyJtaW5JRCI6NTM3MCwibWF4SUQiOjUzNzB9"
   },
-  "retExtInfo": null,
+  "retExtInfo": {},
     "time": 1660547423085
 }
 ```
@@ -933,7 +933,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/wi
     ],
       "nextPageCursor": "eyJtaW5JRCI6MzcwMDM2LCJtYXhJRCI6MzcwMDM3fQ=="
   },
-  "retExtInfo": null,
+  "retExtInfo": {},
     "time": 1660548434464
 }
 ```
@@ -1017,7 +1017,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/co
       }
     ]
   },
-  "retExtInfo": null,
+  "retExtInfo": {},
     "time": 1666235753264
 }
 ```
@@ -1083,7 +1083,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/w
     "result": {
     "id": "370044"
   },
-  "retExtInfo": null,
+  "retExtInfo": {},
     "time": 1660549283047
 }
 ```
@@ -1142,7 +1142,7 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/w
     "result": {
     "status": 1
   },
-  "retExtInfo": null,
+  "retExtInfo": {},
     "time": 1660550283220
 }
 ```
@@ -1195,7 +1195,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/asset/v3/private/de
       }
     ]
   },
-  "retExtInfo": null,
+  "retExtInfo": {},
     "time": 1660203622474
 }
 ```
