@@ -4474,7 +4474,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list &gt; orderIM</td>
 <td style="text-align: left">string</td>
-<td>訂單初始保證金</td>
+<td>訂單初始保證金. 組合保證金模式下，該字段返回空字符串</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; iv</td>
@@ -4685,7 +4685,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list &gt; orderIM</td>
 <td style="text-align: left">string</td>
-<td>訂單初始保證金</td>
+<td>訂單初始保證金. 組合保證金模式下，該字段返回空字符串</td>
 </tr>
 <tr>
 <td style="text-align: left">list &gt; reduceOnly</td>
@@ -6380,7 +6380,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">list&gt; execType</td>
 <td style="text-align: left">string</td>
-<td>交易類型枚舉</td>
+<td>交易類型</td>
 </tr>
 <tr>
 <td style="text-align: left">list&gt; execValue</td>
@@ -6977,17 +6977,17 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">Coin&gt; totalOrderIM</td>
 <td style="text-align: left">string</td>
-<td>訂單委托預占用保證金</td>
+<td>訂單委托預占用保證金. 組合保證金模式下，該字段返回空字符串</td>
 </tr>
 <tr>
 <td style="text-align: left">Coin&gt; totalPositionIM</td>
 <td style="text-align: left">string</td>
-<td>所有倉位起始保證金求和 + 預占用平倉手續費</td>
+<td>所有倉位起始保證金求和 + 預占用平倉手續費. 組合保證金模式下，該字段返回空字符串</td>
 </tr>
 <tr>
 <td style="text-align: left">Coin&gt; totalPositionMM</td>
 <td style="text-align: left">string</td>
-<td>所有倉位維持保證金求和</td>
+<td>所有倉位維持保證金求和. 組合保證金模式下，該字段返回空字符串</td>
 </tr>
 <tr>
 <td style="text-align: left">Coin&gt; unrealisedPnl</td>
@@ -8099,7 +8099,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <p>認證方式:
 </p>
 
-<p>方法1: 建立連接時附帶驗證信息.
+<p>方法2: 建立連接後發送auth請求驗證.
 </p>
 </blockquote>
 <div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="c1"># based on: https://github.com/bybit-exchange/pybit/blob/master/pybit/_http_manager.py
@@ -8123,34 +8123,17 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
     <span class="nb">bytes</span><span class="p">(</span><span class="sa">f</span><span class="s">"GET/realtime</span><span class="si">{</span><span class="n">expires</span><span class="si">}</span><span class="s">"</span><span class="p">,</span> <span class="s">"utf-8"</span><span class="p">),</span> <span class="n">digestmod</span><span class="o">=</span><span class="s">"sha256"</span>
 <span class="p">).</span><span class="n">hexdigest</span><span class="p">())</span>
 
-<span class="n">param</span> <span class="o">=</span> <span class="s">"api_key={api_key}&amp;expires={expires}&amp;signature={signature}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span>
-    <span class="n">api_key</span><span class="o">=</span><span class="n">api_key</span><span class="p">,</span>
-    <span class="n">expires</span><span class="o">=</span><span class="n">expires</span><span class="p">,</span>
-    <span class="n">signature</span><span class="o">=</span><span class="n">signature</span>
-<span class="p">)</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="n">ws_url</span> <span class="o">+</span> <span class="s">"?"</span> <span class="o">+</span> <span class="n">param</span>
-
-<span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-    <span class="p">...</span>
-<span class="p">)</span>
-</code></pre></div>
-<blockquote>
-<p>方法2: 建立連接後發送auth請求驗證.
-</p>
-</blockquote>
-<div class="highlight"><pre class="highlight python tab-python--pybit"><code><span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
-    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
-    <span class="p">...</span>
-<span class="p">)</span>
-
 <span class="c1"># Authenticate with API.
 </span><span class="n">ws</span><span class="p">.</span><span class="n">send</span><span class="p">(</span>
     <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">({</span>
         <span class="s">"op"</span><span class="p">:</span> <span class="s">"auth"</span><span class="p">,</span>
         <span class="s">"args"</span><span class="p">:</span> <span class="p">[</span><span class="n">api_key</span><span class="p">,</span> <span class="n">expires</span><span class="p">,</span> <span class="n">signature</span><span class="p">]</span>
     <span class="p">})</span>
+<span class="p">)</span>
+
+<span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="p">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+    <span class="p">...</span>
 <span class="p">)</span>
 </code></pre></div>
 <p><p><b>WebSocket 公共頻道</b>:</p>
@@ -9339,7 +9322,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">execType</td>
 <td style="text-align: left">string</td>
-<td>交易類型枚舉</td>
+<td>交易類型</td>
 </tr>
 <tr>
 <td style="text-align: left">execValue</td>
@@ -9572,7 +9555,7 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">orderIM</td>
 <td style="text-align: left">string</td>
-<td>訂單初始保證金</td>
+<td>訂單初始保證金. 組合保證金模式下，該字段返回空字符串</td>
 </tr>
 <tr>
 <td style="text-align: left">takeProfit</td>
@@ -9774,17 +9757,17 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <tr>
 <td style="text-align: left">Coin&gt; totalOrderIM</td>
 <td style="text-align: left">string</td>
-<td>訂單委托預占用保證金</td>
+<td>訂單委托預占用保證金. 組合保證金模式下，該字段返回空字符串</td>
 </tr>
 <tr>
 <td style="text-align: left">Coin&gt; totalPositionIM</td>
 <td style="text-align: left">string</td>
-<td>所有倉位起始保證金求和 + 預占用平倉手續費</td>
+<td>所有倉位起始保證金求和 + 預占用平倉手續費. 組合保證金模式下，該字段返回空字符串</td>
 </tr>
 <tr>
 <td style="text-align: left">Coin&gt; totalPositionMM</td>
 <td style="text-align: left">string</td>
-<td>所有倉位維持保證金求和</td>
+<td>所有倉位維持保證金求和. 組合保證金模式下，該字段返回空字符串</td>
 </tr>
 <tr>
 <td style="text-align: left">Coin&gt; unrealisedPnl</td>
