@@ -7,6 +7,7 @@ t(:ENUMs_para)
 * `INVESTMENT` t(:accountType_investment)
 * `OPTION` t(:accountType_option)
 * `UNIFIED` t(:accountType_unified)
+* `FUND` t(:accountType_fund)
 
 ## Withdraw status(`status`)
 * `SecurityCheck` t(:withdrawStatus_securityCheck)
