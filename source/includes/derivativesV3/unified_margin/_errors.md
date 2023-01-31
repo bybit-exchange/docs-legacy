@@ -9,6 +9,9 @@ HTTP Code | t(:errorcode_meaning)
 403 | t(:http_403)
 404 | t(:http_404)
 
+## 10000
+t(:err_10000)
+
 ## 10001
 t(:v3_err_10001)
 
