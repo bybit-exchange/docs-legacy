@@ -588,6 +588,8 @@ GET
 |:----- |:-------|:-----|----- |
 |t(:row_parameter_symbol) |false |string |t(:contract_comment_realtimeOrderSymbol)    |
 |settleCoin |false |string |t(:contract_comment_positionSettleCoin)    |
+|limit |false |integer |t(:contract_position_limit)    |
+|cursor |false |string |t(:row_comment_resp_cursor)    |
 
 <p class="fake_header">t(:responseparameters)</p>
 |t(:column_parameter)|t(:column_type)|t(:column_comments)|
