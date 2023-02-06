@@ -1088,7 +1088,9 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v3/private/w
 }
 ```
 
+<aside class="notice">
 t(:withdraw_info_para)
+</aside>
 
 <p class="fake_header">t(:httprequest)</p>
 POST
