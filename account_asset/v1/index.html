@@ -3118,7 +3118,7 @@ ACCOUNT_STATUS_UNSPECIFIED -- ABNORMAL </p>
     <span class="dl">"</span><span class="s2">rate_limit</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Withdrawals are always made from the SPOT wallet.</p>
+<p><ul><li>Currently we are upgrading the fund account, if your funding account has been upgraded, the API will now be withdrawn via <b>funding account</b>, please transfer funds to the funding account first, and then withdraw cash.</li><li>If your funding account has not been upgraded, the API will still uses <b>spot account</b> to withdraw cash.</li><li>It is expected that in the next two weeks, all users' funding account upgrades will be completed.</li></ul></p>
 
 <p class="fake_header">HTTP Request</p>
 
