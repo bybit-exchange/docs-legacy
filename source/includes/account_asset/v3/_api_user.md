@@ -333,6 +333,10 @@ curl --location --request GET 'https://api-testnet.bybit.com/user/v3/private/que
 
 t(:get_api_key_info_para)
 
+<aside class="notice">
+t(:user_getApiKey_notice)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 GET
 <code><span id=quapi>/user/v3/private/query-api</span></code>
