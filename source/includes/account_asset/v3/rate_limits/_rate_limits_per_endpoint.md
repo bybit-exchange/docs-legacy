@@ -12,14 +12,14 @@ t(:assetRateLimitNotice)
         <th>t(:row_comment_path)</th>
     </tr>
     <tr>
-        <td rowspan="5">20/s</td>
+        <td rowspan="5">20/min</td>
         <tr><td>/asset/v3/private/transfer/inter-transfer </td>
         <tr><td>/asset/v3/private/transfer/sub-member-transfer </td>
         <tr><td>/asset/v3/private/transfer/transfer-sub-member-save </td>
         <tr><td>/asset/v3/private/transfer/universal-transfer </td>
     </tr>
     <tr>
-        <td rowspan="8">60/s</td>
+        <td rowspan="8">60/min</td>
         <tr><td>/asset/v3/private/transfer/inter-transfer/list/query </td>
         <tr><td>/asset/v3/private/transfer/sub-member-transfer/list/query </td>
         <tr><td>/asset/v3/private/transfer/transfer-coin/list/query </td>
@@ -37,18 +37,19 @@ t(:assetRateLimitNotice)
         <th>t(:row_comment_path)</th>
     </tr>
     <tr>
-        <td rowspan="5">300/s</td>
-        <tr><td>/asset/v3/public/deposit/allowed-deposit-list/query </td>
+        <td rowspan="6">300/min</td>
+        <tr><td>/asset/v3/private/deposit/sub-member-record/query </td>
         <tr><td>/asset/v3/private/deposit/record/query </td>
         <tr><td>/asset/v3/private/withdraw/record/query </td>
         <tr><td>/asset/v3/private/deposit/address/query </td>
+        <tr><td>/asset/v3/private/deposit/sub-member-address/query </td>
     </tr>
     <tr>
-        <td rowspan="1">60/s</td>
+        <td rowspan="1">60/min</td>
         <td>/asset/v3/private/withdraw/cancel </td>
     </tr>
     <tr>
-        <td rowspan="1">10/s</td>
+        <td rowspan="1">10/min</td>
         <td>/asset/v3/private/withdraw/create </td>
     </tr>
     <tr>
