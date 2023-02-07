@@ -2555,7 +2555,7 @@ GET
 
 
 ## t(:key)
-<a href="/docs/futuresV2/inverse#t-key">t(:shared_endpoint_desc)</a>
+<a href="/docs-legacy/futuresV2/inverse#t-key">t(:shared_endpoint_desc)</a>
 
 ## t(:lcp)
-<a href="/docs/futuresV2/inverse#t-lcp">t(:shared_endpoint_desc)</a>
+<a href="/docs-legacy/futuresV2/inverse#t-lcp">t(:shared_endpoint_desc)</a>

@@ -860,7 +860,7 @@ en:
   ## Where are Bybit's servers located?
   faq_server_location: Where are Bybit's servers located?
   faq_server_location_para: |
-    AWS Singapore, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone ID</a> apse1-az3.
+    AWS Singapore, <a href="https://docs-legacy.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone ID</a> apse1-az3.
 
   ## How do I get funds for testnet?
   faq_testnet_funds: How do I get funds for testnet?
@@ -886,7 +886,7 @@ en:
       <li>For example, you received <code>11.969999</code> but you expected <code>11.97</code>.
       <li>Some values are returned to too many decimal places, or a fraction too high or low, due to a float precision problem.</li>
       <li>For now, we recommend rounding the received value to the correct decimal place. This can be done with reference to the <a href="#t-querysymbol">Query Symbol</a> endpoint.</li>
-      <li><b>This issue <strike>will be</strike> has been fixed in the latest major version of the API: v3.</b> You can see the documentation for the v3 websocket <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-websocket">here</a>.</li>
+      <li><b>This issue <strike>will be</strike> has been fixed in the latest major version of the API: v3.</b> You can see the documentation for the v3 websocket <a href="https://bybit-exchange.github.io/docs-legacy/derivativesV3/contract/#t-websocket">here</a>.</li>
     </ul>
 
   faq_data_resilience: How can I ensure I am using up-to-date data?
@@ -1337,7 +1337,7 @@ en:
       <li><code>ext_code</code> means please refer to <a href="#t-errors">Errors</a></li>
     </ul>
   getOrderList_warning: |
-    This interface only supports to query <b>10k</b> orders per symbol for userId. If you need to get historical orders, please refer to the <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-contract_getorder">api</a> from contract v3, which enables to get all status orders in recent 7days, and <b>FILLED</b> orders over 7 days
+    This interface only supports to query <b>10k</b> orders per symbol for userId. If you need to get historical orders, please refer to the <a href="https://bybit-exchange.github.io/docs-legacy/derivativesV3/contract/#t-contract_getorder">api</a> from contract v3, which enables to get all status orders in recent 7days, and <b>FILLED</b> orders over 7 days
 
   ### Get Conditional Order
   getcond: Get Conditional Order
@@ -1444,11 +1444,11 @@ en:
   dv_walletrecords: Get Wallet Fund Records
   wallet_para_walletRecords: |
     <p>Get wallet fund records. This endpoint also shows exchanges from the <a href="https://testnet.bybit.com/app/assets/assets-exchange">Asset Exchange</a>, where the <code>type</code>s for the exchange are <code>ExchangeOrderWithdraw</code> and <code>ExchangeOrderDeposit</code>.</p>
-    <p>This endpoint returns incomplete information for transfers involving the derivatives wallet. Use the <a href="https://bybit-exchange.github.io/docs/account_asset/v3/#t-transfer_api">account asset API</a> for creating and querying internal transfers.
+    <p>This endpoint returns incomplete information for transfers involving the derivatives wallet. Use the <a href="https://bybit-exchange.github.io/docs-legacy/account_asset/v3/#t-transfer_api">account asset API</a> for creating and querying internal transfers.
   wallet_aside_walletRecords: |
     Find more detail for types <code>Withdraw</code> and <code>Refund</code> in the <a href="#t-withdrawrecords">Withdraw Records</a> endpoint.
   wallet_aside_walletRecords1: USDT records will not be returned unless you pass <code>USDT</code> with the <code>coin</code> parameter.
-  wallet_aside_walletRecords2: Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. To fetch records after this date you should call the <a href="https://bybit-exchange.github.io/docs/account_asset/v3/#t-depositsrecordquery">Query Deposit Records</a> and <a href="https://bybit-exchange.github.io/docs/account_asset/v3/#t-withdrawrecordquery">Query Withdraw Records</a> endpoints. This is due to the introduction of the spot wallet at this time.
+  wallet_aside_walletRecords2: Deposit or withdrawal records which occurred after 2021-07-15 will not be shown by this endpoint. To fetch records after this date you should call the <a href="https://bybit-exchange.github.io/docs-legacy/account_asset/v3/#t-depositsrecordquery">Query Deposit Records</a> and <a href="https://bybit-exchange.github.io/docs-legacy/account_asset/v3/#t-withdrawrecordquery">Query Withdraw Records</a> endpoints. This is due to the introduction of the spot wallet at this time.
   ### Withdraw Records
   withdrawrecords: Withdraw Records
   wallet_para_withdrawRecords: |
@@ -1470,7 +1470,7 @@ en:
   ### User Trade Records
   usertraderecords: Get User Trade Records
   userhistorytraderecords: Extended User Trade Records
-  wallet_para_tradeRecords: Get user's trading records. The results are ordered in ascending order (the first item is the oldest). If you want to get the records up to 2 years old, please refer to contract v3 <a href="https://bybit-exchange.github.io/docs/derivativesV3/contract/#t-usertraderecords">endpoint</a>
+  wallet_para_tradeRecords: Get user's trading records. The results are ordered in ascending order (the first item is the oldest). If you want to get the records up to 2 years old, please refer to contract v3 <a href="https://bybit-exchange.github.io/docs-legacy/derivativesV3/contract/#t-usertraderecords">endpoint</a>
   wallet_aside_tradeRecords: One order may have multiple trade records.
   wallet_row_comment_orderId: OrderID. If not provided, will return user's trading records
   ## Get Risk Limit
@@ -1771,14 +1771,14 @@ en:
   websocket_endpoints_aside: |
     <b>Note that the following endpoints only apply to <i>Inverse Perpetual/Futures</i></b>. To listen to other websockets, go to:
     <ul>
-      <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
-      <li><a href="https://bybit-exchange.github.io/docs/spot/v3/#t-websocketauthentication">Spot</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs-legacy/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs-legacy/spot/v3/#t-websocketauthentication">Spot</a></li>
     </ul>
   websocket_endpoints_aside_copytrading: |
     <b>Note that currently Copy Trading only supports USDT perpetual and the following endpoints only apply to <i>USDT (Linear) Perpetual</i></b>. To listen to other websockets, go to:
     <ul>
-      <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual</a></li>
-      <li><a href="https://bybit-exchange.github.io/docs/spot/v3/#t-websocketauthentication">Spot</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs-legacy/inverse/#t-websocketauthentication">Inverse Perpetual</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs-legacy/spot/v3/#t-websocketauthentication">Spot</a></li>
     </ul>
   websocket_para_endpoint: |
     <p>Base endpoints:</p>
@@ -1837,8 +1837,8 @@ en:
   spot_websocket_endpoints_aside: |
     <b>Note that the following endpoints only apply to <i>Spot</i></b>. To listen to other websockets, go to:
     <ul>
-      <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual/Futures</a></li>
-      <li><a href="https://bybit-exchange.github.io/docs/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs-legacy/inverse/#t-websocketauthentication">Inverse Perpetual/Futures</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs-legacy/linear/#t-websocketauthentication">USDT (Linear) Perpetual</a></li>
     </ul>
   spot_websocket_para_endpoint: |
     Base endpoints:
@@ -3298,8 +3298,8 @@ en:
   linear_websocket_endpoints_aside: |
     <b>Note that the following endpoints only apply to <i>USDT (Linear) Perpetual</i></b>. To listen to other websockets, go to:
     <ul>
-      <li><a href="https://bybit-exchange.github.io/docs/inverse/#t-websocketauthentication">Inverse Perpetual/Futures</a></li>
-      <li><a href="https://bybit-exchange.github.io/docs/spot/v3/#t-websocketauthentication">Spot</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs-legacy/inverse/#t-websocketauthentication">Inverse Perpetual/Futures</a></li>
+      <li><a href="https://bybit-exchange.github.io/docs-legacy/spot/v3/#t-websocketauthentication">Spot</a></li>
     </ul>
   linear_websocket_para_endpoint: |
     Base endpoints:
