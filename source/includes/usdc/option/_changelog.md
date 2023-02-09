@@ -1,5 +1,12 @@
 # t(:changelog)
 
+## 2023-02-09
+### REST API
+- [t(:setDcp)](#t-setdcp) [t(:changelog_new)]
+  - t(:restapi_update_20230209)
+- [t(:getDcp)](#t-getdcp) [t(:changelog_new)]
+  - t(:restapi_update_2023029_1)
+
 ## 2022-11-08
 ### WebSocket API
 - [t(:websocketunderlyingPriceByBasecoin)](#t-websocketunderlyingpricebybasecoin) [t(:changelog_new)]

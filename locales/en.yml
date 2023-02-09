@@ -3362,6 +3362,8 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_2023029_1: Add new endpoint to get Disconnected Cancel Protection timeWindow
+  restapi_update_20230209: Add new endpoint to set Disconnected Cancel Protection
   restapi_update_20230206: For any permission of api key, you can access this endpoint
   restapi_update_20230119_4: For portfolio margin mode, totalOrderIM、totalPositionIM、totoalPositionMM returns ""
   restapi_update_20230119_3: For portfolio margin mode, positionIM, positionMM, leverage returns "", riskId returns 0
@@ -4620,7 +4622,7 @@ en:
   triggerPrice: Trigger price
   triggerBy: Trigger price type
   positionIdx: 0-One-Way Mode, 1-Buy side of both side mode, 2-Sell side of both side mode (Perpetual)
-  mmp: Market maker protection; false not enabled (default) and true means enabled.
+  mmp: Market maker protection; false not enabled (default) and true means enabled. <i>Only effective for <b>Options</b> orders</i>
   reduceOnly: Reduce-only
   closeOnTrigger: Close on trigger, please set it to true for a close order
   takeProfit: Take-profit price (Perpetual)
@@ -6254,3 +6256,12 @@ en:
   unified_position_positionMM: Position maintenance margin. For portfolio margin mode, it returns ""
   contract_position_limit: Limit for data size per page. [<code>1</code>, <code>50</code>]. Default：20
   user_getApiKey_notice: With any permission of API key, you can access this endpoint.
+  usdcDcp: Disconnection Protection
+  setDcp: Set DCP Time Window
+  getDcp: Get DCP Setting
+  getDcp_retCode: Success/Error Code
+  getDcp_retMsg: Success/Error Message
+  getDcp_dcpStatus: DCP status. <code>ON</code>, <code>OFF</code>
+  getDcp_timeWindow: The time window to trigger DCP
+  DCP_notice: <ul><li><a href="#t-usdc_disconnect_protection">What is DCP?</a></li><li>Only for Options trade</li></ul>
+

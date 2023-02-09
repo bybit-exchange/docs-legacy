@@ -2924,6 +2924,8 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_2023029_1: 新增查詢斷線保護的時間窗口接口
+  restapi_update_20230209: 新增設置斷線保護的時間窗口接口
   restapi_update_20230206: 對於任意權限的api key，都可以訪問該接口
   restapi_update_20230119_4: 組合保證金模式下, totalOrderIM、totalPositionIM、totoalPositionMM返回""
   restapi_update_20230119_3: 組合保證金模式下, positionIM, positionMM, leverage返回"", riskId返回0
@@ -4190,7 +4192,7 @@ zh-my:
   triggerPrice: 觸發價格
   triggerBy: 觸發價格類型，默認為LastPrice
   positionIdx: 期貨時使用 0-One-Way Mode 1-Buy side of both side mode 2-Sell side of both side mode
-  mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單
+  mmp: 僅在功能開啟後生效。true表示此訂單為mmp訂單. <i>僅對<b>期權</b>訂單有效</i>
   reduceOnly: 只減倉
   closeOnTrigger: 觸發後平倉. 如果下平倉單，請設置為true，避免因為保證金不足而導致下單失敗
   takeProfit: 止盈價格
@@ -5786,3 +5788,11 @@ zh-my:
   unified_position_positionMM: 倉位維持保證金. 在組合保證金模式下, 該字段返回""
   contract_position_limit: 每頁數量限制. [<code>1</code>, <code>50</code>]. 默认：20
   user_getApiKey_notice: 擁有任意權限的API key都可以訪問該接口
+  usdcDcp: 斷線保護
+  setDcp: 設置斷線時間窗口
+  getDcp: 查詢斷線保護配置
+  getDcp_retCode: 成功/錯誤碼
+  getDcp_retMsg: 成功/錯誤信息
+  getDcp_dcpStatus: 斷線保護狀態. <code>ON</code>：開啟, <code>OFF</code>：關閉
+  getDcp_timeWindow: 斷線保護時間窗口 (秒)
+  DCP_notice: <ul><li><a href="#t-usdc_disconnect_protection">什麼是斷線保護機制</a></li><li>僅適用於期權交易</li></ul>

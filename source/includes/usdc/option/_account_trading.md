@@ -1705,3 +1705,101 @@ POST
 |deltaLimit|string|t(:usdcDeltaLimit)|
 |mmpFrozenUntilMs|string|t(:usdcMmpFrozenUntilMs)|
 |mmpFrozen|boolean|t(:usdcMmpFrozen)|
+
+
+## t(:usdcDcp)
+
+### t(:setDcp)
+
+> t(:codequote_curlExample)
+
+```console
+curl --location --request POST 'https://api.bybit.com/option/usdc/openapi/private/v1/dcp-set-timewindow' \
+--header 'X-BAPI-API-KEY: XXXXXX' \
+--header 'X-BAPI-SIGN: XXXXXX' \
+--header 'X-BAPI-SIGN-TYPE: 2' \
+--header 'X-BAPI-TIMESTAMP: 1675754305052' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "timeWindow": 30
+}'
+```
+
+```python
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "success"
+}
+```
+
+<aside class="notice">
+t(:DCP_notice)
+</aside>
+
+<p class="fake_header">t(:httprequest)</p>
+
+POST
+<code><span id=setDcp>/option/usdc/openapi/private/v1/dcp-set-timewindow</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#setDcp"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+|timeWindow |<b>true</b>|integer|t(:usdcCurrency) |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+
+
+### t(:getDcp)
+
+> t(:codequote_curlExample)
+
+```console
+curl --location --request GET 'https://api-testnet.bybit.com/option/usdc/openapi/private/v1/query-dcp-info' \
+--header 'X-BAPI-API-KEY: XXXXX' \
+--header 'X-BAPI-SIGN: XXXXX' \
+--header 'X-BAPI-TIMESTAMP: 1675761451075' \
+--header 'X-BAPI-RECV-WINDOW: 5000' \
+```
+
+```python
+
+```
+
+> t(:codequote_responseExample)
+
+```javascript
+{
+    "retCode": 0,
+    "retMsg": "success",
+    "dcpStatus": "ON",
+    "timeWindow": "30"
+}
+```
+
+<p class="fake_header">t(:httprequest)</p>
+
+GET
+<code><span id=getDCP>/option/usdc/openapi/private/v1/query-dcp-info</span></code>
+<button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#getDCP"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
+
+<p class="fake_header">t(:requestparameters)</p>
+|t(:column_parameter)|t(:column_required)|t(:column_type)|t(:column_comments)|
+|:----- |:-------|:-----|----- |
+
+<p class="fake_header">t(:responseparameters)</p>
+|t(:column_parameter)|t(:column_type)|t(:column_comments)|
+|:----- |:-----|----- |
+|retCode|integer|t(:getDcp_retCode)|
+|retMsg|string|t(:getDcp_retMsg)|
+|dcpStatus|string|t(:getDcp_dcpStatus)|
+|timeWindow|string|t(:getDcp_timeWindow)|
