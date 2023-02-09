@@ -1000,9 +1000,6 @@
                     <a href="#t-heartbeat" class="toc-h2 toc-link" data-title="心跳包/Ping">心跳包/Ping</a>
                   </li>
                   <li>
-                    <a href="#t-usdc_disconnect_protection" class="toc-h2 toc-link" data-title="斷線保護機制">斷線保護機制</a>
-                  </li>
-                  <li>
                     <a href="#t-subscribe" class="toc-h2 toc-link" data-title="訂閱方式">訂閱方式</a>
                       <ul class="toc-list-h3">
                           <li>
@@ -3058,7 +3055,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <td style="text-align: left">mmp</td>
 <td style="text-align: left">false</td>
 <td style="text-align: left">bool</td>
-<td>僅在功能開啟後生效。true表示此訂單為mmp訂單</td>
+<td>僅在功能開啟後生效。true表示此訂單為mmp訂單. <i>僅對<b>期權</b>訂單有效</i></td>
 </tr>
 </tbody></table>
 
@@ -3084,7 +3081,7 @@ curl 'https://api-testnet.bybit.com/perpetual/usdc/openapi/public/v1/big-deal?sy
 <tr>
 <td style="text-align: left">mmp</td>
 <td style="text-align: left">bool</td>
-<td>僅在功能開啟後生效。true表示此訂單為mmp訂單</td>
+<td>僅在功能開啟後生效。true表示此訂單為mmp訂單. <i>僅對<b>期權</b>訂單有效</i></td>
 </tr>
 <tr>
 <td style="text-align: left"><a href="#symbol-symbol">symbol</a></td>
@@ -5996,15 +5993,6 @@ curl https://api-testnet.bybit.com/v2/public/time
 ## 頻率限製
 註意，每個api_key最多可以保持20個Websocket連接.超過20個連接後的新連接會被服務器拒絕.
 -->
-<h2 id='t-usdc_disconnect_protection'>斷線保護機制</h2>
-<aside class="notice">
-DCP的開和關, 僅限機構類型用戶
-</aside>
-
-<p><p>基於心跳機制，Bybit提供斷線保護功能，如需要開啟/關閉，可聯絡您的客戶經理進行諮詢申請。</p>
-<p>從第一次斷連開始計時，如Bybit服務器連續超過<b>10秒鍾</b>沒有收到客戶端的重新建連並恢復心跳"ping"，且客戶處於開啟"斷線保護"的狀態，則客戶所有的Active order會被自動全部取消。</p>
-<p>如果在<b>10秒鍾</b>內，客戶端重新建連並恢復心跳"ping"，則計時會被重置，在下一次斷連時重新開始計時。</p>
-</p>
 <h2 id='t-subscribe'>訂閱方式</h2><h3 id='t-websocketfilters'>Websocket訂閱方式</h3>
 <blockquote>
 <p>直接訂閱</p>
