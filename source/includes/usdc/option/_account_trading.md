@@ -1739,6 +1739,10 @@ curl --location --request POST 'https://api.bybit.com/option/usdc/openapi/privat
 }
 ```
 
+<aside class="notice">
+t(:DCP_notice)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 
 POST
@@ -1784,7 +1788,7 @@ curl --location --request GET 'https://api-testnet.bybit.com/option/usdc/openapi
 
 <p class="fake_header">t(:httprequest)</p>
 
-POST
+GET
 <code><span id=getDCP>/option/usdc/openapi/private/v1/query-dcp-info</span></code>
 <button class="clipboard_button" data-clipboard-action="copy" data-clipboard-target="#getDCP"><img src="/images/copy_to_clipboard.png" height=zh5 width=15></img></button>
 
