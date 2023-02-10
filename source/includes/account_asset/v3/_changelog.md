@@ -1,5 +1,9 @@
 # t(:changelog)
 
+<aside class="notice">
+t(:asset_v3_changelog_notice)
+</aside>
+
 ## 2023-02-06
 ### REST API
 - [t(:get_api_key_info)](#t-get_api_key_info) [t(:changelog_update)]

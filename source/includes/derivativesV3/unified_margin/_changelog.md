@@ -1,5 +1,9 @@
 # t(:changelog)
 
+<aside class="notice">
+t(:unified_v3_changelog_notice)
+</aside>
+
 ## 2023-01-19
 ### REST API 
 - [t(:dv_setMarginMode)](#t-dv_setmarginmode) [t(:changelog_update)]
