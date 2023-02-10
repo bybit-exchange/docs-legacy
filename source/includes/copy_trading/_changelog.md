@@ -1,5 +1,9 @@
 # t(:changelog)
 
+<aside class="notice">
+t(:copytrading_changelog_notice)
+</aside>
+
 ## 2022-09-05
 ### REST API
 - [t(:ct_create_order)](#t-ct_create_order) [t(:changelog_update)]

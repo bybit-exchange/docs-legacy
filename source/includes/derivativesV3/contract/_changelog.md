@@ -1,5 +1,9 @@
 # t(:changelog)
 
+<aside class="notice">
+t(:contract_v3_changelog_notice)
+</aside>
+
 ## 2023-01-16
 ### WebSocket API
 - [t(:websocketOrderBookDepth)](#t-websocketorderbookdepth) [t(:changelog_update)]

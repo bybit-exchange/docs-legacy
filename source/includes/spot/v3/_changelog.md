@@ -1,5 +1,9 @@
 # t(:changelog)
 
+<aside class="notice">
+t(:spot_v3_changelog_notice)
+</aside>
+
 ## 2023-01-16
 ### WebSocket API
 - [t(:websocketTickers)](#t-websockettickers) [t(:changelog_update)]
