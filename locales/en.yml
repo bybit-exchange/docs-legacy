@@ -3362,6 +3362,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20230214: Support to select the wallet to be withdrawn from
   restapi_update_2023029_1: Add new endpoint to get Disconnected Cancel Protection timeWindow
   restapi_update_20230209: Add new endpoint to set Disconnected Cancel Protection
   restapi_update_20230206: For any permission of api key, you can access this endpoint
@@ -4307,7 +4308,7 @@ en:
   asset_info_withdraw: temporarily ""
 
   withdraw_info: Withdraw
-  withdraw_info_para: <ul><li>Currently we are upgrading the fund account, if your funding account has been upgraded, the API will now be withdrawn via <b>funding account</b>, please transfer funds to the funding account first, and then withdraw cash.</li><li>If your funding account has not been upgraded, the API will still uses <b>spot account</b> to withdraw cash.</li><li>It is expected that in the next two weeks, all users' funding account upgrades will be completed.</li></ul>
+  withdraw_info_para: <ul><li>Currently we are upgrading the funding account, if your funding account has been upgraded, you can select the wallet to be withdrawn from.</li><li>If your funding account has not been upgraded, the API will still use <b>spot wallet</b> to withdraw cash, but you cannot select the wallet to be withdrawn from.</li></ul>
   withdraw_addr: address. Address verification whether there is a whitelist of withdrawal addresses
   withdraw_tag: Need to fill in if there is a tag
   withdraw_amount: |
@@ -6270,3 +6271,4 @@ en:
   unified_v3_changelog_notice: This document will no longer update the Unified V3 API, please move to <a href="https://bybit-exchange.github.io/docs/v3/intro">new API document</a>
   contract_v3_changelog_notice: This document will no longer update the Contract V3 API, please move to <a href="https://bybit-exchange.github.io/docs/v3/intro">new API document</a>
   asset_v3_changelog_notice: This document will no longer update the Asset V3 API, please move to <a href="https://bybit-exchange.github.io/docs/v3/intro">new API document</a>
+  account_withdraw_account_type: Select the wallet to be withdrawn from <ul><li><code>SPOT</code>：spot wallet (default)</li><li><code>FUND</code>：Funding wallet</li></ul>

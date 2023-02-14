@@ -1106,6 +1106,7 @@ POST
 |tag|false|string|t(:withdraw_tag)|
 |amount|<b>true</b>|string|t(:withdraw_amount)|
 |force_chain|false|int|t(:account_withdraw_forceChain)|
+|account_type|false|string|t(:account_withdraw_account_type)|
 
 
 <p class="fake_header">t(:responseparameters)</p>
