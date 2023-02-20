@@ -1091,6 +1091,10 @@ curl --location --request POST 'https://api-testnet.bybit.com/asset/v1/private/w
 
 t(:withdraw_info_para)
 
+<aside class="warning">
+t(:withdraw_hint)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=pwith>/asset/v1/private/withdraw</span></code>
