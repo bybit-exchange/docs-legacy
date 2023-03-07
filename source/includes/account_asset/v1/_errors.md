@@ -15,6 +15,18 @@ t(:account_asset_err_0)
 ## 10001
 t(:account_asset_err_10001)
 
+## 10003
+t(:err_10003)
+
+## 10004
+t(:err_10004)
+
+## 10005
+t(:err_10005)
+
+## 10006
+t(:err_10006)
+
 ## 10016
 t(:account_asset_err_10016)
 
