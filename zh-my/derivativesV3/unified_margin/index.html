@@ -8027,49 +8027,13 @@ orderId和orderLinkId都不傳遞時，將返回所有未成交的訂單，最�
 <p>Bybit根據請求方式有不同的IP頻率限制。 我們不建議您在這些限制的邊緣運行您的應用程序，以防異常的網絡活動導致意外違規。</p>
 <ul>
 <li>
-  <code>GET</code> & <code>DELETE</code> 方法 (共享):
+  GET</code>, <code>POST</code> & <code>DELETE</code> 方法 (共享):
   <ul>
-    <li>連續 2 分鐘內每秒不超過 50 個請求</li>
-    <li>連續 5 秒內每秒不超過 70 個請求</li>
-  </ul>
-</li>
-<li>
-  <code>POST</code> 方法:
-  <ul>
-    <li>連續 2 分鐘內每秒不超過 20 個請求</li>
-    <li>連續 5 秒內每秒不超過 50 個請求</li>
+    <li>連續 5 分鐘內每秒不超過 120 個請求</li>
   </ul>
 </li>
 </ul>
-<p>此表顯示了根據您使用的 API 的不同 IP 頻率限制數。</p>
-<table class="custom_table">
-  <tr>
-    <th>IP 頻率限制</th>
-    <th>API</th>
-    <th>Path</th>
-  </tr>
-  <tr>
-    <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>统一保证金</td><td>/unified</td>
-    <tr><td>合約v3</td><td>/contract</td>
-    <tr><td>反向永續</td><td>/v2</td>
-    <tr><td>反向交割</td><td>/futures</td>
-    <tr><td>USDT永續</td><td>/public, /private</td>
-  </tr>
-  <tr>
-    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>帳戶資產v1、v3共享</td><td>/asset/v1, /asset/v3</td>
-  </tr>
-  <tr>
-    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>現貨v1、v3共享</td><td>/spot/v1, /spot/v3</td>
-  </tr>
-  <tr>
-    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>USDC Options</td><td>/option</td>
-    <tr><td>USDC Perpetual</td><td>/perpetual</td>
-  </tr>
-</table>
+<p>所有到<b>api.bybit.com</b>或<b>api.bytick.com</b>的流量共享此限制，無論是訪問現貨、期貨還是期權。</p>
 <p>違反限制後，您的 IP 將被禁止一段時間（通常為 30 分鐘）。 持續違反限制將導致永久禁止。 我們不能撤銷永久禁令或縮短臨時禁令。</p>
 </p>
 <h2 id='t-orderlimits'>下單限製</h2>

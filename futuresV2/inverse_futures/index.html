@@ -7182,49 +7182,13 @@ If you receive an <b>HTTP 403</b> (Access Denied) response, your IP has been eit
 <p>Bybit has different IP frequency limits depending on the request method. We do not recommend running your application at the very edge of these limits in case abnormal network activity results in an unexpected violation.</p>
 <ul>
 <li>
-  <code>GET</code> & <code>DELETE</code> methods (shared):
+  <code>GET</code>, <code>POST</code> & <code>DELETE</code> methods (shared):
   <ul>
-    <li>50 requests per second for 2 consecutive minutes</li>
-    <li>70 requests per second for 5 consecutive seconds</li>
-  </ul>
-</li>
-<li>
-  <code>POST</code> method:
-  <ul>
-    <li>20 requests per second for 2 consecutive minutes</li>
-    <li>50 requests per second for 5 consecutive seconds</li>
+    <li>120 requests per second for 5 consecutive minutes</li>
   </ul>
 </li>
 </ul>
-<p>This table shows how there are different IP rate limit counters depending on the API you are using.</p>
-<table class="custom_table">
-  <tr>
-    <th>IP rate limit</th>
-    <th>API</th>
-    <th>Path</th>
-  </tr>
-  <tr>
-    <td rowspan="6">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>Unified Margin</td><td>/unified</td>
-    <tr><td>Contract v3</td><td>/contract</td>
-    <tr><td>Inverse Perpetual</td><td>/v2</td>
-    <tr><td>Inverse Futures</td><td>/futures</td>
-    <tr><td>Linear Perpetual</td><td>/public, /private</td>
-  </tr>
-  <tr>
-    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>Asset V1,<br>Asset V3</td><td>/asset/v1, /asset/v3</td>
-  </tr>
-  <tr>
-    <td rowspan="2">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>Spot V1,<br>Spot V3</td><td>/spot/v1, /spot/v3</td>
-  </tr>
-  <tr>
-    <td rowspan="3">2mins 50/s;<br>5s 70/s</td>
-    <tr><td>USDC Options</td><td>/option</td>
-    <tr><td>USDC Perpetual</td><td>/perpetual</td>
-  </tr>
-</table>
+<p>All traffic to <b>api.bybit.com</b> or <b>api.bytick.com</b> share this limit regardless of if it accesses Spot, Derivatives or Options.</p>
 <p>After violating the limit your IP will be banned for a set period of time (usually 30 minutes). Continually violating the limit will result in a permanent ban. We cannot undo permanent bans or shorten temporary bans.</p>
 </p>
 <h2 id='t-understandingratelimits'>API Rate Limit</h2>
