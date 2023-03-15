@@ -158,3 +158,7 @@ t(:account_asset_err_90051)
 
 ## 90052
 t(:account_asset_err_90052)
+
+## 90100
+t(:account_asset_err_90100)
+
