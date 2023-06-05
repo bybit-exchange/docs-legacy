@@ -1095,6 +1095,10 @@ t(:withdraw_info_para)
 t(:withdraw_hint)
 </aside>
 
+<aside class="notice">
+t(:withdraw_fee_notice)
+</aside>
+
 <p class="fake_header">t(:httprequest)</p>
 POST
 <code><span id=pwith>/asset/v1/private/withdraw</span></code>
@@ -1111,6 +1115,7 @@ POST
 |amount|<b>true</b>|string|t(:withdraw_amount)|
 |force_chain|false|int|t(:account_withdraw_forceChain)|
 |account_type|false|string|t(:account_withdraw_account_type)|
+|fee_type|false|int|t(:account_withdraw_fee_type)|
 
 
 <p class="fake_header">t(:responseparameters)</p>

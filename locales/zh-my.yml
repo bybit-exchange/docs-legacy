@@ -2889,6 +2889,7 @@ zh-my:
   linear_private_switchmode: 切換止盈止損模式至全倉或部分
   linear_row_comment_limit: 每頁數量, 最大50. 默認每頁20條，最多50條每頁
   linear_row_comment_limit_50_200: 每頁數量, 最大200. 默認每頁50條，最多200條每頁
+  restapi_update_20230606: 新增請求參數 <code>feeType</code>, 支持選擇手續費內扣還是外扣
   restapi_update_20230214: 支持選擇出金錢包
   restapi_update_2023029_1: 新增查詢斷線保護的時間窗口接口
   restapi_update_20230209: 新增設置斷線保護的時間窗口接口
@@ -5770,3 +5771,5 @@ zh-my:
   contract_v3_changelog_notice: 此文檔將不再更新合約V3相關接口，請移步<a href="https://bybit-exchange.github.io/docs/zh-TW/v3/intro">新版接口文檔</a>
   asset_v3_changelog_notice: 此文檔將不再更新資產V3相關接口，請移步<a href="https://bybit-exchange.github.io/docs/zh-TW/v3/intro">新版接口文檔</a>
   account_withdraw_account_type: 設置出金帳戶. <ul><li><code>SPOT</code>：走現貨錢包出金 (默認)</li><li><code>FUND</code>：走資金錢包出金</li></ul>
+  account_withdraw_fee_type: 手續費選項 <ul><li><code>0</code>(默認)：輸入金額即實際收到的金額, 所以您需要額外考慮手續費</li><li><code>1</code>：輸入金額不是實際收到的金額, 系統將會自動計算所需的手續費</li></ul>
+  withdraw_fee_notice: <b>fee_type=0:</b><br/><li>若百分比手續費 != 0：<i>手續費 = 輸入金額 / (1 - 百分比手續費) * 百分比手續費 + 固定手續費</i></li><li>若百分比手續費 = 0：<i>手續費 = 固定手續費</i></li><b>fee_type=1:</b><li>若百分比手續費 != 0：<i>手續費 = 固定手續費 + (輸入金額 - 固定手續費) * 百分比手續費</i></li><li>若百分比手續費 = 0：<i>手續費 = 固定手續費</i></li>

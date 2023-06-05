@@ -3327,6 +3327,7 @@ en:
   linear_private_switchmode: Switch mode between Full or Partial
   linear_row_comment_limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page.
   linear_row_comment_limit_50_200: Limit for data size per page, max size is 200. Default as showing 50 pieces of data per page.
+  restapi_update_20230606: Add new request param <code>feeType</code>, which is used to select the withdrawal fee operation type when withdraw
   restapi_update_20230214: Support to select the wallet to be withdrawn from
   restapi_update_2023029_1: Add new endpoint to get Disconnected Cancel Protection timeWindow
   restapi_update_20230209: Add new endpoint to set Disconnected Cancel Protection
@@ -6238,3 +6239,5 @@ en:
   contract_v3_changelog_notice: This document will no longer update the Contract V3 API, please move to <a href="https://bybit-exchange.github.io/docs/v3/intro">new API document</a>
   asset_v3_changelog_notice: This document will no longer update the Asset V3 API, please move to <a href="https://bybit-exchange.github.io/docs/v3/intro">new API document</a>
   account_withdraw_account_type: Select the wallet to be withdrawn from <ul><li><code>SPOT</code>：spot wallet (default)</li><li><code>FUND</code>：Funding wallet</li></ul>
+  account_withdraw_fee_type: Handling fee option <ul><li><code>0</code>(default)：input amount is the actual amount received, so you have to calculate handling fee manually</li><li><code>1</code>：input amount is not the actual amount you received, the system will help to deduct the handling fee automatically</li></ul>
+  withdraw_fee_notice: <b>fee_type=0:</b><br/><li>withdrawPercentageFee != 0：<i>handlingFee = inputAmount / (1 - withdrawPercentageFee) * withdrawPercentageFee + withdrawFee</i></li><li>withdrawPercentageFee = 0：<i>handlingFee = withdrawFee</i></li><b>fee_type=1:</b><li>withdrawPercentageFee != 0：<i>handlingFee = withdrawFee + (inputAmount - withdrawFee) * withdrawPercentageFee</i></li><li>withdrawPercentageFee = 0：<i>handlingFee = withdrawFee</i></li>
