@@ -648,10 +648,10 @@ GET
 |amount |string |t(:row_comment_to_amount) |
 |timestamp |integer |t(:row_comment_to_timestamp) |
 |<a href="#transfer-status-status">status</a> |string |t(:row_comment_transferstatus) |
-|<a href="#account-type-from_account_type-to_account_type">from_account_type</a> |string |t(:row_comment_accounttype) |
-|<a href="#account-type-from_account_type-to_account_type">to_account_type</a> |string |t(:row_comment_accounttype) |
-|from_member_id |string |t(:row_comment_from_memberId) |
-|to_member_id |string |t(:row_comment_to_memberId) |
+|<a href="#account-type-from_account_type-to_account_type">fromAccountType</a> |string |t(:row_comment_accounttype) |
+|<a href="#account-type-from_account_type-to_account_type">toAccountType</a> |string |t(:row_comment_accounttype) |
+|fromMemberId |string |t(:row_comment_from_memberId) |
+|toMemberId |string |t(:row_comment_to_memberId) |
 |cursor |string |t(:withdraw_response_cursor)|
 
 
