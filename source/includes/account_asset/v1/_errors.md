@@ -30,6 +30,9 @@ t(:err_10006)
 ## 10016
 t(:account_asset_err_10016)
 
+## 131229
+t(:account_asset_err_131229)
+
 ## 38000
 t(:account_asset_err_38000)
 
